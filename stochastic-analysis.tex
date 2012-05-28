@@ -1,0 +1,64 @@
+
+
+
+
+
+\paragraph{Pfadeigenschaften und Filtration. }  Sei $X$ ein stochastischer Prozess, $\cF^{X}$
+die von $X$ erzeugte Filtration und $\cG$ eine Filtration, die alle
+$\cF$-Nullmengen enthält und $\cF^{X}_t \subset \cG_t$ $\forall t$ erfüllt.
+Sei $A \subset \Omega$ das Ereignis, dass $X$ stetig auf $[0, t_0)$ ist. 
+\begin{enumerate}
+    \item Falls alle Pfade von $X$ c\`adl\`ag sind, dann ist $A \in \cF^{X}_{t_0}$.
+    \item Falls $X$ c\`adl\`ag ist, dann gilt $A \in \cG_{t_0}$, aber nicht
+        notwendigerweise $A \in \cF^{X}_{t_0}$.
+\end{enumerate}
+Quelle: \cite{Karatzas1991}.
+
+
+
+
+
+\paragraph{Messbarkeitsbegriffe. } Sei $X$ ein stochastischer Prozess. Ist $X$
+progressiv messbar, so folgt $X$ ist messbar und adaptiert.
+
+
+
+
+\paragraph{Stochastisches Integral einer deterministischen Funktion. } Sei
+$f: \R\in\R$ eine deterministische meßbare Funktion. Zeigen Sie 
+\begin{equation}
+    \int_{0}^{t} f(s) d W_s \sim \cN(0, \int_{0}^{t} f^2(s) ds). 
+\end{equation}
+
+
+
+
+\paragraph{Ornstein-Uhlenbeck SDE.} Lösen Sie die \textsc{SDE}
+\begin{equation}
+    dX_t = \left( \alpha-\beta X_t \right)dt + \sigma dW_t, \quad X_0\in\R.
+\end{equation}
+Die Parameter $\alpha, \beta$ und $\sigma$ sind reelle Zahlen und $\sigma>0$. 
+\begin{enumerate}
+    \item Zeigen Sie mit Hilfe der Funktion $f(t,x)=x\exp(\beta t)$ und der It\^o-Formel, dass
+        \begin{eqnarray}
+            X_t = e^{-\beta t} X_0 + \frac{\alpha}{\beta}\left( 1-e^{-\beta t} \right)
+                       + \sigma \int_{0}^{t} e^{\beta(s-t)} d W_s.
+        \end{eqnarray}
+    \item Leiten Sie aus der von Ihnen gefundenen Lösung die Identitäten
+        \begin{eqnarray}
+            \E X_t &=& e^{-\beta t} X_0 + \frac{\alpha}{\beta}\left( 1-e^{-\beta t} \right) \\
+            \Var X_t &=& \frac{\sigma^2}{2\beta}\left( 1- e^{-2\beta t} \right)
+        \end{eqnarray} 
+        her.
+    \item Zeigen Sie, dass $X_t$ normalverteilt ist.
+\end{enumerate}
+
+\ifdefined\showsolutions
+\paragraph*{Lösung. } Die Lösung ergibt sich durch die Anwendung der It\^o-Formel
+auf die Funktion $f$. Da $\int_{}^{} g(s) d W_s$ für progressiv meßbares $g$ ein
+Martingal ist, erhalten wir $\E X_t$ direkt aus der Lösung. Die Formel für die 
+Varianz folgt mit Hilfe der It\^o-Isometrie.
+\fi
+
+
+

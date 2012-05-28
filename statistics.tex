@@ -1,0 +1,2220 @@
+
+
+
+\paragraph{Erwartungstreue der Stichprobenvarianz. }  Seien $X_1,\ldots,X_n$ 
+i.i.d. (independent indentically distributed = unabhängig identisch verteilt) mit 
+Varianz $\sigma^2$. Die Stichprobenvarianz ist definiert durch
+\begin{equation*}
+    s^2(X) := \frac{1}{n-1} \sum_{i=1}^{n} (X_i - \bar X)^2.
+\end{equation*}
+Dann gilt $E(s^2(X)) = \sigma^2$, d.h.~die Stichprobenvarianz ist erwartungstreu.
+% (A 1.3)
+
+
+\paragraph{Geraden Momente der Normalverteilung. } Zeigen Sie, dass für eine
+standardnormalverteilte Zufallsvariable $X$ und $n \in \N$
+\begin{equation*}
+    E\left( X^{2n} \right) = \frac{(2n)!}{2^n \cdot n!}
+\end{equation*}
+gilt. % A1.11
+
+
+\paragraph{Faltungsformel. } Haben $X$ und $Y$ die Dichten $p_X$ und $p_Y$ und beide
+sind unabhängig, so ist die Dichte von der Summe $Z=X+Y$ gegeben durch
+\begin{equation*}
+    p_Z(z) = \int_{\R}^{} p_X(x)p_Y(z-x) dx.
+\end{equation*}
+% (A 1.30)
+
+
+\paragraph{Momentenerzeugende Funktion einer Gamma-Verteilung. }
+Sei $X \sim \textrm{Gamma}(a, \lambda)$. Zeigen Sie, dass für $s<\lambda$
+\begin{equation*}
+    \Psi_X(s) = E \left( e^{sX} \right) = \frac{\lambda^a}{ (\lambda-s)^a}
+\end{equation*}
+gilt. Bestimmen Sie damit den Erwartungswert und die Varianz von $X$. %A 1.12
+
+
+
+\paragraph{Eine Transformation der Gamma-Verteilung. } Seien $X \sim
+\textrm{Gamma}(\alpha_1, \beta)$ und $Y \sim \textrm{Gamma}(\alpha_2, \beta)$
+zwei unabhängige Zufallsvariablen.  Zeigen Sie, dass $\frac{X}{ X+Y}$ und $X+Y$
+unabhängig sind. % (A 1.7)
+
+
+
+
+\paragraph{Summen von normalverteilten Zufallsvariablen. }
+Sind die Zufallsvariablen $X_1,\ldots,X_n$ unabhängig und normalverteilt
+mit $X_i \sim \mathcal N (\nu_i, \sigma_i^2)$, so ist die Summe
+wieder normalverteilt mit 
+\begin{equation*}
+    \sum_{i=1}^{n} X_i \sim 
+    \mathcal N \left( \sum_{i=1}^{n} \nu_i, \sum_{i=1}^{n} \sigma_i^2 \right). 
+\end{equation*}
+%(A 1.31)
+
+\paragraph{Dichte der multivariaten Normalverteilung. } Zeigen Sie, dass 
+$X \sim \mathcal N_p\left( \mu, \Sigma \right) $ folgende Dichte hat, falls 
+$\textrm{Rang}(\Sigma)=p$: 
+\begin{equation*}
+    p(x) = \frac{1}{ \textrm{det}(\Sigma)^{1/2} (2\pi)^{p/2}} \exp\left( - \frac{1}{2} (x  - \mu)^\top \Sigma^{-1} (x - \mu) \right).
+\end{equation*}  %(A 1.37)
+
+
+\paragraph{Rayleigh-Verteilung. }  Seien $X$ und $Y$ unabhängig und 
+$\mathcal N (0, \sigma^2)$-verteilt. Dann ist
+\begin{equation*}
+    Z= \sqrt{X^2 + Y^2} 
+\end{equation*}
+Rayleight-verteilt, d.h. 
+$Z$ hat die Dichte $\frac{z}{\sigma^2}e^{-\frac{z^2}{2\sigma^2}}1_{\R>0}(z)$.
+Es gilt $E\left( Z \right) = \sigma \sqrt{\pi/2}$ und 
+$\Var\left( Z \right) = \sigma^2 \left( 2 - \frac{2}{\pi} \right)$.
+
+
+\paragraph{Dichte der $\chi^2$-Verteilung. }   Seien $X_1,\ldots,X_n$ unabhängige und
+standardnormalverteilte Zufallsvariablen. Dann folgt $Y= \sum_{i=1}^{n} X_i^2$ einer
+$\chi^2$-Verteilung mit $n$ Freiheitsgraden. Zeigen Sie, dass die Dichte von $Y$ durch
+\begin{equation*}
+    p(x) = \frac{1}{ 2^{\frac{n}{2}} \Gamma(\frac{n}{2})}e^{-\frac{x}{2}} x^{\frac{n-2}{2}} 1_{\R>0}(x)
+\end{equation*}
+gegeben ist. Verwenden Sie hierfür die Faltungsformel und die Beta-Funktion.
+
+
+
+\paragraph{Verteilung der Stichprobenvarianz. }
+Seien $X_1, \ldots, X_n$ i.i.d., normalverteilt und $\Var\left( X_1 \right)=\sigma^2$.
+Für das zweite zentrierte empirische  Moment 
+$\hat \sigma^2 \left( X \right)= \frac{1}{n} \sum_{i=1}^{n} \left( X_i - \bar X \right)^2 $
+gilt, dass
+\begin{equation*}
+    \frac{n \hat \sigma^2 \left( X \right)}{\sigma^2 } = 
+        \sum_{i=1}^{n} \left( \frac{X_i - \bar X}{ \sigma} \right)^2 \sim \chi^2_{n-1}.
+\end{equation*}
+
+\paragraph{Mittelwertvergleich bei Gamma-Verteilungen. }
+Seien $X_1,\ldots,X_n$ i.i.d.\ und $\textrm{Gamma}(a, \lambda_1)$-verteilt sowie
+$Y_1,\ldots,Y_n$ i.i.d.\ und $\textrm{Gamma}(a,\lambda_2)$-verteilt. Man nehme an,
+dass die Vektoren $(X_1,\ldots,X_n)$ und $(Y_1,\ldots,Y_n)$ unabhängig sind. 
+Bestimmen Sie die Verteilung von $\bar X/\bar Y$.
+
+\paragraph{Identifizierbarkeit im linearen Modell. } 
+Man nehme an, dass folgendes Modell gegeben sei: 
+\begin{equation*}
+    Y_i = \sum_{j=1}^{p} z_{ij} \beta_j + \varepsilon_i, \quad i=1,\ldots,n. 
+\end{equation*}
+Hierbei seien $z_{11},\ldots,z_{np}$ bekante Konstanten und $\varepsilon_1,\ldots,\varepsilon_n$
+i.i.d.\ mit $\varepsilon_1 \sim \mathcal N\left( 0,1 \right)$.
+\begin{enumerate}
+    \item Zeigen Sie, dass $\left( \beta_1,\ldots,\beta_p \right)$ genau dann identifizierbar ist, 
+        falls $\mathbf z_1,\ldots,\mathbf z_p$ linear unabhängig sind, wobei 
+            $\mathbf z_j = \left( z_{1j},\ldots,z_{nj} \right)^\top$.
+    \item Begründen Sie, warum $\left( \beta_1, \ldots,\beta_p \right)$ nicht identifizierbar ist,
+        falls $n<p$.
+\end{enumerate}
+
+\paragraph{Qualitätskontrolle.    } Es sei eine \textsc{lkw}-Ladung mit $N$ Fernsehgeräten
+gegeben, wovon $N \theta$ defekt sind. Es werden $N$ Fernseher (ohne Zurücklegen) überprüft. 
+Man definiere
+\begin{equation*}
+    X_i = \begin{cases}
+        1 & \text{$i$-ter überprüfter Fernseher ist defekt} \\
+        0 & \text{sonst}.
+    \end{cases}
+\end{equation*}
+\begin{enumerate}
+    \item Zeigen Sie ohne Verwendung des Faktorisierungstheorems, dass $\sum_{i=1}^{n} X_i$ 
+        suffizient für $\theta$ ist. 
+    \item Zeigen Sie mit Hilfe des Faktorisierungstheorems, dass $\sum_{i=1}^{n} X_i$ suffizient
+        für $\theta$ ist.
+\end{enumerate}
+
+\paragraph{Suffizienz bei inversen Gamma-Verteilung. }     Eine i.i.d.-Stichprobe $X_1, \ldots, X_n$
+sei invers Gamma-verteilt mit der Dichte 
+\begin{equation*}
+    p_{\alpha, \beta}\left( x \right) = 
+    \frac{\beta^\alpha}{ \Gamma\left( \alpha \right)} x^{-(\alpha+1)}\exp\left( -\frac{\beta}{x} \right)1_{\R>0}(x)
+\end{equation*}
+Finden Sie eine zweidimensionale suffiziente Statistik für $\alpha$ und $\beta$.
+
+
+\paragraph{Suffizienz. Beispiele. } Seien $X_1,\ldots,X_n$ i.i.d.~mit jeweils folgender
+Dichte. Finden Sie in allen drei Fällen eine reellwertige suffiziente Statistik für $\theta$: 
+\begin{enumerate}
+	\item $p_\theta (x) = \frac{1}{2\theta} \exp( \frac{-|x-\mu|}{\theta})$, wobei $\theta >0$ und $\mu$ bekannt sei.
+	\item $p_\theta (x) = \frac{1}{2\theta} 1_{\left( -\theta ,\theta \right)}(x) $, wobei $\theta >0$.
+	\item $p_\theta (x) = \frac{\beta^\alpha}{\Gamma(\alpha)} x^{- (\alpha+1)} \exp\left(  -\frac{\beta}{x} \right) 1_{\R_{>0}}(x)$, wobei $\theta = (\alpha, \beta)$ und $\alpha, \beta > 0$.
+\end{enumerate}
+
+
+\paragraph{Suffizienz. Nichtzentrale Exponentialverteilung. } Seien $X_1,\ldots,X_n$ i.i.d.,
+\begin{equation*}
+	p_\theta (x) = \frac{1}{\sigma} \exp \left(-\frac{x-\mu}{\sigma} \right) 1_{\R_{\geq\mu}}(x)
+\end{equation*}
+die Dichte von $X_1$ sowie $\theta = (\mu, \sigma)^\top$ und $\Theta = \R
+\times \R_{>0}$. Zeigen Sie, dass $\min(X_1,\ldots,X_n)$ eine suffiziente
+Statistik für $\mu$ ist, falls $\sigma$ bekannt ist. Finden Sie eine
+eindimensionale, suffiziente Statistik für $\sigma$, falls $\mu$ bekannt ist
+und eine zweidimensinale suffiziente Statistik für $\theta$ an.
+
+
+\paragraph{Laplace-Verteilung.  } Für jedes $\theta\in\R$ sei eine Dichte
+\begin{equation*} p_\theta(x) = \frac{1}{2} \exp\left( -| x-\theta| \right),
+\quad x\in\R \end{equation*} gegeben. Sei $P_\theta$ das zur Dichte
+$p_\theta$ gehörige Wahrscheinlichkeitsmaß.  Zeigen Sie, dass $\left\{
+P_\theta : \theta\in\Theta \right\}$ keine exponentielle Familie ist.
+
+
+
+\paragraph{Verteilung der natürlichen suffizienten Statistik. }
+Sei $X$ eine Zufallsvariable mit den Werten in $\left( \R^n, \mathcal B(\R^n)\right)$ und der Dichte
+\begin{equation*}
+	p(x,\theta) = \exp\left( c(\theta)\cdot T(x) + d(\theta) + S(x) \right) 1_{A}(x),
+\end{equation*}
+die einer einparametrigen exponentiellen Familie $\left\{ P_\theta :
+\theta\in\Theta \right\}$ mit stetigem $T$ angehört. Zeigen Sie, dass die Dichte der natürlichen
+suffizienten Statistik $T(X)$ die Form
+\begin{equation*}
+	q(t, \theta) = \exp\left( c(\theta)\cdot t + d(\theta) + S^*(t) \right) 1_{A^*}(t)
+\end{equation*}
+mit $A^* = \left\{ T(x) : x\in A \right\}$ hat.
+
+
+
+
+\paragraph{Momentenschätzer. Beispiele.} Bestimmen Sie mittels der Momentenmethode
+einen Momentenschätzer für $\theta$ bei den folgenden Verteilungen: 
+\begin{enumerate}
+	\item Die Gleichverteilung mit Dichte
+		\begin{equation*}
+			p_\theta(x) = \frac{1}{ 2\theta } 1_{(-\theta,\theta)}(x), \quad \theta>0
+		\end{equation*}
+		Der Schätzer ist $\hat \theta = \left( \bar X \right)^{-1}$.
+	\item Die Gamma-Verteilung mit der Dichte 
+		\begin{equation*}
+			p_\theta(x) = \frac{\beta^\alpha}{ \Gamma(\beta)} x^{\alpha-1} e^{-\beta x}1_{\R>0}(x)
+		\end{equation*}
+\end{enumerate}
+
+\paragraph{Momentenschätzer für Beta-Verteilung. } Die Zufallsvariablen
+$X_1,\ldots,X_n$ seien i.i.d.\ Beta-Verteilt, d.h.\ $X_1 \sim \textrm{Beta}(a,b)$.
+Bestimmen Sie einen Momentenschätzer für $\theta=(a,b)^\top$.
+
+\paragraph{Momentenschätzer für Weibull-Verteilung. } Seien 
+$X_1,\ldots,X_n$ i.i.d.\ mit Dichte 
+\begin{equation*}
+	p(x) = \sqrt{ \frac{2 \theta^3}{\pi} } x^2 \exp\left( - \frac{\theta}{2}x^2 \right) 1_{\R>0}(x)
+\end{equation*}
+wobei der Parameter $\theta>0$ unbekannt ist. Berechnen Sie den Momentenschätzer für $\theta$
+basierend auf dem zweiten Moment. 
+
+\paragraph{Momentenschätzung vs Suffizienz. }   Betrachten 
+Sie die Verteilungsfamilie von zweiseitigen Exponentialverteilungen
+gegeben durch die Dichte
+\begin{equation*}
+	p_\theta(x) = \frac{1}{2} \exp\left( -| x- \theta | \right), \quad \theta\in\R
+\end{equation*}
+Zeigen Sie mit dem ersten Moment, dass $\bar X$ ein Momentenschätzer für 
+$\theta$ ist. Weisen Sie nach, dass dieser nicht suffizient für $\theta$ ist.
+
+\paragraph{AR1. }  Die Zufallsvariablen $Z_1,\ldots, Z_n$ seien i.i.d. 
+mit $Z_1 \sim \mathcal N(0,\sigma^2)$. Die Zeitreihe $\left( X_i \right)_{1\leq i\leq n}$
+heißt \emph{autoregressiv der Ordnung 1} oder \textsc{ar(1)}, falls mit $X_0:= \mu$
+und für $1\leq i \leq n$ 
+\begin{equation*}
+	X_i = \mu + \beta(X_{i-1} - \mu) + Z_i.
+\end{equation*}
+\begin{enumerate}
+	\item Verwenden Sie $\E X_i$, um einen Momentenschätzer für $\mu$ zu finden. 
+	\item Nun seien $\mu= \mu_0$ und $\beta=\beta_0$ fix und bekannt und weiterhin
+		\begin{equation*}
+			U_i = \frac{X_i - \mu_0}{ \sqrt{ \sum_{j=0}^{i-1} \beta^{2j}_0 }}.
+		\end{equation*}
+		Verwenden Sie $\E (U_i^2)$, um einen Momentenschätzer für $\sigma^2$ zu finden.
+\end{enumerate}
+
+
+\paragraph{Gewichtete einfache lineare Regression. }
+Finden Sie eine Formel für den Kleinste-Quadrate -Schätzer $\hat \theta^w$
+im Modell
+\begin{equation*}
+	Y_i = \theta_1 + \theta_2 x_i + \varepsilon_i
+\end{equation*}
+wobei $\varepsilon_1,\ldots, \varepsilon_n$ unabhängig seien mit $\varepsilon_i \sim \mathcal N(0, \sigma^2w_i)$.
+
+\paragraph{MLE. Mischung von Gleichverteilungen.  }
+Seien $X_1,\ldots,X_n$ i.i.d.\ mit Dichte $p_\theta$ 
+und $\theta\in \left[ 0,1 \right]$. Zeigen Sie, dass der Maximum-Likelihood-Schätzer
+für
+\begin{equation*}
+	p_\theta (x) = \theta 1_{\left( -1,0 \right)}(x) + \left( 1-\theta \right)1_{\left( 0,1 \right)}(x)
+\end{equation*}
+gerade $\hat \theta = \frac{1}{n} \sum_{i=1}^{n} 1_{(-1,0)}\left( X_i \right)$ ist.
+
+\paragraph{MLE. Normalverteilung. }
+Seien $X_1,\ldots,X_n$ i.i.d.\ und $X_i \sim \mathcal N\left( \mu, \sigma^2 \right)$ mit bekanntem $\mu$. 
+Zeigen Sie, dass der Maximum-Likelihood-Schätzer von $\sigma$ gerade
+\begin{equation*}
+	\hat \sigma^2 (x) = \frac{1}{n} \sum_{i=1}^{n} (X_i - \mu)^2  
+\end{equation*}
+ist.
+
+\paragraph{MLE. Exponentialverteilung. } Seien $X_1,\ldots,X_n$ exponentialverteilt
+zum Parameter $\theta$. Zeigen Sie, dass $\hat \theta = (\bar X)^{-1}$ sowohl der 
+Maximum-Likelihood-Schätzer als auch ein Momentenschätzer ist.
+
+\paragraph{Maximum-Likelihood-Methode und Suffizienz.   }
+Sei $\left\{ p_\theta : \theta\in\Theta \right\}$ ein reguläres statistisches
+Modell und $T\left( X \right)$ eine suffiziente Statistik für $\theta$. 
+Weisen Sie nach, dass ein Maximum-Likelihood-Schätzer für $\theta$ 
+eine Funktion von $T\left( X \right)$ ist.
+
+
+\paragraph{MLE. Zweidimensionale Exponentialverteilung. } Betrachtet werden 
+i.i.d.\ Zufallsvariablen $(Y_1, Z_1), \ldots,(Y_n,Z_n)$. Weiterhin seien
+$Y_1$ und $Z_1$ unabhängig und exponentialverteilt mit Parametern
+$\lambda > 0$ bzw.\ $\mu > 0$. Bestimmen Sie den Maximum-Likelihood-Schätzer
+für $(\lambda,\mu)$.
+
+\ifdefined\showsolutions
+\paragraph*{Lösung.}    Nachdem $Y_i$ und $Z_i$ unabhängig sind, genügt es den 
+MLE für einen der beiden Zufallsvektoren zu bestimmen. Wir berechnen also den MLE für eine
+eindimensionale Exponentialverteilung mit Parameter $\theta$.
+Die Likelihood-Funktion ist gegeben durch
+\begin{eqnarray}
+	L(x, \theta) &=&  \prod_{i=1}^n \theta \exp\left(  -\theta x_i \right) \\
+	&=&  \exp \left(  -\theta \sum_{}^{} x_i + \log \theta^n \right)
+\end{eqnarray}
+Die Log-Likelihood-Funktion ist dann gegeben durch
+\begin{eqnarray}
+	l(\theta, x) &=& n \log \theta - \theta \sum_{i}^{} x_i \\
+	\frac{\partial}{\partial \theta} l(\theta,x) &=&  \frac{n}{\theta } - \sum_{i}^{} x_i \\
+	\frac{\partial^2}{\partial \theta^2} l(\theta,x) &=& - \frac{n}{\theta^2} < 0
+\end{eqnarray}
+Wir setzen $\frac{\partial}{\partial \theta} l(\theta,x) = 0$ und erhalten den MLE
+\begin{equation}
+	\hat \theta = \frac{1}{\frac{1}{n} \sum_{i}^{} x_i} = \frac{1}{\bar x}.
+\end{equation}
+Somit ist der MLE für $\left( \lambda, \mu \right) = \left( 1/\bar y, 1/\bar z \right)^\top$.
+\fi
+
+\paragraph{MLE. Weibull-Verteilung. } Seien $X_1,\ldots,X_n$ i.i.d.
+mit der Dichte 
+\begin{equation}
+	p_\theta(x)=
+	\sqrt{\frac{2\theta^3}{\pi}} x^2 e^{ - \frac{\theta}{2}x^2} 1_{\R>0}(x)
+\end{equation}
+wobei der Parameter $\theta>0$ unbekannt ist. Finden Sie
+den Maximum-Likelihood-Schätzer für $ \theta$ und klären Sie, ob dieser
+eindeutig ist.
+
+
+\ifdefined\showsolutions
+\paragraph*{Lösung. } Wir berechnen den \textsc{mle} für die oben angegebene Familie von Weibull-Verteilungen
+indem wir die Log-Likelihood-Funktion maximieren. 
+
+Die Likelihood-Funktion der Familie ist gegeben durch
+\begin{eqnarray}
+	L(\theta, x) &=& \left( \frac{2\theta^3}{\pi} \right)^\frac{n}{2} 
+	\prod_i x_i^2 \exp\left( - \frac{\theta}{2}x_i^2 \right).
+\end{eqnarray}
+Für die Log-Likelihood-Funktion gilt
+\begin{eqnarray}
+	l(\theta,x) &=& \frac{n}{2}\left( \log 2 + 3 \log \theta - \log \pi \right) + 2\sum_{i}^{} \log x_i - \frac{\theta}{2}\sum_{i}^{} x_i^2 \\
+	\frac{\partial}{\partial \theta} l(\theta,x) &=& 
+	\frac{3n}{2 \theta}  - \frac{1}{2}\sum_{i}^{} x_i^2 \\
+	\frac{\partial^2}{\partial \theta^2} l(\theta,x) &=& - \frac{3n}{2} \frac{1}{\theta^2} < 0 \quad \forall \theta\in\R_{>0}.
+\end{eqnarray}
+Somit ergibt sich die Formel für \textsc{mle} 
+\begin{eqnarray}
+	\frac{\partial}{\partial \theta} l(\theta,x) &=& \frac{3n}{2 \theta}  - \frac{1}{2}\sum_{i}^{} x_i^2 = 0 \\
+	\hat\theta &=&  \frac{3}{\frac{1}{n} \sum_{i}^{} x_i^2}.
+\end{eqnarray}
+Wegen $ \frac{\partial^2}{\partial \theta^2} l(\theta,x) <0$ ist der \textsc{mle} $\hat\theta$ auch eindeutig.
+\fi
+
+
+
+
+
+\paragraph{MLE. Mischung der Verteilungen. }
+Seien $p_1$ und $p_2$ zwei Dichten. Für jedes $\theta\in\left[ 0,1 \right]$ ist dann die Mischung
+der beiden Verteilungen durch die Dichte
+\begin{equation}
+	p_\theta(x) = \theta p_1(x) + (1-\theta)p_2(x)
+\end{equation}
+gegeben. Betrachten Sie das parametrische Modell 
+$\left\{ p_\theta : \theta \in \left[ 0,1 \right] \right\}$
+und bestimmen Sie eine notwendige und hinreichende Bedingung dafür, dass die Likelihood-Gleichung
+eine Lösung besitzt. Weisen Sie nach, dass diese Lösung, falls sie existiert, 
+der eindeutige Maximum-Likelihood-Schätzer für $\theta$ ist. Was ist der Maximum-Likelihood-Schätzer,
+wenn die Likelihood-Gleichung keine Lösung besitzt?
+
+\ifdefined\showsolutions
+\paragraph*{Lösung. } 
+Betrachten wir zunächst die Log-Likelihood-Funktion und ihre Ableitungen
+\begin{eqnarray}
+	L(\theta, x) &=&  \prod_i \left( \theta p_1(x_i) + \left( 1-\theta \right)p_2(x_i) \right) \\
+	l(\theta, x) &=& \sum_{i}^{} \log \left( \theta p_1(x_i) + \left( 1-\theta \right) p_2(x_i) \right) \\
+	\frac{\partial}{\partial \theta} l(\theta,x) &=&  \sum_{i}^{} \frac{p_1(x_i)-p_2(x_i)}{\theta p_1(x_i) +\left( 1-\theta \right)p_2(x_i)} \\
+	\frac{\partial^2}{\partial \theta^2} l(\theta,x) &=& \sum_{i}^{} \frac{ -\left\{ p_1(x_i)-p_2(x_i) \right\}^2 }{ \left\{ \theta p_1(x_i) +\left( 1-\theta \right)p_2(x_i) \right\}^2 }
+\end{eqnarray}
+
+Betrachten wir die Frage der Existenz des MLE. Im Falle $p_1(x_i)=p_2(x_i)$ für
+einen Vektor $\left( x_1,\cdots,x_n \right)$, hängt die Likelihood-Funktion
+$L\left( \theta ,x \right)$ nicht von $\theta$ ab und somit kann
+$\hat\theta(x)$ beliebig gesetzt werden. $\hat\theta$ ist in diesem Fall nicht
+eindeutig.
+
+Wenn es einen Vektor $\left( x_1,\cdots,x_n \right)$ gibt, der uns erlaubt $p_1$ und $p_2$ zu unterscheiden,
+können wir die Bedingungen für die Existenz und Eindeutigkeit des MLE wie folgt konstruieren. 
+Die Gleichung
+\begin{eqnarray}
+	\frac{\partial}{\partial \theta} l(\theta,x) &=& 0
+\end{eqnarray}
+hat genau dann genau  eine Lösung wenn $ \frac{\partial}{\partial \theta} l(\theta,x)|_{\theta=0}\geq 0$ und
+$ \frac{\partial}{\partial \theta} l(\theta,x)|_{\theta=1}\leq 0$ gilt, da die zweite Ableitung
+der Log-Likelihood-Funktion stickt negativ ist und somit ist $ \frac{\partial}{\partial \theta} l(\theta,x)$ 
+strikt monoton fallend in $\theta$.
+Im Falle
+\begin{equation}
+	 \frac{\partial}{\partial \theta} l(\theta,x) > 0 \quad \forall \theta\in\left[ 0,1 \right]
+\end{equation}
+bzw.
+\begin{equation}
+	 \frac{\partial}{\partial \theta} l(\theta,x) < 0 \quad \forall \theta\in\left[ 0,1 \right]
+\end{equation}
+hat die Maximum-Likelihood-Gleichung keine Lösung und die
+die Maxima werden jeweils am Rand angenommen, d.h.\ $\hat\theta=1$ bzw. $\hat\theta=0$ und 
+der \textsc{mle} $\hat\theta(x)$ kann für $x$ eindeutig festgelegt werden.
+\fi
+
+
+
+
+
+\paragraph{Verschobene Gleichverteilung. } Seien $X_1,\ldots,X_n$ i.i.d.\
+mit $X_1\sim U(\theta,\theta+1)$. Der Parameter $\theta$ sei  unbekannt 
+und $X_{(1)}=\min\left\{ X_1,\ldots,X_n \right\}$ die kleinste Ordnungsgröße 
+der Daten und $\bar X= \frac{1}{n}\sum_{i=1}^{n}X_i$. Betrachten Sie die
+beiden Schätzer 
+\begin{eqnarray}
+	T_1(X) &=& \bar X - \frac{1}{2} \\
+	T_2(X) &=&  X_{(1)} - \frac{1}{n+1}.
+\end{eqnarray}
+Zeigen Sie, dass beiden Schätzer erwartungtreu sind. Berechnen Sie 
+die Varianz der beiden Schätzer.
+
+\ifdefined\showsolutions
+\paragraph*{Lösung.} Wir berechnen jeweils Erwartungswert und Varianz der beiden Schätzer. 
+Zunächst ist 
+\begin{eqnarray}
+	E X_i &=&  \int_{\R}^{} x p_\theta(x) dx = \int_{\theta}^{\theta+1} x dx = \theta + \frac{1}{2}. \\
+	E T_1(X) &=&  \frac{1}{2} \sum_{i}^{} X_i - \frac{1}{2} = \frac{1}{n} \sum_{i}^{} \left( \theta + \frac{1}{2} \right) -\frac{1}{2} = \theta.
+\end{eqnarray}
+Das heißt $T_1$ ist erwartungstreu. Die Varianz von $T_1$ berechnen wir folgendermassen
+\begin{eqnarray}
+	\Var T_1 &=& \Var \left[ \frac{1}{n} \sum_{i}^{} x_i - \frac{1}{2} \right] \\
+	&=& E\left[ \left(  \frac{1}{n} \sum_{i}^{} X_i - \frac{1}{2} \right)^2  \right] - \left( E T_1 \right)^2 \\
+	&=& E \left[  \left( \frac{1}{n} \sum_{i}^{} X_i \right)^2  - \frac{1}{n}\sum_{i}^{} X_i +\frac{1}{4} \right]-\theta^2 \\
+	&=& E \left[ \left( \frac{1}{n} \sum_{i}^{} X_i \right)^2 \right] - \left( \theta + \frac{1}{2} \right) + \frac{1}{4}-\theta^2.
+\end{eqnarray}
+Nun ist 
+\begin{eqnarray}
+	E \left[ \left( \frac{1}{n} \sum_{i}^{} X_i \right)^2 \right] &=& \frac{1}{n^2} \sum_{ij}^{} E X_i X_j \\
+	E X_i X_j &=& \int_{[\theta,\theta+1]^2}^{} xy dx dy = \left( \int_{\theta}^{\theta+1} t dt \right)^2 = \left( \theta+\frac{1}{2} \right)^2 \\
+	E X_i^2 &=& \int_{\theta}^{\theta+1} x^2 dx = \frac{1}{3}\left( \left( \theta+1 \right)^3 - \theta^3 \right )\\
+	&=& \theta^2 + \theta + \frac{1}{3}.
+\end{eqnarray}
+Also gilt
+\begin{eqnarray}
+	\Var T_1 &=& \left( 1-\frac{1}{n} \right)\left( \theta+\frac{1}{2} \right)^2+\frac{1}{n}\left( \theta^2+\theta+\frac{1}{3} \right)     - \left( \theta+\frac{1}{2} \right)^2 \\
+	&=& \frac{1}{12 n} = \mathcal O \left( n^{-1} \right).
+\end{eqnarray}
+
+Nun kommen wir zu $T_2 = X_{(1)}-\frac{1}{n+1}$. Die Berechnung des Erwartungswertes führt auf
+\begin{eqnarray}
+	E T_2(X) &=&  -\frac{1}{n+1} + E X_{(1)} \\
+	E X_{(1)} &=& \int_{[\theta,\theta+1]^n}^{} \min\left\{ x_1,\cdots,x_n \right\} dx_1\cdots d x_n \\
+	&=& \int_{[0,1]^n}^{} \min\left\{ x_1+\theta,\cdots,x_n+\theta \right\} dx_1\cdots d x_n \\
+	&=& \theta + \int_{[0,1]^n}^{} \min\left\{ x_1,\cdots,x_n \right\} dx_1\cdots d x_n \\
+	&=& \theta +\sum_{\sigma\in S_n}^{} \int_{0\leq x_{\sigma(1)}\leq \ldots \leq x_{\sigma(n)}\leq 1} x_{\sigma(1)} dx_1 \cdots dx_n 
+	\label{}
+\end{eqnarray}
+wobei die Summe über alle $n!$ Permutationen der $n$ Elemente geführt wird.
+Es gilt
+\begin{equation}
+	\int_{0\leq x_1\leq \ldots\leq x_n\leq 1} x_1 dx_1 \cdots d x_n = 
+	\int_{0}^{1}\cdots \int_{0}^{x_2} x_1 dx_1 \cdots dx_n = 
+	\frac{1}{\left( n+1 \right)!}
+\end{equation}
+und
+\begin{eqnarray}
+	\sum_{\sigma\in S_n}^{} \int_{0\leq x_{\sigma(1)}\leq \ldots \leq x_{\sigma(n)}\leq 1} x_{\sigma(1)} dx_1 \cdots dx_n 
+	=\frac{1}{n+1}.
+\end{eqnarray}
+Wir erhalten also
+\begin{eqnarray}
+	E X_{(1)} &=& \frac{1}{n+1} + \theta
+\end{eqnarray}
+und 
+\begin{eqnarray}
+	E T_2 = -\frac{1}{n+1} + E X_{(1)} = \theta.
+\end{eqnarray}
+Für die Berechnung der Varianz können wir folgendermassen vorgehen. 
+\begin{eqnarray}
+	\Var T_2 &=& E \left( T_2^2 \right) - \left( E T_2 \right)^2 \\
+	E T_2^2 &=& E \left[ \left( X_{(1) - \frac{1}{n+1}} \right)^2 \right] = \\
+	&=& E \left[ X_{(1)}^2 - \frac{2}{n+1}X_{(1)}+ \left( \frac{1}{n+1} \right)^2 \right] \\
+	E\left[  X_{(1)}^2 \right] &=&  E \left[ \min\left\{ X_1,\cdots,X_n \right\}^2 \right] \\
+	&=& \int_{[\theta,\theta+1]^n}^{} \min\left\{ x_1,\cdots,x_n \right\}^2 d \lambda^n \\
+	&=& \int_{[0,1]^n}^{} \min\left\{ x_1+ \theta,\cdots,x_n+ \theta \right\}^2 d \lambda^n \\
+	&=& \int_{[0,1]^n}^{} \theta^2 +2\theta\min\left\{ x_1,\cdots,x_n \right\}+ \min\left\{ x_1,\cdots,x_n \right\}^2 d\lambda^n\\
+\end{eqnarray}
+Mit der Hilfsrechnung
+\begin{eqnarray}
+	\int_{[0,1]^n}^{} \min\left\{ x_1,\cdots,x_n \right\}^2 d\lambda^n 
+	&=& \sum_{\sigma\in S_n}^{} \int_{0\leq x_{\sigma(1)}\leq \ldots \leq x_{\sigma(n)}\leq 1} x_{\sigma(1)}^2 d\lambda^n \\
+	&=& n! \frac{1}{\left( n+2 \right)\cdots 3} = \frac{2}{\left( n+1 \right)\left( n+2 \right)}
+\end{eqnarray}
+erhalten wir
+\begin{eqnarray}
+	E\left[ X_{(1)}^2 \right] &=& \theta^2 +  \frac{2\theta}{n+1} + \frac{2}{\left( n+1 \right)\left( n+2 \right)}
+\end{eqnarray}
+und
+\begin{eqnarray}
+	\Var T_2 &=& E \left[ X_{(1)}^2 - \frac{2}{n+1}X_{(1)}+ \left( \frac{1}{n+1} \right)^2 \right] -\theta^2 \\
+	&=& \theta^2 + \frac{2\theta}{n+1} + \frac{2}{\left( n+1 \right)\left( n+2 \right)} 
+	- \frac{2}{n+1}\left( \theta + \frac{1}{n+1} \right) + \left( \frac{1}{n+1} \right)^2 -\theta^2 \\
+	&=& \frac{n}{\left( n+1 \right)^2 \left( n+2 \right)} = \mathcal O (n^{-2}).
+\end{eqnarray}
+Die Varianz von $T_1$ ist also um eine Größenordung höher als die von $T_2$.
+\fi
+
+
+
+
+
+
+
+Für die Aufgaben über bedingte Erwartungen fixieren wir den Raum $(\Omega, P, \mathcal A)$.
+
+\emph{Hinweis zu den Lösungen: } Die Gleichheitsrelationen sowohl in den Aufgaben als auch in 
+den Lösungen sind $P$-fast sicher zu verstehen.
+
+\paragraph{Bedingte Erwartungen. Turmeigenschaft. Gegenbeispiel. } Sei $X$ eine integrierbare Zufallsvariable
+und $\mathcal H, \mathcal G$ seien Sub-$\sigma$-Algebren von $\mathcal A$. 
+Zeigen Sie durch ein Beispiel, dass 
+\begin{equation}
+	E\left[ E\left[ X | \mathcal G \right] | \mathcal H \right] \neq
+	E\left[ E\left[ X | \mathcal H \right] | \mathcal G \right]
+\end{equation}
+gelten kann. 
+
+\ifdefined\showsolutions
+\paragraph*{Lösung. } 
+Betrachten wir $\Omega=\left\{ 1,2,3 \right\}$, $\mathcal A=2^\Omega$ die Potenzmenge von $\Omega$,
+$\mathcal H=\sigma\left( \left\{ 1,2 \right\} \right)$ und 
+$\mathcal G=\sigma\left( \left\{ 2,3 \right\} \right)$ sowie 
+$P\left( i \right)=\frac{1}{3}$ für alle $i\in\Omega$. Berechnen wir die obigen bedingten
+Erwartungen für $X:\Omega\to\mathbb N, i\mapsto 2^i$.
+\begin{eqnarray}
+	E\left[ X|\mathcal H \right] &=&
+	\frac{X\left( 1 \right)+X\left( 2 \right)}{2}1_{\left\{ 1,2 \right\}} + X\left( 3 \right) 1_{ \left\{ 3 \right\} } \\
+	&=& 3_{  \left\{ 1,2 \right\} } + 8_{ \left\{ 3 \right\}  } \\ 
+	E\left[ E\left[ X|\mathcal H \right]|\mathcal G \right] 
+	&=& 3_{ \left\{ 1 \right\} } + \frac{3+8}{2} 1_{ \left\{ 2,3 \right\} } \\
+	E\left[ X|\mathcal G \right] &=& 
+	X\left( 1 \right) 1_{ \left\{ 1 \right\} } + \frac{X\left( 2 \right)+X\left( 3 \right)}{2}1_{ \left\{ 2,3 \right\} } \\
+	&=& 2_{ \left\{ 1 \right\} } + 6_{ \left\{ 2,3 \right\} } \\
+	E\left[ E\left[ X|\mathcal G \right]| \mathcal H \right] 
+	&=& \frac{2+6}{2}1_{ \left\{ 1,2 \right\} } + 6_{ \left\{ 3 \right\} } \\
+	&=& 4_{ \left\{ 1,2 \right\} } + 6_{ \left\{ 3 \right\} }.
+\end{eqnarray}
+Dabei bezeichnet $4_{ \left\{ 1,2 \right\} }$ eine Funktion, die den Elementen $1$ und $2$
+den Wert $4$ zuordnet und allen anderen den Wert $0$.
+
+Damit folgt die Behauptung. 
+\fi
+
+
+
+
+
+
+\paragraph{Bedingte Erwartungen. Turmeigenschaft. } Sei $X$ eine integrierbare Zufallsvariable und
+$\mathcal H$ eine Sub-$\sigma$-Algebra von 
+der $\sigma$-Algebra $\mathcal G$. D.h.\ $\mathcal H \subset \mathcal G \subset \mathcal A$.
+Zeigen Sie
+\begin{equation}
+	E\left[ E\left[ X | \mathcal G \right] | \mathcal H \right] =
+	E\left[ E\left[ X | \mathcal H \right] | \mathcal G \right] =
+	E \left[ X | \mathcal H \right].
+\end{equation}
+
+\ifdefined\showsolutions
+\paragraph*{Lösung.} Wir zeigen zunächst 
+$E\left[ E\left[ X | \mathcal H \right] | \mathcal G \right]=E \left[ X | \mathcal H \right]$.
+Nach Definition des bedingten Erwartungswertes ist $E\left[ X| \mathcal H \right]$ 
+$\mathcal H$-messbar und daher $\mathcal G$-messbar. So bekommen wir 
+\begin{equation}
+	E\left[ E\left[ X | \mathcal H \right] | \mathcal G \right] =
+	E\left[ X| \mathcal H \right] E\left[ 1|\mathcal G \right] = 
+	E \left[ X | \mathcal H \right ].
+\end{equation}
+Nun kommen wir zu 
+$E\left[ E\left[ X | \mathcal G \right] | \mathcal H \right]=E \left[ X | \mathcal H \right]$.
+Dies gilt genau dann wenn 
+\begin{equation}
+	E\left\{ X 1_A \right\} 
+	= E\left\{ E\left[ E\left[ X|\mathcal G \right]|\mathcal H \right] 1_A \right\}  
+	\quad \forall A\in\mathcal H.
+\end{equation}
+Sei $Y=E\left[ X|\mathcal G \right]$ eine $\mathcal G$-messbare Zufallsvariable und
+$A\in\mathcal H$. Die Indikatorfunktion $1_A$ ist $\mathcal H$-messbar und daher
+$\mathcal G$-messbar. Wir berechnen
+\begin{eqnarray}
+	E\left\{ E\left[ E\left[ X|\mathcal G \right]|\mathcal H \right] 1_A \right\} &=& 
+	E\left\{ E\left[ Y|\mathcal H \right] 1_A \right\} \\
+	&=& E\left\{ E\left[ Y 1_A| \mathcal H \right] \right\} \\
+	&=& E\left\{ Y 1_A \right\} \\
+	&=& E\left\{ E\left[ X|\mathcal G \right] 1_A \right\} \\
+	&=& E\left\{ E\left[ X 1_A| \mathcal G \right] \right\} = E\left\{ X 1_A \right\}. 
+\end{eqnarray}
+Daher ist nach Definition des bedingten Erwartungswertes
+\begin{equation}
+	E\left[ E\left[ X | \mathcal G \right] | \mathcal H \right]=E \left[ X | \mathcal H \right].
+\end{equation}
+\fi
+
+
+
+
+
+\paragraph{Bedingte Varianz. } Seien $X,Y$ reelle Zufallsvariable mit $E\left[ X^2 \right] <\infty$. 
+Die bedingte Varianz einer Zufallsvariablen $X$ gegeben $Y$ ist definiert durch
+\begin{equation}
+	\Var \left[ X|Y \right] = E \left[ \left( X - E\left[ X|Y \right] \right)^2|Y \right].
+\end{equation}
+Zeigen Sie, dass
+\begin{equation}
+	\Var \left( X \right) = \Var \left( E\left[ X|Y \right] \right) + E \left[ \Var\left[ X|Y \right] \right].
+\end{equation}
+
+\ifdefined\showsolutions
+\paragraph*{Lösung. } 
+Die Behauptung ist äquivalent zu 
+\begin{equation}
+	E\left\{ X^2 \right\} - E\left\{ X \right\}^2 
+	= E\left\{ E\left[ X|Y \right]^2 \right\} - E\left\{ E\left[ X|Y \right] \right\}^2
+	+ E\left\{ E\left[ \left( X - E\left[ X|Y \right] \right)^2 |Y \right] \right\}.
+\end{equation}
+Wir kürzen den Term $E\left\{ X \right\}^2$ und erhalten 
+\begin{eqnarray}
+	E\left\{ X^2 \right\}&=& 
+	E\left\{ E\left[ X|Y \right]^2 \right\} +
+	E\left\{ X^2 - 2X E\left[ X|Y \right] + E\left[ X|Y \right]^2 \right\}
+\end{eqnarray}
+Diese Gleichung gilt genau dann wenn
+\begin{equation}
+	E\left\{  2X E\left[ X|Y \right] \right\} = 2 E\left\{ E\left[ X|Y \right]^2 \right\}.	
+\end{equation}
+Die Turmeigenschaft liefert uns aber
+\begin{eqnarray}
+	E\left\{  X E\left[ X|Y \right] \right\} &=& 
+	E\left\{ E\left[ X E\left[ X|Y \right] | Y \right] \right\} \\
+	&=& E\left\{ E\left[ X|Y \right] E\left[ X|Y \right]   \right\} \\
+	&=& E\left\{ E\left[ X|Y \right]^2 \right\}.
+\end{eqnarray}
+\fi
+
+
+
+
+
+
+\paragraph{Bedingte Erwartungen. Idempotenz. } Sei $X$ eine integrierbare Zufallsvariable. Zeigen Sie
+\begin{equation}
+	E\left[ X|X \right] = X \quad P-\textrm{f.s.}
+\end{equation}
+
+\ifdefined\showsolutions
+\paragraph*{Lösung. } 
+Nach Definition ist $E\left[ X| X \right]=E\left[ X|\sigma\left( X \right) \right]$ und
+da $X$ ja $\sigma\left( X \right)$-messbar ist, erhalten wir
+\begin{equation}
+	E\left[ X|\sigma\left( X \right) \right]= X E\left[ 1 | \sigma\left( X \right) \right] =X.
+\end{equation}
+\fi
+
+
+
+
+
+\paragraph{UMVUE. Bernoulli-Verteilung. } Seien $X_1,\ldots,X_n$
+i.i.d.\ und $X_1$ Bernoulli$(\theta)$-verteilt. Zeigen Sie, dass der \textsc{mls}
+$\bar X$ ein \textsc{umvue}-Schätzer ist.
+
+\ifdefined\showsolutions
+\paragraph*{Lösung. } Betrachten wir den Schätzer $\bar X$. Aus bereits gelösten
+Übungsblättern wissen wir, dass $\bar X$ is unverzerrt für $\theta$ ist.
+Wir zeigen, dass die Statistik $\sum_{i}^{} X$ suffizient und vollständig ist und 
+die Behauptung folgt mit dem Satz von Lehmann-Scheff\'e. 
+
+Dazu sei $g$ eine messbare reellwertige Funktion mit
+\begin{equation}
+	E_\theta \left[ g\left( \sum_{i}^{} X_i \right) \right] = 0 
+\end{equation}
+für alle $\theta\in \left[ 0,1 \right]$. Das ist äquivalent zu
+\begin{equation}
+	\sum_{k=0}^{n} g\left( k \right) P\left( \sum_{i}^{}X_i = k \right) = 0 \quad \forall\theta.
+\end{equation}
+Nachdem aber 
+$P\left( \sum_{i}^{} X_i = k \right)= \binom{n}{k}\theta^k \left( 1-\theta \right)^{n-k}$
+impliziert, dass die Funktion 
+\begin{equation}
+	f_n(\theta ) = \sum_{k=0}^{n} g\left( k \right) \binom{n}{k}\theta^k \left( 1-\theta \right)^{n-k}
+\end{equation}
+ein Polynom vom Grad höchstens $n$ in $\theta$ ist, kann es auch höchstens 
+$n$ verschiedene Nullstellen
+$\theta\in \left[ 0,1 \right]$ haben. Als Normalform dieses Polynoms erhalten wir
+\begin{eqnarray}
+	f_n(\theta) 
+	&=& \sum_{k=0}^{n} g\left( k \right) \binom{n}{k}\theta^k \left( 1-\theta \right)^{n-k} \\ 
+	&=& \sum_{k=0}^{n} g\left( k \right) \binom{n}{k}\theta^k \sum_{i=0}^{n-k}\binom{n-k}{i}(-1)^{n-k-i}\theta^{n-k-i} \\
+\end{eqnarray}
+und mit $\binom{n-k}{i}=\binom{n-k}{n-k-i}$ schließlich
+\begin{eqnarray}
+	f_n(\theta) 
+	&=& \sum_{k=0}^{n} g\left( k \right) \binom{n}{k}\theta^k \sum_{i=0}^{n-k}\binom{n-k}{n-k-i}(-1)^{n-k-i}\theta^{n-k-i} \\
+	&=& \sum_{k=0}^{n} g\left( k \right) \binom{n}{k}\theta^k \sum_{i=0}^{n-k}\binom{n-k}{i}(-1)^i\theta^i \\
+	&=& \sum_{k=0}^{n} \sum_{i=0}^{n-k}\binom{n-k}{i} \binom{n}{k} (-1)^i  g\left( k \right)  \theta^{i+k} \\
+	&=& \sum_{p=0}^{n} \left[ \sum_{k=0}^{p} \binom{n-k}{p-k}\binom{n}{k}(-1)^{p-k} g(k) \right] \theta^p.
+\end{eqnarray}
+Durchs Betrachten der Koeffizienten dieses Polynoms in aufsteigender Reihenfolge erhalten wir
+induktiv $g(0)=0$, $g(1)=0,\ldots$ und nach $n$ Schritten $g(n)=0$.
+Damit ist $g \equiv 0$ und die Statistik $\sum_{i}^{} X_i$
+vollständig. Aus den bereits gelösten Übungsblättern wissen wir, dass $\sum_{i}^{} X_i$
+suffizient für $\theta$ ist. Mit
+\begin{equation}
+	E\left[ \bar X | \sum_{i}^{} X_i \right] = \bar X
+\end{equation}
+und dem Satz von Lehmann-Scheff\'e folgt die Behauptung.
+\fi
+
+
+
+
+
+\paragraph{Vollständigkeit und UMVUE. }  Seien $X_1,\ldots,X_n$ i.i.d.,
+wobei $X_1$ eine diskrete Zufallsvariable mit Wahrscheinlichkeitsfunktion
+\begin{equation}
+	p_\theta(x)=P_\theta(X_1=x)= 
+	\left( \frac{\theta}{2} \right)^{|x|} (1-\theta)^{1-|x|},\  
+	x\in\left\{ -1,0,1 \right\},
+\end{equation}
+und unbekanntem Parameter $\theta\in (0,1)$ sei. Untersuchen Sie die beiden
+Schätzer $T_1(X)=X_1$ und $T_2(X)=|X_1|$ auf Vollständigkeit. Bestimmen Sie
+einen \textsc{umvue}-Schätzer für $\theta$.
+
+\ifdefined\showsolutions
+\paragraph*{Lösung. } 
+Wir untersuchen zuerst die Vollständigkeit der beiden Schätzer $T_1$ und $T_2$. 
+Die Dichte von $X_1,\ldots,X_n$ ist
+\begin{eqnarray}
+	p_\theta(x_1, \cdots, x_n) &=& \prod_i \left( \frac{\theta}{2} \right)^{|x_i|} \left( 1-\theta \right)^{1-|x_i|} \\
+	&=& \left( \frac{\theta}{2} \right)^{\sum_{i}^{} |x_i|} \left( 1-\theta \right)^{n-\sum_{i}^{} |x_i|}.
+\end{eqnarray}
+Nehmen wir an, dass für alle $\theta$
+\begin{equation}
+	E_\theta g\left( T_1\left( X \right) \right) = 0
+\end{equation}
+gilt. Das ist äquivalent zu 
+\begin{eqnarray}
+	E_\theta g\left( X_1 \right) &=&  \sum_{x_i\in\left\{ -1,0,1 \right\}}^{} g(x_1) p_\theta \left( x_1,\cdots,x_n \right) \\
+	&=& \sum_{x_i\in\left\{ -1,0,1 \right\}}^{} g(x_1) \left( \frac{\theta}{2} \right)^{\sum_{i}^{} |x_i|} \left( 1-\theta \right)^{n-\sum_{i}^{} |x_i|} \\
+	&=& \sum_{x_1\in\left\{ -1,0,1 \right\}}^{} g(x_1) \left[  \sum_{x_{2,\ldots,n}\in\left\{ -1,0,1 \right\}}^{}\left( \frac{\theta}{2} \right)^{\sum_{i}^{} |x_i|}\left( 1-\theta \right)^{n-\sum_{i}^{} |x_i|}   \right].
+\end{eqnarray}
+Sei nun
+\begin{eqnarray}
+	A(x_1, \theta) &=& \sum_{x_{2,\ldots,n}\in\left\{ -1,0,1 \right\}}^{}\left( \frac{\theta}{2} \right)^{\sum_{i}^{} |x_i|}\left( 1-\theta \right)^{n-\sum_{i}^{} |x_i|}.
+\end{eqnarray}
+Es ist also 
+\begin{equation}
+	E_\theta g\left( T_1\left( X \right) \right) = \sum_{x_i\in\left\{ -1,0,1 \right\}}^{} g(x_1) A\left( x_1, \theta \right).
+\end{equation}
+Nachdem aber $A\left( x_1,\theta \right) = A(-x_1,\theta)$ wählen wir $g\left( x \right)=x$ und erhalten
+\begin{equation}
+	E_\theta g\left( T_1\left( X \right) \right) = 0 \quad \forall \theta\in\Theta
+\end{equation}
+obwohl $g\nequiv 0$. $T_1(X)=X_1$ ist demzufolge nicht vollständig. 
+
+Für $T_2\left( X \right)$ führen wir gleiche Rechnung durch und erhalten
+\begin{eqnarray}
+	E_\theta(g\left( T_2\left( X \right) \right)) &=& \sum_{x_i\in\left\{ -1,0,1 \right\}}^{} g(|x_1|) A\left( x_1, \theta \right) \\
+	&=& 2 g(1) A(1,\theta) + g(0) A(0,\theta) = 0 \quad \forall\theta\in (0,1).
+\end{eqnarray}
+$A(1,\theta)$ und $A(0,\theta)$ sind Polynome vom Grad $n$. $A(0,\theta)$ hat aber im Gegensatz zu $A(1,\theta)$ 
+einen nicht verschwindenden konstanten Koeffizienten mit Wert $1$. Dieser Koeffizient kommt vom Summanden $(x_2,\ldots,x_n)=0$
+in der Darstellung
+\begin{equation}
+	A(0, \theta) = \sum_{x_{2,\ldots,n}\in\left\{ -1,0,1 \right\}}^{}\left( \frac{\theta}{2} \right)^{\sum_{i}^{} |x_i|}\left( 1-\theta \right)^{n-\sum_{i}^{} |x_i|}.
+\end{equation}
+Daher ist $g\equiv 0$ und die Statistik $T_2(X)$ vollständig. 
+
+Für die Berechnung eines \textsc{umvue}-Schätzers sind die obigen Berechnungen nur indirekt 
+hilfreich, da sowohl $T_1(X)$ als auch $T_2(X)$ nicht suffizient für $\theta$ sind. 
+
+Für das Auffinden eines \textsc{umvue}-Schätzers benötigen wir einiger Beobachtungen. 
+Zunächst ist die Zufallsvariable $|X_i|$ Bernoulli verteilt und daher gilt $E_\theta |X_i|=\theta$.
+$T_3(X)= \frac{1}{n} \sum_{i=1}^{n} |X_i|$ ist also ein unverzerrter Schätzer für $\theta$ und
+binomialverteilt. 
+$T_3$ ist auch suffizient für $\theta$, denn es gilt
+\begin{eqnarray}
+	P( X=\left( x_1,\ldots,x_n \right)| T_3=y) &=& \frac{ 1_{ \left\{ \sum_{i}^{} |x_i|=y \right\} } \left( \frac{\theta}{2} \right)^{\sum_{i}^{} |x_i|}  \left( 1-\theta \right)^{n-\sum_{i}^{} |x_i| }   }{ \binom{n}{k} \theta^{\sum_{i}^{} |x_i|   } (1-\theta)^{n-\sum_{i}^{} |x_i|}        } \\
+	&=& 1_{ \left\{ \sum_{i}^{} |x_i|=y \right\} } \binom{n}{k}^{-1} \left( \frac{1}{2} \right)^{\sum_{i}^{} |x_i|}.
+\end{eqnarray}
+Daher ist $T_3$ ein \textsc{umvue}-Schätzer für $\theta$.
+\fi
+
+
+
+
+
+\paragraph{UMVUE. Normalverteilung. } Seien $X_1,\ldots,X_n$ i.i.d.\
+mit $X_i \sim \mathcal N(\mu,\sigma^2)$ und $\mu\in\R$ sowie $\sigma>0$.
+Dann ist die Stichprobenvarianz 
+\begin{equation}
+	s^2(X) = \frac{1}{n-1} \sum_{i=1}^{n} (X_i - \bar X)^2
+\end{equation}
+ein \textsc{umvue}-Schätzer für $\sigma$, falls $\mu$ unbekannt ist. 
+Ist $\mu$ hingegen bekannt, so ist $s^2(X)$ kein \textsc{umvue}-Schätzer
+von $\sigma$. 
+
+\ifdefined\showsolutions
+\paragraph*{Lösung.} 
+Die erste Aussage wurde bereits in der Vorlesung behandelt. 
+
+Sei also $\mu=\mu_0$ bekannt und fix.  Wir wollen die Normalverteilung mit
+bekanntem Erwartungswert als exponentielle Familie schreiben und mit Hilfe
+eines Satzes aus der Vorlesung eine vollständige und suffiziente Statistik
+gewinnen. Es gilt
+\begin{eqnarray}
+	p_\sigma(x_i) &=& \prod_i \frac{1}{\sqrt{2 \pi \sigma^2}} 
+	\exp\left( -\frac{1}{2} \left( \frac{x_i - \mu_0}{\sigma}\right)^2 \right) \\
+	&=& \exp\left( -\frac{1}{2 \sigma^2} \sum_{i}^{} \left( x_i - \mu_0 \right)^2 +
+		\log\left( 2 \pi \sigma^2 \right)^{-\frac{n}{2}}  \right). \\
+\end{eqnarray}
+Damit erhalten wir $c(\sigma^2) = -\frac{1}{2 \sigma^2}$ und $T(X) = \sum_{i}^{} \left( X_i - \mu_0 \right)^2$.
+Da $c\left( \Theta \right) = c(\R_{>0})= \R_{<0}$ ein offenes Rechteck enthält, ist $T\left( X \right)$
+eine vollständige und suffiziente Statistik für $\sigma^2$.
+
+Da die Stichprobenvarianz
+\begin{equation}
+	\hat\sigma^2(X) = \frac{1}{n} \sum_{i=1}^{n} (X_i - \mu_0)
+\end{equation}
+bei festgehaltenem $\mu_0$ ein unverzerrter Schätzer für $\sigma^2$ ist, können 
+wir den Satz von Lehmann-Scheff\'e anwenden und berechnen 
+\begin{equation}
+	T^*\left( X \right) = E\left[ \sum_{i=1}^{n} \frac{1}{n} \left( X_i-\mu_0 \right)^2 | \sum_{i=1}^{n} \left( X_i-\mu_0 \right)^2 \right] = \sum_{i=1}^{n} \frac{1}{n} \left( X_i-\mu_0 \right)^2 = \hat\sigma^2(X).
+\end{equation}
+Die Stichprobenvarianz $\hat\sigma^2(X)$ ist somit der eindeutige \textsc{umvue}-Schätzer
+für $\sigma^2$. Daher kann $s^2(X)$ in diesem Kontext kein
+\textsc{umvue}-Schätzer sein.
+\fi
+
+
+
+
+
+
+
+\paragraph{UMVUE. Normalverteilung. } Sei $X_1,\ldots,X_n$ eine i.i.d.\
+Stichprobe mit $X_1\sim\mathcal N(\mu,1)$. Finden Sie den 
+\textsc{umvue}-Schätzer für
+\begin{equation}
+	P_\mu (X_1>0).
+\end{equation}
+\emph{Hinweis:} Betrachten Sie die gemeinsame Verteilung von $(X_1,\bar X)$.
+
+\ifdefined\showsolutions
+\paragraph*{Lösung. }   Der Satz von Lehmann-Sch\'effe ist das wichtigste Tool zur Gewinnung
+der \textsc{umvue}-Schätzern das uns derzeit zur Verfügung. Wir versuchen ihn auch diesmal anzuwenden. 
+
+Dazu brauchen wir einen unverzerrten Schätzer für $P\left( X_1 >0 \right)$, also einen
+Schätzer $S(X)$ mit der Eigenschaft
+\begin{equation}
+	E_\mu \left[ S(X) \right] = P_\mu(X_1 > 0).
+\end{equation}
+Dies ist aber genau die Eigenschaft der Zufallsvariable $1_{ \left\{ X_1 > 0 \right\}  }$, denn
+\begin{equation}
+	E_\mu \left[   1_{ \left\{ X_1 > 0 \right\}  }  \right] = P_\mu( X_1 > 0).
+\end{equation}
+Als eine suffiziente Statistik verwenden wir $\bar X$. Nun mit Hilfe der Rao-Blackwillisierung
+erhalten wir einen \textsc{UMVU} Schätzer
+\begin{equation}
+	E_\mu \left[ 1_{ \left\{ X_1 > 0 \right\}  } | \bar X \right]
+	= P_\mu \left( X_1 > 0 | \bar X \right) 
+	= P_\mu \left( X_1 - \bar X > -\bar X | \bar X \right).
+\end{equation}
+Da $X_1$ und $\bar X$ normalverteilt sind mit $E X_1 = E \bar X = \mu$, 
+$\Var \left( X_1 \right)=1$ und $\Var\left( \bar X \right) = \frac{1}{n}$ sowie
+$\cov \left( X_1- \bar X, \bar X \right) = \cov(X_1, \bar X) - \cov(\bar X, \bar X) = 0$ gilt, 
+sind die Zufallsvariablen $X_1 - \bar X$ und $\bar X$ unkorreliert und damit unabhängig. 
+So ist
+\begin{equation}
+	P_\mu \left( X_1 - \bar X > -\bar X | \bar X = \bar x \right) = P_\mu \left( Z > -\bar x  \right)
+\end{equation}
+für $Z=X_1 - \bar X$. Nachdem $EZ=0$ und 
+\begin{eqnarray}
+	\Var Z &=& \Var \left( X_1- \bar X \right) \\
+	&=& \Var \left( \frac{n-1}{n} X_1 - \frac{1}{n} \sum_{i\geq 2}^{} X_i  \right) \\
+	&=& \left( \frac{n-1}{n} \right)^2 + \frac{1}{n^2} \sum_{i\geq 2}^{} \Var \left( X_i  \right) \\
+	&=& \frac{n-1}{ n}
+\end{eqnarray}
+is $\frac{Z}{\sqrt{\frac{n-1}{2}}}$ standardnormalverteilt. So gilt
+\begin{eqnarray}
+	P_\mu \left( Z > -\bar X \right) &=& 
+	P_\mu \left(  \frac{Z}{ \sqrt{\frac{n-1}{n}} } > \frac{-\bar X}{ \sqrt{\frac{n-1}{n}}   } \right) \\
+	&=& 1- \Phi\left( \frac{-\bar X}{ \sqrt{\frac{n-1}{n}}}    \right) 
+\end{eqnarray}
+und ein \textsc{umvue}-Schätzer für $P\left( X_1 >0 \right)$ ist bestimmt.
+\fi
+
+
+
+
+\paragraph{Cram\'er-Rao Regularität und exponentielle Familien. }
+Für eine einparametrige exponentielle Familie mit
+\begin{equation}
+	p(x, \theta) = \exp \left( c(\theta) T(x) + d(\theta) +S(x) \right)1_A(x),
+\end{equation}
+sodass $c$ differenzierbar mit $\frac{\partial}{\partial \theta} c(\theta)\neq 0$ 
+für alle $\theta\in \Theta$ und $\Theta$ offen in $\R$ ist, sind die Bedingungen (\textsc{cr})
+erfüllt.
+
+\emph{Hinweis:} Sie können für die Vertauschbarkeit von $\frac{\partial}{\partial \theta}$ und $\int_{}^{}$
+den Satz von der monotonen Konvergenz verwenden. 
+
+\ifdefined\showsolutions
+\paragraph*{Lösung. }
+Für eine Statistik $T(X)$ mit $E_\theta (|T(X)|) < \infty$ zeigen wir, dass für alle $\theta\in\Theta$
+\begin{equation}
+	\frac{\partial}{\partial \theta} \int_{\R}^{} T(x) p(x,\theta) dx = 
+	\int_{\R}^{} \frac{\partial}{\partial \theta} p(x,\theta) T(x) dx
+	\label{main-interchange}
+\end{equation}
+gilt.
+
+Zunächst können wir die exponentielle Darstellung von $p(x,\theta)$
+reparametrisieren und die Dichte als natürliche exponentielle Familie 
+\begin{equation}
+	p(x,\theta) = \exp \left( \theta T(x) + d_0(\theta) + S(x) \right)1_A(x)
+\end{equation}
+schreiben.
+
+Wir vereinfachen nun die Darstellung von $p(x,\theta)$ indem wir das eindimensionale
+Lebesguemass durch ein absolut stetiges Mass auf $\R$ ersetzen. So ist 
+\begin{eqnarray}
+	\int_{\R}^{} T(x) p(x,\theta) dx &=& 
+	\int_{\R}^{} T(x) \exp \left( \theta T(x) + d_0(\theta) + S(x) \right)1_A(x) dx \\
+	&=& \int_{\R}^{} T(x) \exp \left( \theta T(X) + d_0(\theta) \right) d\mu 
+\end{eqnarray}
+
+Wir zeigen nun ein Hilfsresultat. Es gilt
+\begin{equation}
+	\frac{\partial}{\partial \theta} \int_{\R}^{} e^{\theta T(x)} d\mu 
+	= \int_{\R} \frac{\partial}{\partial \theta} e^{\theta T(x)} d\mu.
+	\label{simple-interchange}
+\end{equation}
+falls die entsprechenden Integrale existieren und endlich sind.
+Die Ableitung von $\int e^{\theta T(x)}$ nach $\theta$ ist der Grenzwert des Quotienten
+\begin{equation}
+	\int \frac{e^{\theta_1 T(x)} - e^{\theta_2 T(x)}}{\theta_1 - \theta_2}.
+\end{equation}
+Den Integranden schätzen wir mit $|e^y - e^x|\leq e^x |y-x|$ wie folgt
+\begin{eqnarray}
+	\left| \frac{e^{\theta_1 T(x)} - e^{\theta_2 T(x)}}{\theta_1 - \theta_2} \right| &\leq& 
+	\frac{e^{\theta_2 T(x)} | (\theta_2 -\theta_1) T(x) | }{ |\theta_1 - \theta_2| }
+\end{eqnarray}
+ab. Die letzte Funktion ist integrierbar was zusammen mit dem Satz von der majorisierten Konvergenz
+die Gleichung (\ref{simple-interchange}) rechtfertigt. Beachten Sie, dass wir bei dieser Überlegung
+die Voraussetzungen $\Theta$ ist offen und $\frac{\partial}{\partial \theta}c(\theta)\neq 0$
+benutzt haben.
+
+Da $p(x,\theta)$ eine Dichte ist und somit integrierbar, können wir aus
+\begin{equation}
+	\int_{\R}^{} e^{\theta T(x) + d_0(\theta)}d \mu = 1
+\end{equation}
+die Darstellung
+\begin{equation}
+	e^{-d_0(\theta)} = \int_{\R}^{} e^{\theta T(x)} d \mu
+\end{equation}
+ableiten und stellen mit Hilfe von (\ref{simple-interchange}) die Differenzierbarkeit von $d_0(\theta)$ fest.
+
+
+$E_\theta \left( | T(X) | \right) < \infty$ impliziert, dass $T(X)$ als Differenz zweier
+positiver integrierbarer Funktionen $T(X) = T^+(X) - T^-(X)$ geschrieben werden kann.
+Das führt uns zu
+\begin{eqnarray}
+	\int_{\R}^{} T(x) e^{ \theta T(X) + d_0(\theta) } d\mu &=& 
+	\int_{\R}^{} T(x)^+ e^{ \theta T(X) + d_0(\theta) } d\mu - \\
+	&& \int_{\R}^{} T(x)^- e^{ \theta T(X) + d_0(\theta) } d\mu  \\
+	&=&  e^{d_0(\theta)} \int_{\R}^{} e^{ \theta T(X) } d\mu^+ - e^{d_0(\theta)} \int_{\R}^{} e^{ \theta T(X) } d\mu^-
+\end{eqnarray} 
+indem wir $T^+$ und $T^-$ in den neuen Massen $\mu^+$ und $\mu^-$ verschwinden lassen.
+Nun können wir das Resultat (\ref{simple-interchange}) und die Differenzierbarkeit von $d_0(\theta)$
+anwenden und erhalten (\ref{main-interchange}).
+
+Mit Hilfe der obigen Überlegungen können wir auch die Existenz der Ableitung 
+$\frac{\partial}{\partial \theta} \log p(x,\theta)$ sicherstellen.
+Die Übrigen Bedingungen aus (\textsc{cr}) sind in unseren Voraussetzungen enthalten.
+\fi
+
+
+
+
+
+
+\paragraph{UMVUE. Exponentialverteilung.   }
+Seien $X_1,\ldots,X_m$ i.i.d.\ und $X_i\sim \textrm{Exp}(\theta)$ exponentialverteilt
+mit der Dichte $\theta e^{-\theta x}1_{\R_{>0}}(x)$ und $\theta>0$.
+Finden Sie einen \textsc{umvue}-Schätzer für $q(\theta) = \frac{1}{\theta^2}$. Zeigen Sie, dass
+dieser die untere Schranke der Informationsgleichung nicht annimmt.
+
+\ifdefined\showsolutions
+\paragraph*{Lösung.} Wir stellen die Dichte der Exponentialverteilung als exponentielle
+Familie 
+\begin{equation}
+    p_\theta(x) = \exp \left( -\theta x + \log \theta \right) 1_{\R_{>0}}(x)
+\end{equation}
+dar. Damit ist $T(X)=\sum_{i}^{} X_i$ eine vollständige und suffiziente Statistik.
+
+Laut Satz von Lehmann-Sch\'effe muss der eindeutige \textsc{umvue}-Schätzer eine Funktion $h(T(X))$
+der vollständigen Statistik $T(X)$ sein. Nachdem der Schätzer $h(T(X))$ erwartungstreu
+ist, muss
+\begin{equation}
+    E_\theta h(T(X)) = \frac{1}{\theta^2}
+\end{equation}
+gelten. Mit Hilfe von $\sum_{i}^{} X_i \sim \textrm{Gamma}(n,\theta)$, können wir eine 
+Gleichung für $h$ konstruieren.
+\begin{equation}
+    E_\theta h(T(X)) =  \int_{\R} h(x) \frac{\theta^n}{\Gamma(n)} x^{n-1}e^{-\theta x} 1_{\R_{>0}}(x) dx =\frac{1}{\theta^2} 
+\end{equation}
+\begin{equation}
+    \int_{0}^{\infty} h(x) \frac{\theta^{n+2}}{\Gamma(n)}  x^{n-1} e^{-\theta x} dx = 1
+\end{equation}
+Die Gleichheit gilt für $h(x)= \frac{x^2}{n(n+1)}$. Damit ist 
+\begin{equation}
+    S(X) = h\left( \sum_{i}^{} X_i \right) = \frac{\left( \sum_{i}^{} X_i \right)^2}{n(n+1)}
+\end{equation}
+der eindeutige \textsc{umvue}-Schätzer für $\frac{1}{\theta^2}$.
+
+Wir berechnen nun die Schranke der Informationsungleichung -- die \textsc{(cr)} Bedingungen
+sind erfüllt, da $\textrm{Exp}(\theta)$ eine exponentielle Familie mit $c'(\theta)\neq 0$ und 
+offenem Parameterraum ist. Es gilt $\Psi(\theta)=\frac{1}{\theta^2}$ und 
+$\left( \Psi'(\theta) \right)^2= \frac{4}{\theta^6}$, sowie
+\begin{eqnarray}
+    I_1(\theta) &=& E_\theta \left( \frac{\partial}{\partial \theta} \log p(X, \theta) \right)^2 \\
+    &=& E_\theta \left( \frac{\partial}{\partial \theta} \log \theta -\theta x \right)^2 = \frac{1}{\theta^2}.
+\end{eqnarray}
+Damit bekommen wir die Schranke für die Varianz
+\begin{equation}
+    \frac{\left( \Psi'(\theta) \right)^2}{n I_1(\theta) } = \frac{4}{n \theta^4}.
+\end{equation}
+Mit dieser Schranke können wir die Varianz des Schätzers $S(X)$ in Beziehung setzen.
+\begin{eqnarray}
+    E_\theta S(X)^2 &=& \int_{0}^{\infty} \left( \frac{t^2}{n(n+1)} \right)^2 \frac{\theta^n}{\Gamma(n)} t^{n-1} e^{-\theta t} dt \\
+    &=& \frac{(n+2)(n+3)}{n(n+1)\theta^4} \int_{0}^{\infty} \frac{\theta^4}{\Gamma(n+4)}t^{n+4-1} e^{-\theta t} dt \\
+    &=&  \frac{(n+2)(n+3)}{n(n+1)\theta^4} \\
+    \Var_\theta S(X) &=& \frac{(n+2)(n+3)}{n(n+1)\theta^4} - \frac{1}{\theta^4}
+\end{eqnarray}
+Nun zeigen wir
+\begin{equation}
+    \Var_\theta S(X) > \frac{\left( \Psi'(\theta) \right)^2}{n I_1(\theta) }
+\end{equation}
+\begin{equation}
+    \frac{(n+2)(n+3)}{n(n+1)\theta^4} - \frac{1}{\theta^4} > \frac{4}{n \theta^4}
+\end{equation}
+\begin{equation}
+    \frac{(n+2)(n+3)}{n(n+1)\theta^4} > \frac{n+4}{\theta^4 n}
+\end{equation}
+\begin{equation}
+    (n+2)(n+3) > (n+4)(n+1).
+\end{equation}
+\fi
+
+
+
+
+
+
+
+\paragraph{UMVUE. Gamma-Verteilung. } Eine Stichprobe $X_1, \ldots, X_n$ sei i.i.d.\
+und Gamma-verteilt mit bekanntem Parameter $a>0$ und unbekanntem Parameter 
+$\lambda>0$, d.h.\ $X_1$ hat die Dichte
+\begin{equation}
+    p_\lambda (x) = \frac{\lambda^a}{\Gamma(a)} x^{a-1}e^{-\lambda x} 1_{\R_{>0}}(x).
+\end{equation}
+Finden Sie mit Hilfe der Informationsungleichung einen \textsc{umvue}-Schätzer für
+$q(\lambda) = \frac{1}{\lambda}$.
+
+\ifdefined\showsolutions
+\paragraph*{Lösung.  } Die Lösungsmethode ist hier einen unverzerrten Schätzer mit der
+kleinstmöglichen Varianz zu finden, d.h.\ der Varianz aus der Informationsungleichung.
+
+Zuerst überprüfen wir die (\textsc{cr}) Bedingungen indem wir $p_\lambda(x)$ als
+exponentielle Familie
+\begin{equation}
+    p_\lambda(x) = \exp\left( a\log \lambda -\Gamma(a) +(a-1)\log x -\lambda x  \right) 1_{\R_{>0}}(x)    
+\end{equation}
+darstellen. $c(\lambda)=-\lambda$ ist differenzierbar mit $c'(\lambda)=-1\neq 0$ und 
+$\Theta=\R_{>0}$ ist offen. Damit sind \textsc{(cr)} Bedingungen erfüllt.
+
+Nachdem $q(\lambda)=\frac{1}{\lambda}$ gerade $E_\lambda X_i=\frac{a}{\lambda}$ ist, 
+wählen wir den Schätzer 
+\begin{equation}
+    T(X)=\frac{1}{a}\bar X.
+\end{equation}
+$T(X)$ ist erwartungstreu und hat
+die Varianz
+\begin{eqnarray}
+    \Var_\lambda T(X) &=&  \Var_\lambda \frac{1}{na} \sum_{i}^{} X_i \\ 
+    &=& \frac{1}{a^2 n^2} \Var_\lambda \sum_{i}^{} X_i \\
+    &=&  \frac{1}{a^2 n^2} \frac{an}{\lambda^2} = \frac{1}{an \lambda^2}. 
+\end{eqnarray}
+Letzes gilt wegen $\sum_{i}^{} X_i \sim \textrm{Gamma}(na,\lambda)$. Nun berechnen wir die
+Fischer-Information für $X=X_i$.
+\begin{eqnarray}
+    I_1(\lambda) &=&  \Var_\lambda \frac{\partial}{\partial \lambda} \log p(X,\lambda) \\
+    &=& \Var_\lambda \frac{\partial}{\partial \lambda} \log \frac{\lambda^a}{\Gamma(a)} X^{a-1}e^{-\lambda X} 1_{\R_{>0}}(X) \\
+    &=& \Var_\lambda \frac{\partial}{\partial \lambda} \left( a \log \lambda - \lambda X \right) \\
+    &=& \Var_\lambda \left( \frac{a}{\lambda} - X \right) = \frac{a}{\lambda^2}
+\end{eqnarray}
+Mit 
+\begin{equation}
+    \Psi(\lambda) = q(\lambda)=E_\lambda T(X) =\frac{1}{\lambda} \\
+\end{equation}
+\begin{equation}
+    \left( \Psi'(\lambda) \right)^2 = \frac{1}{\lambda^4}
+\end{equation}
+ergibt sich 
+\begin{equation}
+    \frac{  \left( \Psi'(\lambda) \right)^2 }{n I_1(\lambda)} 
+    = \frac{1}{\lambda^4} \frac{\lambda^2}{an} = \frac{1}{ an \lambda^2}
+\end{equation}
+und
+\begin{equation}
+    \Var_{\lambda} T(X) = \frac{  \left( \Psi'(\lambda) \right)^2 }{I(\lambda)}.
+\end{equation}
+Damit ist $T(X)$ ein \textsc{umvue}-Schätzer für $q(\lambda)=\frac{1}{\lambda}$.
+\fi
+
+
+
+
+
+
+
+\paragraph{Cram\'er-Rao-Schranke und die Gleichverteilung.}   % Shao E 3.22
+Seien $X_1,\ldots,X_n$ i.i.d.\ und $X_i \sim \mathcal U(0,\theta)$ mit unbekanntem 
+$\theta > 0$. Es bezeichne $I(\theta)$ die Fischer-Information. Weisen Sie nach, dass
+$T(X)=\frac{n+1}{n}X_{(n)}$ ein erwartungstreuer Schätzer für $\theta$ ist und
+\begin{equation}
+	\Var_\theta \left( T(X) \right) < \frac{1}{I(\theta)}, \quad \textrm{für alle } \theta>0. 
+\end{equation}
+Klären Sie, wieso dies nicht im Widerspruch zu der Cram\'er-Rao-Schranke
+\begin{equation}
+	\Var_\theta\left( T(X) \right) \geq \frac{1}{I(\theta)}
+\end{equation}
+steht.
+
+\ifdefined\showsolutions
+\paragraph*{Lösung. } Wir zeigen zuerst, dass $T(X)$ ein erwartungstreuer Schätzer
+für $\theta$ ist. Dazu berechnen wir die Verteilung von $X_{(n)}$.
+\begin{eqnarray}
+    P\left( X_{(n)} \leq t \right) &=& P\left( X_1\leq t,\ldots, X_n\leq t \right) \\
+    &=& \left( P(X_1 \leq t) \right)^n
+\end{eqnarray}
+Daraus ergibt sich
+\begin{eqnarray}
+    E_\theta X_{(n)} &=& \int_{0}^{\theta} x dP_{ X_{(n)} }(x) \\
+    &=& \int_{0}^{\theta} x \left( \frac{x^n}{\theta^n} \right)' dx \\
+    &=& \int_{0}^{\theta} n \frac{x^n}{\theta^n} dx \\
+    &=& \frac{n}{(n+1)\theta^n} \int_{0}^{\theta} (n+1)x^n dx \\
+    &=& \frac{n}{n+1} \frac{1}{\theta^n} \theta^{n+1} = \frac{n}{n+1} \theta.
+\end{eqnarray}
+Daher ist $T(X) = \frac{n+1}{n} X_{(n)}$ erwartungstreu für $\theta$.
+
+Die Fischer-Information für $X=(X_1,\ldots,X_n)\in [0,\theta]^n$ mit der Dichte
+$p_\theta(X) = \theta^{-n} 1_{[0,\theta]^n}(X)$ ist 
+\begin{eqnarray}
+    I(\theta) &=& E_\theta\left( \frac{\partial}{\partial \theta} \log \frac{1}{\theta^n} \right)^2 \\
+    &=& E_\theta \left( \frac{\partial}{\partial \theta} -n \log \theta \right)^2 \\
+    &=& E_\theta \frac{n^2}{\theta^2} = \left( \frac{n}{\theta} \right)^2.
+\end{eqnarray}
+
+Berechnen wir nun
+\begin{eqnarray}
+    \Var T(X) &=& \Var \frac{n+1}{n} X_{(n)} \\
+    &=& E\left( \frac{n+1}{n} X_{(n)} \right)^2 - \left( E \frac{n+1}{n} X_{(n)} \right)^2 \\
+    &=& \left( \frac{n+1}{n} \right)^2 E X_{(n)}^2 - \theta^2 \\
+    E X_{(n)}^2 &=& \int_{0}^{\theta} x^2 d P_{X_{(n)}}(x) \\
+    &=& \frac{n}{\theta^n} \int_{0}^{\theta} x^{n+1} = \frac{\theta^2 n}{n+2} \\
+    \Var T(X) &=& \left( \frac{n+1}{n} \right)^2 \frac{\theta^2 n }{n+2} - \theta^2 = \frac{\theta^2}{n(n+2)}.
+\end{eqnarray}
+Damit ist 
+\begin{equation}
+    \Var_\theta T(X) = \frac{\theta^2}{n(n+2)} < \frac{\theta^2}{n^2} = \frac{1}{I(\theta)}.
+\end{equation}
+
+Erklärung dafür ist die folgende. Der
+Träger der Dichte von $X_i$ ist vom Parameter $\theta$ abhängig und daher sind
+die \textsc{(cr)} Bedingungen verletzt.  Deswegen muss die
+Informationsungleichung für dieses Modell nicht gelten. 
+\fi
+
+
+
+
+
+
+
+\paragraph{Cram\'er-Rao-Schranke ist nicht scharf.    } 
+Es ist durchaus möglich, dass ein \textsc{umvue}-Schätzer eine größere Varianz als die untere
+Schranke
+\begin{equation}
+	\Var_\theta \left( T(X) \right) \geq \frac{1}{I(\theta)}
+\end{equation}
+hat. Betrachtet wenden dazu $X_1,\ldots,X_n$ i.i.d.\ mit $X_i \sim \textrm{Poiss}(\theta)$ für 
+unbekanntes $\theta>0$. Zeigen Sie, dass
+\begin{equation}
+	T(X) = \left( 1- \frac{1}{n} \right)^{ \sum_{i=1}^{n} X_i}
+\end{equation}
+ein \textsc{umvue}-Schätzer für $g(\theta)=e^{-\theta}$ ist. Zeigen Sie weiterhin, dass die
+Varianz von $T(X)$ die Schranke in der Informationsungleichung
+\begin{equation}
+	\Var_\theta\left( T(X) \right) \geq \frac{\Phi^{'}(\theta)^2}{I(\theta)}
+\end{equation}
+für kein $\theta$ annimmt.
+
+\ifdefined\showsolutions
+\paragraph*{Lösung. } Wir stellen zuerst sicher, dass $T(X)$ ein \textsc{umvue}-Schätzer 
+für $g(\theta)=e^{-\theta}$. Nachdem die Summe von poissonverteilten Zufallsvariablen
+wieder poissonverteilt ist, und zwar 
+$\sum_{i}^{} X_i \sim \textrm{Poiss}(\sum_{i}^{} \lambda_i)$ für 
+$X_i \sim \textrm{Poiss}(\lambda_i)$, erhalten wir
+\begin{eqnarray}
+    E_\theta T(X) &=& \sum_{k\geq 0} \left( 1-\frac{1}{n} \right)^k P\left( \sum_{i}^{} X_i =k \right)\\
+    &=& \sum_{k\geq 0}^{} \left( 1-\frac{1}{n} \right)^k e^{-n\theta} \frac{(n\theta)^k}{k!} \\
+    &=& e^{-n\theta} \sum_{k\geq 0} \frac{ (n-1)^k\theta^k}{k!} \\
+    &=& e^{-n \theta} e^{(n-1)\theta} = e^{-\theta}.
+\end{eqnarray}
+$T(X)$ ist also erwartungstreu für $g(\theta)$.
+
+Aus der Vorlesung wissen wir, dass $\sum_{i}^{} X_i$ eine vollständige und suffiziente
+Statistik ist, wenn die Zufallsvariablen $X_i$ poissonverteilt sind. $T(X)$ ist 
+eine Funktion von $\sum_{i}^{} X_i$ und damit ein \textsc{umvue}-Schätzer
+für $e^{-\theta}$.
+
+Wir berechnen nun die Varianz von $T(X)$.
+\begin{eqnarray}
+    \Var_\theta T(X)&=& \Var_\theta \left( 1-\frac{1}{n} \right)^{\sum_{i} X_i} \\ 
+    &=& E_\theta \left( \left( 1-\frac{1}{n} \right)^{\sum_{i} X_i} \right)^2 - \left( E_\theta \left( 1-\frac{1}{n} \right)^{\sum_{i} X_i} \right)^2 \\
+    E_\theta \left( 1-\frac{1}{n} \right)^{\sum_{i} X_i} &=& e^{-\theta} \\
+    E_\theta \left( \left( 1-\frac{1}{n} \right)^{\sum_{i} X_i} \right)^2 
+    &=& \sum_{k\geq 0}^{} \left( 1-\frac{1}{n} \right)^{2k} P\left( \sum_{i}^{} X_i =k \right) \\
+    &=& \sum_{k\geq 0}^{} \left( 1-\frac{1}{n} \right)^{2k} e^{-n\theta} \frac{(n\theta)^k}{k!} \\
+    &=& e^{-n \theta} \sum_{k\geq 0} \frac{ \left( \frac{ (n-1)^2 \theta }{n} \right)^k   }{k!} \\
+    &=& \exp\left( -n\theta \right) \exp\left( \frac{(n-1)^2\theta}{n} \right)
+    = \exp\left( \theta\left( -2 + \frac{1}{n} \right) \right) \\
+    \Var_\theta T(X) &=& \exp\left( \frac{\theta(1-2n)}{n} \right) - \exp\left( -2\theta \right). 
+\end{eqnarray}
+
+Nun zur Informationsungleichung. Wir haben $\Psi(\theta)=g(\theta)=E T(X)$ und 
+$\Psi'(\theta)=-e^{-\theta}$ und daher 
+$\left( \Psi'(\theta) \right)^2 = e^{-2\theta}$. Die Fischer-Information 
+$I(\theta)=\frac{n}{\theta}$ wurde bereits in der Vorlesung berechnet. Damit erhalten wir 
+\begin{equation}
+    \frac{\left( \Psi'(\theta) \right)^2}{I(\theta)} = \frac{\theta e^{-2 \theta} }{n}.
+\end{equation}
+
+Wir zeigen nun
+\begin{equation}
+    \exp\left( \frac{\theta(1-2n)}{n} \right) - \exp\left( -2\theta \right) = \Var_\theta T(X)
+    > \frac{\left( \Psi'(\theta) \right)^2}{I(\theta)} = \frac{\theta e^{-2 \theta} }{n}
+\end{equation}
+indem wir äquivalente Ungleichungen betrachten.
+\begin{eqnarray}
+    \exp\left( \frac{\theta(1-2n)}{n} \right) - \exp\left( -2\theta \right) 
+    &>& \frac{\theta e^{-2 \theta} }{n} \\
+    \exp\left( \frac{\theta}{n} -2\theta \right) &>& e^{-2\theta} \left( 1+\frac{\theta}{n} \right) \\
+    \theta &>& \log \left( 1+\frac{\theta}{n} \right)^n.
+\end{eqnarray}
+Wir wissen aber, dass
+\begin{equation}
+    e^\theta = \lim_{n\to\infty} \left( 1+\frac{\theta}{n} \right)^n
+\end{equation}
+gilt, und dass die Approximationsfolge streng monoton wachsend ist. Damit ist die Ungleichung
+für alle $\theta>0$ bewiesen. Daraus können wir ableiten, dass die Schranke in der 
+Informationsungleichung nie angenommen wird.
+
+\begin{figure}[htb]
+    \begin{center}
+        \includegraphics[width=\textwidth]{figures/ue-blatt-10-fvv.pdf}
+    \end{center}
+    \caption{Varianz von $T(X)$ und die Schranke der Informationsungleichung für $n=10$.}
+    \label{fig:fvv}
+\end{figure}
+\fi
+
+
+
+
+
+
+
+\paragraph{Verschobene Gleichverteilung und Konsistenz.} 
+Die Zufallsvariablen $X_1,\ldots,X_n$ seien i.i.d.\ mit $X_i\sim U(\theta,\theta+1)$.
+Der Parameter $\theta$ sei unbekannt. Für die Schätzer $T_1(X) = \bar X -\frac{1}{2}$
+und $T_2(X)=X_{(1)} - \frac{1}{n+1}$ haben wir bereits
+\begin{eqnarray}
+    \Var_\theta T_1(X) &=& \frac{1}{12 n} \\
+    \Var_\theta T_2(X) &=& \frac{n}{\left( n+1 \right)^2\left( n+2 \right)}
+\end{eqnarray}
+gezeigt. Überprüfen Sie nun die beiden Schätzer auf schwache Konsistenz.
+
+\ifdefined\showsolutions
+\paragraph*{Lösung.} Wir wissen bereits, dass die Schätzer $T_1$ und $T_2$ erwartungstreu sind 
+sowie $E X_i = \theta + \frac{1}{2}$ gilt. Es ist leicht zu sehen, dass beide dieser Schätzer
+die Bedingungen aus der \ref{Konsistenz-Hinreichende-Bedingungen}\ Aufgabe erfüllen. 
+Es gilt für $i=1,2$
+\begin{equation}
+    E T_i^2 = \Var T_i + (E T_i)^2 <\infty
+\end{equation}
+sowie $E T_n \to \theta$ wegen erwartungstreue und $\Var T_i \to 0$. Somit sind beide dieser
+Schätzer schwach konsistent.
+
+Die Aussage kann man auch direkt  beweisen. Im Fall $T_1$ bietet sich die Anwendung
+des schwachen Gesetzes der großen Zahl an. Die schwache Konvertenz von $T_2$ gegen $\theta$ 
+folgt mit Hilfe der Markov-Ungleichung.
+\fi
+
+
+
+
+
+\paragraph{Konsistenz. Hinreichende Bedingungen. }\label{Konsistenz-Hinreichende-Bedingungen}
+Seien $X_1,\ldots,X_n$ i.i.d.\ mit Verteilung $\mathbb P_\theta$ und $\theta\in\Theta\subset\R$.
+Für jedes $n\in\mathbb N$ sei $T_n = T(X_1,\ldots,X_n)$ ein Schätzer für $\theta$ mit 
+folgenden Eigenschaften:
+\begin{enumerate}
+    \item $E_\theta(T^2_n)< \infty$ für alle $\theta\in\Theta$ und alle $n\in\mathbb N$.
+    \item $\lim_{n\to\infty}E_\theta(T_n) = \theta$ für alle $\theta\in\Theta$.
+    \item $\lim_{n\to\infty} \Var_\theta T_n = 0$ für alle $\theta\in\Theta$.
+\end{enumerate}
+Dann ist der Schätzer $T_n$ schwach konsistent, d.h.\ $T_n \to^{\mathbb P_\theta} \theta$
+für $n\to\infty$.
+
+\ifdefined\showsolutions
+\paragraph*{Lösung.} Der Schätzer $T_n$ ist schwach konsistent wenn
+\begin{equation}
+    P\left( |T_n -\theta|\geq \varepsilon \right) \to 0
+\end{equation}
+wenn $n\to\infty$ für alle $\varepsilon>0$ und $\theta\in\Theta$. Wir schätzen die obige
+Wahrscheinlichkeit mit Hilfe der Markov-Ungleichung
+\begin{equation}
+    P\left( |X|\geq \varepsilon \right) \leq \frac{E f(|X|)}{f(\varepsilon)}
+\end{equation}
+ab und erhalten für feste $n,\theta$ und $\varepsilon$
+\begin{eqnarray}
+    P\left( |T_n -\theta|\geq \varepsilon \right) &\leq& \frac{E \left( T_n -\theta \right)^2}{\varepsilon^2} \\
+    &=& \frac{E \left( T_n^2 -2\theta T_n + \theta^2 \right) }{\varepsilon^2} \\
+    &=& \varepsilon^{-2}\left( E T_n^2 - 2\theta E T_n + \theta^2 \right) \\
+    &=& \varepsilon^{-2}\left( \Var T_n + \left( E T_n \right)^2 - 2\theta E T_n + \theta^2 \right).
+\end{eqnarray}
+Laut Voraussetzung ist $T_n$ quadratisch integrierbar, daher macht die obige Berechnung Sinn.
+Für $n\to\infty$ erhalten wir
+\begin{equation}
+    \varepsilon^{-2}\left( \Var T_n + \left( E T_n \right)^2 - 2\theta E T_n + \theta^2 \right) \to 0
+\end{equation}
+und daraus
+\begin{equation}
+    P\left( |T_n -\theta|\geq \varepsilon \right) \to 0.
+\end{equation}
+Der Schätzer $T_n$ ist also schwach Konsistent.
+\fi
+
+
+
+
+
+
+
+\paragraph{Asymptotische Verteilung von MLE.   }   Seien $X_1,\ldots,X_n$ i.i.d.\ mit 
+der Dichte $p(x,\theta)= \theta x^{\theta-1}1_{(0,1)}(x)$ für $\theta>0$. Finden Sie 
+einen Maximum-Likelihood-Schätzer für $\theta$ und seine asymptotische Verteilung.
+
+\ifdefined\showsolutions
+\paragraph*{Lösung.} Die Likelihoodfunktion der Stichprobe $x_1,\ldots,x_n$ ist
+\begin{eqnarray}
+    L(x,\theta) &=& \prod_i p(x_i, \theta) = \theta^n \prod_i x_i^{\theta-1}.
+\end{eqnarray}
+Daraus erhalten wir
+\begin{eqnarray}
+    l(x,\theta) &=& \log L(x,\theta) \\
+    &=& n \log \theta + (\theta-1) \sum_{i}^{} \log x_i \\
+    \frac{\partial}{\partial\theta} l(x,\theta) &=&  \frac{n}{\theta} + \sum_{i}^{} \log x_i \\
+    \frac{\partial^2}{\partial \theta^2} l(x,\theta) &=& -\frac{n}{\theta^2} < 0 \quad \forall\theta>0.
+\end{eqnarray}
+Aus der Gleichung
+\begin{equation}
+    \frac{\partial}{\partial\theta} l(x,\theta) = 0
+\end{equation}
+erhalten wir den Maximum-Likelihood-Schätzer
+\begin{equation}
+    \hat \theta(X_1,\ldots,X_n) = - \frac{n}{\sum_{i}^{} \log X_i}.
+\end{equation}
+
+Wir berechnen die Fischer-Information pro Beobachtung. 
+\begin{eqnarray}
+    I_1(\theta) &=& E_\theta \left( \frac{\partial}{\partial \theta} \log p_\theta(X) \right)^2 \\
+    &=& E_\theta \left( \frac{\partial}{\partial\theta} \log \theta + (\theta-1) \log X \right)^2 \\
+    &=& E_\theta \left( \frac{1}{\theta} + \log X \right)^2 \\
+    &=& E_\theta \left( \frac{1}{\theta^2} + \frac{2}{\theta} \log X + (\log X)^2 \right)
+\end{eqnarray}
+Es gilt nun
+\begin{eqnarray}
+    E_\theta \log X &=&  \int_{0}^{1} \log x \theta x^{\theta-1} dx = \int_{0}^{1} \log x (x^{\theta})' dx \\
+    &=& x^\theta \log x \Big|_0^1 - \int_{0}^{1} \frac{x^{\theta-1}}{\theta} dx = - \frac{1}{\theta} \\
+    E_\theta (\log X)^2 &=&  \int_{0}^{1} (\log x)^2 \theta x^{\theta-1} dx \\ 
+    &=& x^\theta (\log x)^2 \Big|_0^1 - \int_{0}^{1} 2(\log x) x^{\theta-1} dx = \frac{2}{\theta^2} \\
+\end{eqnarray}
+Die Fischer-Information ist nun
+\begin{eqnarray}
+    I_1(\theta) &=& \frac{1}{\theta^2}
+\end{eqnarray}
+und die asymptotische Verteilung von $\hat \theta$ erfüllt
+\begin{equation}
+    \sqrt{n}\left( \hat\theta_n(X) - \theta_0 \right) \xrightarrow{\mathcal{L}} \mathcal N(0, \theta^2)
+\end{equation}
+falls die Bedingungen \textsc{(ar)} erfüllt sind. Das ist in der Tat der Fall denn der Parameterraum
+$\Theta=\R_{>0}$ offen ist. Weiters gilt
+\begin{eqnarray}
+    \int_{0}^{1} \frac{\partial^2}{\partial\theta^2} p(x,\theta) dx &=& 
+    \int_{0}^{1} \frac{\partial^2}{\partial\theta^2} \theta x^{\theta-1} dx \\
+    &=&  \int_{0}^{1} \theta\,x^{\theta-1}\,\log ^2x+2\,x^{\theta-1}\,\log x dx\\
+    &=& \left[   x^{\theta} \log^2x  \right]_0^1 = 0
+\end{eqnarray}
+und
+\begin{eqnarray}
+    A(\theta,x) &=& \frac{\partial^2}{\partial \theta^2} \log p(x,\theta) \\
+    &=& \frac{\partial^2}{\partial \theta^2} \log \theta + (\theta-1) \log x \\
+    &=& -\frac{1}{\theta ^2}. 
+\end{eqnarray}
+$A(\theta,x)$ ist von $x$ unabhängig und daher gleichmässig beschränkt in einer
+hinreichend kleinen Umgebung von $\theta_0$ die $0$ nicht enthält. $K$ kann daher konstant 
+gewählt werden. Die Fisher-Information ist positiv und aus $p(x,\theta)=p(x,\theta_0)$ f.s.\ in
+$x\in\R$ folgt $\theta=\theta_0$ denn $p(x,\theta)= \theta x^{\theta-1}$ ein Polynom in $x$ ist. 
+Damit sind die \textsc{(ar)} Regularitätsbedingungen erfüllt und obige Aussage über die
+asymptotische Verteilung des \textsc{mle} gerechtfertigt.
+\fi
+
+
+
+
+
+
+
+
+\paragraph{Asymptotische Effizienz. } Seien $X_1,\ldots,X_n$ i.i.d.\ mit $E X_1=\mu\neq 0$,
+$\Var X_1 = 1$ und $E X_1^4 < \infty$. Der Erwartungswert $\mu$ sei unbekannt. 
+Ferner seien 
+\begin{eqnarray}
+    T_1(X) &=& \frac{1}{n} \sum_{i=1}^{n} \left( X_i^2 -1 \right) \\
+    T_2(X) &=& {\bar X}^2 - \frac{1}{n}
+\end{eqnarray}
+zwei Schätzer für $\mu^2$. Zeigen Sie, dass $T_1$ und $T_2$ asymptotisch normalverteilt sind
+und berechnen Sie deren asymptotische Erwartung und Varianz. Berechnen Sie 
+die asymptotische Effizienz von $T_1$ zu $T_2$. Zeigen Sie, dass die asymptotische
+Effizienz von $T_1$ zu $T_2$ nicht größer ist als $1$, falls Verteilung von $X_1 -\mu$
+um $0$ symmetrisch ist.
+
+\ifdefined\showsolutions
+\paragraph*{Lösung. } Betrachten wir zunächst den Schätzer $T_1$. Wir erhalten
+\begin{eqnarray}
+    E X_i^2 &=&  \Var X_i + \left( E X_i \right)^2 = 1 + \mu^2  \\
+    \sqrt{n} \left( T_1 - \mu^2 \right) &=& 
+    \sqrt{n}\left( \frac{1}{n} \sum_{i}^{} X_i^2 -1 -\mu^2 \right) \to_d \mathcal N(0, \Var X_i^2)
+\end{eqnarray}
+indem wir zentralen Grenzverteilungssatz auf Zufallsvariablen $X_i^2$ anwenden. $\Var X_i^2$ existiert
+nach Voraussetzung.
+
+Wir bestimmen die asymptotische Verteilung von $T_2$. Zentraler Grenzverteilungssatz liefert uns
+\begin{equation}
+    \sqrt{n}\left( \bar X - \mu \right) \to_d \mathcal N(0,1).
+\end{equation}
+Mit Hilfe der Delta-Methode und des Satzes von
+\href{http://books.google.de/books?id=6anRT6Cz5GAC&lpg=PA101&dq=Slutsky's%20theorem&hl=de&pg=PA101#v=onepage&q&f=false}{Slutsky}
+erhalten wir
+\begin{equation}
+    \sqrt{n}\left( T_2 - \mu^2 \right) =
+    \sqrt{n}\left( {\bar X}^2 - \mu^2 \right) - \frac{1}{\sqrt{n}} \to_d 
+    2\mu \mathcal N(0,1) = \mathcal N(0, 4\mu^2).
+\end{equation}
+%Im Falle $\mu=0$ ergibt sich aus $\sqrt{n}\left( \bar X \right) \to_d \mathcal N(0,1)$ 
+%\begin{eqnarray}
+%    n\left( T_2 - \mu^2 \right) &=&  n\left( {\bar X}^2 - \frac{1}{n} \right) \\
+%    &=& n {\bar X}^2 -1 \to_d \mathcal N(0,1)^2 -1 = \chi_1^2 -1.
+%\end{eqnarray}
+%Sei $V$ eine $\chi_1^2$-verteilte Zufallsvariable. Es gilt
+%\begin{eqnarray}
+%    E \left( V-1 \right) &=& 0, \\
+%    \Var \left( V-1 \right) &=& 2.
+%\end{eqnarray}
+Die asymptotische Effizienz von $T_1$ zu $T_2$ ist gegeben durch
+\begin{equation}
+    e(\theta, T_1, T_2) = \frac{4\mu^2}{\Var X_1^2}
+%        \left\{
+%            \begin{array}{ll}
+%                \frac{4\mu^2}{\Var X_1^2}  & \mbox{if } \mu\neq 0 \\
+%                \frac{2}{n \Var X_1^2} & \mbox{if } \mu=0
+%            \end{array}
+%        \right.
+\end{equation}
+
+Ist die Verteilung $X_1 - \mu$ symmetrisch um $0$, so ist die Schiefe der Verteilung
+gleich $0$, d.h.\ $E \left( X_1 -\mu \right)^3=0$ und wir können mit Hilfe der
+Jensenschen Ungleichung auf
+\begin{equation}
+    \Var X_1^2 \geq 4 \mu^2
+\end{equation}
+und $e\geq 1$ schliessen.
+\fi
+
+
+
+
+
+
+
+
+\paragraph{Konfidenzintervalle. Normalverteilung. } Seien $X_1,\ldots,X_n$ i.i.d.\ mit 
+$X_i\sim \mathcal N(\mu,\sigma^2)$, wobei sowohl $\mu$ als auch $\sigma$ unbekannt seien.
+Zeigen Sie, dass
+\begin{equation}
+    \left[ \frac{n-1}{\chi^2_{n-1,1-\alpha/2}}s^2(X), \frac{n-1}{\chi^2_{n-1,\alpha/2}}s^2(X) \right]
+    \label{}
+\end{equation}
+win $\left( 1-\alpha \right)$-Konfidenzintervall für $\sigma^2$ ist, wobei
+$s^2(X)$ die Stichprobenvarianz und $\chi^2_{n,a}$ das $a$-Quantil der $\chi^2_n$-Verteilung bezeichnen.
+
+\ifdefined\showsolutions
+\paragraph*{Lösung.} Die Verteilung der Stichprobenvarianz ist bereits bekannt.
+\begin{equation}
+    \frac{(n-1) s^2(X)}{\sigma^2} = \sum_{i}^{} \left( \frac{ X_i -\bar X}{\sigma} \right)^2
+    \sim \chi^2_{n-1}
+\end{equation}
+Das Konfidenzintervall erhalten wir aus
+\begin{eqnarray}
+    P \left( \frac{n-1}{\chi^2_{n-1,1-\frac{\alpha}{2}} } s^2(X) 
+    \leq \sigma^2 \leq 
+    \frac{n-1}{ \chi^2_{n-1,\frac{\alpha}{2}} } s^2(X)
+    \right) &=& \\
+    P \left( \frac{n-1}{\sigma^2} s^{2}(X) \leq \chi^2_{n-1,1-\frac{\alpha}{2}} \wedge
+    \chi^2_{n-1,\frac{\alpha}{2}} \leq \frac{n-1}{\sigma^2} s^2(X)
+    \right) &=& 1-\alpha.
+\end{eqnarray}
+\fi
+
+
+
+
+
+
+
+
+\paragraph{Konfidenzintervalle. Exponentialverteilung.  }
+Seien $X_1,\ldots,X_n$ i.i.d.\ exponentialverteilt mit der Dichte
+\begin{equation}
+    p_\theta(x) = \theta e^{- \theta x} 1_{ \R_{>0} }(x).
+\end{equation}
+Zeigen Sie, dass 
+\begin{equation}
+    \left[  \frac{- \log \left( 1 - \frac{\alpha}{2} \right)}{n X_{(1)}}, 
+    \frac{- \log \left( \frac{\alpha}{2} \right)}{n X_{(1)}} \right]
+\end{equation}
+ein $(1-\alpha)$-Konfidenzintervall für $\theta$ ist.
+
+\ifdefined\showsolutions
+\paragraph*{Lösung.} Zu zeigen ist folgende Gleichung, die das 
+Konfidenzintervall charakterisiert:
+\begin{equation}
+    P\left(   \frac{- \log \left( 1 - \frac{\alpha}{2} \right)}{n X_{(1)}} \leq \theta \leq 
+    \frac{- \log \left( \frac{\alpha}{2} \right)}{n X_{(1)}} \right) = 1-\alpha.
+\end{equation}
+Betrachten wir die Wahrscheinlichkeiten
+\begin{eqnarray}
+    P \left( n\theta X_{(1)}\geq x \right) &=&  \prod_i P \left( n\theta X_i \geq x \right) \\
+    &=& \prod_i P\left( X_i \geq \frac{x}{n\theta} \right) \\
+    &=& \prod_i e^{-\frac{x}{n}} = e^{-x}.
+\end{eqnarray}
+Die Gleichung
+\begin{equation}
+    P \left( c_1(\alpha) \leq n\theta X_{(1)} \leq c_2(\alpha) \right) = 
+    e^{-c_1(\alpha)} - e^{-c_2(\alpha)} = 1-\alpha
+\end{equation}
+ist unter anderem für $c_1 = -\log \left( 1-\frac{\alpha}{2} \right)$ und
+$c_2 = -\log \left( \frac{\alpha}{2} \right)$ erfüllt.
+\fi
+
+
+
+
+
+\paragraph{Konfidenzintervalle. Varianzenvergleich bei Normalverteilung. } 
+Seien $X_1,\ldots,X_n,Y_1,\ldots,Y_n$ unabhängig und normalverteilt, mit 
+$X_i \sim \mathcal N(0, \sigma^2_X)$, $Y_i \sim \mathcal N(0, \sigma^2_Y)$
+und unbekannten Parametern $\sigma^2_X>0$ und $\sigma^2_Y>0$. 
+Zeigen Sie, dass für $S^2_X = \sum_{i=1}^{n} X_i^2$ und $S^2_Y = \sum_{i=1}^{n} Y_i^2$
+\begin{equation}
+    \left[ F^{-1}_{n,n} \left( \frac{\alpha}{2} \right) \frac{S_Y^2}{S_X^2},
+    F^{-1}_{n,n} \left( 1 - \frac{\alpha}{2}  \right) \frac{S_Y^2}{S_X^2}     \right]
+\end{equation}
+ein $(1-\alpha)$-Konfidenzintervall für den Quotienten $\frac{\sigma^2_Y}{\sigma^2_X}$ ist.
+$F_{n,n}$ bezeichnet dabei die Verteilungsfunktion der $F_{n,n}$-Verteilung.
+
+\ifdefined\showsolutions
+\paragraph*{Lösung.} Zu zeigen ist die Gleichung
+\begin{equation}
+    P \left[ F^{-1}_{n,n} \left( \frac{\alpha}{2} \right) \frac{S_Y^2}{S_X^2} \leq 
+    \frac{\sigma^2_Y}{\sigma^2_X} \leq
+    F^{-1}_{n,n} \left( 1 - \frac{\alpha}{2}  \right) \frac{S_Y^2}{S_X^2}     \right]
+    = 1-\alpha.
+\end{equation}
+Es gilt aber 
+\begin{equation}
+    \frac{\sigma^{-2}_X S^2_X  }{ \sigma^{-2}_Y S^2_Y} = 
+    \frac{\sum_{i}^{} \left( \frac{X_i}{\sigma_X} \right)^2  }{ \sum_{i}^{} \left( \frac{Y_i}{\sigma_Y} \right)^2 } \sim F_{n,n}.
+\end{equation}
+\fi
+
+
+
+\paragraph{Tests. Mittelwertvergleich unter Normalverteilung. } 
+Seien die Zufallsvariablen $X_1,\ldots,X_n$, $Y_1,\ldots,Y_n$ unabhängig und normalverteit, 
+mit $X_i\sim\mathcal N(\mu_X, \sigma^2_X)$ und $Y_i\sim\mathcal N(\mu_Y, \sigma^2_Y)$.
+Die Mittelwerte $\mu_X$ und $\mu_Y$ sind dabei unbekannt, die Varianzen dagegen
+$\sigma_X^2>0$, $\sigma^2_Y>0$ bekannt und fix.
+\begin{enumerate}
+    \item Zeigen Sie, dass 
+        \begin{equation}
+            \bar X - \bar Y \pm \sqrt{ \frac{\sigma^2_X + \sigma^2_Y}{n}  }z_{1-\frac{\alpha}{2}}
+        \end{equation}
+        ein $(1-\alpha)$-Konfidenzintervall für die Differenz der Mittelwerte $\mu_X - \mu_Y$ ist.
+    \item Konstruieren Sie einen Test zu dem Signifikanzniveau von $5\%$ für die Hypothese
+        $H_0: \mu_X = \mu_Y$ gegen die Alternative $H_1: \mu_X \neq \mu_Y$.
+    \item Drücken Sie die Gütefunktion zu dem Test aus Teil (2) in Abhängigkeit von
+        $\Delta = \mu_X -\mu_Y$ aus und skizzieren Sie die Gütefunktion. 
+\end{enumerate}
+
+\ifdefined\showsolutions
+\paragraph*{Lösung.} Wir betrachten
+\begin{equation}
+    P\left( \bar X - \bar Y - \sqrt{ \frac{\sigma^2_X + \sigma^2_Y}{n}  }z_{1-\frac{\alpha}{2}} \leq \mu_X - \mu_Y \leq \bar X - \bar Y + \sqrt{ \frac{\sigma^2_X + \sigma^2_Y}{n}  }z_{1-\frac{\alpha}{2}}   \right) = 1-\alpha.
+\end{equation}
+Und daraus
+\begin{eqnarray}
+    P \left(  - \sqrt{ \frac{\sigma^2_X + \sigma^2_Y}{n}  }z_{1-\frac{\alpha}{2}} \leq
+    \bar Y -\mu_Y -\left( \bar X - \mu_X \right) \leq 
+    \sqrt{ \frac{\sigma^2_X + \sigma^2_Y}{n}  }z_{1-\frac{\alpha}{2}}
+    \right) &=& \\ 
+    P \left(  - z_{1-\frac{\alpha}{2}} \leq
+    \frac{ \bar Y -\mu_Y -\left( \bar X - \mu_X \right)  }{  \sqrt{ \frac{\sigma^2_X + \sigma^2_Y}{n}  } } 
+    \leq  z_{1-\frac{\alpha}{2}} 
+    \right).
+\end{eqnarray}
+Mit
+\begin{equation}
+    \bar Y - \mu_Y - \left( \bar X - \mu_X \right) \sim 
+    \mathcal N\left(0, \frac{\sigma^2_X}{n} + \frac{\sigma^2_Y}{n}   \right)
+\end{equation}
+erhalten wir die erste Gleichung.  
+Wir setzen
+\begin{eqnarray}
+    \theta_1 &=& \bar X - \bar Y - \sqrt{ \frac{\sigma^2_X + \sigma^2_Y}{n}  }z_{1-\frac{\alpha}{2}} \\
+    \theta_2 &=& \bar X - \bar Y + \sqrt{ \frac{\sigma^2_X + \sigma^2_Y}{n}  }z_{1-\frac{\alpha}{2}} 
+\end{eqnarray}
+und konstruieren den Test
+\begin{equation}
+    \delta\left( X,0 \right) = 1_{ \left\{ 0 \nin \left[ \theta_1,\theta_2 \right] \right\} }.
+\end{equation}
+Mit $\alpha=0.05$ ist $\delta(X,0)$ der gesuchte Test mit Signifikanzniveau $5\%$.
+
+Berechnen wir die Gütefunktion des Tests $\delta\left( X,0 \right)$. Mit $\theta=\left( \mu_X,\mu_Y \right)$
+und $\sigma= \sqrt{\frac{\sigma_X^2 + \sigma_Y^2}{n}}$ erhalten wir
+\begin{eqnarray}
+    G_\delta(\theta) &=&  E_\theta \left( \delta \left( X,0) \right)  \right) \\
+    &=& P_\theta \left( \delta(X,0) = 1 \right) \\
+    &=& P_\theta \left( 0 \leq \bar X - \bar Y - \sigma z_{1-\frac{\alpha}{2}} \vee
+        \bar X - \bar Y + \sigma z_{1-\frac{\alpha}{2}} \leq 0\right) \\
+    &=& P_\theta \left( \frac{\bar X - \bar Y}{\sigma} \geq z_{1-\frac{\alpha}{2}} \vee
+    \frac{\bar X - \bar Y}{\sigma} \leq z_{\frac{\alpha}{2}}\right).
+\end{eqnarray}
+Sei nun $Z\sim\mathcal N(0,1)$ und $\Delta=\mu_X - \mu_Y$. 
+Da $\frac{\bar X -\bar Y}{\sigma}\sim \mathcal N(\mu_X-\mu_Y,1)$ können wir die Gütefunktion des 
+Test folgendermassen notieren
+\begin{eqnarray}
+    G_\delta (\Delta) &=& P \left( Z \leq z_{\frac{\alpha}{2}} -\Delta \vee
+    Z \geq z_{1-\frac{\alpha}{2}} -\Delta \right)  \\
+    &=& \Phi\left( z_{\frac{\alpha}{2}} - \Delta\right) 
+    + 1 - \Phi\left( z_{1-\frac{\alpha}{2}} -\Delta \right). 
+\end{eqnarray}
+
+
+\begin{figure}[htb]
+    \begin{center}
+        \includegraphics[width=\textwidth]{figures/ue-blatt-12-power.pdf}
+    \end{center}
+    \caption{Die Gütefunktion des Tests $\delta(X,0)$ mit Signifikanzniveau $\alpha=0.05$.}
+    \label{fig:power}
+\end{figure}
+
+
+\begin{lstlisting}[language=R,caption={R Code zum Plotten der Gütefunktion}]
+require(ggplot2)
+alpha=.05
+X=seq(-6,6,0.05)
+g <- function(delta) {
+    return( pnorm(qnorm(alpha/2) - delta ) +1 -pnorm(qnorm(1-alpha/2)-delta))  
+}
+qplot(X,g(X), geom="line", xlab="Delta", ylab="Guete")
+\end{lstlisting}
+\fi
+
+
+
+
+
+
+
+\paragraph{Test. Poisson-Verteilung. }
+Seien $X_1,\ldots,X_n$ i.i.d.\ Poisson-verteilt mit unbekanntem Parameter $\lambda>0$.
+\begin{enumerate}
+    \item Verwenden Sie die natürliche suffiziente Statistik, um einen Test mit Signifikanzniveau
+         $\alpha$ für die Hypothese $H_0: \lambda\leq\lambda_0$ gegen die Alternative
+         $H_1: \lambda>\lambda_0$ zu finden. Konstruieren Sie dazu zunächst einen Test für die
+         Hypothese $\lambda=\lambda_0$ und zeigen Sie, dass die Gütefunktion streng monoton 
+         wachsend in $\lambda$ ist. Benutzen Sie den zentralen Grenzwertsatz, um eine 
+         Approximation für den kritischen Wert zu finden.
+     \item Seien $\alpha=0.05$, $n=200$, $\sum_{i=1}^{200} X_i= 2085$ und $\lambda_0=10$. Klären
+         Sie, ob die Hypothese $H_0: \lambda\leq\lambda_0$ verworfen wird und bestimmen Sie den 
+         $p$-Wert.
+\end{enumerate}
+
+\ifdefined\showsolutions
+\paragraph*{Lösung.}
+Wir konstruieren zunächst einen Test für 
+\begin{equation}
+    H_0 : \lambda=\lambda_0 \quad \textrm{gegen} \quad H_1 : \lambda>\lambda_0
+\end{equation}
+und werden anschließend zeigen, dass $H_0: \lambda=\lambda_0$ durch
+$H_0: \lambda<\lambda_0$ ersetzt werden kann.
+
+Die Wahrscheinlichkeitsfunktion der Poisson-Verteilung ist
+\begin{eqnarray}
+    p_\lambda(x) &=& P\left( X_i=x \right) = e^{-\lambda} \frac{\lambda^x}{x!} \\
+    &=& \exp \left( x \log \lambda -\lambda - \log x! \right),
+\end{eqnarray}
+woraus wir die natürliche suffiziente Statistik $T(X)= \sum_{i}^{} X_i$ ablesen können.
+Betrachten wir also den Test
+\begin{equation}
+    \delta_j (X) = 1_{ \left\{ T(X) >j \right\}  } \left( X \right)
+\end{equation}
+für $j>0$. Die Güte dieses Tests ist 
+\begin{eqnarray}
+    G_{\delta_j} (\lambda) &=&  E_\lambda \delta(X) = P_\lambda \left( \delta(X)=1 \right) \\
+    &=& P_\lambda \left( T(X) > j \right) =  1-P_\lambda \left( T(X) \leq j \right) \\
+    &=& 1 - \sum_{i=0}^{j} e^{-\lambda n} \frac{\left( \lambda n \right)^i}{i!}, \\
+\end{eqnarray}
+da $T(X)\sim$ Poiss($n\lambda$). Wir legen $j=j(\alpha)$ so fest, dass der Test $\delta_j$ 
+Signifikanzniveau $\alpha$ hat, d.h.\ 
+\begin{equation}
+    G_\delta (\lambda_0) = 1 - \sum_{i=0}^{j} e^{-\lambda n} \frac{\left( \lambda n \right)^i}{i!} \leq \alpha.
+\end{equation}
+Die Gütefunktion ist streng monoton wachsend, denn die Ableitung nach $\lambda$ 
+\begin{eqnarray}
+    \frac{\partial}{\partial \lambda} G_\delta (\lambda) &=& 
+    n e^{-\lambda n} \sum_{i=0}^{j} \frac{\left( \lambda n \right)^i}{i!} 
+    - n e^{ -\lambda n } \sum_{i=1}^{j} \frac{ i \left( \lambda n  \right)^{i-1} }{i!} \\
+    &=& e^{-\lambda n }n \left[ \sum_{i=0}^{j} \frac{\left( \lambda n \right)^i}{i!}   
+    - \sum_{i=0}^{j-1} \frac{ \left( \lambda n  \right)^{i} }{i!} \right] > 0 
+\end{eqnarray}
+ist positiv, solange $\lambda>0$ gilt. Die Hypothese $H_0 : \lambda=\lambda_0$ kann also 
+durch $H_0 : \lambda\leq \lambda_0$ ersetzt werden, ohne dass Anpassung des Signifikanzniveaus 
+notwendig ist.
+
+Berechnen wir nun eine Approximation für $j=j(\alpha)$ vom zentralen Grenzwertsatz ausgehend.
+\begin{eqnarray}
+    P_{\lambda_0} \left( T(X) > j \right) &=& P_{\lambda_0} \left( \sum_{i}^{} X_i > j \right) \\
+    &=& P_{\lambda_0} \left( \sum_{i}^{} X_i -\lambda_0 > j - \lambda_0 \right) \\
+    &=& P_{\lambda_0} \left( \frac{1}{\sqrt{n}} \sum_{i}^{} \frac{ X_i - \lambda_0}{ \sqrt{\lambda_0}} > \frac{j-n\lambda_0}{\sqrt{\lambda_0}}\frac{1}{\sqrt{n}} \right) \\
+    &\simeq& 1-\Phi \left( \frac{j-n\lambda_0}{\sqrt{\lambda_0}}\frac{1}{\sqrt{n}}  \right). 
+\end{eqnarray}
+Aus
+\begin{equation}
+    1-\Phi \left( \frac{j-n\lambda_0}{\sqrt{\lambda_0 n}} \right) = \alpha
+\end{equation}
+erhalten wir
+\begin{eqnarray}
+    \frac{j-n\lambda_0}{\sqrt{\lambda_0 n}} &=&  z_{1-\alpha} \\
+    j &=&  \sqrt{\lambda_0 n} z_{1-\alpha} + n\lambda_0.
+\end{eqnarray}
+Für $\alpha=0.05$, $n=200$, $\sum_{i}^{}X_i=2085$ und $\lambda_0=10$ ist $j\simeq 2073.56$,
+und somit wird in diesem Fall die Nullhypothese nicht verworfen.
+
+% j <- function(alpha, n, sumXi, lambda) { return(  sqrt(lambda*n)*qnorm(1-alpha) + n*lambda    )  } 
+% j(0.05,200,2085,10) 
+\fi
+
+
+
+
+
+
+
+
+\paragraph{Test. Exponentialverteilung. } Seien $X_1,\ldots,X_n$ i.i.d.\ und exponentialverteilt
+zum Parameter $\theta$. Der Mittelwert werde mit $\mu=\theta^{-1}$ bezeichnet.
+Man interessiert sich für den Test $H_0 : \mu \leq \mu_0$ gegen die Alternative $H_1 : \mu > \mu_0$.
+\begin{enumerate}
+    \item Sei $c_{1-\alpha}$ das $(1-\alpha)$-Quantil der $\chi^2_{2n}$-Verteilung. Zeigen Sie, dass
+        ein Test mit Verwerfungsbereich
+        \begin{equation}
+            \left\{ \bar X \geq \frac{\mu_0 c_{1-\alpha}}{2n} \right\}
+        \end{equation}
+        ein Test mit Signifikanzniveau $\alpha$ ist.
+    \item Bestimmen Sie die Güte des Tests aus Punkt 1 an der Stelle $\mu$.
+    \item Zeigen Sie, dass 
+        \begin{equation}
+            \Phi\left( \frac{\mu_0 z_\alpha}{\mu} + \sqrt{n} \frac{\mu-\mu_0}{\mu} \right) 
+        \end{equation}
+        eine Approximation der Güte des Tests aus Punkt 1 an der Stelle $\mu$ ist, wobei $\Phi$ die
+        Verteilungsfunktion und $z_\alpha$ das $\alpha$-Quantil der Standardnormalverteilung bezeichnen.
+    \item Gegeben sei folgende Stichprobe:
+        \begin{equation}
+            3,150,40,34,32,37,34,2,31,6,5,14,150,27,4,6,27,10,30,27.
+        \end{equation}
+        Berechnen Sie den $p$-Wert zum Test aus Punkt 1 und interpretieren Sie diesen für gegebenes $\mu_0=25$.
+\end{enumerate}
+
+\ifdefined\showsolutions
+\paragraph*{Lösung. } Die Verteilungen in dieser Aufgabe gehören zur Gamma-Familie, denn
+$\chi^2_{2n}=$ Gamma($n,\frac{1}{2}$) und Exp$(\theta) =$ Gamma($1,\theta$). Die Dichte von $\chi^2_n$ ist ja 
+\begin{equation}
+    p_{\chi^2_n} (x) = 
+    \frac{1}{2^{\frac{n}{2}} \Gamma\left( \frac{n}{2} \right)} x^{ \frac{n}{2} -1}e^{-\frac{x}{2}} 1_{\R_{>0}}(x).
+\end{equation}
+Das Signifikanzniveau des Tests ist also
+\begin{eqnarray}
+    P_{\mu_0} \left( \bar X \geq \frac{ \mu_0 c_{1-\alpha} }{2n} \right)  
+    &=& P_{\mu_0} \left( \frac{2}{\mu_0} \sum_{i}^{} X_i  > c_{1-\alpha}   \right) \\
+    &=& P_{\mu_0} \left( 2 \theta_0 \sum_{i}^{} X_i > c_{1-\alpha} \right) = \alpha
+\end{eqnarray}
+denn 
+\begin{eqnarray}
+    X_i & \sim & \textrm{Exp}(\theta) \\
+    \sum_{i}^{} X_i & \sim & \textrm{Gamma}(n,\theta) \\
+    2\theta \sum_{i}^{} X_i & \sim & \textrm{Gamma}(n,\frac{1}{2}).
+\end{eqnarray}
+
+Die Güte des Tests ist
+\begin{eqnarray}
+    G_\delta (\theta) &=&  E_\theta \delta(X) \\
+    &=& P_\theta \left( \bar X  \geq \frac{\mu_0 c_{1-\alpha}}{2n} \right) \\
+    &=& P_\theta \left( 2 \sum_{i}^{} X_i \geq \frac{c_{1-\alpha}}{\theta_0} \right).
+\end{eqnarray}
+Nachdem $2 \sum_{i} X_i \sim $ Gamma($n, \frac{\theta}{2}$) gilt, können wir 
+\begin{equation}
+    Z = 2 \theta \sum_{i}^{} X_i \sim \textrm{Gamma}(n,\frac{1}{2})
+\end{equation}
+setzen und erhalten
+\begin{equation}
+    G_\delta(\theta) = P \left( Z \geq \frac{\theta}{\theta_0} c_{1-\alpha} \right).
+\end{equation}
+
+Um die Güte des Tests zu approximieren, entwickeln wir zunächst eine approximative 
+Version des Tests selbst. Das hat den Vorteil, dass hier das Signifikanzniveau 
+genauer kontrolliert werden kann. Wir berechnen zunächst mit Hilfe der Gleichung
+\begin{eqnarray}
+    P_{\mu_0} \left( \sum_{i}^{} X_i \geq c \right) \leq \alpha
+\end{eqnarray}
+den approximativen Verwerfungsbereich $\left[ c,+\infty \right]$.
+\begin{eqnarray}
+    P_{\mu_0} \left( \frac{1}{\sqrt{n}} \sum_{i}^{} \frac{X_i - \mu_0}{\mu_0} \geq \frac{1}{\sqrt{n}} 
+    \frac{c -n\mu_0}{ \mu_0}\right) &\leq& \alpha \\
+    \Phi \left( \frac{1}{\sqrt{n} } \frac{n \mu_0 - c}{\mu_0}  \right) &=&  \alpha \\
+    n \mu_0 - \mu_0 \sqrt{n} z_\alpha &=&  c
+\end{eqnarray}
+Daraus errechnet sich wie folgt die approximative Güte des Tests.
+\begin{eqnarray}
+    P_\mu \left( \frac{1}{\sqrt{n}} \sum_{i}^{} \frac{X_i - \mu}{\mu} \geq \frac{1}{\sqrt{n}} \frac{c-n \mu}{ \mu}   \right) &=&  \Phi \left( \frac{1}{\sqrt{n}} \frac{n \mu - c}{ \mu} \right) \\
+    &=& \Phi \left( \frac{1}{\sqrt{n}} \frac{n \mu - \left( n \mu_0 -\mu_0 \sqrt{n} z_\alpha \right)}{\mu} \right) \\
+    &=& \Phi \left( \sqrt{n} \frac{\mu - \mu_0}{\mu} + z_\alpha \frac{\mu_0}{\mu} \right).
+\end{eqnarray}
+
+Für eine feste Beobachtung $X$ ist der $p$-Wert des Tests das kleinste Signifikanzniveau, 
+bei welchem der Test die Nullhypothese $H_0$ verwirft. Für die Berechnung des $p$-Werts
+benutzen wir die approximative Version des Tests. Dieser Test verwirft $H_0$, wenn
+$\sum_{i}^{} X_i \geq c = n \mu_0 - \mu_0 \sqrt{n} z_\alpha$. Das ist äquivalent zu
+\begin{eqnarray}
+    \sum_{i}^{} X_i &\geq & n \mu_0 - \mu_0 \sqrt{n} z_\alpha \\ 
+    \Phi \left(  - \frac{ \sum_{i}^{} X_i -n \mu_0   }{\sqrt{n} \mu_0} \right) &\leq& \alpha \\
+\end{eqnarray}
+Das kleinste $\alpha$, das diese Ungleichung erfüllt, ist der $p$-Wert
+\begin{equation}
+    \Phi \left(  - \frac{ \sum_{i}^{} X_i -n \mu_0   }{\sqrt{n} \mu_0} \right).
+\end{equation}
+Für die oben angegebene Stichprobe und $\mu_0=25$ ist der $p$-Wert gleich $0.0653$, was als
+Evidenz gegen die Nullhypothese interpretiert werden kann.
+
+% X=c(3,150,40,34,32,37,34,2,31,6,5,14,150,27,4,6,27,10,30,27)
+% n=length(X); mu_0=25
+% pnorm((n*mu_0 - sum(X))/(sqrt(n)*mu_0) )
+\fi
+
+
+
+
+
+
+
+\paragraph{UMP-Test. Rayleigh-Verteilung. } Seien $X_1,\ldots,X_n$ i.i.d.\ und Rayleigh-verteilt
+zum unbekannten Parameter $\theta>0$, d.h.\ $X_1$ hat die Dichte 
+\begin{equation}
+    p_\theta(x) = \frac{x}{\theta^2} e^{- \frac{x^2}{2\theta^2}} 1_{\R_{>0}}(x).
+\end{equation}
+\begin{enumerate}
+    \item Finden Sie eine optimale Teststatistik $T_n$ für
+        \begin{equation}
+            H_0 : \theta\leq 1 \quad \textrm{gegen} \quad H_1 : \theta >1.
+        \end{equation}
+    \item Konstruieren Sie unter Benutzung von $T_n$ einen \textsc{ump}-Test mit Signifikanzniveau 
+        $\alpha$, wobei der kritische Wert $c$ approximativ mit Hilfe des zentralen Grenzwertsatzes
+        bestimmt werden soll.
+\end{enumerate}
+
+\ifdefined\showsolutions
+\paragraph*{Lösung. } Der Likelihoodquotient für das Testproblem $H_0: \theta=1$ gegen $H_1 : \theta=\nu$
+\begin{eqnarray}
+    L(x,1,\nu) &=& 
+    \frac{\prod_i \frac{x_i}{\nu^2} \exp \left( -\frac{x_i^2}{2 \nu^2} \right)}{ \prod_i x_i \exp \left( - \frac{x_i^2}{2} \right)  } \\
+    &=& \frac{1}{ \nu^{2n}} \exp\left( \left( \frac{1}{2} -\frac{1}{2 \nu^2} \right) \sum_{i}^{} x_i^2 \right)\\
+\end{eqnarray}
+ist eine optimale Teststatistik. $T(X)=f(L(x,1,\nu))= \sum_{i}^{} X_i^2$ 
+ist auch eine optimale Teststatistik, denn
+\begin{equation}
+    f(\eta) = \frac{ \log \left( \nu^{2n} \eta \right) }{\frac{1}{2} - \frac{1}{2\nu^2}}
+\end{equation}
+ist monoton wachsend. Der Test
+\begin{equation}
+    \delta_k(X) = 1_{  \left\{ \sum_{i}^{}X_i^2 \geq k \right\} }
+\end{equation}
+ist ein \textsc{np}-Test für $H_0: \theta=1$ gegen $H_1 : \theta= \nu$ für alle $\nu>1$.
+Daher ist $\delta_k$ auch ein \textsc{ump}-Test für das Testproblem $H_0: \theta=1$ gegen $H_1 : \theta>1$.
+Um dieses Resultat auf das Testproblem $H_0: \theta \leq 1$ gegen $H_1 : \theta>1$ zu verallgemeinern, zeigen
+wir, dass $G_{\delta_k}(1)\geq G_{\delta_k} (\theta)$ für alle $\theta \in (0,1)$ gilt und somit wird das
+Signifikanzniveau auf der nun erweiterten Menge $\Theta_0 = \left\{ \theta\leq 1 \right\}$ gehalten.
+
+Für ein positives $k$ ist 
+\begin{eqnarray}
+    P \left( X_i^2 \geq k \right) &=& P \left( X \geq \sqrt{k}  \right) \\
+    &=& \int_{\sqrt{k}}^{\infty} \frac{x}{\theta^2} e^{ - \frac{x^2}{ 2 \theta^2}} d x \\
+    &=& \int_{\frac{k}{\theta^2}}^{\infty} e^{-z} dz
+\end{eqnarray}
+monoton fallend, also gilt $P_\theta \left( X_i^2 \geq k \right) \leq \alpha$ für $\theta\in (0,1)$,
+wenn $P_1 \left( X_i^2 \geq k \right)\leq \alpha$ gilt.
+
+Konstruieren wir nun mit Hilfe des zentralen Grenzwertsatzes einen zum Signifikanzniveau 
+$\alpha$ gehörigen Verwerfungsbereich $\left\{ \theta>k \right\}$. Zunächst berechnen wir
+\begin{eqnarray}
+    E X^{2n} &=&  \int_{0}^{\infty} x^{2n} \frac{x}{\theta^2} \exp \left( - \frac{x^2}{2\theta^2} \right) dx \\
+    &=&  \int_{0}^{\infty} \left( 2 \theta^2 z \right)^n e^{-z} dz \\
+    &=& 2^n \theta^{2n} \int_{0}^{\infty} z^{(n+1)-1}e^{-z} dz  \\
+    &=& 2^n \theta^{2n} \Gamma(n+1) = 2^n \theta^{2n} n!
+\end{eqnarray}
+und daraus $E X^2 = 2 \theta^2$, $E X^4 = 8 \theta^4$, $\Var X^2 = 4 \theta^4$ sowie
+\begin{eqnarray}
+    P \left( \sum_{i} X_i^2 \geq k \right)&=&  
+    P \left( \sum_{i}^{} \frac{X_i^2 - \mu}{\sqrt{n} \sigma} \geq \frac{k -n \mu}{\sqrt{n} \sigma} \right) \\
+    &=& P \left( \sum_{i}^{} \frac{X_i^2 - 2}{2\sqrt{n}} \geq \frac{k-2n}{2\sqrt{n}} \right) \\
+    &\simeq & \Phi \left( \frac{2n -k}{2 \sqrt{n}} \right). 
+\end{eqnarray}
+Schließlich erhalten wir aus $P \left( T(X) \geq k \right) \leq \alpha$ die Approximation
+\begin{eqnarray}
+    \Phi\left( \frac{2n - k}{ 2\sqrt{n}}  \right) &\leq & \alpha \\
+    k &=& 2n - 2 \sqrt{n} z_\alpha.
+\end{eqnarray}
+\fi
+
+
+
+
+
+\paragraph{Optimaler Test. Pareto-Verteilung. }  Eine Zufallsvariable heißt Pareto-Verteilt
+zu den Parametern $k>0,a>0$, falls sie die Dichte 
+\begin{equation}
+    p(x) = a k^a x^{-a-1} 1_{\R_{>k}}(x)
+\end{equation}
+besitzt. $X_1,\ldots,X_n$ seien i.i.d.\ Pareto$(k,a)$-verteilt, wobei $k=1$ und $a$ unbekannt sei.
+Zeigen Sie, dass $T(X_1,\ldots,X_n)= \sum_{i=1}^{n} \log\left( X_i \right)$ eine optimale 
+Teststatistik für
+\begin{equation}
+    H_0 : \frac{1}{a} \leq \frac{1}{a_0} \quad \textrm{gegen} \quad H_1 : \frac{1}{a} > \frac{1}{a_0}
+\end{equation}
+ist.
+
+\ifdefined\showsolutions
+\paragraph*{Lösung. } Substituieren wir zunächst $\tilde a = \frac{1}{a}$. Das Testproblem lässt sich
+nun schreiben als $H_0: \tilde a \leq \tilde a_0$ gegen $H_1: \tilde a > \tilde a_0$. Die gemeinsame
+Dichte der Zufallsvariablen $X_1,\ldots,X_n$ kann in exponentieller Form notiert werden
+\begin{eqnarray}
+    p_{\tilde a} &=& \prod_i \frac{1}{\tilde a} x_i^{ -\frac{1}{\tilde a} -1 } 1_{\R_{>1}}(x_i) \\
+    &=& \exp \left( \left( -\frac{1}{\tilde a} -1 \right) \sum_{i}^{}\log x_i
+    -n \log \tilde a \right) 1_{\R_{>1}^n}(x_1,\ldots,x_n), \\
+\end{eqnarray}
+woraus wir $c(\tilde a)=-\frac{1}{\tilde a} -1$ und $T(X)= \sum_{i}^{} \log X_i$ ablesen können.
+Die Funktion $c(\tilde a)$ ist streng monoton wachsend, denn $c'(\tilde a ) >0$ für alle $\tilde a>0$. 
+Die Statistik $T(X)$ ist daher optimal für das Testproblem. 
+\fi
+
+
+
+
+
+
+
+\paragraph{KQS ist auch MLS im Normalverteilungsfall. }
+Zeigen Sie, dass der Kleinste-Quadrate-Schätzer $\hat \beta$ auch Maximum-Likelihood-Schätzer 
+im allgemeinen linearen Modell ist, falls $\varepsilon \sim \mathcal N(0, \sigma^2 I_n)$.
+
+\ifdefined\showsolutions
+\paragraph*{Lösung. } Betrachten wir ein allgemeines lineares Model
+\begin{equation}
+    Y_i =  X_i \beta+ \varepsilon_i, \quad i=1,\ldots,n.
+\end{equation}
+Dabei ist $\beta$ der $p$-dimensionale Vektor der Modelparameter, den wir schätzen wollen,
+$X_i$ sind Zeilen einer bekannten Matrix $X\in\R^{n\times p}$ und 
+$\left( \varepsilon_1, \ldots, \varepsilon_n \right)$ sind i.i.d. mit 
+$\varepsilon_i \in\mathcal N(0,\sigma^2)$, $\sigma>0$. Die Beobachtung
+$Y=\left( Y_1,\ldots,Y_n \right)$ ist demnach multivariat normalverteilt, d.h.\ 
+$Y\sim\mathcal N(X\beta,\sigma^2 I_n)$. $Y_i$ sind i.i.d.\ mit
+$Y_i\sim\mathcal N(X_i \beta, \sigma^2 )$ und die Likelihoodfunktion der Beobachtung 
+$y=\left( y_1,\ldots, y_n \right)$ ist 
+\begin{eqnarray}
+    L(Y, \beta) &=&  \prod_i \frac{1}{ \sqrt{2\pi} \sigma} 
+    \exp\left( - \frac{1}{2} \left( \frac{y_i - X_i \beta }{\sigma}  \right)^2 \right) \\
+    &=& \left( \frac{1}{\sqrt{2\pi}\sigma} \right)^n 
+    \exp \left( -\frac{1}{2 \sigma^2} \sum_{i}^{} \left( y_i - X_i\beta \right)^2 \right).
+\end{eqnarray}
+Bis auf die positive multiplikative Konstante $\left( \sqrt{2 \pi}\sigma \right)^{-n}$ ist 
+die Log-Likelihood-Funktion gleich
+\begin{eqnarray}
+    l(Y, \beta) &=& -\frac{1}{2 \sigma^2}  \sum_{i}^{} \left( y_i - X_i \beta \right)^2 
+\end{eqnarray}
+Die Maximierung von $l(Y, \beta)$ ist gleichbedeutend mit der Minimierung von 
+\begin{equation}
+    \sum_{i}^{} \left( y_i - X_i \beta \right)^2 = \| y - X \beta \|^2, 
+\end{equation}
+was genau die Eigenschaft des Kleinste-Quadrate-Schätzers ist. 
+
+Beachten Sie, dass wir in den obigen Überlegungen nicht
+$\textrm{Rang}\left( X \right)=p$ annehmen mussten.
+\fi
+
+
+
+
+
+
+
+\paragraph{Einfache lineare Regression. } Seien folgende Beobachtungen von $(x_i)$ und $(y_i)$ 
+gegeben.
+
+\begin{lstlisting}
+    X   26  23  27  28  24  25
+    Y   179 150 160 175 155 150
+\end{lstlisting}
+\begin{enumerate}
+    \item Berechnen Sie die Kleinste-Quadrate-Schätzer für $\beta_0$ und $\beta_1$
+        der einfachen linearen Regression $Y_i = \beta_0 + \beta_1 x_i + \varepsilon_i$.
+    \item Veranschaulichen Sie die Daten und die Regressionsgerade graphisch.
+\end{enumerate}
+
+\ifdefined\showsolutions
+\paragraph*{Lösung.  } Das betrachtete lineare Model hat die Form
+\begin{equation}
+    Y_i = X_i \beta + \varepsilon_i, \quad i=1,\ldots, 6
+\end{equation}
+mit der Designmatrix
+$$ X^\top = \left(\begin{matrix} 1&1&1&1&1&1\cr 26&23&27&28&24&25\cr \end{matrix} \right) $$
+und der Zielvariable
+\begin{equation}
+    Y^\top = \left( \begin{matrix} 179&150&160&175&155&150\cr   \end{matrix}  \right).
+\end{equation}
+Die Designmatrix hat also den vollen $\textrm{Rang}(X)=2$ und der Kleinste-Quadrate-Schätzer
+ist 
+\begin{equation}
+    \hat \beta = \left( X^\top X \right)^{-1} X^\top Y.
+\end{equation}
+Die Berechnung von $\hat \beta$ ist also eine einfache Übung in linearer Algebra. 
+\begin{eqnarray}
+    X^\top X &=&  
+    \left( {
+    \begin{array}{cc}
+        6 & 153 \\ 153 & 3919
+    \end{array} }
+    \right) \\
+    \left(  X^\top X\right)^{-1} &=& \frac{1}{105} 
+    \left( {
+    \begin{array}{cc} 
+        3919&-153 \\ -153&6
+    \end{array} }
+    \right) \\
+    \left(  X^\top X\right)^{-1} X^\top Y &=& \left(
+    \begin{array}{c}
+        \frac{1343}{35} \\ \frac{169}{35}
+    \end{array}
+    \right)
+\end{eqnarray}
+Wir erhalten also 
+\begin{eqnarray}
+    \beta_0 &=&  38.37142857142857 \\
+    \beta_1 &=&  4.828571428571428
+\end{eqnarray}
+
+Die Daten und die Regressionsgerade können mit Hilfe des folgenden R-Codes veranschaulicht werden. 
+\begin{lstlisting}
+X=c( 26, 23, 27, 28, 24, 25 )
+Y=c( 179, 150, 160, 175, 155, 150  )
+b_0 = 38.37142857142857
+b_1 = 4.828571428571428
+
+t= seq(23,28,0.01)
+
+pdf("ue-blatt-14-reg.pdf")
+plot(X,Y); lines(t, b_0 + b_1 * t, lw=2)
+dev.off()
+\end{lstlisting}
+
+\begin{figure}[htb]
+    \begin{center}
+        \includegraphics[width=\textwidth]{figures/ue-blatt-14-reg.pdf}
+    \end{center}
+    \caption{Regression von $X$ gegen $Y$}
+    \label{fig:reg}
+\end{figure}
+\fi
+
+
+
+
+
+
+
+\paragraph{Quadratisches Modell. }  Es sei das Modell
+\begin{equation}
+    Y_i = \beta_0 + \beta_1 x_i + \beta_2 x_{i}^2 + \varepsilon_i
+\end{equation}
+für $i=1,\ldots,n$ gegeben. Die zufälligen Fehler $\varepsilon_1,\ldots,\varepsilon_n$ 
+seien i.i.d.\ und $\varepsilon_i\sim \mathcal N(0,\sigma^2)$ mit $\sigma>0$.
+Geben Sie die Kleinste-Quadrate-Schätzer für $\beta_i$, $i\in \left\{ 0,1,2 \right\}$ explizit an.
+
+\ifdefined\showsolutions
+\paragraph*{Lösung. } Das Modell lässt sich in der Form
+\begin{equation}
+    Y = X \beta + \varepsilon
+\end{equation}
+schreiben. Wir nehmen an, dass die Beobachtungen $\left( x_1,\ldots, x_n \right)$ 
+voneinander verschieden sind und erhalten die Designmatrix
+\begin{equation}
+    X^\top = \left(
+    \begin{array}{cccc}
+        1       & 1     & \ldots & 1 \\
+        x_1     & x_2   & \ldots & x_n \\
+        x_1^2   & x_2^2 & \ldots & x_n^2
+    \end{array}
+    \right)
+\end{equation} 
+mit $\textrm{Rang}(X) = 3$. Daraus ergibt sich
+\begin{equation}
+    X^\top X = \left(
+    \begin{array}{ccc}
+        \sum_{i}^{} x_i^0 & \sum_{i}^{} x_i^1 & \sum_{i}^{} x_i^2 \\
+        \sum_{i}^{} x_i^1 & \sum_{i}^{} x_i^2 & \sum_{i}^{} x_i^3 \\
+        \sum_{i}^{} x_i^2 & \sum_{i}^{} x_i^3 & \sum_{i}^{} x_i^4 \\
+    \end{array}
+    \right)
+\end{equation}
+und mit der Bezeichnung $T_k = \sum_{i}^{} x_i^k$ 
+\begin{eqnarray}
+    \Delta &=&  \det \left( X^\top X \right) \\
+    &=& { T_0}\,\left({ T_2}\,{ T_4}-{ T_3}^2\right)-{ T_1}\,\left({ T_1}\,{ T_4}-{ T_2}\,{ T_3}\right)+{ T_2}\,\left({ T_1}\,{ T_3}-{ T_2}^2\right).
+\end{eqnarray}
+Die Regel von Cramer liefert die Inverse der Matrix $X^\top X$, nämlich
+\begin{eqnarray}
+    \left( X^\top X \right)^{-1} &=& \Delta^{-1} \left(
+    \begin{array}{ccc}
+{ T_2}\,{ T_4}-{ T_3}^2&{ T_2}\,{ T_3}-
+ { T_1}\,{ T_4}&{ T_1}\,{ T_3}-{ T_2}^2\cr { T_2}\,
+ { T_3}-{ T_1}\,{ T_4}&{ T_0}\,{ T_4}-{ T_2}^2&
+ { T_1}\,{ T_2}-{ T_0}\,{ T_3}\cr { T_1}\,{ T_3}-
+ { T_2}^2&{ T_1}\,{ T_2}-{ T_0}\,{ T_3}&{ T_0}\,
+ { T_2}-{ T_1}^2
+    \end{array}
+    \right). 
+\end{eqnarray}
+Sei $Z = X^\top Y$, d.h.\
+\begin{equation}
+    Z = \left(
+    \begin{array}{c}
+        Z_1 \\ Z_2 \\ Z_3
+    \end{array}
+    \right) = \left(
+    \begin{array}{c}
+        \sum_{i}^{} Y_i \\ \sum_{i}^{} Y_i x_i \\ \sum_{i} Y_i x_i^2
+    \end{array}
+    \right).
+\end{equation}
+Der Kleinste-Quadrate-Schätzer 
+$\hat \beta = \left( X^\top X \right)^{-1} X^\top Y = \left( X^\top X \right)^{-1} Z$ ist dann explizit
+gegeben durch
+\begin{equation}
+    \beta_0 = 
+\frac{\left({ T_1}\,{ T_3}-{ T_2}^2\right)\,{ Z_2}+
+ \left({ T_2}\,{ T_3}-{ T_1}\,{ T_4}\right)\,{ Z_1}+
+ \left({ T_2}\,{ T_4}-{ T_3}^2\right)\,{ Z_0}}{
+ \left({ T_0}\,{ T_2}-{ T_1}^2\right)\,{ T_4}-{ T_0}\,
+ { T_3}^2+2\,{ T_1}\,{ T_2}\,{ T_3}-{ T_2}^3},
+\end{equation}
+\begin{equation}
+    \beta_1 = 
+-  \frac{\left({ T_0}\,{ T_3}-{ T_1}\,{ T_2}\right)\,
+ { Z_2}+\left({ T_2}^2-{ T_0}\,{ T_4}\right)\,{ Z_1}+
+ \left({ T_1}\,{ T_4}-{ T_2}\,{ T_3}\right)\,{ Z_0}
+ }{\left({ T_0}\,{ T_2}-{ T_1}^2\right)\,{ T_4}-
+ { T_0}\,{ T_3}^2+2\,{ T_1}\,{ T_2}\,{ T_3}-{ T_2}^
+ 3},
+\end{equation}
+und
+\begin{equation}
+    \beta_2 = 
+ \frac{\left({ T_0}\,{ T_2}-{ T_1}^2\right)\,{ Z_2}+
+ \left({ T_1}\,{ T_2}-{ T_0}\,{ T_3}\right)\,{ Z_1}+
+ \left({ T_1}\,{ T_3}-{ T_2}^2\right)\,{ Z_0}}{
+ \left({ T_0}\,{ T_2}-{ T_1}^2\right)\,{ T_4}-{ T_0}\,
+ { T_3}^2+2\,{ T_1}\,{ T_2}\,{ T_3}-{ T_2}^3}.
+\end{equation}
+\fi
+

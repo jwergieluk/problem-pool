@@ -1,0 +1,140 @@
+
+
+\paragraph{Independence and transformations. } Let random variables $X_1,\ldots,X_n$ and
+$Y_1,\ldots,Y_k$ satisfy $X_i \upmodels Y_j$ for all $i$ and $i$.
+\begin{enumerate}
+    \item It follows that $g(X_i)$ and $h(Y_j)$ are independent for any $i$ and $j$.
+    \item A generalization of the above result is not true. Given
+any Borel functions $f$ and $g$ of suitable dimensionality 
+$f(X_1,\ldots,X_n)$ may be not independent of $g(Y_1,\ldots,Y_k)$.
+\end{enumerate}
+
+
+\paragraph{Monotonic transformations of RVs. }   A monotonic transformation of a real
+valued random variable with continuous distribution function has continuous
+distribution function. 
+%\url{http://math.stackexchange.com/questions/78101/monotonic-transformation-of-continuous-random-variable-are-continuous}
+
+
+\paragraph{Transformations of matringales.} (a) If $M$ is a martingale and
+$\varphi$ is a convex function such that each $\varphi(M_t)$ is integrable,
+show that $\varphi(M)$ is a submartingale.  (b) If in (a) $M$ is a submartingale,
+and $\varphi$ is also non-decreasing on the range of $M$, show that again $\varphi(M)$ is a
+submartingale.
+
+
+\paragraph{Basic properties of local martingales. } A bounded local martingale is a 
+true martingale. A local martingale with bounded jumps is a honest martingale.
+
+
+\paragraph{Levy martingales.  } Every Levy process which is a local martingale is also a true martingale.
+
+
+\paragraph{Maximum processes of the Brownian Motion. } 
+Show that the process $W - W^*$ has independent increments. $W$ denotes
+Brownian Motion and $X^*_t= \max_{0 \leq s \leq t} X_s$ is the maximum process of 
+a \cadlag process $X$.
+
+
+
+\paragraph{Independence. }
+Let $(\Omega, \mathcal A, P)$ be a probablity space and let $\mathcal F$ and
+$\mathcal G$ be two independent sub-$\sigma$-algebras of $\mathcal A$.
+
+\begin{enumerate} 
+\item If $X: \Omega \to (\R, \mathcal B)$ is a
+    real-valued random variable and $X$ is both $\mathcal F$-measurable
+    and $\mathcal G$-measurable then $X$ is a.s.~constant.
+\end{enumerate}
+
+
+\paragraph{Gamma distribution. Basic facts. }
+
+Characterised by the density, non-zero for positive $x$:
+\begin{equation}
+p_{\alpha, \beta}(x) = \frac{\beta^\alpha}{ \Gamma(\alpha)} x^{\alpha-1}e^{-\beta x}
+\end{equation}
+
+\begin{enumerate}
+\item Let $X$ and $Y$ be non-degenerate and independent. 
+    $X+Y$ and $\frac{X}{X+Y}$ are independent iff $X$ and $Y$
+    are both Gamma distributed with the same scale parameter. 
+    \src Lukacs 1953.
+\end{enumerate}
+
+
+
+
+
+\paragraph{A basic submartinale transformation}
+Let $M$ be a submartingale and $\varphi$ a non-decreasing function
+on the range of $M$. If $\varphi M_t$ is integrable for each $t$ then 
+$\left( \varphi M_t \right)_t$ is again a submartingale.
+
+
+
+
+\paragraph{Flow of information}
+For a given $X$ decribe the class of random varibles with properies
+\begin{enumerate}
+\item $E X|Y = X$,
+\item $\textrm Var X|Y = X$, and
+\item $\textrm Var Y|X = \textrm Var Y$.
+\end{enumerate}
+
+Do you need any assumptions? What is the context of this problem again?  
+
+
+
+
+\paragraph{Not Feller by discontinuity at zero}
+Find a Markov process viotating the continuity part of 
+the Feller property, namely
+\begin{equation}
+\lim_{t\to 0} P_t f(x) = f(x) \quad \forall f \in C_0 \ \forall x\in \R
+\end{equation}
+but perhaps preserving the $C_0$ property $P_t C_0 \subset C_0$.
+
+
+
+
+
+
+
+\paragraph{Convergence of a compounded Poisson process}
+What is the convergence behavior for $k\to \infty$ of the process 
+\begin{equation}
+X = \left(  \frac{1}{k} N_t^k - t  \right)_t
+\end{equation}
+where $N^k$ is a Poisson process with intensity $k$. 
+
+\begin{enumerate}
+\item Is it clear that $E\left( X_t \right) \to t$ and $\textrm{Var} \left( X_t \right)\to 0$.
+\item Do we also have ucp convergence?
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+\paragraph{Quasi-left-continuity}
+A process $X$ is said to be quasi-left-continuous if for every stopping
+time $\tau$ and a seqence of stopping times $\tau_n$ increasing to $\tau$
+\begin{equation}
+X_{\tau_n} \to X_{\tau}
+\label{}
+\end{equation}
+holds almost surely.
+\begin{enumerate}
+\item This means the jumps of $X$ can not be predicted.
+\item Every Poisson process is quasi-left-continuous.
+\end{enumerate}
+
+
+
+
+
