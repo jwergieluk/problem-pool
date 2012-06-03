@@ -2,6 +2,43 @@
 
 
 
+\paragraph{Stoppzeiten. } Seien $T,S$ Stoppzeiten bezüglich der Filtration
+$\left( \cF_t \right)_{t \geq 0}$. 
+\begin{enumerate}
+    \item Ist $T \equiv t_0>0$ eine fixe Zeit, so ist $\cF_T=\cF_{t_0}$.
+\end{enumerate}
+
+\paragraph*{Lösung. }
+\begin{enumerate}
+    \item \begin{eqnarray}
+            \cF_T &=& 
+            \left\{ A\in\bF : A \cap \left\{ t_0 \leq t \right\}\in\cF_t \ \forall t\geq 0 \right\} \\
+            &=& \left\{ A\in\bF : A\in\cF_t \ \forall t\geq t_0 \right\} = \cF_{t_0}.
+        \end{eqnarray}
+\end{enumerate}
+
+
+\paragraph{Stoppzeiten und optionale Zeiten. } Eine optionale Zeit $O$ bezüglich
+der Filtration $\bF=\left( \cF_t \right)_{t \geq 0}$ ist eine Stoppzeit, wenn 
+$\bF$ rechtsstetig ist, d.h.\ $\cF_t=\cF_{t+}$ $\forall t$ gilt.
+
+\paragraph*{Lösung.}  Betrachte die Darstellung
+\begin{eqnarray}
+    \left\{ T \leq t \right\} = \bigcap_{\varepsilon\in\bQ^{+}} \left\{ T > t+\varepsilon \right\}
+    = \lim_{\varepsilon\to 0, \varepsilon\in\bQ} \left\{ T > t+\varepsilon \right\}.
+\end{eqnarray}
+Der Schnitt ist als Mengengrenzwert zu verstehen, weil die Mengen $\left\{ T >
+t+\varepsilon \right\}$ ineinandergeschachtelt sind. $\left\{ T \leq t \right\}\in \bF_{t+}$
+genau dann, wenn $\left\{ T \leq t \right\}\in \bF_{t+\varepsilon^{*}}$ $\forall \varepsilon^{*}>0$.
+Es gilt aber für ein fixes $\varepsilon^{*}$
+\begin{equation}
+    \left\{ T \leq t \right\}\ = 
+    \bigcap_{\varepsilon\in\bQ^{+}, \varepsilon\leq \varepsilon^{*}} \left\{ T > t+\varepsilon \right\} 
+    \in\bF_{t+\varepsilon^{*}},
+\end{equation}
+denn es ein abzählbarer Schnitt der Mengen $\left\{ T> t+\varepsilon
+\right\}\in\bF_{t+\varepsilon^{*}}$ ist. Behauptung gilt wegen $\cF_t=\cF_{t+}$ $\forall t$.
+
 
 \paragraph{Pfadeigenschaften und Filtration. }  Sei $X$ ein stochastischer Prozess, $\cF^{X}$
 die von $X$ erzeugte Filtration und $\cG$ eine Filtration, die alle
@@ -50,7 +87,7 @@ Die Parameter $\alpha, \beta$ und $\sigma$ sind reelle Zahlen und $\sigma>0$.
             \Var X_t &=& \frac{\sigma^2}{2\beta}\left( 1- e^{-2\beta t} \right)
         \end{eqnarray} 
         her.
-    \item Zeigen Sie, dass $X_t$ normalverteilt ist.
+    \item Zeigen Sie, dass $X_t$ normalverteilt ist. 
 \end{enumerate}
 
 \ifdefined\showsolutions
