@@ -1,0 +1,25 @@
+
+
+\paragraph{Eine Darstellung des Erwartungswertes. } Sei $X$ eine
+positive Zufallsvariable mit $\E X < \infty$. 
+\begin{enumerate}
+    \item Ist $X \in \bN$ diskret, so gilt
+        \begin{equation}
+            E X = \sum_{n\in\bN}^{} P(X>n).
+        \end{equation}
+    \item Ist $X$ reellwertig, so gilt
+        \begin{equation}
+            E X = \int_{0}^{\infty} P(X>\lambda) d\lambda.
+        \end{equation}
+    \item Ist $X$ reellwertig und $E X^p<\infty$ für ein $p>0$, so gilt
+        \begin{eqnarray}
+            E X^p = \int_{0}^{\infty} p\lambda^{p-1} P(X>\lambda) d\lambda.
+        \end{eqnarray}
+\end{enumerate} 
+
+\paragraph*{Lösung.} Das ist eine Anwendung des Satzes von Fubini.
+
+
+
+
+% vim: set spelllang=de; set spell
