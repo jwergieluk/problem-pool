@@ -1,4 +1,4 @@
-\documentclass[11pt,oldfontcommands,twoside,a4paper]{memoir}
+\documentclass[12pt,oldfontcommands,oneside,a4paper,article]{memoir}
 \usepackage[utf8]{inputenc}\usepackage[T1]{fontenc}
 
 
@@ -13,15 +13,17 @@
 
 
 \begin{document}
-\chapterstyle{bringhurst}
-\frontmatter
+\chapterstyle{section}
+%\frontmatter
 \maketitle
-\newpage
+%\newpage
 \tableofcontents
 
-\mainmatter
+%\mainmatter
 
-\setcounter{secnumdepth}{4}\renewcommand{\theparagraph}{\arabic{chapter}.\arabic{paragraph}}
+\setcounter{secnumdepth}{4}
+%\renewcommand{\theparagraph}{\arabic{chapter}.\arabic{paragraph}}
+\renewcommand{\theparagraph}{\arabic{paragraph}.}
 \renewcommand{\theenumi}{\Alph{enumi}.}
 \renewcommand{\labelenumi}{\theenumi}
 

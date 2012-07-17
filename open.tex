@@ -1,46 +1,36 @@
 
 
-
-\paragraph{Gausschen Zufallsvariablen und Unabhängigteit. } Seien $X$ und $Y$ standard normalverteilt 
-und unabhängig. Dann sind die Zufallsvariablen $U = \frac{X-Y}{\sqrt{2}}$ und $V=\frac{X+Y}{\sqrt{2}}$
-ebenfalls standard normalverteilt und unabhängig. 
-
-
-\paragraph{Independence and transformations. } Let random variables $X_1,\ldots,X_n$ and
-$Y_1,\ldots,Y_k$ satisfy $X_i \upmodels Y_j$ for all $i$ and $i$.
-\begin{enumerate}
-    \item It follows that $g(X_i)$ and $h(Y_j)$ are independent for any $i$ and $j$.
-    \item A generalization of the above result is not true. Given
-any Borel functions $f$ and $g$ of suitable dimensionality 
-$f(X_1,\ldots,X_n)$ may be not independent of $g(Y_1,\ldots,Y_k)$.
-\end{enumerate}
+\paragraph{Stochastisches Integral einer deterministischen Funktion. } Sei
+$f: \R\in\R$ eine deterministische meßbare Funktion. Zeigen Sie 
+\begin{equation}
+    \int_{0}^{t} f(s) d W_s \sim \cN(0, \int_{0}^{t} f^2(s) ds). 
+\end{equation}
 
 
-\paragraph{Monotonic transformations of RVs. }   A monotonic transformation of a real
-valued random variable with continuous distribution function has continuous
-distribution function. 
-%\url{http://math.stackexchange.com/questions/78101/monotonic-transformation-of-continuous-random-variable-are-continuous}
+\paragraph{Monotonic transformations of RVs.} A monotonic transformation of
+a real valued random variable with continuous distribution function has
+continuous distribution function. 
+
+\url{http://math.stackexchange.com/questions/78101/monotonic-transformation-of-continuous-random-variable-are-continuous}
 
 
-\paragraph{Transformations of matringales.} (a) If $M$ is a martingale and
-$\varphi$ is a convex function such that each $\varphi(M_t)$ is integrable,
-show that $\varphi(M)$ is a submartingale.  (b) If in (a) $M$ is a submartingale,
-and $\varphi$ is also non-decreasing on the range of $M$, show that again $\varphi(M)$ is a
-submartingale.
+\paragraph{} $X$ und $Y$ seien unabhängige Zufallsvariablen. $X$ sei symmetrisch, 
+d.h.\ $X$ und $-X$ sind gleichverteilt. Dann gilt
+\begin{equation}
+    \E \| X \|^p \leq \E \| X + Y \|^p.
+\end{equation}
+Gilt die obige Ungleichung, wenn $X$ und $Y$ nicht unabhängig sind oder wenn 
+$X$ nicht symmetrisch verteilt ist?
 
 
-\paragraph{Basic properties of local martingales. } A bounded local martingale is a 
-true martingale. A local martingale with bounded jumps is a honest martingale.
+\paragraph*{Solution. } The real problem here is to show that if $X \upmodels Z$
+and $Y \upmodels Z$ the $X+Z \sim Y+Z$. 
 
 
-\paragraph{Levy martingales.  } Every Levy process which is a local martingale is also a true martingale.
-
-
-\paragraph{Maximum processes of the Brownian Motion. } 
-Show that the process $W - W^*$ has independent increments. $W$ denotes
-Brownian Motion and $X^*_t= \max_{0 \leq s \leq t} X_s$ is the maximum process of 
-a \cadlag process $X$.
-
+\paragraph{Gausschen Zufallsvariablen und Unabhängigteit. } Seien $X$ und $Y$
+standard normalverteilt und unabhängig. Dann sind die Zufallsvariablen $U =
+\frac{X-Y}{\sqrt{2}}$ und $V=\frac{X+Y}{\sqrt{2}}$ ebenfalls standard
+normalverteilt und unabhängig. 
 
 
 \paragraph{Independence. }
@@ -54,41 +44,35 @@ $\mathcal G$ be two independent sub-$\sigma$-algebras of $\mathcal A$.
 \end{enumerate}
 
 
-\paragraph{Gamma distribution. Basic facts. }
 
-Characterised by the density, non-zero for positive $x$:
-\begin{equation}
-p_{\alpha, \beta}(x) = \frac{\beta^\alpha}{ \Gamma(\alpha)} x^{\alpha-1}e^{-\beta x}
-\end{equation}
-
+\paragraph{Pfadeigenschaften und Filtration. }  Sei $X$ ein stochastischer Prozess, $\cF^{X}$
+die von $X$ erzeugte Filtration und $\cG$ eine Filtration, die alle
+$\cF$-Nullmengen enthält und $\cF^{X}_t \subset \cG_t$ $\forall t$ erfüllt.
+Sei $A \subset \Omega$ das Ereignis, dass $X$ stetig auf $[0, t_0)$ ist. 
 \begin{enumerate}
-\item Let $X$ and $Y$ be non-degenerate and independent. 
-    $X+Y$ and $\frac{X}{X+Y}$ are independent iff $X$ and $Y$
-    are both Gamma distributed with the same scale parameter. 
-    \src Lukacs 1953.
+    \item Falls alle Pfade von $X$ c\`adl\`ag sind, dann ist $A \in \cF^{X}_{t_0}$.
+    \item Falls $X$ c\`adl\`ag ist, dann gilt $A \in \cG_{t_0}$, aber nicht
+        notwendigerweise $A \in \cF^{X}_{t_0}$.
 \end{enumerate}
+Quelle: \cite{Karatzas1991}.
 
 
 
 
 
-\paragraph{A basic submartinale transformation}
-Let $M$ be a submartingale and $\varphi$ a non-decreasing function
-on the range of $M$. If $\varphi M_t$ is integrable for each $t$ then 
-$\left( \varphi M_t \right)_t$ is again a submartingale.
+\paragraph{Messbarkeitsbegriffe. } Sei $X$ ein stochastischer Prozess. Ist $X$
+progressiv messbar, so folgt $X$ ist messbar und adaptiert.
 
 
 
+\paragraph{Levy martingales.} Every Levy process which is a local martingale is
+also a true martingale.
 
-\paragraph{Flow of information}
-For a given $X$ decribe the class of random varibles with properies
-\begin{enumerate}
-\item $E X|Y = X$,
-\item $\textrm Var X|Y = X$, and
-\item $\textrm Var Y|X = \textrm Var Y$.
-\end{enumerate}
 
-Do you need any assumptions? What is the context of this problem again?  
+\paragraph{Maximum processes of the Brownian Motion. } Show that the process $W
+- W^*$ has independent increments. $W$ denotes Brownian Motion and $X^*_t=
+\max_{0 \leq s \leq t} X_s$ is the maximum process of a \cadlag process $X$.
+
 
 
 
@@ -107,40 +91,15 @@ but perhaps preserving the $C_0$ property $P_t C_0 \subset C_0$.
 
 
 
-\paragraph{Convergence of a compounded Poisson process}
-What is the convergence behavior for $k\to \infty$ of the process 
-\begin{equation}
-X = \left(  \frac{1}{k} N_t^k - t  \right)_t
-\end{equation}
-where $N^k$ is a Poisson process with intensity $k$. 
-
+\paragraph{Independence and transformations. } Let random variables
+$X_1,\ldots,X_n$ and $Y_1,\ldots,Y_k$ satisfy $X_i \upmodels Y_j$ for all $i$
+and $i$.
 \begin{enumerate}
-\item Is it clear that $E\left( X_t \right) \to t$ and $\textrm{Var} \left( X_t \right)\to 0$.
-\item Do we also have ucp convergence?
+    \item It follows that $g(X_i)$ and $h(Y_j)$ are independent for any $i$ and
+        $j$.
+    \item A generalization of the above result is not true. Given any Borel
+        functions $f$ and $g$ of suitable dimensionality $f(X_1,\ldots,X_n)$
+        may be not independent of $g(Y_1,\ldots,Y_k)$.
 \end{enumerate}
-
-
-
-
-
-
-
-
-
-\paragraph{Quasi-left-continuity}
-A process $X$ is said to be quasi-left-continuous if for every stopping
-time $\tau$ and a seqence of stopping times $\tau_n$ increasing to $\tau$
-\begin{equation}
-X_{\tau_n} \to X_{\tau}
-\label{}
-\end{equation}
-holds almost surely.
-\begin{enumerate}
-\item This means the jumps of $X$ can not be predicted.
-\item Every Poisson process is quasi-left-continuous.
-\end{enumerate}
-
-
-
 
 
