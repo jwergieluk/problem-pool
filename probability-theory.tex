@@ -42,6 +42,104 @@ auf dem Intervall $[0,1]$, dann ist $Y = -\log X$ exponentialverteilt.
 
 
 
+\paragraph{Erwartungstreue der Stichprobenvarianz. }  Seien $X_1,\ldots,X_n$ 
+i.i.d. (independent indentically distributed = unabhängig identisch verteilt) mit 
+Varianz $\sigma^2$. Die Stichprobenvarianz ist definiert durch
+\begin{equation*}
+    s^2(X) := \frac{1}{n-1} \sum_{i=1}^{n} (X_i - \bar X)^2.
+\end{equation*}
+Dann gilt $E(s^2(X)) = \sigma^2$, d.h.~die Stichprobenvarianz ist erwartungstreu.
+% (A 1.3)
+
+
+\paragraph{Geraden Momente der Normalverteilung. } Zeigen Sie, dass für eine
+standardnormalverteilte Zufallsvariable $X$ und $n \in \N$
+\begin{equation*}
+    E\left( X^{2n} \right) = \frac{(2n)!}{2^n \cdot n!}
+\end{equation*}
+gilt. % A1.11
+
+
+\paragraph{Faltungsformel. } Haben $X$ und $Y$ die Dichten $p_X$ und $p_Y$ und beide
+sind unabhängig, so ist die Dichte von der Summe $Z=X+Y$ gegeben durch
+\begin{equation*}
+    p_Z(z) = \int_{\R}^{} p_X(x)p_Y(z-x) dx.
+\end{equation*}
+% (A 1.30)
+
+
+\paragraph{Momentenerzeugende Funktion einer Gamma-Verteilung. }
+Sei $X \sim \textrm{Gamma}(a, \lambda)$. Zeigen Sie, dass für $s<\lambda$
+\begin{equation*}
+    \Psi_X(s) = E \left( e^{sX} \right) = \frac{\lambda^a}{ (\lambda-s)^a}
+\end{equation*}
+gilt. Bestimmen Sie damit den Erwartungswert und die Varianz von $X$. %A 1.12
+
+
+
+\paragraph{Eine Transformation der Gamma-Verteilung. } Seien $X \sim
+\textrm{Gamma}(\alpha_1, \beta)$ und $Y \sim \textrm{Gamma}(\alpha_2, \beta)$
+zwei unabhängige Zufallsvariablen.  Zeigen Sie, dass $\frac{X}{ X+Y}$ und $X+Y$
+unabhängig sind. % (A 1.7)
+
+
+
+
+\paragraph{Summen von normalverteilten Zufallsvariablen. }
+Sind die Zufallsvariablen $X_1,\ldots,X_n$ unabhängig und normalverteilt
+mit $X_i \sim \mathcal N (\nu_i, \sigma_i^2)$, so ist die Summe
+wieder normalverteilt mit 
+\begin{equation*}
+    \sum_{i=1}^{n} X_i \sim 
+    \mathcal N \left( \sum_{i=1}^{n} \nu_i, \sum_{i=1}^{n} \sigma_i^2 \right). 
+\end{equation*}
+%(A 1.31)
+
+\paragraph{Dichte der multivariaten Normalverteilung. } Zeigen Sie, dass 
+$X \sim \mathcal N_p\left( \mu, \Sigma \right) $ folgende Dichte hat, falls 
+$\textrm{Rang}(\Sigma)=p$: 
+\begin{equation*}
+    p(x) = \frac{1}{ \textrm{det}(\Sigma)^{1/2} (2\pi)^{p/2}} \exp\left( - \frac{1}{2} (x  - \mu)^\top \Sigma^{-1} (x - \mu) \right).
+\end{equation*}  %(A 1.37)
+
+
+\paragraph{Rayleigh-Verteilung. }  Seien $X$ und $Y$ unabhängig und 
+$\mathcal N (0, \sigma^2)$-verteilt. Dann ist
+\begin{equation*}
+    Z= \sqrt{X^2 + Y^2} 
+\end{equation*}
+Rayleight-verteilt, d.h. 
+$Z$ hat die Dichte $\frac{z}{\sigma^2}e^{-\frac{z^2}{2\sigma^2}}1_{\R>0}(z)$.
+Es gilt $E\left( Z \right) = \sigma \sqrt{\pi/2}$ und 
+$\Var\left( Z \right) = \sigma^2 \left( 2 - \frac{2}{\pi} \right)$.
+
+
+\paragraph{Dichte der $\chi^2$-Verteilung. }   Seien $X_1,\ldots,X_n$ unabhängige und
+standardnormalverteilte Zufallsvariablen. Dann folgt $Y= \sum_{i=1}^{n} X_i^2$ einer
+$\chi^2$-Verteilung mit $n$ Freiheitsgraden. Zeigen Sie, dass die Dichte von $Y$ durch
+\begin{equation*}
+    p(x) = \frac{1}{ 2^{\frac{n}{2}} \Gamma(\frac{n}{2})}e^{-\frac{x}{2}} x^{\frac{n-2}{2}} 1_{\R>0}(x)
+\end{equation*}
+gegeben ist. Verwenden Sie hierfür die Faltungsformel und die Beta-Funktion.
+
+
+
+\paragraph{Verteilung der Stichprobenvarianz. }
+Seien $X_1, \ldots, X_n$ i.i.d., normalverteilt und $\Var\left( X_1 \right)=\sigma^2$.
+Für das zweite zentrierte empirische  Moment 
+$\hat \sigma^2 \left( X \right)= \frac{1}{n} \sum_{i=1}^{n} \left( X_i - \bar X \right)^2 $
+gilt, dass
+\begin{equation*}
+    \frac{n \hat \sigma^2 \left( X \right)}{\sigma^2 } = 
+        \sum_{i=1}^{n} \left( \frac{X_i - \bar X}{ \sigma} \right)^2 \sim \chi^2_{n-1}.
+\end{equation*}
+
+\paragraph{Mittelwertvergleich bei Gamma-Verteilungen. }
+Seien $X_1,\ldots,X_n$ i.i.d.\ und $\textrm{Gamma}(a, \lambda_1)$-verteilt sowie
+$Y_1,\ldots,Y_n$ i.i.d.\ und $\textrm{Gamma}(a,\lambda_2)$-verteilt. Man nehme an,
+dass die Vektoren $(X_1,\ldots,X_n)$ und $(Y_1,\ldots,Y_n)$ unabhängig sind. 
+Bestimmen Sie die Verteilung von $\bar X/\bar Y$.
+
 
 
 
