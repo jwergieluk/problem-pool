@@ -1,4 +1,5 @@
 
+\section{Identifizierbarkeit}
 
 \paragraph{Identifizierbarkeit im linearen Modell. } 
 Man nehme an, dass folgendes Modell gegeben sei: 
@@ -31,6 +32,8 @@ Man definiere
         für $\theta$ ist.
 \end{enumerate}
 
+\section{Suffizienz}
+
 \paragraph{Suffizienz bei inversen Gamma-Verteilung. }     Eine i.i.d.-Stichprobe $X_1, \ldots, X_n$
 sei invers Gamma-verteilt mit der Dichte 
 \begin{equation*}
@@ -59,6 +62,7 @@ Statistik für $\mu$ ist, falls $\sigma$ bekannt ist. Finden Sie eine
 eindimensionale, suffiziente Statistik für $\sigma$, falls $\mu$ bekannt ist
 und eine zweidimensinale suffiziente Statistik für $\theta$ an.
 
+\section{Exponentielle Familien}
 
 \paragraph{Laplace-Verteilung.  } Für jedes $\theta\in\R$ sei eine Dichte
 \begin{equation*} p_\theta(x) = \frac{1}{2} \exp\left( -| x-\theta| \right),
@@ -82,7 +86,29 @@ suffizienten Statistik $T(X)$ die Form
 mit $A^* = \left\{ T(x) : x\in A \right\}$ hat.
 
 
+\paragraph{Cauchy-Verteilung ist keine exponentielle Familie. }  Sei eine
+Familie von Cauchy-Verteilungen $\left\{ P_\theta : \theta\in\R \right\}$ mit 
+den zugehörigen Dichten
+\begin{equation}
+    p_\theta(x) = \frac{1}{\pi\left[ 1 + \left( x - \theta \right)^2 \right]}
+\end{equation}
+gegeben. Zeigen Sie, dass die Familie $\left\{ P_\theta : \theta\in\R \right\}$ keine 
+exponentielle Familie ist.
 
+\ifdefined\showsolutions
+\paragraph*{Lösungsskizze.} Nehmen wir an Cauchy-Vereilung ist eine expoentielle Familie. Dann 
+gibt es eine Darstellung 
+\begin{equation}
+    p_\theta(x) = \frac{1}{\pi\left[ 1 + \left( x - \theta \right)^2 \right]} =
+    \exp\left( c(\theta) T(x) + d(\theta) \right)h(x).
+\end{equation}
+TODO: Finish it! 
+\fi
+
+
+
+
+\section{Momentenmethode}
 
 \paragraph{Momentenschätzer. Beispiele.} Bestimmen Sie mittels der Momentenmethode
 einen Momentenschätzer für $\theta$ bei den folgenden Verteilungen: 
@@ -136,6 +162,8 @@ und für $1\leq i \leq n$
 \end{enumerate}
 
 
+\section{Kleinste-Quadrate-Schätzer}
+
 \paragraph{Gewichtete einfache lineare Regression. }
 Finden Sie eine Formel für den Kleinste-Quadrate -Schätzer $\hat \theta^w$
 im Modell
@@ -143,6 +171,10 @@ im Modell
 	Y_i = \theta_1 + \theta_2 x_i + \varepsilon_i
 \end{equation*}
 wobei $\varepsilon_1,\ldots, \varepsilon_n$ unabhängig seien mit $\varepsilon_i \sim \mathcal N(0, \sigma^2w_i)$.
+
+
+
+\section{Maximum-likelihood Schätzer}
 
 \paragraph{MLE. Mischung von Gleichverteilungen.  }
 Seien $X_1,\ldots,X_n$ i.i.d.\ mit Dichte $p_\theta$ 
@@ -200,6 +232,7 @@ Wir setzen $\frac{\partial}{\partial \theta} l(\theta,x) = 0$ und erhalten den M
 Somit ist der MLE für $\left( \lambda, \mu \right) = \left( 1/\bar y, 1/\bar z \right)^\top$.
 \fi
 
+
 \paragraph{MLE. Weibull-Verteilung. } Seien $X_1,\ldots,X_n$ i.i.d.
 mit der Dichte 
 \begin{equation}
@@ -209,7 +242,6 @@ mit der Dichte
 wobei der Parameter $\theta>0$ unbekannt ist. Finden Sie
 den Maximum-Likelihood-Schätzer für $ \theta$ und klären Sie, ob dieser
 eindeutig ist.
-
 
 \ifdefined\showsolutions
 \paragraph*{Lösung. } Wir berechnen den \textsc{mle} für die oben angegebene Familie von Weibull-Verteilungen
@@ -397,7 +429,7 @@ Die Varianz von $T_1$ ist also um eine Größenordung höher als die von $T_2$.
 
 
 
-
+\section{Bedingte Erwartungen}
 
 Für die Aufgaben über bedingte Erwartungen fixieren wir den Raum $(\Omega, P, \mathcal A)$.
 
@@ -557,7 +589,7 @@ standardnormalverteilte Zufallsvariablen. Berechnen Sie $\E\left[ X \vb X+Y
 
 
 
-
+\section{UMVUE}
 
 \paragraph{UMVUE. Bernoulli-Verteilung. } Seien $X_1,\ldots,X_n$
 i.i.d.\ und $X_1$ Bernoulli$(\theta)$-verteilt. Zeigen Sie, dass der \textsc{mls}
@@ -1180,7 +1212,7 @@ Informationsungleichung nie angenommen wird.
 
 
 
-
+\section{Asymptotische Theorie}
 
 \paragraph{Verschobene Gleichverteilung und Konsistenz.} 
 Die Zufallsvariablen $X_1,\ldots,X_n$ seien i.i.d.\ mit $X_i\sim U(\theta,\theta+1)$.
@@ -1405,7 +1437,7 @@ und $e\geq 1$ schliessen.
 
 
 
-
+\section{Konfidenzintervalle}
 
 \paragraph{Konfidenzintervalle. Normalverteilung. } Seien $X_1,\ldots,X_n$ i.i.d.\ mit 
 $X_i\sim \mathcal N(\mu,\sigma^2)$, wobei sowohl $\mu$ als auch $\sigma$ unbekannt seien.
@@ -1508,6 +1540,7 @@ Es gilt aber
 \fi
 
 
+\section{Testtheorie}
 
 \paragraph{Tests. Mittelwertvergleich unter Normalverteilung. } 
 Seien die Zufallsvariablen $X_1,\ldots,X_n$, $Y_1,\ldots,Y_n$ unabhängig und normalverteit, 
@@ -1944,7 +1977,7 @@ $\textrm{Rang}\left( X \right)=p$ annehmen mussten.
 
 
 
-
+\section{Lineare Regression}
 
 \paragraph{Einfache lineare Regression. } Seien folgende Beobachtungen von $(x_i)$ und $(y_i)$ 
 gegeben.
