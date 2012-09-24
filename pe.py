@@ -85,9 +85,9 @@ class Problems:
                 print 
             
     def printSummary(self):
-        print "Problems in the datebase :: %d" % (len(self.problems.keys()))
-        print "Keys :: ", self.keys 
-        print "Keys :: ", self.problems.keys()
+#        print "Problems in the datebase :: %d" % (len(self.problems.keys()))
+        for i in range(len(self.problems.keys())):
+            print "%d. %s" % (i, self.problems.keys()[i])
 
 
 

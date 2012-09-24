@@ -20,13 +20,11 @@ bringen. Geben Sie dabei explizit $c,T,d,S$ und $A$ an.
     \item Zeigen Sie mit Hilfe des Faktorisierungssatzes, dass die Statistik $T(X)$ suffizient ist.
 \end{enumerate}
 
-\ifdefined\showsolutions
 \paragraph*{Lösungsskizze.}  Die Exponentielle Form: 
 \begin{equation}
     \exp\left(  -\frac{\lambda}{2}\left( \frac{x^2}{\mu^2} + \frac{1}{x} \right)    
     + \log x^{-\frac{3}{2}} + \log \sqrt{\frac{\lambda}{2\pi}} + \lambda\mu  \right)1_{\R_{>0}}(x).
 \end{equation}
-\fi
 
 
 
@@ -47,7 +45,6 @@ wobei $\theta>0$ und $a$ fix und bekannt sei.
     \item Zeigen Sie, dass der von Ihnen gefundene Schätzer $\hat \theta$ suffizient ist.
 \end{enumerate}
 
-\ifdefined\showsolutions
 \paragraph*{Lösungsskizze. }
 Suffiziente Statistik $T= \prod_i \frac{1}{x_i}$ erhalten wir aus 
 \begin{equation}
@@ -70,7 +67,6 @@ Die suffiziente Statistik $T=\eta (\hat\theta)$ ist eine Funktion des MLE, wobei
     \eta(x) = \frac{1}{ \exp\left( \frac{n}{x} \right) a^n}.
 \end{equation}
 Daher ist der MLE $\hat\theta$ auch suffizient.
-\fi
 
 
 
@@ -91,7 +87,6 @@ diskret Gleichverteilt auf der Menge $\left\{ 1,2,\ldots,\theta \right\}$.
 \end{enumerate}
 
 
-\ifdefined\showsolutions
 \paragraph*{Lösungsskizze. }
 Die Likelihood-Funktion ist
 \begin{equation}
@@ -142,7 +137,6 @@ und daraus
     h(m) = \frac{m^{n+1} - (m-1)^{n+1}}{m^n - (m-1)^{n}}.
 \end{equation}
 
-\fi
 
 
 
@@ -169,7 +163,6 @@ bringen. Geben Sie dabei explizit $c,T,d,S$ und $A$ an.
 
 
 
-\ifdefined\showsolutions
 \paragraph*{Lösung.}
 \begin{enumerate}
 
@@ -196,7 +189,6 @@ Dabei ist
         Auch ist $T(X)$ in jeder exponentiellen Familie eine suffiziente Statistik. 
 
 \end{enumerate}
-\fi
 
 
 
@@ -220,7 +212,6 @@ mit dem Parameter $\theta\in\Theta= \left\{ \eta\in\R : \eta>-1 \right\}$. Die D
 
 
 
-\ifdefined\showsolutions
 \paragraph*{Lösung.}
 \begin{enumerate}
 
@@ -241,7 +232,6 @@ mit dem Parameter $\theta\in\Theta= \left\{ \eta\in\R : \eta>-1 \right\}$. Die D
     \item Nein, denn $\Theta$ offen ist.
 
 \end{enumerate}
-\fi
 
 
 
@@ -296,7 +286,6 @@ entwickelt werden.
 
 
 
-\ifdefined\showsolutions
 \paragraph*{Lösung.}
 \begin{enumerate}
 
@@ -330,7 +319,6 @@ entwickelt werden.
         \end{eqnarray}
         Laut Tabelle wählen wir $k=10$. Die Nullhypothese wird also verworfen.
 \end{enumerate}
-\fi
 
 
 
@@ -348,7 +336,6 @@ wobei $\theta\in\R$ ein unbekannter Parameter ist.
 \end{enumerate}
 
 
-\ifdefined\showsolutions
 \paragraph*{Lösung.}
 \begin{enumerate}
 
@@ -366,7 +353,6 @@ wobei $\theta\in\R$ ein unbekannter Parameter ist.
         \end{eqnarray}
 
 \end{enumerate}
-\fi
 
 
 
@@ -390,7 +376,6 @@ und Parametern $a>0$ und $\lambda>0$.
 \end{enumerate}
 
 
-\ifdefined\showsolutions
 \paragraph*{Lösung.}
 \begin{enumerate}
 
@@ -416,7 +401,6 @@ und Parametern $a>0$ und $\lambda>0$.
 
 
 \end{enumerate}
-\fi
 
 
 
@@ -431,7 +415,6 @@ Abbildung $\eta$ gegeben.
 \end{enumerate}
 
 
-\ifdefined\showsolutions
 \paragraph*{Lösung.}
 \begin{enumerate}
 
@@ -448,7 +431,6 @@ Abbildung $\eta$ gegeben.
     \item Für eine beliebige unvollständige Statistik $T$ und $\eta\equiv 0$ ist $S=\eta(T)$ vollständig. 
 
 \end{enumerate}
-\fi
 
 
 
@@ -470,7 +452,6 @@ $\varepsilon_{kl}\sim \mathcal N(0,\sigma^2)$, i.i.d.\  $\sigma>0$.
 \end{enumerate}
 
 
-\ifdefined\showsolutions
 \paragraph*{Lösung.}
 \begin{enumerate}
 
@@ -501,7 +482,6 @@ $\varepsilon_{kl}\sim \mathcal N(0,\sigma^2)$, i.i.d.\  $\sigma>0$.
         
 
 \end{enumerate}
-\fi
 
 
 
@@ -541,7 +521,6 @@ Der Parameter $\lambda$ dagegen unbekannt und $\lambda > 0$.
         zugreifen.
 \end{enumerate}
 
-\ifdefined\showsolutions
 \paragraph*{Lösung.}
 \begin{enumerate}
     \item Der Standardmethode folgend, berechnen wir die Log-likelihood
@@ -565,7 +544,6 @@ Der Parameter $\lambda$ dagegen unbekannt und $\lambda > 0$.
         \end{eqnarray}
         Der Schätzer $\hat\lambda$ ist somit nicht erwartungstreu.
 \end{enumerate}
-\fi
 
 
 
@@ -593,7 +571,6 @@ mit $m,n \in \bN$ und $\varepsilon_i \in \cN \left( 0, \sigma^2 \right)$, i.i.d.
         \end{eqnarray}
 \end{enumerate}
 
-\ifdefined\showsolutions
 \paragraph*{Lösung.}
 \begin{enumerate}
     \item Die Desingmatrix für dieses Model ist
@@ -646,7 +623,6 @@ mit $m,n \in \bN$ und $\varepsilon_i \in \cN \left( 0, \sigma^2 \right)$, i.i.d.
         \item Die Beobachtung impliziert $m=3$ und $n=3$. Mit der obigen Formel erhalten wir
             $\hat \beta_0 = \frac{13}{14}$ und $\hat \beta_1 = \frac{14}{3}$.
 \end{enumerate}
-\fi
 
 
 
@@ -670,7 +646,6 @@ und $\lambda>0$.
     \item Zeigen Sie, dass $S(X)$ ein eindeutiger \textsc{umvue}-Schätzer für $\lambda$ ist.
 \end{enumerate} 
 
-\ifdefined\showsolutions
 \paragraph*{Lösung.}
 \begin{enumerate}
     \item Die Wahrscheinlichkeitsfunktionen von $\left( X_1, \ldots, X_n \right)$ 
@@ -703,7 +678,6 @@ und $\lambda>0$.
             \Var X &=& \lambda.
         \end{eqnarray}
 \end{enumerate}
-\fi
 
 
 
@@ -735,7 +709,6 @@ Des weiteren gelten für $c>0$ die Beziehungen
         $\alpha$ für $H_0: \lambda=\lambda_0$ gegen $H_1: \lambda\neq \lambda_0$.
 \end{enumerate} 
 
-\ifdefined\showsolutions
 \paragraph*{Lösung.}
 \begin{enumerate}
     \item Die Verteilung von $\lambda (X_1 + \ldots + X_n)$ ist $\textrm{Gamma}_{na, 1}$.
@@ -750,7 +723,6 @@ Des weiteren gelten für $c>0$ die Beziehungen
             \delta(X) = 1_{ \left\{ \lambda \nin \left[ L(X), U(X) \right] \right\}   }
         \end{equation} die das Gewünschte erfüllt. 
 \end{enumerate}
-\fi
 
 
 
@@ -804,7 +776,6 @@ entwickelt werden.
 \emph{Bemerkung.} $T(X)$ ist negativ binomialverteilt mit Parametern $\left( n,p \right)$.
 \end{enumerate}
 
-\ifdefined\showsolutions
 \paragraph*{Lösung.}
 \begin{enumerate}
     \item Die Wahrscheinlichkeitsfunktion von dem Vektor $\left( X_1, \ldots, X_n \right)$ ist
@@ -833,7 +804,6 @@ entwickelt werden.
         Aus der Tabelle lesen wir $l-1=8$ ab und somit $l=9$. Nachdem $T(X)=6$, kann die Nullhypothese
         nicht verworfen werden.
 \end{enumerate}
-\fi
 
 
 
@@ -858,7 +828,6 @@ und Parametern $a>0$ und $b>0$. Dabei ist $B(a,b)$ die Betafunktion charakterisi
     \item Berechnen Sie den Momentenschätzer für die Parameter $a$ und $b$ basierend auf dem ersten und zweiten Moment.
 \end{enumerate}
 
-\ifdefined\showsolutions
 \paragraph*{Lösung.}
 \begin{enumerate}
     \item Durch direktes Berechnen des $k$-ten Moments erhalten wir 
@@ -878,7 +847,6 @@ und Parametern $a>0$ und $b>0$. Dabei ist $B(a,b)$ die Betafunktion charakterisi
             \hat b &=& \frac{a (1-\hat m_1)}{\hat m_1} = \frac{ (\hat m_1^2 - \hat m_2^2)(1-\hat m_1) }{(\hat m_2 - \hat m_1^2)\hat m_1}.
         \end{eqnarray}
 \end{enumerate}
-\fi
 
 
 
@@ -899,7 +867,6 @@ als $Y = \E \left[ X | \cA \right]$, genau dann wenn $\E 1_A Y = \E 1_A X$ für 
     \item Zeigen Sie $\E \left[  \E \left[ X | \mathcal G \right] | \mathcal H \right] = \E \left[ X | \mathcal H \right]$ $P$-fast sicher.
 \end{enumerate}
 
-\ifdefined\showsolutions
 \paragraph*{Lösung.} Wir zeigen zunächst 
 $\E\left[ \E\left[ X | \mathcal H \right] | \mathcal G \right]=\E \left[ X | \mathcal H \right]$.
 Nach Definition des bedingten Erwartungswertes ist $\E\left[ X| \mathcal H \right]$ 
@@ -932,7 +899,6 @@ Daher ist nach Definition des bedingten Erwartungswertes
 \begin{equation}
 	\E\left[ \E\left[ X | \mathcal G \right] | \mathcal H \right]=\E \left[ X | \mathcal H \right].
 \end{equation}
-\fi
 
 
 

@@ -95,7 +95,6 @@ den zugehörigen Dichten
 gegeben. Zeigen Sie, dass die Familie $\left\{ P_\theta : \theta\in\R \right\}$ keine 
 exponentielle Familie ist.
 
-\ifdefined\showsolutions
 \paragraph*{Lösungsskizze.} Nehmen wir an Cauchy-Vereilung ist eine expoentielle Familie. Dann 
 gibt es eine Darstellung 
 \begin{equation}
@@ -103,7 +102,6 @@ gibt es eine Darstellung
     \exp\left( c(\theta) T(x) + d(\theta) \right)h(x).
 \end{equation}
 TODO: Finish it! 
-\fi
 
 
 
@@ -210,7 +208,6 @@ $Y_1$ und $Z_1$ unabhängig und exponentialverteilt mit Parametern
 $\lambda > 0$ bzw.\ $\mu > 0$. Bestimmen Sie den Maximum-Likelihood-Schätzer
 für $(\lambda,\mu)$.
 
-\ifdefined\showsolutions
 \paragraph*{Lösung.}    Nachdem $Y_i$ und $Z_i$ unabhängig sind, genügt es den 
 MLE für einen der beiden Zufallsvektoren zu bestimmen. Wir berechnen also den MLE für eine
 eindimensionale Exponentialverteilung mit Parameter $\theta$.
@@ -230,7 +227,6 @@ Wir setzen $\frac{\partial}{\partial \theta} l(\theta,x) = 0$ und erhalten den M
 	\hat \theta = \frac{1}{\frac{1}{n} \sum_{i}^{} x_i} = \frac{1}{\bar x}.
 \end{equation}
 Somit ist der MLE für $\left( \lambda, \mu \right) = \left( 1/\bar y, 1/\bar z \right)^\top$.
-\fi
 
 
 \paragraph{MLE. Weibull-Verteilung. } Seien $X_1,\ldots,X_n$ i.i.d.
@@ -243,7 +239,6 @@ wobei der Parameter $\theta>0$ unbekannt ist. Finden Sie
 den Maximum-Likelihood-Schätzer für $ \theta$ und klären Sie, ob dieser
 eindeutig ist.
 
-\ifdefined\showsolutions
 \paragraph*{Lösung. } Wir berechnen den \textsc{mle} für die oben angegebene Familie von Weibull-Verteilungen
 indem wir die Log-Likelihood-Funktion maximieren. 
 
@@ -265,7 +260,6 @@ Somit ergibt sich die Formel für \textsc{mle}
 	\hat\theta &=&  \frac{3}{\frac{1}{n} \sum_{i}^{} x_i^2}.
 \end{eqnarray}
 Wegen $ \frac{\partial^2}{\partial \theta^2} l(\theta,x) <0$ ist der \textsc{mle} $\hat\theta$ auch eindeutig.
-\fi
 
 
 
@@ -284,7 +278,6 @@ eine Lösung besitzt. Weisen Sie nach, dass diese Lösung, falls sie existiert,
 der eindeutige Maximum-Likelihood-Schätzer für $\theta$ ist. Was ist der Maximum-Likelihood-Schätzer,
 wenn die Likelihood-Gleichung keine Lösung besitzt?
 
-\ifdefined\showsolutions
 \paragraph*{Lösung. } 
 Betrachten wir zunächst die Log-Likelihood-Funktion und ihre Ableitungen
 \begin{eqnarray}
@@ -321,7 +314,6 @@ bzw.
 hat die Maximum-Likelihood-Gleichung keine Lösung und die
 die Maxima werden jeweils am Rand angenommen, d.h.\ $\hat\theta=1$ bzw. $\hat\theta=0$ und 
 der \textsc{mle} $\hat\theta(x)$ kann für $x$ eindeutig festgelegt werden.
-\fi
 
 
 
@@ -339,7 +331,6 @@ beiden Schätzer
 Zeigen Sie, dass beiden Schätzer erwartungtreu sind. Berechnen Sie 
 die Varianz der beiden Schätzer.
 
-\ifdefined\showsolutions
 \paragraph*{Lösung.} Wir berechnen jeweils Erwartungswert und Varianz der beiden Schätzer. 
 Zunächst ist 
 \begin{eqnarray}
@@ -423,7 +414,6 @@ und
 	&=& \frac{n}{\left( n+1 \right)^2 \left( n+2 \right)} = \mathcal O (n^{-2}).
 \end{eqnarray}
 Die Varianz von $T_1$ ist also um eine Größenordung höher als die von $T_2$.
-\fi
 
 
 
@@ -445,7 +435,6 @@ Zeigen Sie durch ein Beispiel, dass
 \end{equation}
 gelten kann. 
 
-\ifdefined\showsolutions
 \paragraph*{Lösung. } 
 Betrachten wir $\Omega=\left\{ 1,2,3 \right\}$, $\mathcal A=2^\Omega$ die Potenzmenge von $\Omega$,
 $\mathcal H=\sigma\left( \left\{ 1,2 \right\} \right)$ und 
@@ -469,7 +458,6 @@ Dabei bezeichnet $4_{ \left\{ 1,2 \right\} }$ eine Funktion, die den Elementen $
 den Wert $4$ zuordnet und allen anderen den Wert $0$.
 
 Damit folgt die Behauptung. 
-\fi
 
 
 
@@ -486,7 +474,6 @@ Zeigen Sie
 	E \left[ X | \mathcal H \right].
 \end{equation}
 
-\ifdefined\showsolutions
 \paragraph*{Lösung.} Wir zeigen zunächst 
 $E\left[ E\left[ X | \mathcal H \right] | \mathcal G \right]=E \left[ X | \mathcal H \right]$.
 Nach Definition des bedingten Erwartungswertes ist $E\left[ X| \mathcal H \right]$ 
@@ -519,7 +506,6 @@ Daher ist nach Definition des bedingten Erwartungswertes
 \begin{equation}
 	E\left[ E\left[ X | \mathcal G \right] | \mathcal H \right]=E \left[ X | \mathcal H \right].
 \end{equation}
-\fi
 
 
 
@@ -535,7 +521,6 @@ Zeigen Sie, dass
 	\Var \left( X \right) = \Var \left( E\left[ X|Y \right] \right) + E \left[ \Var\left[ X|Y \right] \right].
 \end{equation}
 
-\ifdefined\showsolutions
 \paragraph*{Lösung. } 
 Die Behauptung ist äquivalent zu 
 \begin{equation}
@@ -560,7 +545,6 @@ Die Turmeigenschaft liefert uns aber
 	&=& E\left\{ E\left[ X|Y \right] E\left[ X|Y \right]   \right\} \\
 	&=& E\left\{ E\left[ X|Y \right]^2 \right\}.
 \end{eqnarray}
-\fi
 
 
 
@@ -572,14 +556,12 @@ Die Turmeigenschaft liefert uns aber
 	E\left[ X|X \right] = X \quad P-\textrm{f.s.}
 \end{equation}
 
-\ifdefined\showsolutions
 \paragraph*{Lösung. } 
 Nach Definition ist $E\left[ X| X \right]=E\left[ X|\sigma\left( X \right) \right]$ und
 da $X$ ja $\sigma\left( X \right)$-messbar ist, erhalten wir
 \begin{equation}
 	E\left[ X|\sigma\left( X \right) \right]= X E\left[ 1 | \sigma\left( X \right) \right] =X.
 \end{equation}
-\fi
 
 
 
@@ -595,7 +577,6 @@ standardnormalverteilte Zufallsvariablen. Berechnen Sie $\E\left[ X \vb X+Y
 i.i.d.\ und $X_1$ Bernoulli$(\theta)$-verteilt. Zeigen Sie, dass der \textsc{mls}
 $\bar X$ ein \textsc{umvue}-Schätzer ist.
 
-\ifdefined\showsolutions
 \paragraph*{Lösung. } Betrachten wir den Schätzer $\bar X$. Aus bereits gelösten
 Übungsblättern wissen wir, dass $\bar X$ is unverzerrt für $\theta$ ist.
 Wir zeigen, dass die Statistik $\sum_{i}^{} X$ suffizient und vollständig ist und 
@@ -640,7 +621,6 @@ suffizient für $\theta$ ist. Mit
 	E\left[ \bar X | \sum_{i}^{} X_i \right] = \bar X
 \end{equation}
 und dem Satz von Lehmann-Scheff\'e folgt die Behauptung.
-\fi
 
 
 
@@ -657,7 +637,6 @@ und unbekanntem Parameter $\theta\in (0,1)$ sei. Untersuchen Sie die beiden
 Schätzer $T_1(X)=X_1$ und $T_2(X)=|X_1|$ auf Vollständigkeit. Bestimmen Sie
 einen \textsc{umvue}-Schätzer für $\theta$.
 
-\ifdefined\showsolutions
 \paragraph*{Lösung. } 
 Wir untersuchen zuerst die Vollständigkeit der beiden Schätzer $T_1$ und $T_2$. 
 Die Dichte von $X_1,\ldots,X_n$ ist
@@ -715,15 +694,14 @@ $T_3$ ist auch suffizient für $\theta$, denn es gilt
 	&=& 1_{ \left\{ \sum_{i}^{} |x_i|=y \right\} } \binom{n}{k}^{-1} \left( \frac{1}{2} \right)^{\sum_{i}^{} |x_i|}.
 \end{eqnarray}
 Daher ist $T_3$ ein \textsc{umvue}-Schätzer für $\theta$.
-\fi
 
 
 
 
 
-\paragraph{UMVUE. Normalverteilung. } Seien $X_1,\ldots,X_n$ i.i.d.\
-mit $X_i \sim \mathcal N(\mu,\sigma^2)$ und $\mu\in\R$ sowie $\sigma>0$.
-Dann ist die Stichprobenvarianz 
+\paragraph{Stichprobenvarianz als UMVUE bei Normalverteilung.} 
+Seien $X_1,\ldots,X_n$ i.i.d.\ mit $X_i \sim \mathcal N(\mu,\sigma^2)$ und
+$\mu\in\R$ sowie $\sigma>0$.  Dann ist die Stichprobenvarianz 
 \begin{equation}
 	s^2(X) = \frac{1}{n-1} \sum_{i=1}^{n} (X_i - \bar X)^2
 \end{equation}
@@ -731,7 +709,6 @@ ein \textsc{umvue}-Schätzer für $\sigma$, falls $\mu$ unbekannt ist.
 Ist $\mu$ hingegen bekannt, so ist $s^2(X)$ kein \textsc{umvue}-Schätzer
 von $\sigma$. 
 
-\ifdefined\showsolutions
 \paragraph*{Lösung.} 
 Die erste Aussage wurde bereits in der Vorlesung behandelt. 
 
@@ -743,7 +720,7 @@ gewinnen. Es gilt
 	p_\sigma(x_i) &=& \prod_i \frac{1}{\sqrt{2 \pi \sigma^2}} 
 	\exp\left( -\frac{1}{2} \left( \frac{x_i - \mu_0}{\sigma}\right)^2 \right) \\
 	&=& \exp\left( -\frac{1}{2 \sigma^2} \sum_{i}^{} \left( x_i - \mu_0 \right)^2 +
-		\log\left( 2 \pi \sigma^2 \right)^{-\frac{n}{2}}  \right). \\
+		\log\left( 2 \pi \sigma^2 \right)^{-\frac{n}{2}}  \right).
 \end{eqnarray}
 Damit erhalten wir $c(\sigma^2) = -\frac{1}{2 \sigma^2}$ und $T(X) = \sum_{i}^{} \left( X_i - \mu_0 \right)^2$.
 Da $c\left( \Theta \right) = c(\R_{>0})= \R_{<0}$ ein offenes Rechteck enthält, ist $T\left( X \right)$
@@ -761,7 +738,6 @@ wir den Satz von Lehmann-Scheff\'e anwenden und berechnen
 Die Stichprobenvarianz $\hat\sigma^2(X)$ ist somit der eindeutige \textsc{umvue}-Schätzer
 für $\sigma^2$. Daher kann $s^2(X)$ in diesem Kontext kein
 \textsc{umvue}-Schätzer sein.
-\fi
 
 
 
@@ -777,7 +753,6 @@ Stichprobe mit $X_1\sim\mathcal N(\mu,1)$. Finden Sie den
 \end{equation}
 \emph{Hinweis:} Betrachten Sie die gemeinsame Verteilung von $(X_1,\bar X)$.
 
-\ifdefined\showsolutions
 \paragraph*{Lösung. }   Der Satz von Lehmann-Sch\'effe ist das wichtigste Tool zur Gewinnung
 der \textsc{umvue}-Schätzern das uns derzeit zur Verfügung. Wir versuchen ihn auch diesmal anzuwenden. 
 
@@ -819,7 +794,6 @@ is $\frac{Z}{\sqrt{\frac{n-1}{2}}}$ standardnormalverteilt. So gilt
 	&=& 1- \Phi\left( \frac{-\bar X}{ \sqrt{\frac{n-1}{n}}}    \right) 
 \end{eqnarray}
 und ein \textsc{umvue}-Schätzer für $P\left( X_1 >0 \right)$ ist bestimmt.
-\fi
 
 
 
@@ -836,7 +810,6 @@ erfüllt.
 \emph{Hinweis:} Sie können für die Vertauschbarkeit von $\frac{\partial}{\partial \theta}$ und $\int_{}^{}$
 den Satz von der monotonen Konvergenz verwenden. 
 
-\ifdefined\showsolutions
 \paragraph*{Lösung. }
 Für eine Statistik $T(X)$ mit $E_\theta (|T(X)|) < \infty$ zeigen wir, dass für alle $\theta\in\Theta$
 \begin{equation}
@@ -909,7 +882,6 @@ anwenden und erhalten (\ref{main-interchange}).
 Mit Hilfe der obigen Überlegungen können wir auch die Existenz der Ableitung 
 $\frac{\partial}{\partial \theta} \log p(x,\theta)$ sicherstellen.
 Die Übrigen Bedingungen aus (\textsc{cr}) sind in unseren Voraussetzungen enthalten.
-\fi
 
 
 
@@ -922,7 +894,6 @@ mit der Dichte $\theta e^{-\theta x}1_{\R_{>0}}(x)$ und $\theta>0$.
 Finden Sie einen \textsc{umvue}-Schätzer für $q(\theta) = \frac{1}{\theta^2}$. Zeigen Sie, dass
 dieser die untere Schranke der Informationsgleichung nicht annimmt.
 
-\ifdefined\showsolutions
 \paragraph*{Lösung.} Wir stellen die Dichte der Exponentialverteilung als exponentielle
 Familie 
 \begin{equation}
@@ -982,7 +953,6 @@ Nun zeigen wir
 \begin{equation}
     (n+2)(n+3) > (n+4)(n+1).
 \end{equation}
-\fi
 
 
 
@@ -999,7 +969,6 @@ $\lambda>0$, d.h.\ $X_1$ hat die Dichte
 Finden Sie mit Hilfe der Informationsungleichung einen \textsc{umvue}-Schätzer für
 $q(\lambda) = \frac{1}{\lambda}$.
 
-\ifdefined\showsolutions
 \paragraph*{Lösung.  } Die Lösungsmethode ist hier einen unverzerrten Schätzer mit der
 kleinstmöglichen Varianz zu finden, d.h.\ der Varianz aus der Informationsungleichung.
 
@@ -1048,7 +1017,6 @@ und
     \Var_{\lambda} T(X) = \frac{  \left( \Psi'(\lambda) \right)^2 }{I(\lambda)}.
 \end{equation}
 Damit ist $T(X)$ ein \textsc{umvue}-Schätzer für $q(\lambda)=\frac{1}{\lambda}$.
-\fi
 
 
 
@@ -1069,7 +1037,6 @@ Klären Sie, wieso dies nicht im Widerspruch zu der Cram\'er-Rao-Schranke
 \end{equation}
 steht.
 
-\ifdefined\showsolutions
 \paragraph*{Lösung. } Wir zeigen zuerst, dass $T(X)$ ein erwartungstreuer Schätzer
 für $\theta$ ist. Dazu berechnen wir die Verteilung von $X_{(n)}$.
 \begin{eqnarray}
@@ -1112,7 +1079,6 @@ Erklärung dafür ist die folgende. Der
 Träger der Dichte von $X_i$ ist vom Parameter $\theta$ abhängig und daher sind
 die \textsc{(cr)} Bedingungen verletzt.  Deswegen muss die
 Informationsungleichung für dieses Modell nicht gelten. 
-\fi
 
 
 
@@ -1138,7 +1104,6 @@ Varianz von $T(X)$ die Schranke in der Informationsungleichung
 \end{equation}
 für kein $\theta$ annimmt.
 
-\ifdefined\showsolutions
 \paragraph*{Lösung. } Wir stellen zuerst sicher, dass $T(X)$ ein \textsc{umvue}-Schätzer 
 für $g(\theta)=e^{-\theta}$. Nachdem die Summe von poissonverteilten Zufallsvariablen
 wieder poissonverteilt ist, und zwar 
@@ -1206,7 +1171,6 @@ Informationsungleichung nie angenommen wird.
     \caption{Varianz von $T(X)$ und die Schranke der Informationsungleichung für $n=10$.}
     \label{fig:fvv}
 \end{figure}
-\fi
 
 
 
@@ -1224,7 +1188,6 @@ und $T_2(X)=X_{(1)} - \frac{1}{n+1}$ haben wir bereits
 \end{eqnarray}
 gezeigt. Überprüfen Sie nun die beiden Schätzer auf schwache Konsistenz.
 
-\ifdefined\showsolutions
 \paragraph*{Lösung.} Wir wissen bereits, dass die Schätzer $T_1$ und $T_2$ erwartungstreu sind 
 sowie $E X_i = \theta + \frac{1}{2}$ gilt. Es ist leicht zu sehen, dass beide dieser Schätzer
 die Bedingungen aus der \ref{Konsistenz-Hinreichende-Bedingungen}\ Aufgabe erfüllen. 
@@ -1238,7 +1201,6 @@ Schätzer schwach konsistent.
 Die Aussage kann man auch direkt  beweisen. Im Fall $T_1$ bietet sich die Anwendung
 des schwachen Gesetzes der großen Zahl an. Die schwache Konvertenz von $T_2$ gegen $\theta$ 
 folgt mit Hilfe der Markov-Ungleichung.
-\fi
 
 
 
@@ -1256,7 +1218,6 @@ folgenden Eigenschaften:
 Dann ist der Schätzer $T_n$ schwach konsistent, d.h.\ $T_n \to^{\mathbb P_\theta} \theta$
 für $n\to\infty$.
 
-\ifdefined\showsolutions
 \paragraph*{Lösung.} Der Schätzer $T_n$ ist schwach konsistent wenn
 \begin{equation}
     P\left( |T_n -\theta|\geq \varepsilon \right) \to 0
@@ -1283,7 +1244,6 @@ und daraus
     P\left( |T_n -\theta|\geq \varepsilon \right) \to 0.
 \end{equation}
 Der Schätzer $T_n$ ist also schwach Konsistent.
-\fi
 
 
 
@@ -1295,7 +1255,6 @@ Der Schätzer $T_n$ ist also schwach Konsistent.
 der Dichte $p(x,\theta)= \theta x^{\theta-1}1_{(0,1)}(x)$ für $\theta>0$. Finden Sie 
 einen Maximum-Likelihood-Schätzer für $\theta$ und seine asymptotische Verteilung.
 
-\ifdefined\showsolutions
 \paragraph*{Lösung.} Die Likelihoodfunktion der Stichprobe $x_1,\ldots,x_n$ ist
 \begin{eqnarray}
     L(x,\theta) &=& \prod_i p(x_i, \theta) = \theta^n \prod_i x_i^{\theta-1}.
@@ -1358,7 +1317,6 @@ gewählt werden. Die Fisher-Information ist positiv und aus $p(x,\theta)=p(x,\th
 $x\in\R$ folgt $\theta=\theta_0$ denn $p(x,\theta)= \theta x^{\theta-1}$ ein Polynom in $x$ ist. 
 Damit sind die \textsc{(ar)} Regularitätsbedingungen erfüllt und obige Aussage über die
 asymptotische Verteilung des \textsc{mle} gerechtfertigt.
-\fi
 
 
 
@@ -1380,7 +1338,6 @@ die asymptotische Effizienz von $T_1$ zu $T_2$. Zeigen Sie, dass die asymptotisc
 Effizienz von $T_1$ zu $T_2$ nicht größer ist als $1$, falls Verteilung von $X_1 -\mu$
 um $0$ symmetrisch ist.
 
-\ifdefined\showsolutions
 \paragraph*{Lösung. } Betrachten wir zunächst den Schätzer $T_1$. Wir erhalten
 \begin{eqnarray}
     E X_i^2 &=&  \Var X_i + \left( E X_i \right)^2 = 1 + \mu^2  \\
@@ -1430,7 +1387,6 @@ Jensenschen Ungleichung auf
     \Var X_1^2 \geq 4 \mu^2
 \end{equation}
 und $e\geq 1$ schliessen.
-\fi
 
 
 
@@ -1449,7 +1405,6 @@ Zeigen Sie, dass
 win $\left( 1-\alpha \right)$-Konfidenzintervall für $\sigma^2$ ist, wobei
 $s^2(X)$ die Stichprobenvarianz und $\chi^2_{n,a}$ das $a$-Quantil der $\chi^2_n$-Verteilung bezeichnen.
 
-\ifdefined\showsolutions
 \paragraph*{Lösung.} Die Verteilung der Stichprobenvarianz ist bereits bekannt.
 \begin{equation}
     \frac{(n-1) s^2(X)}{\sigma^2} = \sum_{i}^{} \left( \frac{ X_i -\bar X}{\sigma} \right)^2
@@ -1465,7 +1420,6 @@ Das Konfidenzintervall erhalten wir aus
     \chi^2_{n-1,\frac{\alpha}{2}} \leq \frac{n-1}{\sigma^2} s^2(X)
     \right) &=& 1-\alpha.
 \end{eqnarray}
-\fi
 
 
 
@@ -1486,7 +1440,6 @@ Zeigen Sie, dass
 \end{equation}
 ein $(1-\alpha)$-Konfidenzintervall für $\theta$ ist.
 
-\ifdefined\showsolutions
 \paragraph*{Lösung.} Zu zeigen ist folgende Gleichung, die das 
 Konfidenzintervall charakterisiert:
 \begin{equation}
@@ -1506,7 +1459,6 @@ Die Gleichung
 \end{equation}
 ist unter anderem für $c_1 = -\log \left( 1-\frac{\alpha}{2} \right)$ und
 $c_2 = -\log \left( \frac{\alpha}{2} \right)$ erfüllt.
-\fi
 
 
 
@@ -1524,7 +1476,6 @@ Zeigen Sie, dass für $S^2_X = \sum_{i=1}^{n} X_i^2$ und $S^2_Y = \sum_{i=1}^{n}
 ein $(1-\alpha)$-Konfidenzintervall für den Quotienten $\frac{\sigma^2_Y}{\sigma^2_X}$ ist.
 $F_{n,n}$ bezeichnet dabei die Verteilungsfunktion der $F_{n,n}$-Verteilung.
 
-\ifdefined\showsolutions
 \paragraph*{Lösung.} Zu zeigen ist die Gleichung
 \begin{equation}
     P \left[ F^{-1}_{n,n} \left( \frac{\alpha}{2} \right) \frac{S_Y^2}{S_X^2} \leq 
@@ -1537,7 +1488,6 @@ Es gilt aber
     \frac{\sigma^{-2}_X S^2_X  }{ \sigma^{-2}_Y S^2_Y} = 
     \frac{\sum_{i}^{} \left( \frac{X_i}{\sigma_X} \right)^2  }{ \sum_{i}^{} \left( \frac{Y_i}{\sigma_Y} \right)^2 } \sim F_{n,n}.
 \end{equation}
-\fi
 
 
 \section{Testtheorie}
@@ -1559,7 +1509,6 @@ $\sigma_X^2>0$, $\sigma^2_Y>0$ bekannt und fix.
         $\Delta = \mu_X -\mu_Y$ aus und skizzieren Sie die Gütefunktion. 
 \end{enumerate}
 
-\ifdefined\showsolutions
 \paragraph*{Lösung.} Wir betrachten
 \begin{equation}
     P\left( \bar X - \bar Y - \sqrt{ \frac{\sigma^2_X + \sigma^2_Y}{n}  }z_{1-\frac{\alpha}{2}} \leq \mu_X - \mu_Y \leq \bar X - \bar Y + \sqrt{ \frac{\sigma^2_X + \sigma^2_Y}{n}  }z_{1-\frac{\alpha}{2}}   \right) = 1-\alpha.
@@ -1631,7 +1580,6 @@ g <- function(delta) {
 }
 qplot(X,g(X), geom="line", xlab="Delta", ylab="Guete")
 \end{lstlisting}
-\fi
 
 
 
@@ -1653,7 +1601,6 @@ Seien $X_1,\ldots,X_n$ i.i.d.\ Poisson-verteilt mit unbekanntem Parameter $\lamb
          $p$-Wert.
 \end{enumerate}
 
-\ifdefined\showsolutions
 \paragraph*{Lösung.}
 Wir konstruieren zunächst einen Test für 
 \begin{equation}
@@ -1716,7 +1663,6 @@ und somit wird in diesem Fall die Nullhypothese nicht verworfen.
 
 % j <- function(alpha, n, sumXi, lambda) { return(  sqrt(lambda*n)*qnorm(1-alpha) + n*lambda    )  } 
 % j(0.05,200,2085,10) 
-\fi
 
 
 
@@ -1749,7 +1695,6 @@ Man interessiert sich für den Test $H_0 : \mu \leq \mu_0$ gegen die Alternative
         Berechnen Sie den $p$-Wert zum Test aus Punkt 1 und interpretieren Sie diesen für gegebenes $\mu_0=25$.
 \end{enumerate}
 
-\ifdefined\showsolutions
 \paragraph*{Lösung. } Die Verteilungen in dieser Aufgabe gehören zur Gamma-Familie, denn
 $\chi^2_{2n}=$ Gamma($n,\frac{1}{2}$) und Exp$(\theta) =$ Gamma($1,\theta$). Die Dichte von $\chi^2_n$ ist ja 
 \begin{equation}
@@ -1822,7 +1767,6 @@ Evidenz gegen die Nullhypothese interpretiert werden kann.
 % X=c(3,150,40,34,32,37,34,2,31,6,5,14,150,27,4,6,27,10,30,27)
 % n=length(X); mu_0=25
 % pnorm((n*mu_0 - sum(X))/(sqrt(n)*mu_0) )
-\fi
 
 
 
@@ -1845,7 +1789,6 @@ zum unbekannten Parameter $\theta>0$, d.h.\ $X_1$ hat die Dichte
         bestimmt werden soll.
 \end{enumerate}
 
-\ifdefined\showsolutions
 \paragraph*{Lösung. } Der Likelihoodquotient für das Testproblem $H_0: \theta=1$ gegen $H_1 : \theta=\nu$
 \begin{eqnarray}
     L(x,1,\nu) &=& 
@@ -1896,7 +1839,6 @@ Schließlich erhalten wir aus $P \left( T(X) \geq k \right) \leq \alpha$ die App
     \Phi\left( \frac{2n - k}{ 2\sqrt{n}}  \right) &\leq & \alpha \\
     k &=& 2n - 2 \sqrt{n} z_\alpha.
 \end{eqnarray}
-\fi
 
 
 
@@ -1915,7 +1857,6 @@ Teststatistik für
 \end{equation}
 ist.
 
-\ifdefined\showsolutions
 \paragraph*{Lösung. } Substituieren wir zunächst $\tilde a = \frac{1}{a}$. Das Testproblem lässt sich
 nun schreiben als $H_0: \tilde a \leq \tilde a_0$ gegen $H_1: \tilde a > \tilde a_0$. Die gemeinsame
 Dichte der Zufallsvariablen $X_1,\ldots,X_n$ kann in exponentieller Form notiert werden
@@ -1927,7 +1868,6 @@ Dichte der Zufallsvariablen $X_1,\ldots,X_n$ kann in exponentieller Form notiert
 woraus wir $c(\tilde a)=-\frac{1}{\tilde a} -1$ und $T(X)= \sum_{i}^{} \log X_i$ ablesen können.
 Die Funktion $c(\tilde a)$ ist streng monoton wachsend, denn $c'(\tilde a ) >0$ für alle $\tilde a>0$. 
 Die Statistik $T(X)$ ist daher optimal für das Testproblem. 
-\fi
 
 
 
@@ -1939,7 +1879,6 @@ Die Statistik $T(X)$ ist daher optimal für das Testproblem.
 Zeigen Sie, dass der Kleinste-Quadrate-Schätzer $\hat \beta$ auch Maximum-Likelihood-Schätzer 
 im allgemeinen linearen Modell ist, falls $\varepsilon \sim \mathcal N(0, \sigma^2 I_n)$.
 
-\ifdefined\showsolutions
 \paragraph*{Lösung. } Betrachten wir ein allgemeines lineares Model
 \begin{equation}
     Y_i =  X_i \beta+ \varepsilon_i, \quad i=1,\ldots,n.
@@ -1971,7 +1910,6 @@ was genau die Eigenschaft des Kleinste-Quadrate-Schätzers ist.
 
 Beachten Sie, dass wir in den obigen Überlegungen nicht
 $\textrm{Rang}\left( X \right)=p$ annehmen mussten.
-\fi
 
 
 
@@ -1992,7 +1930,6 @@ gegeben.
     \item Veranschaulichen Sie die Daten und die Regressionsgerade graphisch.
 \end{enumerate}
 
-\ifdefined\showsolutions
 \paragraph*{Lösung.  } Das betrachtete lineare Model hat die Form
 \begin{equation}
     Y_i = X_i \beta + \varepsilon_i, \quad i=1,\ldots, 6
@@ -2055,7 +1992,6 @@ dev.off()
     \caption{Regression von $X$ gegen $Y$}
     \label{fig:reg}
 \end{figure}
-\fi
 
 
 
@@ -2071,7 +2007,6 @@ für $i=1,\ldots,n$ gegeben. Die zufälligen Fehler $\varepsilon_1,\ldots,\varep
 seien i.i.d.\ und $\varepsilon_i\sim \mathcal N(0,\sigma^2)$ mit $\sigma>0$.
 Geben Sie die Kleinste-Quadrate-Schätzer für $\beta_i$, $i\in \left\{ 0,1,2 \right\}$ explizit an.
 
-\ifdefined\showsolutions
 \paragraph*{Lösung. } Das Modell lässt sich in der Form
 \begin{equation}
     Y = X \beta + \varepsilon
@@ -2156,5 +2091,4 @@ und
  \left({ T_0}\,{ T_2}-{ T_1}^2\right)\,{ T_4}-{ T_0}\,
  { T_3}^2+2\,{ T_1}\,{ T_2}\,{ T_3}-{ T_2}^3}.
 \end{equation}
-\fi
 
