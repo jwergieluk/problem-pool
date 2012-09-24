@@ -14,8 +14,8 @@ def readLines(fileName):
             lines = h.readlines()
         return lines
     except IOError as e:
-        print "ERROR: Cannot read the file %s" % fileName
-        raise SystemExit
+        print >> sys.stderr, "ERROR: Cannot read the file %s" % (fileName)
+        raise SystemExit(1)
 
 
 
@@ -30,7 +30,9 @@ class Problems:
 
     def addKeys(self, keyList):
         for k in keyList:
-            self.keys.append(k.strip().lower())
+            k=k.strip().lower()
+            if len(k)>0:
+                self.keys.append(k.strip().lower())
 
     def processTex(self, tex):
         lines=readLines(tex)
@@ -51,7 +53,7 @@ class Problems:
             if match != None: 
                 if match.group(2) != probName and probName!="":
                     if probName in self.problems.keys():
-                        print "WARNING: The key \"%s\" already in the database!" % (probName)
+                        print >> sys.stderr, "WARNING: The key \"%s\" already in the database!" % (probName)
                     self.problems[probName] = [probBody, probSolution]
 
                 probName=match.group(2).strip().lower()
@@ -71,7 +73,7 @@ class Problems:
 
         if probName!="":
             if probName in self.problems.keys():
-                print "WARNING: The key \"%s\" already in the database!" % (probName)
+                print >> sys.stderr, "WARNING: The key \"%s\" already in the database!" % (probName)
             self.problems[probName] = [probBody, probSolution]
 
     def printProblems(self, solutions):

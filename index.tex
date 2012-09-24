@@ -6,11 +6,11 @@
 \input{../latex-common/preamble}
 \input{../latex-common/commands}
 \usepackage[ngerman]{babel}
-
+\usepackage[url=false]{biblatex}
+\addbibresource{../latex-common/library.bib}
 %\maxtocdepth{paragraph}
 
 \newcommand{\showsolutions}
-
 
 \begin{document}
 \chapterstyle{section}
@@ -57,8 +57,9 @@
 
 \backmatter
 
-\bibliographystyle{alpha}
-\bibliography{../latex-common/library}
+\printbibliography
+%\bibliographystyle{alpha}
+%\bibliography{../latex-common/library}
 
 \end{document}
 
