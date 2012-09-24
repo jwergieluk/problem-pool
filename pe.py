@@ -2,11 +2,11 @@
 
 def printUsage():
     print "Problem extractor (c) Julian Wergieluk 2012, GPL"
-    print "usage: %s [file]" % sys.argv[0]
+    print "usage: %s [command] [key file] [problem file 1] [.. [problem file n]] " % sys.argv[0]
 
 
 import math, sys, os, calendar, re
-
+from collections import OrderedDict
 
 def readLines(fileName):
     try:
@@ -20,12 +20,17 @@ def readLines(fileName):
 
 
 
-PROBLEM_LINE=r'\s*(\\paragraph{)([\w*\s]+)\.\s*}'
+PROBLEM_LINE=r'\s*(\\paragraph{)(.*)\.\s*}'
 SOLUTION_LINE=r'\s*\\paragraph\*{'
 
 class Problems: 
     def __init__(self):
-       self.problems={}
+       self.problems=OrderedDict()
+       self.keys=[]
+
+    def addKeys(self, keyList):
+        for k in keyList:
+            self.keys.append(k.strip().lower())
 
     def processTex(self, tex):
         lines=readLines(tex)
@@ -35,19 +40,26 @@ class Problems:
 
         for line in lines: 
             line=line.strip()
-            match = re.search(PROBLEM_LINE, line)
+
+            if len(line)==0:
+                continue
+
+            if re.search(r'\\section', line, re.UNICODE)!=None:
+                continue
+
+            match = re.search(PROBLEM_LINE, line, re.UNICODE)
             if match != None: 
                 if match.group(2) != probName and probName!="":
                     if probName in self.problems.keys():
                         print "WARNING: The key \"%s\" already in the database!" % (probName)
                     self.problems[probName] = [probBody, probSolution]
 
-                probName=match.group(2)
+                probName=match.group(2).strip().lower()
                 probBody=line
                 probSolution=""
                 continue
 
-            match = re.search(SOLUTION_LINE, line)
+            match = re.search(SOLUTION_LINE, line, re.UNICODE)
             if match != None: 
                 probSolution = line
                 continue
@@ -62,29 +74,41 @@ class Problems:
                 print "WARNING: The key \"%s\" already in the database!" % (probName)
             self.problems[probName] = [probBody, probSolution]
 
-    def printProblems(self):
-        for p in self.problems.keys():
-            print "Problem:", p
-            print "Body:", self.problems[p][0]
-            print "Solution:", self.problems[p][1]
+    def printProblems(self, solutions):
+        for p in self.keys:
+            if len(p)>0 and p in self.problems.keys():
+                print self.problems[p][0]
+                if solutions:
+                    print self.problems[p][1]
+                print 
             
-            
+    def printSummary(self):
+        print "Problems in the datebase :: %d" % (len(self.problems.keys()))
+        print "Keys :: ", self.keys 
+        print "Keys :: ", self.problems.keys()
 
 
 
 if __name__ == "__main__":
 
     db=Problems()
-
     
-    if len(sys.argv) <=1:
+    if len(sys.argv)<4:
         printUsage()
         sys.exit()
 
-    for f in sys.argv[1:]:
+    cmd=sys.argv[1]
+    db.addKeys(readLines(sys.argv[2]))
+
+    for f in sys.argv[3:]:
         db.processTex(f)
         
-    db.printProblems()
+    if cmd=="s":
+        db.printSummary()
+    if cmd=="p":
+        db.printProblems(False)
+    if cmd=="ps":
+        db.printProblems(True)
 
 
 
