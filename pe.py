@@ -33,6 +33,10 @@ class Problems:
         for k in keyList:
             k=k.strip()
             cmd=k.split(" ")[0].lower()
+            if len(cmd)==0: 
+                continue
+            if cmd[0]=="#":
+                continue
             args=" ".join(k.split(" ")[1:])
             if len(cmd)>0 and len(args)>0:
                 self.cmds.append(cmd)
@@ -91,6 +95,8 @@ class Problems:
                 print "\\section*{%s}" % (key)
             if cmd=="sss":
                 print "\\subsection*{%s}" % (key)
+            if cmd=="tex":
+                print key
             key=key.lower()
             if cmd=="p" or cmd=="s":
                 if not key in self.problems.keys():

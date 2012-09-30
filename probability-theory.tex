@@ -1,9 +1,6 @@
 
 \section{Raw material}
 
-\paragraph{Minimum von zwei exponentialverteilten Zufallsvariablen.}
-\ldots ist wieder exponentialverteilt. Gilt das auch das Minimum von $n$
-exponential verteilten Zufallsvariablen?
 
 \paragraph{Monotonic transformations of RVs.} A monotonic transformation of
 a real valued random variable with continuous distribution function has
@@ -11,10 +8,6 @@ continuous distribution function.
 
 \url{http://math.stackexchange.com/questions/78101/monotonic-transformation-of-continuous-random-variable-are-continuous}
 
-\paragraph{Gausschen Zufallsvariablen und Unabhängigteit. } Seien $X$ und $Y$
-standard normalverteilt und unabhängig. Dann sind die Zufallsvariablen $U =
-\frac{X-Y}{\sqrt{2}}$ und $V=\frac{X+Y}{\sqrt{2}}$ ebenfalls standard
-normalverteilt und unabhängig. 
 
 
 \paragraph{Independence. }
@@ -38,7 +31,7 @@ $X$ nicht symmetrisch verteilt ist?
 and $Y \upmodels Z$ the $X+Z \sim Y+Z$. 
 
 
-\section{Production-ready exercises}
+\section{Discrete distributions.}
 
 \paragraph{Bernoulliverteilung. Momente. }
 Sei $X$ Bernoulliverteilt mit dem Parameter $p \in \left( 0,1 \right)$. Es gilt also
@@ -93,24 +86,26 @@ hat die Wahrscheinlichkeitsfunktion
 \end{enumerate}
 
 
+\section{Continuous distributions}
+
 \paragraph{Momente der Exponentialverteilung.} 
-Sei $X$ exponentialverteilt mit dem Parameter $\lambda>0$. $X$ hat also eine Dichte
+Sei $X$ exponentialverteilt mit dem Parameter $\lambda>0$. $X$ hat also die Dichte
 \begin{equation*}
     p(x) = \lambda e^{-\lambda x } 1_{\R_{\geq 0}}(x)
 \end{equation*}
 \begin{enumerate}
-    \item Die Vertelungsfunktion von $X$ ist gegeben durch
+    \item Die Verteilungsfunktion von $X$ ist gegeben durch
         \begin{equation*}
             P( X \leq x) = \left[ 1 - e^{-\lambda x} \right] 1_{\R_{\geq 0}}(x).
         \end{equation*}
-    \item Die Momente der Exponentialverteilung sind gegeben durch
+    \item Die Momente der Exponentialverteilung sind für $n\in\bN$ durch
         \begin{equation*}
             \E X^n = \frac{n!}{\lambda^{n}}
         \end{equation*}
-        für ein $n\in \bN$. 
+        gegeben. 
     \item Der Erwartungswert und die Varianz der Exponentialverteilung sind
         \begin{align*}
-            \E X    & = \frac{1}{\lambda}, & 
+            \E X    & = \frac{1}{\lambda} & 
             \Var X  & = \frac{1}{\lambda^2}.
         \end{align*}
 \end{enumerate}
@@ -134,6 +129,20 @@ Sei $X$ exponentialverteilt mit dem Parameter $\lambda>0$.
     \item Berechnen Sie mit Hilfe von $\psi(u)$ den Erwartungswert und die Varianz von $X$. 
 \end{enumerate}
 
+\paragraph{Minimum von exponentialverteilten Zufallsvariablen.}
+Seien $X_1, \cdots, X_n$ i.i.d.\ und exponentialverteilt mit $X\sim \text{Exp}(\lambda_i)$
+und $\lambda_i>0$. Dann ist die Zufallsvariable 
+\begin{equation*}
+    Y = \min \left\{ X_1, \cdots, X_n \right\} 
+\end{equation*}
+wieder exponentialverteilt und es gilt $Y \sim
+\text{Exp}(\lambda_1+\cdots+\lambda_n)$.
+
+\paragraph{Gleichverteilung und Exponentialverteilung. } Sei $X$ gleichverteilt
+auf dem Intervall $[0,1]$, dann ist $Y = -\log X$ exponentialverteilt.
+
+\paragraph*{Lösung. } $Y$ ist exponentialverteilt mit $\lambda=1$.
+
 
 \paragraph{Stetige Gleichverteilung.}
 Sei $X$ stetig gleichverteilt auf dem Intervall $\left( a,b \right)\subset \R$.  
@@ -154,6 +163,7 @@ Dies kann als $X \sim U(a,b)$ notiert werden.
         \end{equation*}
 \end{enumerate}
 
+
 \paragraph{Normalverteilung. Laplacetransformierte und Momente.}
 Sei $X \sim \cN \left( \mu, \sigma^{2} \right)$ mit $\mu\in\R$ und $\sigma>0$. 
 Die Dichte von $X$ ist also
@@ -173,15 +183,138 @@ Dann gilt
         \end{align*}
 \end{enumerate}
 
+\paragraph{Geraden Momente der Standardnormalverteilung. } Zeigen Sie, dass für eine
+standardnormalverteilte Zufallsvariable $X$ und $n \in \N$
+\begin{equation*}
+    E\left( X^{2n} \right) = \frac{(2n)!}{2^n \cdot n!}
+\end{equation*}
+gilt. %\cite{czadoschmidt} % A1.11
+
+\paragraph{Summen von normalverteilten Zufallsvariablen. }
+Sind die Zufallsvariablen $X_1,\ldots,X_n$ unabhängig und normalverteilt
+mit $X_i \sim \mathcal N (\nu_i, \sigma_i^2)$, so ist die Summe
+wieder normalverteilt mit 
+\begin{equation*}
+    \sum_{i=1}^{n} X_i \sim 
+    \mathcal N \left( \sum_{i=1}^{n} \nu_i, \sum_{i=1}^{n} \sigma_i^2 \right). 
+\end{equation*} %\cite{czadoschmidt}
+%(A 1.31)
+
+\paragraph{Dichte der multivariaten Normalverteilung. } Zeigen Sie, dass 
+$X \sim \mathcal N_p\left( \mu, \Sigma \right) $ folgende Dichte hat, falls 
+$\textrm{Rang}(\Sigma)=p$: 
+\begin{equation*}
+    p(x) = \frac{1}{ \textrm{det}(\Sigma)^{1/2} (2\pi)^{p/2}} \exp\left( - \frac{1}{2} (x  - \mu)^\top \Sigma^{-1} (x - \mu) \right).
+\end{equation*} %\cite{czadoschmidt} %(A 1.37)
+
+\paragraph{Gausschen Zufallsvariablen und Unabhängigteit. } Seien $X$ und $Y$
+standard normalverteilt und unabhängig. Dann sind die Zufallsvariablen $U =
+\frac{X-Y}{\sqrt{2}}$ und $V=\frac{X+Y}{\sqrt{2}}$ ebenfalls standard
+normalverteilt und unabhängig. 
+
+
+\paragraph{Beta-verteilung.} Sei $X$ eine Beta$(2,2)$-verteilte Zufallsvariable.
+\begin{enumerate}
+    \item Geben Sie die Dichte und Verteilungsfunktion von $X$ explicit an. 
+    \item Geben Sie die Dichte und Verteilungsfuntion der Zufallsvariable
+        $Y = \frac{1}{X} - 1$ an. 
+    \item Berechnen Sie $\E Y$.  
+\end{enumerate}
+
+
+\paragraph{Gamma-Verteilung. Momente.}
+Gegeben seien i.i.d.\ Gamma-verteilte Zufallsvariablen $X_1,\ldots,X_m$ mit der Dichte
+\begin{equation}
+    p_{a,\lambda}(x) = \frac{\lambda^a}{\Gamma(a)}x^{a-1}e^{-\lambda x} 1_{\R_{\geq 0}}(x)
+\end{equation}
+und Parametern $a>0$ und $\lambda>0$.
+Zeigen Sie für ein positives $n\in\mathbb N$
+\begin{equation}
+    E X_i^n = \frac{a\cdot\ldots\cdot (n+a-1)}{\lambda^n}.
+\end{equation}
+Dabei können Sie die Identität 
+$\Gamma(a+1)=a \Gamma(a)$, $a\in\R \setminus \left\{ -1,-2,\ldots \right\}$, verwenden.
+[Klausur 2011]
+
+\paragraph*{Lösung.}
+\begin{enumerate}
+    \item \begin{eqnarray}
+            E X^n &=& \int_{0}^{\infty} x^n \frac{\lambda^a}{\Gamma(a)}x^{a-1}e^{-\lambda x} dx \\
+            &=& \frac{a \cdot\ldots\cdot \left( a+n-1 \right)}{\lambda^n} 
+            \int_{0}^{\infty} \frac{\lambda^{a+n}}{\Gamma(n+a)} x^{a+n-1} e^{-\lambda x} dx \\
+            &=& \frac{a\cdot \ldots \cdot \left( a+n-1 \right)}{\lambda^n} \\
+            &=& \frac{\Gamma\left( a+n \right)}{ \lambda^n \Gamma\left( a \right)}.
+        \end{eqnarray}
+\end{enumerate}
+
+
+\paragraph{Momentenerzeugende Funktion einer Gamma-Verteilung. }
+Sei $X \sim \textrm{Gamma}(a, \lambda)$. Zeigen Sie, dass für $s<\lambda$
+\begin{equation*}
+    \Psi_X(s) = E \left( e^{sX} \right) = \frac{\lambda^a}{ (\lambda-s)^a}
+\end{equation*}
+gilt. Bestimmen Sie damit den Erwartungswert und die Varianz von $X$. %A 1.12
+
+\paragraph{Transformationen der Gamma-Verteilung. } Seien $X \sim
+\textrm{Gamma}(\alpha_1, \beta)$ und $Y \sim \textrm{Gamma}(\alpha_2, \beta)$
+zwei unabhängige Zufallsvariablen. Beweisen Sie:
+\begin{enumerate}
+    \item Ist $c>0$ so gilt
+        \begin{equation*}
+            c X \sim \text{Gamma}(\alpha, \frac{\beta}{c}).
+        \end{equation*}
+    \item \begin{equation*}
+            X + Y \sim \text{Gamma}(\alpha_1 + \alpha_2, \beta).
+        \end{equation*}
+    \item \begin{equation*}
+            \frac{X}{X+Y} \sim \text{Beta}(\alpha_1, \alpha_2).
+        \end{equation*}
+    \item $\frac{X}{X+Y}$ und $X+Y$ sind unabhängig. 
+\end{enumerate}
+Für die Beweise der letzten zwei Aussagen können Sie den Transformationssatz von Jacobi
+verwenden. 
+% \cite{czadoschmidt}
+
+\paragraph{Mittelwertvergleich bei Gamma-Verteilungen. }
+Seien $X_1,\ldots,X_n$ i.i.d.\ und $\textrm{Gamma}(a, \lambda_1)$-verteilt sowie
+$Y_1,\ldots,Y_n$ i.i.d.\ und $\textrm{Gamma}(a,\lambda_2)$-verteilt. Man nehme an,
+dass die Vektoren $(X_1,\ldots,X_n)$ und $(Y_1,\ldots,Y_n)$ unabhängig sind. 
+Bestimmen Sie die Verteilung von $\bar X/\bar Y$.
+
+\paragraph{Dichte der $\chi^2$-Verteilung. }   Seien $X_1,\ldots,X_n$ unabhängige und
+standardnormalverteilte Zufallsvariablen. Dann folgt $Y= \sum_{i=1}^{n} X_i^2$ einer
+$\chi^2$-Verteilung mit $n$ Freiheitsgraden. Zeigen Sie, dass die Dichte von $Y$ durch
+\begin{equation*}
+    p(x) = \frac{1}{ 2^{\frac{n}{2}} \Gamma(\frac{n}{2})}e^{-\frac{x}{2}} x^{\frac{n-2}{2}} 1_{\R>0}(x)
+\end{equation*}
+gegeben ist. Verwenden Sie hierfür die Faltungsformel und die Beta-Funktion.
+
+\paragraph{Verteilung der Stichprobenvarianz. }
+Seien $X_1, \ldots, X_n$ i.i.d., normalverteilt und $\Var\left( X_1 \right)=\sigma^2$.
+Für das zweite zentrierte empirische  Moment 
+$\hat \sigma^2 \left( X \right)= \frac{1}{n} \sum_{i=1}^{n} \left( X_i - \bar X \right)^2 $
+gilt, dass
+\begin{equation*}
+    \frac{n \hat \sigma^2 \left( X \right)}{\sigma^2 } = 
+        \sum_{i=1}^{n} \left( \frac{X_i - \bar X}{ \sigma} \right)^2 \sim \chi^2_{n-1}.
+\end{equation*}
+
+
+\paragraph{Rayleigh-Verteilung. }  Seien $X$ und $Y$ unabhängig und 
+$\mathcal N (0, \sigma^2)$-verteilt. Dann ist
+\begin{equation*}
+    Z= \sqrt{X^2 + Y^2} 
+\end{equation*}
+Rayleight-verteilt, d.h. 
+$Z$ hat die Dichte $\frac{z}{\sigma^2}e^{-\frac{z^2}{2\sigma^2}}1_{\R>0}(z)$.
+Es gilt $E\left( Z \right) = \sigma \sqrt{\pi/2}$ und 
+$\Var\left( Z \right) = \sigma^2 \left( 2 - \frac{2}{\pi} \right)$.
 
 
 
 \paragraph{Unabhängigkeit.} 
 Sei $X$ eine Zufallvariable. $X$ ist von $X$ unabhängig, genau dann wenn
 $P(X = c)=1$ für eine Konstante $c$ gilt. \cite{jacod2003probability}
-
-\paragraph*{Lösung.} Jacod Protter 9.2. 
-
 
 \paragraph{Eine Darstellung des Erwartungswertes. } Sei $X$ eine
 positive Zufallsvariable mit $\E X < \infty$. 
@@ -202,122 +335,22 @@ positive Zufallsvariable mit $\E X < \infty$.
 
 \paragraph*{Lösung.} Das ist eine Anwendung des Satzes von Fubini.
 
-
-\paragraph{Gleichverteilung und Exponentialverteilung. } Sei $X$ gleichverteilt
-auf dem Intervall $[0,1]$, dann ist $Y = -\log X$ exponentialverteilt.
-
-\paragraph*{Lösung. } $Y$ ist exponentialverteilt mit $\lambda=1$.
-
-
-\paragraph{Beta-verteilung.} Sei $X$ eine Beta$(2,2)$-verteilte Zufallsvariable.
-\begin{enumerate}
-    \item Geben Sie die Dichte und Verteilungsfunktion von $X$ explicit an. 
-    \item Geben Sie die Dichte und Verteilungsfuntion der Zufallsvariable
-        $Y = \frac{1}{X} - 1$ an. 
-    \item Berechnen Sie $\E Y$.  
-\end{enumerate}
-
-
-
-\paragraph{Erwartungstreue der Stichprobenvarianz. }  Seien $X_1,\ldots,X_n$ 
-i.i.d. (independent indentically distributed = unabhängig identisch verteilt) mit 
-Varianz $\sigma^2$. Die Stichprobenvarianz ist definiert durch
+\paragraph{Erwartungstreue der Stichprobenvarianz. } 
+Seien $X_1,\ldots,X_n$ i.i.d.\ mit Varianz $\sigma^2$. Die Stichprobenvarianz
+ist definiert durch
 \begin{equation*}
     s^2(X) := \frac{1}{n-1} \sum_{i=1}^{n} (X_i - \bar X)^2.
 \end{equation*}
 Dann gilt $E(s^2(X)) = \sigma^2$, d.h.~die Stichprobenvarianz ist erwartungstreu.
-% (A 1.3)
-
-
-\paragraph{Geraden Momente der Standardnormalverteilung. } Zeigen Sie, dass für eine
-standardnormalverteilte Zufallsvariable $X$ und $n \in \N$
-\begin{equation*}
-    E\left( X^{2n} \right) = \frac{(2n)!}{2^n \cdot n!}
-\end{equation*}
-gilt. % A1.11
+% \cite{czadoschmidt} % (A 1.3)
 
 
 \paragraph{Faltungsformel. } Haben $X$ und $Y$ die Dichten $p_X$ und $p_Y$ und beide
 sind unabhängig, so ist die Dichte von der Summe $Z=X+Y$ gegeben durch
 \begin{equation*}
     p_Z(z) = \int_{\R}^{} p_X(x)p_Y(z-x) dx.
-\end{equation*}
+\end{equation*}%  \cite{czadoschmidt}
 % (A 1.30)
-
-
-\paragraph{Momentenerzeugende Funktion einer Gamma-Verteilung. }
-Sei $X \sim \textrm{Gamma}(a, \lambda)$. Zeigen Sie, dass für $s<\lambda$
-\begin{equation*}
-    \Psi_X(s) = E \left( e^{sX} \right) = \frac{\lambda^a}{ (\lambda-s)^a}
-\end{equation*}
-gilt. Bestimmen Sie damit den Erwartungswert und die Varianz von $X$. %A 1.12
-
-
-
-\paragraph{Eine Transformation der Gamma-Verteilung. } Seien $X \sim
-\textrm{Gamma}(\alpha_1, \beta)$ und $Y \sim \textrm{Gamma}(\alpha_2, \beta)$
-zwei unabhängige Zufallsvariablen.  Zeigen Sie, dass $\frac{X}{ X+Y}$ und $X+Y$
-unabhängig sind. % (A 1.7)
-
-
-
-
-\paragraph{Summen von normalverteilten Zufallsvariablen. }
-Sind die Zufallsvariablen $X_1,\ldots,X_n$ unabhängig und normalverteilt
-mit $X_i \sim \mathcal N (\nu_i, \sigma_i^2)$, so ist die Summe
-wieder normalverteilt mit 
-\begin{equation*}
-    \sum_{i=1}^{n} X_i \sim 
-    \mathcal N \left( \sum_{i=1}^{n} \nu_i, \sum_{i=1}^{n} \sigma_i^2 \right). 
-\end{equation*}
-%(A 1.31)
-
-\paragraph{Dichte der multivariaten Normalverteilung. } Zeigen Sie, dass 
-$X \sim \mathcal N_p\left( \mu, \Sigma \right) $ folgende Dichte hat, falls 
-$\textrm{Rang}(\Sigma)=p$: 
-\begin{equation*}
-    p(x) = \frac{1}{ \textrm{det}(\Sigma)^{1/2} (2\pi)^{p/2}} \exp\left( - \frac{1}{2} (x  - \mu)^\top \Sigma^{-1} (x - \mu) \right).
-\end{equation*}  %(A 1.37)
-
-
-\paragraph{Rayleigh-Verteilung. }  Seien $X$ und $Y$ unabhängig und 
-$\mathcal N (0, \sigma^2)$-verteilt. Dann ist
-\begin{equation*}
-    Z= \sqrt{X^2 + Y^2} 
-\end{equation*}
-Rayleight-verteilt, d.h. 
-$Z$ hat die Dichte $\frac{z}{\sigma^2}e^{-\frac{z^2}{2\sigma^2}}1_{\R>0}(z)$.
-Es gilt $E\left( Z \right) = \sigma \sqrt{\pi/2}$ und 
-$\Var\left( Z \right) = \sigma^2 \left( 2 - \frac{2}{\pi} \right)$.
-
-
-\paragraph{Dichte der $\chi^2$-Verteilung. }   Seien $X_1,\ldots,X_n$ unabhängige und
-standardnormalverteilte Zufallsvariablen. Dann folgt $Y= \sum_{i=1}^{n} X_i^2$ einer
-$\chi^2$-Verteilung mit $n$ Freiheitsgraden. Zeigen Sie, dass die Dichte von $Y$ durch
-\begin{equation*}
-    p(x) = \frac{1}{ 2^{\frac{n}{2}} \Gamma(\frac{n}{2})}e^{-\frac{x}{2}} x^{\frac{n-2}{2}} 1_{\R>0}(x)
-\end{equation*}
-gegeben ist. Verwenden Sie hierfür die Faltungsformel und die Beta-Funktion.
-
-
-
-\paragraph{Verteilung der Stichprobenvarianz. }
-Seien $X_1, \ldots, X_n$ i.i.d., normalverteilt und $\Var\left( X_1 \right)=\sigma^2$.
-Für das zweite zentrierte empirische  Moment 
-$\hat \sigma^2 \left( X \right)= \frac{1}{n} \sum_{i=1}^{n} \left( X_i - \bar X \right)^2 $
-gilt, dass
-\begin{equation*}
-    \frac{n \hat \sigma^2 \left( X \right)}{\sigma^2 } = 
-        \sum_{i=1}^{n} \left( \frac{X_i - \bar X}{ \sigma} \right)^2 \sim \chi^2_{n-1}.
-\end{equation*}
-
-\paragraph{Mittelwertvergleich bei Gamma-Verteilungen. }
-Seien $X_1,\ldots,X_n$ i.i.d.\ und $\textrm{Gamma}(a, \lambda_1)$-verteilt sowie
-$Y_1,\ldots,Y_n$ i.i.d.\ und $\textrm{Gamma}(a,\lambda_2)$-verteilt. Man nehme an,
-dass die Vektoren $(X_1,\ldots,X_n)$ und $(Y_1,\ldots,Y_n)$ unabhängig sind. 
-Bestimmen Sie die Verteilung von $\bar X/\bar Y$.
-
-
 
 
 % vim: set spelllang=de; set spell
