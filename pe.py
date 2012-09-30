@@ -20,19 +20,23 @@ def readLines(fileName):
 
 
 
-PROBLEM_LINE=r'\s*(\\paragraph{)(.*)\.\s*}'
+PROBLEM_LINE=r'\s*(\\paragraph{)(.*)\s*}'
 SOLUTION_LINE=r'\s*\\paragraph\*{'
 
 class Problems: 
     def __init__(self):
        self.problems=OrderedDict()
        self.keys=[]
+       self.cmds=[]
 
     def addKeys(self, keyList):
         for k in keyList:
-            k=k.strip().lower()
-            if len(k)>0:
-                self.keys.append(k.strip().lower())
+            k=k.strip()
+            cmd=k.split(" ")[0].lower()
+            args=" ".join(k.split(" ")[1:])
+            if len(cmd)>0 and len(args)>0:
+                self.cmds.append(cmd)
+                self.keys.append(args)
 
     def processTex(self, tex):
         lines=readLines(tex)
@@ -47,6 +51,9 @@ class Problems:
                 continue
 
             if re.search(r'\\section', line, re.UNICODE)!=None:
+                continue
+
+            if re.search(r'\\subsection', line, re.UNICODE)!=None:
                 continue
 
             match = re.search(PROBLEM_LINE, line, re.UNICODE)
@@ -76,13 +83,25 @@ class Problems:
                 print >> sys.stderr, "WARNING: The key \"%s\" already in the database!" % (probName)
             self.problems[probName] = [probBody, probSolution]
 
-    def printProblems(self, solutions):
-        for p in self.keys:
-            if len(p)>0 and p in self.problems.keys():
-                print self.problems[p][0]
-                if solutions:
-                    print self.problems[p][1]
-                print 
+    def printProblems(self):
+        for i in range(len(self.cmds)):
+            cmd=self.cmds[i]
+            key=self.keys[i]
+            if cmd=="sse":
+                print "\\section*{%s}" % (key)
+            if cmd=="sss":
+                print "\\subsection*{%s}" % (key)
+            key=key.lower()
+            if cmd=="p" or cmd=="s":
+                if not key in self.problems.keys():
+                    print >> sys.stderr, "ERROR: \"%s\" not found!" % (key)
+                    raise SystemExit(1)
+                if cmd=="p":
+                    print self.problems[key][0]
+                if cmd=="s":
+                    print self.problems[key][0]
+                    print "\n%% solution"
+                    print self.problems[key][1]
             
     def printSummary(self):
 #        print "Problems in the datebase :: %d" % (len(self.problems.keys()))
@@ -108,9 +127,7 @@ if __name__ == "__main__":
     if cmd=="s":
         db.printSummary()
     if cmd=="p":
-        db.printProblems(False)
-    if cmd=="ps":
-        db.printProblems(True)
+        db.printProblems()
 
 
 
