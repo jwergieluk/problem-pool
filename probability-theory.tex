@@ -41,7 +41,7 @@ $X: \Omega \to \left\{ 0,1 \right\}$ und $P(X=1)=p$.
         \begin{equation*}
             \E X^n = p, \quad n\in\bN.
         \end{equation*}
-    \item Die Laplacetransformierte von $X$ ist 
+    \item Die momentenerzeugende Funktion von $X$ ist 
         \begin{equation*}
             \psi(u) = \E \exp \left( u X \right) = p\exp (u)+1-p.
         \end{equation*} 
@@ -56,13 +56,13 @@ Dann ist
 binomialverteilt mit Parametern $(n,p)$. D.h.\ $P(Y = k) = \binom{n}{k}  p^{k}(1-p)^{n-k}$, 
 für $k\in \left\{ 0, \cdots, n \right\}$.
 
-\paragraph{Binomialverteilung. Momente und Laplacetransformierte.}
+\paragraph{Binomialverteilung. Momente und momentenerzeugende Funktion.}
 Sei $X$ binomialverteilt mit den Parametern $(n,p)$, $n\in\N$ und $p\in(0,1)$. Dann gilt
 \begin{enumerate}
     \item \begin{equation*}
             \E X = np. 
         \end{equation*}
-    \item Die Laplacetransformierte von $X$ ist gegeben durch
+    \item Die momentenerzeugende Funktion von $X$ ist gegeben durch
         \begin{equation*}
             \psi(u) = \E \exp( uX) = (1 -p + p e^u)^{n}.
         \end{equation*}
@@ -74,12 +74,13 @@ hat die Wahrscheinlichkeitsfunktion
 \begin{equation*}
     P(X = k) = \frac{\lambda^{k}}{k!} e^{-\lambda}.
 \end{equation*}
+Es gilt
 \begin{enumerate}
-    \item Für den Erwartungswert und die Varianz von $X$ gilt
+    \item 
         \begin{equation}
             \E X = \Var X = \lambda.
         \end{equation}
-    \item Die Laplacetransformierte von $X$ ist gegeben durch
+    \item Die momentenerzeugende Funktion von $X$ ist gegeben durch
         \begin{equation}
             \psi(u) = \E \exp(uX) = \exp \left( \lambda(e^u - 1) \right).
         \end{equation}
@@ -118,10 +119,10 @@ $x,h>0$
 \end{equation}
 Warum wird diese Eigenschaft von $X$ Gedächnislosigkeit genannt?
 
-\paragraph{Laplacetransformierte der Exponentialverteilung. }
+\paragraph{Momentenerzeugende Funktion der Exponentialverteilung. }
 Sei $X$ exponentialverteilt mit dem Parameter $\lambda>0$. 
 \begin{enumerate}
-    \item Die Laplacetransformierte von $X$ ist 
+    \item Die momentenerzeugende Funktion von $X$ ist 
         \begin{equation*}
             \psi (u) = \E \exp \left( u X \right) = - \frac{\lambda}{u - \lambda}
         \end{equation*}
@@ -157,14 +158,14 @@ Dies kann als $X \sim U(a,b)$ notiert werden.
             \E X    & = \frac{1}{2} \left( b-a \right) & 
             \Var X  & = \frac{1}{12} \left( b-a \right)^{2}.  
         \end{align*}
-    \item Die Laplacetransformierte von $X$ ist 
+    \item Die momentenerzeugende Funktion von $X$ ist 
         \begin{equation*}
             \psi(u) = \E \exp \left( u X \right) = \frac{1}{u(b-a)}\left( e^{ub} - e^{ua} \right).
         \end{equation*}
 \end{enumerate}
 
 
-\paragraph{Normalverteilung. Laplacetransformierte und Momente.}
+\paragraph{Normalverteilung. Momentenerzeugende Funktion und Momente.}
 Sei $X \sim \cN \left( \mu, \sigma^{2} \right)$ mit $\mu\in\R$ und $\sigma>0$. 
 Die Dichte von $X$ ist also
 \begin{equation*}
@@ -173,7 +174,7 @@ Die Dichte von $X$ ist also
 \end{equation*}
 Dann gilt
 \begin{enumerate}
-    \item Die Laplacetransformierte von $X$ ist gegeben durch 
+    \item Die momentenerzeugende Funktion von $X$ ist gegeben durch 
         \begin{equation*}
             \psi(u) = \exp \left( \frac{1}{2} \sigma u^2 + \mu u \right).
         \end{equation*}
@@ -181,6 +182,7 @@ Dann gilt
         \begin{align*}
             \E X &= \mu, & \Var X &= \sigma^2.
         \end{align*}
+    \item Die Zufallsvariable $Z = \frac{X-\mu}{\sigma}$ ist standardnormalverteilt.
 \end{enumerate}
 
 \paragraph{Geraden Momente der Standardnormalverteilung. } Zeigen Sie, dass für eine
@@ -224,14 +226,14 @@ normalverteilt und unabhängig.
 
 \paragraph{Gamma-Verteilung. Momente.}
 Gegeben seien i.i.d.\ Gamma-verteilte Zufallsvariablen $X_1,\ldots,X_m$ mit der Dichte
-\begin{equation}
+\begin{equation*}
     p_{a,\lambda}(x) = \frac{\lambda^a}{\Gamma(a)}x^{a-1}e^{-\lambda x} 1_{\R_{\geq 0}}(x)
-\end{equation}
+\end{equation*}
 und Parametern $a>0$ und $\lambda>0$.
 Zeigen Sie für ein positives $n\in\mathbb N$
-\begin{equation}
+\begin{equation*}
     E X_i^n = \frac{a\cdot\ldots\cdot (n+a-1)}{\lambda^n}.
-\end{equation}
+\end{equation*}
 Dabei können Sie die Identität 
 $\Gamma(a+1)=a \Gamma(a)$, $a\in\R \setminus \left\{ -1,-2,\ldots \right\}$, verwenden.
 [Klausur 2011]
