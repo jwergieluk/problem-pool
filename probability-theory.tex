@@ -31,7 +31,7 @@ $X$ nicht symmetrisch verteilt ist?
 and $Y \upmodels Z$ the $X+Z \sim Y+Z$. 
 
 
-\section{Discrete distributions.}
+\section{Discrete distributions}
 
 \paragraph{Bernoulliverteilung. Momente. }
 Sei $X$ Bernoulliverteilt mit dem Parameter $p \in \left( 0,1 \right)$. Es gilt also
@@ -313,6 +313,7 @@ Es gilt $E\left( Z \right) = \sigma \sqrt{\pi/2}$ und
 $\Var\left( Z \right) = \sigma^2 \left( 2 - \frac{2}{\pi} \right)$.
 
 
+\section{Theoretical computations}
 
 \paragraph{Unabhängigkeit.} 
 Sei $X$ eine Zufallvariable. $X$ ist von $X$ unabhängig, genau dann wenn
@@ -359,6 +360,168 @@ sind unabhängig, so ist die Dichte von der Summe $Z=X+Y$ gegeben durch
 $(\Omega, \cA, P)$ und eine Familie $(A_i)_{i\in I}$ mit $A_i \in \cA$ und $P(A_i)>0 forall i$
 gegeben. Dann ist $I$ höchstens abzählbar. 
 \paragraph*{Lösung.} Sortiere die Menge der Größe nach. 
+
+
+
+\section{Bedingte Erwartungen}
+
+%Für die Aufgaben über bedingte Erwartungen fixieren wir den Raum $(\Omega, P, \mathcal A)$.
+
+%\emph{Hinweis zu den Lösungen: } Die Gleichheitsrelationen sowohl in den Aufgaben als auch in 
+%den Lösungen sind $P$-fast sicher zu verstehen.
+
+\paragraph{Bedingte Erwartungen. Turmeigenschaft. Gegenbeispiel. } Sei $X$ eine integrierbare Zufallsvariable
+und $\mathcal H, \mathcal G$ seien Sub-$\sigma$-Algebren von $\mathcal A$. 
+Zeigen Sie durch ein Beispiel, dass 
+\begin{equation}
+	E\left[ E\left[ X | \mathcal G \right] | \mathcal H \right] \neq
+	E\left[ E\left[ X | \mathcal H \right] | \mathcal G \right]
+\end{equation}
+gelten kann. 
+
+\paragraph*{Lösung. } 
+Betrachten wir $\Omega=\left\{ 1,2,3 \right\}$, $\mathcal A=2^\Omega$ die Potenzmenge von $\Omega$,
+$\mathcal H=\sigma\left( \left\{ 1,2 \right\} \right)$ und 
+$\mathcal G=\sigma\left( \left\{ 2,3 \right\} \right)$ sowie 
+$P\left( i \right)=\frac{1}{3}$ für alle $i\in\Omega$. Berechnen wir die obigen bedingten
+Erwartungen für $X:\Omega\to\mathbb N, i\mapsto 2^i$.
+\begin{eqnarray}
+	E\left[ X|\mathcal H \right] &=&
+	\frac{X\left( 1 \right)+X\left( 2 \right)}{2}1_{\left\{ 1,2 \right\}} + X\left( 3 \right) 1_{ \left\{ 3 \right\} } \\
+	&=& 3_{  \left\{ 1,2 \right\} } + 8_{ \left\{ 3 \right\}  } \\ 
+	E\left[ E\left[ X|\mathcal H \right]|\mathcal G \right] 
+	&=& 3_{ \left\{ 1 \right\} } + \frac{3+8}{2} 1_{ \left\{ 2,3 \right\} } \\
+	E\left[ X|\mathcal G \right] &=& 
+	X\left( 1 \right) 1_{ \left\{ 1 \right\} } + \frac{X\left( 2 \right)+X\left( 3 \right)}{2}1_{ \left\{ 2,3 \right\} } \\
+	&=& 2_{ \left\{ 1 \right\} } + 6_{ \left\{ 2,3 \right\} } \\
+	E\left[ E\left[ X|\mathcal G \right]| \mathcal H \right] 
+	&=& \frac{2+6}{2}1_{ \left\{ 1,2 \right\} } + 6_{ \left\{ 3 \right\} } \\
+	&=& 4_{ \left\{ 1,2 \right\} } + 6_{ \left\{ 3 \right\} }.
+\end{eqnarray}
+Dabei bezeichnet $4_{ \left\{ 1,2 \right\} }$ eine Funktion, die den Elementen $1$ und $2$
+den Wert $4$ zuordnet und allen anderen den Wert $0$.
+
+Damit folgt die Behauptung. 
+
+
+
+
+
+
+\paragraph{Bedingte Erwartungen. Turmeigenschaft. } Sei $X$ eine integrierbare Zufallsvariable und
+$\mathcal H$ eine Sub-$\sigma$-Algebra von 
+der $\sigma$-Algebra $\mathcal G$. D.h.\ $\mathcal H \subset \mathcal G \subset \mathcal A$.
+Zeigen Sie
+\begin{equation}
+	E\left[ E\left[ X | \mathcal G \right] | \mathcal H \right] =
+	E\left[ E\left[ X | \mathcal H \right] | \mathcal G \right] =
+	E \left[ X | \mathcal H \right].
+\end{equation}
+
+\paragraph*{Lösung.} Wir zeigen zunächst 
+$E\left[ E\left[ X | \mathcal H \right] | \mathcal G \right]=E \left[ X | \mathcal H \right]$.
+Nach Definition des bedingten Erwartungswertes ist $E\left[ X| \mathcal H \right]$ 
+$\mathcal H$-messbar und daher $\mathcal G$-messbar. So bekommen wir 
+\begin{equation}
+	E\left[ E\left[ X | \mathcal H \right] | \mathcal G \right] =
+	E\left[ X| \mathcal H \right] E\left[ 1|\mathcal G \right] = 
+	E \left[ X | \mathcal H \right ].
+\end{equation}
+Nun kommen wir zu 
+$E\left[ E\left[ X | \mathcal G \right] | \mathcal H \right]=E \left[ X | \mathcal H \right]$.
+Dies gilt genau dann wenn 
+\begin{equation}
+	E\left\{ X 1_A \right\} 
+	= E\left\{ E\left[ E\left[ X|\mathcal G \right]|\mathcal H \right] 1_A \right\}  
+	\quad \forall A\in\mathcal H.
+\end{equation}
+Sei $Y=E\left[ X|\mathcal G \right]$ eine $\mathcal G$-messbare Zufallsvariable und
+$A\in\mathcal H$. Die Indikatorfunktion $1_A$ ist $\mathcal H$-messbar und daher
+$\mathcal G$-messbar. Wir berechnen
+\begin{eqnarray}
+	E\left\{ E\left[ E\left[ X|\mathcal G \right]|\mathcal H \right] 1_A \right\} &=& 
+	E\left\{ E\left[ Y|\mathcal H \right] 1_A \right\} \\
+	&=& E\left\{ E\left[ Y 1_A| \mathcal H \right] \right\} \\
+	&=& E\left\{ Y 1_A \right\} \\
+	&=& E\left\{ E\left[ X|\mathcal G \right] 1_A \right\} \\
+	&=& E\left\{ E\left[ X 1_A| \mathcal G \right] \right\} = E\left\{ X 1_A \right\}. 
+\end{eqnarray}
+Daher ist nach Definition des bedingten Erwartungswertes
+\begin{equation}
+	E\left[ E\left[ X | \mathcal G \right] | \mathcal H \right]=E \left[ X | \mathcal H \right].
+\end{equation}
+
+
+
+
+
+\paragraph{Bedingte Varianz. } Seien $X,Y$ reelle Zufallsvariable mit $E\left[ X^2 \right] <\infty$. 
+Die bedingte Varianz einer Zufallsvariablen $X$ gegeben $Y$ ist definiert durch
+\begin{equation}
+	\Var \left[ X|Y \right] = E \left[ \left( X - E\left[ X|Y \right] \right)^2|Y \right].
+\end{equation}
+Dann gelten
+\begin{enumerate}
+    \item 
+        \begin{equation}
+        \Var \left( X \right) = 
+        \Var \left( E\left[ X|Y \right] \right) + E \left[ \Var\left[ X|Y \right] \right].
+        \end{equation}
+    \item \begin{equation}
+            \Var \left( X | Y \right) = E \left[ X^2 | Y \right] 
+            - \left( E\left[ X | Y \right] \right)^2.
+        \end{equation}
+\end{enumerate}
+
+\paragraph*{Lösung. } 
+Die Behauptung ist äquivalent zu 
+\begin{equation}
+    E\left\{ X^2 \right\} - E\left\{ X \right\}^2 
+    = E\left\{ E\left[ X|Y \right]^2 \right\} - E\left\{ E\left[ X|Y \right] \right\}^2
+    + E\left\{ E\left[ \left( X - E\left[ X|Y \right] \right)^2 |Y \right] \right\}.
+\end{equation}
+Wir kürzen den Term $E\left\{ X \right\}^2$ und erhalten 
+\begin{eqnarray}
+    E\left\{ X^2 \right\}&=& 
+    E\left\{ E\left[ X|Y \right]^2 \right\} +
+    E\left\{ X^2 - 2X E\left[ X|Y \right] + E\left[ X|Y \right]^2 \right\}
+\end{eqnarray}
+Diese Gleichung gilt genau dann wenn
+\begin{equation}
+    E\left\{  2X E\left[ X|Y \right] \right\} = 2 E\left\{ E\left[ X|Y \right]^2 \right\}.	
+\end{equation}
+Die Turmeigenschaft liefert uns aber
+\begin{eqnarray}
+    E\left\{  X E\left[ X|Y \right] \right\} &=& 
+    E\left\{ E\left[ X E\left[ X|Y \right] | Y \right] \right\} \\
+    &=& E\left\{ E\left[ X|Y \right] E\left[ X|Y \right]   \right\} \\
+    &=& E\left\{ E\left[ X|Y \right]^2 \right\}.
+\end{eqnarray}
+
+
+
+
+
+
+
+\paragraph{Bedingte Erwartungen. Idempotenz. } Sei $X$ eine integrierbare Zufallsvariable. Zeigen Sie
+\begin{equation}
+	E\left[ X|X \right] = X \quad P-\textrm{f.s.}
+\end{equation}
+
+\paragraph*{Lösung. } 
+Nach Definition ist $E\left[ X| X \right]=E\left[ X|\sigma\left( X \right) \right]$ und
+da $X$ ja $\sigma\left( X \right)$-messbar ist, erhalten wir
+\begin{equation}
+	E\left[ X|\sigma\left( X \right) \right]= X E\left[ 1 | \sigma\left( X \right) \right] =X.
+\end{equation}
+
+
+
+\paragraph{Bedingte Erwartungen und Normalverteilung. } Seien $X$ und $Y$ unabhängige
+standardnormalverteilte Zufallsvariablen. Berechnen Sie $\E\left[ X \vb X+Y
+\right]$.
+
 
 
 % vim: set spelllang=de; set spell
