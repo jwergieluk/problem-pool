@@ -46,6 +46,16 @@ $X: \Omega \to \left\{ 0,1 \right\}$ und $P(X=1)=p$.
             \psi(u) = \E \exp \left( u X \right) = p\exp (u)+1-p.
         \end{equation*} 
 \end{enumerate}
+\paragraph*{Lösung.} Aus $X = X^n$ für alle $n\in \bN$ gilt, erhalten wir  
+\begin{align*}
+    \E X = \E X^n = 1\, p + 0\, (1-p) = p.
+\end{align*}
+Auf direktem Wege erhalten wir auch
+\begin{equation*}
+    \psi(u) = \E \exp (uX) = \exp\left( u\, 1 \right)p + \exp(0)(1-p).
+\end{equation*}
+
+
 
 \paragraph{Binomialverteilung als Summe von unabhängigen Bernoulli Zufallsvariablen.}
 Seien $X_1, \cdots, X_n$, $n\in\bN$, i.i.d.\ und Bernoulliverteilt mit dem Parameter $p\in (0,1)$. 
@@ -67,6 +77,31 @@ Sei $X$ binomialverteilt mit den Parametern $(n,p)$, $n\in\N$ und $p\in(0,1)$. D
             \psi(u) = \E \exp( uX) = (1 -p + p e^u)^{n}.
         \end{equation*}
 \end{enumerate}
+\paragraph*{Lösung. }
+Nachdem $X$ die Summe unabhängiger Bernoulliverteilter Zufallsvariablen $B_1,
+\cdots, B_n$ ist, können wir die Linearität des Erwartungswertes benutzen.
+\begin{equation*}
+    \E X = \E B_1 + \cdots \E B_n = np. 
+\end{equation*}
+Zufallsvariablen $A$ und $B$ sind genau dann unabhängig, wenn 
+\begin{equation*}
+    \E f(A)g(B) = \E f(A)\, \E g(B)
+\end{equation*}
+für alle beschränkte messbare Funktionen gilt. Beachten Sie, dass $\E AB = \E
+A\, \E B$ in meisten Fällen nicht ausreichend für Unabhängigkeit ist!  Wir
+können also die zuvor benutzte Methode wieder einsetzen. 
+\begin{equation*}
+    \E \exp (u X) = \E \prod_{i=1}^{n} e^{u B_i} 
+    = \prod_{i=1}^{n} \E e^{u B_i} 
+    = \left[ e^{u}p + 1 -p \right]^{n}.
+\end{equation*}
+Dieses Ergebnis lässt sich auch mit Hilfe der Wahrscheinlichkeitsfunktion der 
+Binomialverteilung herleiten. 
+\begin{align*}
+    \E \exp (u X) &= \sum_{k=0}^{n} e^{u k} \binom{n}{k} p^{k}(1-p)^{n-k} \\
+    &= \sum_{k=0}^{n} \binom{n}{k} (p e^{u})^{k}(1-p)^{n-k} \\
+    &= \left[ e^u p + 1-p \right]^n.
+\end{align*}
 
 \paragraph{Poissonverteilung. Momente. } 
 Sei $X$ Poissonverteilt mit dem Parameter $\lambda>0$. Das bedeutet, $X:\Omega\to\bN$
@@ -77,13 +112,13 @@ hat die Wahrscheinlichkeitsfunktion
 Es gilt
 \begin{enumerate}
     \item 
-        \begin{equation}
+        \begin{equation*}
             \E X = \Var X = \lambda.
-        \end{equation}
+        \end{equation*}
     \item Die momentenerzeugende Funktion von $X$ ist gegeben durch
-        \begin{equation}
+        \begin{equation*}
             \psi(u) = \E \exp(uX) = \exp \left( \lambda(e^u - 1) \right).
-        \end{equation}
+        \end{equation*}
 \end{enumerate}
 
 
@@ -110,13 +145,41 @@ Sei $X$ exponentialverteilt mit dem Parameter $\lambda>0$. $X$ hat also die Dich
             \Var X  & = \frac{1}{\lambda^2}.
         \end{align*}
 \end{enumerate}
+\paragraph*{Lösung. } 
+Wir berechnen
+\begin{align*}
+    P(X \leq x) & = 
+    \int_{-\infty}^{x} \lambda e^{-\lambda x } 1_{\R_{\geq 0}}(x) dx \\
+    &= \int_{0}^{x} \lambda e^{-\lambda x } dx \\
+    &= \left[  - e^{-\lambda x}  \right] |_{0}^{x} \\
+    &= \left[ 1 - e^{-\lambda x} \right] 1_{\R_{\geq 0}}(x).
+\end{align*}
+Die Momente erhalten wir mit Hilfe der partiellen Integration. 
+\begin{align*}
+    \E X^n &= \int_{0}^{\infty} x^n \lambda e^{- \lambda x} dx \\
+    &= \int_{0}^{\infty} x^n\left( -e^{-\lambda x} \right)' dx \\
+    &= x^n \left( - e^{-\lambda x} \right)|_{0}^{\infty} 
+    - \int_{0}^{\infty} n x^{n-1} \left( -e^{-\lambda x} \right) dx  \\
+    &= \frac{n}{\lambda} \int_{0}^{\infty} x^{n-1}\, \lambda e^{-\lambda x} dx \\
+    & = \frac{n}{\lambda} \E X^{n-1}.
+\end{align*}
+Mit
+\begin{equation*}
+    \E X^{0} = \E 1 = 1
+\end{equation*}
+erhalten wir $\E X^n = \frac{n!}{\lambda^n}$ und daraus 
+\begin{align*}
+    E X &= \frac{1}{\lambda} &   \Var X &= \E X^2 - \left( \E X \right)^2 = 
+    \frac{1}{\lambda^2}. 
+\end{align*}
+
 
 \paragraph{Gedächtnislosigkeit der Exponentialverteilung.}
 Sei $X$ exponentialverteilt mit dem Parameter $\lambda>0$. Dann gilt für
 $x,h>0$ 
-\begin{equation}
+\begin{equation*}
     P\left( X > x+h \vb X > x \right) = P( X > h).
-\end{equation}
+\end{equation*}
 Warum wird diese Eigenschaft von $X$ Gedächtnislosigkeit genannt?
 
 \paragraph{Momentenerzeugende Funktion der Exponentialverteilung. }
@@ -129,6 +192,22 @@ Sei $X$ exponentialverteilt mit dem Parameter $\lambda>0$.
         für $|u| < \lambda$. 
     \item Berechnen Sie mit Hilfe von $\psi(u)$ den Erwartungswert und die Varianz von $X$. 
 \end{enumerate}
+\paragraph*{Lösung.} 
+Wir berechnen
+\begin{align*}
+    \psi(u) = \E \exp \left( u X \right) &= 
+    \int_{\R}^{} \exp \left( ux \right) \lambda e^{-\lambda x} 1_{\R_{\geq 0}}(x) dx \\
+    &= \lambda \int_{0}^{\infty} e^{(u-\lambda)x} dx \\
+    &= \lambda \left( \frac{1}{u-\lambda} e^{(u-\lambda)x} \right) |_{0}^{\infty}\\
+    &= -\frac{\lambda}{u- \lambda}. 
+\end{align*}
+Um die Momente zu erhalten, brauchen wir nur noch die Momentenerzeugende Funktion 
+zu differenzieren. 
+\begin{align*}
+    \E X = \frac{\partial}{ \partial u} \psi (u) |_{u=0} &= \frac{1}{\lambda} \\
+    \E X^2 = \frac{\partial^2}{\partial u^2} \psi (u) |_{u=0} &=
+    \frac{\partial}{\partial u} \frac{\lambda}{(u-\lambda)^2} = \frac{2}{\lambda^2}. 
+\end{align*}
 
 \paragraph{Minimum von exponentialverteilten Zufallsvariablen.}
 Seien $X_1, \cdots, X_n$ i.i.d.\ und exponentialverteilt mit $X\sim \text{Exp}(\lambda_i)$
@@ -155,7 +234,7 @@ Dies kann als $X \sim U(a,b)$ notiert werden.
         \end{equation*}
     \item Der Erwartungswert und die Varianz von $X$ sind gegeben durch
         \begin{align*}
-            \E X    & = \frac{1}{2} \left( b-a \right) & 
+            \E X    & = \frac{1}{2} \left( b+a \right) & 
             \Var X  & = \frac{1}{12} \left( b-a \right)^{2}.  
         \end{align*}
     \item Die momentenerzeugende Funktion von $X$ ist 
@@ -163,6 +242,27 @@ Dies kann als $X \sim U(a,b)$ notiert werden.
             \psi(u) = \E \exp \left( u X \right) = \frac{1}{u(b-a)}\left( e^{ub} - e^{ua} \right).
         \end{equation*}
 \end{enumerate}
+\paragraph*{Lösung.} Berechnen wir zunächst die $n$-ten Momente
+\begin{align*}
+    \E X^n &= \int_{\R}^{} x^n \frac{1}{b-a} 1_{(a,b)}(x) dx \\
+    &= \frac{1}{b-a} \int_{a}^{b} x^n dx \\
+    &= \frac{1}{b-a} \left( \frac{x^{n+1}}{n+1} \right) |_{a}^{b} \\
+    &= \frac{1}{b-a}\frac{1}{n+1} \left( b^{n+1}-a^{n+1} \right) \\
+    &= \frac{a^n b^{0} +\cdots+ a^0 b^{n}}{n+1}.
+\end{align*}
+Nun brauchen wir $n=1,2$ einzusetzen.
+\begin{align*}
+    \E X &= \frac{a+b}{2} & \E X^2 &= \frac{b^2 + ab + a^2}{3} & 
+    \Var X = \frac{(b-a)^2}{12}.
+\end{align*}
+Die Momentenerzeugende Funktion lässt dich auch direkt berechnen.
+\begin{align*}
+    \psi(u) = \E \exp\left( uX \right) &= 
+    \int_{\R} \exp \left( ux \right) \frac{1}{b-a} 1_{(a,b)}(x) dx \\
+    &= \frac{1}{b-a} \int_{a}^{b} \exp (ux) dx \\
+    &= \frac{e^{ub}-e^{ua}}{u(b-a)}.
+\end{align*}
+Beachten Sie, dass diese Funktion an Null beliebig oft differenzierbar ist. 
 
 
 \paragraph{Normalverteilung. Momentenerzeugende Funktion und Momente.}
@@ -184,6 +284,50 @@ Dann gilt
         \end{align*}
     \item Die Zufallsvariable $Z = \frac{X-\mu}{\sigma}$ ist standardnormalverteilt.
 \end{enumerate}
+\paragraph*{Lösung.} Wir berechnen die momentenerzeugende Funktion der
+Normalverteilung indem wir das Integral $\E \exp (u X)$ auf ein Integral der
+Dichte einer Normalverteilung zurückführen. 
+\begin{align*}
+    \psi(u) = \E \exp (u X)
+    &= \int_{\R}^{} e^{ux } \frac{1}{\sigma \sqrt{2\pi}} 
+    e^{ -\frac{1}{2}\left( \frac{x-\mu}{\sigma} \right)^2} dx \\
+    &= \int_{\R}^{} \frac{1}{\sigma \sqrt{2\pi}} 
+    \exp \left( ux - \frac{1}{2} \frac{(x-\mu)^2}{\sigma^2} \right) dx
+\end{align*}
+Nun gilt für den Ausdruck im Exponenten
+\begin{align*}
+    ux - \frac{1}{2} \frac{(x-\mu)^2}{\sigma^2} &= 
+    -\frac{1}{2\sigma^2} \left( -2 u\sigma^2 x + x^2 - 2\mu x + \mu^2 \right) \\
+    &= -\frac{1}{2\sigma^2} \left( x^2 - 2( \sigma^2 u +\mu  ) + \mu^2  \right)  \\
+    &= -\frac{1}{2\sigma^2} \left( \left( x - (\sigma^2 u + \mu) \right)^2 
+    - (\sigma^2 u + \mu)^2 + \mu^2  \right).
+\end{align*}
+Eingesetzt in die obige Formel für $\psi(u)$ ergibt das 
+\begin{align*}
+    \psi(u) &=  \exp \left( \frac{ (\sigma^2 u + \mu)^2 - \mu^2 }{2 \sigma^2} \right)
+    \int_{\R}^{} \frac{1}{\sigma \sqrt{2\pi}} 
+    \exp \left( - \frac{1}{2} \frac{(x- \sigma^2 u + \mu)^2}{\sigma^2} \right) dx \\
+    &= \exp \left( \frac{1}{2} \sigma^2 u^2 + u \mu \right).
+\end{align*}
+Der Erwartungswert und die Varianz der Normalverteilung lassen sich nun durchs
+Differenzieren berechnen. 
+\begin{align*}
+    \partial_u \psi(u) &= \psi(u) \left( \sigma^2 u + \mu \right) &\impl && \E X &= \mu \\
+    \partial_{uu} \psi(u) &= \psi(u) \left( \sigma^2 u + \mu \right)^2 + \psi(u) \sigma^2
+    & \impl && \E X^2 &= \mu^2 + \sigma^2
+\end{align*}
+Daraus erhalten wir 
+\begin{align*}
+    \Var X = \sigma^2.
+\end{align*}
+Wenden wir uns nun $Z = \frac{X - \mu}{\sigma}$ zu. Wir zeigen $Z \sim \cN(0,1)$ 
+indem wir den Erwartungswert und die Varianz von $Z$ berechnen. 
+\begin{align*}
+    \E Z &= \frac{1}{\sigma} \E (X- \mu) = \frac{1}{\sigma} ( \mu - \mu) = 0 \\
+    \Var Z &= \E \left\{ \left( Z - \E Z \right)^2 \right\} \\ 
+    &= \E \left( \frac{X - \mu}{\sigma} \right)^2 \\
+    &= \frac{1}{\sigma^2} \Var X = \frac{\sigma^2}{\sigma^2} = 1.
+\end{align*}
 
 \paragraph{Gerade Momente der Standardnormalverteilung. } Zeigen Sie, dass für eine
 standardnormalverteilte Zufallsvariable $X$ und $n \in \N$
@@ -199,8 +343,22 @@ wieder normalverteilt mit
 \begin{equation*}
     \sum_{i=1}^{n} X_i \sim 
     \mathcal N \left( \sum_{i=1}^{n} \nu_i, \sum_{i=1}^{n} \sigma_i^2 \right). 
-\end{equation*} %\cite{czadoschmidt}
-%(A 1.31)
+\end{equation*} %\cite{czadoschmidt} %(A 1.31)
+
+\paragraph*{Lösung. }
+Wir berechnen die momentenerzeugende Funktion der Zufallsvariable $\sum_{i=1}^{n} X_i$
+und verwenden dabei die Unabhängigkeit von $X_1, \cdots, X_n$.
+\begin{align*}
+    \E \exp \left( u \sum_{i=1}^{n} X_i \right) 
+    &= \prod_{i=1}^{n} \E \exp \left( u X_i \right) \\
+    &= \prod_{i=1}^n \exp \left( \frac{\sigma_i^2 u^2 }{2} + \nu_i u \right) \\
+    &= \exp \left( \frac{ u \sum_{i=1}^{n} \sigma_i^2 }{2} + u \sum_{i=1}^{n} \nu_i \right).
+\end{align*}
+Die momentenerzeugende Funktion, wenn sie in einer Umgebung von $0$ existiert, 
+charakterisiert eine Verteilung eindeutig. Die oben berechnete momentenerzeugende Funktion
+gehört zu einer Normalverteilung mit dem Erwartungswert $\sum_{i=1}^{n} \nu_i$ und
+der Varianz $\sum_{i=1}^{n} \sigma^2_i$. 
+
 
 \paragraph{Dichte der multivariaten Normalverteilung. } Zeigen Sie, dass 
 $X \sim \mathcal N_p\left( \mu, \Sigma \right) $ folgende Dichte hat, falls 
@@ -236,18 +394,16 @@ Zeigen Sie für ein positives $n\in\mathbb N$
 \end{equation*}
 Dabei können Sie die Identität 
 $\Gamma(a+1)=a \Gamma(a)$, $a\in\R \setminus \left\{ -1,-2,\ldots \right\}$, verwenden.
-[Klausur 2012]
+[Klausur WS11]
 
 \paragraph*{Lösung.}
-\begin{enumerate}
-    \item \begin{eqnarray}
-            E X^n &=& \int_{0}^{\infty} x^n \frac{\lambda^a}{\Gamma(a)}x^{a-1}e^{-\lambda x} dx \\
-            &=& \frac{a \cdot\ldots\cdot \left( a+n-1 \right)}{\lambda^n} 
-            \int_{0}^{\infty} \frac{\lambda^{a+n}}{\Gamma(n+a)} x^{a+n-1} e^{-\lambda x} dx \\
-            &=& \frac{a\cdot \ldots \cdot \left( a+n-1 \right)}{\lambda^n} \\
-            &=& \frac{\Gamma\left( a+n \right)}{ \lambda^n \Gamma\left( a \right)}.
-        \end{eqnarray}
-\end{enumerate}
+\begin{eqnarray}
+    E X^n &=& \int_{0}^{\infty} x^n \frac{\lambda^a}{\Gamma(a)}x^{a-1}e^{-\lambda x} dx \\
+    &=& \frac{a \cdot\ldots\cdot \left( a+n-1 \right)}{\lambda^n} 
+    \int_{0}^{\infty} \frac{\lambda^{a+n}}{\Gamma(n+a)} x^{a+n-1} e^{-\lambda x} dx \\
+    &=& \frac{a\cdot \ldots \cdot \left( a+n-1 \right)}{\lambda^n} \\
+    &=& \frac{\Gamma\left( a+n \right)}{ \lambda^n \Gamma\left( a \right)}.
+\end{eqnarray}
 
 
 \paragraph{Momentenerzeugende Funktion einer Gamma-Verteilung. }
@@ -313,11 +469,28 @@ Es gilt $E\left( Z \right) = \sigma \sqrt{\pi/2}$ und
 $\Var\left( Z \right) = \sigma^2 \left( 2 - \frac{2}{\pi} \right)$.
 
 
+\section{Counterexamples}
+
+\paragraph{Cauchyverteilung. Ein Gegenbeispiel.}
+Sei $X$ Cauchyverteilt mit der Dichte
+\begin{equation*}
+    p(x) = \frac{1}{\pi (1+x^2)}.
+\end{equation*}
+Zeigen Sie:
+\begin{enumerate}
+    \item $p$ ist wirklich eine Dichte.
+    \item Der Erwartungswert $\E X$ existiert nicht.
+    \item $\E X^n$ existiert nicht, für alle $n\in \bN$. 
+    \item Die momenenerzeugende Funktion von $X$ existiert für alle $t \neq 0$ nicht. 
+\end{enumerate}
+
+
+
 \section{Theoretical computations}
 
 \paragraph{Unabhängigkeit.} 
 Sei $X$ eine Zufallvariable. $X$ ist von $X$ unabhängig, genau dann wenn
-$P(X = c)=1$ für eine Konstante $c$ gilt. \cite{jacod2003probability}
+$P(X = c)=1$ für eine Konstante $c$ gilt. %\cite{jacod2003probability}
 
 \paragraph{Eine Darstellung des Erwartungswertes. } Sei $X$ eine
 positive Zufallsvariable mit $\E X < \infty$. 
@@ -521,6 +694,9 @@ da $X$ ja $\sigma\left( X \right)$-messbar ist, erhalten wir
 \paragraph{Bedingte Erwartungen und Normalverteilung. } Seien $X$ und $Y$ unabhängige
 standardnormalverteilte Zufallsvariablen. Berechnen Sie $\E\left[ X \vb X+Y
 \right]$.
+
+
+\paragraph{Bedingte Erwartungen und Normalverteilung II. } Exercise 5.2.7 from Föllmer and Schied.
 
 
 
