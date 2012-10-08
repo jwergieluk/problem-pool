@@ -46,7 +46,7 @@ $X: \Omega \to \left\{ 0,1 \right\}$ und $P(X=1)=p$.
             \psi(u) = \E \exp \left( u X \right) = p\exp (u)+1-p.
         \end{equation*} 
 \end{enumerate}
-\paragraph*{Lösung.} Aus $X = X^n$ für alle $n\in \bN$ gilt, erhalten wir  
+\paragraph*{Lösung.} Aus $X = X^n$ für alle $n\in \bN$, erhalten wir  
 \begin{align*}
     \E X = \E X^n = 1\, p + 0\, (1-p) = p.
 \end{align*}
@@ -79,7 +79,8 @@ Sei $X$ binomialverteilt mit den Parametern $(n,p)$, $n\in\N$ und $p\in(0,1)$. D
 \end{enumerate}
 \paragraph*{Lösung. }
 Nachdem $X$ die Summe unabhängiger Bernoulliverteilter Zufallsvariablen $B_1,
-\cdots, B_n$ ist, können wir die Linearität des Erwartungswertes benutzen.
+\cdots, B_n$ ist, können wir die Linearität des Erwartungswertes benutzen, und
+erhalten
 \begin{equation*}
     \E X = \E B_1 + \cdots \E B_n = np. 
 \end{equation*}
@@ -87,9 +88,9 @@ Zufallsvariablen $A$ und $B$ sind genau dann unabhängig, wenn
 \begin{equation*}
     \E f(A)g(B) = \E f(A)\, \E g(B)
 \end{equation*}
-für alle beschränkte messbare Funktionen gilt. Beachten Sie, dass $\E AB = \E
-A\, \E B$ in meisten Fällen nicht ausreichend für Unabhängigkeit ist!  Wir
-können also die zuvor benutzte Methode wieder einsetzen. 
+für alle beschränkte messbare Funktionen gilt.\footnote{Beachten Sie, dass $\E
+AB = \E A\, \E B$ in meisten Fällen nicht ausreichend für Unabhängigkeit ist!}
+Wir können also die zuvor benutzte Methode wieder einsetzen. 
 \begin{equation*}
     \E \exp (u X) = \E \prod_{i=1}^{n} e^{u B_i} 
     = \prod_{i=1}^{n} \E e^{u B_i} 
@@ -103,8 +104,8 @@ Binomialverteilung herleiten.
     &= \left[ e^u p + 1-p \right]^n.
 \end{align*}
 
-\paragraph{Poissonverteilung. Momente. } 
-Sei $X$ Poissonverteilt mit dem Parameter $\lambda>0$. Das bedeutet, $X:\Omega\to\bN$
+\paragraph{Poisson-Verteilung. Momente. } 
+Sei $X$ Poisson-verteilt mit dem Parameter $\lambda>0$. Das bedeutet, $X:\Omega\to\bN$
 hat die Wahrscheinlichkeitsfunktion 
 \begin{equation*}
     P(X = k) = \frac{\lambda^{k}}{k!} e^{-\lambda}.
@@ -201,7 +202,7 @@ Wir berechnen
     &= \lambda \left( \frac{1}{u-\lambda} e^{(u-\lambda)x} \right) |_{0}^{\infty}\\
     &= -\frac{\lambda}{u- \lambda}. 
 \end{align*}
-Um die Momente zu erhalten, brauchen wir nur noch die Momentenerzeugende Funktion 
+Um die Momente zu erhalten, brauchen wir nur noch die momentenerzeugende Funktion 
 zu differenzieren. 
 \begin{align*}
     \E X = \frac{\partial}{ \partial u} \psi (u) |_{u=0} &= \frac{1}{\lambda} \\
@@ -250,12 +251,12 @@ Dies kann als $X \sim U(a,b)$ notiert werden.
     &= \frac{1}{b-a}\frac{1}{n+1} \left( b^{n+1}-a^{n+1} \right) \\
     &= \frac{a^n b^{0} +\cdots+ a^0 b^{n}}{n+1}.
 \end{align*}
-Nun brauchen wir $n=1,2$ einzusetzen.
+Wir brauchen nur noch $n=1,2$ einzusetzen.
 \begin{align*}
     \E X &= \frac{a+b}{2} & \E X^2 &= \frac{b^2 + ab + a^2}{3} & 
     \Var X = \frac{(b-a)^2}{12}.
 \end{align*}
-Die Momentenerzeugende Funktion lässt dich auch direkt berechnen.
+Die momentenerzeugende Funktion kann folgendermassen berechnet werden. 
 \begin{align*}
     \psi(u) = \E \exp\left( uX \right) &= 
     \int_{\R} \exp \left( ux \right) \frac{1}{b-a} 1_{(a,b)}(x) dx \\
@@ -298,7 +299,7 @@ Nun gilt für den Ausdruck im Exponenten
 \begin{align*}
     ux - \frac{1}{2} \frac{(x-\mu)^2}{\sigma^2} &= 
     -\frac{1}{2\sigma^2} \left( -2 u\sigma^2 x + x^2 - 2\mu x + \mu^2 \right) \\
-    &= -\frac{1}{2\sigma^2} \left( x^2 - 2( \sigma^2 u +\mu  ) + \mu^2  \right)  \\
+    &= -\frac{1}{2\sigma^2} \left( x^2 - 2( \sigma^2 u +\mu  )x + \mu^2  \right)  \\
     &= -\frac{1}{2\sigma^2} \left( \left( x - (\sigma^2 u + \mu) \right)^2 
     - (\sigma^2 u + \mu)^2 + \mu^2  \right).
 \end{align*}
@@ -352,7 +353,7 @@ und verwenden dabei die Unabhängigkeit von $X_1, \cdots, X_n$.
     \E \exp \left( u \sum_{i=1}^{n} X_i \right) 
     &= \prod_{i=1}^{n} \E \exp \left( u X_i \right) \\
     &= \prod_{i=1}^n \exp \left( \frac{\sigma_i^2 u^2 }{2} + \nu_i u \right) \\
-    &= \exp \left( \frac{ u \sum_{i=1}^{n} \sigma_i^2 }{2} + u \sum_{i=1}^{n} \nu_i \right).
+    &= \exp \left( \frac{ u^2 \sum_{i=1}^{n} \sigma_i^2 }{2} + u \sum_{i=1}^{n} \nu_i \right).
 \end{align*}
 Die momentenerzeugende Funktion, wenn sie in einer Umgebung von $0$ existiert, 
 charakterisiert eine Verteilung eindeutig. Die oben berechnete momentenerzeugende Funktion
@@ -471,7 +472,7 @@ $\Var\left( Z \right) = \sigma^2 \left( 2 - \frac{2}{\pi} \right)$.
 
 \section{Counterexamples}
 
-\paragraph{Cauchyverteilung. Ein Gegenbeispiel.}
+\paragraph{Cauchy-Verteilung. Ein Gegenbeispiel.}
 Sei $X$ Cauchyverteilt mit der Dichte
 \begin{equation*}
     p(x) = \frac{1}{\pi (1+x^2)}.
@@ -530,8 +531,8 @@ sind unabhängig, so ist die Dichte von der Summe $Z=X+Y$ gegeben durch
 
 
 \paragraph{Abzählbare Familien disjunkter Mengen.} Sei ein Wahrscheinlichkeitsraum
-$(\Omega, \cA, P)$ und eine Familie $(A_i)_{i\in I}$ mit $A_i \in \cA$ und $P(A_i)>0 forall i$
-gegeben. Dann ist $I$ höchstens abzählbar. 
+$(\Omega, \cA, P)$ und eine Familie $(A_i)_{i\in I}$ mit $A_i \in \cA$ und
+$P(A_i)>0 \forall i$ gegeben. Dann ist $I$ höchstens abzählbar. 
 \paragraph*{Lösung.} Sortiere die Menge der Größe nach. 
 
 

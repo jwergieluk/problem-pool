@@ -1,6 +1,62 @@
 
 
+\paragraph{Stochastisches Integral einer deterministischen Funktion. } Sei
+$f: \R\in\R$ eine deterministische meßbare Funktion. Zeigen Sie 
+\begin{equation}
+    \int_{0}^{t} f(s) d W_s \sim \cN(0, \int_{0}^{t} f^2(s) ds). 
+\end{equation}
 
+
+\paragraph{Pfadeigenschaften und Filtration. }  Sei $X$ ein stochastischer
+Prozess, $\cF^{X}$ die von $X$ erzeugte Filtration und $\cG$ eine Filtration,
+die alle $\cF$-Nullmengen enthält und $\cF^{X}_t \subset \cG_t$ $\forall t$
+erfüllt.  Sei $A \subset \Omega$ das Ereignis, dass $X$ stetig auf $[0, t_0)$
+ist. 
+\begin{enumerate}
+    \item Falls alle Pfade von $X$ c\`adl\`ag sind, dann ist $A \in \cF^{X}_{t_0}$.
+    \item Falls $X$ c\`adl\`ag ist, dann gilt $A \in \cG_{t_0}$, aber nicht
+        notwendigerweise $A \in \cF^{X}_{t_0}$.
+\end{enumerate}
+Quelle: \cite{Karatzas1991}.
+
+
+\paragraph{Messbarkeitsbegriffe. } Sei $X$ ein stochastischer Prozess. Ist $X$
+progressiv messbar, so folgt $X$ ist messbar und adaptiert.
+
+
+\paragraph{Levy martingales.} Every Levy process which is a local martingale is
+also a true martingale.
+
+
+\paragraph{Maximum processes of the Brownian Motion. } Show that the process $W
+- W^*$ has independent increments. $W$ denotes Brownian Motion and $X^*_t=
+\max_{0 \leq s \leq t} X_s$ is the maximum process of a \cadlag process $X$.
+
+
+\paragraph{Not Feller by discontinuity at zero}
+Find a Markov process viotating the continuity part of 
+the Feller property, namely
+\begin{equation}
+\lim_{t\to 0} P_t f(x) = f(x) \quad \forall f \in C_0 \ \forall x\in \R
+\end{equation}
+but perhaps preserving the $C_0$ property $P_t C_0 \subset C_0$.
+
+
+
+\paragraph{Independence and transformations. } Let random variables
+$X_1,\ldots,X_n$ and $Y_1,\ldots,Y_k$ satisfy $X_i \upmodels Y_j$ for all $i$
+and $i$.
+\begin{enumerate}
+    \item It follows that $g(X_i)$ and $h(Y_j)$ are independent for any $i$ and
+        $j$.
+    \item A generalization of the above result is not true. Given any Borel
+        functions $f$ and $g$ of suitable dimensionality $f(X_1,\ldots,X_n)$
+        may be not independent of $g(Y_1,\ldots,Y_k)$.
+\end{enumerate}
+
+
+
+\section{Stopping times}
 
 \paragraph{Stoppzeiten. } Seien $T,S$ Stoppzeiten bezüglich der Filtration
 $\left( \cF_t \right)_{t \geq 0}$. 
@@ -40,7 +96,7 @@ denn es ein abzählbarer Schnitt der Mengen $\left\{ T> t+\varepsilon
 \right\}\in\bF_{t+\varepsilon^{*}}$ ist. Behauptung gilt wegen $\cF_t=\cF_{t+}$ $\forall t$.
 
 
-
+\section{Diffusions }
 
 \paragraph{Ornstein-Uhlenbeck SDE.} Lösen Sie die \textsc{SDE}
 \begin{equation}
@@ -62,12 +118,10 @@ Die Parameter $\alpha, \beta$ und $\sigma$ sind reelle Zahlen und $\sigma>0$.
     \item Zeigen Sie, dass $X_t$ normalverteilt ist. 
 \end{enumerate}
 
-\ifdefined\showsolutions
 \paragraph*{Lösung. } Die Lösung ergibt sich durch die Anwendung der It\^o-Formel
 auf die Funktion $f$. Da $\int_{}^{} g(s) d W_s$ für progressiv meßbares $g$ ein
 Martingal ist, erhalten wir $\E X_t$ direkt aus der Lösung. Die Formel für die 
 Varianz folgt mit Hilfe der It\^o-Isometrie.
-\fi
 
 
 
