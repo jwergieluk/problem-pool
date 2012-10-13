@@ -336,6 +336,30 @@ standardnormalverteilte Zufallsvariable $X$ und $n \in \N$
     E\left( X^{2n} \right) = \frac{(2n)!}{2^n \cdot n!}
 \end{equation*}
 gilt. %\cite{czadoschmidt} % A1.11
+\paragraph*{Lösung.}
+Die momentenerzeugende Funktion der Standardnormalverteilung ist 
+\begin{equation*}
+    \psi(u) = \exp \left( \frac{u^2}{2} \right).
+\end{equation*}
+Diese Funktion lässt sich leicht ableiten. 
+\begin{align*}
+    \psi^{(1)} &= \psi u \\
+    \psi^{(2)} &= \psi^{(1)} u + \psi \\
+    \psi^{(3)} &= \psi^{(2)} u + 2 \psi^{(1)} \\
+    \psi^{(4)} &= \psi^{(3)} u + 3 \psi^{(2)} \\
+    \psi^{(2n)} &= \psi^{(2n-1)} u + (2n-1) \psi^{(2n-2)}.
+\end{align*}
+Wenn wir $u=0$ einsetzen erhalten wir die Relation
+\begin{equation*}
+    \left. \psi^{(2n)} \right|_{u=0}^{} =
+    \psi_{0}^{(2n)} = (2n-1)\psi^{2n-2}_{0}
+\end{equation*}
+und daraus
+\begin{equation*}
+    \psi_{0}^{(2n)} = (2n-1)(2n-3) \cdots 1 = \frac{ 2n!}{ (2n)(2n-2)\cdots 2  } = \frac{2n!}{ 2^n n!}.
+\end{equation*}
+
+
 
 \paragraph{Summen von normalverteilten Zufallsvariablen. }
 Sind die Zufallsvariablen $X_1,\ldots,X_n$ unabhängig und normalverteilt
