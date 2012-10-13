@@ -224,7 +224,6 @@ auf dem Intervall $[0,1]$, dann ist $Y = -\log X$ exponentialverteilt.
 
 \paragraph*{Lösung. } $Y$ ist exponentialverteilt mit $\lambda=1$.
 
-
 \paragraph{Stetige Gleichverteilung.}
 Sei $X$ stetig gleichverteilt auf dem Intervall $\left( a,b \right)\subset \R$.  
 Dies kann als $X \sim U(a,b)$ notiert werden. 
@@ -360,7 +359,6 @@ und daraus
 \end{equation*}
 
 
-
 \paragraph{Summen von normalverteilten Zufallsvariablen. }
 Sind die Zufallsvariablen $X_1,\ldots,X_n$ unabhängig und normalverteilt
 mit $X_i \sim \mathcal N (\nu_i, \sigma_i^2)$, so ist die Summe
@@ -394,8 +392,77 @@ $\textrm{Rang}(\Sigma)=p$:
 
 \paragraph{Gausschen Zufallsvariablen und Unabhängigteit. } Seien $X$ und $Y$
 standard normalverteilt und unabhängig. Dann sind die Zufallsvariablen $U =
-\frac{X-Y}{\sqrt{2}}$ und $V=\frac{X+Y}{\sqrt{2}}$ ebenfalls standard
-normalverteilt und unabhängig. 
+\frac{X-Y}{\sqrt{2}}$ und $V=\frac{X+Y}{\sqrt{2}}$ ebenfalls standardnormalverteilt 
+und unabhängig. 
+
+
+\paragraph{Log-Normalverteilung. Momente und Dichte.}
+Sei $X \sim \cN(\mu,\sigma^2)$ normalverteilt, dann ist die Zufallsvariable 
+$Y = e^{X}$ log-normalverteilt, was als $Y \sim \cL\cN (\mu, \sigma^2)$ notiert 
+werden kann. Zeigen Sie folgende Eigenschaften der Normalverteilung.
+\begin{enumerate}
+    \item Die Dichte von $Y$ ist durch
+        \begin{equation*}
+            f(t) = \frac{1}{\sigma t\sqrt{2\pi}} 
+            \exp \left( -\frac{1}{2} \left( \frac{\log t -\mu}{\sigma} \right)^2  \right)
+            1_{\R_{\geq 0}}(x) 
+        \end{equation*} 
+        gegeben.
+    \item Die Momente von $Y$ sind 
+        \begin{equation*}
+            \E Y^n = \exp \left( \mu n + \frac{n^2\sigma^2}{2} \right).
+        \end{equation*}
+    \item Die momentenerzeugende Funktion $\psi_Y$ von $Y$ existiert für alle $t\neq 0$ nicht. 
+\end{enumerate}
+\paragraph*{Lösung.}
+Sei $\phi_X$ die Dichte und $\Phi_X$ die Verteilungsfunktion von $X$. Wir bemerken zunächst
+\begin{equation*}
+    P \left( e^{X} \leq t \right) = P \left( X \leq \log t \right) = 
+    \int_{- \infty}^{\log t} \phi_X (x) dx. 
+\end{equation*}
+Dies ist die Verteilungsfunktion von $Y$. Die Dichte von $Y$ erhalten wir durchs Differenzieren.
+\begin{align*}
+    \frac{\partial}{\partial t} P \left( e^X \leq t \right) &= 
+    \frac{\partial}{\partial t} \int_{-\infty}^{\log t} \phi(x) dx \\
+    &= \frac{\partial}{\partial t} \Phi(\log t) \\
+    &= \phi(\log t) t^{-1}. 
+\end{align*}
+Die Momente der Log-Normalverteilung erhalten wir indem wir die Beziehung $e^{X}$ benutzen. 
+\begin{align*}
+    \E Y^n = \E e^{nX} &= \int_{\R}^{} e^{nx} \frac{1}{\sigma \sqrt{2\pi} } 
+    \exp \left( -\frac{1}{2} \left( \frac{x-\mu}{\sigma} \right)^2 \right) dx \\
+    &= \int_{\R} \frac{1}{ \sigma \sqrt{2\pi}} \exp \left( 
+    -\frac{1}{2\sigma^2} \left( x^2 - 2 x \mu + \mu^2 - 2n \sigma^2 x \right)
+    \right) dx \\
+    &= \int_{ \R}^{} \frac{1}{ \sigma \sqrt{2\pi} } 
+    \exp \left( -\frac{1}{2\sigma^2} \left( x - (\mu + n \sigma^2) \right)^2
+    + \mu n + \frac{n^2 \sigma^2}{ 2}
+    \right) dx.
+\end{align*}
+Daraus ergibt sich
+\begin{equation*}
+    \E Y^n = \exp \left[ \mu n + \frac{n^2 \sigma^2}{2} \right]. 
+\end{equation*}
+Insbesondere gilt $\E Y = \exp \left[ \mu + \frac{\sigma^2}{2} \right]$.
+
+Die momentenerzeugende Funktion kann mit der gleicher Methode untersucht werden. 
+Nehmen wir zunächst an, dass $X$ standardnormalverteilt ist. Dann gilt
+\begin{align*}
+    \psi_Y = \E \exp \left( uY \right) &= \E \exp \left( u e^{X} \right) \\
+    &= \int_{\R} e^{u e^{x}} \frac{1}{\sqrt{ 2 \pi}} \exp \left(  - \frac{x^2}{2}  \right) dx \\
+    &= \int_{\R} \frac{1}{\sqrt{2 \pi}} \exp \left(u e^{x} - \frac{x^2}{2} \right)dx \\
+    & \geq \int_{\R}^{} \frac{1}{\sqrt{2\pi}} 
+    \exp \left( u\left(1 + x + \frac{x^2}{2} + \frac{x^3}{6}\right) - \frac{x^2}{2} \right) dx.
+\end{align*}
+Der Ausdruck im Exponente Divergiert für $x\to \infty$ und $u>0$. Das Integral muss 
+also auch divergent sein, und die momentenerzeugende Funktion existiert nur für $u=0$. 
+Die oben bewiesene Aussage gilt auch allgemein für $X \sim \cN (\mu, \sigma^2)$, denn
+\begin{equation*}
+    \E e^{uY} = \E \exp \left( e^{u (\sigma X + \mu)} \right) = 
+    \int_{\R} \exp \left( u e^{\sigma x + \mu} \right) \frac{1}{\sqrt{2\pi}}
+    \exp \left( -\frac{x^2}{2} \right) dx. 
+\end{equation*}
+
 
 
 \paragraph{Beta-verteilung.} Sei $X$ eine Beta$(2,2)$-verteilte Zufallsvariable.
@@ -458,19 +525,89 @@ Für die Beweise der letzten zwei Aussagen können Sie den Transformationssatz
 verwenden. 
 % \cite{czadoschmidt}
 
+\paragraph{Gamma-Verteilung und Exponentialverteilung. }
+Seien
+\begin{equation*}
+    E_1, E_2 \sim \text{Exp}(\lambda)
+\end{equation*}
+exponentialverteilt mit dem Parameter
+$\lambda>0$ und
+\begin{equation*}
+    G \sim \text{Gamma}(a,\lambda)
+\end{equation*}
+Gamma-verteilt mit den Parametern $a>0$ und $\lambda>0$. $E_1, E_2, G$ seien
+unabhängig. Zeigen Sie mit Hilfe der Faltungsformel die folgenden Aussagen.
+\begin{enumerate}
+    \item $E_1 + E_2$ ist Gamma-verteilt mit den Parametern $(2,\lambda)$. 
+    \item $E_1 + G$ ist Gamma-verteilt mit den Parametern $(a+1, \lambda)$. 
+\end{enumerate}
+\paragraph*{Lösung. }
+Sei $p(x) = \lambda e^{- \lambda x} 1_{\R_{\geq 0}}(x)$ die Dichte der
+Exponentialverteilung und $g(x) = \frac{\lambda^a}{\Gamma(a)} x^{a-1}
+e^{-\lambda x} 1_{\R_{\geq 0}}(x) $ die Dichte der Gamma-Verteilung. Zunächst
+stellen wir
+\begin{equation*}
+    \text{Exp}(\lambda) = \text{Gamma}(1, \lambda)
+\end{equation*}
+fest. Mit Hilfe der Faltungsformel
+\begin{equation*}
+    f_{E_1 + G} = \int_{\R}^{} p(z-y) g(y) dy
+\end{equation*}
+können wir die Dichte der Zufallsvariable $E_1 + G$ berechnen.
+\begin{align*}
+    f_{E_1 + G} (z) &= \int_{\R}^{} p(z-y) g(z) dy \\
+    &= \int_{\R}^{} \lambda e^{-\lambda (z-y)} 1_{\R_{\geq 0}} (z-y)
+    \frac{\lambda^a}{\Gamma(a)} y^{a-1} e^{- \lambda y } 1_{\R_{\geq 0}}(y) dy \\
+    &= \frac{\lambda^{a+1}}{\Gamma(a)} e^{-\lambda z} \int_{0}^{z} y^{a-1} dy \\
+    &= \frac{\lambda^{a+1}}{\Gamma(a)} e^{-\lambda z} \frac{z^a}{a} 1_{\R_{\geq 0}} (z) \\
+    &=  \frac{\lambda^{a+1}}{\Gamma(a+1)} z^{a} e^{-\lambda z} 1_{\R_{\geq 0}} (z).
+\end{align*}
+$f_{E_1 + G}$ ist also die Dichte der Verteilung $\text{Gamma}(a+1, \lambda)$. 
+
+
 \paragraph{Mittelwertvergleich bei Gamma-Verteilungen. }
 Seien $X_1,\ldots,X_n$ i.i.d.\ und $\textrm{Gamma}(a, \lambda_1)$-verteilt sowie
 $Y_1,\ldots,Y_n$ i.i.d.\ und $\textrm{Gamma}(a,\lambda_2)$-verteilt. Man nehme an,
 dass die Vektoren $(X_1,\ldots,X_n)$ und $(Y_1,\ldots,Y_n)$ unabhängig sind. 
 Bestimmen Sie die Verteilung von $\bar X/\bar Y$.
 
-\paragraph{Dichte der $\chi^2$-Verteilung. }   Seien $X_1,\ldots,X_n$ unabhängige und
-standardnormalverteilte Zufallsvariablen. Dann folgt $Y= \sum_{i=1}^{n} X_i^2$ einer
-$\chi^2$-Verteilung mit $n$ Freiheitsgraden. Zeigen Sie, dass die Dichte von $Y$ durch
-\begin{equation*}
-    p(x) = \frac{1}{ 2^{\frac{n}{2}} \Gamma(\frac{n}{2})}e^{-\frac{x}{2}} x^{\frac{n-2}{2}} 1_{\R>0}(x)
-\end{equation*}
-gegeben ist. Verwenden Sie hierfür die Faltungsformel und die Beta-Funktion.
+\paragraph{Dichte der $\chi^2$-Verteilung. } 
+Seien $X_1,\ldots,X_n$ unabhängige und standardnormalverteilte
+Zufallsvariablen. Dann folgt $Y= \sum_{i=1}^{n} X_i^2$ einer
+$\chi^2$-Verteilung mit $n$ Freiheitsgraden. 
+\begin{enumerate}
+    \item Die Verteilungsfunktion von $X_1$ ist $2\Phi(\sqrt{t})-1$, wobei
+        $\Phi$ die Verteilungsfunktion der Standardnormalverteilung bezeichnet. 
+    \item Die Dichte von $X_1$ ist die $\text{Gamma}(\frac{1}{2},\frac{1}{2})$-Dichte. 
+    \item Die Dichte von $Y$ ist die $\text{Gamma}(\frac{n}{2},\frac{1}{2})$-Dichte, d.h.\
+        \begin{equation*}
+            p(x) = \frac{1}{ 2^{\frac{n}{2}} 
+            \Gamma(\frac{n}{2})}e^{-\frac{x}{2}} x^{\frac{n-2}{2}} 1_{\R>0}(x).
+        \end{equation*}
+\end{enumerate}
+\paragraph*{Lösung. }
+Wir berechnen zunächst die Verteilungsfunktion $F$ von $X_1$. Für ein positives $t$
+erhalten wir
+\begin{align*}
+    F(t) &= P \left( X^2 \leq t \right) \\
+    &= P \left( X \in \left[ -\sqrt{t}, \sqrt{t} \right]  \right) \\
+    &= \int_{-\sqrt{t}}^{\sqrt{t}} \phi(x) dx \\
+    &= \Phi(\sqrt{t}) - \Phi(-\sqrt{t}) \\
+    &= \Phi(\sqrt{t}) - (1 - \Phi(\sqrt{t})) = 2 \Phi(\sqrt{t}) -1. 
+\end{align*}
+Das Differenzieren liefert die Dichte $f$ von $X_1$, und zwar
+\begin{align*}
+    \frac{\partial}{\partial t} \left( 2 \Phi(\sqrt{t}) - 1 \right) 
+    &= \phi(\sqrt{t}) \frac{1}{\sqrt{t}} \\
+    &= \frac{1}{\sqrt{2\pi t}} e^{-\frac{1}{2}t} \, 1_{\R_{>0}}(t) \\
+    &= \frac{1}{\sqrt{2}\Gamma(\frac{1}{2})} t^{-\frac{1}{2}} e^{-\frac{1}{2}t} \, 1_{\R_{>0}}(t).
+\end{align*}
+Dies ist die $\text{Gamma}(\frac{1}{2}, \frac{1}{2})$-Dichte. Der
+Additionstheorem für Gamma-verteilte Zufallsvariablen mit gleichem
+Skalenparameter $\lambda$ liefert die Dichte der $\chi^{2}$-Verteilung mit $n$
+Freiheitsgraden. 
+
+
 
 \paragraph{Verteilung der Stichprobenvarianz. }
 Seien $X_1, \ldots, X_n$ i.i.d., normalverteilt und $\Var\left( X_1 \right)=\sigma^2$.
@@ -488,10 +625,15 @@ $\mathcal N (0, \sigma^2)$-verteilt. Dann ist
 \begin{equation*}
     Z= \sqrt{X^2 + Y^2} 
 \end{equation*}
-Rayleight-verteilt, d.h. 
-$Z$ hat die Dichte $\frac{z}{\sigma^2}e^{-\frac{z^2}{2\sigma^2}}1_{\R>0}(z)$.
-Es gilt $E\left( Z \right) = \sigma \sqrt{\pi/2}$ und 
-$\Var\left( Z \right) = \sigma^2 \left( 2 - \frac{2}{\pi} \right)$.
+Rayleight-verteilt. Zeigen Sie:
+\begin{enumerate}
+    \item $Z$ hat die Dichte
+        \begin{equation*}
+            \frac{z}{\sigma^2}e^{-\frac{z^2}{2\sigma^2}}1_{\R>0}(z).
+        \end{equation*}
+    \item Es gilt $\E\left( Z \right) = \sigma \sqrt{\pi/2}$ und $\Var\left( Z
+        \right) = \sigma^2 \left( 2 - \frac{2}{\pi} \right)$.
+\end{enumerate}
 
 
 \section{Counterexamples}
@@ -536,14 +678,64 @@ positive Zufallsvariable mit $\E X < \infty$.
 
 \paragraph*{Lösung.} Das ist eine Anwendung des Satzes von Fubini.
 
-\paragraph{Erwartungstreue der Stichprobenvarianz. } 
-Seien $X_1,\ldots,X_n$ i.i.d.\ mit Varianz $\sigma^2$. Die Stichprobenvarianz
-ist definiert durch
+\paragraph{Erwartungstreue einfacher Schätzer.} 
+Seien $X_1,\ldots,X_n$ i.i.d.\ mit dem Erwartungswert $\mu$ und endlicher
+Varianz $\sigma^2$. Der arithmetische Mittelwert von $X=(X_1,\cdots,X_n)$ ist
+definiert als
+\begin{equation*}
+    \bar X = \frac{1}{n} \sum_{i=1}^{n} X_i. 
+\end{equation*}
+Die Stichprobenvarianz ist definiert durch
 \begin{equation*}
     s^2(X) := \frac{1}{n-1} \sum_{i=1}^{n} (X_i - \bar X)^2.
 \end{equation*}
-Dann gilt $E(s^2(X)) = \sigma^2$, d.h.~die Stichprobenvarianz ist erwartungstreu.
-% \cite{czadoschmidt} % (A 1.3)
+Zeigen Sie: 
+\begin{enumerate}
+    \item Der Mittelwert $\bar X$ ist ein erwartungstreuer Schätzer für den
+        Erwartungswert $\mu$, d.h.\ 
+        \begin{equation*}
+            \E \bar X = \mu. 
+        \end{equation*}
+    \item Der Schätzer
+        \begin{equation*}
+            \eta(X) = \frac{1}{n} \sum_{i=1}^{n} \left( X_i - \mu \right)^2
+        \end{equation*}
+        ist erwartungstreu für $\sigma^2$. Es gilt also $\E \eta(X) = \sigma^2$.  
+    \item Die Stichprobenvarianz ist ein erwartungstreuer Schätzer für $\sigma^2$. 
+\end{enumerate}
+
+\paragraph*{Lösung.}
+Die Erwartungstreue der ersten beiden Schätzer ist leicht zu zeigen. 
+\begin{align*}
+    \E \bar X &= \E \left[ \frac{1}{n} \sum_{i=1}^{n} X_i \right] 
+    = \frac{1}{n} \sum_{i=1}^{n} \E X_i = \mu \\
+    \E \eta(X) &= \E \left[ \frac{1}{n} \sum_{i=1}^{n} (X_i -\mu)^2 \right] 
+    = \frac{1}{n} \sum_{i=1}^{n} \E (X_i-\mu)^2 = \frac{1}{n} \sum_{i=1}^{n} \sigma^2 = \sigma^2.
+\end{align*}
+Um den Erwartungswert der Stichprobenvarianz zu zeigen, berechnen wir
+\begin{align*}
+    \E (n-1) s^2(X) &= \E \sum_{i=1}^{n} \left( X_i - \bar X \right)^2 \\
+    &= \E \sum_{i=1}^{n} \left( X_i - \mu + \mu - \bar X \right)^2 \\
+    &= \E \left[ \sum_{i=1}^{n} (X_i-\mu)^2 + 2 (X_i-\mu)(\mu-\bar X) + (\mu -\bar X)^2 \right].
+\end{align*}
+Für die obigen Summanden gilt
+\begin{align*}
+    \E (X_i-\mu)^2 &= \sigma^2 \\
+    \E \left[ \sum_{i=1}^{n} (X_i-\mu)(\mu-\bar X) \right] &= -n \E (\bar X-\mu)^2 \\ 
+    \E (\bar X-\mu)^2 &= \E \left( \frac{1}{n} \sum_{i=1}^{n} X_i-\mu \right)^2 \\
+    &= \frac{1}{n^2} \sum_{i,j}^{} \E (X_i-\mu)(X_j-\mu) \\
+    &= \frac{1}{n^2} \sum_{i=1}^{n} \sigma^2 = \frac{\sigma^2}{n} \\
+    \E \left[ \sum_{i=1}^{n} (X_i-\mu)(\mu-\bar X) \right] &= -\sigma^2.
+\end{align*}
+Wir erhalten also 
+\begin{equation*}
+    \E (n-1) s^2(X) = (n-1) \sigma^2
+\end{equation*}
+und daraus
+\begin{equation*}
+    \E s^2(X) = \sigma^2. 
+\end{equation*}
+
 
 
 \paragraph{Faltungsformel. } Haben $X$ und $Y$ die Dichten $p_X$ und $p_Y$ und beide
