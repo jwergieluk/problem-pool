@@ -37,6 +37,22 @@ ist in diesem Fall nicht identifizierbar.
 
 \section{Suffizienz}
 
+
+\paragraph{Suffizienz. Invariante Transformationen.} 
+Sei $\mathcal P = \left\{ p(x,\theta) : \theta\in\Theta \right\}$ ein reguläres
+statistisches Modell, $X\sim \mathcal P$, die Statistiken $T(X)$ und $S(X)$ mit
+$T=\eta(S)$ und einer messbaren Abbildung $\eta$ gegeben. Zeigen Sie: Falls
+$T(X)$ suffizient für $\theta$ ist so ist auch $S(X)$ suffizient für $\theta$.
+
+\paragraph*{Lösung.} $T$ ist suffizient, so folgt
+\begin{align*}
+    p_\theta(x) &= g(T(x), \theta) h(x) \\
+    &= g(\eta(S(x)), \theta) h(x). 
+\end{align*}
+Somit ist $S$ ebenfalls suffizient. 
+
+
+
 \paragraph{Qualitätskontrolle.} 
 Es sei eine \textsc{lkw}-Ladung mit $N$ Fernsehgeräten gegeben, wovon $N
 \theta$ defekt sind. Es werden $N$ Fernseher (ohne Zurücklegen) überprüft.  Man
@@ -65,14 +81,105 @@ Dichte
 Finden Sie eine zweidimensionale suffiziente Statistik für $\alpha$ und $\beta$.
 
 
-\paragraph{Suffizienz. Beispiele.} 
-Seien $X_1,\ldots,X_n$ i.i.d.\ mit jeweils folgender Dichte. Finden Sie in allen
-drei Fällen eine reellwertige suffiziente Statistik für $\theta$: 
+\paragraph{Beta-Verteilung. Suffizienz.}
+Seien $X_1, \cdots, X_n$ i.i.d.\ Beta-verteilt mit der Dichte
+\begin{equation*}
+    p_{a,b} = \frac{1}{B(a,b)} x^{a-1} (1-x)^{b-1} 1_{[0,1]}(x)
+\end{equation*}
+und den Parametern $a>0$ und $b>0$. Dabei ist $B(a,b)=
+\frac{\Gamma(a)\Gamma(b)}{\Gamma(a+b)}$.
 \begin{enumerate}
-	\item $p_\theta (x) = \frac{1}{2\theta} \exp( \frac{-|x-\mu|}{\theta})$, wobei $\theta >0$ und $\mu$ bekannt sei.
-	\item $p_\theta (x) = \frac{1}{2\theta} 1_{\left( -\theta ,\theta \right)}(x) $, wobei $\theta >0$.
-	\item $p_\theta (x) = \frac{\beta^\alpha}{\Gamma(\alpha)} x^{- (\alpha+1)} \exp\left(  -\frac{\beta}{x} \right) 1_{\R_{>0}}(x)$, wobei $\theta = (\alpha, \beta)$ und $\alpha, \beta > 0$.
+    \item $a$ sei fix und bekannt.  Finden Sie eine suffiziente Statistik für
+        $b$.
+    \item Finden Sie eine zweidimensionale suffiziente Statistik für$(a,b)$.
 \end{enumerate}
+
+
+\paragraph{Pareto-Verteilung. Suffizienz.}
+Seien $X_1,\ldots,X_n$ i.i.d.\ Paretoverteilt mit der Dichte
+\begin{equation*}
+    p_\theta(x)= \frac{\theta a^\theta}{x^{\theta+1}}1_{\R_{>a}}(x),
+\end{equation*}
+wobei $\theta>0$ und $a$ fix und bekannt sei. Finden Sie eine reellwertige
+suffiziente Statistik $T(X_1,\ldots,X_n)$ für $\theta$.
+
+
+\paragraph{Poisson-Verteilung. Suffizienz.}
+Seien $X_1,\cdots, X_n$ i.i.d.\ Poisson-verteilt mit dem Parameter $\lambda>0$ 
+und der Wahrscheinlichkeitsfunktion 
+\begin{equation*}
+    P(X_1=k) = \frac{e^{-\lambda}\lambda^k}{k!}, \quad k\in \left\{ 0,1,2,\cdots \right\}.
+\end{equation*}
+Zeigen Sie ohne Verwendung des Faktorisierungstheorems, dass 
+\begin{equation*}
+    T(X) = \sum_{i=1}^{n} X_i
+\end{equation*}
+suffizient für $\lambda$ ist. 
+
+
+
+\paragraph{Suffizienz. Beispiele.} 
+Seien $X_1,\ldots,X_n$ i.i.d.\ mit jeweils folgender Dichte. Finden Sie in
+allen Fällen eine reellwertige suffiziente Statistik $T$ für $\theta$ basierend
+auf der Beobachtung von $(X_1, \cdots, X_n)$. 
+\begin{enumerate}
+	\item $X_1$ ist nichtzentral doppelt exponentialverteilt mit der Dichte 
+        \begin{equation*}
+            p_\theta (x) = \frac{1}{2\theta} \exp( \frac{-|x-\mu|}{\theta}),
+        \end{equation*}
+        wobei $\theta >0$ und $\mu$ bekannt sei.
+	\item $X_1$ ist gleichverteilt auf dem Intervall $(-\theta,\theta)$ mit der Dichte 
+        \begin{equation*}
+            p_\theta (x) = \frac{1}{2\theta} 1_{\left( -\theta ,\theta \right)}(x),
+        \end{equation*}
+        wobei $\theta >0$.
+	\item $X_1$ ist invers Gamma-verteilt mit der Dichte 
+        \begin{equation*}
+            p_\theta (x) = \frac{\beta^\alpha}{\Gamma(\alpha)} x^{- (\alpha+1)} 
+            \exp\left(  -\frac{\beta}{x} \right) 1_{\R_{>0}}(x), 
+        \end{equation*}
+        wobei $\theta = (\alpha, \beta)$ und $\alpha, \beta > 0$.
+\end{enumerate}
+
+\paragraph*{Lösung.} 
+Wir stellen die gemeinsame Dichte $p_\theta(x_1, \cdots, x_n)$ von $(X_1, \cdots, X_n)$ in der Form
+\begin{equation*}
+    p_{\theta} (x_1, \cdots, x_n) = g(T(x_1, \cdots, x_n), \theta) h(x_1, \cdots, x_n)
+\end{equation*}
+für geeignete Funktionen $g$ und $h$ dar und wenden den Faktorisierungssatz an. 
+\begin{enumerate}
+    \item \begin{align*}
+            p_\theta(x_1, \cdots, x_n) &= \prod_{i=1}^{n} p_\theta(x_i) \\
+            &= \frac{1}{ (2\theta)^n} \exp \left( - \frac{1}{\theta} \sum_{i=1}^{n} | x_i - \mu | \right). 
+        \end{align*}
+        Somit ist 
+        \begin{align*}
+            T(x_1, \cdots, x_n) &= \sum_{i=1}^{n} | x_i - \mu | \\
+            g(x, \mu)  &= \frac{1}{ (2\theta)^n} \exp \left( - \frac{1}{\theta} x \right).
+        \end{align*}
+    \item \begin{align*}
+            p_\theta(x_1, \cdots, x_n) &= \prod_{i=1}^{n} \frac{1}{2\theta} 1_{\left( -\theta ,\theta \right)}(x) \\
+            &= \left( \frac{1}{2\theta} \right)^n 1_{(-\theta, \theta)} ( \max \left\{  |x_1|, \cdots, |x_n| \right\}).
+        \end{align*}
+        Somit ist $T(x_1, \cdots, x_n) = \max \left\{  |x_1|, \cdots, |x_n| \right\}$. 
+    \item \begin{align*}
+            p_\theta(x_1, \cdots, x_n) &= \prod_{i=1}^{n} 
+            \frac{\beta^\alpha}{\Gamma(\alpha)} x_i^{- (\alpha+1)} 
+            \exp\left(  -\frac{\beta}{x_i} \right) 1_{\R_{>0}}(x_i) \\
+            &= \left( \frac{\beta^\alpha}{\Gamma(\alpha)} \right)^n 
+            \left( \prod_{i=1}^n x_i \right)^{-\left( \alpha+1 \right)}
+            \exp \left( -\beta \sum_{i=1}^{n} \frac{1}{x_i} \right) 1_{ \R_{>0}^n} (x_1, \cdots, x_n).
+        \end{align*}
+        Wir erhalten
+        \begin{align*}
+            T(x_1, \cdots, x_n) &= \left( \prod_{i=1}^n x_i, \sum_{i=1}^{n} \frac{1}{x_i} \right) \\
+            g(y,z, \theta) &= \left( \frac{\beta^\alpha}{\Gamma(\alpha)} \right)^n 
+            y^{-\left( \alpha+1 \right)} \exp \left( -\beta z \right) \\
+            h(x_1, \cdots, x_n) &= 1_{ \R_{>0}^n} (x_1, \cdots, x_n).
+        \end{align*}
+\end{enumerate}
+
+
 
 
 \paragraph{Nichtzentrale Exponentialverteilung. Suffizienz.}
@@ -80,16 +187,48 @@ Seien $X_1,\ldots,X_n$ i.i.d.\ mit der Dichte
 \begin{equation*}
 	p_\theta (x) = \frac{1}{\sigma} \exp \left(-\frac{x-\mu}{\sigma} \right) 1_{\R_{\geq\mu}}(x)
 \end{equation*}
-sowie $\theta = (\mu, \sigma)^\top$ und $\Theta = \R \times \R_{>0}$. Zeigen Sie, dass 
+sowie $\theta = (\mu, \sigma)^\top$ und $\Theta = \R \times \R_{>0}$. 
 \begin{enumerate}
-    \item $\min(X_1,\ldots,X_n)$ eine suffiziente Statistik für $\mu$ ist,
-        falls $\sigma$ bekannt ist.
+    \item Zeigen Sie, dass $\min(X_1,\ldots,X_n)$ eine suffiziente Statistik
+        für $\mu$ ist, falls $\sigma$ bekannt ist.
     \item Finden Sie eine eindimensionale, suffiziente Statistik für $\sigma$,
         falls $\mu$ bekannt ist.
     \item Finden Sie eine zweidimensionale suffiziente Statistik für $\theta$ an.
 \end{enumerate}
 
 \paragraph*{Lösung.}
+\begin{enumerate}
+    \item Sei $\sigma>0$ fix und bekannt. 
+        \begin{align*}
+            p_\theta (x_1, \cdots, x_n) &= \prod_{i=1}^{n} 
+            \frac{1}{\sigma} \exp \left(-\frac{x_i-\mu}{\sigma} \right) 1_{\R_{\geq\mu}}(x_i) \\
+            &= \frac{1}{\sigma^n} \exp \left( -\frac{1}{\sigma} \sum_{i=1}^{n} x_i + \frac{n\mu}{\sigma} \right)
+            1_{\R^n_{\geq \mu}}\left( \min \left\{ x_1, \cdots, x_n \right\} \right)  \\
+            &= \underbrace{
+            \sigma^{-1} \exp \left( \frac{n\mu}{\sigma} \right) 
+            1_{\R^n_{\geq \mu}}\left( \min \left\{ x_1, \cdots, x_n \right\} \right) }_{=g}
+            \underbrace{\exp \left( -\frac{1}{\sigma} \sum_{i=1}^{n} x_i  \right) }_{=h}.
+        \end{align*}
+        Somit ist $T(X) = \min \left\{ x_1, \cdots, x_n \right\}$ eine suffiziente Statistik für $\mu$. 
+    \item Sei nun umgekehrt $\mu$ bekannt und fix. Mit derselben Methode erhalten wir
+        \begin{align*}
+            p_\theta (x_1, \cdots, x_n) &= \sigma^{-1} 
+            \exp \left( - \frac{1}{\sigma} \sum_{i=1}^{n} (x_i - \mu) \right) 1_{\R^{n}_{\geq \mu}} (x_1, \cdots, x_n) \\
+            T(  x_1, \cdots, x_n) &= \sum_{i=1}^{n} (x_i - \mu). 
+        \end{align*}
+    \item Eine zweidimensionale suffiziente Statistik für $\theta = (\mu, \theta)$ erhalten wir aus
+        \begin{align*}
+            p_\theta(x_1, \cdots, x_n) &= \sigma^{-1} \prod_{i=1}^n e^{ -\frac{x_i}{\sigma}} e^{\frac{n\mu}{\sigma}}
+            1_{\R^n_{\geq \mu}}\left( \min \left\{ x_1, \cdots, x_n \right\} \right) \\
+            &= \sigma^{-1} \left( \prod_{i=1}^n e^{-x_i} \right)^{\sigma^{-1}} 
+            e^{\frac{n\mu}{\sigma}}
+            1_{\R^n_{\geq \mu}}\left( \min \left\{ x_1, \cdots, x_n \right\} \right) \\
+            T( x_1, \cdots, x_n ) &= \left( \min \left\{ x_1, \cdots, x_n \right\}, \prod_{i=1}^{n} e^{-x_i} \right)
+            \in \Theta = \R \times \R_{>0}. 
+        \end{align*}
+\end{enumerate}
+
+
 
 
 
