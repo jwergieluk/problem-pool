@@ -1,7 +1,7 @@
 
 \section{Prüfungsaufgaben}
 
-\paragraph{Exponentielle Familien. }
+\paragraph{Invers-Gauß-Verteilung als exponentielle Familie.}
 Seien $X_1,\ldots,X_n$ i.i.d.\ Invers-Gauß-verteilte Zufallsvariablen gegeben. D.h.\ die Dichte
 von $X_i$ ist 
 \begin{equation}
@@ -28,12 +28,15 @@ bringen. Geben Sie dabei explizit $c,T,d,S$ und $A$ an.
 
 
 
-\paragraph{Suffizienz. } Sei $\mathcal P = \left\{ p(x,\theta) : \theta\in\Theta \right\}$ 
-ein reguläres statistisches Modell, $X\sim \mathcal P$, die Statistiken $T(X)$ und $S(X)$ mit $T=\eta(S)$ und
-einer messbaren Abbildung $\eta$ gegeben. Zeigen Sie: Falls $T(X)$ suffizient für $\theta$ ist 
-so ist auch $S(X)$ suffizient für $\theta$.
+\paragraph{Suffizienz. Invariante Transformationen.} 
+Sei $\mathcal P = \left\{ p(x,\theta) : \theta\in\Theta \right\}$ ein reguläres
+statistisches Modell, $X\sim \mathcal P$, die Statistiken $T(X)$ und $S(X)$ mit
+$T=\eta(S)$ und einer messbaren Abbildung $\eta$ gegeben. Zeigen Sie: Falls
+$T(X)$ suffizient für $\theta$ ist so ist auch $S(X)$ suffizient für $\theta$.
 
-\paragraph{Suffizienz und Pareto-Verteilung. } Seien $X_1,\ldots,X_n$ i.i.d.\ und
+
+
+\paragraph{Pareto-Verteilung. Suffizienz und MLE.} Seien $X_1,\ldots,X_n$ i.i.d.\ und
 Paretoverteilt mit der Dichte
 \begin{equation}
     p_\theta(x)= \frac{\theta a^\theta}{x^{\theta+1}}1_{\R_{>a}}(x),
@@ -70,10 +73,7 @@ Daher ist der MLE $\hat\theta$ auch suffizient.
 
 
 
-
-
-
-\paragraph{Diskrete Gleichverteilung. } Seien $X_1,\ldots,X_n$ i.i.d.\ 
+\paragraph{Diskrete Gleichverteilung. MLE und UMVUE.} Seien $X_1,\ldots,X_n$ i.i.d.\ 
 diskret Gleichverteilt auf der Menge $\left\{ 1,2,\ldots,\theta \right\}$. 
 \begin{enumerate}
     \item Zeigen Sie, dass der Maximum-Likelihood-Schätzer für $\theta$ gerade
@@ -85,7 +85,6 @@ diskret Gleichverteilt auf der Menge $\left\{ 1,2,\ldots,\theta \right\}$.
             \frac{ X_{(n)}^{n+1} - ( X_{(n)} - 1)^{n+1}  }{ X_{(n)}^n - (X_{(n)} -1)^n }.
         \end{equation}
 \end{enumerate}
-
 
 \paragraph*{Lösungsskizze. }
 Die Likelihood-Funktion ist
@@ -139,9 +138,7 @@ und daraus
 
 
 
-
-
-\paragraph{Invers-Gamma-Verteilung als exponentielle Familie. }
+\paragraph{Invers-Gamma-Verteilung als exponentielle Familie.}
 Seien $X_1,\ldots,X_n$ i.i.d.\ Invers-Gamma-verteilte Zufallsvariablen gegeben. D.h.\ die Dichte
 von $X_i$ ist 
 \begin{equation}
@@ -160,12 +157,8 @@ bringen. Geben Sie dabei explizit $c,T,d,S$ und $A$ an.
     \item Zeigen Sie mit Hilfe des Faktorisierungssatzes, dass die Statistik $T(X)$ suffizient ist.
 \end{enumerate}
 
-
-
-
 \paragraph*{Lösung.}
 \begin{enumerate}
-
     \item 
 Die gemeinsame Dichte von $\left( X_1,\ldots,X_n \right)$ ist 
 \begin{equation}
@@ -192,9 +185,7 @@ Dabei ist
 
 
 
-
-
-\paragraph{Maximum-Likelihood-Schätzer. } Seien $X_1,\ldots,X_n$ i.i.d.\ und Beta$(\theta+1, 1)$-verteilt
+\paragraph{Beta-Verteilung. MLE.} Seien $X_1,\ldots,X_n$ i.i.d.\ und Beta$(\theta+1, 1)$-verteilt
 mit dem Parameter $\theta\in\Theta= \left\{ \eta\in\R : \eta>-1 \right\}$. Die Dichte von $X_i$ ist also
 \begin{equation}
     p_\theta(x) = (\theta+1)x^\theta 1_{ [0,1] }(x).
@@ -209,8 +200,6 @@ mit dem Parameter $\theta\in\Theta= \left\{ \eta\in\R : \eta>-1 \right\}$. Die D
     \item Kann der Maximum-Likelihood-Schätzwert $\hat \theta\left( x_1,\ldots,x_n \right)$
         auf dem Rand des Parameterraumes liegen? 
 \end{enumerate}
-
-
 
 \paragraph*{Lösung.}
 \begin{enumerate}
@@ -235,10 +224,7 @@ mit dem Parameter $\theta\in\Theta= \left\{ \eta\in\R : \eta>-1 \right\}$. Die D
 
 
 
-
-
-
-\paragraph{Neyman-Pearson-Test. Bernoulli-Verteilung. } Seien $X_1,\ldots,X_n$ 
+\paragraph{Bernoulli-Verteilung. Neyman-Pearson-Test.} Seien $X_1,\ldots,X_n$ 
 i.i.d.\ Bernoulli($p$) Zufallsvariablen mit Wahrscheinlichkeitsfunktion
 \begin{equation}
     P(X_i = k) = p^{k} \left( 1-p \right)^{1-k}, \quad k\in\left\{ 0,1 \right\}.
@@ -356,9 +342,7 @@ wobei $\theta\in\R$ ein unbekannter Parameter ist.
 
 
 
-
-
-\paragraph{Gamma-Verteilung und Momentenschätzer. }
+\paragraph{Gamma-Verteilung. Momentenschätzer.}
 Gegeben seien i.i.d.\ Gamma-verteilte Zufallsvariablen $X_1,\ldots,X_m$ mit der Dichte
 \begin{equation}
     p_{a,\lambda}(x) = \frac{\lambda^a}{\Gamma(a)}x^{a-1}e^{-\lambda x} 1_{\R_{\geq 0}}(x)
@@ -499,9 +483,7 @@ $\varepsilon_{kl}\sim \mathcal N(0,\sigma^2)$, i.i.d.\  $\sigma>0$.
 
 
 
-
-
-\paragraph{Gamma-Verteilung. Maximum-likelihood Schätzer. } Seien $X_1, \ldots,
+\paragraph{Gamma-Verteilung. MLE.} Seien $X_1, \ldots,
 X_n$ i.i.d.\ Gamma-verteilt mit der Dichte
 \begin{equation}
     p_{a,\lambda}(x) = \frac{\lambda^a}{\Gamma(a)}x^{a-1}e^{-\lambda x} 1_{\R_{>0}}(x)
@@ -544,11 +526,6 @@ Der Parameter $\lambda$ dagegen unbekannt und $\lambda > 0$.
         \end{eqnarray}
         Der Schätzer $\hat\lambda$ ist somit nicht erwartungstreu.
 \end{enumerate}
-
-
-
-
-
 
 
 
@@ -623,7 +600,6 @@ mit $m,n \in \bN$ und $\varepsilon_i \in \cN \left( 0, \sigma^2 \right)$, i.i.d.
         \item Die Beobachtung impliziert $m=3$ und $n=3$. Mit der obigen Formel erhalten wir
             $\hat \beta_0 = \frac{13}{14}$ und $\hat \beta_1 = \frac{14}{3}$.
 \end{enumerate}
-
 
 
 
@@ -810,7 +786,7 @@ entwickelt werden.
 
 
 
-\paragraph{Beta-Verteilung und Momentenschätzer. } Gegeben seien $X_1, \ldots, X_n$ i.i.d. Beta-verteilte
+\paragraph{Beta-Verteilung. Momentenschätzer.} Gegeben seien $X_1, \ldots, X_n$ i.i.d. Beta-verteilte
 Zufallsvariablen mit der Dichte
 \begin{equation}
     p_{a,b}(x) = \frac{1}{B(a,b)} x^{a-1} (1-x)^{b-1} 1_{ \left[ 0,1 \right]  } (x)
@@ -899,14 +875,6 @@ Daher ist nach Definition des bedingten Erwartungswertes
 \begin{equation}
 	\E\left[ \E\left[ X | \mathcal G \right] | \mathcal H \right]=\E \left[ X | \mathcal H \right].
 \end{equation}
-
-
-
-
-
-
-
-
 
 
 

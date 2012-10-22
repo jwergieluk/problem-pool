@@ -16,6 +16,26 @@ i.i.d.\ mit $\varepsilon_1 \sim \mathcal N\left( 0,1 \right)$.
         falls $n<p$.
 \end{enumerate}
 
+\paragraph*{Lösung.}
+Seien $Y = \left( Y_1, \cdots, Y_n \right)^\top$ und $\varepsilon = \left(
+\varepsilon_1, \cdots, \varepsilon_n \right)^\top$ Zufallsvektoren in $\R^{n}$.
+Die konstante Matrix $Z=\left( z_{ij} \right)_{ij}$ liegt in $\R^{n \times p}$
+und der Parametervektor $\beta = \left( \beta_1, \cdots, \beta_p
+\right)^{\top}$ in $\R^{p}$.  Somit ist $\Theta = \R^{p}$. Das Model ist genau
+dann identifizierbar wenn verschiedene Vektoren $\beta$, verschiedene
+Zufallsvariablen $Y(\beta)$ induzieren. Sind die Spalten $\left( \mathbf{z}_1,
+\cdots, \mathbf{z}_p \right)$ linear unabhängig, so hat die Matrix $Z$ vollen
+Rang und die Multiplikation mit $Z$ ist eine Bijektion. In diesem Fall ist das
+Model identifizierbar. 
+
+Wenn $p>n$ kann die Matrix $Z$ nicht vollen Rang haben. In diesem Fall ist die
+Multiplikation mit $Z$ keine Bijektion und es gibt $\beta,\tilde \beta \in
+\R^{p}$ mit $\beta \neq \tilde \beta$ und $Z \beta = Z \tilde \beta$. Das Model
+ist in diesem Fall nicht identifizierbar. 
+
+
+
+\section{Suffizienz}
 
 \paragraph{Qualitätskontrolle.} 
 Es sei eine \textsc{lkw}-Ladung mit $N$ Fernsehgeräten gegeben, wovon $N
@@ -34,10 +54,10 @@ definiere
         für $\theta$ ist.
 \end{enumerate}
 
-\section{Suffizienz}
 
-\paragraph{Suffizienz bei inversen Gamma-Verteilung. }     Eine i.i.d.-Stichprobe $X_1, \ldots, X_n$
-sei invers Gamma-verteilt mit der Dichte 
+\paragraph{Inverse Gamma-Verteilung. Suffizienz.}
+Eine i.i.d.-Stichprobe $X_1, \ldots, X_n$ sei invers Gamma-verteilt mit der
+Dichte 
 \begin{equation*}
     p_{\alpha, \beta}\left( x \right) = 
     \frac{\beta^\alpha}{ \Gamma\left( \alpha \right)} x^{-(\alpha+1)}\exp\left( -\frac{\beta}{x} \right)1_{\R>0}(x)
@@ -45,8 +65,9 @@ sei invers Gamma-verteilt mit der Dichte
 Finden Sie eine zweidimensionale suffiziente Statistik für $\alpha$ und $\beta$.
 
 
-\paragraph{Suffizienz. Beispiele. } Seien $X_1,\ldots,X_n$ i.i.d.~mit jeweils folgender
-Dichte. Finden Sie in allen drei Fällen eine reellwertige suffiziente Statistik für $\theta$: 
+\paragraph{Suffizienz. Beispiele.} 
+Seien $X_1,\ldots,X_n$ i.i.d.\ mit jeweils folgender Dichte. Finden Sie in allen
+drei Fällen eine reellwertige suffiziente Statistik für $\theta$: 
 \begin{enumerate}
 	\item $p_\theta (x) = \frac{1}{2\theta} \exp( \frac{-|x-\mu|}{\theta})$, wobei $\theta >0$ und $\mu$ bekannt sei.
 	\item $p_\theta (x) = \frac{1}{2\theta} 1_{\left( -\theta ,\theta \right)}(x) $, wobei $\theta >0$.
@@ -54,23 +75,34 @@ Dichte. Finden Sie in allen drei Fällen eine reellwertige suffiziente Statistik
 \end{enumerate}
 
 
-\paragraph{Suffizienz. Nichtzentrale Exponentialverteilung. } Seien $X_1,\ldots,X_n$ i.i.d.,
+\paragraph{Nichtzentrale Exponentialverteilung. Suffizienz.}
+Seien $X_1,\ldots,X_n$ i.i.d.\ mit der Dichte
 \begin{equation*}
 	p_\theta (x) = \frac{1}{\sigma} \exp \left(-\frac{x-\mu}{\sigma} \right) 1_{\R_{\geq\mu}}(x)
 \end{equation*}
-die Dichte von $X_1$ sowie $\theta = (\mu, \sigma)^\top$ und $\Theta = \R
-\times \R_{>0}$. Zeigen Sie, dass $\min(X_1,\ldots,X_n)$ eine suffiziente
-Statistik für $\mu$ ist, falls $\sigma$ bekannt ist. Finden Sie eine
-eindimensionale, suffiziente Statistik für $\sigma$, falls $\mu$ bekannt ist
-und eine zweidimensinale suffiziente Statistik für $\theta$ an.
+sowie $\theta = (\mu, \sigma)^\top$ und $\Theta = \R \times \R_{>0}$. Zeigen Sie, dass 
+\begin{enumerate}
+    \item $\min(X_1,\ldots,X_n)$ eine suffiziente Statistik für $\mu$ ist,
+        falls $\sigma$ bekannt ist.
+    \item Finden Sie eine eindimensionale, suffiziente Statistik für $\sigma$,
+        falls $\mu$ bekannt ist.
+    \item Finden Sie eine zweidimensionale suffiziente Statistik für $\theta$ an.
+\end{enumerate}
+
+\paragraph*{Lösung.}
+
+
 
 \section{Exponentielle Familien}
 
-\paragraph{Laplace-Verteilung.  } Für jedes $\theta\in\R$ sei eine Dichte
-\begin{equation*} p_\theta(x) = \frac{1}{2} \exp\left( -| x-\theta| \right),
-\quad x\in\R \end{equation*} gegeben. Sei $P_\theta$ das zur Dichte
-$p_\theta$ gehörige Wahrscheinlichkeitsmaß.  Zeigen Sie, dass $\left\{
-P_\theta : \theta\in\Theta \right\}$ keine exponentielle Familie ist.
+\paragraph{Laplace-Verteilung ist keine exponentielle Familie.}
+Für jedes $\theta\in\R$ sei eine Dichte
+\begin{equation*} 
+    p_\theta(x) = \frac{1}{2} \exp\left( -| x-\theta| \right), \quad x\in\R
+\end{equation*}
+gegeben. Sei $P_\theta$ das zur Dichte $p_\theta$ gehörige
+Wahrscheinlichkeitsmaß.  Zeigen Sie, dass $\left\{ P_\theta : \theta\in\Theta
+\right\}$ keine exponentielle Familie ist.
 
 
 
@@ -88,7 +120,7 @@ suffizienten Statistik $T(X)$ die Form
 mit $A^* = \left\{ T(x) : x\in A \right\}$ hat.
 
 
-\paragraph{Cauchy-Verteilung ist keine exponentielle Familie. }  Sei eine
+\paragraph{Cauchy-Verteilung ist keine exponentielle Familie.}  Sei eine
 Familie von Cauchy-Verteilungen $\left\{ P_\theta : \theta\in\R \right\}$ mit 
 den zugehörigen Dichten
 \begin{equation}
@@ -124,9 +156,9 @@ einen Momentenschätzer für $\theta$ bei den folgenden Verteilungen:
 		\end{equation*}
 \end{enumerate}
 
-\paragraph{Momentenschätzer für Beta-Verteilung. } Die Zufallsvariablen
-$X_1,\ldots,X_n$ seien i.i.d.\ Beta-Verteilt, d.h.\ $X_1 \sim \textrm{Beta}(a,b)$.
-Bestimmen Sie einen Momentenschätzer für $\theta=(a,b)^\top$.
+%\paragraph{Momentenschätzer für Beta-Verteilung. } Die Zufallsvariablen
+%$X_1,\ldots,X_n$ seien i.i.d.\ Beta-Verteilt, d.h.\ $X_1 \sim \textrm{Beta}(a,b)$.
+%Bestimmen Sie einen Momentenschätzer für $\theta=(a,b)^\top$.
 
 \paragraph{Momentenschätzer für Weibull-Verteilung. } Seien 
 $X_1,\ldots,X_n$ i.i.d.\ mit Dichte 
@@ -320,12 +352,33 @@ der \textsc{mle} $\hat\theta(x)$ kann für $x$ eindeutig festgelegt werden.
 
 
 
+\section{UMVUE}
 
-\paragraph{Verschobene Gleichverteilung. } Seien $X_1,\ldots,X_n$ i.i.d.\
-mit $X_1\sim U(\theta,\theta+1)$. Der Parameter $\theta$ sei  unbekannt 
-und $X_{(1)}=\min\left\{ X_1,\ldots,X_n \right\}$ die kleinste Ordnungsgröße 
-der Daten und $\bar X= \frac{1}{n}\sum_{i=1}^{n}X_i$. Betrachten Sie die
-beiden Schätzer 
+\paragraph{Ein Model für das kein erwartungstreuer Schätzer existiert.}
+Seien $X_1,\ldots,X_n$ i.i.d.\ Bernoulli$(p)$-verteilt mit dem Parameter $p \in
+(0,1)$.  Zeigen Sie, dass es keinen erwartungstreuen Schätzer für $q(p) =
+\frac{p}{1-p}$ gibt. 
+
+\paragraph*{Lösung.} Sei $T(X)$ ein Schätzer. Nachdem es $2^n$ verschiedene
+Werte gibt, die der Zufallsvektor $X = (X_1, \cdots, X_n)$ annehmen kann, können 
+wir den Erwartungswert von $T$ explizit berechnen und erhalten
+\begin{equation*}
+    \E \, T(X) = \sum_{i = 1}^{2^n} T(i) p^{\nu(i)}(1-p)^{n - \nu(i)}.
+\end{equation*}
+Dabei ist $\nu(i)$ eine Funktion, die die Anzahl der Einser in der
+Binärdarstellung von $i\in \bN$ angibt. $T(X)$ ist erwartungstreu, wenn 
+\begin{equation*}
+    \E \, T(X) = \frac{p}{1-p}
+\end{equation*}
+gelten würde. Nachdem aber $\E\, T(X)$ ein Polynom in $p$ ist und $\frac{p}{1-p}$ nicht
+als Polynom darstellbar ist, kann es keinen erwartungstreuen Schätzer für $q(p)$ geben. 
+
+
+\paragraph{Verschobene Gleichverteilung. } 
+Seien $X_1,\ldots,X_n$ i.i.d.\ mit $X_1\sim U(\theta,\theta+1)$. Der Parameter
+$\theta$ sei  unbekannt und $X_{(1)}=\min\left\{ X_1,\ldots,X_n \right\}$ die
+kleinste Ordnungsgröße der Daten und $\bar X= \frac{1}{n}\sum_{i=1}^{n}X_i$.
+Betrachten Sie die beiden Schätzer 
 \begin{eqnarray}
 	T_1(X) &=& \bar X - \frac{1}{2} \\
 	T_2(X) &=&  X_{(1)} - \frac{1}{n+1}.
@@ -419,8 +472,6 @@ Die Varianz von $T_1$ ist also um eine Größenordung höher als die von $T_2$.
 
 
 
-
-\section{UMVUE}
 
 \paragraph{UMVUE. Bernoulli-Verteilung. } Seien $X_1,\ldots,X_n$
 i.i.d.\ und $X_1$ Bernoulli$(\theta)$-verteilt. Zeigen Sie, dass der \textsc{mls}

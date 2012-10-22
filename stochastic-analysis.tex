@@ -1,11 +1,5 @@
 
-
-\paragraph{Stochastisches Integral einer deterministischen Funktion. } Sei
-$f: \R\in\R$ eine deterministische meßbare Funktion. Zeigen Sie 
-\begin{equation}
-    \int_{0}^{t} f(s) d W_s \sim \cN(0, \int_{0}^{t} f^2(s) ds). 
-\end{equation}
-
+\section{Messbarkeit und Filtrationen}
 
 \paragraph{Pfadeigenschaften und Filtration. }  Sei $X$ ein stochastischer
 Prozess, $\cF^{X}$ die von $X$ erzeugte Filtration und $\cG$ eine Filtration,
@@ -17,46 +11,13 @@ ist.
     \item Falls $X$ c\`adl\`ag ist, dann gilt $A \in \cG_{t_0}$, aber nicht
         notwendigerweise $A \in \cF^{X}_{t_0}$.
 \end{enumerate}
-Quelle: \cite{Karatzas1991}.
-
+\cite{Karatzas1991}.
 
 \paragraph{Messbarkeitsbegriffe. } Sei $X$ ein stochastischer Prozess. Ist $X$
 progressiv messbar, so folgt $X$ ist messbar und adaptiert.
 
 
-\paragraph{Levy martingales.} Every Levy process which is a local martingale is
-also a true martingale.
-
-
-\paragraph{Maximum processes of the Brownian Motion. } Show that the process $W
-- W^*$ has independent increments. $W$ denotes Brownian Motion and $X^*_t=
-\max_{0 \leq s \leq t} X_s$ is the maximum process of a \cadlag process $X$.
-
-
-\paragraph{Not Feller by discontinuity at zero}
-Find a Markov process viotating the continuity part of 
-the Feller property, namely
-\begin{equation}
-\lim_{t\to 0} P_t f(x) = f(x) \quad \forall f \in C_0 \ \forall x\in \R
-\end{equation}
-but perhaps preserving the $C_0$ property $P_t C_0 \subset C_0$.
-
-
-
-\paragraph{Independence and transformations. } Let random variables
-$X_1,\ldots,X_n$ and $Y_1,\ldots,Y_k$ satisfy $X_i \upmodels Y_j$ for all $i$
-and $i$.
-\begin{enumerate}
-    \item It follows that $g(X_i)$ and $h(Y_j)$ are independent for any $i$ and
-        $j$.
-    \item A generalization of the above result is not true. Given any Borel
-        functions $f$ and $g$ of suitable dimensionality $f(X_1,\ldots,X_n)$
-        may be not independent of $g(Y_1,\ldots,Y_k)$.
-\end{enumerate}
-
-
-
-\section{Stopping times}
+\section{Stoppzeiten}
 
 \paragraph{Stoppzeiten. } Seien $T,S$ Stoppzeiten bezüglich der Filtration
 $\left( \cF_t \right)_{t \geq 0}$. 
@@ -96,7 +57,145 @@ denn es ein abzählbarer Schnitt der Mengen $\left\{ T> t+\varepsilon
 \right\}\in\bF_{t+\varepsilon^{*}}$ ist. Behauptung gilt wegen $\cF_t=\cF_{t+}$ $\forall t$.
 
 
-\section{Diffusions }
+\section{Brownsche Bewegung}
+
+\paragraph{Brownsche Bewegung. Invariante Transformationen und der isonormale Prozess.}
+
+
+\paragraph{Brownsche Bewegung. Lokales Verhalten. }
+Sei $B$ eine standard Brownsche Bewegung auf $(\Omega, \cF, P)$. Definiere die
+Niveaumenge 
+\begin{equation*}
+    \cL_{\omega}^{\alpha} = \left\{ t\in\R_{\geq 0} : B_t(\omega)=\alpha \right\}
+\end{equation*}
+für ein $\omega\in\Omega$ und ein $\alpha\in\R$. 
+Beweisen Sie folgende Aussagen:
+\begin{enumerate}
+    \item $\limsup_{t\to \infty} \frac{B_t}{\sqrt{t}} > 0$, $P$ fast sicher. 
+    \item Die Niveaumenge $\cL_\omega^{0}$ hat an Null einen Häufungspunkt
+        für fast alle $\omega\in \Omega$. 
+    \item Brownsche Bewegung ist rekurrent, d.h.\ $L_\omega^{\alpha}$ ist für alle
+        $\alpha\in\R$ $P$ fast sicher unbeschränkt. 
+    \item Die Pfade von $B$ sind f.s.\ nirgends lokal Hölder stetig für alle 
+        $\alpha>\frac{1}{2}$. Eine reellwertige Funktion $f$ ist lokal Hölder
+        stetig der Ordnung $0<\alpha\leq 1$, wenn 
+        \begin{equation*}
+            \sup_{t,s} \left\{ \frac{ | f(t)-f(s) | }{ | t-s |^{\alpha}} : 
+            |t|,|s| \leq L, t\neq s \right\} < \infty
+        \end{equation*}
+        für alle positiven $L$ gilt. 
+\end{enumerate}
+\paragraph*{Lösung.} 
+\begin{enumerate}
+    \item Wir setzen $A=\limsup_{t\to \infty} \frac{B_t}{\sqrt{t}}$. Angenommen
+        es gilt $A\leq 0$, $P$-f.s. Aus Symmetriegründen muss also
+        \begin{equation*}
+            \lim_{t\to\infty} \frac{B_t}{\sqrt{t}} = 0 \ P-\text{f.s.}
+        \end{equation*}
+        gelten. Mit $\frac{B_t}{\sqrt{t}}\sim \cN(0,1)$ erhalten wir einen Widerspruch.
+    \item Um das obige Resultat zu benutzen, berechnen wir
+        \begin{equation*}
+            \limsup_{t\to\infty} \frac{B_t}{\sqrt{t}} = 
+            \limsup_{t\to 0} \sqrt{t} B_{1/t} = 
+            \limsup_{t\to 0} \frac{t B_{1/t}}{\sqrt{t}}. 
+        \end{equation*}
+        Der Prozess $X_t = t B_{1/t}$ ist ebenfalls eine Brownsche Bewegung und
+        es gilt
+        \begin{align*}
+            \limsup_{t\to 0} \frac{X_t}{\sqrt{t}} & > 0 \ P-\text{f.s.} \\
+            \liminf_{t\to 0} \frac{X_t}{\sqrt{t}} & < \ P-\text{f.s.}.
+        \end{align*}
+        Fast jeder Pfad von $X$ muss in jeder Umgebung von $0$ unendlich oft
+        das Vorzeichen wechseln, also hat die Menge der Nullstellen einen
+        Häufungspunkt. 
+    \item Nachdem die Nullstellen fast aller Pfade von $B$ einen Häufungspunkt bei
+        $0$ haben und der Prozess $X_t = t B_{1/t}$ eine Brownsche Bewegung ist,
+        ist die Menge der Nullstellen unbeschränkt. Somit erhalten wir 
+        $\cL^{0}$ fast sicher unbeschränkt. \todo{Beweis für beliebige Niveaus fehlt noch. }
+    \item Für den Beweis der Hölderstetigkeit betrachten wir
+        \begin{equation*}
+            \frac{| B_t - B_s|}{ |t-s|^{\frac{1}{2}+\varepsilon} } = 
+            \frac{X}{|t-s|^{\varepsilon}}
+        \end{equation*}
+        wobei
+        \begin{equation*}
+            X = \frac{| B_t - B_s|}{ |t-s|^{\frac{1}{2}}} \sim \cN(0,1).
+        \end{equation*}
+        Nachdem aber $\varepsilon>0$, ist
+        \begin{equation*}
+            \sup_{|t|,|s| \leq L, t\neq s} \frac{|X|}{|t-s|^{\varepsilon}}
+        \end{equation*}
+        unbeschränkt. 
+\end{enumerate}
+
+
+\paragraph{Maximum processes of the Brownian Motion. } Show that the process $W
+- W^*$ has independent increments. $W$ denotes Brownian Motion and $X^*_t=
+\max_{0 \leq s \leq t} X_s$ is the maximum process of a \cadlag process $X$.
+
+
+
+\section{L\'evy Prozesse}
+
+\paragraph{L\'evy martingales.} Every Levy process which is a local martingale is
+also a true martingale.
+
+
+
+
+\section{Markov Prozesse}
+
+\paragraph{Not Feller by discontinuity at zero}
+Find a Markov process viotating the continuity part of 
+the Feller property, namely
+\begin{equation}
+\lim_{t\to 0} P_t f(x) = f(x) \quad \forall f \in C_0 \ \forall x\in \R
+\end{equation}
+but perhaps preserving the $C_0$ property $P_t C_0 \subset C_0$.
+
+
+
+\paragraph{Independence and transformations. } Let random variables
+$X_1,\ldots,X_n$ and $Y_1,\ldots,Y_k$ satisfy $X_i \upmodels Y_j$ for all $i$
+and $i$.
+\begin{enumerate}
+    \item It follows that $g(X_i)$ and $h(Y_j)$ are independent for any $i$ and
+        $j$.
+    \item A generalization of the above result is not true. Given any Borel
+        functions $f$ and $g$ of suitable dimensionality $f(X_1,\ldots,X_n)$
+        may be not independent of $g(Y_1,\ldots,Y_k)$.
+\end{enumerate}
+
+
+
+\section{Stochastische Integration}
+
+\paragraph{Stieltjes-Integrale der Brownschen Bewegung.} 
+Sei $B$ eine Brownsche Bewegung und eine Funktion $X:\Omega\to\R$ definiert durch
+\begin{equation*}
+    X(\omega) = \int_{0}^{1} B_s^{2} ds. 
+\end{equation*}
+\begin{enumerate}
+    \item Zeigen Sie, dass $X$ eine Zufallsvariable ist.
+    \item Berechnen Sie den ersten und zweiten Moment von $X$. 
+\end{enumerate}
+
+
+
+\paragraph{Stochastisches Integral einer deterministischen Funktion. } Sei
+$f: \R\in\R$ eine deterministische meßbare Funktion. Zeigen Sie 
+\begin{equation}
+    \int_{0}^{t} f(s) d W_s \sim \cN(0, \int_{0}^{t} f^2(s) ds). 
+\end{equation}
+
+
+
+
+
+
+
+
+\section{Stochastische Differentialgleichungen. }
 
 \paragraph{Ornstein-Uhlenbeck SDE.} Lösen Sie die \textsc{SDE}
 \begin{equation}

@@ -321,13 +321,25 @@ Daraus erhalten wir
     \Var X = \sigma^2.
 \end{align*}
 Wenden wir uns nun $Z = \frac{X - \mu}{\sigma}$ zu. Wir zeigen $Z \sim \cN(0,1)$ 
-indem wir den Erwartungswert und die Varianz von $Z$ berechnen. 
+indem wir die momentenerzeugende Funktion von $Z$ berechnen.
 \begin{align*}
-    \E Z &= \frac{1}{\sigma} \E (X- \mu) = \frac{1}{\sigma} ( \mu - \mu) = 0 \\
-    \Var Z &= \E \left\{ \left( Z - \E Z \right)^2 \right\} \\ 
-    &= \E \left( \frac{X - \mu}{\sigma} \right)^2 \\
-    &= \frac{1}{\sigma^2} \Var X = \frac{\sigma^2}{\sigma^2} = 1.
+    \psi_{Z}(u) &= \E \exp \left( u Z \right) \\
+    &= \int_{\R} e^{u \frac{x-\mu}{\sigma}} \frac{1}{\sigma \sqrt{2\pi}}
+    \exp \left( -\frac{1}{2} \left( \frac{x-\mu}{\sigma} \right)^2 \right) dx \\
+    &= \int_{\R} \frac{1}{\sigma\sqrt{2\pi}} 
+    \exp \left(  u \frac{x-\mu}{\sigma} -\frac{1}{2} \left( \frac{x-\mu}{\sigma} \right)^2 \right) dx \\
+    &= \int_{\R} \frac{1}{\sigma\sqrt{2\pi}} 
+    \exp \left( -\frac{1}{2\sigma^2} \left( 
+    -2 u \sigma (x-\mu) + x^2 - 2 \mu x + \mu^2 
+    \right) \right) dx \\
+    &= \int_{\R} \frac{1}{\sigma\sqrt{2\pi}} 
+    \exp \left( -\frac{1}{2\sigma^2} \left( 
+    (x - (u\sigma+\mu))^2 - u^2 \sigma^2 \right) \right) dx \\
+    &= \exp \left( \frac{u^2}{2} \right).
 \end{align*}
+$\psi_{Z}$ ist die momentenerzeugende Funktion der Normalverteilung mit 
+Parametern $(0,1)$. Was zu zeigen war. 
+
 
 \paragraph{Gerade Momente der Standardnormalverteilung. } Zeigen Sie, dass für eine
 standardnormalverteilte Zufallsvariable $X$ und $n \in \N$
@@ -390,16 +402,26 @@ $\textrm{Rang}(\Sigma)=p$:
     p(x) = \frac{1}{ \textrm{det}(\Sigma)^{1/2} (2\pi)^{p/2}} \exp\left( - \frac{1}{2} (x  - \mu)^\top \Sigma^{-1} (x - \mu) \right).
 \end{equation*} %\cite{czadoschmidt} %(A 1.37)
 
-\paragraph{Gausschen Zufallsvariablen und Unabhängigteit. } Seien $X$ und $Y$
-standard normalverteilt und unabhängig. Dann sind die Zufallsvariablen $U =
+
+\paragraph{Gaussche Zufallsvariablen und Unabhängigteit. } Seien $X$ und $Y$
+standardnormalverteilt und unabhängig. Dann sind die Zufallsvariablen $U =
 \frac{X-Y}{\sqrt{2}}$ und $V=\frac{X+Y}{\sqrt{2}}$ ebenfalls standardnormalverteilt 
 und unabhängig. 
+
+\paragraph*{Lösung.} Betrachte die Transformation der Zufallsvariable $(X,Y)^\top$
+mit der Matrix
+\begin{equation*}
+    \begin{pmatrix}
+        1 & -1 \\ 1 & 1 
+    \end{pmatrix}
+\end{equation*}
+normiert mit $\frac{1}{\sqrt{2}}$. 
 
 
 \paragraph{Log-Normalverteilung. Momente und Dichte.}
 Sei $X \sim \cN(\mu,\sigma^2)$ normalverteilt, dann ist die Zufallsvariable 
 $Y = e^{X}$ log-normalverteilt, was als $Y \sim \cL\cN (\mu, \sigma^2)$ notiert 
-werden kann. Zeigen Sie folgende Eigenschaften der Normalverteilung.
+werden kann. Beweisen Sie folgende Eigenschaften der Log-Normalverteilung.
 \begin{enumerate}
     \item Die Dichte von $Y$ ist durch
         \begin{equation*}
@@ -475,27 +497,27 @@ Die oben bewiesene Aussage gilt auch allgemein für $X \sim \cN (\mu, \sigma^2)$
 
 
 \paragraph{Gamma-Verteilung. Momente.}
-Gegeben seien i.i.d.\ Gamma-verteilte Zufallsvariablen $X_1,\ldots,X_m$ mit der Dichte
+Gegeben sei eine Gamma-verteilte Zufallsvariable $X$ mit der Dichte
 \begin{equation*}
     p_{a,\lambda}(x) = \frac{\lambda^a}{\Gamma(a)}x^{a-1}e^{-\lambda x} 1_{\R_{\geq 0}}(x)
 \end{equation*}
 und Parametern $a>0$ und $\lambda>0$.
 Zeigen Sie für ein positives $n\in\mathbb N$
 \begin{equation*}
-    E X_i^n = \frac{a\cdot\ldots\cdot (n+a-1)}{\lambda^n}.
+    E X^n = \frac{a\cdot\ldots\cdot (n+a-1)}{\lambda^n}.
 \end{equation*}
 Dabei können Sie die Identität 
 $\Gamma(a+1)=a \Gamma(a)$, $a\in\R \setminus \left\{ -1,-2,\ldots \right\}$, verwenden.
 [Klausur WS11]
 
 \paragraph*{Lösung.}
-\begin{eqnarray}
+\begin{eqnarray*}
     E X^n &=& \int_{0}^{\infty} x^n \frac{\lambda^a}{\Gamma(a)}x^{a-1}e^{-\lambda x} dx \\
     &=& \frac{a \cdot\ldots\cdot \left( a+n-1 \right)}{\lambda^n} 
     \int_{0}^{\infty} \frac{\lambda^{a+n}}{\Gamma(n+a)} x^{a+n-1} e^{-\lambda x} dx \\
     &=& \frac{a\cdot \ldots \cdot \left( a+n-1 \right)}{\lambda^n} \\
     &=& \frac{\Gamma\left( a+n \right)}{ \lambda^n \Gamma\left( a \right)}.
-\end{eqnarray}
+\end{eqnarray*}
 
 
 \paragraph{Momentenerzeugende Funktion einer Gamma-Verteilung. }
@@ -536,16 +558,21 @@ $\lambda>0$ und
     G \sim \text{Gamma}(a,\lambda)
 \end{equation*}
 Gamma-verteilt mit den Parametern $a>0$ und $\lambda>0$. $E_1, E_2, G$ seien
-unabhängig. Zeigen Sie mit Hilfe der Faltungsformel die folgenden Aussagen.
+unabhängig. Zeigen Sie die folgenden Aussagen mit Hilfe der Faltungsformel.
 \begin{enumerate}
     \item $E_1 + E_2$ ist Gamma-verteilt mit den Parametern $(2,\lambda)$. 
     \item $E_1 + G$ ist Gamma-verteilt mit den Parametern $(a+1, \lambda)$. 
 \end{enumerate}
 \paragraph*{Lösung. }
-Sei $p(x) = \lambda e^{- \lambda x} 1_{\R_{\geq 0}}(x)$ die Dichte der
-Exponentialverteilung und $g(x) = \frac{\lambda^a}{\Gamma(a)} x^{a-1}
-e^{-\lambda x} 1_{\R_{\geq 0}}(x) $ die Dichte der Gamma-Verteilung. Zunächst
-stellen wir
+Sei 
+\begin{equation*}
+    p(x) = \lambda e^{- \lambda x} 1_{\R_{\geq 0}}(x)
+\end{equation*}
+die Dichte der Exponentialverteilung und 
+\begin{equation*}
+    g(x) = \frac{\lambda^a}{\Gamma(a)} x^{a-1} e^{-\lambda x} 1_{\R_{\geq 0}}(x)
+\end{equation*}
+die Dichte der Gamma-Verteilung. Zunächst stellen wir
 \begin{equation*}
     \text{Exp}(\lambda) = \text{Gamma}(1, \lambda)
 \end{equation*}
@@ -648,7 +675,7 @@ Zeigen Sie:
     \item $p$ ist wirklich eine Dichte.
     \item Der Erwartungswert $\E X$ existiert nicht.
     \item $\E X^n$ existiert nicht, für alle $n\in \bN$. 
-    \item Die momenenerzeugende Funktion von $X$ existiert für alle $t \neq 0$ nicht. 
+    \item Die momentenerzeugende Funktion von $X$ existiert für alle $t \neq 0$ nicht. 
 \end{enumerate}
 
 
