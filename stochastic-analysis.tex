@@ -137,6 +137,24 @@ Beweisen Sie folgende Aussagen:
 
 \section{L\'evy Prozesse}
 
+\paragraph{Faltungshalbgruppe.}
+Sei eine Faltungshalbgruppe, d.h.\ eine Familie $G=(\mu_t)_{t\geq 0}$ von
+Wahrscheinlichkeitsmaßen mit der Eigenschaft $\mu_t * \mu_s = \mu_{t+s}$ und
+$\mu_0 = \delta_0$ gegeben. Zeigen Sie, dass die folgenden Aussagen äquivalent
+sind.
+\begin{enumerate}
+    \item Für alle Testfunktionen $f\in C_b(\R^d)$ gilt
+        \begin{equation*}
+            \lim_{t\downarrow 0} \int_{}^{} f(y) \mu_t(dy) = f(0).
+        \end{equation*}
+    \item Für alle Testfunktionen $f\in C_b(\R^d)$ und alle $s>0$ gilt
+        \begin{equation*}
+            \lim_{t\downarrow s} \int_{}^{} f(y) \mu_t(dy) =
+            \int_{}^{} f(y) \mu_s(dy). 
+        \end{equation*}
+\end{enumerate}
+
+
 \paragraph{L\'evy martingales.} Every Levy process which is a local martingale is
 also a true martingale.
 

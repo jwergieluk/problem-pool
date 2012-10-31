@@ -22,7 +22,7 @@ Seien $Y = \left( Y_1, \cdots, Y_n \right)^\top$ und $\varepsilon = \left(
 Die konstante Matrix $Z=\left( z_{ij} \right)_{ij}$ liegt in $\R^{n \times p}$
 und der Parametervektor $\beta = \left( \beta_1, \cdots, \beta_p
 \right)^{\top}$ in $\R^{p}$.  Somit ist $\Theta = \R^{p}$. Das Model ist genau
-dann identifizierbar wenn verschiedene Vektoren $\beta$, verschiedene
+dann identifizierbar, wenn verschiedene Vektoren $\beta$, verschiedene
 Zufallsvariablen $Y(\beta)$ induzieren. Sind die Spalten $\left( \mathbf{z}_1,
 \cdots, \mathbf{z}_p \right)$ linear unabhängig, so hat die Matrix $Z$ vollen
 Rang und die Multiplikation mit $Z$ ist eine Bijektion. In diesem Fall ist das
@@ -31,7 +31,7 @@ Model identifizierbar.
 Wenn $p>n$ kann die Matrix $Z$ nicht vollen Rang haben. In diesem Fall ist die
 Multiplikation mit $Z$ keine Bijektion und es gibt $\beta,\tilde \beta \in
 \R^{p}$ mit $\beta \neq \tilde \beta$ und $Z \beta = Z \tilde \beta$. Das Model
-ist in diesem Fall nicht identifizierbar. 
+ist nicht identifizierbar. 
 
 
 
@@ -91,7 +91,7 @@ und den Parametern $a>0$ und $b>0$. Dabei ist $B(a,b)=
 \begin{enumerate}
     \item $a$ sei fix und bekannt.  Finden Sie eine suffiziente Statistik für
         $b$.
-    \item Finden Sie eine zweidimensionale suffiziente Statistik für$(a,b)$.
+    \item Finden Sie eine zweidimensionale suffiziente Statistik für $(a,b)$.
 \end{enumerate}
 
 
@@ -125,7 +125,7 @@ auf der Beobachtung von $(X_1, \cdots, X_n)$.
 \begin{enumerate}
 	\item $X_1$ ist nichtzentral doppelt exponentialverteilt mit der Dichte 
         \begin{equation*}
-            p_\theta (x) = \frac{1}{2\theta} \exp( \frac{-|x-\mu|}{\theta}),
+            p_\theta (x) = \frac{1}{2\theta} \exp \left( \frac{-|x-\mu|}{\theta} \right),
         \end{equation*}
         wobei $\theta >0$ und $\mu$ bekannt sei.
 	\item $X_1$ ist gleichverteilt auf dem Intervall $(-\theta,\theta)$ mit der Dichte 
@@ -203,7 +203,7 @@ sowie $\theta = (\mu, \sigma)^\top$ und $\Theta = \R \times \R_{>0}$.
             p_\theta (x_1, \cdots, x_n) &= \prod_{i=1}^{n} 
             \frac{1}{\sigma} \exp \left(-\frac{x_i-\mu}{\sigma} \right) 1_{\R_{\geq\mu}}(x_i) \\
             &= \frac{1}{\sigma^n} \exp \left( -\frac{1}{\sigma} \sum_{i=1}^{n} x_i + \frac{n\mu}{\sigma} \right)
-            1_{\R^n_{\geq \mu}}\left( \min \left\{ x_1, \cdots, x_n \right\} \right)  \\
+            1_{\R_{\geq \mu}}\left( \min \left\{ x_1, \cdots, x_n \right\} \right)  \\
             &= \underbrace{
             \sigma^{-1} \exp \left( \frac{n\mu}{\sigma} \right) 
             1_{\R^n_{\geq \mu}}\left( \min \left\{ x_1, \cdots, x_n \right\} \right) }_{=g}
@@ -220,19 +220,132 @@ sowie $\theta = (\mu, \sigma)^\top$ und $\Theta = \R \times \R_{>0}$.
         \begin{align*}
             p_\theta(x_1, \cdots, x_n) &= \sigma^{-1} \prod_{i=1}^n e^{ -\frac{x_i}{\sigma}} e^{\frac{n\mu}{\sigma}}
             1_{\R^n_{\geq \mu}}\left( \min \left\{ x_1, \cdots, x_n \right\} \right) \\
-            &= \sigma^{-1} \left( \prod_{i=1}^n e^{-x_i} \right)^{\sigma^{-1}} 
+            &= \sigma^{-1} \left( e^{- \sum_{i=1}^{n} x_i} \right)^{\sigma^{-1}} 
             e^{\frac{n\mu}{\sigma}}
             1_{\R^n_{\geq \mu}}\left( \min \left\{ x_1, \cdots, x_n \right\} \right) \\
-            T( x_1, \cdots, x_n ) &= \left( \min \left\{ x_1, \cdots, x_n \right\}, \prod_{i=1}^{n} e^{-x_i} \right)
-            \in \Theta = \R \times \R_{>0}. 
+            T( x_1, \cdots, x_n ) &= \left( \min \left\{ x_1, \cdots, x_n \right\}, 
+            e^{-\sum_{i=1}^{n} x_i} \right) \in \Theta = \R \times \R_{>0}. 
         \end{align*}
 \end{enumerate}
+
+
+
+\paragraph{Laplace-Verteilung. Insuffizienz des Mittelwerts.}
+Consider a family $\mathcal P_{\theta\in\R}$ of double exponential distributions with densities
+\begin{equation}
+	p_\theta(x) = \frac{1}{2} \exp \left( -| x - \theta | \right)
+\end{equation}
+where $x\in\R$ and $\theta\in\R$. Suppose that sample mean $\bar X$ is sufficient for $\theta$.
+Then the factorisation theorem implies there exist functions $g$ and $h$ such that
+\begin{equation}
+	\frac{1}{2^n} \prod_{i=1}^n \exp \left( -| x_i - \theta | \right) = g(\bar x, \theta ) h(x)
+\end{equation}
+for $x=(x_1,\ldots,x_n)$. Since $\exp(\cdot)$ is strictly positive we can form the quotient
+\begin{equation}
+	\exp\left( - \sum_{i}^{} |x_i - \theta_1| + \sum_{i}^{} |x_i -\theta_2| \right) = 
+	\frac{ g(\bar x, \theta_1 ) h(x) }{g(\bar x, \theta_2 ) h(x) }.
+\end{equation}
+By setting 
+\begin{equation}
+	G(x,\theta_1, \theta_2) 
+		=\log \left( \frac{g(\frac{1}{n} \sum_{i}^{} x_i,\theta_1)}{g( \frac{1}{n} \sum_{i}^{} x_i, \theta_2)} \right)
+\end{equation}
+we get
+\begin{equation}
+	- \sum_{i}^{} |x_i - \theta_1| + \sum_{i}^{} |x_i -\theta_2| = G(\sum_{i}^{} x_i ,\theta_1, \theta_2)
+\end{equation}
+Consider $n=2$ and the subset of $\R^2$ with $x_1+x_2=0$. Setting $\theta_1=0$ and $\theta_2=1$ yields
+\begin{equation}
+	-|x_1|-|x_2| + |x_1-1| + |x_2-1| = G(x_1+x_2, 0,1)= G(0, 0,1)
+	\label{punch-line}
+\end{equation}
+This means $G(0,0,1)$ is constant on $x_1+x_2=0$ but the left hand side of
+(\ref{punch-line}) is not. With $x_2=-x_1$ we get 
+\begin{equation}
+	-|x_1|-|-x_1| + |x_1-1| + |-x_1-1| = -2|x_1| + |x_1-1| + |x_1+1|
+\end{equation}
+which is
+\href{http://www.wolframalpha.com/input/?i=plot+%28-%7Cx_1%7C-%7C-x_1%7C+%2B+%7Cx_1-1%7C+%2B+%7C-x_1-1%7C%29}{not
+a constant function} of $x_1$. A contradiction. 
 
 
 
 
 
 \section{Exponentielle Familien}
+
+
+\paragraph{Beta-Verteilung als exponentielle Familie.}
+Sei $X$ eine Beta-verteilte Zufallsvariable mit der Dichte
+\begin{equation*}
+    p_{a,b} = \frac{1}{B(a,b)} x^{a-1} (1-x)^{b-1} 1_{[0,1]}(x)
+\end{equation*}
+und den Parametern $a>0$ und $b>0$.
+Zeigen Sie, dass $p_{(a,b)}$ zu einer zweiparametrigen exponentiellen
+Familie gehört.
+
+\paragraph*{Lösung.} Die Dichte der Beta-Verteilung lässt sich in der Form
+\begin{equation*}
+    p_{(a,b)} = \frac{1}{B(a,b)} \exp \left( 
+        (a-1) \log x + (b-1) \log (1-x) 
+        \right) 1_{[0,1]}(x)
+\end{equation*}
+schreiben. Das ist eine exponentielle Familie mit 
+\begin{align*}
+    c(a,b) &= \left( a-1, b-1 \right) \\
+    T(x) &= \left( \log x, \log (1-x) \right)^\top \\
+    d &= 0 \\
+    S &= 0 \\
+    A &= [0,1].
+\end{align*}
+
+
+\paragraph{Gamma-Momente und exponentielle Familien.}
+Sei $X$ Gamma-verteilt mit den Parametern $a,\lambda>0$ und der Dichte
+\begin{equation*}
+    p_{a,\lambda} (x) = \frac{\lambda^a}{\Gamma(a)} x^{a-1} e^{-\lambda x} 1_{\R_{\geq 0}} (x).
+\end{equation*}
+Zeigen Sie, dass 
+\begin{align*}
+    \E X = \frac{a}{\lambda} && \Var X = \frac{a}{\lambda^2} 
+\end{align*}
+gilt, indem Sie die Dichte $p_{a,\lambda}$ bei fixiertem $a$ als einparametrige
+natürliche exponentielle Familie darstellen und $d_0$ ableiten. 
+
+
+\paragraph{Poisson-Momente und exponentielle Familien.}
+Sei $X$ Poisson-verteilt mit dem Parameter $\lambda>0$ und der Wahrscheinlichkeitsfunktion
+\begin{equation*}
+    p_{\lambda}(k)= P(X=k) = 
+    \frac{e^{-\lambda} \lambda^{k} }{k!}, \quad k\in \left\{ 0,1,\cdots \right\}.
+\end{equation*}
+Zeigen Sie, dass 
+\begin{align*}
+    \E X = \lambda && \Var X = \lambda 
+\end{align*}
+gilt, indem Sie die Wahrscheinlichkeitsfunktion $p_{\lambda}$ 
+als einparametrige natürliche exponentielle Familie darstellen und $d_0$ ableiten. 
+
+\paragraph*{Lösung. }
+Wir schreiben $p_\lambda$ in exponentieller Form
+\begin{equation*}
+    p_{\lambda}(k) = \frac{e^{-\lambda} \lambda^{k}}{k!} =
+    \exp \left( k \log \lambda - \lambda - \log k! \right)
+\end{equation*}
+auf. Dabei ist $T(k) = k$, $c(\lambda)= \log \lambda$, $d(\lambda)= -\lambda$, 
+$S(k) = - \log k!$. Wir setzen nun $\eta=\log \lambda$ und schreiben die Dichte 
+$p_{\eta}(k)$ als natürliche exponentielle Familie
+\begin{equation*}
+    p_{\eta}(k) = \exp \left( \eta k - e^{\eta} - \log k! \right).
+\end{equation*}
+Dabei ist $d_0(\eta) = - e^{\eta}$. Nun erhalten wir 
+\begin{align*}
+    \E T(X) = \E X &= - d_0'(\eta) = e^{\eta} = \lambda \\
+    \Var T(X) = \Var X &= -d_0''(\eta) = e^{\eta} = \lambda.
+\end{align*}
+
+
+
 
 \paragraph{Laplace-Verteilung ist keine exponentielle Familie.}
 Für jedes $\theta\in\R$ sei eine Dichte
@@ -242,6 +355,31 @@ Für jedes $\theta\in\R$ sei eine Dichte
 gegeben. Sei $P_\theta$ das zur Dichte $p_\theta$ gehörige
 Wahrscheinlichkeitsmaß.  Zeigen Sie, dass $\left\{ P_\theta : \theta\in\Theta
 \right\}$ keine exponentielle Familie ist.
+
+\paragraph*{Lösung.}
+Angenommen $P_\theta$ gehört zu einer einparametrigen exponentiellen Famile.
+Dann hat die Dichte $p_\theta$ eine Darstellung
+\begin{equation*}
+	p_\theta(x) = \exp\left( c(\theta) T(x) + d(\theta) \right)h(x).
+\end{equation*}
+Das ist äquivalent zu
+\begin{align*}
+	\frac{1}{2} \exp \left( -| x - \theta | \right) &= 
+		\exp\left( c(\theta) T(x) + d(\theta) \right)h(x)
+\end{align*}
+und
+\begin{align*}
+    -|x-\theta| &= c(\theta) T(x) + d(\theta) + S(x)
+\end{align*}
+für alle $x,\theta\in\R$. Wir wählen $\theta_1, \theta_2\in\R$ und 
+$\theta_1 \neq \theta_2$. Dann gilt
+\begin{equation*}
+	- |x-\theta_1| + |x-\theta_2| = 
+	\left( c(\theta_1)-c(\theta_2) \right)T(x) + d(\theta_1)-d(\theta_2).
+\end{equation*}
+Daraus folgt $T(x)$ ist differenzierbar für alle $x\in\R\setminus \left\{
+\theta_1,\theta_2 \right\}$. Eine andere Wahl von $\theta_1$ und $\theta_2$
+liefert die Differenzierbarkeit von $T(x)$ auf ganz $\R$. Widerspruch.  
 
 
 
@@ -262,9 +400,9 @@ mit $A^* = \left\{ T(x) : x\in A \right\}$ hat.
 \paragraph{Cauchy-Verteilung ist keine exponentielle Familie.}  Sei eine
 Familie von Cauchy-Verteilungen $\left\{ P_\theta : \theta\in\R \right\}$ mit 
 den zugehörigen Dichten
-\begin{equation}
+\begin{equation*}
     p_\theta(x) = \frac{1}{\pi\left[ 1 + \left( x - \theta \right)^2 \right]}
-\end{equation}
+\end{equation*}
 gegeben. Zeigen Sie, dass die Familie $\left\{ P_\theta : \theta\in\R \right\}$ keine 
 exponentielle Familie ist.
 
@@ -276,7 +414,26 @@ gibt es eine Darstellung
 \end{equation}
 TODO: Finish it! 
 
+\paragraph{Mixtures of Normal Verteilungen sind keine exponentielle Familien.}
+Sei eine Familie von Verteilungen $(P_\mu)_{\mu\in\R}$ durch 
+\begin{equation*}
+    P_\mu = \frac{1}{2} \left( \cN(\mu,1) +  \cN(\mu,2) \right) 
+\end{equation*}
+gegeben. Die Verteilungen $P_\mu$ sind Mischungen von Normalverteilungen.
+Zeigen Sie, dass $(P_\mu)_{\mu}$ keine exponentielle Familie ist.
 
+
+\paragraph{Weibull-Verteilung als exponentielle Familie.} 
+Sei $X$ Weibull-verteilt mit der Dichte
+\begin{equation*}
+    p_{a,\lambda} = \frac{a}{\lambda} x^{a-1} e^{-\frac{x}{\lambda}} 1_{\R>0}(x)  
+\end{equation*}
+und den Parametern $a,\lambda>0$. Zeigen Sie folgende Aussagen.
+\begin{enumerate}
+    \item Ist $a>0$ bekannt und fix, so ist $(p_\lambda)_{\lambda>0}$ eine
+        exponentielle Familie.
+    \item Die Familie $(p_{a,\lambda})_{a,\lambda>0}$ ist keine exponentielle Familie. 
+\end{enumerate} 
 
 
 \section{Momentenmethode}

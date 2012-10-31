@@ -122,6 +122,38 @@ Es gilt
         \end{equation*}
 \end{enumerate}
 
+\paragraph{Zusammengesetzte Poisson-Verteilung.}
+Sei $N$ ein Poisson-verteilte Zufallsvariable mit dem Parameter $\lambda>0$ und
+eine Folge von i.i.d.\ Zufallsvariablen $(Z_i)_{i\in\bN}$ mit existierenden
+momentenerzeungenden Funktion. Wir definieren $X = \sum_{i=1}^{N} Z_i$. $X$ ist
+also eine Summe mit zufälliger Anzahl der Summanden. Wir setzen bei $X=0$ auf
+dem Ereignis $\left\{ N=0 \right\}$. Zeigen Sie:
+\begin{enumerate}
+    \item Die Momentenerzeugende Funktion von $X$ ist gegeben durch
+        \begin{equation*}
+            \psi_X(u) = \exp \left( \lambda \left( 
+            \E \left( \exp uZ_1 -1 \right)
+            \right) \right).
+        \end{equation*}
+    \item Der Erwartungswert von $X$ ist gegeben durch
+        \begin{align*}
+            E X &= \lambda \E Z_1 
+        \end{align*}
+        falls $\E Z_1$ existiert. 
+\end{enumerate}
+
+\paragraph*{Lösung.} Wir benutzen die Eigenschaften der bedingten Erwartung und erhalten
+\begin{align*}
+    \E \left[ \E \left[ \exp u \sum_{i=0}^{N} Z_i | N \right] \right] &= 
+    \E \left( \E \exp uZ_1 \right)^N \\
+    &= \sum_{k=0}^{\infty} \left( \E \exp u Z_1 \right)^k \frac{\lambda^k}{k!} e^{-\lambda} \\
+    &= \exp \left( -\lambda \E u Z_1  - \lambda\right)  \\
+    &= \exp \left[  \lambda\left( \E e^{uZ_1} -1 \right)  \right].
+\end{align*}
+
+
+
+
 
 \section{Continuous distributions}
 
@@ -442,14 +474,15 @@ Sei $\phi_X$ die Dichte und $\Phi_X$ die Verteilungsfunktion von $X$. Wir bemerk
     P \left( e^{X} \leq t \right) = P \left( X \leq \log t \right) = 
     \int_{- \infty}^{\log t} \phi_X (x) dx. 
 \end{equation*}
-Dies ist die Verteilungsfunktion von $Y$. Die Dichte von $Y$ erhalten wir durchs Differenzieren.
+für $t>0$. Dies ist die Verteilungsfunktion von $Y$. Die Dichte von $Y$
+erhalten wir durchs Differenzieren.
 \begin{align*}
     \frac{\partial}{\partial t} P \left( e^X \leq t \right) &= 
     \frac{\partial}{\partial t} \int_{-\infty}^{\log t} \phi(x) dx \\
     &= \frac{\partial}{\partial t} \Phi(\log t) \\
     &= \phi(\log t) t^{-1}. 
 \end{align*}
-Die Momente der Log-Normalverteilung erhalten wir indem wir die Beziehung $e^{X}$ benutzen. 
+Die Momente der Log-Normalverteilung erhalten wir, indem wir die Beziehung $Y=e^{X}$ benutzen. 
 \begin{align*}
     \E Y^n = \E e^{nX} &= \int_{\R}^{} e^{nx} \frac{1}{\sigma \sqrt{2\pi} } 
     \exp \left( -\frac{1}{2} \left( \frac{x-\mu}{\sigma} \right)^2 \right) dx \\
@@ -467,7 +500,7 @@ Daraus ergibt sich
 \end{equation*}
 Insbesondere gilt $\E Y = \exp \left[ \mu + \frac{\sigma^2}{2} \right]$.
 
-Die momentenerzeugende Funktion kann mit der gleicher Methode untersucht werden. 
+Die momentenerzeugende Funktion kann mit der gleichen Methode untersucht werden. 
 Nehmen wir zunächst an, dass $X$ standardnormalverteilt ist. Dann gilt
 \begin{align*}
     \psi_Y = \E \exp \left( uY \right) &= \E \exp \left( u e^{X} \right) \\
@@ -476,7 +509,7 @@ Nehmen wir zunächst an, dass $X$ standardnormalverteilt ist. Dann gilt
     & \geq \int_{\R}^{} \frac{1}{\sqrt{2\pi}} 
     \exp \left( u\left(1 + x + \frac{x^2}{2} + \frac{x^3}{6}\right) - \frac{x^2}{2} \right) dx.
 \end{align*}
-Der Ausdruck im Exponente Divergiert für $x\to \infty$ und $u>0$. Das Integral muss 
+Der Ausdruck im Exponenten divergiert für $x\to \infty$ und $u>0$. Das Integral muss 
 also auch divergent sein, und die momentenerzeugende Funktion existiert nur für $u=0$. 
 Die oben bewiesene Aussage gilt auch allgemein für $X \sim \cN (\mu, \sigma^2)$, denn
 \begin{equation*}
@@ -578,7 +611,7 @@ die Dichte der Gamma-Verteilung. Zunächst stellen wir
 \end{equation*}
 fest. Mit Hilfe der Faltungsformel
 \begin{equation*}
-    f_{E_1 + G} = \int_{\R}^{} p(z-y) g(y) dy
+    f_{E_1 + G}(z) = \int_{\R}^{} p(z-y) g(y) dy
 \end{equation*}
 können wir die Dichte der Zufallsvariable $E_1 + G$ berechnen.
 \begin{align*}
@@ -603,9 +636,9 @@ Seien $X_1,\ldots,X_n$ unabhängige und standardnormalverteilte
 Zufallsvariablen. Dann folgt $Y= \sum_{i=1}^{n} X_i^2$ einer
 $\chi^2$-Verteilung mit $n$ Freiheitsgraden. 
 \begin{enumerate}
-    \item Die Verteilungsfunktion von $X_1$ ist $2\Phi(\sqrt{t})-1$, wobei
+    \item Die Verteilungsfunktion von $X_1^2$ ist $2\Phi(\sqrt{t})-1$, wobei
         $\Phi$ die Verteilungsfunktion der Standardnormalverteilung bezeichnet. 
-    \item Die Dichte von $X_1$ ist die $\text{Gamma}(\frac{1}{2},\frac{1}{2})$-Dichte. 
+    \item Die Dichte von $X_1^2$ ist die $\text{Gamma}(\frac{1}{2},\frac{1}{2})$-Dichte. 
     \item Die Dichte von $Y$ ist die $\text{Gamma}(\frac{n}{2},\frac{1}{2})$-Dichte, d.h.\
         \begin{equation*}
             p(x) = \frac{1}{ 2^{\frac{n}{2}} 

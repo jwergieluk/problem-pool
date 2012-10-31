@@ -4,27 +4,30 @@
 \paragraph{Invers-Gauß-Verteilung als exponentielle Familie.}
 Seien $X_1,\ldots,X_n$ i.i.d.\ Invers-Gauß-verteilte Zufallsvariablen gegeben. D.h.\ die Dichte
 von $X_i$ ist 
-\begin{equation}
+\begin{equation*}
     \sqrt{\frac{\lambda}{2\pi}} x^{-\frac{3}{2}} \exp\left( \frac{-\lambda(x-\mu)^2}{2\mu^2 x} \right) 1_{\R_{>0}} (x)
-\end{equation}
+\end{equation*}
 wobei $\mu>0$, $\lambda>0$ und $\mu$ bekannt und fix sei.
 \begin{enumerate}
-    \item Zeigen Sie, dass die von dem
-Zufallsvektor $( X_1,\ldots,X_n)$ erzeugte Familie von Verteilungen $\left\{ P_\lambda : \lambda>0 \right\}$ 
-eine exponentielle Familie ist, indem Sie die gemeinsame Dichte des Vektors $(X_1,\ldots,X_n)$ in die
-Form
-\begin{equation}
-    p_\lambda(x) = \exp\left( c(\lambda) T(x) + d(\lambda) + S(x) \right)1_A (x)
-\end{equation}
-bringen. Geben Sie dabei explizit $c,T,d,S$ und $A$ an.
-    \item Zeigen Sie mit Hilfe des Faktorisierungssatzes, dass die Statistik $T(X)$ suffizient ist.
+    \item Zeigen Sie, dass die von dem Zufallsvektor $( X_1,\ldots,X_n)$
+        erzeugte Familie von Verteilungen $\left\{ P_\lambda : \lambda>0
+        \right\}$ eine exponentielle Familie ist, indem Sie die gemeinsame
+        Dichte des Vektors $(X_1,\ldots,X_n)$ in die Form
+        \begin{equation*}
+            p_\lambda(x) = \exp\left( c(\lambda) T(x) + d(\lambda) + S(x) \right)1_A (x)
+        \end{equation*}
+        bringen. Geben Sie dabei explizit $c,T,d,S$ und $A$ an.
+    \item Zeigen Sie mit Hilfe des Faktorisierungssatzes, dass die Statistik
+        $T(X)$ suffizient ist.
 \end{enumerate}
 
-\paragraph*{Lösungsskizze.}  Die Exponentielle Form: 
-\begin{equation}
+\paragraph*{Lösungsskizze.} Die gemeinsame Dichte von $X_1, \cdots, X_n$ 
+lässt sich in folgender Form darstellen.
+\begin{equation*}
     \exp\left(  -\frac{\lambda}{2}\left( \frac{x^2}{\mu^2} + \frac{1}{x} \right)    
-    + \log x^{-\frac{3}{2}} + \log \sqrt{\frac{\lambda}{2\pi}} + \lambda\mu  \right)1_{\R_{>0}}(x).
-\end{equation}
+    + \log x^{-\frac{3}{2}} + \log \sqrt{\frac{\lambda}{2\pi}} + 
+    \lambda\mu  \right)1_{\R_{>0}}(x).
+\end{equation*}
 
 
 
@@ -131,48 +134,48 @@ und daraus
 
 
 \paragraph{Invers-Gamma-Verteilung als exponentielle Familie.}
-Seien $X_1,\ldots,X_n$ i.i.d.\ Invers-Gamma-verteilte Zufallsvariablen gegeben. D.h.\ die Dichte
-von $X_i$ ist 
-\begin{equation}
+Seien $X_1,\ldots,X_n$ i.i.d.\ Invers-Gamma-verteilte Zufallsvariablen gegeben.
+D.h.\ die Dichte von $X_i$ ist 
+\begin{equation*}
     f_{a}(x) = \frac{\lambda^a}{\Gamma(a)}x^{-a-1} e^{-\frac{\lambda}{x}}1_{\R_{\geq 0}}(x),
-\end{equation}
+\end{equation*}
 wobei $a>0$ unbekannt und $\lambda>0$ bekannt und fix sei.
 \begin{enumerate}
-    \item Zeigen Sie, dass die von dem
-Zufallsvektor $( X_1,\ldots,X_n)$ erzeugte Familie von Verteilungen $\left\{ P_a : a>0 \right\}$ 
-eine exponentielle Familie ist, indem Sie die gemeinsame Dichte des Vektors $(X_1,\ldots,X_n)$ in die
-Form
-\begin{equation}
-    p_a(x) = \exp\left( c(a) T(x) + d(a) + S(x) \right)1_A (x)
-\end{equation}
-bringen. Geben Sie dabei explizit $c,T,d,S$ und $A$ an.
-    \item Zeigen Sie mit Hilfe des Faktorisierungssatzes, dass die Statistik $T(X)$ suffizient ist.
+    \item Zeigen Sie, dass die von dem Zufallsvektor $( X_1,\ldots,X_n)$
+        erzeugte Familie von Verteilungen $\left\{ P_a : a>0 \right\}$ eine
+        exponentielle Familie ist, indem Sie die gemeinsame Dichte des Vektors
+        $(X_1,\ldots,X_n)$ in die Form
+        \begin{equation}
+            p_a(x) = \exp\left( c(a) T(x) + d(a) + S(x) \right)1_A (x)
+        \end{equation}
+        bringen. Geben Sie dabei explizit $c,T,d,S$ und $A$ an.
+    \item Zeigen Sie mit Hilfe des Faktorisierungssatzes, dass die Statistik
+        $T(X)$ suffizient ist.
 \end{enumerate}
 
 \paragraph*{Lösung.}
 \begin{enumerate}
-    \item 
-Die gemeinsame Dichte von $\left( X_1,\ldots,X_n \right)$ ist 
-\begin{equation}
-    p_a(x_1,\ldots,x_n) = 
-    \prod_i \frac{\lambda^a}{\Gamma(a)}x_i^{-a-1} e^{-\frac{\lambda}{x_i}}1_{\R_{\geq 0}}(x_i).
-\end{equation}
-Die Darstellung als exponentielle Familie ist
-\begin{equation}
-    \exp \left( \left( -a-1 \right) \sum_{i}^{} \log x_i + \log \frac{\lambda^{na}}{\Gamma(a)^n} - \lambda \sum_{i}^{} \frac{1}{x_i}  \right) 1_{\R_{\geq 0}^n} (x_1,\ldots,x_n).
-\end{equation}
-Dabei ist 
-\begin{eqnarray}
-    c(a)&=&  -a-1 \\
-    T(X)&=& \sum_{i}^{} \log X_i \\
-    d(a)&=& \log \frac{\lambda^{na}}{\Gamma(a)^n} \\
-    S(x)&=&  -\lambda \sum_{i}^{} \frac{1}{x_i}\\
-    A   &=& \R_{\geq 0}^n.
-\end{eqnarray}
+    \item Die gemeinsame Dichte von $\left( X_1,\ldots,X_n \right)$ ist 
+        \begin{equation}
+            p_a(x_1,\ldots,x_n) = 
+            \prod_i \frac{\lambda^a}{\Gamma(a)}x_i^{-a-1} e^{-\frac{\lambda}{x_i}}1_{\R_{\geq 0}}(x_i).
+        \end{equation}
+        Die Darstellung als exponentielle Familie ist
+        \begin{equation}
+            \exp \left( \left( -a-1 \right) \sum_{i}^{} \log x_i + \log \frac{\lambda^{na}}{\Gamma(a)^n} - \lambda \sum_{i}^{} \frac{1}{x_i}  \right) 1_{\R_{\geq 0}^n} (x_1,\ldots,x_n).
+        \end{equation}
+        Dabei ist 
+        \begin{eqnarray}
+            c(a)&=&  -a-1 \\
+            T(X)&=& \sum_{i}^{} \log X_i \\
+            d(a)&=& \log \frac{\lambda^{na}}{\Gamma(a)^n} \\
+            S(x)&=&  -\lambda \sum_{i}^{} \frac{1}{x_i}\\
+            A   &=& \R_{\geq 0}^n.
+        \end{eqnarray}
 
-    \item $T(X)$ ist suffizient denn die Dichte lässt sich in der Form $g(T(x),a)h(x)$ darstellen. 
-        Auch ist $T(X)$ in jeder exponentiellen Familie eine suffiziente Statistik. 
-
+    \item $T(X)$ ist suffizient, denn die Dichte lässt sich in der Form
+        $g(T(x),a)h(x)$ darstellen. Ebenso ist $T(X)$ in jeder exponentiellen
+        Familie eine suffiziente Statistik. 
 \end{enumerate}
 
 

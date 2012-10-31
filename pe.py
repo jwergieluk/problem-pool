@@ -51,8 +51,8 @@ class Problems:
         for line in lines: 
             line=line.strip()
 
-            if len(line)==0:
-                continue
+#            if len(line)==0:
+#                continue
 
             if re.search(r'\\section', line, re.UNICODE)!=None:
                 continue
