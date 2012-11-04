@@ -230,48 +230,6 @@ sowie $\theta = (\mu, \sigma)^\top$ und $\Theta = \R \times \R_{>0}$.
 
 
 
-\paragraph{Laplace-Verteilung. Insuffizienz des Mittelwerts.}
-Consider a family $\mathcal P_{\theta\in\R}$ of double exponential distributions with densities
-\begin{equation}
-	p_\theta(x) = \frac{1}{2} \exp \left( -| x - \theta | \right)
-\end{equation}
-where $x\in\R$ and $\theta\in\R$. Suppose that sample mean $\bar X$ is sufficient for $\theta$.
-Then the factorisation theorem implies there exist functions $g$ and $h$ such that
-\begin{equation}
-	\frac{1}{2^n} \prod_{i=1}^n \exp \left( -| x_i - \theta | \right) = g(\bar x, \theta ) h(x)
-\end{equation}
-for $x=(x_1,\ldots,x_n)$. Since $\exp(\cdot)$ is strictly positive we can form the quotient
-\begin{equation}
-	\exp\left( - \sum_{i}^{} |x_i - \theta_1| + \sum_{i}^{} |x_i -\theta_2| \right) = 
-	\frac{ g(\bar x, \theta_1 ) h(x) }{g(\bar x, \theta_2 ) h(x) }.
-\end{equation}
-By setting 
-\begin{equation}
-	G(x,\theta_1, \theta_2) 
-		=\log \left( \frac{g(\frac{1}{n} \sum_{i}^{} x_i,\theta_1)}{g( \frac{1}{n} \sum_{i}^{} x_i, \theta_2)} \right)
-\end{equation}
-we get
-\begin{equation}
-	- \sum_{i}^{} |x_i - \theta_1| + \sum_{i}^{} |x_i -\theta_2| = G(\sum_{i}^{} x_i ,\theta_1, \theta_2)
-\end{equation}
-Consider $n=2$ and the subset of $\R^2$ with $x_1+x_2=0$. Setting $\theta_1=0$ and $\theta_2=1$ yields
-\begin{equation}
-	-|x_1|-|x_2| + |x_1-1| + |x_2-1| = G(x_1+x_2, 0,1)= G(0, 0,1)
-	\label{punch-line}
-\end{equation}
-This means $G(0,0,1)$ is constant on $x_1+x_2=0$ but the left hand side of
-(\ref{punch-line}) is not. With $x_2=-x_1$ we get 
-\begin{equation}
-	-|x_1|-|-x_1| + |x_1-1| + |-x_1-1| = -2|x_1| + |x_1-1| + |x_1+1|
-\end{equation}
-which is
-\href{http://www.wolframalpha.com/input/?i=plot+%28-%7Cx_1%7C-%7C-x_1%7C+%2B+%7Cx_1-1%7C+%2B+%7C-x_1-1%7C%29}{not
-a constant function} of $x_1$. A contradiction. 
-
-
-
-
-
 \section{Exponentielle Familien}
 
 
@@ -439,7 +397,7 @@ und den Parametern $a,\lambda>0$. Zeigen Sie folgende Aussagen.
 \section{Momentenmethode}
 
 \paragraph{Stetige Gleichverteilung. Momentenschätzer. } Seien $X_1, \cdots, X_n$ 
-stetig gleichverteilt auf dem Intervall $[0,\theta]$ mit $\theta>0$. 
+i.i.d.\ stetig gleichverteilt auf dem Intervall $[0,\theta]$ mit $\theta>0$. 
 Die Dichte von $X_i$ ist also 
 \begin{equation*}
     p_{\theta}(x) = \frac{1}{\theta} 1_{[0,\theta]}(x).
@@ -461,7 +419,7 @@ Indem wir $\hat m_{k} = \sum_{i=1}^{n} X_i^k$ setzen, erhalten wir
     \hat m_k &= \frac{\hat\theta^k}{k+1} \\
     \hat \theta &= \left( (k+1) \hat m_k \right)^{\frac{1}{k}}.
 \end{align*}
-Insbesondere ist der auf dem ersten Moment basierende Schätzer
+Insbesondere ist der auf dem ersten Moment basierende Schätzer gegeben durch
 \begin{equation*}
     \hat \theta = \frac{2}{n} \sum_{i=1}^{n} X_i.
 \end{equation*}
@@ -486,7 +444,7 @@ einen Momentenschätzer für $\theta$ bei den folgenden Verteilungen:
 %$X_1,\ldots,X_n$ seien i.i.d.\ Beta-Verteilt, d.h.\ $X_1 \sim \textrm{Beta}(a,b)$.
 %Bestimmen Sie einen Momentenschätzer für $\theta=(a,b)^\top$.
 
-\paragraph{Momentenschätzer für Weibull-Verteilung. } Seien 
+\paragraph{Weibull-Verteilung. Momentenschätzer.} Seien 
 $X_1,\ldots,X_n$ i.i.d.\ mit Dichte 
 \begin{equation*}
 	p(x) = \sqrt{ \frac{2 \theta^3}{\pi} } x^2 \exp\left( - \frac{\theta}{2}x^2 \right) 1_{\R>0}(x)
@@ -494,14 +452,58 @@ $X_1,\ldots,X_n$ i.i.d.\ mit Dichte
 wobei der Parameter $\theta>0$ unbekannt ist. Berechnen Sie den Momentenschätzer für $\theta$
 basierend auf dem zweiten Moment. 
 
-\paragraph{Momentenschätzung vs Suffizienz. }   Betrachten 
+\paragraph{Momentenschätzung vs Suffizienz.}   Betrachten 
 Sie die Verteilungsfamilie von zweiseitigen Exponentialverteilungen
 gegeben durch die Dichte
 \begin{equation*}
 	p_\theta(x) = \frac{1}{2} \exp\left( -| x- \theta | \right), \quad \theta\in\R
 \end{equation*}
-Zeigen Sie mit dem ersten Moment, dass $\bar X$ ein Momentenschätzer für 
-$\theta$ ist. Weisen Sie nach, dass dieser nicht suffizient für $\theta$ ist.
+\begin{enumerate}
+    \item Zeigen Sie mit dem ersten Moment, dass $\bar X$ ein Momentenschätzer
+        für $\theta$ ist.
+    \item Weisen Sie nach, dass dieser nicht suffizient für $\theta$ ist.
+\end{enumerate}
+
+\paragraph*{Lösung.} Wir berechnen zunächst den Erwartungswert der zweiseitigen
+Exponentialverteilung. Es gilt
+\begin{align*}
+    \E X &= \int_{\R}^{} x \frac{1}{2} \exp \left( -| x-\theta| \right) d\theta \\
+    &= \frac{1}{2} \int_{\R}^{} (x+\theta) \exp ( -|x|) dx \\
+    &= \frac{1}{2} \int_{\R} x \exp \left( -|x| \right) dx + 
+        \frac{\theta}{2} \int_{\R} \exp \left( -|x| \right) dx \\
+        &= \theta \int_{0}^{\infty} \exp \left( -x \right) dx = \theta.
+\end{align*}
+Daher erhalten wir $\hat \theta = \bar X$. 
+
+Nun werden wir zeigen, dass $\bar X$ nicht suffizient für $\theta$ ist. Wäre $\bar X$ 
+suffizient für $\theta$, so würde nach dem Faktorisierungssatz die Darstellbarkeit
+\begin{equation*}
+    p_{\theta}(x_1, \cdots, x_n) = g \left( \frac{1}{n} \sum_{i}^{} x_i, \theta \right) h(x_1, \cdots, x_n)
+\end{equation*}
+folgen. Die Funktion 
+\begin{equation*}
+    p_\theta(x_1, \cdots, x_n) = \frac{1}{2^n} \exp \left( - \sum_{i=1}^{n} |x_i - \theta | \right)
+\end{equation*}
+ist positiv, so können wir den Quotienten 
+\begin{equation*}
+    \frac{p_{\theta_1}(x_1, \cdots, x_n)}{p_{\theta_2}(x_1, \cdots, x_n)} = 
+    \exp \left( - \sum_{i=1}^{n} | x_i - \theta_1 | + \sum_{i=1}^{n} |x_i - \theta_2 | \right) 
+    = \frac{g(\bar x,\theta_1) }{ g(\bar x, \theta_2)}. 
+\end{equation*}
+für $\theta_1 \neq \theta_2$ bilden und diesen logarithmieren:
+\begin{equation*}
+    - \sum_{i=1}^{n} | x_i - \theta_1 | + \sum_{i=1}^{n} |x_i - \theta_2 | 
+    = \log \left( \frac{g(\bar x, \theta_1)}{g(\bar x, \theta_2)} \right) = G(\bar x, \theta_1, \theta_2). 
+\end{equation*}
+Sei nun $n=2$, $x_1 + x_2 = 0$ und $\theta_1=0, \theta_2 = 1$. Dann gilt $x_2=-x_1$ und 
+$G(\bar x, \theta_1, \theta_2)= G(0, 0, 1)$ ist konstant aber 
+\begin{align*}
+    - \sum_{i=1}^{n} | x_i - \theta_1 | + \sum_{i=1}^{n} |x_i - \theta_2 | 
+    &= -|x_1| - |x_1| + |x_1-1| + |-x_1-1| \\
+    &= -2 |x_1| + |x_1-1| + |x_1+1|
+\end{align*}
+ist keine konstante Funktion von $x_1$. Widerspruch.
+
 
 \paragraph{AR1. }  Die Zufallsvariablen $Z_1,\ldots, Z_n$ seien i.i.d. 
 mit $Z_1 \sim \mathcal N(0,\sigma^2)$. Die Zeitreihe $\left( X_i \right)_{1\leq i\leq n}$
