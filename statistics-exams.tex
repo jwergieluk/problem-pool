@@ -1,5 +1,6 @@
 
 \section{Prüfungsaufgaben}
+\subsection{2012}
 
 \paragraph{Invers-Gauß-Verteilung als exponentielle Familie.}
 Seien $X_1,\ldots,X_n$ i.i.d.\ Invers-Gauß-verteilte Zufallsvariablen gegeben. D.h.\ die Dichte
@@ -870,6 +871,32 @@ Daher ist nach Definition des bedingten Erwartungswertes
 \begin{equation}
 	\E\left[ \E\left[ X | \mathcal G \right] | \mathcal H \right]=\E \left[ X | \mathcal H \right].
 \end{equation}
+
+
+
+
+\subsection{2013}
+
+\paragraph{L\'evy Verteilung.} Die Dichte der L\'evy Verteilung mit den
+Parametern $(\mu,\sigma)\in \Theta = \R \times \R_{>0}$ ist
+\begin{equation*}
+    p_{(\mu, \sigma)} = \sqrt{ \frac{\sigma}{2\pi}} (x-\mu)^{-\frac{3}{2}} 
+    \exp\left( -\frac{\sigma}{2(x-\mu)} \right) 1_{\R_{\geq \mu}} (x).
+\end{equation*}
+Zeigen Sie folgende Aussagen.
+\begin{enumerate}
+    \item Sei $X\sim \cN (0, \frac{1}{\sqrt{\sigma}})$ normalverteilt mit $\sigma>0$.
+        Die Zufallsvariable $\frac{1}{X^2}$ ist L\'evy-verteilt mit den Parametern
+        $(0,\sigma)$.
+    \item Wenn $\mu=0$ festgehalten wird, ist die Familie $(p_{(0,\sigma)})_{\sigma>0}$
+        eine exponentielle Familie. 
+    \item Die Familie $(p_{\mu,\sigma})_{(\mu,\sigma)\in\Theta}$ ist keine
+        (zweiparametrige) exponentielle Familie. 
+\end{enumerate}
+
+
+
+
 
 
 

@@ -438,6 +438,36 @@ und den Parametern $a,\lambda>0$. Zeigen Sie folgende Aussagen.
 
 \section{Momentenmethode}
 
+\paragraph{Stetige Gleichverteilung. Momentenschätzer. } Seien $X_1, \cdots, X_n$ 
+stetig gleichverteilt auf dem Intervall $[0,\theta]$ mit $\theta>0$. 
+Die Dichte von $X_i$ ist also 
+\begin{equation*}
+    p_{\theta}(x) = \frac{1}{\theta} 1_{[0,\theta]}(x).
+\end{equation*}
+\begin{enumerate}
+    \item Berechnen Sie einen Momentenschätzer für $\theta$ basierend auf dem 
+        ersten Moment von $X_i$. 
+    \item Berechnen Sie einen Momentenschätzer für $\theta$ basierend auf dem 
+        $k$-ten Moment von $X_i$. 
+\end{enumerate}
+
+\paragraph*{Lösung.} Wir berechnen zunächst alle Momente der stetigen Gleichverteilung. 
+\begin{align*}
+    \E X^k &= \int_{\R} x^k \frac{1}{\theta} 1_{[0,\theta]} (x) dx \\
+    &= \frac{1}{\theta} \int_{0}^\theta x^k dx = \frac{\theta^k}{k+1}. 
+\end{align*}
+Indem wir $\hat m_{k} = \sum_{i=1}^{n} X_i^k$ setzen, erhalten wir
+\begin{align*}
+    \hat m_k &= \frac{\hat\theta^k}{k+1} \\
+    \hat \theta &= \left( (k+1) \hat m_k \right)^{\frac{1}{k}}.
+\end{align*}
+Insbesondere ist der auf dem ersten Moment basierende Schätzer
+\begin{equation*}
+    \hat \theta = \frac{2}{n} \sum_{i=1}^{n} X_i.
+\end{equation*}
+
+
+
 \paragraph{Momentenschätzer. Beispiele.} Bestimmen Sie mittels der Momentenmethode
 einen Momentenschätzer für $\theta$ bei den folgenden Verteilungen: 
 \begin{enumerate}
