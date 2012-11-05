@@ -521,6 +521,28 @@ und für $1\leq i \leq n$
 		Verwenden Sie $\E (U_i^2)$, um einen Momentenschätzer für $\sigma^2$ zu finden.
 \end{enumerate}
 
+\paragraph{Exponentialverteilung. Momentenschätzer.} 
+Die Zufallsvariablen $X_1, \cdots, X_n$ seien i.i.d.\ und exponentialverteilt mit 
+Parametern $a\in \R$, $\theta>0$ und der Dichte
+\begin{equation*}
+    p_{a,\theta} =\frac{1}{\theta} \exp \left( - \frac{x-a}{\theta} \right) 1_{\R_{>a}}(x).
+\end{equation*}
+Zeigen Sie die folgenden Aussagen.
+\begin{enumerate}
+    \item Der Erwartungswert, die Varianz und der zweite Moment von $X_1$ sind gegeben durch
+        \begin{align*}
+            \E X &= a+\theta, & \Var X &= \theta^2, & \E X^2 &= \theta^2 + (a+\theta)^2. 
+        \end{align*}
+    \item Die momentenerzeugende Funktion von $X_1$ ist 
+        \begin{equation*}
+            \psi_{a,\theta}(u) = \frac{e^{au}}{1- \theta u}
+        \end{equation*}
+        für $u<\frac{1}{\theta}$.
+    \item Berechnen Sie Momentenschätzer für $(a,\theta)$ basierend auf dem ersten und zweiten 
+        Moment von $X_1$. 
+\end{enumerate}
+
+
 
 \section{Kleinste-Quadrate-Schätzer}
 
