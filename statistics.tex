@@ -9,11 +9,12 @@ Man nehme an, dass folgendes Modell gegeben sei:
 Hierbei seien $z_{11},\ldots,z_{np}$ bekante Konstanten und $\varepsilon_1,\ldots,\varepsilon_n$
 i.i.d.\ mit $\varepsilon_1 \sim \mathcal N\left( 0,1 \right)$.
 \begin{enumerate}
-    \item Zeigen Sie, dass $\left( \beta_1,\ldots,\beta_p \right)$ genau dann identifizierbar ist, 
-        falls $\mathbf z_1,\ldots,\mathbf z_p$ linear unabhängig sind, wobei 
-            $\mathbf z_j = \left( z_{1j},\ldots,z_{nj} \right)^\top$.
-    \item Begründen Sie, warum $\left( \beta_1, \ldots,\beta_p \right)$ nicht identifizierbar ist,
-        falls $n<p$.
+    \item Zeigen Sie, dass $\left( \beta_1,\ldots,\beta_p \right)$ genau dann
+        identifizierbar ist, falls $\mathbf z_1,\ldots,\mathbf z_p$ linear
+        unabhängig sind, wobei $\mathbf z_j = \left( z_{1j},\ldots,z_{nj}
+        \right)^\top$.
+    \item Begründen Sie, warum $\left( \beta_1, \ldots,\beta_p \right)$ nicht
+        identifizierbar ist, falls $n<p$.
 \end{enumerate}
 
 \paragraph*{Lösung.}
@@ -252,7 +253,7 @@ schreiben. Das ist eine exponentielle Familie mit
 \begin{align*}
     c(a,b) &= \left( a-1, b-1 \right) \\
     T(x) &= \left( \log x, \log (1-x) \right)^\top \\
-    d &= 0 \\
+    d &= - \log B(a,b) \\
     S &= 0 \\
     A &= [0,1].
 \end{align*}
