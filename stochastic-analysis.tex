@@ -154,10 +154,81 @@ sind.
         \end{equation*}
 \end{enumerate}
 
+\paragraph{Poissonprozess. Charakteristische Funktion. } Sei $N$ ein
+Poissonprozess mit dem Parameter $\lambda>0$ gegeben. $N$ is also ein L\'evy
+Prozess mit den Werten in $\bN$ und 
+\begin{equation*}
+    P(N_t = n) = e^{- \lambda t} \frac{ (\lambda t)^n}{ n!}.
+\end{equation*}
+\begin{enumerate}
+    \item Die charakteristische Funktion von $N_t$ ist 
+        \begin{equation*}
+            \psi_t(u) = \E \exp iu N_t = \exp \left( \lambda t \left( e^{iu} -1\right) \right).
+        \end{equation*}
+    \item Die charakteristische Funktion des kompensierten Poissonprozesses
+        $\tilde N_t = N_t - \lambda t$ ist 
+        \begin{equation*}
+            \tilde \psi_t (u) = \E \exp iu \tilde N_t = 
+            \exp \left( \lambda t \left( e^{it}-1-iu \right) \right). 
+        \end{equation*}
+\end{enumerate} 
+
+\paragraph*{Lösung.} Eine einfache Rechnung liefert
+\begin{align*}
+    \E \exp iu N_t &= \sum_{n\geq 0}^{} \exp \left( iun  \right) P (N_t = n) \\
+    &= \sum_{n\geq 0}^{} \exp \left( iun \right) e^{-\lambda t} \frac{(\lambda t)^n}{n!} \\
+    &= \exp \left( \lambda t \left( e^{iu}-1 \right) \right). 
+\end{align*}
+Nachdem $e^{i u \lambda t}$ die charakteristische Funktion des Dirac-masses an 
+$\lambda t$ ist, erhalten wir 
+\begin{equation*}
+    \tilde \psi_t(u) = \E \exp \left( i u N_t \right) = 
+    \exp \left( \lambda t \left( e^{iu}-1-iu \right) \right). 
+\end{equation*}
+
+\paragraph{Zusammengesetzter Poissonprocess. Charakteristische Funktion.}
+Sei $X$ ein zusammengesetzter Poissonprozess mit dem Parameter $\lambda>0$ und
+der Sprungverteilung $\nu$ auf $\R^d$ mit $\nu(\{0\})=0$. 
+\begin{enumerate}
+    \item Die charakteristische Funktion von $X_t$ ist gegeben durch
+        \begin{equation*}
+            \psi_t(u) = \exp \left( \lambda t \int_{}^{} e^{iuy}-1 \, \nu(dy) \right). 
+        \end{equation*}
+    \item Die charakteristische Funktion von dem kompensierten zusammengesetzten
+        Poissonprozess $\tilde X_t = X_t - \E X_t$ ist gegeben durch
+        \begin{equation*}
+            \tilde \psi_t(u) = \exp \left( \lambda t \int e^{iuy}-1-iuy \, \nu(dy) \right). 
+        \end{equation*}
+\end{enumerate}
+
+\paragraph*{Lösung.} Bei der Berechnung benutzen wir die Eigenschaften der bedingten
+Erwartung.
+\begin{align*}
+    \psi_t (u) &= \E \exp iu X_t \\
+    &= \E \E \left[ \left. \exp \left( iu \sum_{i=1}^{N_t} Y_i \right) \right| \left( N_s \right)_{s\in [0,t]} \right] \\
+    &= \sum_{n \geq 0}^{} \left( \int_{\R^d} e^{iu x} \, \nu(dx) \right)^n P(N_t = n) \\
+    &= \sum_{n \geq 0}^{} \left( \int_{} e^{iu x} \, \nu(dx) \right)^n
+        e^{-\lambda t} \frac{(\lambda t)^n}{n!} \\
+    &= \exp \left( \lambda t \int e^{iux}-1 \, \nu(dx) \right).
+\end{align*}
+Wir brauchen nur noch den Erwartungswert von $X_t$ zu berechnen. 
+\begin{align*}
+    \E X_t &= \sum_{n \geq 0}^{} n \left( \int_{\R^d} x\, \nu(dx) \right) 
+    e^{-\lambda t} \frac{(\lambda t)^n}{n!} \\
+    &= \int_{}^{} x \, \nu(dx) \sum_{n \geq 0} n e^{-\lambda t} \frac{(\lambda t)^n}{n!} \\
+    &= \lambda t \int_{}^{} x \, \nu (dx). 
+\end{align*}
+Insgesamt erhalten wir 
+\begin{equation*}
+    \tilde \psi_t (u) = \exp \left( \lambda t \int_{\R^d} e^{iux}-1-iux \, \nu(dx) \right).
+\end{equation*}
+
+
+
+
 
 \paragraph{L\'evy martingales.} Every Levy process which is a local martingale is
 also a true martingale.
-
 
 
 

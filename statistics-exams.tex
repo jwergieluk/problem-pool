@@ -146,9 +146,9 @@ wobei $a>0$ unbekannt und $\lambda>0$ bekannt und fix sei.
         erzeugte Familie von Verteilungen $\left\{ P_a : a>0 \right\}$ eine
         exponentielle Familie ist, indem Sie die gemeinsame Dichte des Vektors
         $(X_1,\ldots,X_n)$ in die Form
-        \begin{equation}
+        \begin{equation*}
             p_a(x) = \exp\left( c(a) T(x) + d(a) + S(x) \right)1_A (x)
-        \end{equation}
+        \end{equation*}
         bringen. Geben Sie dabei explizit $c,T,d,S$ und $A$ an.
     \item Zeigen Sie mit Hilfe des Faktorisierungssatzes, dass die Statistik
         $T(X)$ suffizient ist.
@@ -157,22 +157,22 @@ wobei $a>0$ unbekannt und $\lambda>0$ bekannt und fix sei.
 \paragraph*{Lösung.}
 \begin{enumerate}
     \item Die gemeinsame Dichte von $\left( X_1,\ldots,X_n \right)$ ist 
-        \begin{equation}
+        \begin{equation*}
             p_a(x_1,\ldots,x_n) = 
             \prod_i \frac{\lambda^a}{\Gamma(a)}x_i^{-a-1} e^{-\frac{\lambda}{x_i}}1_{\R_{\geq 0}}(x_i).
-        \end{equation}
+        \end{equation*}
         Die Darstellung als exponentielle Familie ist
-        \begin{equation}
+        \begin{equation*}
             \exp \left( \left( -a-1 \right) \sum_{i}^{} \log x_i + \log \frac{\lambda^{na}}{\Gamma(a)^n} - \lambda \sum_{i}^{} \frac{1}{x_i}  \right) 1_{\R_{\geq 0}^n} (x_1,\ldots,x_n).
-        \end{equation}
+        \end{equation*}
         Dabei ist 
-        \begin{eqnarray}
+        \begin{eqnarray*}
             c(a)&=&  -a-1 \\
             T(X)&=& \sum_{i}^{} \log X_i \\
             d(a)&=& \log \frac{\lambda^{na}}{\Gamma(a)^n} \\
             S(x)&=&  -\lambda \sum_{i}^{} \frac{1}{x_i}\\
             A   &=& \R_{\geq 0}^n.
-        \end{eqnarray}
+        \end{eqnarray*}
 
     \item $T(X)$ ist suffizient, denn die Dichte lässt sich in der Form
         $g(T(x),a)h(x)$ darstellen. Ebenso ist $T(X)$ in jeder exponentiellen
