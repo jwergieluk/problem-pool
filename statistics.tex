@@ -559,7 +559,7 @@ wobei $\varepsilon_1,\ldots, \varepsilon_n$ unabhängig seien mit $\varepsilon_i
 
 \section{Maximum-likelihood Schätzer}
 
-\paragraph{MLE. Mischung von Gleichverteilungen.  }
+\paragraph{Mischung von Gleichverteilungen. MLE.}
 Seien $X_1,\ldots,X_n$ i.i.d.\ mit Dichte $p_\theta$ 
 und $\theta\in \left[ 0,1 \right]$. Zeigen Sie, dass der Maximum-Likelihood-Schätzer
 für
@@ -568,7 +568,9 @@ für
 \end{equation*}
 gerade $\hat \theta = \frac{1}{n} \sum_{i=1}^{n} 1_{(-1,0)}\left( X_i \right)$ ist.
 
-\paragraph{MLE. Normalverteilung. }
+
+
+\paragraph{Normalverteilung. MLE.}
 Seien $X_1,\ldots,X_n$ i.i.d.\ und $X_i \sim \mathcal N\left( \mu, \sigma^2 \right)$ mit bekanntem $\mu$. 
 Zeigen Sie, dass der Maximum-Likelihood-Schätzer von $\sigma$ gerade
 \begin{equation*}
@@ -576,18 +578,59 @@ Zeigen Sie, dass der Maximum-Likelihood-Schätzer von $\sigma$ gerade
 \end{equation*}
 ist.
 
-\paragraph{MLE. Exponentialverteilung. } Seien $X_1,\ldots,X_n$ exponentialverteilt
+\paragraph*{Lösung.} Die Likelihood-Funktion dieses Models ist 
+\begin{equation*}
+    L_{\sigma}(x_1, \cdots, x_n) = \prod_{i=1}^{n} p_{\sigma}(x_i) = 
+    \left( \frac{1}{\sqrt{2\pi}} \right)^n \, \frac{1}{\sigma^n} 
+    \exp \left( - \frac{1}{2 \sigma^2} \sum_{i=1}^{n} \left( x_i - \mu \right)^2 \right).
+\end{equation*}
+Wir erhalten die Log-Likelihood-Funktion indem wir die Likelihood-Funktion 
+logarithmieren. 
+\begin{align*}
+    l_\sigma (x_1, \cdots, x_n) &= \log \sqrt{2\pi}^{-n} + \log \sigma^{-n} 
+    - \frac{1}{2 \sigma^2} \sum_{i=1}^{n} \left( x_i - \mu \right)^2   \\
+    &= - n\log \sqrt{2 \pi} -n \log \sigma 
+    - \frac{1}{2\sigma^2} \sum_{i=1}^{n} \left( x_i - \mu \right)^2.
+\end{align*}
+Differenzieren liefert
+\begin{align*}
+    \frac{\partial}{\partial \sigma} l_\sigma(x_1, \cdots, x_n) &= 
+    - \frac{n}{\sigma} + \frac{1}{\sigma^3} \sum_{i=1}^{n} \left( x_i - \mu \right)^2 \\
+    \frac{\partial^2}{\partial \sigma^2} l_\sigma(x_1, \cdots, x_n) &= 
+    n \sigma^{-2} - 3 \sigma^{-4} \sum_{i=1}^{n} \left( x_i - \mu \right)^2. 
+\end{align*}
+Wir lösen die Gleichung
+\begin{align*}
+    \frac{\partial}{\partial \sigma} l_t (x_i ) &= 
+    - \frac{n}{\sigma} + \frac{1}{\sigma^3} \sum_{i=1}^{n} \left( x_i - \mu \right)^2  = 0 \\
+    \hat \sigma^2 &= \frac{1}{n} \sum_{i=1}^{n} \left( x_i - \mu \right)^2. 
+\end{align*}
+Wir setzen den gefunden Schätzer in den Ausdruck $\frac{\partial^2}{\partial \sigma^2} l_t$
+ein und erhalten
+\begin{align*}
+    \left. \frac{\partial^2}{\partial \sigma^2} l_t(x_i) \right|_{\sigma=\hat\sigma} 
+    &= \frac{n^2}{ \sum_{}^{} (x_i-\mu)^2} - \frac{3 n^2}{\sum_{}^{} (x_i -\mu)^2} < 0.
+\end{align*}
+Die letzte Ungleichung bedeutet, dass die Log-Likelihood-Funktion an der Stelle
+$\hat\sigma$ konkav ist und die gefundene Lösung der Gleichung
+$\frac{\partial}{\partial \sigma}l_t = 0$ tatsächlich das eindeutige Maximum
+der Likelihood-Funktion ist.
+
+
+
+
+\paragraph{Exponentialverteilung. MLE.} Seien $X_1,\ldots,X_n$ exponentialverteilt
 zum Parameter $\theta$. Zeigen Sie, dass $\hat \theta = (\bar X)^{-1}$ sowohl der 
 Maximum-Likelihood-Schätzer als auch ein Momentenschätzer ist.
 
-\paragraph{Maximum-Likelihood-Methode und Suffizienz.   }
+\paragraph{Maximum-Likelihood-Methode und Suffizienz.}
 Sei $\left\{ p_\theta : \theta\in\Theta \right\}$ ein reguläres statistisches
 Modell und $T\left( X \right)$ eine suffiziente Statistik für $\theta$. 
 Weisen Sie nach, dass ein Maximum-Likelihood-Schätzer für $\theta$ 
 eine Funktion von $T\left( X \right)$ ist.
 
 
-\paragraph{MLE. Zweidimensionale Exponentialverteilung. } Betrachtet werden 
+\paragraph{Zweidimensionale Exponentialverteilung. MLE.} Betrachtet werden 
 i.i.d.\ Zufallsvariablen $(Y_1, Z_1), \ldots,(Y_n,Z_n)$. Weiterhin seien
 $Y_1$ und $Z_1$ unabhängig und exponentialverteilt mit Parametern
 $\lambda > 0$ bzw.\ $\mu > 0$. Bestimmen Sie den Maximum-Likelihood-Schätzer
@@ -614,12 +657,12 @@ Wir setzen $\frac{\partial}{\partial \theta} l(\theta,x) = 0$ und erhalten den M
 Somit ist der MLE für $\left( \lambda, \mu \right) = \left( 1/\bar y, 1/\bar z \right)^\top$.
 
 
-\paragraph{MLE. Weibull-Verteilung. } Seien $X_1,\ldots,X_n$ i.i.d.
+\paragraph{Weibull-Verteilung. MLE.} Seien $X_1,\ldots,X_n$ i.i.d.
 mit der Dichte 
-\begin{equation}
+\begin{equation*}
 	p_\theta(x)=
 	\sqrt{\frac{2\theta^3}{\pi}} x^2 e^{ - \frac{\theta}{2}x^2} 1_{\R>0}(x)
-\end{equation}
+\end{equation*}
 wobei der Parameter $\theta>0$ unbekannt ist. Finden Sie
 den Maximum-Likelihood-Schätzer für $ \theta$ und klären Sie, ob dieser
 eindeutig ist.
@@ -650,18 +693,23 @@ Wegen $ \frac{\partial^2}{\partial \theta^2} l(\theta,x) <0$ ist der \textsc{mle
 
 
 
-\paragraph{MLE. Mischung der Verteilungen. }
+\paragraph{Mischung der Verteilungen. MLE.}
 Seien $p_1$ und $p_2$ zwei Dichten. Für jedes $\theta\in\left[ 0,1 \right]$ ist dann die Mischung
 der beiden Verteilungen durch die Dichte
-\begin{equation}
+\begin{equation*}
 	p_\theta(x) = \theta p_1(x) + (1-\theta)p_2(x)
-\end{equation}
-gegeben. Betrachten Sie das parametrische Modell 
-$\left\{ p_\theta : \theta \in \left[ 0,1 \right] \right\}$
-und bestimmen Sie eine notwendige und hinreichende Bedingung dafür, dass die Likelihood-Gleichung
-eine Lösung besitzt. Weisen Sie nach, dass diese Lösung, falls sie existiert, 
-der eindeutige Maximum-Likelihood-Schätzer für $\theta$ ist. Was ist der Maximum-Likelihood-Schätzer,
-wenn die Likelihood-Gleichung keine Lösung besitzt?
+\end{equation*}
+gegeben. 
+\begin{enumerate}
+    \item Betrachten Sie das parametrische Modell $\left\{ p_\theta : \theta
+        \in \left[ 0,1 \right] \right\}$ und bestimmen Sie eine notwendige und
+        hinreichende Bedingung dafür, dass die Likelihood-Gleichung eine Lösung
+        besitzt.
+    \item Weisen Sie nach, dass diese Lösung, falls sie existiert, der
+        eindeutige Maximum-Likelihood-Schätzer für $\theta$ ist.
+    \item Was ist der Maximum-Likelihood-Schätzer, wenn die
+        Likelihood-Gleichung keine Lösung besitzt?
+\end{enumerate}
 
 \paragraph*{Lösung. } 
 Betrachten wir zunächst die Log-Likelihood-Funktion und ihre Ableitungen

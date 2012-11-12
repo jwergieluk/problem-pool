@@ -59,6 +59,49 @@ denn es ein abzählbarer Schnitt der Mengen $\left\{ T> t+\varepsilon
 
 \section{Brownsche Bewegung}
 
+\paragraph{Brownsche Bewegung. Einfache Eigenschaften.}
+Sei $W$ eine standard Brownsche Bewegung in $\R^d$, d.h.\ die Identitätsmatrix
+ist die Kovarianzmatrix von $W$. Zeigen Sie folgende Aussagen. 
+\begin{enumerate}
+    \item Sei $A\in \R^{d \times d}$ eine Matrix. Dann ist der Prozess $\tilde W = AW$ eine
+        Brownsche Bewegung mit der Kovarianzmatrix $A A^{\top}$. 
+    \item Die charakteristische Funktion von $\tilde W$ ist gegeben durch
+        \begin{equation*}
+            \psi_{\tilde W_t} (u) = \exp \left( -\frac{1}{2} u^{\top} A A^{\top} u \right).
+        \end{equation*}
+\end{enumerate}
+
+\paragraph*{Lösung.}
+\begin{enumerate}
+    \item Wegen $\E \tilde W_t=0$ erhalten wir 
+        \begin{align*}
+            \cov \left( \tilde W_t^{i}, \tilde W_t^{j} \right) 
+            &= \E \tilde W_t^i \tilde W_t^j \\
+            &= \E \sum_{k=1}^{n} a_{ik} W_t^k \sum_{k=1}^{n} a_{jk} W_t^j \\
+            &= \sum_{k=1}^{n} a_{ik} a_{jk} \left( W_t^k \right)^2 \\
+            &= \sum_{k=1}^{n} a_{ik} a_{jk} t \\
+            &= \left( B B^\top \right)_{ij} t.
+        \end{align*}
+    \item Ist $\psi_X(u)$ eine charakteristische Funktion einer Zufallsvariable 
+        $X$, so ist die charakteristische Funktion von $AX$ für eine Matrix $A$ gegeben
+        durch
+        \begin{equation*}
+            \psi_{AX}(u) = \psi_{X}(A^\top u). 
+        \end{equation*}
+        Das ist eine Folgerung der Beobachtung $\langle u, AX \rangle = \langle
+        A^\top u, X \rangle$. Nun wissen wir, dass
+        \begin{equation*}
+            \psi_X(u) = \exp \left( - \frac{1}{2} u^\top I u \right). 
+        \end{equation*}
+        Daraus folgt
+        \begin{equation*}
+            \psi_{AX}(u) = \psi_X(A^\top u) = 
+            \exp \left( -\frac{1}{2} u^\top AA^\top u \right).
+        \end{equation*}
+\end{enumerate}
+
+
+
 \paragraph{Brownsche Bewegung. Invariante Transformationen und der isonormale Prozess.}
 
 

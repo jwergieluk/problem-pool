@@ -34,9 +34,9 @@ lässt sich in folgender Form darstellen.
 
 \paragraph{Pareto-Verteilung. Suffizienz und MLE.} Seien $X_1,\ldots,X_n$ i.i.d.\ und
 Paretoverteilt mit der Dichte
-\begin{equation}
+\begin{equation*}
     p_\theta(x)= \frac{\theta a^\theta}{x^{\theta+1}}1_{\R_{>a}}(x),
-\end{equation}
+\end{equation*}
 wobei $\theta>0$ und $a$ fix und bekannt sei.
 \begin{enumerate}
     \item Finden Sie eine reellwertige suffiziente Statistik $T(X_1,\ldots,X_n)$ für $\theta$.
@@ -183,9 +183,9 @@ wobei $a>0$ unbekannt und $\lambda>0$ bekannt und fix sei.
 
 \paragraph{Beta-Verteilung. MLE.} Seien $X_1,\ldots,X_n$ i.i.d.\ und Beta$(\theta+1, 1)$-verteilt
 mit dem Parameter $\theta\in\Theta= \left\{ \eta\in\R : \eta>-1 \right\}$. Die Dichte von $X_i$ ist also
-\begin{equation}
+\begin{equation*}
     p_\theta(x) = (\theta+1)x^\theta 1_{ [0,1] }(x).
-\end{equation}
+\end{equation*}
 \begin{enumerate}
 
     \item Bestimmen Sie den Maximum-Likelihood-Schätzer für $\theta$ basierend
@@ -222,14 +222,14 @@ mit dem Parameter $\theta\in\Theta= \left\{ \eta\in\R : \eta>-1 \right\}$. Die D
 
 \paragraph{Bernoulli-Verteilung. Neyman-Pearson-Test.} Seien $X_1,\ldots,X_n$ 
 i.i.d.\ Bernoulli($p$) Zufallsvariablen mit Wahrscheinlichkeitsfunktion
-\begin{equation}
+\begin{equation*}
     P(X_i = k) = p^{k} \left( 1-p \right)^{1-k}, \quad k\in\left\{ 0,1 \right\}.
-\end{equation}
+\end{equation*}
 Für das Testproblem $H_0 : p=p_0$ gegen $H_1 : p=p_1$ mit $0<p_0<p_1<1$ 
 soll ein Neyman-Pearson-Test
-\begin{equation}
+\begin{equation*}
     \delta_k^\star (X) = 1_{ \left\{ L(x,p_0,p_1)\geq k \right\}  }
-\end{equation}
+\end{equation*}
 entwickelt werden.
 \begin{enumerate}
     \item Berechnen Sie die Likelihood-Quotienten-Statistik $L(X,p_0,p_1)$ basierend auf der
@@ -480,9 +480,9 @@ $\varepsilon_{kl}\sim \mathcal N(0,\sigma^2)$, i.i.d.\  $\sigma>0$.
 
 \paragraph{Gamma-Verteilung. MLE.} Seien $X_1, \ldots,
 X_n$ i.i.d.\ Gamma-verteilt mit der Dichte
-\begin{equation}
+\begin{equation*}
     p_{a,\lambda}(x) = \frac{\lambda^a}{\Gamma(a)}x^{a-1}e^{-\lambda x} 1_{\R_{>0}}(x)
-\end{equation}
+\end{equation*}
 und Parametern $a$ und $\lambda$. Der Parameter $a>0$ ist bekannt und fix. 
 Der Parameter $\lambda$ dagegen unbekannt und $\lambda > 0$.
 \begin{enumerate}
@@ -492,9 +492,9 @@ Der Parameter $\lambda$ dagegen unbekannt und $\lambda > 0$.
         $\hat \lambda$ das Maximum der Likelihood-Funktion ist.
     \item Ist der von Ihnen gefundene Maximum-likelihood Schätzer erwartungstreu? 
         Begründen Sie Ihre Antwort. Dabei können Sie auf die Beziehung 
-        \begin{equation}
+        \begin{equation*}
             X_1+ \ldots + X_n \sim \textrm{Gamma}(na,\lambda)
-        \end{equation}
+        \end{equation*}
         zugreifen.
 \end{enumerate}
 
@@ -605,9 +605,9 @@ mit $m,n \in \bN$ und $\varepsilon_i \in \cN \left( 0, \sigma^2 \right)$, i.i.d.
 
 \paragraph{UMVUE-Schätzer für Poisson-Verteilung. } Seien $X_1, \ldots, X_n$ i.i.d.\ 
 und Poissonverteilt mit der Wahrscheinlichkeitsfunktion
-\begin{equation}
+\begin{equation*}
     p(k) = \bP \left( X_i = k \right) = e^{-\lambda} \frac{\lambda^k}{ k!} \quad k \in \left\{ 0,1, \ldots \right\}
-\end{equation}
+\end{equation*}
 und $\lambda>0$.
 \begin{enumerate}
     \item Zeigen Sie, dass die Statistik $T\left( X \right) = \sum_{i=1}^{n} X_i$ vollständig und suffizient 
@@ -660,15 +660,15 @@ und $\lambda>0$.
 
 \paragraph{Konfidenzintervall und Test für die Gamma-Verteilung. }
 Seien $X_1, \ldots, X_n$ i.i.d.\ Gamma-verteilt mit der Dichte
-\begin{equation}
+\begin{equation*}
     p_{a,\lambda} (x) = \frac{\lambda^a}{ \Gamma(a)} x^{a-1} e^{-\lambda x} 1_{ \R_{>0}  } (x)
-\end{equation} 
+\end{equation*} 
 und Parametern $a>0$ und $\lambda>0$. Der Parameter $a$ wird als bekannt und fix vorausgesetzt. 
 Des weiteren gelten für $c>0$ die Beziehungen
-\begin{eqnarray}
+\begin{eqnarray*}
     X_i + X_j &\sim& \textrm{Gamma}_{a+a, \lambda}, \\
     c X_i & \sim & \textrm{Gamma}_{a, \frac{\lambda}{c}}.
-\end{eqnarray}
+\end{eqnarray*}
 \begin{enumerate}
     \item Zeigen Sie, dass \begin{eqnarray}
             \left[  \frac{ \textrm{Gamma}^{-1}_{na, 1} ( \frac{\alpha}{2})  }{X_1 + \ldots + X_n}, 

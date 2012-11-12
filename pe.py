@@ -78,9 +78,9 @@ class Problems:
                 continue
 
             if len(probSolution) == 0:
-                probBody = ' '.join([probBody, line])
+                probBody = '\n'.join([probBody, line])
             else:
-                probSolution = ' '.join([probSolution, line])
+                probSolution = '\n'.join([probSolution, line])
 
         if probName!="":
             if probName in self.problems.keys():
