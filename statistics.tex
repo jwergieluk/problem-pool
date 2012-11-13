@@ -446,7 +446,7 @@ einen Momentenschätzer für $\theta$ bei den folgenden Verteilungen:
 %Bestimmen Sie einen Momentenschätzer für $\theta=(a,b)^\top$.
 
 \paragraph{Weibull-Verteilung. Momentenschätzer.} Seien 
-$X_1,\ldots,X_n$ i.i.d.\ mit Dichte 
+$X_1,\ldots,X_n$ i.i.d.\ mit der Dichte 
 \begin{equation*}
 	p(x) = \sqrt{ \frac{2 \theta^3}{\pi} } x^2 \exp\left( - \frac{\theta}{2}x^2 \right) 1_{\R>0}(x)
 \end{equation*}
@@ -623,11 +623,28 @@ der Likelihood-Funktion ist.
 zum Parameter $\theta$. Zeigen Sie, dass $\hat \theta = (\bar X)^{-1}$ sowohl der 
 Maximum-Likelihood-Schätzer als auch ein Momentenschätzer ist.
 
+
 \paragraph{Maximum-Likelihood-Methode und Suffizienz.}
 Sei $\left\{ p_\theta : \theta\in\Theta \right\}$ ein reguläres statistisches
 Modell und $T\left( X \right)$ eine suffiziente Statistik für $\theta$. 
 Weisen Sie nach, dass ein Maximum-Likelihood-Schätzer für $\theta$ 
 eine Funktion von $T\left( X \right)$ ist.
+
+\paragraph*{Lösung.} Sei $\hat\theta(x_1, \cdots, x_n)=\hat \theta(x_i)$ ein 
+Maximum-Likelihood-Schätzer für $\theta$ in einem regulären Model $\left( p_\theta \right)_{\theta\in\Theta}$. Dann maximiert $\hat\theta$ die Likelihood-Funktion
+\begin{equation*}
+    L_\theta(x_i) = \prod_{i=1}^{n} p_{\theta}(x_i) = g\left( T(x_i), \theta \right) h(x_i)
+\end{equation*}
+für fixes $(x_1, \cdots, x_n)$ über alle $\theta\in\Theta$. Nachdem die
+Likelihood-Funktion $L_\theta$ positiv ist und die Funktion $h$ positiv gewählt
+werden kann, können wir anstelle von $L_\theta$ die Funktion $\tilde L_\theta =
+g(T(x_i), \theta)$ betrachten. $\tilde L_\theta$ hängt von $(x_1,\cdots,x_n)$
+nur über $T(x)$, so können wir $\hat\theta$ als eine Funktion ansehen, die
+für ein fixes $T(x_1, \cdots, x_n)$ ein $\theta\in\Theta$ liefert, das die
+Funktion $L_\theta(T)=g(T,\theta)$ maximiert. $\hat \theta$ ist also eine
+Funktion von $T=T(x_1,\cdots,x_n)$.
+
+
 
 
 \paragraph{Zweidimensionale Exponentialverteilung. MLE.} Betrachtet werden 
