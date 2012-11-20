@@ -468,7 +468,7 @@ gegeben durch die Dichte
 \paragraph*{Lösung.} Wir berechnen zunächst den Erwartungswert der zweiseitigen
 Exponentialverteilung. Es gilt
 \begin{align*}
-    \E X &= \int_{\R}^{} x \frac{1}{2} \exp \left( -| x-\theta| \right) d\theta \\
+    \E X &= \int_{\R}^{} x \frac{1}{2} \exp \left( -| x-\theta| \right) dx \\
     &= \frac{1}{2} \int_{\R}^{} (x+\theta) \exp ( -|x|) dx \\
     &= \frac{1}{2} \int_{\R} x \exp \left( -|x| \right) dx + 
         \frac{\theta}{2} \int_{\R} \exp \left( -|x| \right) dx \\
@@ -546,6 +546,50 @@ Zeigen Sie die folgenden Aussagen.
 
 
 \section{Kleinste-Quadrate-Schätzer}
+
+
+\paragraph{Einfache lineare Regression. Beispielrechnung.} Betrachten wir das
+lineare Modell
+\begin{equation*}
+    Y_i = \theta_1 + \theta_2 x_i + \varepsilon_i, \quad i=1,\cdots, n.
+\end{equation*}
+Ausgehend von den Daten
+\begin{align*}
+    n &=10, & \sum_{}^{} y_i &= 8, & \sum_{}^{} x_i &= 40,  \\
+    \sum_{}^{} y_i^2 &= 26, & \sum_{}^{} x_i^2 &= 200, 
+    & \sum_{}^{} x_i y_i &= 20,
+\end{align*}
+berechnen Sie die Werte der Kleinste-Quadrate-Schätzer für die Parameter
+$\theta_1$ und $\theta_2$. 
+
+\paragraph*{Lösung.} Es ist die Funktion
+\begin{equation*}
+    Q(\theta,y) = \sum_{i=1}^{n} \left( y_i -\theta_1 -\theta_2 x_i \right)^2
+\end{equation*}
+zu maximieren. Wir stellen also die Normalgleichungen
+\begin{align*}
+    \frac{\partial}{\partial \theta_1} Q &= 
+    \sum_{i=1}^{n} \left( y_i-\theta_1-\theta_2 x_i \right) (-1) =0 \\
+    \frac{\partial}{\partial \theta_2} Q &= 
+    \sum_{i=1}^{n} \left( y_i-\theta_1-\theta_2 x_i \right) (-x_i) =0\\
+\end{align*}
+auf und Lösen diese. Wir sind nicht an der expliziten Darstellung der Funktion
+$\hat \theta(y)$ interessiert, sondern an den Wert $\hat\theta$ der auf
+unseren Daten basiert. 
+\begin{align*}
+    \sum y_i - n \theta_1 -\theta_2 \sum x_i &= 0 \\
+    \sum x_i y_i -\theta_1 \sum x_i -\theta_2 \sum x_i^2 &=0 \\
+    \theta_1 &= \frac{1}{n} \left( \sum y_i - \theta_2 \sum x_i \right) \\
+    \theta_1 &= \frac{1}{10} \left( 8 - 40 \theta_2 \right) 
+\end{align*}
+Einsetzen in die Gleichung $\frac{\partial}{\partial \theta_2}Q=0$ liefert
+\begin{align*}
+    2 - 4\theta_1 - 20\theta_2 &=0 \\
+    2 - 4\left( \frac{4}{5}-4\theta_2 \right)- 20 \theta_2 &=0 \\
+    \theta_2 &= -\frac{3}{10} \\
+    \theta_1 &= 2.
+\end{align*}
+
 
 \paragraph{Gewichtete einfache lineare Regression. }
 Finden Sie eine Formel für den Kleinste-Quadrate -Schätzer $\hat \theta^w$
@@ -688,22 +732,22 @@ eindeutig ist.
 indem wir die Log-Likelihood-Funktion maximieren. 
 
 Die Likelihood-Funktion der Familie ist gegeben durch
-\begin{eqnarray}
+\begin{eqnarray*}
 	L(\theta, x) &=& \left( \frac{2\theta^3}{\pi} \right)^\frac{n}{2} 
 	\prod_i x_i^2 \exp\left( - \frac{\theta}{2}x_i^2 \right).
-\end{eqnarray}
+\end{eqnarray*}
 Für die Log-Likelihood-Funktion gilt
-\begin{eqnarray}
+\begin{eqnarray*}
 	l(\theta,x) &=& \frac{n}{2}\left( \log 2 + 3 \log \theta - \log \pi \right) + 2\sum_{i}^{} \log x_i - \frac{\theta}{2}\sum_{i}^{} x_i^2 \\
 	\frac{\partial}{\partial \theta} l(\theta,x) &=& 
 	\frac{3n}{2 \theta}  - \frac{1}{2}\sum_{i}^{} x_i^2 \\
 	\frac{\partial^2}{\partial \theta^2} l(\theta,x) &=& - \frac{3n}{2} \frac{1}{\theta^2} < 0 \quad \forall \theta\in\R_{>0}.
-\end{eqnarray}
+\end{eqnarray*}
 Somit ergibt sich die Formel für \textsc{mle} 
-\begin{eqnarray}
+\begin{eqnarray*}
 	\frac{\partial}{\partial \theta} l(\theta,x) &=& \frac{3n}{2 \theta}  - \frac{1}{2}\sum_{i}^{} x_i^2 = 0 \\
 	\hat\theta &=&  \frac{3}{\frac{1}{n} \sum_{i}^{} x_i^2}.
-\end{eqnarray}
+\end{eqnarray*}
 Wegen $ \frac{\partial^2}{\partial \theta^2} l(\theta,x) <0$ ist der \textsc{mle} $\hat\theta$ auch eindeutig.
 
 
@@ -2233,7 +2277,8 @@ $\textrm{Rang}\left( X \right)=p$ annehmen mussten.
 
 \section{Lineare Regression}
 
-\paragraph{Einfache lineare Regression. } Seien folgende Beobachtungen von $(x_i)$ und $(y_i)$ 
+\paragraph{Einfache lineare Regression. } Seien folgende Beobachtungen von
+$(x_i)$ und $(y_i)$ 
 gegeben.
 
 \begin{lstlisting}
