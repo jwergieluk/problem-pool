@@ -573,8 +573,8 @@ zu maximieren. Wir stellen also die Normalgleichungen
     \frac{\partial}{\partial \theta_2} Q &= 
     \sum_{i=1}^{n} \left( y_i-\theta_1-\theta_2 x_i \right) (-x_i) =0\\
 \end{align*}
-auf und Lösen diese. Wir sind nicht an der expliziten Darstellung der Funktion
-$\hat \theta(y)$ interessiert, sondern an den Wert $\hat\theta$ der auf
+auf und lösen diese. Wir sind nicht an der expliziten Darstellung der Funktion
+$\hat \theta(y)$ interessiert, sondern an den Wert $\hat\theta$, der auf
 unseren Daten basiert. 
 \begin{align*}
     \sum y_i - n \theta_1 -\theta_2 \sum x_i &= 0 \\
@@ -663,9 +663,10 @@ der Likelihood-Funktion ist.
 
 
 
-\paragraph{Exponentialverteilung. MLE.} Seien $X_1,\ldots,X_n$ exponentialverteilt
-zum Parameter $\theta$. Zeigen Sie, dass $\hat \theta = (\bar X)^{-1}$ sowohl der 
-Maximum-Likelihood-Schätzer als auch ein Momentenschätzer ist.
+\paragraph{Exponentialverteilung. MLE.} Seien $X_1,\ldots,X_n$
+exponentialverteilt zum Parameter $\theta$. Zeigen Sie, dass $\hat \theta =
+(\bar X)^{-1}$ sowohl der Maximum-Likelihood-Schätzer als auch ein
+Momentenschätzer ist.
 
 
 \paragraph{Maximum-Likelihood-Methode und Suffizienz.}
@@ -732,22 +733,22 @@ eindeutig ist.
 indem wir die Log-Likelihood-Funktion maximieren. 
 
 Die Likelihood-Funktion der Familie ist gegeben durch
-\begin{eqnarray*}
-	L(\theta, x) &=& \left( \frac{2\theta^3}{\pi} \right)^\frac{n}{2} 
+\begin{align*}
+	L(\theta, x) &= \left( \frac{2\theta^3}{\pi} \right)^\frac{n}{2} 
 	\prod_i x_i^2 \exp\left( - \frac{\theta}{2}x_i^2 \right).
-\end{eqnarray*}
+\end{align*}
 Für die Log-Likelihood-Funktion gilt
-\begin{eqnarray*}
-	l(\theta,x) &=& \frac{n}{2}\left( \log 2 + 3 \log \theta - \log \pi \right) + 2\sum_{i}^{} \log x_i - \frac{\theta}{2}\sum_{i}^{} x_i^2 \\
-	\frac{\partial}{\partial \theta} l(\theta,x) &=& 
+\begin{align*}
+	l(\theta,x) &= \frac{n}{2}\left( \log 2 + 3 \log \theta - \log \pi \right) + 2\sum_{i}^{} \log x_i - \frac{\theta}{2}\sum_{i}^{} x_i^2 \\
+	\frac{\partial}{\partial \theta} l(\theta,x) &= 
 	\frac{3n}{2 \theta}  - \frac{1}{2}\sum_{i}^{} x_i^2 \\
-	\frac{\partial^2}{\partial \theta^2} l(\theta,x) &=& - \frac{3n}{2} \frac{1}{\theta^2} < 0 \quad \forall \theta\in\R_{>0}.
-\end{eqnarray*}
+	\frac{\partial^2}{\partial \theta^2} l(\theta,x) &= - \frac{3n}{2} \frac{1}{\theta^2} < 0 \quad \forall \theta\in\R_{>0}.
+\end{align*}
 Somit ergibt sich die Formel für \textsc{mle} 
-\begin{eqnarray*}
-	\frac{\partial}{\partial \theta} l(\theta,x) &=& \frac{3n}{2 \theta}  - \frac{1}{2}\sum_{i}^{} x_i^2 = 0 \\
-	\hat\theta &=&  \frac{3}{\frac{1}{n} \sum_{i}^{} x_i^2}.
-\end{eqnarray*}
+\begin{align*}
+	\frac{\partial}{\partial \theta} l(\theta,x) &= \frac{3n}{2 \theta}  - \frac{1}{2}\sum_{i}^{} x_i^2 = 0 \\
+	\hat\theta &=  \frac{3}{\frac{1}{n} \sum_{i}^{} x_i^2}.
+\end{align*}
 Wegen $ \frac{\partial^2}{\partial \theta^2} l(\theta,x) <0$ ist der \textsc{mle} $\hat\theta$ auch eindeutig.
 
 
