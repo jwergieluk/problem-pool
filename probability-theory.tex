@@ -824,9 +824,58 @@ $P(A_i)>0 \forall i$ gegeben. Dann ist $I$ höchstens abzählbar.
 Seien $\left( X_i \right)_{i\geq 1}$ i.i.d.\ und integrierbar. Definieren wir 
 $S_n = \sum_{i=1}^{n} X_i$. Dann gilt:
 \begin{enumerate}
-    \item $\E \left[ X_j \vb \sum_{i=1}^{n} X_i \right] = \frac{1}{n} \sum_{i=1}^{n} X_i$
+    \item $\E \left[ X_j \vb S_n \right] = \frac{1}{n} \sum_{i=1}^{n} X_i$
         für $1\leq j \leq n$.
 \end{enumerate}
+
+\paragraph*{Lösung.} 
+\begin{enumerate}
+    \item Es gilt
+        \begin{equation*}
+            \E \left[ \sum_{i=1}^{n} X_i \vb \sum_{i=1}^{n} X_i \right] 
+            = \sum_{i=1}^{n} X_i
+        \end{equation*}
+        und
+        \begin{equation*}
+            \E \left[  \sum_{i=1}^{n} X_i \vb S_n \right] =
+            \sum_{i=1}^{n} \E \left[ X_i \vb S_n \right] = 
+            n \E \left[ X_1 \vb S_n \right].
+        \end{equation*}
+        Daraus folgt
+        \begin{equation*}
+             \E \left[ X_1 \vb S_n \right] = \E \left[ X_i \vb S_n \right] =
+             \frac{1}{n} \sum_{i=1}^{n} X_i
+        \end{equation*}
+        für alle $1 \leq i \leq n$. 
+\end{enumerate}
+
+\paragraph{Zusammengesetzte Poissonverteilung. Momentenerzeugende Funktion und Momente.}
+Sei $N$ Poissonverteilt mit dem Parameter $\lambda>0$ und $\left( X_i
+\right)_{i\geq 1}$ i.i.d.  Zufallsvariablen mit existierender
+momentenerzeugender Funktion $\psi_X$. Die Zufallsvariablen $N, X_1, X_2,
+\cdots$ sind alle unabhängig und es gilt 
+\begin{equation*}
+    P(N=n) = e^{-\lambda} \frac{\lambda^n}{ n!}, \ n\in\bN. 
+\end{equation*}
+Sei
+\begin{equation*}
+    Y = \sum_{i=1}^{N} X_i
+\end{equation*}
+wobei wir auf $\left\{ N=0 \right\}$ $Y=0$ setzen. Zeigen Sie folgende Aussagen.
+\begin{enumerate}
+    \item Die momentenerzeugende Funktion $\psi_Y$ von $Y$ ist
+        \begin{equation*}
+            \psi_Y = \E \exp \left( u Y \right) = 
+            \exp \left( \lambda \left( \psi_X(u)-1 \right)  \right).
+        \end{equation*}
+    \item Für die ersten zwei Momente gelten die Formeln
+        \begin{align*}
+            \E Y &= \E N \ \E X_1 = \lambda \E X_1 & 
+            \Var Y &= \E N \ \E X_1^2. 
+        \end{align*}
+\end{enumerate}
+
+\paragraph*{Lösung.}
 
 
 
@@ -971,11 +1020,32 @@ Zeigen Sie die folgenden Aussagen.
 
 
 \paragraph*{Lösung.} 
-Nach Definition ist $E\left[ X| X \right]=E\left[ X|\sigma\left( X \right) \right]$ und
-da $X$ ja $\sigma\left( X \right)$-messbar ist, erhalten wir
-\begin{equation*}
-	E\left[ X|\sigma\left( X \right) \right]= X E\left[ 1 | \sigma\left( X \right) \right] =X.
-\end{equation*}
+\begin{enumerate}
+    \item 
+        Nach Definition ist $E\left[ X| X \right]=E\left[ X|\sigma\left( X
+        \right) \right]$ und da $X$ ja $\sigma\left( X \right)$-messbar ist,
+        erhalten wir \begin{equation*} E\left[ X|\sigma\left( X \right)
+            \right]= X E\left[ 1 | \sigma\left( X \right) \right] =X.
+        \end{equation*}
+
+        Wir können diese Aussage auch anders beweisen. $Z= \E X | X$ gilt genau
+        dann, wenn $Z \in \sigma(X)$ und $\E\ Z g(X) = \E\ X g(X)$ für alle
+        beschänkte Borelfunktionen $g$ gilt.  Würde nicht $Z = X$ fast sicher
+        gelten, so wäre $\Lambda=\left\{ Z< X \right\}$ oder $\Lambda= \left\{
+        Z > X \right\}$ $\sigma(X)$-messbar und keine Nullmenge. Dann wäre aber
+        $\E Z 1_{\Lambda} \neq \E X 1_{\Lambda}$.
+    \item Wir beweisen $X \leq c$ f.s. $\impl$ $ \E X | \cG \leq c$ f.s. Nach
+        Definition ist $Z=\E X|\cG$ genau dann, wenn $\E X Y = \E Z Y$ für alle
+        beschränkte\footnote{Dies bedeutet, dass $Y$ eine beschränkte
+        $\cG$-messbare Zufallsvariable ist} $Y\in \cG$. Nachdem $\Lambda =
+        \left\{ Z>c \right\} \in \cG$ ist und $\E X 1_\Lambda = \E Z
+        1_\Lambda$, es muss $P\left( \Lambda \right)=0$ gelten.  Nun ist $| X |
+        \leq c$ f.s.\ genau dann, wenn $X \leq c$ und $ X \geq -c$ f.s.\ gilt.
+    \item $X=\alpha$ f.s.\ genau dann, wenn $X \leq \alpha$ und $ X \geq
+        \alpha$ f.s.\ gilt.
+\end{enumerate}
+
+
 
 
 \paragraph{Bedingte Erwartungen und Normalverteilung.} Seien $X$ und $Y$ unabhängige
