@@ -73,64 +73,59 @@ Daher ist der MLE $\hat\theta$ auch suffizient.
 diskret Gleichverteilt auf der Menge $\left\{ 1,2,\ldots,\theta \right\}$. 
 \begin{enumerate}
     \item Zeigen Sie, dass der Maximum-Likelihood-Schätzer für $\theta$ gerade
-        $\hat \theta(X_1,\ldots,X_n) = X_{(n)} = \max \left\{ X_1,\ldots,X_n \right\}$ ist.  
-    \item Zeigen Sie, dass $\hat \theta = X_{(n)}$ vollständig und suffizient jedoch verzerrt ist.
+        $\hat \theta(X_1,\ldots,X_n) = X_{(n)} = \max \left\{ X_1,\ldots,X_n
+        \right\}$ ist.  
+    \item Zeigen Sie, dass $\hat \theta = X_{(n)}$ vollständig und suffizient
+        jedoch verzerrt ist.
 %    \item Bestimmen Sie mit Momentenmethode einen Schätzer der unverzerrt ist.
     \item Konstruieren Sie einen \textsc{umvue}-Schätzer der folgenden Gestalt
-        \begin{equation}
+        \begin{equation*}
             \frac{ X_{(n)}^{n+1} - ( X_{(n)} - 1)^{n+1}  }{ X_{(n)}^n - (X_{(n)} -1)^n }.
-        \end{equation}
+        \end{equation*}
 \end{enumerate}
 
-\paragraph*{Lösungsskizze. }
+\paragraph*{Lösung.}
 Die Likelihood-Funktion ist
-\begin{equation}
+\begin{equation*}
     L(\theta,x) = \frac{1}{\theta^n} \prod_i 1_{[0,\theta]}(x_i).
-\end{equation}
-Für einen fixen Set von Beobachtungen $(x_1,\ldots,x_n)$ wird die Likelihood-Funktion
-von $\hat\theta(X)=X_{(n)}$ minimiert, denn
-\begin{equation}
+\end{equation*}
+Für einen fixen Set von i.i.d.\ Beobachtungen $(x_1,\ldots,x_n)$ wird die
+Likelihood-Funktion von $\hat\theta(X)=X_{(n)}$ minimiert, denn
+\begin{equation*}
     L(\hat\theta(x),x) = \max \left\{ L(\theta,x) : \theta\in\Theta \right\}
-\end{equation}
-und für jedes kleinere $\bar\theta<\hat\theta$ ist die Likelihood-Funtion gleich Null, für alle 
-größeren $\bar\theta$ entfernen wir uns von dem Maximum wegen der in $\theta$ fallender Funktion
-$\frac{1}{\theta^n}$.
+\end{equation*}
+und für jedes kleinere $\bar\theta<\hat\theta$ ist die Likelihood-Funtion
+gleich Null, für alle größeren $\bar\theta$ entfernen wir uns von dem Maximum
+wegen der in $\theta$ fallender Funktion $\frac{1}{\theta^n}$.
 
-Erwartungswert von $X_{(n)}$ ist kleiner als $\theta$ denn 
-\begin{equation}
+Der Erwartungswert von $X_{(n)}$ ist kleiner als $\theta$ denn 
+\begin{equation*}
     E X_{(n)} = \sum_{X\in\left\{ 1,\ldots,\theta \right\}^n}^{} X_{(n)} \frac{1}{\theta^n}
-\end{equation}
-kann geeignet abgeschätzt werden.
-
-Wegen
-\begin{equation}
+\end{equation*}
+kann abgeschätzt werden, indem $X_{(n)}$ durch $\theta$ ersetzt wird. Das liefert uns
+$\E X_{(n)} < \theta$. Wegen
+\begin{equation*}
     p_\theta(x) = \frac{1}{\theta^n} 1_{[0,\theta]} \left( X_{(n)} \right)
-\end{equation}
+\end{equation*}
 ist $X_{(n)}$ auch suffizient. Für den Beweis der Vollständigkeit setzen wir voraus, dass 
-\begin{equation}
-    E g(X_{(n)}) =0
-\end{equation}
-für alle $\theta\in\Theta$ und ein messbares $g$ gilt. 
-Mit $\theta=1$ erhalten wir $g(1)=0$, $\theta=2$ impliziert
-$g(2)=0$ und so weiter. Damit folgt $P( g(X_{(n)} =0)  )=1$ und die Vollständigkeit
-von $X_{(n)}$.
-
-%Aus
-%\begin{equation}
-%    E X_i = \sum_{i=1}^{\theta} i p_\theta(i) = \sum_{i=1}^{\theta} i \frac{1}{\theta} = \frac{\theta+1}{2}
-%\end{equation}
-%erhalten wir einen unverzerrten Momentenschätzer $\tilde\theta= 2\bar X -1$.
+\begin{equation*}
+    E_{\theta} g(X_{(n)}) =0
+\end{equation*}
+für alle $\theta\in\Theta$ und ein messbares $g$ gilt.  Mit $\theta=1$ erhalten
+wir $g(1)=0$, $\theta=2$ impliziert $g(2)=0$ und so weiter. Damit folgt $g
+\equiv 0$, $P( g(X_{(n)} =0))=1$ und die Vollständigkeit von $X_{(n)}$.
 
 Ein \textsc{umvue}-Schätzer ist eine Funktion $h(X_{(n)})$ mit $E h(X_{(n)})=\theta$.
 Diese Überlegung führt uns zu
-\begin{eqnarray}
-    E h(X_{)(n}) = \sum_{x\in \left\{ 0,\ldots,\theta \right\}^n }^{} h(x_{(n)}) \frac{1}{\theta^n} = \theta \\
-    \sum_{m=1}^{\theta} h(m)(m^n - (m-1)^n) = \theta^{n+1}
-\end{eqnarray}
-und daraus
-\begin{equation}
+\begin{align*}
+    E h(X_{(n)}) &= 
+    \sum_{x\in \left\{ 0,\ldots,\theta \right\}^n } h(x_{(n)}) \frac{1}{\theta^n} = \theta \\
+    E h(X_{(n)}) &= \sum_{m=1}^{\theta} h(m)(m^n - (m-1)^n) = \theta^{n+1}
+\end{align*}
+und
+\begin{equation*}
     h(m) = \frac{m^{n+1} - (m-1)^{n+1}}{m^n - (m-1)^{n}}.
-\end{equation}
+\end{equation*}
 
 
 
@@ -383,7 +378,7 @@ und Parametern $a>0$ und $\lambda>0$.
 
 
 
-\paragraph{Vollständigkeit. } Seien die Statistiken $T$ und $S$ mit $S=\eta(T)$ und einer messbaren 
+\paragraph{Vollständigkeit.} Seien die Statistiken $T$ und $S$ mit $S=\eta(T)$ und einer messbaren 
 Abbildung $\eta$ gegeben. 
 \begin{enumerate}
     \item Zeigen Sie: Falls $T$ vollständig ist, so ist $S$ ebenfalls vollständig.
@@ -610,44 +605,48 @@ und Poissonverteilt mit der Wahrscheinlichkeitsfunktion
 \end{equation*}
 und $\lambda>0$.
 \begin{enumerate}
-    \item Zeigen Sie, dass die Statistik $T\left( X \right) = \sum_{i=1}^{n} X_i$ vollständig und suffizient 
-        für dieses Testproblem ist.
-    \item Zeigen Sie, dass der Schätzer $S\left( X \right) = \frac{1}{n} \sum_{i=1}^{n} X_i$
-        von $\lambda$ unverzerrt ist.
-    \item Zeigen Sie, dass $S(X)$ ein eindeutiger \textsc{umvue}-Schätzer für $\lambda$ ist.
+    \item Zeigen Sie, dass die Statistik $T\left( X \right) = \sum_{i=1}^{n}
+        X_i$ vollständig und suffizient für dieses Testproblem ist.
+    \item Zeigen Sie, dass der Schätzer $S\left( X \right) = \frac{1}{n}
+        \sum_{i=1}^{n} X_i$ von $\lambda$ unverzerrt ist.
+    \item Zeigen Sie, dass $S(X)$ ein eindeutiger \textsc{umvue}-Schätzer für
+        $\lambda$ ist.
 \end{enumerate} 
 
 \paragraph*{Lösung.}
 \begin{enumerate}
     \item Die Wahrscheinlichkeitsfunktionen von $\left( X_1, \ldots, X_n \right)$ 
         bilden eine exponentielle Familie, denn
-        \begin{eqnarray}
-            \prod_{i=1}^{n} p(x_i) &=& \prod_{i=1}^n e^{-\lambda } \frac{ \lambda^{ x_i }}{ x_i!} \\
-            &=& \exp \left( -\lambda n + \log \lambda \cdot \sum_{i=1}^{ n} x_i - \sum_{i=1}^{n} \log x_i! \right).
-        \end{eqnarray}
-        Somit ist $T(X)= \sum_{i}^{} X_i$ eine suffiziente Statistik. $T(X)$ ist auch vollständig, denn 
-        $\left\{ \log \lambda \ | \ \lambda>0 \right\}$ enthält ein offenes Rechteck. Die 
-        Vollständigkeit kann man hier auch leicht aus der Definition herleiten. 
+        \begin{align*}
+            \prod_{i=1}^{n} p(x_i) &= \prod_{i=1}^n e^{-\lambda } \frac{ \lambda^{ x_i }}{ x_i!} \\
+            &= \exp \left( -\lambda n + \log \lambda \cdot \sum_{i=1}^{ n} x_i 
+            - \sum_{i=1}^{n} \log x_i! \right).
+        \end{align*}
+        Somit ist $T(X)= \sum_{i}^{} X_i$ eine suffiziente Statistik. $T(X)$
+        ist auch vollständig, denn $\left\{ \log \lambda \ | \ \lambda>0
+        \right\}$ enthält ein offenes Rechteck. Die Vollständigkeit kann man
+        hier auch leicht aus der Definition herleiten. 
     \item Wir berechnen
-        \begin{eqnarray}
-            \E X_i &=& \sum_{k\geq 0}^{} k e^{-\lambda} \frac{\lambda^k}{ k!} = \lambda.
-        \end{eqnarray}
+        \begin{align*}
+            \E X_i &= \sum_{k\geq 0}^{} k e^{-\lambda} \frac{\lambda^k}{ k!} = \lambda.
+        \end{align*}
         Daraus ergibt sich
-        \begin{eqnarray}
-            \E S(X) &=& \frac{1}{n} \sum_{i}^{} \E X_i = \lambda.
-        \end{eqnarray}
+        \begin{align*}
+            \E S(X) &= \frac{1}{n} \sum_{i}^{} \E X_i = \lambda.
+        \end{align*}
         $S(X)$ ist also ein unverzerrter Schätzer von $\lambda$. 
     \item Nachdem $S(X) = \frac{1}{n} T(X)$ gilt, ist 
-        \begin{equation}
+        \begin{equation*}
             \E \left( S(X) | T(X) \right) = S(X)
-        \end{equation}
-        und somit ist $S(X)$ nach dem Satz von Lehmann-Scheffe ein \textsc{umvue}-Schätzer
-        für $\lambda$. Die Eindeutigkeit folgt aus $\Var_\lambda T(X) < \infty$ für alle
-        $\lambda >0$. Das ist der Fall denn
-        \begin{eqnarray}
-            \E X^2 &=& \lambda\left( \lambda +1 \right) \\
-            \Var X &=& \lambda.
-        \end{eqnarray}
+        \end{equation*}
+        und somit ist $S(X)$ nach dem Satz von Lehmann-Scheffe ein
+        \textsc{umvue}-Schätzer für $\lambda$. Die Eindeutigkeit folgt aus
+        $\Var_\lambda T(X) < \infty$ für alle $\lambda >0$. Das ist der Fall
+        denn
+        \begin{align*}
+            \E X^2 &= \lambda\left( \lambda +1 \right) \\
+            \Var X &= \lambda.
+        \end{align*}
 \end{enumerate}
 
 

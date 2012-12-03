@@ -840,10 +840,10 @@ Seien $X_1,\ldots,X_n$ i.i.d.\ mit $X_1\sim U(\theta,\theta+1)$. Der Parameter
 $\theta$ sei  unbekannt und $X_{(1)}=\min\left\{ X_1,\ldots,X_n \right\}$ die
 kleinste Ordnungsgröße der Daten und $\bar X= \frac{1}{n}\sum_{i=1}^{n}X_i$.
 Betrachten Sie die beiden Schätzer 
-\begin{eqnarray}
-	T_1(X) &=& \bar X - \frac{1}{2} \\
-	T_2(X) &=&  X_{(1)} - \frac{1}{n+1}.
-\end{eqnarray}
+\begin{align*}
+	T_1(X) &= \bar X - \frac{1}{2} \\
+	T_2(X) &=  X_{(1)} - \frac{1}{n+1}.
+\end{align*}
 Zeigen Sie, dass beiden Schätzer erwartungtreu sind. Berechnen Sie 
 die Varianz der beiden Schätzer.
 
@@ -938,50 +938,51 @@ Die Varianz von $T_1$ ist also um eine Größenordung höher als die von $T_2$.
 Seien $X_1,\ldots,X_n$ i.i.d.\ und $X_1$ Bernoulli$(\theta)$-verteilt. Zeigen
 Sie, dass der MLE $\bar X$ ein \textsc{umvue}-Schätzer ist.
 
-\paragraph*{Lösung. } Betrachten wir den Schätzer $\bar X$. Aus bereits gelösten
-Übungsblättern wissen wir, dass $\bar X$ is unverzerrt für $\theta$ ist.
-Wir zeigen, dass die Statistik $\sum_{i}^{} X$ suffizient und vollständig ist und 
-die Behauptung folgt mit dem Satz von Lehmann-Scheff\'e. 
+\paragraph*{Lösung. } Betrachten wir den Schätzer $\bar X$. Aus bereits
+gelösten Übungsblättern wissen wir, dass $\bar X$ unverzerrt für $\theta$ ist.
+Wir zeigen, dass die Statistik $\sum_{i}^{} X$ suffizient und vollständig ist
+und die Behauptung folgt mit dem Satz von Lehmann-Scheff\'e. 
 
 Dazu sei $g$ eine messbare reellwertige Funktion mit
-\begin{equation}
+\begin{equation*}
 	E_\theta \left[ g\left( \sum_{i}^{} X_i \right) \right] = 0 
-\end{equation}
+\end{equation*}
 für alle $\theta\in \left[ 0,1 \right]$. Das ist äquivalent zu
-\begin{equation}
+\begin{equation*}
 	\sum_{k=0}^{n} g\left( k \right) P\left( \sum_{i}^{}X_i = k \right) = 0 \quad \forall\theta.
-\end{equation}
-Nachdem aber 
+\end{equation*}
+Mit Hilfe der Identität
 $P\left( \sum_{i}^{} X_i = k \right)= \binom{n}{k}\theta^k \left( 1-\theta \right)^{n-k}$
-impliziert, dass die Funktion 
-\begin{equation}
+folgern wir, dass die Funktion 
+\begin{equation*}
 	f_n(\theta ) = \sum_{k=0}^{n} g\left( k \right) \binom{n}{k}\theta^k \left( 1-\theta \right)^{n-k}
-\end{equation}
-ein Polynom vom Grad höchstens $n$ in $\theta$ ist, kann es auch höchstens 
-$n$ verschiedene Nullstellen
-$\theta\in \left[ 0,1 \right]$ haben. Als Normalform dieses Polynoms erhalten wir
-\begin{eqnarray}
+\end{equation*}
+ein Polynom vom Grad höchstens $n$ in $\theta$ ist, und höchstens $n$
+verschiedene Nullstellen $\theta\in \left[ 0,1 \right]$ haben kann. Als
+Normalform dieses Polynoms erhalten wir
+\begin{align*}
 	f_n(\theta) 
-	&=& \sum_{k=0}^{n} g\left( k \right) \binom{n}{k}\theta^k \left( 1-\theta \right)^{n-k} \\ 
-	&=& \sum_{k=0}^{n} g\left( k \right) \binom{n}{k}\theta^k \sum_{i=0}^{n-k}\binom{n-k}{i}(-1)^{n-k-i}\theta^{n-k-i} \\
-\end{eqnarray}
+	&= \sum_{k=0}^{n} g\left( k \right) \binom{n}{k}\theta^k \left( 1-\theta \right)^{n-k} \\ 
+	&= \sum_{k=0}^{n} g\left( k \right) \binom{n}{k}\theta^k \sum_{i=0}^{n-k}\binom{n-k}{i}(-1)^{n-k-i}\theta^{n-k-i} \\
+\end{align*}
 und mit $\binom{n-k}{i}=\binom{n-k}{n-k-i}$ schließlich
-\begin{eqnarray}
+\begin{align*}
 	f_n(\theta) 
-	&=& \sum_{k=0}^{n} g\left( k \right) \binom{n}{k}\theta^k \sum_{i=0}^{n-k}\binom{n-k}{n-k-i}(-1)^{n-k-i}\theta^{n-k-i} \\
-	&=& \sum_{k=0}^{n} g\left( k \right) \binom{n}{k}\theta^k \sum_{i=0}^{n-k}\binom{n-k}{i}(-1)^i\theta^i \\
-	&=& \sum_{k=0}^{n} \sum_{i=0}^{n-k}\binom{n-k}{i} \binom{n}{k} (-1)^i  g\left( k \right)  \theta^{i+k} \\
-	&=& \sum_{p=0}^{n} \left[ \sum_{k=0}^{p} \binom{n-k}{p-k}\binom{n}{k}(-1)^{p-k} g(k) \right] \theta^p.
-\end{eqnarray}
+	&= \sum_{k=0}^{n} g\left( k \right) \binom{n}{k}\theta^k \sum_{i=0}^{n-k}\binom{n-k}{n-k-i}(-1)^{n-k-i}\theta^{n-k-i} \\
+	&= \sum_{k=0}^{n} g\left( k \right) \binom{n}{k}\theta^k \sum_{i=0}^{n-k}\binom{n-k}{i}(-1)^i\theta^i \\
+	&= \sum_{k=0}^{n} \sum_{i=0}^{n-k}\binom{n-k}{i} \binom{n}{k} (-1)^i  g\left( k \right)  \theta^{i+k} \\
+	&= \sum_{p=0}^{n} \left[ \sum_{k=0}^{p} \binom{n-k}{p-k}\binom{n}{k}(-1)^{p-k} g(k) \right] \theta^p.
+\end{align*}
 Durchs Betrachten der Koeffizienten dieses Polynoms in aufsteigender Reihenfolge erhalten wir
 induktiv $g(0)=0$, $g(1)=0,\ldots$ und nach $n$ Schritten $g(n)=0$.
 Damit ist $g \equiv 0$ und die Statistik $\sum_{i}^{} X_i$
 vollständig. Aus den bereits gelösten Übungsblättern wissen wir, dass $\sum_{i}^{} X_i$
 suffizient für $\theta$ ist. Mit
-\begin{equation}
+\begin{equation*}
 	E\left[ \bar X | \sum_{i}^{} X_i \right] = \bar X
-\end{equation}
+\end{equation*}
 und dem Satz von Lehmann-Scheff\'e folgt die Behauptung.
+
 
 
 
@@ -989,11 +990,11 @@ und dem Satz von Lehmann-Scheff\'e folgt die Behauptung.
 
 \paragraph{Vollständigkeit und UMVUE. }  Seien $X_1,\ldots,X_n$ i.i.d.,
 wobei $X_1$ eine diskrete Zufallsvariable mit Wahrscheinlichkeitsfunktion
-\begin{equation}
+\begin{equation*}
 	p_\theta(x)=P_\theta(X_1=x)= 
 	\left( \frac{\theta}{2} \right)^{|x|} (1-\theta)^{1-|x|},\  
 	x\in\left\{ -1,0,1 \right\},
-\end{equation}
+\end{equation*}
 und unbekanntem Parameter $\theta\in (0,1)$ sei. Untersuchen Sie die beiden
 Schätzer $T_1(X)=X_1$ und $T_2(X)=|X_1|$ auf Vollständigkeit. Bestimmen Sie
 einen \textsc{umvue}-Schätzer für $\theta$.
@@ -1063,9 +1064,9 @@ Daher ist $T_3$ ein \textsc{umvue}-Schätzer für $\theta$.
 \paragraph{Stichprobenvarianz als UMVUE bei Normalverteilung.} 
 Seien $X_1,\ldots,X_n$ i.i.d.\ mit $X_i \sim \mathcal N(\mu,\sigma^2)$ und
 $\mu\in\R$ sowie $\sigma>0$.  Dann ist die Stichprobenvarianz 
-\begin{equation}
+\begin{equation*}
 	s^2(X) = \frac{1}{n-1} \sum_{i=1}^{n} (X_i - \bar X)^2
-\end{equation}
+\end{equation*}
 ein \textsc{umvue}-Schätzer für $\sigma$, falls $\mu$ unbekannt ist. 
 Ist $\mu$ hingegen bekannt, so ist $s^2(X)$ kein \textsc{umvue}-Schätzer
 von $\sigma$. 
@@ -1109,51 +1110,52 @@ für $\sigma^2$. Daher kann $s^2(X)$ in diesem Kontext kein
 \paragraph{UMVUE. Normalverteilung. } Sei $X_1,\ldots,X_n$ eine i.i.d.\
 Stichprobe mit $X_1\sim\mathcal N(\mu,1)$. Finden Sie den 
 \textsc{umvue}-Schätzer für
-\begin{equation}
+\begin{equation*}
 	P_\mu (X_1>0).
-\end{equation}
-\emph{Hinweis:} Betrachten Sie die gemeinsame Verteilung von $(X_1,\bar X)$.
+\end{equation*}
+Betrachten Sie dazu die gemeinsame Verteilung von $(X_1,\bar X)$.
 
-\paragraph*{Lösung. }   Der Satz von Lehmann-Sch\'effe ist das wichtigste Tool zur Gewinnung
-der \textsc{umvue}-Schätzern das uns derzeit zur Verfügung. Wir versuchen ihn auch diesmal anzuwenden. 
+\paragraph*{Lösung.} Der Satz von Lehmann-Sch\'effe ist das wichtigste Tool
+zur Gewinnung der \textsc{umvue}-Schätzern das uns derzeit zur Verfügung. Wir
+versuchen ihn auch diesmal anzuwenden. 
 
 Dazu brauchen wir einen unverzerrten Schätzer für $P\left( X_1 >0 \right)$, also einen
 Schätzer $S(X)$ mit der Eigenschaft
-\begin{equation}
+\begin{equation*}
 	E_\mu \left[ S(X) \right] = P_\mu(X_1 > 0).
-\end{equation}
+\end{equation*}
 Dies ist aber genau die Eigenschaft der Zufallsvariable $1_{ \left\{ X_1 > 0 \right\}  }$, denn
-\begin{equation}
+\begin{equation*}
 	E_\mu \left[   1_{ \left\{ X_1 > 0 \right\}  }  \right] = P_\mu( X_1 > 0).
-\end{equation}
-Als eine suffiziente Statistik verwenden wir $\bar X$. Nun mit Hilfe der Rao-Blackwillisierung
-erhalten wir einen \textsc{UMVU} Schätzer
-\begin{equation}
+\end{equation*}
+Als eine suffiziente und vollständige Statistik verwenden wir $\bar X$. Nun mit
+Hilfe der Rao-Blackwellisierung erhalten wir einen \textsc{UMVU} Schätzer
+\begin{equation*}
 	E_\mu \left[ 1_{ \left\{ X_1 > 0 \right\}  } | \bar X \right]
 	= P_\mu \left( X_1 > 0 | \bar X \right) 
 	= P_\mu \left( X_1 - \bar X > -\bar X | \bar X \right).
-\end{equation}
+\end{equation*}
 Da $X_1$ und $\bar X$ normalverteilt sind mit $E X_1 = E \bar X = \mu$, 
 $\Var \left( X_1 \right)=1$ und $\Var\left( \bar X \right) = \frac{1}{n}$ sowie
 $\cov \left( X_1- \bar X, \bar X \right) = \cov(X_1, \bar X) - \cov(\bar X, \bar X) = 0$ gilt, 
 sind die Zufallsvariablen $X_1 - \bar X$ und $\bar X$ unkorreliert und damit unabhängig. 
 So ist
-\begin{equation}
+\begin{equation*}
 	P_\mu \left( X_1 - \bar X > -\bar X | \bar X = \bar x \right) = P_\mu \left( Z > -\bar x  \right)
-\end{equation}
+\end{equation*}
 für $Z=X_1 - \bar X$. Nachdem $EZ=0$ und 
-\begin{eqnarray}
-	\Var Z &=& \Var \left( X_1- \bar X \right) \\
-	&=& \Var \left( \frac{n-1}{n} X_1 - \frac{1}{n} \sum_{i\geq 2}^{} X_i  \right) \\
-	&=& \left( \frac{n-1}{n} \right)^2 + \frac{1}{n^2} \sum_{i\geq 2}^{} \Var \left( X_i  \right) \\
-	&=& \frac{n-1}{ n}
-\end{eqnarray}
+\begin{align*}
+	\Var Z &= \Var \left( X_1- \bar X \right) \\
+	&= \Var \left( \frac{n-1}{n} X_1 - \frac{1}{n} \sum_{i\geq 2}^{} X_i  \right) \\
+	&= \left( \frac{n-1}{n} \right)^2 + \frac{1}{n^2} \sum_{i\geq 2}^{} \Var \left( X_i  \right) \\
+	&= \frac{n-1}{ n}
+\end{align*}
 is $\frac{Z}{\sqrt{\frac{n-1}{2}}}$ standardnormalverteilt. So gilt
-\begin{eqnarray}
-	P_\mu \left( Z > -\bar X \right) &=& 
+\begin{align*}
+	P_\mu \left( Z > -\bar X \right) &= 
 	P_\mu \left(  \frac{Z}{ \sqrt{\frac{n-1}{n}} } > \frac{-\bar X}{ \sqrt{\frac{n-1}{n}}   } \right) \\
-	&=& 1- \Phi\left( \frac{-\bar X}{ \sqrt{\frac{n-1}{n}}}    \right) 
-\end{eqnarray}
+	&= 1- \Phi\left( \frac{-\bar X}{ \sqrt{\frac{n-1}{n}}}    \right) 
+\end{align*}
 und ein \textsc{umvue}-Schätzer für $P\left( X_1 >0 \right)$ ist bestimmt.
 
 
