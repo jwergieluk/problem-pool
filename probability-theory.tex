@@ -849,6 +849,7 @@ $S_n = \sum_{i=1}^{n} X_i$. Dann gilt:
         für alle $1 \leq i \leq n$. 
 \end{enumerate}
 
+
 \paragraph{Zusammengesetzte Poissonverteilung. Momentenerzeugende Funktion und Momente.}
 Sei $N$ Poissonverteilt mit dem Parameter $\lambda>0$ und $\left( X_i
 \right)_{i\geq 1}$ i.i.d.  Zufallsvariablen mit existierender
@@ -865,7 +866,7 @@ wobei wir auf $\left\{ N=0 \right\}$ $Y=0$ setzen. Zeigen Sie folgende Aussagen.
 \begin{enumerate}
     \item Die momentenerzeugende Funktion $\psi_Y$ von $Y$ ist
         \begin{equation*}
-            \psi_Y = \E \exp \left( u Y \right) = 
+            \psi_Y(u) = \E \exp \left( u Y \right) = 
             \exp \left( \lambda \left( \psi_X(u)-1 \right)  \right).
         \end{equation*}
     \item Für die ersten zwei Momente gelten die Formeln
@@ -875,7 +876,33 @@ wobei wir auf $\left\{ N=0 \right\}$ $Y=0$ setzen. Zeigen Sie folgende Aussagen.
         \end{align*}
 \end{enumerate}
 
-\paragraph*{Lösung.}
+\paragraph*{Lösung.} Wir berechnen die momentenerzeugende Funktion von $Y$.
+\begin{align*}
+    \psi_Y(u) &= \E \exp \left( uY \right) \\
+    &= \E \exp \left( u\sum_{i=1}^{N} X_i \right) \\
+    &= \E \left[\E \left[ \exp\left( u\sum_{i=1}^{N} X_i \right) | N \right] \right] \\ 
+    &= \sum_{n \geq 0} \E\left[ \exp\left( u\sum_{i=1}^{n} X_i \right) \right] P(N=n) \\
+    &= \sum_{n\geq 0} \left( \E e^{u X_1} \right)^n e^{-\lambda} \frac{\lambda^n}{n!} \\
+    &= \sum_{n\geq 0} e^{-\lambda} \frac{\left( \lambda \psi_X(u) \right)^n}{n!} \\
+    &= \exp \left( \lambda \left( \psi_X(u) -1 \right) \right).
+\end{align*}
+Den Erwartungswert und die Varianz erhalten wir aus
+\begin{align*}
+    \frac{\partial}{\partial u} \psi_Y &= 
+    \psi_Y(u) \lambda \psi_X'(u) \\
+    \left. \frac{\partial}{\partial u} \psi_Y \right|_{u=0} &= 
+    \E N \ \E X = \lambda \E X \\
+    \frac{\partial^2}{\partial u^2} \psi_Y &= 
+    \frac{\partial}{\partial u} \lambda \psi_Y(u) \psi_X'(u) =
+    \lambda \left[ \lambda \psi_Y(u) \left( \psi_X'(u) \right)^2 + \psi_Y(u)\psi_X''(u) \right]   \\
+    \left. \frac{\partial^2}{\partial u^2} \psi_Y \right|_{u=0} &= 
+    \lambda \left[ \lambda \left( \E X \right)^2 + \E X^2 \right] \\
+    \Var Y &= \lambda \left[ \lambda \left( \E X \right)^2 + \E X^2 \right]
+    - \lambda^2 \left( \E X \right)^2 = \lambda \E X^2.
+\end{align*}
+
+
+
 
 
 
@@ -909,8 +936,6 @@ Erwartungen für $X:\Omega\to\mathbb N, i\mapsto 2^i$.
 \end{eqnarray*}
 Dabei bezeichnet $4_{ \left\{ 1,2 \right\} }$ eine Funktion, die den Elementen $1$ und $2$
 den Wert $4$ zuordnet und allen anderen den Wert $0$.
-
-Damit folgt die Behauptung. 
 
 
 \paragraph{Bedingte Erwartungen. Turmeigenschaft. } Sei $X$ eine integrierbare
@@ -951,10 +976,11 @@ $\mathcal G$-messbar. Wir berechnen
 \begin{eqnarray*}
 	E\left\{ E\left[ E\left[ X|\mathcal G \right]|\mathcal H \right] 1_A \right\} &=& 
 	E\left\{ E\left[ Y|\mathcal H \right] 1_A \right\} \\
-	&=& E\left\{ E\left[ Y 1_A| \mathcal H \right] \right\} \\
+%	&=& E\left\{ E\left[ Y 1_A| \mathcal H \right] \right\} \\
 	&=& E\left\{ Y 1_A \right\} \\
 	&=& E\left\{ E\left[ X|\mathcal G \right] 1_A \right\} \\
-	&=& E\left\{ E\left[ X 1_A| \mathcal G \right] \right\} = E\left\{ X 1_A \right\}. 
+%	&=& E\left\{ E\left[ X 1_A| \mathcal G \right] \right\} \\
+    &=& E\left\{ X 1_A \right\}. 
 \end{eqnarray*}
 Daher ist nach Definition des bedingten Erwartungswertes
 \begin{equation*}
@@ -1013,7 +1039,7 @@ integrierbare Zufallsvariable und $\cG \subset \cA$ eine Sub-$\sigma$-Algebra.
 Zeigen Sie die folgenden Aussagen.
 \begin{enumerate}
     \item $E\left[ X|X \right] = X \ P$-f.s.
-    \item Falls $| X| \leq c$ f.s.\, dann $| \E \left[ X \vb \cG \right] | \leq c$ f.s.
+    \item Falls $| X| \leq c$ f.s., dann $| \E \left[ X \vb \cG \right] | \leq c$ f.s.
     \item Falls $X=\alpha$ f.s.\ für $\alpha\in\R$, dann gilt 
         $\E \left[ X | \cG  \right]= \alpha $ f.s.
 \end{enumerate}
