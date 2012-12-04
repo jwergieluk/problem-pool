@@ -1163,9 +1163,9 @@ und ein \textsc{umvue}-Schätzer für $P\left( X_1 >0 \right)$ ist bestimmt.
 
 \paragraph{Cram\'er-Rao Regularität und exponentielle Familien. }
 Für eine einparametrige exponentielle Familie mit
-\begin{equation}
+\begin{equation*}
 	p(x, \theta) = \exp \left( c(\theta) T(x) + d(\theta) +S(x) \right)1_A(x),
-\end{equation}
+\end{equation*}
 sodass $c$ differenzierbar mit $\frac{\partial}{\partial \theta} c(\theta)\neq 0$ 
 für alle $\theta\in \Theta$ und $\Theta$ offen in $\R$ ist, sind die Bedingungen (\textsc{cr})
 erfüllt.
@@ -1326,9 +1326,9 @@ Nun zeigen wir
 \paragraph{UMVUE. Gamma-Verteilung. } Eine Stichprobe $X_1, \ldots, X_n$ sei i.i.d.\
 und Gamma-verteilt mit bekanntem Parameter $a>0$ und unbekanntem Parameter 
 $\lambda>0$, d.h.\ $X_1$ hat die Dichte
-\begin{equation}
+\begin{equation*}
     p_\lambda (x) = \frac{\lambda^a}{\Gamma(a)} x^{a-1}e^{-\lambda x} 1_{\R_{>0}}(x).
-\end{equation}
+\end{equation*}
 Finden Sie mit Hilfe der Informationsungleichung einen \textsc{umvue}-Schätzer für
 $q(\lambda) = \frac{1}{\lambda}$.
 
@@ -1391,52 +1391,52 @@ Damit ist $T(X)$ ein \textsc{umvue}-Schätzer für $q(\lambda)=\frac{1}{\lambda}
 Seien $X_1,\ldots,X_n$ i.i.d.\ und $X_i \sim \mathcal U(0,\theta)$ mit unbekanntem 
 $\theta > 0$. Es bezeichne $I(\theta)$ die Fischer-Information. Weisen Sie nach, dass
 $T(X)=\frac{n+1}{n}X_{(n)}$ ein erwartungstreuer Schätzer für $\theta$ ist und
-\begin{equation}
+\begin{equation*}
 	\Var_\theta \left( T(X) \right) < \frac{1}{I(\theta)}, \quad \textrm{für alle } \theta>0. 
-\end{equation}
+\end{equation*}
 Klären Sie, wieso dies nicht im Widerspruch zu der Cram\'er-Rao-Schranke
-\begin{equation}
+\begin{equation*}
 	\Var_\theta\left( T(X) \right) \geq \frac{1}{I(\theta)}
-\end{equation}
+\end{equation*}
 steht.
 
 \paragraph*{Lösung. } Wir zeigen zuerst, dass $T(X)$ ein erwartungstreuer Schätzer
 für $\theta$ ist. Dazu berechnen wir die Verteilung von $X_{(n)}$.
-\begin{eqnarray}
+\begin{eqnarray*}
     P\left( X_{(n)} \leq t \right) &=& P\left( X_1\leq t,\ldots, X_n\leq t \right) \\
     &=& \left( P(X_1 \leq t) \right)^n
-\end{eqnarray}
+\end{eqnarray*}
 Daraus ergibt sich
-\begin{eqnarray}
+\begin{eqnarray*}
     E_\theta X_{(n)} &=& \int_{0}^{\theta} x dP_{ X_{(n)} }(x) \\
     &=& \int_{0}^{\theta} x \left( \frac{x^n}{\theta^n} \right)' dx \\
     &=& \int_{0}^{\theta} n \frac{x^n}{\theta^n} dx \\
     &=& \frac{n}{(n+1)\theta^n} \int_{0}^{\theta} (n+1)x^n dx \\
     &=& \frac{n}{n+1} \frac{1}{\theta^n} \theta^{n+1} = \frac{n}{n+1} \theta.
-\end{eqnarray}
+\end{eqnarray*}
 Daher ist $T(X) = \frac{n+1}{n} X_{(n)}$ erwartungstreu für $\theta$.
 
 Die Fischer-Information für $X=(X_1,\ldots,X_n)\in [0,\theta]^n$ mit der Dichte
 $p_\theta(X) = \theta^{-n} 1_{[0,\theta]^n}(X)$ ist 
-\begin{eqnarray}
+\begin{eqnarray*}
     I(\theta) &=& E_\theta\left( \frac{\partial}{\partial \theta} \log \frac{1}{\theta^n} \right)^2 \\
     &=& E_\theta \left( \frac{\partial}{\partial \theta} -n \log \theta \right)^2 \\
     &=& E_\theta \frac{n^2}{\theta^2} = \left( \frac{n}{\theta} \right)^2.
-\end{eqnarray}
+\end{eqnarray*}
 
 Berechnen wir nun
-\begin{eqnarray}
+\begin{eqnarray*}
     \Var T(X) &=& \Var \frac{n+1}{n} X_{(n)} \\
     &=& E\left( \frac{n+1}{n} X_{(n)} \right)^2 - \left( E \frac{n+1}{n} X_{(n)} \right)^2 \\
     &=& \left( \frac{n+1}{n} \right)^2 E X_{(n)}^2 - \theta^2 \\
     E X_{(n)}^2 &=& \int_{0}^{\theta} x^2 d P_{X_{(n)}}(x) \\
     &=& \frac{n}{\theta^n} \int_{0}^{\theta} x^{n+1} = \frac{\theta^2 n}{n+2} \\
     \Var T(X) &=& \left( \frac{n+1}{n} \right)^2 \frac{\theta^2 n }{n+2} - \theta^2 = \frac{\theta^2}{n(n+2)}.
-\end{eqnarray}
+\end{eqnarray*}
 Damit ist 
-\begin{equation}
+\begin{equation*}
     \Var_\theta T(X) = \frac{\theta^2}{n(n+2)} < \frac{\theta^2}{n^2} = \frac{1}{I(\theta)}.
-\end{equation}
+\end{equation*}
 
 Erklärung dafür ist die folgende. Der
 Träger der Dichte von $X_i$ ist vom Parameter $\theta$ abhängig und daher sind
@@ -1452,19 +1452,19 @@ Informationsungleichung für dieses Modell nicht gelten.
 \paragraph{Cram\'er-Rao-Schranke ist nicht scharf.    } 
 Es ist durchaus möglich, dass ein \textsc{umvue}-Schätzer eine größere Varianz als die untere
 Schranke
-\begin{equation}
+\begin{equation*}
 	\Var_\theta \left( T(X) \right) \geq \frac{1}{I(\theta)}
-\end{equation}
+\end{equation*}
 hat. Betrachtet wenden dazu $X_1,\ldots,X_n$ i.i.d.\ mit $X_i \sim \textrm{Poiss}(\theta)$ für 
 unbekanntes $\theta>0$. Zeigen Sie, dass
-\begin{equation}
+\begin{equation*}
 	T(X) = \left( 1- \frac{1}{n} \right)^{ \sum_{i=1}^{n} X_i}
-\end{equation}
+\end{equation*}
 ein \textsc{umvue}-Schätzer für $g(\theta)=e^{-\theta}$ ist. Zeigen Sie weiterhin, dass die
 Varianz von $T(X)$ die Schranke in der Informationsungleichung
-\begin{equation}
+\begin{equation*}
 	\Var_\theta\left( T(X) \right) \geq \frac{\Phi^{'}(\theta)^2}{I(\theta)}
-\end{equation}
+\end{equation*}
 für kein $\theta$ annimmt.
 
 \paragraph*{Lösung. } Wir stellen zuerst sicher, dass $T(X)$ ein \textsc{umvue}-Schätzer 
@@ -1472,12 +1472,12 @@ für $g(\theta)=e^{-\theta}$. Nachdem die Summe von poissonverteilten Zufallsvar
 wieder poissonverteilt ist, und zwar 
 $\sum_{i}^{} X_i \sim \textrm{Poiss}(\sum_{i}^{} \lambda_i)$ für 
 $X_i \sim \textrm{Poiss}(\lambda_i)$, erhalten wir
-\begin{eqnarray}
+\begin{eqnarray*}
     E_\theta T(X) &=& \sum_{k\geq 0} \left( 1-\frac{1}{n} \right)^k P\left( \sum_{i}^{} X_i =k \right)\\
     &=& \sum_{k\geq 0}^{} \left( 1-\frac{1}{n} \right)^k e^{-n\theta} \frac{(n\theta)^k}{k!} \\
     &=& e^{-n\theta} \sum_{k\geq 0} \frac{ (n-1)^k\theta^k}{k!} \\
     &=& e^{-n \theta} e^{(n-1)\theta} = e^{-\theta}.
-\end{eqnarray}
+\end{eqnarray*}
 $T(X)$ ist also erwartungstreu für $g(\theta)$.
 
 Aus der Vorlesung wissen wir, dass $\sum_{i}^{} X_i$ eine vollständige und suffiziente
@@ -1486,7 +1486,7 @@ eine Funktion von $\sum_{i}^{} X_i$ und damit ein \textsc{umvue}-Schätzer
 für $e^{-\theta}$.
 
 Wir berechnen nun die Varianz von $T(X)$.
-\begin{eqnarray}
+\begin{eqnarray*}
     \Var_\theta T(X)&=& \Var_\theta \left( 1-\frac{1}{n} \right)^{\sum_{i} X_i} \\ 
     &=& E_\theta \left( \left( 1-\frac{1}{n} \right)^{\sum_{i} X_i} \right)^2 - \left( E_\theta \left( 1-\frac{1}{n} \right)^{\sum_{i} X_i} \right)^2 \\
     E_\theta \left( 1-\frac{1}{n} \right)^{\sum_{i} X_i} &=& e^{-\theta} \\
@@ -1497,43 +1497,43 @@ Wir berechnen nun die Varianz von $T(X)$.
     &=& \exp\left( -n\theta \right) \exp\left( \frac{(n-1)^2\theta}{n} \right)
     = \exp\left( \theta\left( -2 + \frac{1}{n} \right) \right) \\
     \Var_\theta T(X) &=& \exp\left( \frac{\theta(1-2n)}{n} \right) - \exp\left( -2\theta \right). 
-\end{eqnarray}
+\end{eqnarray*}
 
 Nun zur Informationsungleichung. Wir haben $\Psi(\theta)=g(\theta)=E T(X)$ und 
 $\Psi'(\theta)=-e^{-\theta}$ und daher 
 $\left( \Psi'(\theta) \right)^2 = e^{-2\theta}$. Die Fischer-Information 
 $I(\theta)=\frac{n}{\theta}$ wurde bereits in der Vorlesung berechnet. Damit erhalten wir 
-\begin{equation}
+\begin{equation*}
     \frac{\left( \Psi'(\theta) \right)^2}{I(\theta)} = \frac{\theta e^{-2 \theta} }{n}.
-\end{equation}
+\end{equation*}
 
 Wir zeigen nun
-\begin{equation}
+\begin{equation*}
     \exp\left( \frac{\theta(1-2n)}{n} \right) - \exp\left( -2\theta \right) = \Var_\theta T(X)
     > \frac{\left( \Psi'(\theta) \right)^2}{I(\theta)} = \frac{\theta e^{-2 \theta} }{n}
-\end{equation}
+\end{equation*}
 indem wir äquivalente Ungleichungen betrachten.
-\begin{eqnarray}
+\begin{eqnarray*}
     \exp\left( \frac{\theta(1-2n)}{n} \right) - \exp\left( -2\theta \right) 
     &>& \frac{\theta e^{-2 \theta} }{n} \\
     \exp\left( \frac{\theta}{n} -2\theta \right) &>& e^{-2\theta} \left( 1+\frac{\theta}{n} \right) \\
     \theta &>& \log \left( 1+\frac{\theta}{n} \right)^n.
-\end{eqnarray}
+\end{eqnarray*}
 Wir wissen aber, dass
-\begin{equation}
+\begin{equation*}
     e^\theta = \lim_{n\to\infty} \left( 1+\frac{\theta}{n} \right)^n
-\end{equation}
+\end{equation*}
 gilt, und dass die Approximationsfolge streng monoton wachsend ist. Damit ist die Ungleichung
 für alle $\theta>0$ bewiesen. Daraus können wir ableiten, dass die Schranke in der 
 Informationsungleichung nie angenommen wird.
 
-\begin{figure}[htb]
-    \begin{center}
-        \includegraphics[width=\textwidth]{figures/ue-blatt-10-fvv.pdf}
-    \end{center}
-    \caption{Varianz von $T(X)$ und die Schranke der Informationsungleichung für $n=10$.}
-    \label{fig:fvv}
-\end{figure}
+%\begin{figure}[htb]
+%    \begin{center}
+%        \includegraphics[width=\textwidth]{figures/ue-blatt-10-fvv.pdf}
+%    \end{center}
+%    \caption{Varianz von $T(X)$ und die Schranke der Informationsungleichung für $n=10$.}
+%    \label{fig:fvv}
+%\end{figure}
 
 
 
