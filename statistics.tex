@@ -851,7 +851,7 @@ die Varianz der beiden Schätzer.
 Zunächst ist 
 \begin{eqnarray}
 	E X_i &=&  \int_{\R}^{} x p_\theta(x) dx = \int_{\theta}^{\theta+1} x dx = \theta + \frac{1}{2}. \\
-	E T_1(X) &=&  \frac{1}{2} \sum_{i}^{} X_i - \frac{1}{2} = \frac{1}{n} \sum_{i}^{} \left( \theta + \frac{1}{2} \right) -\frac{1}{2} = \theta.
+	E T_1(X) &=&  \frac{1}{n} \sum_{i}^{} X_i - \frac{1}{2} = \frac{1}{n} \sum_{i}^{} \left( \theta + \frac{1}{2} \right) -\frac{1}{2} = \theta.
 \end{eqnarray}
 Das heißt $T_1$ ist erwartungstreu. Die Varianz von $T_1$ berechnen wir folgendermassen
 \begin{eqnarray}
@@ -936,7 +936,7 @@ Die Varianz von $T_1$ ist also um eine Größenordung höher als die von $T_2$.
 
 \paragraph{UMVUE. Bernoulli-Verteilung. } 
 Seien $X_1,\ldots,X_n$ i.i.d.\ und $X_1$ Bernoulli$(\theta)$-verteilt. Zeigen
-Sie, dass der MLE $\bar X$ ein \textsc{umvue}-Schätzer ist.
+Sie, dass der MLS $\bar X$ ein \textsc{umvue}-Schätzer ist.
 
 \paragraph*{Lösung. } Betrachten wir den Schätzer $\bar X$. Aus bereits
 gelösten Übungsblättern wissen wir, dass $\bar X$ unverzerrt für $\theta$ ist.
@@ -1251,72 +1251,81 @@ Die Übrigen Bedingungen aus (\textsc{cr}) sind in unseren Voraussetzungen entha
 
 
 
-\paragraph{UMVUE. Exponentialverteilung.   }
-Seien $X_1,\ldots,X_m$ i.i.d.\ und $X_i\sim \textrm{Exp}(\theta)$ exponentialverteilt
-mit der Dichte $\theta e^{-\theta x}1_{\R_{>0}}(x)$ und $\theta>0$.
-Finden Sie einen \textsc{umvue}-Schätzer für $q(\theta) = \frac{1}{\theta^2}$. Zeigen Sie, dass
-dieser die untere Schranke der Informationsgleichung nicht annimmt.
-
-\paragraph*{Lösung.} Wir stellen die Dichte der Exponentialverteilung als exponentielle
-Familie 
-\begin{equation}
+\paragraph{UMVUE. Exponentialverteilung.}
+Seien $X_1,\ldots,X_m$ i.i.d.\ und $X_i\sim \textrm{Exp}(\theta)$
+exponentialverteilt mit der Dichte $\theta e^{-\theta x}1_{\R_{>0}}(x)$ und
+$\theta>0$.
+\begin{enumerate}
+    \item Finden Sie einen \textsc{umvue}-Schätzer für $q(\theta) =
+        \frac{1}{\theta^2}$.
+    \item Zeigen Sie, dass dieser die untere Schranke der Informationsungleichung
+        nicht annimmt.
+\end{enumerate}
+ 
+\paragraph*{Lösung.} 
+\begin{enumerate}
+    \item
+Wir stellen die Dichte der Exponentialverteilung als exponentielle Familie 
+\begin{equation*}
     p_\theta(x) = \exp \left( -\theta x + \log \theta \right) 1_{\R_{>0}}(x)
-\end{equation}
+\end{equation*}
 dar. Damit ist $T(X)=\sum_{i}^{} X_i$ eine vollständige und suffiziente Statistik.
 
-Laut Satz von Lehmann-Sch\'effe muss der eindeutige \textsc{umvue}-Schätzer eine Funktion $h(T(X))$
-der vollständigen Statistik $T(X)$ sein. Nachdem der Schätzer $h(T(X))$ erwartungstreu
-ist, muss
-\begin{equation}
+Laut Satz von Lehmann-Sch\'effe muss der eindeutige \textsc{umvue}-Schätzer
+eine Funktion $h(T(X))$ der vollständigen Statistik $T(X)$ sein. Nachdem der
+Schätzer $h(T(X))$ erwartungstreu ist, muss
+\begin{equation*}
     E_\theta h(T(X)) = \frac{1}{\theta^2}
-\end{equation}
-gelten. Mit Hilfe von $\sum_{i}^{} X_i \sim \textrm{Gamma}(n,\theta)$, können wir eine 
-Gleichung für $h$ konstruieren.
-\begin{equation}
+\end{equation*}
+gelten. Mit Hilfe von $\sum_{i}^{} X_i \sim \textrm{Gamma}(n,\theta)$, können
+wir eine Gleichung für $h$ konstruieren.
+\begin{equation*}
     E_\theta h(T(X)) =  \int_{\R} h(x) \frac{\theta^n}{\Gamma(n)} x^{n-1}e^{-\theta x} 1_{\R_{>0}}(x) dx =\frac{1}{\theta^2} 
-\end{equation}
-\begin{equation}
+\end{equation*}
+\begin{equation*}
     \int_{0}^{\infty} h(x) \frac{\theta^{n+2}}{\Gamma(n)}  x^{n-1} e^{-\theta x} dx = 1
-\end{equation}
+\end{equation*}
 Die Gleichheit gilt für $h(x)= \frac{x^2}{n(n+1)}$. Damit ist 
-\begin{equation}
+\begin{equation*}
     S(X) = h\left( \sum_{i}^{} X_i \right) = \frac{\left( \sum_{i}^{} X_i \right)^2}{n(n+1)}
-\end{equation}
+\end{equation*}
 der eindeutige \textsc{umvue}-Schätzer für $\frac{1}{\theta^2}$.
 
-Wir berechnen nun die Schranke der Informationsungleichung -- die \textsc{(cr)} Bedingungen
-sind erfüllt, da $\textrm{Exp}(\theta)$ eine exponentielle Familie mit $c'(\theta)\neq 0$ und 
-offenem Parameterraum ist. Es gilt $\Psi(\theta)=\frac{1}{\theta^2}$ und 
-$\left( \Psi'(\theta) \right)^2= \frac{4}{\theta^6}$, sowie
-\begin{eqnarray}
-    I_1(\theta) &=& E_\theta \left( \frac{\partial}{\partial \theta} \log p(X, \theta) \right)^2 \\
-    &=& E_\theta \left( \frac{\partial}{\partial \theta} \log \theta -\theta x \right)^2 = \frac{1}{\theta^2}.
-\end{eqnarray}
+    \item 
+Wir berechnen nun die Schranke der Informationsungleichung -- die \textsc{(cr)}
+Bedingungen sind erfüllt, da $\textrm{Exp}(\theta)$ eine exponentielle Familie
+mit $c'(\theta)\neq 0$ und offenem Parameterraum ist. Es gilt
+$\Psi(\theta)=\frac{1}{\theta^2}$ und $\left( \Psi'(\theta) \right)^2=
+\frac{4}{\theta^6}$, sowie
+\begin{align*}
+    I_1(\theta) &= E_\theta \left( \frac{\partial}{\partial \theta} \log p(X, \theta) \right)^2 \\
+    &= E_\theta \left( \frac{\partial}{\partial \theta} \log \theta -\theta x \right)^2 = \frac{1}{\theta^2}.
+\end{align*}
 Damit bekommen wir die Schranke für die Varianz
-\begin{equation}
+\begin{equation*}
     \frac{\left( \Psi'(\theta) \right)^2}{n I_1(\theta) } = \frac{4}{n \theta^4}.
-\end{equation}
+\end{equation*}
 Mit dieser Schranke können wir die Varianz des Schätzers $S(X)$ in Beziehung setzen.
-\begin{eqnarray}
-    E_\theta S(X)^2 &=& \int_{0}^{\infty} \left( \frac{t^2}{n(n+1)} \right)^2 \frac{\theta^n}{\Gamma(n)} t^{n-1} e^{-\theta t} dt \\
-    &=& \frac{(n+2)(n+3)}{n(n+1)\theta^4} \int_{0}^{\infty} \frac{\theta^4}{\Gamma(n+4)}t^{n+4-1} e^{-\theta t} dt \\
-    &=&  \frac{(n+2)(n+3)}{n(n+1)\theta^4} \\
-    \Var_\theta S(X) &=& \frac{(n+2)(n+3)}{n(n+1)\theta^4} - \frac{1}{\theta^4}
-\end{eqnarray}
+\begin{align*}
+    E_\theta S(X)^2 &= \int_{0}^{\infty} \left( \frac{t^2}{n(n+1)} \right)^2 \frac{\theta^n}{\Gamma(n)} t^{n-1} e^{-\theta t} dt \\
+    &= \frac{(n+2)(n+3)}{n(n+1)\theta^4} \int_{0}^{\infty} \frac{\theta^4}{\Gamma(n+4)}t^{n+4-1} e^{-\theta t} dt \\
+    &=  \frac{(n+2)(n+3)}{n(n+1)\theta^4} \\
+    \Var_\theta S(X) &= \frac{(n+2)(n+3)}{n(n+1)\theta^4} - \frac{1}{\theta^4}
+\end{align*}
 Nun zeigen wir
-\begin{equation}
+\begin{equation*}
     \Var_\theta S(X) > \frac{\left( \Psi'(\theta) \right)^2}{n I_1(\theta) }
-\end{equation}
-\begin{equation}
+\end{equation*}
+\begin{equation*}
     \frac{(n+2)(n+3)}{n(n+1)\theta^4} - \frac{1}{\theta^4} > \frac{4}{n \theta^4}
-\end{equation}
-\begin{equation}
+\end{equation*}
+\begin{equation*}
     \frac{(n+2)(n+3)}{n(n+1)\theta^4} > \frac{n+4}{\theta^4 n}
-\end{equation}
-\begin{equation}
+\end{equation*}
+\begin{equation*}
     (n+2)(n+3) > (n+4)(n+1).
-\end{equation}
-
+\end{equation*}
+\end{enumerate}
 
 
 
@@ -1337,48 +1346,48 @@ kleinstmöglichen Varianz zu finden, d.h.\ der Varianz aus der Informationsungle
 
 Zuerst überprüfen wir die (\textsc{cr}) Bedingungen indem wir $p_\lambda(x)$ als
 exponentielle Familie
-\begin{equation}
+\begin{equation*}
     p_\lambda(x) = \exp\left( a\log \lambda -\Gamma(a) +(a-1)\log x -\lambda x  \right) 1_{\R_{>0}}(x)    
-\end{equation}
+\end{equation*}
 darstellen. $c(\lambda)=-\lambda$ ist differenzierbar mit $c'(\lambda)=-1\neq 0$ und 
 $\Theta=\R_{>0}$ ist offen. Damit sind \textsc{(cr)} Bedingungen erfüllt.
 
-Nachdem $q(\lambda)=\frac{1}{\lambda}$ gerade $E_\lambda X_i=\frac{a}{\lambda}$ ist, 
+Nachdem $q(\lambda)=\frac{1}{\lambda}$ und $E_\lambda X_i=\frac{a}{\lambda}$ gilt, 
 wählen wir den Schätzer 
-\begin{equation}
+\begin{equation*}
     T(X)=\frac{1}{a}\bar X.
-\end{equation}
+\end{equation*}
 $T(X)$ ist erwartungstreu und hat
 die Varianz
-\begin{eqnarray}
-    \Var_\lambda T(X) &=&  \Var_\lambda \frac{1}{na} \sum_{i}^{} X_i \\ 
-    &=& \frac{1}{a^2 n^2} \Var_\lambda \sum_{i}^{} X_i \\
-    &=&  \frac{1}{a^2 n^2} \frac{an}{\lambda^2} = \frac{1}{an \lambda^2}. 
-\end{eqnarray}
-Letzes gilt wegen $\sum_{i}^{} X_i \sim \textrm{Gamma}(na,\lambda)$. Nun berechnen wir die
-Fischer-Information für $X=X_i$.
-\begin{eqnarray}
-    I_1(\lambda) &=&  \Var_\lambda \frac{\partial}{\partial \lambda} \log p(X,\lambda) \\
-    &=& \Var_\lambda \frac{\partial}{\partial \lambda} \log \frac{\lambda^a}{\Gamma(a)} X^{a-1}e^{-\lambda X} 1_{\R_{>0}}(X) \\
-    &=& \Var_\lambda \frac{\partial}{\partial \lambda} \left( a \log \lambda - \lambda X \right) \\
-    &=& \Var_\lambda \left( \frac{a}{\lambda} - X \right) = \frac{a}{\lambda^2}
-\end{eqnarray}
+\begin{align*}
+    \Var_\lambda T(X) &=  \Var_\lambda \frac{1}{na} \sum_{i}^{} X_i \\ 
+    &= \frac{1}{a^2 n^2} \Var_\lambda \sum_{i}^{} X_i \\
+    &= \frac{1}{a^2 n^2} \frac{an}{\lambda^2} = \frac{1}{an \lambda^2}. 
+\end{align*}
+Letzes gilt wegen $\sum_{i}^{} X_i \sim \textrm{Gamma}(na,\lambda)$. Nun
+berechnen wir die Fischer-Information für $X=X_i$.
+\begin{align*}
+    I_1(\lambda) &= \Var_\lambda \frac{\partial}{\partial \lambda} \log p(X,\lambda) \\
+    &= \Var_\lambda \frac{\partial}{\partial \lambda} \log \frac{\lambda^a}{\Gamma(a)} X^{a-1}e^{-\lambda X} 1_{\R_{>0}}(X) \\
+    &= \Var_\lambda \frac{\partial}{\partial \lambda} \left( a \log \lambda - \lambda X \right) \\
+    &= \Var_\lambda \left( \frac{a}{\lambda} - X \right) = \frac{a}{\lambda^2}
+\end{align*}
 Mit 
-\begin{equation}
+\begin{equation*}
     \Psi(\lambda) = q(\lambda)=E_\lambda T(X) =\frac{1}{\lambda} \\
-\end{equation}
-\begin{equation}
+\end{equation*}
+\begin{equation*}
     \left( \Psi'(\lambda) \right)^2 = \frac{1}{\lambda^4}
-\end{equation}
+\end{equation*}
 ergibt sich 
-\begin{equation}
+\begin{equation*}
     \frac{  \left( \Psi'(\lambda) \right)^2 }{n I_1(\lambda)} 
     = \frac{1}{\lambda^4} \frac{\lambda^2}{an} = \frac{1}{ an \lambda^2}
-\end{equation}
+\end{equation*}
 und
-\begin{equation}
+\begin{equation*}
     \Var_{\lambda} T(X) = \frac{  \left( \Psi'(\lambda) \right)^2 }{I(\lambda)}.
-\end{equation}
+\end{equation*}
 Damit ist $T(X)$ ein \textsc{umvue}-Schätzer für $q(\lambda)=\frac{1}{\lambda}$.
 
 
@@ -1389,53 +1398,63 @@ Damit ist $T(X)$ ein \textsc{umvue}-Schätzer für $q(\lambda)=\frac{1}{\lambda}
 
 \paragraph{Cram\'er-Rao-Schranke und die Gleichverteilung.}   % Shao E 3.22
 Seien $X_1,\ldots,X_n$ i.i.d.\ und $X_i \sim \mathcal U(0,\theta)$ mit unbekanntem 
-$\theta > 0$. Es bezeichne $I(\theta)$ die Fischer-Information. Weisen Sie nach, dass
+$\theta > 0$. Es bezeichne $I(\theta)$ die Fischer-Information. 
+\begin{enumerate}
+    \item
+Weisen Sie nach, dass
 $T(X)=\frac{n+1}{n}X_{(n)}$ ein erwartungstreuer Schätzer für $\theta$ ist und
 \begin{equation*}
 	\Var_\theta \left( T(X) \right) < \frac{1}{I(\theta)}, \quad \textrm{für alle } \theta>0. 
 \end{equation*}
-Klären Sie, wieso dies nicht im Widerspruch zu der Cram\'er-Rao-Schranke
+    \item Klären Sie, wieso dies nicht im Widerspruch zu der Cram\'er-Rao-Schranke
 \begin{equation*}
 	\Var_\theta\left( T(X) \right) \geq \frac{1}{I(\theta)}
 \end{equation*}
 steht.
+\end{enumerate}
+
 
 \paragraph*{Lösung. } Wir zeigen zuerst, dass $T(X)$ ein erwartungstreuer Schätzer
 für $\theta$ ist. Dazu berechnen wir die Verteilung von $X_{(n)}$.
-\begin{eqnarray*}
-    P\left( X_{(n)} \leq t \right) &=& P\left( X_1\leq t,\ldots, X_n\leq t \right) \\
-    &=& \left( P(X_1 \leq t) \right)^n
-\end{eqnarray*}
+\begin{align*}
+    P\left( X_{(n)} \leq t \right) &= P\left( X_1\leq t,\ldots, X_n\leq t \right) \\
+    &= \left( P(X_1 \leq t) \right)^n
+\end{align*}
 Daraus ergibt sich
-\begin{eqnarray*}
-    E_\theta X_{(n)} &=& \int_{0}^{\theta} x dP_{ X_{(n)} }(x) \\
-    &=& \int_{0}^{\theta} x \left( \frac{x^n}{\theta^n} \right)' dx \\
-    &=& \int_{0}^{\theta} n \frac{x^n}{\theta^n} dx \\
-    &=& \frac{n}{(n+1)\theta^n} \int_{0}^{\theta} (n+1)x^n dx \\
-    &=& \frac{n}{n+1} \frac{1}{\theta^n} \theta^{n+1} = \frac{n}{n+1} \theta.
-\end{eqnarray*}
+\begin{align*}
+    E_\theta X_{(n)} &= \int_{0}^{\theta} x dP_{ X_{(n)} }(x) \\
+    &= \int_{0}^{\theta} x \left( \frac{x^n}{\theta^n} \right)' dx \\
+    &= \int_{0}^{\theta} n \frac{x^n}{\theta^n} dx \\
+    &= \frac{n}{(n+1)\theta^n} \int_{0}^{\theta} (n+1)x^n dx \\
+    &= \frac{n}{n+1} \frac{1}{\theta^n} \theta^{n+1} = \frac{n}{n+1} \theta.
+\end{align*}
 Daher ist $T(X) = \frac{n+1}{n} X_{(n)}$ erwartungstreu für $\theta$.
 
-Die Fischer-Information für $X=(X_1,\ldots,X_n)\in [0,\theta]^n$ mit der Dichte
-$p_\theta(X) = \theta^{-n} 1_{[0,\theta]^n}(X)$ ist 
-\begin{eqnarray*}
-    I(\theta) &=& E_\theta\left( \frac{\partial}{\partial \theta} \log \frac{1}{\theta^n} \right)^2 \\
-    &=& E_\theta \left( \frac{\partial}{\partial \theta} -n \log \theta \right)^2 \\
-    &=& E_\theta \frac{n^2}{\theta^2} = \left( \frac{n}{\theta} \right)^2.
-\end{eqnarray*}
+Die Fischer-Information für $X_1$ ist 
+\begin{align*}
+    I_1(\theta) &= 
+    E_\theta\left( \frac{\partial}{\partial \theta} \log \frac{1}{\theta} \right)^2 \\
+    &= E_\theta \left( \frac{\partial}{\partial \theta} -\log \theta \right)^2 \\
+    &= E_\theta \frac{1}{\theta^2} = \frac{1}{\theta^2}.
+\end{align*}
+Somit ist
+\begin{equation*}
+    I(\theta) = n I_1 \left( \theta \right) = \frac{n}{\theta^2}.
+\end{equation*}
 
 Berechnen wir nun
-\begin{eqnarray*}
-    \Var T(X) &=& \Var \frac{n+1}{n} X_{(n)} \\
-    &=& E\left( \frac{n+1}{n} X_{(n)} \right)^2 - \left( E \frac{n+1}{n} X_{(n)} \right)^2 \\
-    &=& \left( \frac{n+1}{n} \right)^2 E X_{(n)}^2 - \theta^2 \\
-    E X_{(n)}^2 &=& \int_{0}^{\theta} x^2 d P_{X_{(n)}}(x) \\
-    &=& \frac{n}{\theta^n} \int_{0}^{\theta} x^{n+1} = \frac{\theta^2 n}{n+2} \\
-    \Var T(X) &=& \left( \frac{n+1}{n} \right)^2 \frac{\theta^2 n }{n+2} - \theta^2 = \frac{\theta^2}{n(n+2)}.
-\end{eqnarray*}
+\begin{align*}
+    \Var T(X) &= \Var \frac{n+1}{n} X_{(n)} \\
+    &= E\left( \frac{n+1}{n} X_{(n)} \right)^2 - \left( E \frac{n+1}{n} X_{(n)} \right)^2 \\
+    &= \left( \frac{n+1}{n} \right)^2 E X_{(n)}^2 - \theta^2 \\
+    E X_{(n)}^2 &= \int_{0}^{\theta} x^2 d P_{X_{(n)}}(x) \\
+    &= \frac{n}{\theta^n} \int_{0}^{\theta} x^{n+1} = \frac{\theta^2 n}{n+2} \\
+    \Var T(X) &= \left( \frac{n+1}{n} \right)^2 \frac{\theta^2 n }{n+2} - \theta^2 = \frac{\theta^2}{n(n+2)}.
+\end{align*}
 Damit ist 
 \begin{equation*}
-    \Var_\theta T(X) = \frac{\theta^2}{n(n+2)} < \frac{\theta^2}{n^2} = \frac{1}{I(\theta)}.
+    \Var_\theta T(X) = \frac{\theta^2}{n(n+2)} < 
+    \frac{\theta^2}{n} = \frac{1}{I(\theta)}.
 \end{equation*}
 
 Erklärung dafür ist die folgende. Der
@@ -1455,23 +1474,28 @@ Schranke
 \begin{equation*}
 	\Var_\theta \left( T(X) \right) \geq \frac{1}{I(\theta)}
 \end{equation*}
-hat. Betrachtet wenden dazu $X_1,\ldots,X_n$ i.i.d.\ mit $X_i \sim \textrm{Poiss}(\theta)$ für 
-unbekanntes $\theta>0$. Zeigen Sie, dass
+hat. Betrachtet werden dazu $X_1,\ldots,X_n$ i.i.d.\ mit $X_i \sim \textrm{Poiss}(\theta)$ für 
+unbekanntes $\theta>0$. 
+\begin{enumerate}
+    \item Zeigen Sie, dass
 \begin{equation*}
 	T(X) = \left( 1- \frac{1}{n} \right)^{ \sum_{i=1}^{n} X_i}
 \end{equation*}
-ein \textsc{umvue}-Schätzer für $g(\theta)=e^{-\theta}$ ist. Zeigen Sie weiterhin, dass die
+ein \textsc{umvue}-Schätzer für $g(\theta)=e^{-\theta}$ ist.
+    \item Zeigen Sie weiterhin, dass die
 Varianz von $T(X)$ die Schranke in der Informationsungleichung
 \begin{equation*}
 	\Var_\theta\left( T(X) \right) \geq \frac{\Phi^{'}(\theta)^2}{I(\theta)}
 \end{equation*}
 für kein $\theta$ annimmt.
+\end{enumerate}
 
-\paragraph*{Lösung. } Wir stellen zuerst sicher, dass $T(X)$ ein \textsc{umvue}-Schätzer 
-für $g(\theta)=e^{-\theta}$. Nachdem die Summe von poissonverteilten Zufallsvariablen
-wieder poissonverteilt ist, und zwar 
-$\sum_{i}^{} X_i \sim \textrm{Poiss}(\sum_{i}^{} \lambda_i)$ für 
-$X_i \sim \textrm{Poiss}(\lambda_i)$, erhalten wir
+
+\paragraph*{Lösung. } Wir stellen zuerst sicher, dass $T(X)$ ein
+\textsc{umvue}-Schätzer für $g(\theta)=e^{-\theta}$. Nachdem die Summe von
+poissonverteilten Zufallsvariablen wieder poissonverteilt ist, und zwar
+$\sum_{i}^{} X_i \sim \textrm{Poiss}(\sum_{i}^{} \lambda_i)$ für $X_i \sim
+\textrm{Poiss}(\lambda_i)$, erhalten wir
 \begin{eqnarray*}
     E_\theta T(X) &=& \sum_{k\geq 0} \left( 1-\frac{1}{n} \right)^k P\left( \sum_{i}^{} X_i =k \right)\\
     &=& \sum_{k\geq 0}^{} \left( 1-\frac{1}{n} \right)^k e^{-n\theta} \frac{(n\theta)^k}{k!} \\
@@ -1545,24 +1569,72 @@ Informationsungleichung nie angenommen wird.
 Die Zufallsvariablen $X_1,\ldots,X_n$ seien i.i.d.\ mit $X_i\sim U(\theta,\theta+1)$.
 Der Parameter $\theta$ sei unbekannt. Für die Schätzer $T_1(X) = \bar X -\frac{1}{2}$
 und $T_2(X)=X_{(1)} - \frac{1}{n+1}$ haben wir bereits
-\begin{eqnarray}
-    \Var_\theta T_1(X) &=& \frac{1}{12 n} \\
-    \Var_\theta T_2(X) &=& \frac{n}{\left( n+1 \right)^2\left( n+2 \right)}
-\end{eqnarray}
+\begin{align*}
+    \Var_\theta T_1(X) &= \frac{1}{12 n} \\
+    \Var_\theta T_2(X) &= \frac{n}{\left( n+1 \right)^2\left( n+2 \right)}
+\end{align*}
 gezeigt. Überprüfen Sie nun die beiden Schätzer auf schwache Konsistenz.
 
-\paragraph*{Lösung.} Wir wissen bereits, dass die Schätzer $T_1$ und $T_2$ erwartungstreu sind 
-sowie $E X_i = \theta + \frac{1}{2}$ gilt. Es ist leicht zu sehen, dass beide dieser Schätzer
-die Bedingungen aus der \ref{Konsistenz-Hinreichende-Bedingungen}\ Aufgabe erfüllen. 
-Es gilt für $i=1,2$
-\begin{equation}
+\paragraph*{Lösung.} 
+Wir zeigen zunächst, dass die beiden Schätzer erwartungstreu sind. 
+Es gilt
+\begin{align*}
+	E X_i &=  \int_{\R}^{} x p_\theta(x) dx 
+        = \int_{\theta}^{\theta+1} x dx = \theta + \frac{1}{2}. \\
+	E T_1(X) &=  \frac{1}{n} \sum_{i}^{} X_i - \frac{1}{2} 
+        = \frac{1}{n} \sum_{i}^{} \left( \theta + \frac{1}{2} \right) -\frac{1}{2} = \theta.
+\end{align*}
+Das heißt $T_1$ ist erwartungstreu.
+
+Nun kommen wir zu $T_2 = X_{(1)}-\frac{1}{n+1}$. Die Berechnung des Erwartungswertes führt auf
+\begin{align*}
+	E T_2(X) &= -\frac{1}{n+1} + E X_{(1)} \\
+	E X_{(1)} &= \int_{[\theta,\theta+1]^n}^{} \min\left\{ x_1,\cdots,x_n \right\} dx_1\cdots d x_n \\
+	&= \int_{[0,1]^n}^{} \min\left\{ x_1+\theta,\cdots,x_n+\theta \right\} dx_1\cdots d x_n \\
+	&= \theta + \int_{[0,1]^n}^{} \min\left\{ x_1,\cdots,x_n \right\} dx_1\cdots d x_n \\
+	&= \theta +\sum_{\sigma\in S_n}^{} \int_{0\leq x_{\sigma(1)}\leq \ldots \leq x_{\sigma(n)}\leq 1} x_{\sigma(1)} dx_1 \cdots dx_n 
+\end{align*}
+wobei die Summe über alle $n!$ Permutationen der $n$ Elemente geführt wird. Es
+gilt
+\begin{equation*}
+	\int_{0\leq x_1\leq \ldots\leq x_n\leq 1} x_1 dx_1 \cdots d x_n = 
+	\int_{0}^{1}\cdots \int_{0}^{x_2} x_1 dx_1 \cdots dx_n = 
+	\frac{1}{\left( n+1 \right)!}
+\end{equation*}
+und
+\begin{align*}
+	\sum_{\sigma\in S_n}^{} \int_{0\leq x_{\sigma(1)}\leq \ldots \leq x_{\sigma(n)}\leq 1} x_{\sigma(1)} dx_1 \cdots dx_n 
+	&=\frac{1}{n+1}.
+\end{align*}
+Wir erhalten also
+\begin{align*}
+	E X_{(1)} &= \frac{1}{n+1} + \theta
+\end{align*}
+und 
+\begin{align*}
+	E T_2 &= -\frac{1}{n+1} + E X_{(1)} = \theta.
+\end{align*}
+
+%Wir wissen bereits, dass die Schätzer $T_1$ und $T_2$ erwartungstreu sind 
+%sowie $E X_i = \theta + \frac{1}{2}$ gilt. 
+
+
+Es ist leicht zu sehen, dass beide dieser Schätzer
+die Bedingungen 
+\begin{enumerate}
+    \item $E_\theta(T^2_n)< \infty$ für alle $\theta\in\Theta$ und alle $n\in\mathbb N$.
+    \item $\lim_{n\to\infty}E_\theta(T_n) = \theta$ für alle $\theta\in\Theta$.
+    \item $\lim_{n\to\infty} \Var_\theta T_n = 0$ für alle $\theta\in\Theta$.
+\end{enumerate}
+erfüllen. Es gilt für $i=1,2$
+\begin{equation*}
     E T_i^2 = \Var T_i + (E T_i)^2 <\infty
-\end{equation}
-sowie $E T_n \to \theta$ wegen erwartungstreue und $\Var T_i \to 0$. Somit sind beide dieser
+\end{equation*}
+sowie $E T_n \to \theta$ wegen Erwartungstreue und $\Var T_i \to 0$. Somit sind beide dieser
 Schätzer schwach konsistent.
 
-Die Aussage kann man auch direkt  beweisen. Im Fall $T_1$ bietet sich die Anwendung
-des schwachen Gesetzes der großen Zahl an. Die schwache Konvertenz von $T_2$ gegen $\theta$ 
+Die Aussage kann man auch direkt beweisen. Im Fall $T_1$ bietet sich die Anwendung
+des schwachen Gesetzes der großen Zahl an. Die schwache Konvergenz von $T_2$ gegen $\theta$ 
 folgt mit Hilfe der Markov-Ungleichung.
 
 
@@ -1583,30 +1655,30 @@ Dann ist der Schätzer $T_n$ schwach konsistent, d.h.\ $T_n \to^{\mathbb P_\thet
 für $n\to\infty$.
 
 \paragraph*{Lösung.} Der Schätzer $T_n$ ist schwach konsistent wenn
-\begin{equation}
+\begin{equation*}
     P\left( |T_n -\theta|\geq \varepsilon \right) \to 0
-\end{equation}
+\end{equation*}
 wenn $n\to\infty$ für alle $\varepsilon>0$ und $\theta\in\Theta$. Wir schätzen die obige
 Wahrscheinlichkeit mit Hilfe der Markov-Ungleichung
-\begin{equation}
+\begin{equation*}
     P\left( |X|\geq \varepsilon \right) \leq \frac{E f(|X|)}{f(\varepsilon)}
-\end{equation}
+\end{equation*}
 ab und erhalten für feste $n,\theta$ und $\varepsilon$
-\begin{eqnarray}
-    P\left( |T_n -\theta|\geq \varepsilon \right) &\leq& \frac{E \left( T_n -\theta \right)^2}{\varepsilon^2} \\
-    &=& \frac{E \left( T_n^2 -2\theta T_n + \theta^2 \right) }{\varepsilon^2} \\
-    &=& \varepsilon^{-2}\left( E T_n^2 - 2\theta E T_n + \theta^2 \right) \\
-    &=& \varepsilon^{-2}\left( \Var T_n + \left( E T_n \right)^2 - 2\theta E T_n + \theta^2 \right).
-\end{eqnarray}
+\begin{align*}
+    P\left( |T_n -\theta|\geq \varepsilon \right) &\leq \frac{E \left( T_n -\theta \right)^2}{\varepsilon^2} \\
+    &= \frac{E \left( T_n^2 -2\theta T_n + \theta^2 \right) }{\varepsilon^2} \\
+    &= \varepsilon^{-2}\left( E T_n^2 - 2\theta E T_n + \theta^2 \right) \\
+    &= \varepsilon^{-2}\left( \Var T_n + \left( E T_n \right)^2 - 2\theta E T_n + \theta^2 \right).
+\end{align*}
 Laut Voraussetzung ist $T_n$ quadratisch integrierbar, daher macht die obige Berechnung Sinn.
 Für $n\to\infty$ erhalten wir
-\begin{equation}
+\begin{equation*}
     \varepsilon^{-2}\left( \Var T_n + \left( E T_n \right)^2 - 2\theta E T_n + \theta^2 \right) \to 0
-\end{equation}
+\end{equation*}
 und daraus
-\begin{equation}
+\begin{equation*}
     P\left( |T_n -\theta|\geq \varepsilon \right) \to 0.
-\end{equation}
+\end{equation*}
 Der Schätzer $T_n$ ist also schwach Konsistent.
 
 
@@ -1620,67 +1692,67 @@ der Dichte $p(x,\theta)= \theta x^{\theta-1}1_{(0,1)}(x)$ für $\theta>0$. Finde
 einen Maximum-Likelihood-Schätzer für $\theta$ und seine asymptotische Verteilung.
 
 \paragraph*{Lösung.} Die Likelihoodfunktion der Stichprobe $x_1,\ldots,x_n$ ist
-\begin{eqnarray}
-    L(x,\theta) &=& \prod_i p(x_i, \theta) = \theta^n \prod_i x_i^{\theta-1}.
-\end{eqnarray}
+\begin{align*}
+    L(x,\theta) &= \prod_i p(x_i, \theta) = \theta^n \prod_i x_i^{\theta-1}.
+\end{align*}
 Daraus erhalten wir
-\begin{eqnarray}
-    l(x,\theta) &=& \log L(x,\theta) \\
-    &=& n \log \theta + (\theta-1) \sum_{i}^{} \log x_i \\
-    \frac{\partial}{\partial\theta} l(x,\theta) &=&  \frac{n}{\theta} + \sum_{i}^{} \log x_i \\
-    \frac{\partial^2}{\partial \theta^2} l(x,\theta) &=& -\frac{n}{\theta^2} < 0 \quad \forall\theta>0.
-\end{eqnarray}
+\begin{align*}
+    l(x,\theta) &= \log L(x,\theta) \\
+    &= n \log \theta + (\theta-1) \sum_{i}^{} \log x_i \\
+    \frac{\partial}{\partial\theta} l(x,\theta) &= \frac{n}{\theta} + \sum_{i}^{} \log x_i \\
+    \frac{\partial^2}{\partial \theta^2} l(x,\theta) &= -\frac{n}{\theta^2} < 0 \quad \forall\theta>0.
+\end{align*}
 Aus der Gleichung
-\begin{equation}
+\begin{equation*}
     \frac{\partial}{\partial\theta} l(x,\theta) = 0
-\end{equation}
+\end{equation*}
 erhalten wir den Maximum-Likelihood-Schätzer
-\begin{equation}
+\begin{equation*}
     \hat \theta(X_1,\ldots,X_n) = - \frac{n}{\sum_{i}^{} \log X_i}.
-\end{equation}
+\end{equation*}
 
 Wir berechnen die Fischer-Information pro Beobachtung. 
-\begin{eqnarray}
-    I_1(\theta) &=& E_\theta \left( \frac{\partial}{\partial \theta} \log p_\theta(X) \right)^2 \\
-    &=& E_\theta \left( \frac{\partial}{\partial\theta} \log \theta + (\theta-1) \log X \right)^2 \\
-    &=& E_\theta \left( \frac{1}{\theta} + \log X \right)^2 \\
-    &=& E_\theta \left( \frac{1}{\theta^2} + \frac{2}{\theta} \log X + (\log X)^2 \right)
-\end{eqnarray}
+\begin{align*}
+    I_1(\theta) &= E_\theta \left( \frac{\partial}{\partial \theta} \log p_\theta(X) \right)^2 \\
+    &= E_\theta \left( \frac{\partial}{\partial\theta} \log \theta + (\theta-1) \log X \right)^2 \\
+    &= E_\theta \left( \frac{1}{\theta} + \log X \right)^2 \\
+    &= E_\theta \left( \frac{1}{\theta^2} + \frac{2}{\theta} \log X + (\log X)^2 \right)
+\end{align*}
 Es gilt nun
-\begin{eqnarray}
-    E_\theta \log X &=&  \int_{0}^{1} \log x \theta x^{\theta-1} dx = \int_{0}^{1} \log x (x^{\theta})' dx \\
-    &=& x^\theta \log x \Big|_0^1 - \int_{0}^{1} \frac{x^{\theta-1}}{\theta} dx = - \frac{1}{\theta} \\
+\begin{align*}
+    E_\theta \log X &=  \int_{0}^{1} \log x \theta x^{\theta-1} dx = \int_{0}^{1} \log x (x^{\theta})' dx \\
+    &= x^\theta \log x \Big|_0^1 - \int_{0}^{1} \frac{x^{\theta-1}}{\theta} dx = - \frac{1}{\theta} \\
     E_\theta (\log X)^2 &=&  \int_{0}^{1} (\log x)^2 \theta x^{\theta-1} dx \\ 
-    &=& x^\theta (\log x)^2 \Big|_0^1 - \int_{0}^{1} 2(\log x) x^{\theta-1} dx = \frac{2}{\theta^2} \\
-\end{eqnarray}
+    &= x^\theta (\log x)^2 \Big|_0^1 - \int_{0}^{1} 2(\log x) x^{\theta-1} dx = \frac{2}{\theta^2} \\
+\end{align*}
 Die Fischer-Information ist nun
-\begin{eqnarray}
-    I_1(\theta) &=& \frac{1}{\theta^2}
-\end{eqnarray}
+\begin{align*}
+    I_1(\theta) &= \frac{1}{\theta^2}
+\end{align*}
 und die asymptotische Verteilung von $\hat \theta$ erfüllt
-\begin{equation}
+\begin{equation*}
     \sqrt{n}\left( \hat\theta_n(X) - \theta_0 \right) \xrightarrow{\mathcal{L}} \mathcal N(0, \theta^2)
-\end{equation}
+\end{equation*}
 falls die Bedingungen \textsc{(ar)} erfüllt sind. Das ist in der Tat der Fall denn der Parameterraum
 $\Theta=\R_{>0}$ offen ist. Weiters gilt
-\begin{eqnarray}
-    \int_{0}^{1} \frac{\partial^2}{\partial\theta^2} p(x,\theta) dx &=& 
+\begin{align*}
+    \int_{0}^{1} \frac{\partial^2}{\partial\theta^2} p(x,\theta) dx &= 
     \int_{0}^{1} \frac{\partial^2}{\partial\theta^2} \theta x^{\theta-1} dx \\
-    &=&  \int_{0}^{1} \theta\,x^{\theta-1}\,\log ^2x+2\,x^{\theta-1}\,\log x dx\\
-    &=& \left[   x^{\theta} \log^2x  \right]_0^1 = 0
-\end{eqnarray}
+    &= \int_{0}^{1} \theta\,x^{\theta-1}\,\log ^2x+2\,x^{\theta-1}\,\log x dx\\
+    &= \left[   x^{\theta} \log^2x  \right]_0^1 = 0
+\end{align*}
 und
-\begin{eqnarray}
-    A(\theta,x) &=& \frac{\partial^2}{\partial \theta^2} \log p(x,\theta) \\
-    &=& \frac{\partial^2}{\partial \theta^2} \log \theta + (\theta-1) \log x \\
-    &=& -\frac{1}{\theta ^2}. 
-\end{eqnarray}
+\begin{align*}
+    A(\theta,x) &= \frac{\partial^2}{\partial \theta^2} \log p(x,\theta) \\
+    &= \frac{\partial^2}{\partial \theta^2} \log \theta + (\theta-1) \log x \\
+    &= -\frac{1}{\theta ^2}. 
+\end{align*}
 $A(\theta,x)$ ist von $x$ unabhängig und daher gleichmässig beschränkt in einer
 hinreichend kleinen Umgebung von $\theta_0$ die $0$ nicht enthält. $K$ kann daher konstant 
 gewählt werden. Die Fisher-Information ist positiv und aus $p(x,\theta)=p(x,\theta_0)$ f.s.\ in
 $x\in\R$ folgt $\theta=\theta_0$ denn $p(x,\theta)= \theta x^{\theta-1}$ ein Polynom in $x$ ist. 
 Damit sind die \textsc{(ar)} Regularitätsbedingungen erfüllt und obige Aussage über die
-asymptotische Verteilung des \textsc{mle} gerechtfertigt.
+asymptotische Verteilung des MLS gerechtfertigt.
 
 
 
@@ -1692,37 +1764,41 @@ asymptotische Verteilung des \textsc{mle} gerechtfertigt.
 \paragraph{Asymptotische Effizienz.} Seien $X_1,\ldots,X_n$ i.i.d.\ mit $E X_1=\mu\neq 0$,
 $\Var X_1 = 1$ und $E X_1^4 < \infty$. Der Erwartungswert $\mu$ sei unbekannt. 
 Ferner seien 
-\begin{eqnarray}
-    T_1(X) &=& \frac{1}{n} \sum_{i=1}^{n} \left( X_i^2 -1 \right) \\
-    T_2(X) &=& {\bar X}^2 - \frac{1}{n}
-\end{eqnarray}
-zwei Schätzer für $\mu^2$. Zeigen Sie, dass $T_1$ und $T_2$ asymptotisch normalverteilt sind
-und berechnen Sie deren asymptotische Erwartung und Varianz. Berechnen Sie 
-die asymptotische Effizienz von $T_1$ zu $T_2$. Zeigen Sie, dass die asymptotische
-Effizienz von $T_1$ zu $T_2$ nicht größer ist als $1$, falls Verteilung von $X_1 -\mu$
-um $0$ symmetrisch ist.
+\begin{align*}
+    T_1(X) &= \frac{1}{n} \sum_{i=1}^{n} \left( X_i^2 -1 \right) \\
+    T_2(X) &= {\bar X}^2 - \frac{1}{n}
+\end{align*}
+zwei Schätzer für $\mu^2$. 
+\begin{enumerate}
+    \item Zeigen Sie, dass $T_1$ und $T_2$ asymptotisch normalverteilt sind und
+        berechnen Sie deren asymptotische Erwartung und Varianz.
+    \item Berechnen Sie die asymptotische Effizienz von $T_1$ zu $T_2$.
+    \item Zeigen Sie, dass die asymptotische Effizienz von $T_1$ zu $T_2$ nicht
+        größer ist als $1$, falls Verteilung von $X_1 -\mu$ um $0$ symmetrisch
+        ist.
+\end{enumerate}
 
 \paragraph*{Lösung. } Betrachten wir zunächst den Schätzer $T_1$. Wir erhalten
-\begin{eqnarray}
-    E X_i^2 &=&  \Var X_i + \left( E X_i \right)^2 = 1 + \mu^2  \\
-    \sqrt{n} \left( T_1 - \mu^2 \right) &=& 
+\begin{align*}
+    E X_i^2 &=  \Var X_i + \left( E X_i \right)^2 = 1 + \mu^2  \\
+    \sqrt{n} \left( T_1 - \mu^2 \right) &= 
     \sqrt{n}\left( \frac{1}{n} \sum_{i}^{} X_i^2 -1 -\mu^2 \right) \to_d \mathcal N(0, \Var X_i^2)
-\end{eqnarray}
+\end{align*}
 indem wir zentralen Grenzverteilungssatz auf Zufallsvariablen $X_i^2$ anwenden. $\Var X_i^2$ existiert
 nach Voraussetzung.
 
 Wir bestimmen die asymptotische Verteilung von $T_2$. Zentraler Grenzverteilungssatz liefert uns
-\begin{equation}
+\begin{equation*}
     \sqrt{n}\left( \bar X - \mu \right) \to_d \mathcal N(0,1).
-\end{equation}
+\end{equation*}
 Mit Hilfe der Delta-Methode und des Satzes von
 \href{http://books.google.de/books?id=6anRT6Cz5GAC&lpg=PA101&dq=Slutsky's%20theorem&hl=de&pg=PA101#v=onepage&q&f=false}{Slutsky}
 erhalten wir
-\begin{equation}
+\begin{equation*}
     \sqrt{n}\left( T_2 - \mu^2 \right) =
     \sqrt{n}\left( {\bar X}^2 - \mu^2 \right) - \frac{1}{\sqrt{n}} \to_d 
     2\mu \mathcal N(0,1) = \mathcal N(0, 4\mu^2).
-\end{equation}
+\end{equation*}
 %Im Falle $\mu=0$ ergibt sich aus $\sqrt{n}\left( \bar X \right) \to_d \mathcal N(0,1)$ 
 %\begin{eqnarray}
 %    n\left( T_2 - \mu^2 \right) &=&  n\left( {\bar X}^2 - \frac{1}{n} \right) \\
@@ -1734,7 +1810,7 @@ erhalten wir
 %    \Var \left( V-1 \right) &=& 2.
 %\end{eqnarray}
 Die asymptotische Effizienz von $T_1$ zu $T_2$ ist gegeben durch
-\begin{equation}
+\begin{equation*}
     e(\theta, T_1, T_2) = \frac{4\mu^2}{\Var X_1^2}
 %        \left\{
 %            \begin{array}{ll}
@@ -1742,14 +1818,14 @@ Die asymptotische Effizienz von $T_1$ zu $T_2$ ist gegeben durch
 %                \frac{2}{n \Var X_1^2} & \mbox{if } \mu=0
 %            \end{array}
 %        \right.
-\end{equation}
+\end{equation*}
 
 Ist die Verteilung $X_1 - \mu$ symmetrisch um $0$, so ist die Schiefe der Verteilung
 gleich $0$, d.h.\ $E \left( X_1 -\mu \right)^3=0$ und wir können mit Hilfe der
 Jensenschen Ungleichung auf
-\begin{equation}
+\begin{equation*}
     \Var X_1^2 \geq 4 \mu^2
-\end{equation}
+\end{equation*}
 und $e\geq 1$ schliessen.
 
 
@@ -1926,13 +2002,13 @@ Test folgendermassen notieren
 \end{eqnarray}
 
 
-\begin{figure}[htb]
-    \begin{center}
-        \includegraphics[width=\textwidth]{figures/ue-blatt-12-power.pdf}
-    \end{center}
-    \caption{Die Gütefunktion des Tests $\delta(X,0)$ mit Signifikanzniveau $\alpha=0.05$.}
-    \label{fig:power}
-\end{figure}
+%\begin{figure}[htb]
+%    \begin{center}
+%        \includegraphics[width=\textwidth]{figures/ue-blatt-12-power.pdf}
+%    \end{center}
+%    \caption{Die Gütefunktion des Tests $\delta(X,0)$ mit Signifikanzniveau $\alpha=0.05$.}
+%    \label{fig:power}
+%\end{figure}
 
 
 \begin{lstlisting}[language=R,caption={R Code zum Plotten der Gütefunktion}]
@@ -2236,6 +2312,7 @@ Die Statistik $T(X)$ ist daher optimal für das Testproblem.
 
 
 
+\section{Lineare Regression}
 
 
 
@@ -2279,7 +2356,6 @@ $\textrm{Rang}\left( X \right)=p$ annehmen mussten.
 
 
 
-\section{Lineare Regression}
 
 \paragraph{Einfache lineare Regression. } Seien folgende Beobachtungen von
 $(x_i)$ und $(y_i)$ 
