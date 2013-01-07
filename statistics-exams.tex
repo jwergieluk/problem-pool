@@ -305,9 +305,9 @@ Seien $X_1,\ldots,X_n$ i.i.d.\ normalverteilt mit $X_i \sim \mathcal N \left(\th
 wobei $\theta\in\R$ ein unbekannter Parameter ist.
 \begin{enumerate}
     \item Zeigen Sie, dass die Verteilung von 
-        \begin{equation}
+        \begin{equation*}
             \sqrt{n}\left( \bar X -\theta \right)
-        \end{equation}
+        \end{equation*}
         unabhängig von dem Parameter $\theta$ ist. Dabei ist $\bar X = \frac{1}{n} \sum_{i=1}^{n} X_i$.
     \item Berechnen Sie ein $\left( 1-\alpha \right)$-Konfidenzintervall für $\theta$.
 \end{enumerate}
@@ -317,17 +317,17 @@ wobei $\theta\in\R$ ein unbekannter Parameter ist.
 \begin{enumerate}
 
     \item Die Verteilung von $\sqrt{n} \left( \bar X -\theta \right)$ ist
-        \begin{eqnarray}
+        \begin{eqnarray*}
             \sum_{i=1}^{n} X_i &\sim& \mathcal N \left( n\theta, n \right) \\
             \frac{1}{n} \sum_{i=1}^{n} X_i &\sim& \mathcal N \left( \theta, \frac{ n}{n^2} \right) \\
             \sqrt{n}\left( \bar X -\theta \right) & \sim & \mathcal N \left( 0, 1 \right),
-        \end{eqnarray}
+        \end{eqnarray*}
         also unabhängig von $\theta$.
     \item Konfidenzintervall
-        \begin{eqnarray}
+        \begin{eqnarray*}
             P_\theta \left( z_{\frac{\alpha}{2}} \leq \sqrt{n}\left( \bar X -\theta \right) \leq z_{1-\frac{\alpha}{2}}  \right) &=&  1-\alpha \\
             P_\theta \left( \theta\in \left[ \bar X - \frac{z_{1-\frac{\alpha}{2}}}{\sqrt{n}}, \bar X - \frac{z_{\frac{\alpha}{2}}}{\sqrt{n}} \right] \right) &=&  1-\alpha.
-        \end{eqnarray}
+        \end{eqnarray*}
 
 \end{enumerate}
 
@@ -902,10 +902,72 @@ Zeigen Sie folgende Aussagen.
         (zweiparametrige) exponentielle Familie. 
 \end{enumerate}
 
+\paragraph*{Lösung.}
+
+
+\paragraph{Log-Normal-Verteilung. MLS und UMVUE. }
+Gegeben seien i.i.d.\ Zufallsvariablen $X_1, \cdots, X_n$  mit der Dichte
+\begin{equation*}
+    g_{\mu}(x) = \frac{1}{x \sqrt{2\pi}} \exp \left( - \frac{ \left( \log x - \mu \right)^2 }{2} \right) \ 1_{\R_{>0}}(x)
+\end{equation*}
+und dem unbekannten Parameter $\mu \in \R$. 
+\begin{enumerate}
+    \item Finden Sie einen Maximum-Likelihood-Schätzer (MLS) für den Parameter $\mu$. 
+    \item Zeigen Sie, dass die gemeinsame Dichte des Zufallsvektors $\left(
+        X_1, \cdots, X_n \right)$ einer einparametrigen exponentiellen Familie
+        angehört. 
+    \item Zeigen Sie, dass der von Ihnen gefundene MLS erwartungstreu ist.
+        Dabei können Sie die obige Darstellung als natürliche exponentielle
+        Familie benutzen oder direkt den Erwartungswert von dem MLS berechnen. 
+    \item Finden Sie einen UMVUE Schätzer für $\mu$. 
+\end{enumerate}
+
+\paragraph*{Lösung. } Einer Standardprozedur folgend berechnen wir den MLS. 
+\begin{align*}
+    L(x_1, \cdots, x_n) &= \prod x_i^{-1} \ \sqrt{2 \pi}^n 
+    \exp \left( - \frac{1}{2} \sum_{i=1}^{n} \left( \log x_i - \mu \right)^2 \right) \\
+    l(x_1, \cdots, x_n) &= - \sum_{i}^{} x_i - \frac{n}{2} \log 2\pi \ -\frac{1}{2} \sum_{i}^{} \left( \log x_i -\mu \right)^2 \\
+    \frac{\partial}{\partial \mu} l &= \sum_{i}^{} \left( \log x_i -\mu \right) = \sum_{i}^{} \log x_i - n\mu. \\
+    \frac{\partial^2}{\partial \mu^2} l &= -n <0 \\
+    \hat \mu &= \frac{1}{n} \sum_{i}^{} \log x_i.
+\end{align*}
+Die Darstellung als natürliche exponentielle Familie ist
+\begin{equation*}
+    g(x) = \exp \left( \mu \log x - \frac{\mu^2}{2} - \log x - \frac{\left( \log x \right)^2}{2} - \log \sqrt{2\pi} \right).
+\end{equation*}
+Daraus erhalten wir
+\begin{align*}
+    g(x_1, \cdots, x_n) &= \exp \left( c(\mu) T(X) + d_0 (\mu) + S(x) \right) 1_{\R_{>0}}(x) \\
+    c(\mu) &= \mu \\
+    T(X) &= \sum_{i}^{} \log x_i \\
+    d_0(\mu) &= - \frac{n \mu^2}{2}.
+\end{align*}
+Mit Hilfe der Formel 
+\begin{equation*}
+    \E\ T(X) = - d_0'(\mu) = n \mu. 
+\end{equation*}
+können wir nun den Erwartungswert der natürlichen suffizienten Statistik $T(X)$ berechnen. 
+Damit ist der MLS $\hat \mu = \frac{1}{n} \sum_{i}^{} \log x_i$ ein
+erwartungstreuer Schätzer. Nachdem $c(\R)$ offenes Rechteck enthält, ist die Statistik 
+$T(X)$ vollständig und nach dem Satz von Lehmann-Scheff\'e $\hat \mu$ ein UMVUE Schätzer. 
+
+
+\paragraph{Hut-Verteilung. Momentenschätzer. } Gegeben seien
+i.i.d.\ Zufallsvariablen $X_1,\cdots, X_n$ mit der Dichte 
+\begin{align*}
+    \Lambda_a(x) &= \left[ \frac{1}{a} - \frac{|x|}{a^2} \right] 1_{[-a,a]}(x)
+\end{align*}
+und dem unbekannten Parameter $a>0$. 
+\begin{enumerate}
+    \item Zeigen Sie, dass die geraden Momente von $X_1$ durch die Formel
+        \begin{equation*}
+            \E X_1 = 2 a^n \left( \frac{1}{n+1} - \frac{1}{n+2} \right)
+        \end{equation*}
+        gegeben sind und alle ungeraden Momente verschwinden. 
+    \item Geben Sie einen Momentenschätzer für den Parameter $a$ an.
+\end{enumerate}
 
 
 
-
-
-
+% vim: set spelllang=de: set spell:
 

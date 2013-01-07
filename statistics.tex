@@ -1835,31 +1835,35 @@ und $e\geq 1$ schliessen.
 
 \section{Konfidenzintervalle}
 
-\paragraph{Konfidenzintervalle. Normalverteilung. } Seien $X_1,\ldots,X_n$ i.i.d.\ mit 
+\paragraph{Konfidenzintervall. Normalverteilung. } Seien $X_1,\ldots,X_n$ i.i.d.\ mit 
 $X_i\sim \mathcal N(\mu,\sigma^2)$, wobei sowohl $\mu$ als auch $\sigma$ unbekannt seien.
 Zeigen Sie, dass
-\begin{equation}
+\begin{equation*}
     \left[ \frac{n-1}{\chi^2_{n-1,1-\alpha/2}}s^2(X), \frac{n-1}{\chi^2_{n-1,\alpha/2}}s^2(X) \right]
-    \label{}
-\end{equation}
-win $\left( 1-\alpha \right)$-Konfidenzintervall für $\sigma^2$ ist, wobei
+\end{equation*}
+ein $\left( 1-\alpha \right)$-Konfidenzintervall für $\sigma^2$ ist, wobei
 $s^2(X)$ die Stichprobenvarianz und $\chi^2_{n,a}$ das $a$-Quantil der $\chi^2_n$-Verteilung bezeichnen.
 
-\paragraph*{Lösung.} Die Verteilung der Stichprobenvarianz ist bereits bekannt.
-\begin{equation}
-    \frac{(n-1) s^2(X)}{\sigma^2} = \sum_{i}^{} \left( \frac{ X_i -\bar X}{\sigma} \right)^2
+\paragraph*{Lösung.}
+Die Stichprobenvarianz ist definiert durch
+\begin{equation*}
+    s^2(X) := \frac{1}{n-1} \sum_{i=1}^{n} (X_i - \bar X)^2.
+\end{equation*}
+Die Verteilung der Stichprobenvarianz ist bereits bekannt.
+\begin{equation*}
+    \frac{(n-1) s^2(X)}{\sigma^2} = \sum_{i=1}^{n} \left( \frac{ X_i -\bar X}{\sigma} \right)^2
     \sim \chi^2_{n-1}
-\end{equation}
+\end{equation*}
 Das Konfidenzintervall erhalten wir aus
-\begin{eqnarray}
+\begin{align*}
     P \left( \frac{n-1}{\chi^2_{n-1,1-\frac{\alpha}{2}} } s^2(X) 
     \leq \sigma^2 \leq 
     \frac{n-1}{ \chi^2_{n-1,\frac{\alpha}{2}} } s^2(X)
-    \right) &=& \\
+    \right) &= \\
     P \left( \frac{n-1}{\sigma^2} s^{2}(X) \leq \chi^2_{n-1,1-\frac{\alpha}{2}} \wedge
     \chi^2_{n-1,\frac{\alpha}{2}} \leq \frac{n-1}{\sigma^2} s^2(X)
-    \right) &=& 1-\alpha.
-\end{eqnarray}
+    \right) &= 1-\alpha.
+\end{align*}
 
 
 
@@ -1868,35 +1872,35 @@ Das Konfidenzintervall erhalten wir aus
 
 
 
-\paragraph{Konfidenzintervalle. Exponentialverteilung.  }
+\paragraph{Konfidenzintervall. Exponentialverteilung.  }
 Seien $X_1,\ldots,X_n$ i.i.d.\ exponentialverteilt mit der Dichte
-\begin{equation}
+\begin{equation*}
     p_\theta(x) = \theta e^{- \theta x} 1_{ \R_{>0} }(x).
-\end{equation}
+\end{equation*}
 Zeigen Sie, dass 
-\begin{equation}
+\begin{equation*}
     \left[  \frac{- \log \left( 1 - \frac{\alpha}{2} \right)}{n X_{(1)}}, 
     \frac{- \log \left( \frac{\alpha}{2} \right)}{n X_{(1)}} \right]
-\end{equation}
+\end{equation*}
 ein $(1-\alpha)$-Konfidenzintervall für $\theta$ ist.
 
 \paragraph*{Lösung.} Zu zeigen ist folgende Gleichung, die das 
 Konfidenzintervall charakterisiert:
-\begin{equation}
+\begin{equation*}
     P\left(   \frac{- \log \left( 1 - \frac{\alpha}{2} \right)}{n X_{(1)}} \leq \theta \leq 
     \frac{- \log \left( \frac{\alpha}{2} \right)}{n X_{(1)}} \right) = 1-\alpha.
-\end{equation}
+\end{equation*}
 Betrachten wir die Wahrscheinlichkeiten
-\begin{eqnarray}
-    P \left( n\theta X_{(1)}\geq x \right) &=&  \prod_i P \left( n\theta X_i \geq x \right) \\
-    &=& \prod_i P\left( X_i \geq \frac{x}{n\theta} \right) \\
-    &=& \prod_i e^{-\frac{x}{n}} = e^{-x}.
-\end{eqnarray}
+\begin{align*}
+    P \left( n\theta X_{(1)}\geq x \right) &=  \prod_i P \left( n\theta X_i \geq x \right) \\
+    &= \prod_i P\left( X_i \geq \frac{x}{n\theta} \right) \\
+    &= \prod_i e^{-\frac{x}{n}} = e^{-x}.
+\end{align*}
 Die Gleichung
-\begin{equation}
+\begin{equation*}
     P \left( c_1(\alpha) \leq n\theta X_{(1)} \leq c_2(\alpha) \right) = 
     e^{-c_1(\alpha)} - e^{-c_2(\alpha)} = 1-\alpha
-\end{equation}
+\end{equation*}
 ist unter anderem für $c_1 = -\log \left( 1-\frac{\alpha}{2} \right)$ und
 $c_2 = -\log \left( \frac{\alpha}{2} \right)$ erfüllt.
 
@@ -1904,30 +1908,30 @@ $c_2 = -\log \left( \frac{\alpha}{2} \right)$ erfüllt.
 
 
 
-\paragraph{Konfidenzintervalle. Varianzenvergleich bei Normalverteilung. } 
+\paragraph{Konfidenzintervall. Varianzenvergleich bei Normalverteilung. } 
 Seien $X_1,\ldots,X_n,Y_1,\ldots,Y_n$ unabhängig und normalverteilt, mit 
 $X_i \sim \mathcal N(0, \sigma^2_X)$, $Y_i \sim \mathcal N(0, \sigma^2_Y)$
 und unbekannten Parametern $\sigma^2_X>0$ und $\sigma^2_Y>0$. 
 Zeigen Sie, dass für $S^2_X = \sum_{i=1}^{n} X_i^2$ und $S^2_Y = \sum_{i=1}^{n} Y_i^2$
-\begin{equation}
+\begin{equation*}
     \left[ F^{-1}_{n,n} \left( \frac{\alpha}{2} \right) \frac{S_Y^2}{S_X^2},
     F^{-1}_{n,n} \left( 1 - \frac{\alpha}{2}  \right) \frac{S_Y^2}{S_X^2}     \right]
-\end{equation}
+\end{equation*}
 ein $(1-\alpha)$-Konfidenzintervall für den Quotienten $\frac{\sigma^2_Y}{\sigma^2_X}$ ist.
 $F_{n,n}$ bezeichnet dabei die Verteilungsfunktion der $F_{n,n}$-Verteilung.
 
 \paragraph*{Lösung.} Zu zeigen ist die Gleichung
-\begin{equation}
+\begin{equation*}
     P \left[ F^{-1}_{n,n} \left( \frac{\alpha}{2} \right) \frac{S_Y^2}{S_X^2} \leq 
     \frac{\sigma^2_Y}{\sigma^2_X} \leq
     F^{-1}_{n,n} \left( 1 - \frac{\alpha}{2}  \right) \frac{S_Y^2}{S_X^2}     \right]
     = 1-\alpha.
-\end{equation}
+\end{equation*}
 Es gilt aber 
-\begin{equation}
+\begin{equation*}
     \frac{\sigma^{-2}_X S^2_X  }{ \sigma^{-2}_Y S^2_Y} = 
     \frac{\sum_{i}^{} \left( \frac{X_i}{\sigma_X} \right)^2  }{ \sum_{i}^{} \left( \frac{Y_i}{\sigma_Y} \right)^2 } \sim F_{n,n}.
-\end{equation}
+\end{equation*}
 
 
 \section{Testtheorie}
