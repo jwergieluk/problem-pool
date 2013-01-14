@@ -544,6 +544,23 @@ Zeigen Sie die folgenden Aussagen.
 \end{enumerate}
 
 
+\paragraph{Rayleigh-Verteilung. Momentenschätzer. } Seien $X_1, \cdots, X_n$ i.i.d.\ 
+Rayleigh-verteilt mit der Dichte
+\begin{equation*}
+    p_\theta(x) = \frac{x}{\theta^2} \exp \left( - \frac{x^2}{2 \theta^2} \right) 1_{\R_{>0}}(x)
+\end{equation*}
+und dem unbekannten Parameter $\theta>0$. 
+\begin{enumerate}
+    \item Beweisen Sie die Formel
+        \begin{equation*}
+            \E X^{2n}_i = 2^{n} \theta^{2n} \Gamma(n+1)
+        \end{equation*}
+        für alle $n\in\bN$. 
+        
+    \item Finden Sie einen Momentenschätzer für $\theta$ basierend auf dem zweiten Moment von $X_i$.
+
+\end{enumerate}
+
 
 \section{Kleinste-Quadrate-Schätzer}
 
@@ -2430,13 +2447,13 @@ plot(X,Y); lines(t, b_0 + b_1 * t, lw=2)
 dev.off()
 \end{lstlisting}
 
-\begin{figure}[htb]
-    \begin{center}
-        \includegraphics[width=\textwidth]{figures/ue-blatt-14-reg.pdf}
-    \end{center}
-    \caption{Regression von $X$ gegen $Y$}
-    \label{fig:reg}
-\end{figure}
+%\begin{figure}[htb]
+%    \begin{center}
+%        \includegraphics[width=\textwidth]{figures/ue-blatt-14-reg.pdf}
+%    \end{center}
+%    \caption{Regression von $X$ gegen $Y$}
+%    \label{fig:reg}
+%\end{figure}
 
 
 

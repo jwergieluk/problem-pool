@@ -968,6 +968,39 @@ und dem unbekannten Parameter $a>0$.
 \end{enumerate}
 
 
+\paragraph{Gleichverteilung. Konfidenzintervall.} Seien $X_1, \cdots, X_n$
+i.i.d.\ und stetig gleichverteilt auf dem Intervall $\left[ 0,\theta \right]$
+mit $\theta>0$. D.h.\  die Dichte von $X_1\sim U(0,\theta)$ ist $p_\theta(x) = \theta^{-1}
+1_{\left[ 0,\theta \right]}(x)$.
+\begin{enumerate}
+    \item Zeigen Sie, dass die Zufallsvariable $\frac{X_{\left( n \right)}}{\theta}$ ein
+        Pivot ist. Dabei ist $X_{\left( n \right)} = \max \left\{ X_1, \cdots, X_n \right\}$. 
+    \item Zeigen Sie, dass 
+        \begin{equation*}
+            \left[ \frac{X_{\left( n \right)}}{ \left( 1- \frac{\alpha}{2} \right)^{1/n}},
+            \frac{X_{\left( n \right)}}{ \left( \frac{\alpha}{2} \right)^{1/n}}
+            \right]
+        \end{equation*}
+        ein $(1-\alpha)$-Konfidenzintervall für $\theta$ ist. 
+\end{enumerate}
+
+\paragraph*{Lösung.} Wir berechnen zunächst die Verteilung von $X_{(n)}$. Für $0 \leq \eta \leq \theta$
+gilt
+\begin{align*}
+    P\left( X_{(n)} < \eta \right) &= P \left( X_1 < \eta \wedge \cdots \wedge X_n < \eta \right) \\
+    &= \prod_{i=1}^{n} P \left( X_i < \eta \right) \\
+    &= \left( \frac{\eta}{\theta} \right)^n.
+\end{align*}
+Es gilt also $P \left( X_{(n)}/\theta < \eta \right) = \eta^{n}$. Damit erhalten wir 
+\begin{equation*}
+    P \left( \theta \in 
+        \left[ \frac{X_{\left( n \right)}}{ \left( 1- \frac{\alpha}{2} \right)^{1/n}},
+            \frac{X_{\left( n \right)}}{ \left( \frac{\alpha}{2} \right)^{1/n}}
+        \right]
+    \right) = 1 - \alpha.
+\end{equation*}
+
+
 
 % vim: set spelllang=de: set spell:
 
