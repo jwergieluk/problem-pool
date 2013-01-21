@@ -2344,6 +2344,272 @@ Die Statistik $T(X)$ ist daher optimal für das Testproblem.
 
 
 
+\paragraph{Poissonverteilung. Neyman-Pearson-Test.} Seien $X_1, \cdots, X_n$ i.i.d.\
+Poissonverteilt mit dem Parameter $\lambda>0$ und der Wahrscheinlichkeitsfunktion
+\begin{equation*}
+    P(X_1 = k) = e^{-\lambda} \frac{ \lambda^k}{k!}, \quad k \in \left\{ 0, 1, \cdots \right\}.
+\end{equation*}
+Für das Testproblem $H_0 : \lambda=\lambda_0$ gegen $H_1 : \lambda=\lambda_1$
+mit $0<\lambda_0<\lambda_1$ soll ein Neyman-Pearson-Test
+\begin{equation*}
+    \delta_l^\star (X) = 1_{ \left\{ L(x,\lambda_0,\lambda_1)\geq l \right\}  }
+\end{equation*}
+entwickelt werden.
+\begin{enumerate}
+    \item Berechnen Sie die Likelihood-Quotienten-Statistik
+        $L(X,\lambda_0,\lambda_1)$ basierend auf der Beobachtung von $X=\left(
+        X_1,\ldots,X_n \right)$.
+    \item Zeigen Sie, dass die Statistik $T(X)= \sum_{i=1}^{n} X_i$ ebenfalls
+        eine optimale Statistik für dieses Testproblem ist.
+    \item Zeigen Sie, dass die Summe $X_1+X_2$ Poissonverteilt mit dem
+        Parameter $2 \lambda$ ist und schliessen Sie daraus auf $X_1 + \cdots +
+        X_n \sim \text{Poiss}(n \lambda)$. 
+    \item Seien nun $\lambda_0=1$ und $\lambda_1=2$. Es wurde folgende Stichprobe beobachtet:
+        \begin{lstlisting}
+2 1 2 0 5 1 0 1 1 0
+        \end{lstlisting}
+        Testen Sie mit Hilfe von 
+        \begin{equation*}
+            \delta_l(X) = 1_{   \left\{ T(X) \geq l \right\}},
+        \end{equation*}
+        ob die Nullhypothese $H_0 : \lambda_0=1$ bei Signifikanzniveau
+        $\alpha=0.05$ verworfen werden kann. Dabei können Sie die nachstehende
+        Liste der Werte der Verteilungsfunktion der Poissonverteilung mit dem
+        Parameter $\kappa=10$ verwenden.  D.h.\ jede Zeile der Liste
+        enthält das Paar  $\left( k, \sum_{i=0}^{k} e^{-\kappa}
+        \frac{\kappa^{i}}{i!}\right)$.
+% Distribution function of Poisson(10)
+\begin{lstlisting}
+ 0 0.00004539993
+ 1 0.00049939923
+ 2 0.00276939572
+ 3 0.01033605068
+ 4 0.02925268808
+ 5 0.06708596288
+ 6 0.13014142088
+ 7 0.22022064660
+ 8 0.33281967875
+ 9 0.45792971447
+10 0.58303975019
+11 0.69677614630
+12 0.79155647639
+13 0.86446442262
+14 0.91654152707
+15 0.95125959670
+16 0.97295839022
+17 0.98572238640
+18 0.99281349540
+19 0.99654565802
+\end{lstlisting}
+\end{enumerate}
+
+\paragraph*{Lösung.}
+\begin{enumerate}
+    
+    \item Die Likelihood-Funktion für dieses Testproblem ist 
+        \begin{equation*}
+            L(X, \lambda_0, \lambda_1) = \frac{\prod_i e^{-\lambda_1} \frac{\lambda_1^{x_i}}{x_i!}}
+            {\prod_i e^{-\lambda_0} \frac{\lambda_0^{x_i}}{x_i!}} =
+            \prod_i \left(  \frac{\lambda_1}{\lambda_0} \right)^{x_i} e^{\lambda_0 - \lambda_1}.
+        \end{equation*}
+
+    \item Die nachstehenden Statistiken sind ebenfalls optimal, da sie monotone Transformationen der
+        Likelihood-Quotienten-Statistik sind.
+        \begin{align*}
+            T_1(X) &= \left( \frac{\lambda_1}{\lambda_0} \right)^{\sum_{i}^{} x_i} \\
+            T (X) &= \sum_{i}^{} x_i.
+        \end{align*}
+    
+    \item Wir berechnen
+        \begin{align*}
+            P \left( X_1+X_2 = k \right) &= \sum_{i=0}^{k} P \left( X_1=i \wedge X_2 = k-i \right) \\
+            &= \sum_{i=0}^{k} e^{-\lambda} \frac{\lambda^i}{i!} e^{-\lambda} \frac{\lambda^{k-i}}{(k-i)!} \\
+            &= e^{-2\lambda} \lambda^k \sum_{i=0}^{k} \frac{1}{i! (k-i)!} \\
+            \sum_{i=0}^{k} \frac{1}{i! (k-i)!} &= \sum_{i=0}^{k} \binom{k}{i} \frac{1}{k!} \\
+            &= \frac{1}{k!} 2^k \\
+            P \left( X_1+X_2 = k \right) &= e^{-2\lambda} \frac{ \lambda^k 2^k   }{k!}. 
+        \end{align*}
+        Das heisst $X_1+X_2\sim\text{Poiss}(2\lambda)$ und $X_1, \cdots, X_n
+        \sim \text{Poiss}(n\lambda)$.
+
+    \item Aus der obigen Beobachtung folgt $n=10$ und $\sum_{i}^{} x_i = 13.$ Eine optimalen Test mit
+        Signifikanzniveau $\alpha=0.05$ erhalten indem wir aus
+        \begin{align*}
+            P_{\lambda_0} \left( T(X) \geq l \right) & \leq \alpha \\
+            P_{\lambda_0} \left( \sum_{i}^{} X_i \geq l \right) &= 1 - P\left( T(X) < l \right).
+        \end{align*}
+        Die Liste liefert $l=16$. Die Nullhypothese kann also nicht verworfen werden.
+
+\end{enumerate}
+
+
+
+
+\paragraph{Geometrische Verteilung. Neyman-Pearson-Test.} Seien $X_1,\ldots,X_n$ 
+i.i.d.\ geometrisch verteilt mit der Wahrscheinlichkeitsfunktion
+\begin{equation*}
+    \pi(k) = \bP(X_i = k) = p \left( 1-p \right)^k, \quad k\in\left\{ 0,1,2, \ldots \right\}
+\end{equation*}
+und Parameter $p\in \left( 0,1 \right)$.
+Für das Testproblem $H_0 : p=p_0$ gegen $H_1 : p=p_1$ mit $1>p_0 > p_1 >0$ 
+soll ein Neyman-Pearson-Test
+\begin{equation*}
+    \delta_k^\star (X) = 1_{ \left\{ L(x,p_0,p_1)\geq k \right\}  }
+\end{equation*}
+entwickelt werden.
+\begin{enumerate}
+    \item Berechnen Sie die Likelihood-Quotienten-Statistik $L(X,p_0,p_1)$ basierend auf der
+        Beobachtung von $\left( X_1,\ldots,X_n \right)$.
+    \item Zeigen Sie, dass die Statistik $T(X)= \sum_{i=1}^{n} X_i$ ebenfalls eine
+        optimale Statistik für dieses Testproblem ist.
+    \item Seien nun $p_0=\frac{2}{3}$ und $p_1=\frac{1}{3}$. Es wurde folgende Stichprobe ($n=7$) beobachtet:
+        \begin{lstlisting}
+1 0 1 0 0 0 4
+        \end{lstlisting}   % rgeom(7, 0.66666666)
+        Testen Sie mit Hilfe von 
+        \begin{equation*}
+            \delta_l(X) = 1_{   \left\{ T(X) \geq l \right\}},
+        \end{equation*}
+        ob die Nullhypothese $H_0 : p_0=\frac{2}{3}$ bei Signifikanzniveau $\alpha=0.05$
+        verworfen werden kann. In der nachstehenden Tabelle finden Sie die Werte der Verteilungsfunktion
+        von $T(X)$ für $n=7$ und $p=\frac{2}{3}$. D.h.\ jede Zeile enthält ein Paar 
+        $\left( k, \bP_{\frac{2}{3}} \left( T(X) \leq k \right) \right)$.
+        \begin{lstlisting}
+0   0.05852766
+1   0.1950922
+2   0.3771783
+3   0.5592643
+4   0.7110027
+5   0.8222775
+6   0.8964608
+7   0.9423837
+8   0.9691721
+9   0.9840545
+10  0.9919918
+\end{lstlisting}   % for( q in 0:25 ) { print(c(q, pnbinom(q, 7, 0.66666666666)))     }         
+\emph{Bemerkung.} $T(X)$ ist negativ binomialverteilt mit Parametern $\left( n,p \right)$.
+\end{enumerate}
+
+\paragraph*{Lösung.}
+\begin{enumerate}
+    \item Die Wahrscheinlichkeitsfunktion von dem Vektor $\left( X_1, \ldots, X_n \right)$ ist
+        \begin{eqnarray*}
+            \pi\left( k_1, \ldots, k_n \right) &=& \prod_i p(1-p)^{k_i} \\
+            &=& p^n (1-p)^{\sum_{i}^{} k_i}.
+        \end{eqnarray*}
+        Somit ist die Likelihood-Quotienten-Statistik gegeben durch
+        \begin{eqnarray*}
+            L( (k_i), p_0, p_1) &=& \frac{p_1^n (1-p_1)^{\sum_{i} k_i}}{ p_0^n (1-p_0)^{\sum_{i} k_i}} \\
+            &=& \left( \frac{p_1}{p_0} \right)^n \left( \frac{1-p_1}{1-p_0} \right)^{\sum_{i} k_i}.
+        \end{eqnarray*}
+    \item Da 
+        \begin{equation*}
+            \frac{1-p_1}{1-p_0} > 1,
+        \end{equation*}
+        entsteht $T(X) = \sum_{i}^{} X_i$ aus $L( (X_i), p_0, p_1 )$ durch eine monotone Transformation.
+        Damit ist $T(X)$ ebenfalls eine optimale Statistik für dieses Testproblem.
+    \item Wir berechnen zunächst den zu dem Signifikanzniveau $\alpha=0.05$ gehörigen Verwerfungsbereich
+        $[l, +\infty)$. 
+        \begin{eqnarray*}
+            \bP_{p_0} \left( T(X) \geq l \right) & \leq & \alpha \\
+            \bP_{p_0} \left( \sum_{i}^{} X_i < l \right) & \geq & 1-\alpha \\ 
+            \bP_{p_0} \left( \sum_{i}^{} X_i \leq l-1 \right) & \geq & 0.95 \\ 
+        \end{eqnarray*}
+        Aus der Tabelle lesen wir $l-1=8$ ab und somit $l=9$. Nachdem $T(X)=6$, kann die Nullhypothese
+        nicht verworfen werden.
+\end{enumerate}
+
+
+
+
+
+
+
+\paragraph{Bernoulli-Verteilung. Neyman-Pearson-Test.} Seien $X_1,\ldots,X_n$ 
+i.i.d.\ Bernoulli($p$) Zufallsvariablen mit Wahrscheinlichkeitsfunktion
+\begin{equation*}
+    P(X_i = k) = p^{k} \left( 1-p \right)^{1-k}, \quad k\in\left\{ 0,1 \right\}.
+\end{equation*}
+Für das Testproblem $H_0 : p=p_0$ gegen $H_1 : p=p_1$ mit $0<p_0<p_1<1$ 
+soll ein Neyman-Pearson-Test
+\begin{equation*}
+    \delta_k^\star (X) = 1_{ \left\{ L(x,p_0,p_1)\geq k \right\}  }
+\end{equation*}
+entwickelt werden.
+\begin{enumerate}
+    \item Berechnen Sie die Likelihood-Quotienten-Statistik $L(X,p_0,p_1)$ basierend auf der
+        Beobachtung von $\left( X_1,\ldots,X_n \right)$.
+    \item Zeigen Sie, dass die Statistik $T(X)= \sum_{i=1}^{n} X_i$ ebenfalls eine
+        optimale Statistik für dieses Testproblem ist.
+    \item Seien nun $p_0=\frac{1}{2}$ und $p_1=\frac{3}{4}$. Es wurde folgende Stichprobe beobachtet:
+        \begin{lstlisting}
+0 1 1 0 1 0 1 1 1 1 1 1 1
+        \end{lstlisting}
+        Testen Sie mit Hilfe von 
+        \begin{equation*}
+            \delta_l(X) = 1_{   \left\{ T(X) \geq l \right\}},
+        \end{equation*}
+        ob die Nullhypothese $H_0 : p_0=\frac{1}{2}$ bei Signifikanzniveau $\alpha=0.05$
+        verworfen werden kann. Dabei können Sie die nachstehende Liste der Paare 
+        $\left( k, \sum_{i=k}^{n} \binom{n}{i} p_0^i \left( 1-p_0 \right)^{n-i} \right)$ verwenden.
+        \begin{lstlisting}
+0  1
+1  0.9998779296875
+2  0.998291015625
+3  0.98876953125
+4  0.953857421875
+5  0.8665771484375
+6  0.70947265625
+7  0.5
+8  0.29052734375
+9  0.1334228515625
+10 0.046142578125
+11 0.01123046875
+12 0.001708984375
+13 0.0001220703125
+\end{lstlisting}            
+
+\end{enumerate}
+
+
+\paragraph*{Lösung.}
+\begin{enumerate}
+
+    \item Die Likelihood-Quotienten-Statistik ist 
+        \begin{eqnarray*}
+            L(x,p_0,p_1) &=& \frac{ \prod_{i} p_1^{x_i}\left( 1-p_1 \right)^{1-x_i} }{ \prod_{i} p_0^{x_i}\left( 1-p_0 \right)^{1-x_i} } \\
+            &=& \left( \frac{p_1}{p_0} \right)^{\sum_{i} x_i} \left( \frac{1-p_1}{1-p_0} \right)^{n - \sum_{i} x_i} \\ 
+            &=& \left( \frac{1-p_1}{1-p_0} \right)^n 
+            \left( \frac{ p_1 \left( 1-p_0 \right)}{ p_0 \left( 1-p_1 \right)} \right)^{\sum_{i}^{} x_i}.
+        \end{eqnarray*}
+    \item Optimale Statistiken sind auch
+        \begin{eqnarray*}
+            T_1(X) &=&  \left( \frac{ p_1 \left( 1-p_0 \right)}{ p_0 \left( 1-p_1 \right)} \right)^{\sum_{i}^{} x_i} \\
+            T_2(X) &=& \left( \sum_{i}^{} x_i \right) \log \frac{ p_1 \left( 1-p_0 \right)}{ p_0 \left( 1-p_1 \right)}. 
+        \end{eqnarray*}
+        Die Ungleichung $p_1(1-p_0)> p_0(1-p_1)$ impliziert
+        \begin{equation*}
+            \log \frac{ p_1 \left( 1-p_0 \right)}{ p_0 \left( 1-p_1 \right)} >0 
+        \end{equation*}
+        und
+        \begin{eqnarray*}
+            T(X) &=& \sum_{i}^{} x_i
+        \end{eqnarray*}
+        ist ebenfalls optimale Statistik.
+    \item Für die angegebene Beobachtung ist $T(X)=10$. Der zum Signifikanzniveau $\alpha=0.05$ 
+        gehörige kritische Wert folgt aus
+        \begin{eqnarray*}
+            P_{p_0} \left( T(X) \geq k \right) &\leq& \alpha \\
+            P_{p_0} \left( \sum_{i=1}^{n} X_i \geq k \right) &\leq& \alpha \\
+            \sum_{i=k}^{n} \binom{n}{i} p_0^i \left( 1-p_0 \right)^{n-i} & \leq & \alpha
+        \end{eqnarray*}
+        Laut Tabelle wählen wir $k=10$. Die Nullhypothese wird also verworfen.
+\end{enumerate}
+
+
+
+
+
 \section{Lineare Regression}
 
 
@@ -2782,87 +3048,6 @@ mit dem Parameter $\theta\in\Theta= \left\{ \eta\in\R : \eta>-1 \right\}$. Die D
 
 
 
-\paragraph{Bernoulli-Verteilung. Neyman-Pearson-Test.} Seien $X_1,\ldots,X_n$ 
-i.i.d.\ Bernoulli($p$) Zufallsvariablen mit Wahrscheinlichkeitsfunktion
-\begin{equation*}
-    P(X_i = k) = p^{k} \left( 1-p \right)^{1-k}, \quad k\in\left\{ 0,1 \right\}.
-\end{equation*}
-Für das Testproblem $H_0 : p=p_0$ gegen $H_1 : p=p_1$ mit $0<p_0<p_1<1$ 
-soll ein Neyman-Pearson-Test
-\begin{equation*}
-    \delta_k^\star (X) = 1_{ \left\{ L(x,p_0,p_1)\geq k \right\}  }
-\end{equation*}
-entwickelt werden.
-\begin{enumerate}
-    \item Berechnen Sie die Likelihood-Quotienten-Statistik $L(X,p_0,p_1)$ basierend auf der
-        Beobachtung von $\left( X_1,\ldots,X_n \right)$.
-    \item Zeigen Sie, dass die Statistik $T(X)= \sum_{i=1}^{n} X_i$ ebenfalls eine
-        optimale Statistik für dieses Testproblem ist.
-    \item Seien nun $p_0=\frac{1}{2}$ und $p_1=\frac{3}{4}$. Es wurde folgende Stichprobe beobachtet:
-        \begin{lstlisting}
-0 1 1 0 1 0 1 1 1 1 1 1 1
-        \end{lstlisting}
-        Testen Sie mit Hilfe von 
-        \begin{equation*}
-            \delta_l(X) = 1_{   \left\{ T(X) \geq l \right\}},
-        \end{equation*}
-        ob die Nullhypothese $H_0 : p_0=\frac{1}{2}$ bei Signifikanzniveau $\alpha=0.05$
-        verworfen werden kann. Dabei können Sie die nachstehende Liste der Paare 
-        $\left( k, \sum_{i=k}^{n} \binom{n}{i} p_0^i \left( 1-p_0 \right)^{n-i} \right)$ verwenden.
-        \begin{lstlisting}
-0  1
-1  0.9998779296875
-2  0.998291015625
-3  0.98876953125
-4  0.953857421875
-5  0.8665771484375
-6  0.70947265625
-7  0.5
-8  0.29052734375
-9  0.1334228515625
-10 0.046142578125
-11 0.01123046875
-12 0.001708984375
-13 0.0001220703125
-\end{lstlisting}            
-
-\end{enumerate}
-
-
-
-\paragraph*{Lösung.}
-\begin{enumerate}
-
-    \item Die Likelihood-Quotienten-Statistik ist 
-        \begin{eqnarray*}
-            L(x,p_0,p_1) &=& \frac{ \prod_{i} p_1^{x_i}\left( 1-p_1 \right)^{1-x_i} }{ \prod_{i} p_0^{x_i}\left( 1-p_0 \right)^{1-x_i} } \\
-            &=& \left( \frac{p_1}{p_0} \right)^{\sum_{i} x_i} \left( \frac{1-p_1}{1-p_0} \right)^{n - \sum_{i} x_i} \\ 
-            &=& \left( \frac{1-p_1}{1-p_0} \right)^n 
-            \left( \frac{ p_1 \left( 1-p_0 \right)}{ p_0 \left( 1-p_1 \right)} \right)^{\sum_{i}^{} x_i}.
-        \end{eqnarray*}
-    \item Optimale Statistiken sind auch
-        \begin{eqnarray*}
-            T_1(X) &=&  \left( \frac{ p_1 \left( 1-p_0 \right)}{ p_0 \left( 1-p_1 \right)} \right)^{\sum_{i}^{} x_i} \\
-            T_2(X) &=& \left( \sum_{i}^{} x_i \right) \log \frac{ p_1 \left( 1-p_0 \right)}{ p_0 \left( 1-p_1 \right)}. 
-        \end{eqnarray*}
-        Die Ungleichung $p_1(1-p_0)> p_0(1-p_1)$ impliziert
-        \begin{equation*}
-            \log \frac{ p_1 \left( 1-p_0 \right)}{ p_0 \left( 1-p_1 \right)} >0 
-        \end{equation*}
-        und
-        \begin{eqnarray*}
-            T(X) &=& \sum_{i}^{} x_i
-        \end{eqnarray*}
-        ist ebenfalls optimale Statistik.
-    \item Für die angegebene Beobachtung ist $T(X)=10$. Der zum Signifikanzniveau $\alpha=0.05$ 
-        gehörige kritische Wert folgt aus
-        \begin{eqnarray*}
-            P_{p_0} \left( T(X) \geq k \right) &\leq& \alpha \\
-            P_{p_0} \left( \sum_{i=1}^{n} X_i \geq k \right) &\leq& \alpha \\
-            \sum_{i=k}^{n} \binom{n}{i} p_0^i \left( 1-p_0 \right)^{n-i} & \leq & \alpha
-        \end{eqnarray*}
-        Laut Tabelle wählen wir $k=10$. Die Nullhypothese wird also verworfen.
-\end{enumerate}
 
 
 
@@ -3268,81 +3453,6 @@ Des weiteren gelten für $c>0$ die Beziehungen
 
 
 
-\paragraph{Geometrische Verteilung. Neyman-Pearson-Test.} Seien $X_1,\ldots,X_n$ 
-i.i.d.\ geometrisch verteilt mit der Wahrscheinlichkeitsfunktion
-\begin{equation*}
-    \pi(k) = \bP(X_i = k) = p \left( 1-p \right)^k, \quad k\in\left\{ 0,1,2, \ldots \right\}
-\end{equation*}
-und Parameter $p\in \left( 0,1 \right)$.
-Für das Testproblem $H_0 : p=p_0$ gegen $H_1 : p=p_1$ mit $1>p_0 > p_1 >0$ 
-soll ein Neyman-Pearson-Test
-\begin{equation*}
-    \delta_k^\star (X) = 1_{ \left\{ L(x,p_0,p_1)\geq k \right\}  }
-\end{equation*}
-entwickelt werden.
-\begin{enumerate}
-    \item Berechnen Sie die Likelihood-Quotienten-Statistik $L(X,p_0,p_1)$ basierend auf der
-        Beobachtung von $\left( X_1,\ldots,X_n \right)$.
-    \item Zeigen Sie, dass die Statistik $T(X)= \sum_{i=1}^{n} X_i$ ebenfalls eine
-        optimale Statistik für dieses Testproblem ist.
-    \item Seien nun $p_0=\frac{2}{3}$ und $p_1=\frac{1}{3}$. Es wurde folgende Stichprobe ($n=7$) beobachtet:
-        \begin{lstlisting}
-1 0 1 0 0 0 4
-        \end{lstlisting}   % rgeom(7, 0.66666666)
-        Testen Sie mit Hilfe von 
-        \begin{equation*}
-            \delta_l(X) = 1_{   \left\{ T(X) \geq l \right\}},
-        \end{equation*}
-        ob die Nullhypothese $H_0 : p_0=\frac{2}{3}$ bei Signifikanzniveau $\alpha=0.05$
-        verworfen werden kann. In der nachstehenden Tabelle finden Sie die Werte der Verteilungsfunktion
-        von $T(X)$ für $n=7$ und $p=\frac{2}{3}$. D.h.\ jede Zeile enthält ein Paar 
-        $\left( k, \bP_{\frac{2}{3}} \left( T(X) \leq k \right) \right)$.
-        \begin{lstlisting}
-0   0.05852766
-1   0.1950922
-2   0.3771783
-3   0.5592643
-4   0.7110027
-5   0.8222775
-6   0.8964608
-7   0.9423837
-8   0.9691721
-9   0.9840545
-10  0.9919918
-\end{lstlisting}   % for( q in 0:25 ) { print(c(q, pnbinom(q, 7, 0.66666666666)))     }         
-\emph{Bemerkung.} $T(X)$ ist negativ binomialverteilt mit Parametern $\left( n,p \right)$.
-\end{enumerate}
-
-\paragraph*{Lösung.}
-\begin{enumerate}
-    \item Die Wahrscheinlichkeitsfunktion von dem Vektor $\left( X_1, \ldots, X_n \right)$ ist
-        \begin{eqnarray*}
-            \pi\left( k_1, \ldots, k_n \right) &=& \prod_i p(1-p)^{k_i} \\
-            &=& p^n (1-p)^{\sum_{i}^{} k_i}.
-        \end{eqnarray*}
-        Somit ist die Likelihood-Quotienten-Statistik gegeben durch
-        \begin{eqnarray*}
-            L( (k_i), p_0, p_1) &=& \frac{p_1^n (1-p_1)^{\sum_{i} k_i}}{ p_0^n (1-p_0)^{\sum_{i} k_i}} \\
-            &=& \left( \frac{p_1}{p_0} \right)^n \left( \frac{1-p_1}{1-p_0} \right)^{\sum_{i} k_i}.
-        \end{eqnarray*}
-    \item Da 
-        \begin{equation*}
-            \frac{1-p_1}{1-p_0} > 1,
-        \end{equation*}
-        entsteht $T(X) = \sum_{i}^{} X_i$ aus $L( (X_i), p_0, p_1 )$ durch eine monotone Transformation.
-        Damit ist $T(X)$ ebenfalls eine optimale Statistik für dieses Testproblem.
-    \item Wir berechnen zunächst den zu dem Signifikanzniveau $\alpha=0.05$ gehörigen Verwerfungsbereich
-        $[l, +\infty)$. 
-        \begin{eqnarray*}
-            \bP_{p_0} \left( T(X) \geq l \right) & \leq & \alpha \\
-            \bP_{p_0} \left( \sum_{i}^{} X_i < l \right) & \geq & 1-\alpha \\ 
-            \bP_{p_0} \left( \sum_{i}^{} X_i \leq l-1 \right) & \geq & 0.95 \\ 
-        \end{eqnarray*}
-        Aus der Tabelle lesen wir $l-1=8$ ab und somit $l=9$. Nachdem $T(X)=6$, kann die Nullhypothese
-        nicht verworfen werden.
-\end{enumerate}
-
-
 
 
 
@@ -3519,7 +3629,7 @@ erwartungstreuer Schätzer. Nachdem $c(\R)$ offenes Rechteck enthält, ist die S
 $T(X)$ vollständig und nach dem Satz von Lehmann-Scheff\'e $\hat \mu$ ein UMVUE Schätzer. 
 
 
-\paragraph{Hut-Verteilung. Momentenschätzer. } Gegeben seien
+\paragraph{Dreiecksverteilung. Momentenschätzer.} Gegeben seien
 i.i.d.\ Zufallsvariablen $X_1,\cdots, X_n$ mit der Dichte 
 \begin{align*}
     \Lambda_a(x) &= \left[ \frac{1}{a} - \frac{|x|}{a^2} \right] 1_{[-a,a]}(x)
