@@ -2436,7 +2436,7 @@ entwickelt werden.
         Signifikanzniveau $\alpha=0.05$ erhalten indem wir aus
         \begin{align*}
             P_{\lambda_0} \left( T(X) \geq l \right) & \leq \alpha \\
-            P_{\lambda_0} \left( \sum_{i}^{} X_i \geq l \right) &= 1 - P\left( T(X) < l \right).
+            P_{\lambda_0} \left( \sum_{i}^{} X_i \geq l \right) &= 1 - P\left( \sum_{i}^{} X_i < l \right).
         \end{align*}
         Die Liste liefert $l=16$. Die Nullhypothese kann also nicht verworfen werden.
 
@@ -2613,6 +2613,131 @@ entwickelt werden.
 \section{Lineare Regression}
 
 
+\paragraph{Lineare Regression mit Schalter.} Gegeben sei das Model
+\begin{align*}
+    Y_i &=  \beta_0 x_i + \varepsilon_i \quad\quad i=1,\ldots ,m \\
+    Y_i &= \beta_1 + \varepsilon_i \quad\quad  i=m+1, \ldots , m+n
+\end{align*}
+mit $m,n \in \bN$ und $\varepsilon_i \in \cN \left( 0, \sigma^2 \right)$, i.i.d.\ $\sigma>0$.
+\begin{enumerate}
+    \item Geben Sie die Designmatrix $X$ für dieses Model explizit an.
+    \item Berechnen Sie den Kleinste-Quadrate-Schätzer $\left( \hat \beta_0, \hat \beta_1 \right)$ 
+        basierend auf der Beobachtung von  
+        $\left( Y_1, \ldots , Y_{m+n} \right)$ und $\left( X_1, \ldots , X_m \right)$.
+    \item Berechnen Sie den Kleinste-Quadrate-Schätzer $\left( \hat \beta_0,
+        \hat \beta_1 \right)$ basierend auf der Beobachtung von
+        \begin{align*}
+            Y &= \left( 1,4,2,8,6,0 \right)^\top \\
+            X &= \left( 3,2,1 \right)^\top.
+        \end{align*}
+\end{enumerate}
+
+\paragraph*{Lösung.}
+\begin{enumerate}
+    \item Die Desingmatrix für dieses Model ist
+            \begin{equation*}
+                X = \left(
+                \begin{array}{cc}
+                    x_1 & 0 \\
+                    \vdots & \vdots \\
+                    x_m & 0 \\
+                    0 & 1 \\
+                    \vdots & \vdots \\
+                    0 & 1 
+                \end{array}
+                \right).
+            \end{equation*}
+        \item Die allgemeine Form des LSE ist 
+            $\hat \beta = \left( X^\top X \right)^{-1} X^\top Y$. Wir berechnen
+            \begin{align*}
+                X^\top X &= \left(
+                \begin{array}{cc}
+                    \sum_{i=1}^{m} x_i^2 & 0 \\
+                    0 & n 
+                \end{array}
+                \right) \\
+                \left( X^\top X \right)^{-1} &= \left(
+                \begin{array}{cc}
+                    \frac{1}{\sum_{i=1}^{m} x_i^2} & 0 \\
+                    0 & \frac{1}{n} 
+                \end{array}
+                \right) \\
+                \left( X^\top X \right)^{-1} X^\top &= \left(
+                \begin{array}{cccccc}
+                    \frac{x_1}{\sum_{i=1}^{m} x_i^2} & \cdots & \frac{x_m}{\sum_{i=1}^{m} x_i^2} & 
+                        0 & \cdots & 0 \\
+                        0& \cdots &0& \frac{1}{n} & \cdots & \frac{1}{n} 
+                \end{array}
+                \right) \\
+                \left( X^\top X \right)^{-1} X^\top Y &= 
+                \left(
+                \begin{array}{c}
+                    \frac{1}{\sum_{i=1}^{m} x_i^2} \left( x_1 y_1 + \ldots + x_m y_m \right)  \\
+                    \frac{1}{n} \left( y_{m+1}+ \ldots + y_{m+n} \right)
+                \end{array}
+                \right) = \left(
+                \begin{array}{c}
+                    \hat\beta_0 \\ \hat\beta_1
+                \end{array}
+                \right).
+            \end{align*}
+        \item Die Beobachtung impliziert $m=3$ und $n=3$. Mit der obigen Formel erhalten wir
+            $\hat \beta_0 = \frac{13}{14}$ und $\hat \beta_1 = \frac{14}{3}$.
+\end{enumerate}
+
+
+
+
+
+
+\paragraph{$3$-Stichprobenproblem. } 
+Gegeben sei das Modell
+\begin{equation*}
+    Y_{kl} = \beta_k + \varepsilon_{kl}
+\end{equation*}
+mit $k\in \left\{ 1,2,3 \right\}$, $l\in \left\{ 1,2 \right\}$ und 
+$\varepsilon_{kl}\sim \mathcal N(0,\sigma^2)$, i.i.d.\  $\sigma>0$.
+\begin{enumerate}
+    \item Geben Sie die Designmatrix $X$ für dieses Model explizit an.
+    \item Geben Sie eine koordinatenfreie Darstellung dieses Models an.
+    \item Berechnen Sie Kleinste-Quadrate-Schätzwerte basierend auf der Beobachtung
+        \begin{equation*}
+            \left( Y_{11},Y_{12},Y_{21},Y_{22},Y_{31},Y_{32} \right) = \left(74, 92, 16, 22, 98, 16 \right).
+        \end{equation*}
+\end{enumerate}
+
+
+\paragraph*{Lösung.}
+\begin{enumerate}
+
+    \item Das Gleichungsystem in der Kurzschreibweise:
+        \begin{equation*}
+            Y = X \beta + \varepsilon
+        \end{equation*}
+        Dabei ist $Y= \left( Y_1,Y_2,Y_3 \right)^\top$, $\beta = \left( \beta_1,\beta_2,\beta_3 \right)^\top$,
+        $\varepsilon \sim\mathcal N\left( 0, \sigma^2 I_6 \right)$
+        und die Designmatrix
+        \begin{equation*}
+            X = \left( {\begin{array}{ccc} 1&0&0\\ 1&0&1\\ 0&1&0\\ 0&1&0\\ 0&0&1\\ 0&0&1 \end{array}   } \right).
+        \end{equation*}
+
+    \item Koordinatenfreie Darstellung ist $Y = \zeta + \varepsilon$ mit 
+        \begin{equation*}
+            \zeta^\top = \left( \beta_1,\beta_1,\beta_2,\beta_2,\beta_3,\beta_3 \right).
+        \end{equation*}
+
+    \item Wegen Rang$(X)=p$ ist der Kleinste-Quadrate-Schätzer für $\beta$ gegeben durch 
+        $\hat \beta = \left( X^\top X \right)^{-1} X^\top Y$. Das führt uns auf 
+        \begin{eqnarray*}
+            \hat\beta_1 &=&  \frac{1}{2} \left( Y_1+Y_2 \right)    \\
+            \hat\beta_2 &=&  \frac{1}{2} \left( Y_3+Y_4 \right)    \\
+            \hat\beta_3 &=&  \frac{1}{2} \left( Y_5+Y_6 \right).
+        \end{eqnarray*}
+        Entsprechende Werte sind also zu mitteln.
+
+\end{enumerate}
+
+
 
 \paragraph{KQS ist auch MLS im Normalverteilungsfall. }
 Zeigen Sie, dass der Kleinste-Quadrate-Schätzer $\hat \beta$ auch Maximum-Likelihood-Schätzer 
@@ -2735,9 +2860,75 @@ plot(X,Y); lines(t, b_0 + b_1 * t, lw=2)
 
 
 
+\paragraph{Quadratisches Modell. KQS.} Es sei das Modell 
+\begin{equation*}
+    Y_i = \beta_0 + \beta_1 x_i + \beta_2 x_{i}^2 + \varepsilon_i
+\end{equation*}
+für $i=1,\ldots,n$ gegeben. Die zufälligen Fehler $\varepsilon_1,\ldots,\varepsilon_n$ 
+seien i.i.d.\ und $\varepsilon_i\sim \mathcal N(0,\sigma^2)$ mit $\sigma>0$. 
+$\left( \beta_0, \beta_1, \beta_2 \right)$ sind die unbekannten Parameter. 
+\begin{enumerate}
+    \item Geben Sie die Designmatrix $X$ für dieses Model explizit an.
+    \item Berechnen Sie den Kleinste-Quadrate-Schätzer $\left( \hat \beta_0,
+        \hat \beta_1, \hat \beta_2 \right)$ basierend auf der Beobachtung von
+        \begin{align*}
+            X &= \left( 2,0,1,-1 \right)^\top \\
+            Y &= \left( 3,1,-1,1 \right)^\top.
+        \end{align*}
+        Für diese Beobachtung gilt ausserdem
+        \begin{equation*}
+            \left( 
+                \begin{matrix}
+                    \sum_{i}^{}x_i^2 & \sum_{i}^{} x_i^{3} \\
+                    \sum_{i}^{} x_i^3 & \sum_{i}^{} x_i^4 \\
+                \end{matrix}
+            \right)^{-1} = 
+            \frac{1}{22} \left( 
+            \begin{matrix}
+                9 & -4 \\
+                -4 & 3 \\
+            \end{matrix}
+            \right).
+        \end{equation*}
+\end{enumerate}
+
+\paragraph*{Lösung.} Das Modell lässt sich in der Form
+\begin{equation*}
+    Y = X \beta + \varepsilon
+\end{equation*}
+schreiben, wobei die Designmatrix durch 
+\begin{equation*}
+    X^\top = \left(
+    \begin{array}{cccc}
+        x_1     & x_2   & \ldots & x_n \\
+        x_1^2   & x_2^2 & \ldots & x_n^2
+    \end{array}
+    \right)
+\end{equation*} 
+gegeben ist. Im Falle mit $\textrm{Rang}(X) = 2$ gilt für den
+Kleinste-Quadrate-Schätzer $\hat \beta = \left( X^{\top} X \right)^{-1}
+x^{\top} Y$. Die Auswertung dieser Formel liefert
+\begin{equation*}
+    X^\top X = \left(
+    \begin{array}{ccc}
+        \sum_{i}^{} x_i^2 & \sum_{i}^{} x_i^3 \\
+        \sum_{i}^{} x_i^3 & \sum_{i}^{} x_i^4 \\
+    \end{array}
+    \right)
+\end{equation*}
+und 
+\begin{equation*}
+    \left( X^{\top} X \right)^{-1} X^{\top} Y = \frac{1}{11} \left( 
+    \begin{matrix}
+        -6 \\ 10
+    \end{matrix}
+    \right).
+\end{equation*}
 
 
-\paragraph{Quadratisches Modell. }  Es sei das Modell
+
+
+\paragraph{Quadratisches Modell. Explizite Form des KQS.}  Es sei das Modell
 \begin{equation*}
     Y_i = \beta_0 + \beta_1 x_i + \beta_2 x_{i}^2 + \varepsilon_i
 \end{equation*}
@@ -3161,53 +3352,6 @@ Abbildung $\eta$ gegeben.
 
 
 
-\paragraph{$3$-Stichprobenproblem. } 
-Gegeben sei das Modell
-\begin{equation*}
-    Y_{kl} = \beta_k + \varepsilon_{kl}
-\end{equation*}
-mit $k\in \left\{ 1,2,3 \right\}$, $l\in \left\{ 1,2 \right\}$ und 
-$\varepsilon_{kl}\sim \mathcal N(0,\sigma^2)$, i.i.d.\  $\sigma>0$.
-\begin{enumerate}
-    \item Geben Sie die Designmatrix $X$ für dieses Model explizit an.
-    \item Geben Sie eine koordinatenfreie Darstellung dieses Models an.
-    \item Berechnen Sie Kleinste-Quadrate-Schätzwerte basierend auf der Beobachtung
-        \begin{equation*}
-            \left( Y_{11},Y_{12},Y_{21},Y_{22},Y_{31},Y_{32} \right) = \left(74, 92, 16, 22, 98, 16 \right).
-        \end{equation*}
-\end{enumerate}
-
-
-\paragraph*{Lösung.}
-\begin{enumerate}
-
-    \item Das Gleichungsystem in der Kurzschreibweise:
-        \begin{equation*}
-            Y = X \beta + \varepsilon
-        \end{equation*}
-        Dabei ist $Y= \left( Y_1,Y_2,Y_3 \right)^\top$, $\beta = \left( \beta_1,\beta_2,\beta_3 \right)^\top$,
-        $\varepsilon \sim\mathcal N\left( 0, \sigma^2 I_6 \right)$
-        und die Designmatrix
-        \begin{equation*}
-            X = \left( {\begin{array}{ccc} 1&0&0\\ 1&0&1\\ 0&1&0\\ 0&1&0\\ 0&0&1\\ 0&0&1 \end{array}   } \right).
-        \end{equation*}
-
-    \item Koordinatenfreie Darstellung ist $Y = \zeta + \varepsilon$ mit 
-        \begin{equation*}
-            \zeta^\top = \left( \beta_1,\beta_1,\beta_2,\beta_2,\beta_3,\beta_3 \right).
-        \end{equation*}
-
-    \item Wegen Rang$(X)=p$ ist der Kleinste-Quadrate-Schätzer für $\beta$ gegeben durch 
-        $\hat \beta = \left( X^\top X \right)^{-1} X^\top Y$. Das führt uns auf 
-        \begin{eqnarray*}
-            \hat\beta_1 &=&  \frac{1}{2} \left( Y_1+Y_2 \right)    \\
-            \hat\beta_2 &=&  \frac{1}{2} \left( Y_3+Y_4 \right)    \\
-            \hat\beta_3 &=&  \frac{1}{2} \left( Y_5+Y_6 \right).
-        \end{eqnarray*}
-        Entsprechende Werte sind also zu mitteln.
-        
-
-\end{enumerate}
 
 
 
@@ -3270,78 +3414,6 @@ Der Parameter $\lambda$ dagegen unbekannt und $\lambda > 0$.
 \end{enumerate}
 
 
-
-\paragraph{Lineare Regression mit Schalter.} Gegeben sei das Model
-\begin{align*}
-    Y_i &=  \beta_0 x_i + \varepsilon_i \quad\quad i=1,\ldots ,m \\
-    Y_i &= \beta_1 + \varepsilon_i \quad\quad  i=m+1, \ldots , m+n
-\end{align*}
-mit $m,n \in \bN$ und $\varepsilon_i \in \cN \left( 0, \sigma^2 \right)$, i.i.d.\ $\sigma>0$.
-\begin{enumerate}
-    \item Geben Sie die Designmatrix $X$ für dieses Model explizit an.
-    \item Berechnen Sie den Kleinste-Quadrate-Schätzer $\left( \hat \beta_0, \hat \beta_1 \right)$ 
-        basierend auf der Beobachtung von  
-        $\left( Y_1, \ldots , Y_{m+n} \right)$ und $\left( X_1, \ldots , X_m \right)$.
-    \item Berechnen Sie den Kleinste-Quadrate-Schätzer $\left( \hat \beta_0,
-        \hat \beta_1 \right)$ basierend auf der Beobachtung von
-        \begin{align*}
-            Y &= \left( 1,4,2,8,6,0 \right)^\top \\
-            X &= \left( 3,2,1 \right)^\top.
-        \end{align*}
-\end{enumerate}
-
-\paragraph*{Lösung.}
-\begin{enumerate}
-    \item Die Desingmatrix für dieses Model ist
-            \begin{equation*}
-                X = \left(
-                \begin{array}{cc}
-                    x_1 & 0 \\
-                    \vdots & \vdots \\
-                    x_m & 0 \\
-                    0 & 1 \\
-                    \vdots & \vdots \\
-                    0 & 1 
-                \end{array}
-                \right).
-            \end{equation*}
-        \item Die allgemeine Form des LSE ist 
-            $\hat \beta = \left( X^\top X \right)^{-1} X^\top Y$. Wir berechnen
-            \begin{align*}
-                X^\top X &= \left(
-                \begin{array}{cc}
-                    \sum_{i=1}^{m} x_i^2 & 0 \\
-                    0 & n 
-                \end{array}
-                \right) \\
-                \left( X^\top X \right)^{-1} &= \left(
-                \begin{array}{cc}
-                    \frac{1}{\sum_{i=1}^{m} x_i^2} & 0 \\
-                    0 & \frac{1}{n} 
-                \end{array}
-                \right) \\
-                \left( X^\top X \right)^{-1} X^\top &= \left(
-                \begin{array}{cccccc}
-                    \frac{x_1}{\sum_{i=1}^{m} x_i^2} & \cdots & \frac{x_m}{\sum_{i=1}^{m} x_i^2} & 
-                        0 & \cdots & 0 \\
-                        0& \cdots &0& \frac{1}{n} & \cdots & \frac{1}{n} 
-                \end{array}
-                \right) \\
-                \left( X^\top X \right)^{-1} X^\top Y &= 
-                \left(
-                \begin{array}{c}
-                    \frac{1}{\sum_{i=1}^{m} x_i^2} \left( x_1 y_1 + \ldots + x_m y_m \right)  \\
-                    \frac{1}{n} \left( y_{m+1}+ \ldots + y_{m+n} \right)
-                \end{array}
-                \right) = \left(
-                \begin{array}{c}
-                    \hat\beta_0 \\ \hat\beta_1
-                \end{array}
-                \right).
-            \end{align*}
-        \item Die Beobachtung impliziert $m=3$ und $n=3$. Mit der obigen Formel erhalten wir
-            $\hat \beta_0 = \frac{13}{14}$ und $\hat \beta_1 = \frac{14}{3}$.
-\end{enumerate}
 
 
 
@@ -3570,7 +3642,7 @@ Parametern $(\mu,\sigma)\in \Theta = \R \times \R_{>0}$ ist
 \end{equation*}
 Zeigen Sie folgende Aussagen.
 \begin{enumerate}
-    \item Sei $X\sim \cN (0, \frac{1}{\sqrt{\sigma}})$ normalverteilt mit $\sigma>0$.
+    \item Sei $X\sim \cN (0, \frac{1}{\sigma})$ normalverteilt mit $\sigma>0$.
         Die Zufallsvariable $\frac{1}{X^2}$ ist L\'evy-verteilt mit den Parametern
         $(0,\sigma)$.
     \item Wenn $\mu=0$ festgehalten wird, ist die Familie $(p_{(0,\sigma)})_{\sigma>0}$
@@ -3579,7 +3651,39 @@ Zeigen Sie folgende Aussagen.
         (zweiparametrige) exponentielle Familie. 
 \end{enumerate}
 
-\paragraph*{Lösung.}
+\paragraph*{Lösung.} 
+\begin{enumerate}
+    \item Für ein $y>0$ gilt
+        \begin{align*}
+            P \left( \frac{1}{X^{2}} \leq y \right) &= P \left( 1 \leq y X^{2}   \right) \\
+            &= P \left( \sqrt{\frac{1}{y}} \leq | X | \right) \\
+            &= 2 \left( 1 - P \left( X < \frac{1}{\sqrt{y}} \right) \right) \\
+            &= 2 \left( 1 - \Phi\left( \sqrt{ \frac{\sigma}{y}} \right) \right).
+        \end{align*}
+        Die Dichte von $\frac{1}{X^2}$ erhalten wir durchs Differenzieren:
+        \begin{align*}
+            \frac{\partial}{\partial y} P \left( \frac{1}{X^2} \leq y \right) &=
+            -2 \phi \left( \sqrt{\frac{\sigma}{y}} \right) \sqrt{\sigma} 
+            \left( -\frac{1}{2} y^{-\frac{3}{2}} \right) \\
+            &= \sqrt{\frac{\sigma}{2 \pi}} \exp \left( - \frac{\sigma}{2 y} \right) y^{-\frac{3}{2}}.
+        \end{align*}
+        Daher ist $\frac{1}{X^2} \sim \text{L\'evy}(\sigma)$.
+
+    \item Für $\mu=0$ lässt sich die Dichte der L\'evy-Verteilung in der Form
+        \begin{equation*}
+            p_{0,\sigma}(y) = \exp \left( -\frac{\sigma}{2y} - \frac{3}{2}\log y 
+            + \frac{1}{2} \log \frac{\sigma}{2 \pi}  \right) 1_{\R_{\geq 0}} (y)
+        \end{equation*}
+        darstellen.
+
+    \item Im allgemeinen Fall ist der Träger der Dichte $p_{\mu,\sigma}$ von $\mu$ abhängig und daher
+        kann $p_{\mu,\sigma}$ keine exponentielle Familie sein.
+
+\end{enumerate}
+
+
+
+
 
 
 \paragraph{Log-Normal-Verteilung. MLS und UMVUE. }
@@ -3629,6 +3733,9 @@ erwartungstreuer Schätzer. Nachdem $c(\R)$ offenes Rechteck enthält, ist die S
 $T(X)$ vollständig und nach dem Satz von Lehmann-Scheff\'e $\hat \mu$ ein UMVUE Schätzer. 
 
 
+
+
+
 \paragraph{Dreiecksverteilung. Momentenschätzer.} Gegeben seien
 i.i.d.\ Zufallsvariablen $X_1,\cdots, X_n$ mit der Dichte 
 \begin{align*}
@@ -3638,11 +3745,30 @@ und dem unbekannten Parameter $a>0$.
 \begin{enumerate}
     \item Zeigen Sie, dass die geraden Momente von $X_1$ durch die Formel
         \begin{equation*}
-            \E X_1 = 2 a^n \left( \frac{1}{n+1} - \frac{1}{n+2} \right)
+            \E X_1^n = 2 a^n \left( \frac{1}{n+1} - \frac{1}{n+2} \right)
         \end{equation*}
         gegeben sind und alle ungeraden Momente verschwinden. 
     \item Geben Sie einen Momentenschätzer für den Parameter $a$ an.
 \end{enumerate}
+
+\paragraph*{Lösung.} 
+\begin{enumerate}
+    \item Die Momente ergeben sich aus
+        \begin{align*}
+            \E X_1^n &= \int_{-a}^{a} \left( \frac{1}{a} - \frac{|x|}{a^2} \right) x^n dx.
+        \end{align*}
+        Für gerade $n$ ist $\E X_1^n=0$. Für ungerade $n$ erhalten wir
+        \begin{align*}
+            \E X_1^{n} &= 2 \int_{0}^{a} \left( \frac{1}{a} - \frac{x}{a^2} \right) x^{n} \\
+            &= \frac{2}{a} \left( \frac{1}{n+1} a^{n+1} \right) - \frac{2}{a^2} \frac{1}{n+2}a^{n+2} \\
+            &= 2 a^{n} \left( \frac{1}{n+1}- \frac{1}{n+2} \right).
+        \end{align*}
+    \item Aus $\E X_1^2 = \frac{a^2}{6}$ ergibt sich ein Momentenschätzer für
+        $a$ in der Form $\hat a = \sqrt{6 m_2}$ mit $m_2 = \sum_{i}^{} X_i^2$. 
+\end{enumerate}
+
+
+
 
 
 \paragraph{Gleichverteilung. Konfidenzintervall.} Seien $X_1, \cdots, X_n$
