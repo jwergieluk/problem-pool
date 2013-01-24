@@ -848,8 +848,9 @@ Binärdarstellung von $i\in \bN$ angibt. $T(X)$ ist erwartungstreu, wenn
 \begin{equation*}
     \E \, T(X) = \frac{p}{1-p}
 \end{equation*}
-gelten würde. Nachdem aber $\E\, T(X)$ ein Polynom in $p$ ist und $\frac{p}{1-p}$ nicht
-als Polynom darstellbar ist, kann es keinen erwartungstreuen Schätzer für $q(p)$ geben. 
+gilt. Nachdem aber $\E\, T(X)$ ein Polynom in $p$ ist und $\frac{p}{1-p}$ nicht
+als Polynom darstellbar ist, kann es keinen erwartungstreuen Schätzer für
+$q(p)$ geben. 
 
 
 \paragraph{Verschobene Gleichverteilung. } 
@@ -2344,17 +2345,13 @@ Die Statistik $T(X)$ ist daher optimal für das Testproblem.
 
 
 
-\paragraph{Poissonverteilung. Neyman-Pearson-Test.} Seien $X_1, \cdots, X_n$ i.i.d.\
+\paragraph{Poissonverteilung. Optimaler Test.} Seien $X_1, \cdots, X_n$ i.i.d.\
 Poissonverteilt mit dem Parameter $\lambda>0$ und der Wahrscheinlichkeitsfunktion
 \begin{equation*}
     P(X_1 = k) = e^{-\lambda} \frac{ \lambda^k}{k!}, \quad k \in \left\{ 0, 1, \cdots \right\}.
 \end{equation*}
 Für das Testproblem $H_0 : \lambda=\lambda_0$ gegen $H_1 : \lambda=\lambda_1$
-mit $0<\lambda_0<\lambda_1$ soll ein Neyman-Pearson-Test
-\begin{equation*}
-    \delta_l^\star (X) = 1_{ \left\{ L(x,\lambda_0,\lambda_1)\geq l \right\}  }
-\end{equation*}
-entwickelt werden.
+mit $0<\lambda_0<\lambda_1$ soll ein optimaler Test entwickelt werden.
 \begin{enumerate}
     \item Berechnen Sie die Likelihood-Quotienten-Statistik
         $L(X,\lambda_0,\lambda_1)$ basierend auf der Beobachtung von $X=\left(
@@ -2432,11 +2429,13 @@ entwickelt werden.
         Das heisst $X_1+X_2\sim\text{Poiss}(2\lambda)$ und $X_1, \cdots, X_n
         \sim \text{Poiss}(n\lambda)$.
 
-    \item Aus der obigen Beobachtung folgt $n=10$ und $\sum_{i}^{} x_i = 13.$ Eine optimalen Test mit
-        Signifikanzniveau $\alpha=0.05$ erhalten indem wir aus
+    \item Die oben angeführte Stichprobe liefert $n=10$ und $\sum_{i}^{} x_i =
+        13$. Den kritischen Bereich des optimalen Tests mit Signifikanzniveau
+        $\alpha=0.05$ erhalten wir aus
         \begin{align*}
             P_{\lambda_0} \left( T(X) \geq l \right) & \leq \alpha \\
-            P_{\lambda_0} \left( \sum_{i}^{} X_i \geq l \right) &= 1 - P\left( \sum_{i}^{} X_i < l \right).
+            P_{\lambda_0} \left( \sum_{i}^{} X_i \geq l \right) 
+            &= 1 - P\left( \sum_{i}^{} X_i < l \right).
         \end{align*}
         Die Liste liefert $l=16$. Die Nullhypothese kann also nicht verworfen werden.
 
@@ -2862,15 +2861,15 @@ plot(X,Y); lines(t, b_0 + b_1 * t, lw=2)
 
 \paragraph{Quadratisches Modell. KQS.} Es sei das Modell 
 \begin{equation*}
-    Y_i = \beta_0 + \beta_1 x_i + \beta_2 x_{i}^2 + \varepsilon_i
+    Y_i = \beta_1 x_i + \beta_2 x_{i}^2 + \varepsilon_i
 \end{equation*}
 für $i=1,\ldots,n$ gegeben. Die zufälligen Fehler $\varepsilon_1,\ldots,\varepsilon_n$ 
 seien i.i.d.\ und $\varepsilon_i\sim \mathcal N(0,\sigma^2)$ mit $\sigma>0$. 
-$\left( \beta_0, \beta_1, \beta_2 \right)$ sind die unbekannten Parameter. 
+$\left(\beta_1, \beta_2 \right)$ sind die unbekannten Parameter. 
 \begin{enumerate}
     \item Geben Sie die Designmatrix $X$ für dieses Model explizit an.
-    \item Berechnen Sie den Kleinste-Quadrate-Schätzer $\left( \hat \beta_0,
-        \hat \beta_1, \hat \beta_2 \right)$ basierend auf der Beobachtung von
+    \item Berechnen Sie den Kleinste-Quadrate-Schätzer $\left( \hat\beta_1,
+        \hat\beta_2 \right)$ basierend auf der Beobachtung von
         \begin{align*}
             X &= \left( 2,0,1,-1 \right)^\top \\
             Y &= \left( 3,1,-1,1 \right)^\top.
@@ -2905,9 +2904,9 @@ schreiben, wobei die Designmatrix durch
     \end{array}
     \right)
 \end{equation*} 
-gegeben ist. Im Falle mit $\textrm{Rang}(X) = 2$ gilt für den
-Kleinste-Quadrate-Schätzer $\hat \beta = \left( X^{\top} X \right)^{-1}
-x^{\top} Y$. Die Auswertung dieser Formel liefert
+gegeben ist. Für $\textrm{Rang}(X) = 2$ ist der Kleinste-Quadrate-Schätzer
+gegeben durch $\hat \beta = \left( X^{\top} X \right)^{-1} x^{\top} Y$. Die
+Auswertung dieser Formel liefert
 \begin{equation*}
     X^\top X = \left(
     \begin{array}{ccc}
@@ -3634,7 +3633,7 @@ Daher ist nach Definition des bedingten Erwartungswertes
 
 
 
-\paragraph{L\'evy Verteilung.} Die Dichte der L\'evy Verteilung mit den
+\paragraph{L\'evy-Verteilung.} Die Dichte der L\'evy-Verteilung mit den
 Parametern $(\mu,\sigma)\in \Theta = \R \times \R_{>0}$ ist
 \begin{equation*}
     p_{(\mu, \sigma)} = \sqrt{ \frac{\sigma}{2\pi}} (x-\mu)^{-\frac{3}{2}} 
@@ -3705,7 +3704,7 @@ und dem unbekannten Parameter $\mu \in \R$.
 
 \paragraph*{Lösung. } Einer Standardprozedur folgend berechnen wir den MLS. 
 \begin{align*}
-    L(x_1, \cdots, x_n) &= \prod x_i^{-1} \ \sqrt{2 \pi}^n 
+    L(x_1, \cdots, x_n) &= \prod x_i^{-1} \, \sqrt{2 \pi}^{-n} 
     \exp \left( - \frac{1}{2} \sum_{i=1}^{n} \left( \log x_i - \mu \right)^2 \right) \\
     l(x_1, \cdots, x_n) &= - \sum_{i}^{} x_i - \frac{n}{2} \log 2\pi \ -\frac{1}{2} \sum_{i}^{} \left( \log x_i -\mu \right)^2 \\
     \frac{\partial}{\partial \mu} l &= \sum_{i}^{} \left( \log x_i -\mu \right) = \sum_{i}^{} \log x_i - n\mu. \\
@@ -3727,10 +3726,11 @@ Mit Hilfe der Formel
 \begin{equation*}
     \E\ T(X) = - d_0'(\mu) = n \mu. 
 \end{equation*}
-können wir nun den Erwartungswert der natürlichen suffizienten Statistik $T(X)$ berechnen. 
-Damit ist der MLS $\hat \mu = \frac{1}{n} \sum_{i}^{} \log x_i$ ein
-erwartungstreuer Schätzer. Nachdem $c(\R)$ offenes Rechteck enthält, ist die Statistik 
-$T(X)$ vollständig und nach dem Satz von Lehmann-Scheff\'e $\hat \mu$ ein UMVUE Schätzer. 
+können wir nun den Erwartungswert der natürlichen suffizienten Statistik $T(X)$
+berechnen.  Damit ist der MLS $\hat \mu = \frac{1}{n} \sum_{i}^{} \log x_i$ ein
+erwartungstreuer Schätzer. Nachdem $c(\R)$ offenes Rechteck enthält, ist die
+Statistik $T(X)$ vollständig und suffizient, und nach dem Satz von
+Lehmann-Scheff\'e ist $\hat \mu$ ein UMVUE Schätzer. 
 
 
 
@@ -3760,7 +3760,7 @@ und dem unbekannten Parameter $a>0$.
         Für gerade $n$ ist $\E X_1^n=0$. Für ungerade $n$ erhalten wir
         \begin{align*}
             \E X_1^{n} &= 2 \int_{0}^{a} \left( \frac{1}{a} - \frac{x}{a^2} \right) x^{n} \\
-            &= \frac{2}{a} \left( \frac{1}{n+1} a^{n+1} \right) - \frac{2}{a^2} \frac{1}{n+2}a^{n+2} \\
+            &= \frac{2}{a} \frac{1}{n+1} a^{n+1} - \frac{2}{a^2} \frac{1}{n+2}a^{n+2} \\
             &= 2 a^{n} \left( \frac{1}{n+1}- \frac{1}{n+2} \right).
         \end{align*}
     \item Aus $\E X_1^2 = \frac{a^2}{6}$ ergibt sich ein Momentenschätzer für

@@ -373,34 +373,55 @@ $\psi_{Z}$ ist die momentenerzeugende Funktion der Normalverteilung mit
 Parametern $(0,1)$. Was zu zeigen war. 
 
 
-\paragraph{Gerade Momente der Standardnormalverteilung. } Zeigen Sie, dass für eine
-standardnormalverteilte Zufallsvariable $X$ und $n \in \N$
-\begin{equation*}
-    E\left( X^{2n} \right) = \frac{(2n)!}{2^n \cdot n!}
-\end{equation*}
-gilt. %\cite{czadoschmidt} % A1.11
+\paragraph{Momente der Standardnormalverteilung. } 
+Sei $Z$ standardnormalverteilt und $n\in\bN$. Zeigen Sie folgende Aussagen.
+\begin{enumerate}
+    \item Für die geraden Momente von $Z$ gilt die Formel
+        \begin{equation*}
+            E\left( X^{2n} \right) = \frac{(2n)!}{2^n \cdot n!} = \left( 2n-1 \right)!!.
+        \end{equation*}
+    \item Alle ungeraden Momente verschwinden, d.h.\ $\E Z^{2n+1}=0.$
+    \item Für $\sigma>0$ und $\mu$ gilt
+        \begin{equation*}
+            E \left( \sigma Z + \mu \right)^n = 
+            \sum_{k=0}^{\lfloor\frac{n}{2}\rfloor} \binom{n}{2k} \sigma^{2k} \left( 2k-1 \right)!! \mu^{n-2k}.
+        \end{equation*}
+        Dies ist die Formel für die Momente einer normalverteilten
+        Zufallsvariable $X \sim \cN \left( \mu, \sigma^2 \right)$. 
+\end{enumerate}
+%Zeigen Sie, dass für eine
+%standardnormalverteilte Zufallsvariable $X$ und $n \in \N$
+%gilt.
+
 \paragraph*{Lösung.}
-Die momentenerzeugende Funktion der Standardnormalverteilung ist 
-\begin{equation*}
-    \psi(u) = \exp \left( \frac{u^2}{2} \right).
-\end{equation*}
-Diese Funktion lässt sich leicht ableiten. 
-\begin{align*}
-    \psi^{(1)} &= \psi u \\
-    \psi^{(2)} &= \psi^{(1)} u + \psi \\
-    \psi^{(3)} &= \psi^{(2)} u + 2 \psi^{(1)} \\
-    \psi^{(4)} &= \psi^{(3)} u + 3 \psi^{(2)} \\
-    \psi^{(2n)} &= \psi^{(2n-1)} u + (2n-1) \psi^{(2n-2)}.
-\end{align*}
-Wenn wir $u=0$ einsetzen erhalten wir die Relation
-\begin{equation*}
-    \left. \psi^{(2n)} \right|_{u=0}^{} =
-    \psi_{0}^{(2n)} = (2n-1)\psi^{2n-2}_{0}
-\end{equation*}
-und daraus
-\begin{equation*}
-    \psi_{0}^{(2n)} = (2n-1)(2n-3) \cdots 1 = \frac{ 2n!}{ (2n)(2n-2)\cdots 2  } = \frac{2n!}{ 2^n n!}.
-\end{equation*}
+\begin{enumerate}
+    \item 
+        Die momentenerzeugende Funktion der Standardnormalverteilung ist 
+        \begin{equation*}
+            \psi(u) = \exp \left( \frac{u^2}{2} \right).
+        \end{equation*}
+        Diese Funktion lässt sich leicht ableiten. 
+        \begin{align*}
+            \psi^{(1)} &= \psi u \\
+            \psi^{(2)} &= \psi^{(1)} u + \psi \\
+            \psi^{(3)} &= \psi^{(2)} u + 2 \psi^{(1)} \\
+            \psi^{(4)} &= \psi^{(3)} u + 3 \psi^{(2)} \\
+            \psi^{(2n)} &= \psi^{(2n-1)} u + (2n-1) \psi^{(2n-2)}.
+        \end{align*}
+        Wenn wir $u=0$ einsetzen erhalten wir die Relation
+        \begin{equation*}
+            \left. \psi^{(2n)} \right|_{u=0}^{} =
+            \psi_{0}^{(2n)} = (2n-1)\psi^{2n-2}_{0}
+        \end{equation*}
+        und daraus
+        \begin{equation*}
+            \psi_{0}^{(2n)} = (2n-1)(2n-3) \cdots 1 = \frac{ 2n!}{ (2n)(2n-2)\cdots 2  } = \frac{2n!}{ 2^n n!}.
+        \end{equation*}
+    \item Das Produkt der Dichte der Standardnormalverteilung und einer ungeraden Funktion 
+        $x^{2n+1}$ ist eine ungerade Funktion. Daher muss das Integral dieser Funktion über $\bR$
+        verschwinden. 
+    \item Die Formel wird mit Hilfe des binomischen Lehrsatzes hergeleitet. 
+\end{enumerate}
 
 
 \paragraph{Summen von normalverteilten Zufallsvariablen. }
