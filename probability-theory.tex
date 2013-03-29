@@ -89,7 +89,7 @@ Zufallsvariablen $A$ und $B$ sind genau dann unabhängig, wenn
     \E f(A)g(B) = \E f(A)\, \E g(B)
 \end{equation*}
 für alle beschränkte messbare Funktionen gilt.\footnote{Beachten Sie, dass $\E
-AB = \E A\, \E B$ in meisten Fällen nicht ausreichend für Unabhängigkeit ist!}
+AB = \E A\, \E B$ im Allgemeinen nicht ausreichend für Unabhängigkeit ist!}
 Wir können also die zuvor benutzte Methode wieder einsetzen. 
 \begin{equation*}
     \E \exp (u X) = \E \prod_{i=1}^{n} e^{u B_i} 
@@ -735,6 +735,19 @@ Zeigen Sie:
 
 
 \section{Theoretical computations}
+
+\paragraph{Scheff\'es Identitäten.} Seien $f$ und $g$ Dichten und $A = \left\{ x : f(x)>g(x) \right\}$. 
+Zeigen Sie folgende Identitäten.
+\begin{enumerate}
+    \item \begin{equation*}
+            \int | f-g| = 2 \int_{}^{} \left( f-g \right)_{+} = 2 \int_{A}^{} f - 2 \int_{A}^{}g.
+        \end{equation*}
+    \item \begin{equation*}
+            \sup_{B\in\cB(\R^d)} \left| \int_{B}^{}f - \int_{B}^{} g  \right| =
+            \frac{1}{2} \int_{}^{} |f-g|.
+        \end{equation*}
+\end{enumerate}
+
 
 \paragraph{Unabhängigkeit.} 
 Sei $X$ eine Zufallvariable. $X$ ist von $X$ unabhängig, genau dann wenn

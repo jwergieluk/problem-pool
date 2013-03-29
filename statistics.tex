@@ -234,6 +234,11 @@ sowie $\theta = (\mu, \sigma)^\top$ und $\Theta = \R \times \R_{>0}$.
 \section{Exponentielle Familien}
 
 
+\paragraph{Exponentielle Familie mit einer unvollständigen natürlichen Statistik.}
+Finde ein Gegenbeispiel um die Notendigkeit der Bedingung $c(\Theta)$ offen zu
+illustrieren. 
+
+
 \paragraph{Beta-Verteilung als exponentielle Familie.}
 Sei $X$ eine Beta-verteilte Zufallsvariable mit der Dichte
 \begin{equation*}
@@ -2346,7 +2351,7 @@ Die Statistik $T(X)$ ist daher optimal für das Testproblem.
 
 
 \paragraph{Poissonverteilung. Optimaler Test.} Seien $X_1, \cdots, X_n$ i.i.d.\
-Poissonverteilt mit dem Parameter $\lambda>0$ und der Wahrscheinlichkeitsfunktion
+poissonverteilt mit dem Parameter $\lambda>0$ und der Wahrscheinlichkeitsfunktion
 \begin{equation*}
     P(X_1 = k) = e^{-\lambda} \frac{ \lambda^k}{k!}, \quad k \in \left\{ 0, 1, \cdots \right\}.
 \end{equation*}
@@ -3693,11 +3698,11 @@ Gegeben seien i.i.d.\ Zufallsvariablen $X_1, \cdots, X_n$  mit der Dichte
 und dem unbekannten Parameter $\mu \in \R$. 
 \begin{enumerate}
     \item Finden Sie einen Maximum-Likelihood-Schätzer (MLS) für den Parameter $\mu$. 
-    \item Zeigen Sie, dass die gemeinsame Dichte des Zufallsvektors $\left(
-        X_1, \cdots, X_n \right)$ einer einparametrigen exponentiellen Familie
-        angehört. 
+%    \item Zeigen Sie, dass die gemeinsame Dichte des Zufallsvektors $\left(
+%        X_1, \cdots, X_n \right)$ einer einparametrigen exponentiellen Familie
+%        angehört. 
     \item Zeigen Sie, dass der von Ihnen gefundene MLS erwartungstreu ist.
-        Dabei können Sie die obige Darstellung als natürliche exponentielle
+        Dabei können Sie die Darstellung als natürliche exponentielle
         Familie benutzen oder direkt den Erwartungswert von dem MLS berechnen. 
     \item Finden Sie einen UMVUE Schätzer für $\mu$. 
 \end{enumerate}
@@ -3737,7 +3742,7 @@ Lehmann-Scheff\'e ist $\hat \mu$ ein UMVUE Schätzer.
 
 
 \paragraph{Dreiecksverteilung. Momentenschätzer.} Gegeben seien
-i.i.d.\ Zufallsvariablen $X_1,\cdots, X_n$ mit der Dichte 
+i.i.d.\ Zufallsvariablen $X_1,\ldots, X_n$ mit der Dichte 
 \begin{align*}
     \Lambda_a(x) &= \left[ \frac{1}{a} - \frac{|x|}{a^2} \right] 1_{[-a,a]}(x)
 \end{align*}
