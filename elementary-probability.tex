@@ -126,33 +126,31 @@ Wahrscheinlichkeiten:
 
 \section{Wahrscheinlichkeitsmaße.}
 
-
-
-\paragraph{Wahrscheinlichkeitsmaße. Monotonie.} Sei ein Wahrscheinlichkeitsraum
-$(\Omega, \fA, P)$ und die Ereignisse $A,B \in \fA$ gegeben. Zeigen Sie 
+\paragraph{Wahrscheinlichkeitsmaße. Monotonie.} Seien ein Wahrscheinlichkeitsraum \linebreak
+$(\Omega, \fA, P)$ und die Ereignisse $A,B \in \fA$ gegeben. Zeigen Sie
 \begin{equation*}
-    A \subset B  \impl P(A) \leq P(B). 
+A \subseteq B \quad  \impl \quad P(A) \leq P(B).
 \end{equation*}
 
 
-\paragraph{Wahrscheinlichkeitsmaße. Subaditivität.} Sei ein
+\paragraph{Wahrscheinlichkeitsmaße. Subaditivität.} Seien ein
 Wahrscheinlichkeitsraum $(\Omega, \fA, P)$ und die Ereignisse $A_1, A_2, \cdots
 \in \fA$ gegeben. 
 \begin{enumerate}
-    \item Zeigen Sie
+    \item Zeigen Sie, dass für alle  $n\in \bN$ 
         \begin{equation*}
-            P \left(  \cup_{i=1}^n A_i \right) \leq \sum_{i=1}^{n} P\left( A_i \right)
+            P \left(  \bigcup \limits_{i=1}^n A_i \right) \leq \sum_{i=1}^{n} P\left( A_i \right)
         \end{equation*}
-        für alle $n\in \bN$. 
+        gilt. 
 
-    \item Zeigen Sie 
+    \item Zeigen Sie, dass sogar gilt 
         \begin{equation*}
-            P \left(  \cup_{i=1}^\infty A_i \right) \leq \sum_{i=1}^{\infty} P\left( A_i \right).
+            P \left(  \bigcup \limits_{i=1}^\infty A_i \right) \leq \sum_{i=1}^{\infty} P\left( A_i \right).
         \end{equation*}
 \end{enumerate}
 
 
-\paragraph{Wahrscheinlichkeitsmaße. Zerlegung der Vereinigung.} Sei ein
+\paragraph{Wahrscheinlichkeitsmaße. Zerlegung der Vereinigung.} Seien ein
 Wahrscheinlichkeitsraum $\left( \Omega, \fA, P \right)$ und die Ereignisse
 $A,B,C\in \fA$ sowie $A_1, A_2, \cdots, A_n \in \fA$ gegeben.
 Zeigen Sie folgende Aussagen:
@@ -164,7 +162,7 @@ Zeigen Sie folgende Aussagen:
 
     \item
         \begin{align*}
-            P\left( \cup_{i=1}^{n} A_i \right) =&
+            P\left( \bigcup \limits_{i=1}^{n} A_i \right) =&
             \sum_{i=1}^{n} P(A_i) - \sum_{i<j} P(A_i \cap A_j) + \\
             & \sum_{i<j<k} P(A_i \cap A_j \cap A_k) - \cdots + 
             (-1)^{n+1} P\left( A_1 \cap \cdots \cap A_n \right). 
@@ -177,14 +175,13 @@ Zeigen Sie folgende Aussagen:
 \section{Kombinatorik.}
 
 
-\paragraph{Kombinatorik. Passwörter.} Sei 
-$\cA = \left\{ a, b, \cdots, z, 0, \cdots, 9 \right\}$ die Menge der Zeichen
-gegeben. 
+\paragraph{Kombinatorik. Passwörter.} Wir betrachten die Menge
+$\cA = \left\{ a, b, \cdots, z, 0, \cdots, 9 \right\}$ als gegebenen Zeichensatz.
 \begin{enumerate}
     \item Wie viele voneinander verschiedene Passwörter der Länge 8 können
         aus $\cA$ gebildet werden?
-    \item Betrachten wir nun die Passwörter aus obiger Menge, die an der
-        letzen Stelle eine Ziffer und sonst aus lauter Buchstaben bestehen. 
+    \item Betrachten wir nun die Passwörter aus dem obigen Zeichensatz, die an der
+        letzen Stelle eine Ziffer aufweisen und sonst aus lauter Buchstaben bestehen.
         Wie viele solche Passwörter gibt es?
     \item Vergleichen Sie die Größenordnungen der Mächtigkeiten der obigen
         Passwortmengen. 
@@ -194,7 +191,7 @@ gegeben.
 \paragraph{Kombinatorik. PINs und runs.} In einer Folge $\left( a_1, a_2, a_3,
 \cdots \right)$ wird eine Teilfolge $(a, a, \cdots, a)$, die aus $n$-facher
 Wiederholung eines Elements $a$ gebildet wird, als ein $n$-run bezeichnet.
-Z.b.\ hat die Folge $(0, 0, 1, 1, 1, 0)$ acht runs, nämlich einen $2$-run
+Zum Beispiel hat die Folge $(0, 0, 1, 1, 1, 0)$ acht runs, nämlich einen $2$-run
 $(0,0)$ und einen $3$-run $(1,1,1)$, sowie sechs $1$-runs.
 
 Betrachten wir nun die Menge der 4-stelligen PINs, die aus den Ziffern $\left\{
@@ -245,7 +242,7 @@ Spiele müssen mindestens absolviert werden, damit die Wahrscheinlichkeit für
 mindestens einen Gewinn größer ist als 0.9\,?
 
 
-\paragraph{Kombinatorik. Würfel. 4 vs 24.}
+\paragraph{Kombinatorik. Würfel. 4 vs.~24.}
 Was ist wahrscheinlicher:
 \begin{enumerate}
     \item Beim Werfen von vier Würfeln auf wenigstens einem eine Sechs zu
@@ -280,16 +277,16 @@ erhält.
 \paragraph{Kombinatorik. Single choice test.} Bei einem single choice test
 werden $n$ Fragen gestellt, wobei jeweils genau eine richtige Antwort aus $m$
 Möglichkeiten gewählt werden soll. Der Test wird als bestanden angesehen, wenn
-mindestens Halfte der Fragen richtig beantwortet wurden.
+mindestens Hälfte der Fragen richtig beantwortet wurden.
 
 Wir testen die Prüfmethode indem wir zufällig jeweils eine Antwort bei jeder Frage
 ankreuzen. 
 \begin{enumerate}
     \item Finden Sie einen geeigneten Wahrscheinlichkeitsraum, der diese
-        Zufallssituation beschreibt.
+        Zufallssituation \linebreak beschreibt.
     \item Wie hoch ist die Wahrscheinlichkeit, dass die zufällige Antwortwahl zum 
-        Bestehen des Test führt?
-    \item Berechnen Sie die obige Wahrscheinlichkeit explicit für $n=25$ und $m=4$.
+        Bestehen des Tests führt?
+    \item Berechnen Sie die obige Wahrscheinlichkeit explizit für $n=25$ und $m=4$.
 \end{enumerate}
 
 \paragraph*{Lösung.} Laplace-Modell. Anzahl der Möglichen: $| \Omega| = m^n$. 

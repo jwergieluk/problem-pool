@@ -20,8 +20,8 @@ def readLines(fileName):
 
 
 
-PROBLEM_LINE=r'\s*(\\paragraph{)(.*)\s*}'
-SOLUTION_LINE=r'\s*\\paragraph\*{'
+PROBLEM_LINE=r'\s*^(\\paragraph{)(.*)\s*}'
+SOLUTION_LINE=r'\s*^\\paragraph\*{'
 
 class Problems: 
     def __init__(self):
