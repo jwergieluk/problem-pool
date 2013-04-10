@@ -152,7 +152,7 @@ Wahrscheinlichkeitsraum $(\Omega, \fA, P)$ und die Ereignisse $A_1, A_2, \cdots
 \end{enumerate}
 
 
-\paragraph{Wahrscheinlichkeitsmaße. Bonferroni Formel.} Sei ein
+\paragraph{Wahrscheinlichkeitsmaße. Zerlegung der Vereinigung.} Sei ein
 Wahrscheinlichkeitsraum $\left( \Omega, \fA, P \right)$ und die Ereignisse
 $A,B,C\in \fA$ sowie $A_1, A_2, \cdots, A_n \in \fA$ gegeben.
 Zeigen Sie folgende Aussagen:
@@ -197,24 +197,16 @@ Wiederholung eines Elements $a$ gebildet wird, als ein $n$-run bezeichnet.
 Z.b.\ hat die Folge $(0, 0, 1, 1, 1, 0)$ acht runs, nämlich einen $2$-run
 $(0,0)$ und einen $3$-run $(1,1,1)$, sowie sechs $1$-runs.
 
-Betrachten wir nun die Menge der 5-stelligen PINs, die aus den Ziffern $\left\{
+Betrachten wir nun die Menge der 4-stelligen PINs, die aus den Ziffern $\left\{
 0,1, \cdots, 9 \right\}$ gebildet werden können. 
 \begin{enumerate}
     \item Wie viele solche PINs gibt es?
-    \item Wie viele PINs gibt es, die keine $2$-runs, $3$-runs, $4$-runs, sowie keine 
-        $5$-runs enthalten.
+    \item Wie viele PINs gibt es, die keine $2$-runs, $3$-runs, sowie keine
+        $4$-runs enthalten?
     \item Vergleichen Sie die Größenordnungen der Mächtigkeiten der obigen
         PIN-Mengen. 
 \end{enumerate}
-
-
-\paragraph{Kombinatorik. Zeichenketten.}
-\begin{enumerate}
-\item Wie viele voneinander verschiedene dreistellige (ganze, positive)
-Zahlen können mit Hilfe der Ziffern $1,2,3,4,5$ gebildet werden?
-\item Welches Ergebnis ergibt sich bei Aufgabe (a), wenn jede Ziffer nur
-höchstens einmal in der zu bildenden Zahl vorkommen darf?
-\end{enumerate}
+\textbf{Zusatz:} Führen Sie die obige Berechnung für die $5$-stelligen PINs durch.
 
 
 \paragraph{Kombinatorik. Tippscheine.}
@@ -285,10 +277,10 @@ Berechnen Sie die Wahrscheinlichkeit dafür, dass der Student nicht die Note 1
 erhält.
 
 
-\paragraph{Kombinatorik. Single choice test.} Bei einem single choice test werden
-den Prüfenden $n$ Fragen gestellt, wobei jeweils genau eine richtige Antwort aus
-$m$ Möglichkeiten gewählt werden soll. Der Test wird als bestanden angesehen, wenn mindestens 
-Halfte der Fragen richtig beantwortet wurden.
+\paragraph{Kombinatorik. Single choice test.} Bei einem single choice test
+werden $n$ Fragen gestellt, wobei jeweils genau eine richtige Antwort aus $m$
+Möglichkeiten gewählt werden soll. Der Test wird als bestanden angesehen, wenn
+mindestens Halfte der Fragen richtig beantwortet wurden.
 
 Wir testen die Prüfmethode indem wir zufällig jeweils eine Antwort bei jeder Frage
 ankreuzen. 
@@ -300,6 +292,13 @@ ankreuzen.
     \item Berechnen Sie die obige Wahrscheinlichkeit explicit für $n=25$ und $m=4$.
 \end{enumerate}
 
+\paragraph*{Lösung.} Laplace-Modell. Anzahl der Möglichen: $| \Omega| = m^n$. 
+Anzahl der Günstigen:
+\begin{equation*}
+    \binom{n}{ \lceil\frac{n}{2}\rceil }(m-1)^{n - \lceil\frac{n}{2}\rceil } +
+    \binom{n}{   \lceil\frac{n}{2}\rceil +1 }(m-1)^{n -   \lceil\frac{n}{2}\rceil-1   } + \cdots +
+    \binom{n}{n} (m-1)^{n-n}. 
+\end{equation*}
 
 
 
