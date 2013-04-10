@@ -8,9 +8,9 @@
 Gegeben seien jeweils die Ergebnismenge $\Omega$ sowie zwei Teilmengen
 $A$ und $B$:
 \begin{enumerate}
-\item $\Omega=\{1,2,...,20\}$ , $A=\{4,5,6,7,9,11\}$ , $B=\{3,5,9,20\}$
-\item $\Omega=[-1,3]$ , $A=[0,1)$ , $B=(\frac{1}{2},2]$
-\item $\Omega=\mathbb R$ , $A=\{x\in \mathbb R: |x-1|<3\}$ , $B=[0,\infty)$.
+\item $\Omega=\{1,2,...,20\}$, $A=\{4,5,6,7,9,11\}$, $B=\{3,5,9,20\}$
+\item $\Omega=[-1,3]$, $A=[0,1)$, $B=(\frac{1}{2},2]$
+\item $\Omega=\mathbb R$, $A=\{x\in \mathbb R: |x-1|<3\}$, $B=[0,\infty)$.
 \end{enumerate}
 Bilden Sie die Mengen $\overline{A}$, $\overline{B}$, $A\cap B$, $A\cup B$,
 $\overline{ A\cup B}$, $\overline{A}\cap\overline{B}$, $B\cap\overline{A}$,
@@ -24,44 +24,53 @@ Kontrollsysteme überwacht, die jedoch auch einer gewissen Störanfälligkeit
 unterliegen. Es bezeichne $S_i$ das Ereignis, dass das $i$-te System
 störungsfrei arbeitet $(i=1,2,3)$.
 \begin{enumerate}
-\item Drücken Sie folgende Ereignisse mit Hilfe der Ereignisse $S_1$,
-$S_2$ und $S_3$ aus:
-\begin{itemize}
-\item[$A$:] Alle drei Systeme arbeiten störungsfrei.
-\item[$B$:] Kein System arbeitet störungsfrei.
-\item[$C$:] Mindestens ein System arbeitet störungsfrei.
-\item[$D$:] Genau ein System arbeitet störungsfrei.
-\item[$E$:] Höchstens zwei Systeme sind gestört.
-\end{itemize}
-\item Wie viele Elementarereignisse umfasst die Ergebnismenge $\Omega$\,?
-\item Welche der unter (a) genannten Ereignisse können als
-Elementarereignisse betrachtet werden?
-\item Aus wie vielen Elementarereignissen bestehen die Ereignisse $D$ und
-$C$?
+    \item Finden Sie einen geeigneten Wahrscheinlichkeitsraum, der diese
+        Zufallssituation beschreibt. Geben Sie die Ergebnismenge $\Omega$
+        explicit an. Ist die Ergebnismenge eindeutig bestimmt?
+    \item Drücken Sie folgende Ereignisse mit Hilfe der Ereignisse $S_1$, $S_2$
+        und $S_3$ aus:
+        \begin{itemize}
+            \item[$A$:] Alle drei Systeme arbeiten störungsfrei.
+            \item[$B$:] Kein System arbeitet störungsfrei.
+            \item[$C$:] Mindestens ein System arbeitet störungsfrei.
+            \item[$D$:] Genau ein System arbeitet störungsfrei.
+            \item[$E$:] Höchstens zwei Systeme sind gestört.
+        \end{itemize}\label{ereignisse-kraftwerk-1}
+    \item Welche der unter \ref{ereignisse-kraftwerk-1} genannten Ereignisse
+        sind Elementarereignisse?
+    \item Aus wie vielen Elementen bestehen die Ereignisse $D$ und $C$?
 \end{enumerate}
+
+\paragraph*{Lösung.} Die Ergebnismenge $\Omega$ kann als $\Omega= \left\{ (ijk)
+: i,j,k\in \left\{ 0,1 \right\} \right\}$ gewählt werden. Diese Wahl ist aber nicht 
+eindeutig. Die Ereignisse $A$ und $B$ sind in diesem Fall Elementarereignisse. 
 
 
 \paragraph{Ereignisse. Aktienmarkt.}
 Beim Monatsvergleich zweier Technologieaktien wird für jede Aktie
 festgestellt, ob es zu einem Gewinn von mindestens 3\% kam, ob sich ein Verlust
-um mehr als 3\% ergab oder ob sich die jeweilige Aktie innerhalb der 6\% Spanne
+um mehr als 3\% ergab oder ob sich die jeweilige Aktie innerhalb der 6\%-Spanne
 bewegte.
 \begin{enumerate}
-\item Geben Sie alle Elementarereignisse an.
-\item Stellen Sie folgende Ereignisse mit Hilfe der Elementarereignisse
-dar:
-\begin{itemize}
-\item[$A$:] Beide Aktien erzielten einen signifikanten Kursgewinn.
-\item[$B$:] Keine der beiden Aktien veränderte sich signifikant.
-\item[$C$:] Höchstens eine der beiden Aktien verschlechterte sich
-signifikant.
-\item[$D$:] Mindestens eine der beiden Aktien verschlechterte sich
-signifikant.
-\end{itemize}
-\item Welche Bedeutung haben die Ereignisse\\
-$E_1=A\cup C$ , $E_2=A\cup D$ , $E_3=A\cap C$ , $E_4=A\cap\overline{C}$ , $E_5=
-\overline{A\cap D}$ ?
+    \item Finden Sie einen geeigneten Wahrscheinlichkeitsraum, der diese
+        Zufallssituation beschreibt. Geben Sie die Ergebnismenge $\Omega$
+        explicit an.
+    \item Stellen Sie folgende Ereignisse mit Hilfe der Elementarereignisse
+        dar:
+        \begin{itemize}
+            \item[$A$:] Beide Aktien erzielten einen Kursgewinn von mindestens $3\%$.
+            \item[$B$:] Die Kurse der beiden Aktien lagen innerhalb der
+                $6\%$-Spanne. %Keine der beiden Aktien veränderte sich signifikant.
+            \item[$C$:] Der Kurs von höchstens einer der beiden Aktien
+                verschlechterte sich um mehr als $3\%$. 
+            \item[$D$:] Der Kurs von mindestens einer der beiden Aktien
+                verschlechterte sich um mehr als $3\%$. 
+        \end{itemize}
+    \item Welche Bedeutung haben die Ereignisse\\
+        $E_1=A\cup C$, $E_2=A\cup D$,
+        $E_3=A\cap C$, $E_4=A\cap\overline{C}$, $E_5= \overline{A\cap D}$ ?
 \end{enumerate}
+
 
 
 \paragraph{Ereignisse. Fertigungsstraße.}
@@ -69,8 +78,8 @@ Eine Fertigungsstraße bestehe  aus einer Maschine vom Typ I, vier Maschinen vom
 Typ II und zwei Maschinen vom Typ III. Wir bezeichnen mit $A$, $B_k$ bzw.\
 $C_j$ ($k=1,2,3,4$; $j=1,2$) die Ereignisse, dass die Maschine vom Typ I
 bzw.~die $k$-te Maschine vom Typ~II bzw.~die $j$-te Maschine vom Typ III intakt
-ist. Die Fertigungsstraße sei arbeitsfähig, wenn von jedem Maschinentyp
-mindestens einer intakt ist. Dieses Ereignis werde mit $D$ bezeichnet.
+ist. Die Fertigungsstraße sei arbeitsfähig, wenn mindestens eine Maschine von
+jedem Maschinentyp intakt ist. Dieses Ereignis werde mit $D$ bezeichnet.
 
 Beschreiben Sie die Ereignisse $D$ und $\overline{D}$ mit Hilfe der Ereignisse
 $A$, $B_k$, $C_j$.
@@ -86,7 +95,7 @@ Was bedeuten dann die Ereignisse $A\cup B$ und $A\cap B$ ?
 
 
 \paragraph{Ereignisse. Würfel und Münze.}
-Ein Experiment bestehe aus dem Werfen eines Würfels und einer Münze.
+Ein Experiment bestehe aus dem Werfen eines fairen Würfels und einer fairen Münze.
 \begin{enumerate}
     \item Geben Sie eine geeignete Ergebnismenge $\Omega$ an.
     \item Zeigt die Münze Wappen, so wird die doppelte Augenzahl des Würfels
@@ -96,7 +105,7 @@ Ein Experiment bestehe aus dem Werfen eines Würfels und einer Münze.
 
 
 \paragraph{Ereignisse. Zerlegung des Würfels.}
-Ein Würfel, dessen Seitenflächen gleichartig gefärbt sind, werde in 1\,000
+Ein Würfel, dessen Seitenflächen gleichartig gefärbt sind, werde in 1000
 kleine Würfel einheitlicher Größe zerlegt.
 
 Wie groß ist die Wahrscheinlichkeit dafür, dass ein zufällig ausgewählter
@@ -115,6 +124,88 @@ Wahrscheinlichkeiten:
 
 
 
+\section{Wahrscheinlichkeitsmaße.}
+
+
+
+\paragraph{Wahrscheinlichkeitsmaße. Monotonie.} Sei ein Wahrscheinlichkeitsraum
+$(\Omega, \fA, P)$ und die Ereignisse $A,B \in \fA$ gegeben. Zeigen Sie 
+\begin{equation*}
+    A \subset B  \impl P(A) \leq P(B). 
+\end{equation*}
+
+
+\paragraph{Wahrscheinlichkeitsmaße. Subaditivität.} Sei ein
+Wahrscheinlichkeitsraum $(\Omega, \fA, P)$ und die Ereignisse $A_1, A_2, \cdots
+\in \fA$ gegeben. 
+\begin{enumerate}
+    \item Zeigen Sie
+        \begin{equation*}
+            P \left(  \cup_{i=1}^n A_i \right) \leq \sum_{i=1}^{n} P\left( A_i \right)
+        \end{equation*}
+        für alle $n\in \bN$. 
+
+    \item Zeigen Sie 
+        \begin{equation*}
+            P \left(  \cup_{i=1}^\infty A_i \right) \leq \sum_{i=1}^{\infty} P\left( A_i \right).
+        \end{equation*}
+\end{enumerate}
+
+
+\paragraph{Wahrscheinlichkeitsmaße. Bonferroni Formel.} Sei ein
+Wahrscheinlichkeitsraum $\left( \Omega, \fA, P \right)$ und die Ereignisse
+$A,B,C\in \fA$ sowie $A_1, A_2, \cdots, A_n \in \fA$ gegeben.
+Zeigen Sie folgende Aussagen:
+\begin{enumerate}
+    \item \begin{equation*}
+            P \left( A \cup B \cup C \right) = 
+            P(A)+P(B)+P(C) - P(A\cap B) - P(B\cap C) + P(A\cap B \cap C). 
+        \end{equation*}
+
+    \item
+        \begin{align*}
+            P\left( \cup_{i=1}^{n} A_i \right) =&
+            \sum_{i=1}^{n} P(A_i) - \sum_{i<j} P(A_i \cap A_j) + \\
+            & \sum_{i<j<k} P(A_i \cap A_j \cap A_k) - \cdots + 
+            (-1)^{n+1} P\left( A_1 \cap \cdots \cap A_n \right). 
+        \end{align*}
+\end{enumerate}
+
+
+
+
+\section{Kombinatorik.}
+
+
+\paragraph{Kombinatorik. Passwörter.} Sei 
+$\cA = \left\{ a, b, \cdots, z, 0, \cdots, 9 \right\}$ die Menge der Zeichen
+gegeben. 
+\begin{enumerate}
+    \item Wie viele voneinander verschiedene Passwörter der Länge 8 können
+        aus $\cA$ gebildet werden?
+    \item Betrachten wir nun die Passwörter aus obiger Menge, die an der
+        letzen Stelle eine Ziffer und sonst aus lauter Buchstaben bestehen. 
+        Wie viele solche Passwörter gibt es?
+    \item Vergleichen Sie die Größenordnungen der Mächtigkeiten der obigen
+        Passwortmengen. 
+\end{enumerate}
+
+
+\paragraph{Kombinatorik. PINs und runs.} In einer Folge $\left( a_1, a_2, a_3,
+\cdots \right)$ wird eine Teilfolge $(a, a, \cdots, a)$, die aus $n$-facher
+Wiederholung eines Elements $a$ gebildet wird, als ein $n$-run bezeichnet.
+Z.b.\ hat die Folge $(0, 0, 1, 1, 1, 0)$ acht runs, nämlich einen $2$-run
+$(0,0)$ und einen $3$-run $(1,1,1)$, sowie sechs $1$-runs.
+
+Betrachten wir nun die Menge der 5-stelligen PINs, die aus den Ziffern $\left\{
+0,1, \cdots, 9 \right\}$ gebildet werden können. 
+\begin{enumerate}
+    \item Wie viele solche PINs gibt es?
+    \item Wie viele PINs gibt es, die keine $2$-runs, $3$-runs, $4$-runs, sowie keine 
+        $5$-runs enthalten.
+    \item Vergleichen Sie die Größenordnungen der Mächtigkeiten der obigen
+        PIN-Mengen. 
+\end{enumerate}
 
 
 \paragraph{Kombinatorik. Zeichenketten.}
@@ -162,7 +253,7 @@ Spiele müssen mindestens absolviert werden, damit die Wahrscheinlichkeit für
 mindestens einen Gewinn größer ist als 0.9\,?
 
 
-\paragraph{Kombinatorik. Würfel.}
+\paragraph{Kombinatorik. Würfel. 4 vs 24.}
 Was ist wahrscheinlicher:
 \begin{enumerate}
     \item Beim Werfen von vier Würfeln auf wenigstens einem eine Sechs zu
@@ -192,6 +283,22 @@ genau dann erteilt, wenn von 4 zufällig gewählten Fragen alle beantwortet
 werden können. \\
 Berechnen Sie die Wahrscheinlichkeit dafür, dass der Student nicht die Note 1
 erhält.
+
+
+\paragraph{Kombinatorik. Single choice test.} Bei einem single choice test werden
+den Prüfenden $n$ Fragen gestellt, wobei jeweils genau eine richtige Antwort aus
+$m$ Möglichkeiten gewählt werden soll. Der Test wird als bestanden angesehen, wenn mindestens 
+Halfte der Fragen richtig beantwortet wurden.
+
+Wir testen die Prüfmethode indem wir zufällig jeweils eine Antwort bei jeder Frage
+ankreuzen. 
+\begin{enumerate}
+    \item Finden Sie einen geeigneten Wahrscheinlichkeitsraum, der diese
+        Zufallssituation beschreibt.
+    \item Wie hoch ist die Wahrscheinlichkeit, dass die zufällige Antwortwahl zum 
+        Bestehen des Test führt?
+    \item Berechnen Sie die obige Wahrscheinlichkeit explicit für $n=25$ und $m=4$.
+\end{enumerate}
 
 
 
