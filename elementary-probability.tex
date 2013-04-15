@@ -122,6 +122,28 @@ Wahrscheinlichkeiten:
     \item $P\left((A\cap\overline{B})\cup(\overline{A}\cap B)\right)$.
 \end{enumerate}
 
+\paragraph*{Lösung.}
+\begin{enumerate}
+    \item \begin{align*}
+            P(A \cup B) &= P( (A \cap \bar B) \cup B ) = 
+            P( A \cap \bar B  ) + P(B) \\
+            P(A \cup \bar B) &= P(A \cup B) - P(B) = 0.05.
+        \end{align*}
+    \item \begin{align*}
+            P(\bar A \cap \bar B) &= P(\overline{A \cup B}) = 0.5.
+        \end{align*}
+    \item Die symmetrische Differenz $A \Delta B = (A \setminus B) \cup (B \setminus A)$
+        ist eine disjunkte Vereinigung, und daher
+        \begin{align*}
+            P(A \Delta B) &= P(A \cap \bar B) + P(\bar A \cap B).
+        \end{align*}
+        Die vorherigen Überlegungen liefern
+        \begin{align*}
+            P( A \cap \bar B) &= P(A \setminus B) = P(A \cup B) - P(B) = 0.05 \\
+            P( \bar A \cap B) &= P(B \setminus A) = P(A \cup B) - P(A) = 0.25.
+        \end{align*}
+        Insgesamt gilt also $P(A \Delta B) = 0.3$.
+\end{enumerate}
 
 
 \section{Wahrscheinlichkeitsmaße.}
@@ -131,6 +153,8 @@ $(\Omega, \fA, P)$ und die Ereignisse $A,B \in \fA$ gegeben. Zeigen Sie
 \begin{equation*}
 A \subseteq B \quad  \impl \quad P(A) \leq P(B).
 \end{equation*}
+
+\paragraph*{Lösung.} $P(B) = P(A \cup (B \setminus A))= P(A) + P(B\setminus A) \geq P(A)$. 
 
 
 \paragraph{Wahrscheinlichkeitsmaße. Subaditivität.} Seien ein
@@ -147,6 +171,20 @@ Wahrscheinlichkeitsraum $(\Omega, \fA, P)$ und die Ereignisse $A_1, A_2, \cdots
         \begin{equation*}
             P \left(  \bigcup \limits_{i=1}^\infty A_i \right) \leq \sum_{i=1}^{\infty} P\left( A_i \right).
         \end{equation*}
+\end{enumerate}
+
+\paragraph*{Lösung.}
+\begin{enumerate}
+    \item Betrachte folgende Darstellung der Vereinigung als Summe disjunkter
+        Elemente von $\fA$.
+        \begin{align*}
+            \bigcup_{i=1}^n A_i &= A_1 \cup (\bar A_1 \cap A_2) \cup 
+            (\bar A_1 \cap \bar A_2 \cap A_3) \cup \cdots \cup
+            (\bar A_1 \cap \bar A_2 \cap \cdots \cap \bar A_{n-1} \cap A_n).
+        \end{align*}
+
+    \item Genau der gleiche Argument funktioniert für $n=\infty$. Das ist 
+        die Konsequenz der $\sigma$-Additivität der Wahrscheinlichkeitsfunktion $P$. 
 \end{enumerate}
 
 
@@ -169,6 +207,20 @@ Zeigen Sie folgende Aussagen:
         \end{align*}
 \end{enumerate}
 
+\paragraph*{Lösung.} 
+\begin{enumerate}
+    \item Hier genügt eine Überlegung mit Hilfe der Venn-Diagrame. 
+
+    \item Die Menge $A_1 \cup \cdots \cup A_n$ ist Vereinigung der Mengen der
+        Form $A_{i_1} \cap \cdots \cap A_{i_k} \cap \bar A_{i_{k+1}} \cap
+        \cdots \cap \bar A_{i_{n}}$, $k\geq 1$, wobei $i_1,\cdots, i_n$ eine
+        Umnumerierung von $1, \cdots, n$ ist. Nun kommt solche Menge in der
+        ersten Summe als Teilmenge von $A_i$ genau $\binom{k}{1}
+        $ vor. In der zweiten Summe wird die Menge $\binom{k}{2}$ mal abgezogen. 
+        Nachdem $\sum_{i=0}^{k} (-1)^{i} \binom{k}{i} = 0$, erhalten wir 
+        $\sum_{i=1}^{k} (-1)^{i+1} \binom{k}{i}=1$.
+\end{enumerate}
+
 
 
 
@@ -186,6 +238,26 @@ $\cA = \left\{ a, b, \cdots, z, 0, \cdots, 9 \right\}$ als gegebenen Zeichensatz
     \item Vergleichen Sie die Größenordnungen der Mächtigkeiten der obigen
         Passwortmengen. 
 \end{enumerate}
+
+\paragraph*{Lösung.} 
+\begin{enumerate}
+    \item Die Menge $\cA$ enthält $36$ Elemente. Nachdem in einem Passwort die
+        Reihenfolge der Zeichen wichtig ist und die Zeichen mehrmals vorkommen
+        können, ist die Anzahl der Passwörter gegeben durch die Anzahl der
+        Variationen mit Zurücklegen, also durch
+        \begin{equation}
+            36^{8} = 2.821.109.907.456 \approx 10^{12.45}.
+        \end{equation}
+    \item Es gibt $26^7$ Passwörter mit Länge $7$, die nur aus Buchstaben bestehen. 
+        Wenn wir an jedem solchen Passwort eine Ziffer am Ende hinzufügen, 
+        erhalten wir $10\cdot 26^7$ Möglichkeiten. 
+        \begin{equation}
+            10\cdot 26^7 = 80.318.101.760 \approx 10^{10.9}.
+        \end{equation}
+    \item Die Mächtigkeiten der obigen Mengen sind also fast zwei Größenordnungen 
+        auseinander.
+\end{enumerate}
+
 
 
 \paragraph{Kombinatorik. PINs und runs.} In einer Folge $\left( a_1, a_2, a_3,
@@ -205,21 +277,23 @@ Betrachten wir nun die Menge der 4-stelligen PINs, die aus den Ziffern $\left\{
 \end{enumerate}
 \textbf{Zusatz:} Führen Sie die obige Berechnung für die $5$-stelligen PINs durch.
 
-
-\paragraph{Kombinatorik. Tippscheine.}
-Wie viel verschiedene Tippscheine gibt es
+\paragraph*{Lösung.}
 \begin{enumerate}
-\item beim Lotto (6 aus 49),
-\item bei der Glücksspirale (7 stellige Zahl),
-\item bei der 11er Wette (Fußballtoto)?
-\end{enumerate}
-
-
-\paragraph{Kombinatorik. Positionen.}
-Aus einer Gruppe von drei Männern und vier Frauen sind drei Positionen in verschiedenen Kommissionen zu besetzen. Wie groß ist die Wahrscheinlichkeit für die Ereignisse, dass mindestens eine der drei Positionen mit einer Frau besetzt wird bzw. dass höchstens eine der drei Positionen mit einer Frau besetzt wird,
-\begin{enumerate}
-\item falls jede Person nur eine Position erhalten kann?
-\item falls jede Person mehrere Positionen erhalten kann?
+    \item Es gibt $10^4$ solche PINs.
+    \item Um die Anzahl der PINs ohne runs zu erhalten, zählen wir alle
+        möglichen PINs mit runs auf. Erste Spalte gibt die Form des PINs,
+        zweite die Anzahl solcher PINs und dritte die Anzahl der symmetrischen
+        Fälle.
+\begin{lstlisting}
+----    10          1
+---*    10 9        2
+--==    10 9        1
+--**    10 9 8      2
+*--*    10 9 9      1
+\end{lstlisting}
+        Das sind insgesamt $2530$ Fälle. Es gibt also $7470$ PINs ohne runs.
+    \item Wenn wir PINs mit runs ausschliessen, reduziert sich unser pool
+        möglicher PINs um ein Viertel. 
 \end{enumerate}
 
 
@@ -227,19 +301,24 @@ Aus einer Gruppe von drei Männern und vier Frauen sind drei Positionen in versc
 Wie groß ist die Wahrscheinlichkeit dafür, beim Werfen von zwei Würfeln eine
 Augensumme zu erzielen, die größer oder gleich 10 ist?
 
+\paragraph*{Lösung} Wir lösen die Aufgabe einmal unter der Annahme, dass die Würfel
+unterschieden werden können und einmal ohne diese Annahme. 
+\begin{enumerate}
+    \item Wenn wir zwei wohlunterscheidbare Würfel werfen, ist die
+        $36$-elementige Ergebnismenge gegeben durch $\Omega = \left\{ (i,j) :
+        i,j \in \left\{ 1, \cdots, 6 \right\} \right\}$. Die günstigen Fälle
+        sind 
+        \begin{equation}
+            (4,6), (5,5), (5,6), (6,4), (6,5), (6,5).
+        \end{equation}
+        Nachdem es sich hier um ein Laplace-Modell handelt, ist die
+        Wahrscheinlichkeit, dass die Summe größer als $10$ ist, gleich
+        $\frac{6}{36}= \frac{1}{6}$.
 
-\paragraph{Kombinatorik. Wanderwege.}
-In der Umgebung eines Urlaubsortes sollen 15 Wanderwege durch je zwei farbige,
-parallele Striche gekennzeichnet werden. Wie viel verschiedene Farben werden
-mindestens benötigt, wenn gleichfarbige Paare auftreten dürfen.\\
-Geben Sie zwei verschiedene Lösungen an, und diskutieren Sie diese
-Ergebnisse.
-
-
-\paragraph{Kombinatorik. Roulette.}
-Ein Spieler setzt an einem Abend beim Roulette nur auf die Farbe rot. Wie viele
-Spiele müssen mindestens absolviert werden, damit die Wahrscheinlichkeit für
-mindestens einen Gewinn größer ist als 0.9\,?
+    \item In Falle der nichtunterscheidbaren Würfel ist das kein
+        Laplace-Experiment mehr. Deswegen muss geeignetes
+        Wahrscheinlichkeitsmaß $P$ betrachtet werden. 
+\end{enumerate}
 
 
 \paragraph{Kombinatorik. Würfel. 4 vs.~24.}
@@ -251,27 +330,24 @@ Was ist wahrscheinlicher:
         erhalten?
 \end{enumerate}
 
-
-\paragraph{Kombinatorik. Gütekontrolleur.}
-Ein Gütekontrolleur entnimmt einem aus $N$ Teilen bestehenden Prüflos
-nacheinander ohne Zurücklegen $n$ Teile.
+\paragraph*{Lösung.}
 \begin{enumerate}
-\item Wie groß ist die Wahrscheinlichkeit dafür, dass sich unter diesen $n$
-Teilen genau $m$ Ausschussteile befinden, falls das Prüflos $M$ Ausschussteile
-enthält?
-\item Berechnen Sie für $N=100$, $M=4$ und $n=10$ die Wahrscheinlichkeit
-dafür, dass sich unter den zehn ausgewählten Teilen mindestens ein
-Ausschussteil
-befindet!
+    \item Das Betrachen des komplementären Ereignisses liefert
+        \begin{equation}
+            1 - \frac{5^4}{6^4} = 1.
+            \label{}
+        \end{equation}
+    \item Ein äquivalentes Model ist, $24$ mal einen $36$-Würfel werfen. Die
+        Wahrscheinlichkeit wenigstens ein mal die Zahl $36$ zu erhalten,
+        berechnen wir indem wir das komplementäre Ereignis betrachten:
+        \begin{equation} 
+            1 - \frac{35^{24}}{36^{24}}.  
+        \end{equation}
+    \item Was ist größer? $\frac{5^4}{6^4} = 0.4822530864$ und
+        $\frac{35^{24}}{36^{24}} = 0.5085961239$.
 \end{enumerate}
 
 
-\paragraph{Kombinatorik. Prüfungsfragen.}
-Ein Student kann von 20 Prüfungsfragen 18 Fragen beantworten. Die Note 1 wird
-genau dann erteilt, wenn von 4 zufällig gewählten Fragen alle beantwortet
-werden können. \\
-Berechnen Sie die Wahrscheinlichkeit dafür, dass der Student nicht die Note 1
-erhält.
 
 
 \paragraph{Kombinatorik. Single choice test.} Bei einem single choice test
@@ -296,7 +372,16 @@ Anzahl der Günstigen:
     \binom{n}{   \lceil\frac{n}{2}\rceil +1 }(m-1)^{n -   \lceil\frac{n}{2}\rceil-1   } + \cdots +
     \binom{n}{n} (m-1)^{n-n}. 
 \end{equation*}
-
-
+Für den Fall $n=25$ und $m=13$, ist $\lceil \frac{n}{2} \rceil = 13$ und die Anzahl 
+der günstigen Fälle gleich 
+\begin{equation}
+    3794787166756 \approx 10^{12.5}.
+\end{equation}
+Nachdem Anzahl der möglichen Fälle ist 
+\begin{equation}
+    m^{n} = 4^{25} = 1125899906842624 \approx 10^{15.05},
+\end{equation}
+ist die Wahrscheinlichkeit für eine zufällig bestandene Prüfung ungefähr gleich
+$0.0033$.
 
 
