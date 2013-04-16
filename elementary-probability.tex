@@ -222,6 +222,19 @@ Zeigen Sie folgende Aussagen:
 \end{enumerate}
 
 
+\paragraph{Arithmetik der Wahrscheinlichkeitsmaße.} Seien ein
+Wahrscheinlichkeitsraum $\left( \Omega, \fA, P \right)$ und die Ereignisse $A,
+B \in \fA$ gegeben. 
+\begin{enumerate}
+    \item Angenommen $P(\bar A)=\frac{1}{3}$, $P(A\cap B)=\frac{1}{4}$ und
+        $P(A \cup B)=\frac{2}{3}$. Berechnen Sie $P(\bar B)$, $P(A \cap \bar B)$
+        und $P( B \cap \bar A )$.
+        
+    \item Angenommen $P(A \cup B) = \frac{1}{2}$, $P(A \cap B) = \frac{1}{4}$
+        und $P(A \cap \bar B) = P(B \cap \bar A)$. Berechnen Sie $P(A)$ und
+        $P(A \cap \bar B)$. 
+\end{enumerate}
+
 
 
 \section{Kombinatorik.}
@@ -383,5 +396,98 @@ Nachdem Anzahl der möglichen Fälle ist
 \end{equation}
 ist die Wahrscheinlichkeit für eine zufällig bestandene Prüfung ungefähr gleich
 $0.0033$.
+
+
+
+
+\section{Bedingte Wahrscheinlichkeiten}
+
+
+\paragraph{Bedingte Wahrscheinlichkeiten. Symmetrie.}
+Seien ein Wahrscheinlichkeitsraum $\left( \Omega, \fA, P \right)$ und die
+Ereignisse $A,B\in \fA$ mit $P(A)>0$ und $P(B)>0$ gegeben.  Zeigen Sie die
+Äquivalenz:
+\begin{equation*}
+    P(A | B ) > P(A) \quad \iff \quad P(B | A) > P(B).
+\end{equation*}
+
+\paragraph*{Lösung.}
+\begin{equation*}
+    P(A|B)>P(A) \iff \frac{ P(A \cap B) }{ P(B)} > P(A) \iff P(A \cap B) > P(A)P(B).
+\end{equation*}
+
+
+\paragraph{Bedingte Wahrscheinlichkeiten. 3 Würfel.} Wir werfen drei faire Würfel. 
+\begin{enumerate}
+    \item Was ist die Wahrscheinlichkeit, dass kein Sechser geworfen wird? 
+    \item Was ist die Wahrscheinlichkeit, dass kein Sechser geworfen wird, wenn
+        wir wissen, dass verschiedene Zahlen geworfen wurden. 
+\end{enumerate}
+
+\paragraph*{Lösung.} Die Menge alle Tripel aus Zahlen $1,\cdots,6$ ist die
+Ergebnismenge.  Sei $A$ das Ereignis, dass keine Sechser geworfen wurden und
+$B$ das Ereignis, dass geworfene Zahlen verschieden sind. Nun ist $P(A) =
+\frac{5^3}{6^3}$ und $P(B)= 6\cdot 5\cdot 4$. Mit $P(A \cap B) = 5\cdot 4\cdot
+3$ erhalten wir $P(A|B)=\frac{1}{2}$.
+
+
+\paragraph{Bedingte Wahrscheinlichkeiten. 2 Münzen.} Wir werfen zwei faire Münzen.
+\begin{enumerate}
+    \item Die erste Münze zeigt Kopf. Berechnen Sie die Wahrscheinlichkeit,
+        dass beide Münzen Kopf zeigen.
+
+    \item Eine der Münzen zeigt Kopf. Berechnen Sie die Wahrscheinlichkeit,
+        dass beide Münzen Kopf zeigen.
+\end{enumerate}
+
+
+\paragraph{Bedingte Wahrscheinlichkeit ist ein Wahrscheinlichkeitsmaß.}
+Seien ein Wahrscheinlichkeitsraum $(\Omega, \fA, P)$ und ein Ereignis $B\in\fA$
+mit $P(B)>0$ gegeben. 
+\begin{enumerate}
+    \item Zeigen Sie, dass die Funktion $Q: \fA \to \bR, A \mapsto P(A|B)$ ein
+        Wahrscheinlichkeitsmaß auf $(\Omega, \fA)$ ist.
+    \item Sei $\fA_B = \left\{ A \cap B : A\in \fA \right\}$. Zeigen Sie, dass
+        die Funktion $R: \fA_B \to \bR, A \mapsto P(A|B)$ ein Wahrscheinlichkeitsmaß
+        auf $\left( B, \fA_B \right)$ ist. 
+    \item \textbf{Zusatz:} Zeigen Sie, dass $\fA_B$ eine $\sigma$-Algebra ist.
+\end{enumerate}
+
+
+\paragraph{Bedingte Wahrscheinlichkeiten. Urne mit Kugeln.} In einer Urne
+befinden sich $w$ weiße Kugeln und $s$ schwarze Kugeln. Es wird eine Kugel aus
+der Urne gezogen, beiseite gelegt und anschliessend eine weitere Kugel gezogen.
+Berechnen Sie die Wahrscheinlichkeiten der folgenden Ereignisse:
+\begin{enumerate}
+    \item Beide Kugel sind weiß.
+    \item Die erste Kugel weiß und die zweite Kugel schwarz ist.
+\end{enumerate}
+
+\paragraph*{Lösung. } Wir bezeichnen mit $W_1$ das Ereignis, dass eine weiße Kugel als
+erste gezogen wird, und mit $W_2$ ein Ereignis, dass eine weiße Kugel als zweite
+gezogen wird. Wir sind daran interessiert, die Wahrscheinlichkeit $P(W_1 \cap W_2)$ zu
+berechnen. Wir wissen aber $P(W_1 \cap W_2) = P(W_2 | W_1) P(W_1)$ und
+$P(W_1) = \frac{w}{w+s}$. Es gilt auch $P(W_2 | W_1) = \frac{w-1}{w-1+s}$.
+Insgesamt ist also \begin{equation*}
+    P(W_1 \cap W_2) = \frac{w(w-1)}{(w+s)(w-1+s) }.
+\end{equation*}
+
+Ähnlich bezeichnen wir mit $S_2$ das Ereignis, dass eine schwarze Kugel als zweite
+gezogen wird. Damit ergibt sich
+\begin{equation*}
+    P(W_1 \cap S_2)= P(S_2 | W_1) P(W_1) = \frac{ w s }{(w+s)(w+s-1)}.
+\end{equation*}
+
+
+\paragraph{Bedingte Wahrscheinlichkeiten. Urnenmodell von Polya.} Eine Urne
+enthält $s$ schwarze und $w$ weiße Kugeln. Es wird eine Kugel zufällig gezogen,
+ihre Farbe notiert und die Kugel gemeinsam mit $d$ weiteren Kugeln von der
+gleichen Farbe in die Urne gelegt. Die Prozedur wird anschließend wiederholt. 
+\begin{enumerate}
+    \item Wie groß ist die Wahrscheinlichkeit, dass die zweite gezogene Kugel weiß ist?
+    \item Wie groß ist die Wahrscheinlichkeit, dass die erste gezogene Kugel
+        weiß ist, unter der Bedingung, dass die zweite gezogene Kugel weiß ist?
+\end{enumerate}
+
 
 
