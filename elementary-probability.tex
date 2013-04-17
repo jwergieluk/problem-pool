@@ -195,7 +195,7 @@ Zeigen Sie folgende Aussagen:
 \begin{enumerate}
     \item \begin{equation*}
             P \left( A \cup B \cup C \right) = 
-            P(A)+P(B)+P(C) - P(A\cap B) - P(B\cap C) + P(A\cap B \cap C). 
+            P(A)+P(B)+P(C) - P(A\cap B) - P(A\cap C) - P(B\cap C) + P(A\cap B \cap C). 
         \end{equation*}
 
     \item
@@ -417,11 +417,11 @@ Ereignisse $A,B\in \fA$ mit $P(A)>0$ und $P(B)>0$ gegeben.  Zeigen Sie die
 \end{equation*}
 
 
-\paragraph{Bedingte Wahrscheinlichkeiten. 3 Würfel.} Wir werfen drei faire Würfel. 
+\paragraph{Bedingte Wahrscheinlichkeiten. 3 Würfel.} Wir werfen drei ideale Würfel. 
 \begin{enumerate}
-    \item Was ist die Wahrscheinlichkeit, dass kein Sechser geworfen wird? 
-    \item Was ist die Wahrscheinlichkeit, dass kein Sechser geworfen wird, wenn
-        wir wissen, dass verschiedene Zahlen geworfen wurden. 
+    \item Wie groß ist die Wahrscheinlichkeit, dass dabei kein Sechser geworfen wurde? 
+    \item Wie groß ist die Wahrscheinlichkeit, dass dabei kein Sechser geworfen wurde, wenn
+        bekannt ist, dass drei paarweise verschiedene Zahlen geworfen wurden. 
 \end{enumerate}
 
 \paragraph*{Lösung.} Die Menge alle Tripel aus Zahlen $1,\cdots,6$ ist die
@@ -431,7 +431,7 @@ $B$ das Ereignis, dass geworfene Zahlen verschieden sind. Nun ist $P(A) =
 3$ erhalten wir $P(A|B)=\frac{1}{2}$.
 
 
-\paragraph{Bedingte Wahrscheinlichkeiten. 2 Münzen.} Wir werfen zwei faire Münzen.
+\paragraph{Bedingte Wahrscheinlichkeiten. 2 Münzen.} Wir werfen zwei ideale Münzen.
 \begin{enumerate}
     \item Die erste Münze zeigt Kopf. Berechnen Sie die Wahrscheinlichkeit,
         dass beide Münzen Kopf zeigen.
@@ -450,17 +450,17 @@ mit $P(B)>0$ gegeben.
     \item Sei $\fA_B = \left\{ A \cap B : A\in \fA \right\}$. Zeigen Sie, dass
         die Funktion $R: \fA_B \to \bR, A \mapsto P(A|B)$ ein Wahrscheinlichkeitsmaß
         auf $\left( B, \fA_B \right)$ ist. 
-    \item \textbf{Zusatz:} Zeigen Sie, dass $\fA_B$ eine $\sigma$-Algebra ist.
+    \item \textbf{Zusatz:} Zeigen Sie, dass $\fA_B$ alle Eigenschaften eines Ereignisfeldes ($\sigma$-Algebra) aufweist.
 \end{enumerate}
 
 
 \paragraph{Bedingte Wahrscheinlichkeiten. Urne mit Kugeln.} In einer Urne
 befinden sich $w$ weiße Kugeln und $s$ schwarze Kugeln. Es wird eine Kugel aus
-der Urne gezogen, beiseite gelegt und anschliessend eine weitere Kugel gezogen.
+der Urne gezogen, beiseite gelegt und anschließend eine weitere Kugel gezogen.
 Berechnen Sie die Wahrscheinlichkeiten der folgenden Ereignisse:
 \begin{enumerate}
-    \item Beide Kugel sind weiß.
-    \item Die erste Kugel weiß und die zweite Kugel schwarz ist.
+    \item Beide Kugeln sind weiß.
+    \item Die erste Kugel ist weiß und die zweite Kugel ist schwarz.
 \end{enumerate}
 
 \paragraph*{Lösung. } Wir bezeichnen mit $W_1$ das Ereignis, dass eine weiße Kugel als
