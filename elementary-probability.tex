@@ -490,4 +490,91 @@ gleichen Farbe in die Urne gelegt. Die Prozedur wird anschließend wiederholt.
 \end{enumerate}
 
 
+\paragraph{Bedingte Wahrscheinlichkeiten. Unfaire Münzen.} 
+In einem Wurfexperiment werden $n$ Münzen verwendet. Davon sind $k$ Münzen
+symmetrisch und zeigen Kopf mit Wahrscheinlichkeit $1/2$. Die restlichen $n-k$
+Münzen zeigen Kopf mit Wahrscheinlichkeit $1/3$. 
+\begin{enumerate}
+    \item Es wurde zufällig eine Münze gewählt und geworfen: Kopf. Wie groß ist 
+        die Wahrscheinlichkeit, dass eine asymmetrische Münze gewählt wurde?
+    \item Eine zufällig gewählte Münze wird zwei mal geworfen und in beiden 
+        Würfen fällt Kopf. Wie groß ist die Wahrscheinlichkeit, dass eine asymmetrische
+        Münze gewählt wurde. 
+\end{enumerate}
+
+\paragraph*{Lösung. } Wir bezeichnen mit $S$ bzw. $A$ das Ereignis, dass eine
+symmetrische bzw. asymmetrische Münze gewählt wurde. Es gilt $P(S) = \frac{k}{n}$
+und $P(A)=\frac{n-k}{n}$. Sei $K$ das Ereignis, dass mit einer festen zufällig
+gewählten Münze Kopf geworfen wird. Wir suchen $P(A | K)$. Es gilt aber nach dem
+Satz von Bayes
+\begin{equation*}
+    P( A | K) = \frac{ P( K | A) P(A) }{ P(K | A) P(A) + P(K | S) P(S) }
+    = \frac{\frac{1}{3} \frac{n-k}{n} }{ \frac{n-k}{3 n} + \frac{1}{2} \frac{k}{n}} 
+    = \frac{n-k}{2n + k}.
+\end{equation*}
+
+Wenn zwei Münzen geworfen werden, müssen wir das Ereignis $K$ entsprechend erweitern und 
+in die obige Berechnung nochmal einsetzen. 
+
+
+
+\paragraph{Bedingte Wahrscheinlichkeit. Urne mit Loch.} In einer Urne befinden
+sich $s$ schwarze und $w$ weiße Kugeln. Während die Urne transportiert wird,
+gehen $d$ Kugeln verloren. Es wird eine Kugel zufällig aus der Urne gezogen.
+\begin{enumerate}
+    \item Angenommen $d=1$. Wie groß ist die Wahrscheinlichkeit, dass die
+        gezogene Kugel weiß ist?
+    \item Nun ist $d \leq s+w$. Wie groß ist die Wahrscheinlichkeit, dass die
+        gezogene Kugel weiß ist?
+\end{enumerate}
+
+
+
+\paragraph{Bedingte Wahrscheinlichkeiten. Urnen mit unbekanntem Inhalt.} Es
+sind zwei Urnen mit Kugeln gegeben. Eine der Urnen enthält $2$ weiße und $8$
+schwarze Kugeln und die andere enthält $3$ weiße und $7$ schwarze Kugeln. Es
+ist unbekannt, welche Urne ist welche.  Es sollen $2$ gezogen werden. Geben Sie
+einen Ziehprozedur an, die die Wahrscheinlichkeit, dass zwei weiße Kugeln
+gezogen werden unter allen Ziehprozeduren maximiert. 
+
+
+
+\paragraph{Bedingte Wahrscheinlichkeiten. Simpsons Paradoxon.} 
+
+
+
+
+
+\paragraph{Bedingte Wahrscheinlichkeiten. Versicherungsunternehmen.} Ein
+Versicherungsunternehmen versichert $n$ Autofahrer, davon $f$ Frauen und $m$
+Männer. Die Wahrscheinlichkeit, dass innerhalb eines Jahres ein zufällig
+gewählter männlicher Autofahrer einen Unfall hat, ist $\alpha$. Entsprechende
+Wahrscheinlichkeit für einen weiblichen Autofahrer ist $\beta$. Die Unfälle in
+verschiedenen Jahren sind unabhängig. Ein Autofahrer wird zufällig gewählt. 
+Berechnen Sie folgende Wahrscheinlichkeiten:
+\begin{enumerate}
+    \item Wie groß ist die Wahrscheinlichkeit, dass der gewählte Autofahrer 
+        innerhalb des nächsten Jahres einen Unfall hat?
+
+    \item Wie groß ist die Wahrscheinlichkeit, dass der gewählte Autofahrer
+        Unfälle in zwei aufeinanderfolgenden Jahren hat?
+    \item Der gewählte Autofahrer hat im letzten Jahr ein Unfall gehabt. Wie
+        groß ist die Wahrscheinlichkeit, dass der Autofahrer männlich ist?
+\end{enumerate}
+
+
+
+\paragraph{Bedingte Wahrscheinlichkeiten. Urnenmodell von Polya. II.} Eine Urne
+enthält $s$ schwarze und $w$ weiße Kugeln. Es wird eine Kugel zufällig gezogen,
+ihre Farbe notiert und die Kugel gemeinsam mit $d$ weiteren Kugeln von der
+gleichen Farbe in die Urne gelegt. Die Prozedur wird anschließend wiederholt.
+\begin{enumerate}
+    \item Bezeichne mit $B_n$ das Ereignis, dass bei der $n$-ten Ziehung
+        schwarze Kugel gezogen wird. Zeigen Sie, dass $P(B_1)=P(B_n)$ für alle
+        $n\in\bN$ gilt.
+    \item Berechnen Sie die Wahrscheinlichkeit, dass in einer Sequenz von $n$
+        Ziehungen $k$ schwarze Kugeln gezogen.
+\end{enumerate}
+
+
 
