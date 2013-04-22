@@ -235,6 +235,13 @@ B \in \fA$ gegeben.
         $P(A \cap \bar B)$. 
 \end{enumerate}
 
+\paragraph*{Lösung.}
+\begin{enumerate}
+    \item $B \subset A$.
+
+    \item $P(A) = \frac{3}{8}$ und $P(A \setminus B) = \frac{1}{8}$.
+\end{enumerate}
+
 
 
 \section{Kombinatorik.}
@@ -424,7 +431,7 @@ Ereignisse $A,B\in \fA$ mit $P(A)>0$ und $P(B)>0$ gegeben.  Zeigen Sie die
         bekannt ist, dass drei paarweise verschiedene Zahlen geworfen wurden. 
 \end{enumerate}
 
-\paragraph*{Lösung.} Die Menge alle Tripel aus Zahlen $1,\cdots,6$ ist die
+\paragraph*{Lösung.} Die Menge aller Tripel aus Zahlen $1,\cdots,6$ ist die
 Ergebnismenge.  Sei $A$ das Ereignis, dass keine Sechser geworfen wurden und
 $B$ das Ereignis, dass geworfene Zahlen verschieden sind. Nun ist $P(A) =
 \frac{5^3}{6^3}$ und $P(B)= 6\cdot 5\cdot 4$. Mit $P(A \cap B) = 5\cdot 4\cdot
@@ -440,6 +447,19 @@ $B$ das Ereignis, dass geworfene Zahlen verschieden sind. Nun ist $P(A) =
         dass beide Münzen Kopf zeigen.
 \end{enumerate}
 
+\paragraph*{Lösung.} Bezeichne mit $K_1$ bzw.\ $K_2$ das Ereignis, dass die erste
+bzw.\ die zweite Münze Kopf zeigt. 
+\begin{enumerate}
+    \item \begin{equation*}
+            P( K_1 \cap K_2 | K_1 ) = \frac{ P( K_1 \cap K_2 \cap K_1) }{ P(K_1)} = \frac{1}{2}.
+        \end{equation*}
+
+    \item \begin{equation*}
+            P( K_1 \cap K_2 | K_1 \cup K_2 ) = \frac{ P( K_1 \cap K_2) }{ P(K_1 \cup K_2) }
+            = \frac{1}{3}. 
+        \end{equation*}
+\end{enumerate}
+
 
 \paragraph{Bedingte Wahrscheinlichkeit ist ein Wahrscheinlichkeitsmaß.}
 Seien ein Wahrscheinlichkeitsraum $(\Omega, \fA, P)$ und ein Ereignis $B\in\fA$
@@ -451,6 +471,20 @@ mit $P(B)>0$ gegeben.
         die Funktion $R: \fA_B \to \bR, A \mapsto P(A|B)$ ein Wahrscheinlichkeitsmaß
         auf $\left( B, \fA_B \right)$ ist. 
     \item \textbf{Zusatz:} Zeigen Sie, dass $\fA_B$ alle Eigenschaften eines Ereignisfeldes ($\sigma$-Algebra) aufweist.
+\end{enumerate}
+
+\paragraph*{Lösung.}
+\begin{enumerate}
+    \item Es sollen die Axiome von Kologorov gelten: (A1) $0 \leq P(A) \leq 1$
+        für alle $A\in \fA$, (A2) $P(\Omega)=1$, (A3) $P\left(
+        \cup_{i=1}^{\infty} A_i \right) = \sum_{i=1}^{\infty} P(A_i)$ für
+        paarweise disjunkte Mengen $(A_i)_{i\in \bN}$. 
+
+        Nun ist $Q(A) = P( A | B) =  \frac{P(A \cap B)}{ P(B)}$.
+
+    \item Ein Ereignisfeld erfüllt folgende Axiome: (1) $\Omega \in \fA$, (2)
+        $A \in \fA \impl \bar A \in \fA$, (3) $A_1, A_2, \cdots \in \fA \impl
+        \cup_{i\in\bN} A_i \in \fA$. 
 \end{enumerate}
 
 
@@ -488,6 +522,21 @@ gleichen Farbe in die Urne gelegt. Die Prozedur wird anschließend wiederholt.
     \item Wie groß ist die Wahrscheinlichkeit, dass die erste gezogene Kugel
         weiß ist, unter der Bedingung, dass die zweite gezogene Kugel weiß ist?
 \end{enumerate}
+
+\paragraph*{Lösung.}
+\begin{enumerate}
+    \item \begin{align*}
+            P(W_2) &= P(W_2 | W_1) P(W_1) + P(W_2 | S_1) P(S_1) \\
+            &= \frac{w+d}{w+s+d}\ \frac{w}{w+s} + \frac{w}{w+s+d}\ \frac{s}{w+s} = \frac{w}{w+s}.
+        \end{align*}
+
+    \item \begin{align*}
+            P(W_1 | W_2 ) &= \frac{ P(W_2 | W_1) P(W_1)  }{ P(W_2) } = \frac{w+d}{w+s+d}.
+        \end{align*}
+        
+\end{enumerate}
+
+
 
 
 \paragraph{Bedingte Wahrscheinlichkeiten. Unfaire Münzen.} 
