@@ -567,31 +567,61 @@ in die obige Berechnung nochmal einsetzen.
 
 
 
-\paragraph{Bedingte Wahrscheinlichkeit. Urne mit Loch.} In einer Urne befinden
+\paragraph{Bedingte Wahrscheinlichkeiten. Urne mit Loch.} In einer Urne befinden
 sich $s$ schwarze und $w$ weiße Kugeln. Während die Urne transportiert wird,
 gehen $d$ Kugeln verloren. Es wird eine Kugel zufällig aus der Urne gezogen.
 \begin{enumerate}
     \item Angenommen $d=1$. Wie groß ist die Wahrscheinlichkeit, dass die
         gezogene Kugel weiß ist?
-    \item Nun ist $d \leq s+w$. Wie groß ist die Wahrscheinlichkeit, dass die
+    \item Nun ist $d<s$ und $d<w$. Wie groß ist die Wahrscheinlichkeit, dass die
         gezogene Kugel weiß ist?
+    \item Wie groß ist die Wahrscheinlichkeit, dass die gezogene Kugel weiß
+        ist, wenn nur noch $d<w+s$ gefordert wird?
+\end{enumerate}
+
+\paragraph*{Lösung.}
+\begin{enumerate}
+    \item Im Fall $d=1$ können wir annehmen, dass eine Kugel entnommen wurde und
+        den Satz von der vollständigen Wahrscheinlichkeit verwenden. 
+        \begin{equation*}
+            P(W_2) = P(W_2 | W_1 ) P(W_2 ) + P(W_2 | S_1) P(S_1).
+        \end{equation*}
+
+    \item Alle Arten auf die $i$ weiße und $k-i$ schwarze Kugeln für $i\in
+        {0,\cdots, k}$ verloren gehen können, sind gleichwahrscheinlich.
+        Bezeichnen wir dieses Ereignis als $Z_i$.  Daher haben wir
+        \begin{align*}
+            P(W) &= \sum_{i=0}^{d} P(W | Z_i ) P(Z_i) \\
+            &= \sum_{i=0}^{d} \frac{ w -i}{w+s-i} P(Z_i).
+        \end{align*}
+        Nun ist 
+        \begin{align*}
+            P(Z_i) &= \binom{k}{i} P( W_1\cap \cdots\cap W_i\cap S_{i+1}\cap \cdots\cap S_k ) \\
+            &= \binom{k}{i} P(W_1) P(W_2 | W_1) \cdots P( S_k | W_1\cap \cdots\cap S_{i+1}\cap \cdots\cap S_k) \\
+            &= \binom{k}{i} \frac{w}{w+s}\frac{w-1}{w+s-1}\cdots \frac{w-i+1}{s+w-i-1}
+            \frac{s}{s+w-i}\cdots\frac{s-(k-i)+1}{s+w -k+1} \\
+            &= \binom{k}{i} \frac{ (w)_{i} (s)_{k-i} }{ (w+s)_{k}}.
+        \end{align*}
+
 \end{enumerate}
 
 
 
+
 \paragraph{Bedingte Wahrscheinlichkeiten. Urnen mit unbekanntem Inhalt.} Es
-sind zwei Urnen mit Kugeln gegeben. Eine der Urnen enthält $2$ weiße und $8$
-schwarze Kugeln und die andere enthält $3$ weiße und $7$ schwarze Kugeln. Es
-ist unbekannt, welche Urne ist welche.  Es sollen $2$ gezogen werden. Geben Sie
-einen Ziehprozedur an, die die Wahrscheinlichkeit, dass zwei weiße Kugeln
-gezogen werden unter allen Ziehprozeduren maximiert. 
+sind zwei Urnen mit Kugeln gegeben. Eine der Urnen enthält $k_1$ weiße und
+$n_1$ schwarze Kugeln und die andere enthält $k_2$ weiße und $n_2$ schwarze
+Kugeln. Es ist unbekannt, welche Urne ist welche.
+\begin{enumerate}
+    \item Geben Sie einen Ziehprozedur an, die die Wahrscheinlichkeit, dass
+        zwei weiße Kugeln gezogen werden unter allen Ziehprozeduren maximiert.
 
+    \item Seien nun $k_1=3, n_1=7, k_2=2$ und $n_2=8$. Wie groß ist die
+        Wahrscheinlichkeit, dass unter Verwendung der von Ihnen gefundenen
+        Prozedur, zwei weiße Kugeln gezogen werden. 
+\end{enumerate}
 
-
-\paragraph{Bedingte Wahrscheinlichkeiten. Simpsons Paradoxon.} 
-
-
-
+ 
 
 
 \paragraph{Bedingte Wahrscheinlichkeiten. Versicherungsunternehmen.} Ein
@@ -607,23 +637,89 @@ Berechnen Sie folgende Wahrscheinlichkeiten:
 
     \item Wie groß ist die Wahrscheinlichkeit, dass der gewählte Autofahrer
         Unfälle in zwei aufeinanderfolgenden Jahren hat?
-    \item Der gewählte Autofahrer hat im letzten Jahr ein Unfall gehabt. Wie
+
+    \item Der gewählte Autofahrer hat im letzten Jahr einen Unfall gehabt. Wie
         groß ist die Wahrscheinlichkeit, dass der Autofahrer männlich ist?
+\end{enumerate}
+
+\paragraph*{Lösung.}
+\begin{enumerate}
+    \item $\frac{\alpha m + \beta f}{n}$.
+    \item $\frac{\alpha^2 m + \beta^2 f}{n}$.
+    \item $\frac{\alpha m}{\alpha m + \beta f}$.
 \end{enumerate}
 
 
 
-\paragraph{Bedingte Wahrscheinlichkeiten. Urnenmodell von Polya. II.} Eine Urne
+\paragraph{Bedingte Wahrscheinlichkeiten. Urnenmodell von P\'olya. II.} Eine Urne
 enthält $s$ schwarze und $w$ weiße Kugeln. Es wird eine Kugel zufällig gezogen,
 ihre Farbe notiert und die Kugel gemeinsam mit $d$ weiteren Kugeln von der
 gleichen Farbe in die Urne gelegt. Die Prozedur wird anschließend wiederholt.
 \begin{enumerate}
-    \item Bezeichne mit $B_n$ das Ereignis, dass bei der $n$-ten Ziehung
-        schwarze Kugel gezogen wird. Zeigen Sie, dass $P(B_1)=P(B_n)$ für alle
-        $n\in\bN$ gilt.
-    \item Berechnen Sie die Wahrscheinlichkeit, dass in einer Sequenz von $n$
-        Ziehungen $k$ schwarze Kugeln gezogen.
+    \item Berechnen Sie die Wahrscheinlichkeit $p_{k,n}$, dass in einer Sequenz von $n$
+        Ziehungen $k$ schwarze Kugeln gezogen werden.
 \end{enumerate}
 
+\paragraph*{Lösung.}
+%    \item Bezeichne mit $S_n$ das Ereignis, dass bei der $n$-ten Ziehung
+%        schwarze Kugel gezogen wird. Zeigen Sie, dass $P(S_1)=P(S_n)$ für alle
+%        $n\in\bN$ gilt.
+\begin{enumerate}
+    \item Es gibt $\binom{k}{n}$ mögliche Ziehungen von $n$ Kugeln, die $k$
+        schwarze Kugeln beinhalten. Alle diese Ziehungen sind
+        gleichwahrscheinlich, denn eine Ziehung $(I_1, \cdots, I_n)$ kann in
+        eine andere durch einfache Vertauschungen der Form $(I_1, \cdots,
+        I_{k}, I_{k+1}, \cdots, I_n) \to \left( I_1, \cdots, I_{k+1}, I_{k},
+        \cdots, I_n \right)$ überführt werden. Diese Transformationen lassen
+        die Wahrscheinlichkeiten der Ziehungen unverändert. Man kann noch 
+        genauer Argumentieren und zeigen
+        \begin{equation*}
+            P( I_1, \cdots, S_k, W_{k+1}, \cdots, I_n) = 
+            P( I_1, \cdots, W_{k}, S_{k+1}, \cdots, I_n).
+        \end{equation*}
+        Mit Hilfe der Multiplikationsregel erhalten wir
+        \begin{align*}
+            P( I_1, \cdots, S_k, W_{k+1}, \cdots, I_n) = \\
+            P(I_1)\cdots P(S_k | I_{k-1}\cap\cdots\cap I_1) 
+            P( W_{k+1} | S_k\cap I_{k-1}\cdots) \cdots P(I_n | I_{n-1}\cap \cdots)
+        \end{align*}
+        Es sind nur die Wahrscheinlichkeiten in der Mitte des obigen Produkts
+        interessant, da die übrigen von der Ersetzung $(S_k\cap W_{k+1} ) \to
+        (W_k \cap S_{k+1})$ nicht beeinflusst werden. Wir definieren 
+        \begin{equation*}
+            Q(A) = P(A | I_{k-1} \cap \cdots\cap I_1)
+        \end{equation*}
+        und zeigen
+        \begin{equation*}
+            Q( S_k ) Q(W_{k+1} | S_k) = Q(W_k) Q( S_{k+1} | W_k)
+        \end{equation*}
+        indem wir die konkrete Zahlen einsetzen.
+
+        Demzufolge können wir Ziehungen betrachten in denen zuerst $k$
+        schwarze Kugeln und dann die $n-k$ weiße Kugeln gezogen werden.
+        Wir verwenden die Multiplikationsregel:
+        \begin{align*}
+            P( S_1 \cap \cdots \cap S_k \cap W_{k+1} \cap \cdots \cap W_{n} ) = \\
+            P(S_1) \cdots P(S_k | S_1\cap\cdots\cap S_{k-1})\cdots
+            P(W_{n} | S_1\cap \cdots\cap W_{n-1} ) = \\
+            \frac{s}{s+w} \frac{s+d}{s+w+d}\cdots\frac{s+(k-1)d}{s+w+(k-1)d}
+            \frac{w}{s+w+ kd}\cdots\frac{w + (n-k-1)d}{ w+s+(n-1)d}
+        \end{align*}
+        Wir erhalten also insgesamt
+        \begin{equation*}
+            p_{k,n} = \binom{k}{n} P( S_1 \cap \cdots \cap S_k \cap W_{k+1} \cap \cdots \cap W_{n} ).
+        \end{equation*}
+\end{enumerate}
+
+
+\paragraph{Bedingte bedingte Wahrscheinlichkeiten.} 
+Seien ein Wahrscheinlichkeitsraum $(\Omega, \fA, P)$ und die Ereignisse
+$A,B,C\in\fA$ mit $P(A)>0$, $P(B)>0$ und $P(C)>0$ gegeben. Wir definieren
+$P(A|B|C)= Q(A|B)$ für ein Wahrscheinlichkeitsmaß $Q$ mit $Q(D)=P(D|C) \ \forall
+D\in\fA$. Zeigen Sie folgende Aussagen:
+\begin{enumerate}
+    \item $P(A|B|C) = P(A| B \cap C) = P(A|C|B)$. 
+    \item $P(A|B|C) = P(A| C)$ falls $C \subset B$.
+\end{enumerate}
 
 
