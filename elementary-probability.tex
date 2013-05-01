@@ -546,7 +546,7 @@ Münzen zeigen Kopf mit Wahrscheinlichkeit $1/3$.
 \begin{enumerate}
     \item Es wurde zufällig eine Münze gewählt und geworfen: Kopf. Wie groß ist 
         die Wahrscheinlichkeit, dass eine asymmetrische Münze gewählt wurde?
-    \item Eine zufällig gewählte Münze wird zwei mal geworfen und in beiden 
+    \item Eine zufällig gewählte Münze wird zweimal geworfen und in beiden 
         Würfen fällt Kopf. Wie groß ist die Wahrscheinlichkeit, dass eine asymmetrische
         Münze gewählt wurde. 
 \end{enumerate}
@@ -611,17 +611,35 @@ gehen $d$ Kugeln verloren. Es wird eine Kugel zufällig aus der Urne gezogen.
 \paragraph{Bedingte Wahrscheinlichkeiten. Urnen mit unbekanntem Inhalt.} Es
 sind zwei Urnen mit Kugeln gegeben. Eine der Urnen enthält $k_1$ weiße und
 $n_1$ schwarze Kugeln und die andere enthält $k_2$ weiße und $n_2$ schwarze
-Kugeln. Es ist unbekannt, welche Urne ist welche.
+Kugeln. Die Urnen sind äußerlich nicht unterscheidbar.
 \begin{enumerate}
-    \item Geben Sie einen Ziehprozedur an, die die Wahrscheinlichkeit, dass
-        zwei weiße Kugeln gezogen werden unter allen Ziehprozeduren maximiert.
+    \item Geben Sie einen Ziehungsprozedur an, die die Wahrscheinlichkeit, dass
+        zwei weiße Kugeln gezogen werden unter allen Ziehungsprozeduren maximiert.
 
     \item Seien nun $k_1=3, n_1=7, k_2=2$ und $n_2=8$. Wie groß ist die
         Wahrscheinlichkeit, dass unter Verwendung der von Ihnen gefundenen
-        Prozedur, zwei weiße Kugeln gezogen werden. 
+        Prozedur zwei weiße Kugeln gezogen werden?
 \end{enumerate}
 
- 
+\paragraph*{Lösung.}
+Nachdem die Urnen äußerlich nicht unterscheidbar sind, können wir eine
+Urne nur zufällig und nur mit Wahrscheinlichkeit $1/2$ wählen. Wir wählen 
+also eine Urne zufällig und ziehen eine Kugel. Es kann nur auf folgende Weisen
+weiterfahren werden:
+
+\begin{enumerate}
+    \item Für die zweite Ziehung wählen wir die Urnen zufällig.
+    \item Zweite Kugel ziehen wir aus der anderen Urne. 
+    \item Zweite Kugel ziehen wir aus derselben Urne.
+    \item Zweite Kugel ziehen wir aus derselben Urne falls die erste weiß war.
+    \item Zweite Kugel ziehen wir aus anderen Urne falls die erste weiß war.
+\end{enumerate}
+Bezeichnen wir mit $U_{ij}$, $i,j\in \left\{ 1,2 \right\}$ das Ereignis, dass
+die $j$-te Urne bei der $i$-ten Ziehung gewählt wurde. Nun berechnen wir die 
+Wahrscheinlichkeit, dass zwei weiße Kugel gezogen werden, also $P(W_1 \cap W_2)$.
+\begin{align*}
+    P_1 = P(W_1 \cap W_2) = 
+\end{align*}
 
 
 \paragraph{Bedingte Wahrscheinlichkeiten. Versicherungsunternehmen.} Ein
@@ -721,5 +739,111 @@ D\in\fA$. Zeigen Sie folgende Aussagen:
     \item $P(A|B|C) = P(A| B \cap C) = P(A|C|B)$. 
     \item $P(A|B|C) = P(A| C)$ falls $C \subset B$.
 \end{enumerate}
+
+
+
+\section{Unabhängigkeit}
+
+\paragraph{Unabhängigkeit. Disjunkte Ereignisse.} Seien $(\Omega, \fA, P)$ ein
+Wahrscheinlichkeitsraum und die Ereignisse $A,B \in \fA$ gegeben. Zeigen Sie
+folgende Aussagen:
+\begin{enumerate}
+    \item Angenommen $A\cap B=\emptyset$. $A$ und $B$ sind genau dann
+        unabhängig, wenn $P(A)=0$ oder $P(B)=0$ gilt.
+
+    \item Sind $A$ und $B$ unabhängig und $A \cup B = \Omega$, dann gilt 
+        $P(A)=1$ oder $P(B)=1$. 
+\end{enumerate}
+
+
+\paragraph{Unabhängigkeit. Gleichwahrscheinliche Ereignisse.} Seien $(\Omega,
+\fA, P)$ ein Wahrscheinlichkeitsraum und $A_1,\cdots, A_n \in\fA, n\in\bN$
+vollständig stochastisch unabhängige Ereignisse mit $P(A_i)=p\in[0,1]\ \forall
+i\in \left\{ 1,\cdots,n \right\}$ gegeben. Berechnen Sie die
+Wahrscheinlichkeiten der folgenden Ereignisse:
+\begin{enumerate}
+    \item Alle Ereignisse $A_1,\cdots, A_n$ treten ein.
+    \item Keins der Ereignisse $A_1, \cdots, A_n$ tritt ein. 
+    \item Genau eins der Ereignisse $A_1, \cdots, A_n$ tritt ein. Wieso 
+        ist diese Wahrscheinlichkeit kleiner als $1$?
+\end{enumerate}
+
+\paragraph*{Lösung.}
+\begin{align*}
+    P( (A_1 \cap \bar A_2 \cap \cdots \cap \bar A_n)  \cup\cdots\cup (\bar A_1 \cap \cdots \cap \bar A_{n-1} \cap A_n) &= \\
+    \sum_{i=1}^{n} P(\bar A_1 \cap \cdots \cap A_i \cap \cdots \cap \bar A_n) &= n p (1-p)^{n-1}. 
+\end{align*}
+
+
+\paragraph{Unabhängigkeit. Münzen.} Eine ideale Münze wird $n$ mal geworfen.
+Bezeichnen wir als $K_i, i\in \left\{1,\cdots,n\right\}$ das Ereignis, dass
+beim $i$-ten Wurf Kopf fällt. 
+\begin{enumerate}
+    \item Finden Sie einen geeigneten Wahrscheinlichkeitsraum, der diese
+        Zufallssituation beschreibt.
+    \item Zeigen Sie, dass die Ereignisse $K_1,\cdots, K_n$ vollständig 
+        stochastisch unabhängig sind.
+\end{enumerate}
+
+
+\paragraph{Unabhängigkeit. Karten.} Aus einem gut gemischten Spielkartensatz
+bestehend aus 52 Karten wird zufällig eine Karte gezogen. Bezeichnen wir mit
+$A$ das Ereignis, dass ein Ass gezogen wird und mit $K$ das Ereignis, dass eine
+Karte mit der Farbe Karo gezogen wird. Zeigen Sie, dass die Ereignisse $A$ und
+$K$ unabhängig sind. 
+
+
+\paragraph{Unabhängigkeit. Abschätzung mit der Exponentialfunktion.} Seien
+$(\Omega, \fA, P)$ ein Wahrscheinlichkeitsraum und $A_1, \cdots, A_n \in\fA$
+vollständig stochastisch unabhängige Ereignisse  gegeben. Zeigen Sie:
+\begin{equation*}
+    P( \overline{A_1 \cup \cdots \cup A_n} ) \leq \exp \left( - \sum_{i=1}^{n} P(A_i) \right).
+\end{equation*}
+
+
+\section{Elementare Maßtheorie}
+
+\paragraph{Maßtheorie. Borel-meßbare Abbildungen.} Sei ein messbarer Raum
+$(\Omega, \fA)$ mit $\Omega=\left\{ \omega_1, \omega_2, \omega_3, \omega_4
+\right\}$ und der $\sigma$-Algebra $\fA = \left\{ \emptyset, \Omega, \left\{
+\omega_1, \omega_2 \right\}, \left\{ \omega_3, \omega_4 \right\} \right\}$
+gegeben. Wir betrachten Abbildungen von $\Omega$ nach $\bR$, wobei $\bR$ mit
+der Borel'schen $\sigma$-Algebra $\cB(\bR)$ ausgestattet ist.
+\begin{enumerate}
+    \item Zeigen Sie, dass die Abbildung $f: \Omega \to \bR, \omega \mapsto 5$
+        messbar ist.
+    \item Zeigen Sie, dass die Abbildung $g: \Omega \to \bR$ mit $g(\omega_i) = i$
+        für $i\in \left\{ 1,2,3,4 \right\}$ nicht messbar ist.
+    \item Beschreiben Sie nun alle messbaren Abbildungen $h: \Omega \to \bR$. 
+\end{enumerate}
+
+
+
+\paragraph{Maßtheorie. Dirac-Maß.} Sei ein messbarer Raum $(\bR, \cB(\bR))$
+gegeben. Für ein festes $x\in\bR$ definieren wir die Mengenfunktion $\delta_x
+: \cB(\bR) \to \R$ als
+\begin{equation*}
+    \delta_{x} (A) =
+        \begin{cases}
+            1 & \textrm{ falls } x\in A \\
+            0 & \textrm{ sonst. }
+        \end{cases}
+\end{equation*}
+\begin{enumerate}
+    \item Zeigen Sie, dass $\delta_x$ für alle $x\in\bR$ ein Maß ist.
+
+    \item Betrachten wir einen $n$-Tupel $(x_1, \cdots, x_n)$ mit $x_i>0$ für
+        alle $i\in \left\{ 1, \cdots, n \right\}$ und eine Mengenfunktion
+        $\delta: \cB(\bR) \to \bR, A \mapsto \sum_{i=1}^{n} \delta_{x_i} (A)$.
+        Zeigen Sie, dass $\delta$ ein Maß auf $\left( \bR, \cB(\bR)
+        \right)$ ist.
+
+    \item Sei nun $(c_1, \cdots, c_n)$ ein $n$-Tupel positiver reeller Zahlen
+        mit $\sum_{i=1}^{n} c_i = 1$. Zeigen Sie, dass die Mengenfunktion
+        $\delta$ ein Wahrscheinlichkeitsmaß auf $\left( \bR, \cB(\bR) \right)$
+        ist. 
+\end{enumerate}
+
+
 
 
