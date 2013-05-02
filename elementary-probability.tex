@@ -158,7 +158,7 @@ A \subseteq B \quad  \impl \quad P(A) \leq P(B).
 
 
 \paragraph{Wahrscheinlichkeitsmaße. Subaditivität.} Seien ein
-Wahrscheinlichkeitsraum $(\Omega, \fA, P)$ und die Ereignisse $A_1, A_2, \cdots
+Wahrscheinlichkeitsraum $(\Omega, \fA, P)$ und die Ereignisse $A_1, A_2, \dots
 \in \fA$ gegeben. 
 \begin{enumerate}
     \item Zeigen Sie, dass für alle  $n\in \bN$ 
@@ -179,8 +179,8 @@ Wahrscheinlichkeitsraum $(\Omega, \fA, P)$ und die Ereignisse $A_1, A_2, \cdots
         Elemente von $\fA$.
         \begin{align*}
             \bigcup_{i=1}^n A_i &= A_1 \cup (\bar A_1 \cap A_2) \cup 
-            (\bar A_1 \cap \bar A_2 \cap A_3) \cup \cdots \cup
-            (\bar A_1 \cap \bar A_2 \cap \cdots \cap \bar A_{n-1} \cap A_n).
+            (\bar A_1 \cap \bar A_2 \cap A_3) \cup \dots \cup
+            (\bar A_1 \cap \bar A_2 \cap \dots \cap \bar A_{n-1} \cap A_n).
         \end{align*}
 
     \item Genau der gleiche Argument funktioniert für $n=\infty$. Das ist 
@@ -190,7 +190,7 @@ Wahrscheinlichkeitsraum $(\Omega, \fA, P)$ und die Ereignisse $A_1, A_2, \cdots
 
 \paragraph{Wahrscheinlichkeitsmaße. Zerlegung der Vereinigung.} Seien ein
 Wahrscheinlichkeitsraum $\left( \Omega, \fA, P \right)$ und die Ereignisse
-$A,B,C\in \fA$ sowie $A_1, A_2, \cdots, A_n \in \fA$ gegeben.
+$A,B,C\in \fA$ sowie $A_1, A_2, \dots, A_n \in \fA$ gegeben.
 Zeigen Sie folgende Aussagen:
 \begin{enumerate}
     \item \begin{equation*}
@@ -202,8 +202,8 @@ Zeigen Sie folgende Aussagen:
         \begin{align*}
             P\left( \bigcup \limits_{i=1}^{n} A_i \right) =&
             \sum_{i=1}^{n} P(A_i) - \sum_{i<j} P(A_i \cap A_j) + \\
-            & \sum_{i<j<k} P(A_i \cap A_j \cap A_k) - \cdots + 
-            (-1)^{n+1} P\left( A_1 \cap \cdots \cap A_n \right). 
+            & \sum_{i<j<k} P(A_i \cap A_j \cap A_k) - \dots + 
+            (-1)^{n+1} P\left( A_1 \cap \dots \cap A_n \right). 
         \end{align*}
 \end{enumerate}
 
@@ -211,10 +211,10 @@ Zeigen Sie folgende Aussagen:
 \begin{enumerate}
     \item Hier genügt eine Überlegung mit Hilfe der Venn-Diagrame. 
 
-    \item Die Menge $A_1 \cup \cdots \cup A_n$ ist Vereinigung der Mengen der
-        Form $A_{i_1} \cap \cdots \cap A_{i_k} \cap \bar A_{i_{k+1}} \cap
-        \cdots \cap \bar A_{i_{n}}$, $k\geq 1$, wobei $i_1,\cdots, i_n$ eine
-        Umnumerierung von $1, \cdots, n$ ist. Nun kommt solche Menge in der
+    \item Die Menge $A_1 \cup \dots \cup A_n$ ist Vereinigung der Mengen der
+        Form $A_{i_1} \cap \dots \cap A_{i_k} \cap \bar A_{i_{k+1}} \cap
+        \dots \cap \bar A_{i_{n}}$, $k\geq 1$, wobei $i_1,\dots, i_n$ eine
+        Umnumerierung von $1, \dots, n$ ist. Nun kommt solche Menge in der
         ersten Summe als Teilmenge von $A_i$ genau $\binom{k}{1}
         $ vor. In der zweiten Summe wird die Menge $\binom{k}{2}$ mal abgezogen. 
         Nachdem $\sum_{i=0}^{k} (-1)^{i} \binom{k}{i} = 0$, erhalten wir 
@@ -248,7 +248,7 @@ B \in \fA$ gegeben.
 
 
 \paragraph{Kombinatorik. Passwörter.} Wir betrachten die Menge
-$\cA = \left\{ a, b, \cdots, z, 0, \cdots, 9 \right\}$ als gegebenen Zeichensatz.
+$\cA = \left\{ a, b, \dots, z, 0, \dots, 9 \right\}$ als gegebenen Zeichensatz.
 \begin{enumerate}
     \item Wie viele voneinander verschiedene Passwörter der Länge 8 können
         aus $\cA$ gebildet werden?
@@ -281,13 +281,13 @@ $\cA = \left\{ a, b, \cdots, z, 0, \cdots, 9 \right\}$ als gegebenen Zeichensatz
 
 
 \paragraph{Kombinatorik. PINs und runs.} In einer Folge $\left( a_1, a_2, a_3,
-\cdots \right)$ wird eine Teilfolge $(a, a, \cdots, a)$, die aus $n$-facher
+\dots \right)$ wird eine Teilfolge $(a, a, \dots, a)$, die aus $n$-facher
 Wiederholung eines Elements $a$ gebildet wird, als ein $n$-run bezeichnet.
 Zum Beispiel hat die Folge $(0, 0, 1, 1, 1, 0)$ acht runs, nämlich einen $2$-run
 $(0,0)$ und einen $3$-run $(1,1,1)$, sowie sechs $1$-runs.
 
 Betrachten wir nun die Menge der 4-stelligen PINs, die aus den Ziffern $\left\{
-0,1, \cdots, 9 \right\}$ gebildet werden können. 
+0,1, \dots, 9 \right\}$ gebildet werden können. 
 \begin{enumerate}
     \item Wie viele solche PINs gibt es?
     \item Wie viele PINs gibt es, die keine $2$-runs, $3$-runs, sowie keine
@@ -326,7 +326,7 @@ unterschieden werden können und einmal ohne diese Annahme.
 \begin{enumerate}
     \item Wenn wir zwei wohlunterscheidbare Würfel werfen, ist die
         $36$-elementige Ergebnismenge gegeben durch $\Omega = \left\{ (i,j) :
-        i,j \in \left\{ 1, \cdots, 6 \right\} \right\}$. Die günstigen Fälle
+        i,j \in \left\{ 1, \dots, 6 \right\} \right\}$. Die günstigen Fälle
         sind 
         \begin{equation}
             (4,6), (5,5), (5,6), (6,4), (6,5), (6,5).
@@ -389,7 +389,7 @@ ankreuzen.
 Anzahl der Günstigen:
 \begin{equation*}
     \binom{n}{ \lceil\frac{n}{2}\rceil }(m-1)^{n - \lceil\frac{n}{2}\rceil } +
-    \binom{n}{   \lceil\frac{n}{2}\rceil +1 }(m-1)^{n -   \lceil\frac{n}{2}\rceil-1   } + \cdots +
+    \binom{n}{   \lceil\frac{n}{2}\rceil +1 }(m-1)^{n -   \lceil\frac{n}{2}\rceil-1   } + \dots +
     \binom{n}{n} (m-1)^{n-n}. 
 \end{equation*}
 Für den Fall $n=25$ und $m=13$, ist $\lceil \frac{n}{2} \rceil = 13$ und die Anzahl 
@@ -431,7 +431,7 @@ Ereignisse $A,B\in \fA$ mit $P(A)>0$ und $P(B)>0$ gegeben.  Zeigen Sie die
         bekannt ist, dass drei paarweise verschiedene Zahlen geworfen wurden. 
 \end{enumerate}
 
-\paragraph*{Lösung.} Die Menge aller Tripel aus Zahlen $1,\cdots,6$ ist die
+\paragraph*{Lösung.} Die Menge aller Tripel aus Zahlen $1,\dots,6$ ist die
 Ergebnismenge.  Sei $A$ das Ereignis, dass keine Sechser geworfen wurden und
 $B$ das Ereignis, dass geworfene Zahlen verschieden sind. Nun ist $P(A) =
 \frac{5^3}{6^3}$ und $P(B)= 6\cdot 5\cdot 4$. Mit $P(A \cap B) = 5\cdot 4\cdot
@@ -483,7 +483,7 @@ mit $P(B)>0$ gegeben.
         Nun ist $Q(A) = P( A | B) =  \frac{P(A \cap B)}{ P(B)}$.
 
     \item Ein Ereignisfeld erfüllt folgende Axiome: (1) $\Omega \in \fA$, (2)
-        $A \in \fA \impl \bar A \in \fA$, (3) $A_1, A_2, \cdots \in \fA \impl
+        $A \in \fA \impl \bar A \in \fA$, (3) $A_1, A_2, \dots \in \fA \impl
         \cup_{i\in\bN} A_i \in \fA$. 
 \end{enumerate}
 
@@ -588,7 +588,7 @@ gehen $d$ Kugeln verloren. Es wird eine Kugel zufällig aus der Urne gezogen.
         \end{equation*}
 
     \item Alle Arten auf die $i$ weiße und $k-i$ schwarze Kugeln für $i\in
-        {0,\cdots, k}$ verloren gehen können, sind gleichwahrscheinlich.
+        {0,\dots, k}$ verloren gehen können, sind gleichwahrscheinlich.
         Bezeichnen wir dieses Ereignis als $Z_i$.  Daher haben wir
         \begin{align*}
             P(W) &= \sum_{i=0}^{d} P(W | Z_i ) P(Z_i) \\
@@ -596,10 +596,10 @@ gehen $d$ Kugeln verloren. Es wird eine Kugel zufällig aus der Urne gezogen.
         \end{align*}
         Nun ist 
         \begin{align*}
-            P(Z_i) &= \binom{k}{i} P( W_1\cap \cdots\cap W_i\cap S_{i+1}\cap \cdots\cap S_k ) \\
-            &= \binom{k}{i} P(W_1) P(W_2 | W_1) \cdots P( S_k | W_1\cap \cdots\cap S_{i+1}\cap \cdots\cap S_k) \\
-            &= \binom{k}{i} \frac{w}{w+s}\frac{w-1}{w+s-1}\cdots \frac{w-i+1}{s+w-i-1}
-            \frac{s}{s+w-i}\cdots\frac{s-(k-i)+1}{s+w -k+1} \\
+            P(Z_i) &= \binom{k}{i} P( W_1\cap \dots\cap W_i\cap S_{i+1}\cap \dots\cap S_k ) \\
+            &= \binom{k}{i} P(W_1) P(W_2 | W_1) \dots P( S_k | W_1\cap \dots\cap S_{i+1}\cap \dots\cap S_k) \\
+            &= \binom{k}{i} \frac{w}{w+s}\frac{w-1}{w+s-1}\dots \frac{w-i+1}{s+w-i-1}
+            \frac{s}{s+w-i}\dots\frac{s-(k-i)+1}{s+w -k+1} \\
             &= \binom{k}{i} \frac{ (w)_{i} (s)_{k-i} }{ (w+s)_{k}}.
         \end{align*}
 
@@ -685,27 +685,27 @@ gleichen Farbe in die Urne gelegt. Die Prozedur wird anschließend wiederholt.
 \begin{enumerate}
     \item Es gibt $\binom{k}{n}$ mögliche Ziehungen von $n$ Kugeln, die $k$
         schwarze Kugeln beinhalten. Alle diese Ziehungen sind
-        gleichwahrscheinlich, denn eine Ziehung $(I_1, \cdots, I_n)$ kann in
-        eine andere durch einfache Vertauschungen der Form $(I_1, \cdots,
-        I_{k}, I_{k+1}, \cdots, I_n) \to \left( I_1, \cdots, I_{k+1}, I_{k},
-        \cdots, I_n \right)$ überführt werden. Diese Transformationen lassen
+        gleichwahrscheinlich, denn eine Ziehung $(I_1, \dots, I_n)$ kann in
+        eine andere durch einfache Vertauschungen der Form $(I_1, \dots,
+        I_{k}, I_{k+1}, \dots, I_n) \to \left( I_1, \dots, I_{k+1}, I_{k},
+        \dots, I_n \right)$ überführt werden. Diese Transformationen lassen
         die Wahrscheinlichkeiten der Ziehungen unverändert. Man kann noch 
         genauer Argumentieren und zeigen
         \begin{equation*}
-            P( I_1, \cdots, S_k, W_{k+1}, \cdots, I_n) = 
-            P( I_1, \cdots, W_{k}, S_{k+1}, \cdots, I_n).
+            P( I_1, \dots, S_k, W_{k+1}, \dots, I_n) = 
+            P( I_1, \dots, W_{k}, S_{k+1}, \dots, I_n).
         \end{equation*}
         Mit Hilfe der Multiplikationsregel erhalten wir
         \begin{align*}
-            P( I_1, \cdots, S_k, W_{k+1}, \cdots, I_n) = \\
-            P(I_1)\cdots P(S_k | I_{k-1}\cap\cdots\cap I_1) 
-            P( W_{k+1} | S_k\cap I_{k-1}\cdots) \cdots P(I_n | I_{n-1}\cap \cdots)
+            P( I_1, \dots, S_k, W_{k+1}, \dots, I_n) = \\
+            P(I_1)\dots P(S_k | I_{k-1}\cap\dots\cap I_1) 
+            P( W_{k+1} | S_k\cap I_{k-1}\dots) \dots P(I_n | I_{n-1}\cap \dots)
         \end{align*}
         Es sind nur die Wahrscheinlichkeiten in der Mitte des obigen Produkts
         interessant, da die übrigen von der Ersetzung $(S_k\cap W_{k+1} ) \to
         (W_k \cap S_{k+1})$ nicht beeinflusst werden. Wir definieren 
         \begin{equation*}
-            Q(A) = P(A | I_{k-1} \cap \cdots\cap I_1)
+            Q(A) = P(A | I_{k-1} \cap \dots\cap I_1)
         \end{equation*}
         und zeigen
         \begin{equation*}
@@ -717,15 +717,15 @@ gleichen Farbe in die Urne gelegt. Die Prozedur wird anschließend wiederholt.
         schwarze Kugeln und dann die $n-k$ weiße Kugeln gezogen werden.
         Wir verwenden die Multiplikationsregel:
         \begin{align*}
-            P( S_1 \cap \cdots \cap S_k \cap W_{k+1} \cap \cdots \cap W_{n} ) = \\
-            P(S_1) \cdots P(S_k | S_1\cap\cdots\cap S_{k-1})\cdots
-            P(W_{n} | S_1\cap \cdots\cap W_{n-1} ) = \\
-            \frac{s}{s+w} \frac{s+d}{s+w+d}\cdots\frac{s+(k-1)d}{s+w+(k-1)d}
-            \frac{w}{s+w+ kd}\cdots\frac{w + (n-k-1)d}{ w+s+(n-1)d}
+            P( S_1 \cap \dots \cap S_k \cap W_{k+1} \cap \dots \cap W_{n} ) = \\
+            P(S_1) \dots P(S_k | S_1\cap\dots\cap S_{k-1})\dots
+            P(W_{n} | S_1\cap \dots\cap W_{n-1} ) = \\
+            \frac{s}{s+w} \frac{s+d}{s+w+d}\dots\frac{s+(k-1)d}{s+w+(k-1)d}
+            \frac{w}{s+w+ kd}\dots\frac{w + (n-k-1)d}{ w+s+(n-1)d}
         \end{align*}
         Wir erhalten also insgesamt
         \begin{equation*}
-            p_{k,n} = \binom{k}{n} P( S_1 \cap \cdots \cap S_k \cap W_{k+1} \cap \cdots \cap W_{n} ).
+            p_{k,n} = \binom{k}{n} P( S_1 \cap \dots \cap S_k \cap W_{k+1} \cap \dots \cap W_{n} ).
         \end{equation*}
 \end{enumerate}
 
@@ -770,8 +770,8 @@ Wahrscheinlichkeiten der folgenden Ereignisse:
 
 \paragraph*{Lösung.}
 \begin{align*}
-    P( (A_1 \cap \bar A_2 \cap \cdots \cap \bar A_n)  \cup\cdots\cup (\bar A_1 \cap \cdots \cap \bar A_{n-1} \cap A_n) &= \\
-    \sum_{i=1}^{n} P(\bar A_1 \cap \cdots \cap A_i \cap \cdots \cap \bar A_n) &= n p (1-p)^{n-1}. 
+    P( (A_1 \cap \bar A_2 \cap \dots \cap \bar A_n)  \cup\dots\cup (\bar A_1 \cap \dots \cap \bar A_{n-1} \cap A_n) &= \\
+    \sum_{i=1}^{n} P(\bar A_1 \cap \dots \cap A_i \cap \dots \cap \bar A_n) &= n p (1-p)^{n-1}. 
 \end{align*}
 
 
@@ -803,7 +803,7 @@ vollständig stochastisch unabhängige Ereignisse  gegeben. Zeigen Sie:
 
 \section{Elementare Maßtheorie}
 
-\paragraph{Maßtheorie. Borel-meßbare Abbildungen.} Sei ein messbarer Raum
+\paragraph{Maßtheorie. Borel-messbare Abbildungen.} Sei ein messbarer Raum
 $(\Omega, \fA)$ mit $\Omega=\left\{ \omega_1, \omega_2, \omega_3, \omega_4
 \right\}$ und der $\sigma$-Algebra $\fA = \left\{ \emptyset, \Omega, \left\{
 \omega_1, \omega_2 \right\}, \left\{ \omega_3, \omega_4 \right\} \right\}$
@@ -832,13 +832,13 @@ gegeben. Für ein festes $x\in\bR$ definieren wir die Mengenfunktion $\delta_x
 \begin{enumerate}
     \item Zeigen Sie, dass $\delta_x$ für alle $x\in\bR$ ein Maß ist.
 
-    \item Betrachten wir einen $n$-Tupel $(x_1, \cdots, x_n)$ mit $x_i>0$ für
-        alle $i\in \left\{ 1, \cdots, n \right\}$ und eine Mengenfunktion
+    \item Betrachten wir ein $n$-Tupel $(x_1, \dots, x_n)$ mit $x_i>0$ für
+        alle $i\in \left\{ 1, \dots, n \right\}$ und eine Mengenfunktion
         $\delta: \cB(\bR) \to \bR, A \mapsto \sum_{i=1}^{n} \delta_{x_i} (A)$.
         Zeigen Sie, dass $\delta$ ein Maß auf $\left( \bR, \cB(\bR)
         \right)$ ist.
 
-    \item Sei nun $(c_1, \cdots, c_n)$ ein $n$-Tupel positiver reeller Zahlen
+    \item Sei nun $(c_1, \dots, c_n)$ ein $n$-Tupel positiver reeller Zahlen
         mit $\sum_{i=1}^{n} c_i = 1$. Zeigen Sie, dass die Mengenfunktion
         $\delta$ ein Wahrscheinlichkeitsmaß auf $\left( \bR, \cB(\bR) \right)$
         ist. 
