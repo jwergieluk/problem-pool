@@ -769,10 +769,15 @@ Wahrscheinlichkeiten der folgenden Ereignisse:
 \end{enumerate}
 
 \paragraph*{Lösung.}
-\begin{align*}
-    P( (A_1 \cap \bar A_2 \cap \dots \cap \bar A_n)  \cup\dots\cup (\bar A_1 \cap \dots \cap \bar A_{n-1} \cap A_n) &= \\
-    \sum_{i=1}^{n} P(\bar A_1 \cap \dots \cap A_i \cap \dots \cap \bar A_n) &= n p (1-p)^{n-1}. 
-\end{align*}
+\begin{enumerate}
+    \item $P(A_1 \cap \dots \cap A_n) = p^n$.
+    \item $P(\overline{A_1 \cup \dots \cup A_n}) = (1-p)^n$.
+    \item \begin{align*}
+            P( (A_1 \cap \bar A_2 \cap \dots \cap \bar A_n)  \cup\dots\cup (\bar A_1 \cap \dots \cap \bar A_{n-1} \cap A_n) &= \\
+            \sum_{i=1}^{n} P(\bar A_1 \cap \dots \cap A_i \cap \dots \cap \bar A_n) &= n p (1-p)^{n-1}. 
+        \end{align*}
+\end{enumerate}
+
 
 
 \paragraph{Unabhängigkeit. Münzen.} Eine ideale Münze wird $n$ mal geworfen.
@@ -799,6 +804,8 @@ vollständig stochastisch unabhängige Ereignisse  gegeben. Zeigen Sie:
 \begin{equation*}
     P( \overline{A_1 \cup \dots \cup A_n} ) \leq \exp \left( - \sum_{i=1}^{n} P(A_i) \right).
 \end{equation*}
+
+\paragraph*{Lösung.} Benutze $1-x \leq e^{-x}$ und vollständige Induktion.
 
 
 \section{Elementare Maßtheorie}
@@ -842,6 +849,113 @@ gegeben. Für ein festes $x\in\bR$ definieren wir die Mengenfunktion $\delta_x
         mit $\sum_{i=1}^{n} c_i = 1$. Zeigen Sie, dass die Mengenfunktion
         $\delta$ ein Wahrscheinlichkeitsmaß auf $\left( \bR, \cB(\bR) \right)$
         ist. 
+\end{enumerate}
+
+
+\section{Einfache Zufallsvariablen}
+
+
+\paragraph{Einfache Zufallsvariablen. Bildmaß.}
+Seien $\left( \Omega, \fA, P \right)$ ein Wahrscheinlichkeitsmaß und eine
+Zufallsgröße $X: \Omega \to \bR$ gegeben, wobei die Menge der reellen Zahlen
+gemeinsam mit der Borel'schen $\sigma$-Algebra einen Meßraum $\left( \bR,
+\cB(\bR) \right)$ bildet. Zeigen Sie folgende Aussagen:
+\begin{enumerate}
+    \item Die Mengenfunktion $P_{X}: \cB(\bR) \to [0,1], A \mapsto P( X \in A
+        )$ ist ein Wahrscheinlichkeitsmaß auf $(\bR, \cB(\bR))$. 
+
+    \item Ist die Ergebnismenge $\Omega = \left\{ \omega_{1},\dots ,\omega_{n} \right\}$ endlich,
+        so gibt es $n$-Tupel reeller Zahlen $(x_1,\dots ,x_n)$ und $(p_1,\dots ,p_n)$ mit 
+        $p_i>0 \ \forall i\in \left\{ 1,\dots ,n \right\}$ und $\sum_{i=1}^{n} p_i = 1$, sodass 
+        \begin{equation*}
+            P_X = \sum_{i=1}^{n} p_i \delta_{x_i}.
+        \end{equation*}
+        Dabei ist $\delta_x : \cB(\cR) \to \R$ für ein festes $x\in\bR$ ein
+        Diracmaß mit $\delta_x(\left\{ x \right\})=1$. Sind die Tupel
+        $(x_1,\dots ,x_n)$ und $(p_1,\dots ,p_n)$ eindeutig durch $X$ bestimmt?
+        Welche Bedeutung haben sie?
+\end{enumerate}
+
+\paragraph{Maßtheorie. Ereignisfelder und Information.} Die Ergebnismenge
+$\Omega = \left\{ (i,j) : i,j \in \left\{ 1,\dots ,6 \right\} \right\}$
+gemeinsam mit dem Wahrscheinlichkeitsmaß $P( (i,j) ) = \frac{1}{36}$ beschreiben
+einen Wurfexperiment, in dem zwei ideale wohlunterscheidbare Würfel geworfen
+werden. 
+Für ein Ergebnis $\omega = (i,j) \in \Omega$ definieren wir die Funktionen
+\begin{align*}
+    X_0(\omega) &= 0 \\
+    X_1(\omega) &= i+j, \\
+    X_2(\omega) &= i, \\
+    X_3(\omega) &= 
+    \begin{cases}
+        1 & \text{ falls } i+j=6 \\
+        0 & \text{ sonst.}
+    \end{cases}
+\end{align*}
+\begin{enumerate}
+    \item Finden Sie die kleinsten Ereignisfelder $\fA_{i}$, $i\in \left\{
+        0,1,2,3 \right\}$, sodass $X_i$ Zufallsvariablen auf dem Wahrscheinlichkeitsraum
+        $(\Omega, \fA_i, P)$ sind. 
+    \item Beschreiben Sie den Zusammenhang zwischen den Ereignisfeldern $\fA_i$
+        und der Information, die die Zufallsvariablen $X_i$ über die Ergebnisse
+        $\omega \in \Omega$ liefern.
+\end{enumerate}
+
+
+\paragraph{Zufallsgrößen. Bernoulli-Verteilung.} Eine Zufallsgröße $X$ mit den
+Werten in der Menge $\left\{ 0,1 \right\} \subset \bR$ und der
+Wahrscheinlichkeitsfunktion $P(X=1)= p$, $P(X=0)=1-p$ mit $p\in(0,1)$ heißt
+Bernoulli-verteilt mit dem Parameter $p$. 
+\begin{enumerate}
+    \item Geben Sie die Verteilungsfunktion $F: \bR\to [0,1], x\mapsto F(x) =
+        P(X<x)$ von $X$ an.
+
+    \item Berechnen Sie den Erwartungswert und die Varianz von $X$. 
+
+    \item Berechnen Sie den Erwartungswert und die Varianz der Zufallsvariable
+        $Y = \exp\left( X \right)$.
+
+    \item Berechnen Sie den $k$-ten Moment und den $k$-ten zentralen Moment von 
+        $X$ für alle $k\in \bN$. 
+\end{enumerate}
+
+
+\paragraph{Zufallsgrößen. Diskrete Gleichverteilung.} Eine Zufallsgröße
+heißt gleichverteilt auf $\left\{ 1,\dots ,n \right\}$ falls $P(X=i)=\frac{1}{n}$
+für alle $i\in\left\{ 1,\dots ,n \right\}$.
+\begin{enumerate}
+    \item Geben Sie die Verteilungsfunktion $F: \bR\to [0,1], x\mapsto F(x) =
+        P(X<x)$ von $X$ an.
+
+    \item Berechnen Sie den Erwartungswert und die Varianz von $X$. 
+
+    \item Berechnen Sie den Erwartungswert und die Varianz der Zufallsvariable
+        $Y = \log\left( X \right)$.
+
+    \item Berechnen Sie den $k$-ten Moment und den $k$-ten zentralen Moment von 
+        $X$ für alle $k\in \bN$. 
+\end{enumerate}
+
+
+\paragraph{Zufallsgrößen. Funktionen der Augenzahl.} In einem Wurfexperiment
+werden zwei ideale wohlunterscheidbare Würfel geworfen. Die Zufallsgrößen
+$X_i$ geben die geworfene Augenzahl des $i$-ten Würfels an.
+\begin{enumerate}
+    \item Berechnen Sie die Wahrscheinlichkeiten $P(X_1-X_2 > 2)$, $P(X_1/X_2 > 1)$
+        und $P(|X_1-X_2| \leq 1)$. 
+    \item Berechnen Sie die Verteilungsfunktion $F$ der Zufallsgröße $Y = X_1 + X_2$. 
+\end{enumerate}
+
+\paragraph{Erwartungswert. Einfache Eigenschaften.} Sei $X$ eine diskrete
+Zufallsvariable. Beweisen Sie folgende Aussagen.
+\begin{enumerate}
+    \item $\bfE \left( X^2 - \bfE X \right)^2 = \bfE X^2 - \left( \bfE X \right)^2$, falls alle diese
+        Erwartungswerte existieren.
+    \item $\left( \bfE X \right)^2 \leq \bfE X^{2}$, falls beide Erwartungswerte existieren. 
+    \item Angenommen $X$ hat Werte in $\bN$. Dann gilt
+        \begin{equation*}
+            \bfE X = \sum_{n=0}^{\infty} P(X > n). 
+        \end{equation*}
 \end{enumerate}
 
 
