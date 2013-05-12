@@ -855,11 +855,10 @@ gegeben. Für ein festes $x\in\bR$ definieren wir die Mengenfunktion $\delta_x
 \section{Einfache Zufallsvariablen}
 
 
-\paragraph{Einfache Zufallsvariablen. Bildmaß.}
-Seien $\left( \Omega, \fA, P \right)$ ein Wahrscheinlichkeitsmaß und eine
-Zufallsgröße $X: \Omega \to \bR$ gegeben, wobei die Menge der reellen Zahlen
-gemeinsam mit der Borel'schen $\sigma$-Algebra einen Meßraum $\left( \bR,
-\cB(\bR) \right)$ bildet. Zeigen Sie folgende Aussagen:
+\paragraph{Maßtheorie. Bildmaß.}
+Seien als Ma{\ss}raum ein Wahrscheinlichkeitsraum $\left( \Omega, \fA, P \right)$ und eine
+Zufallsgröße $X: \Omega \to \bR$ gegeben, welche als messbare Abbildung zwischen den messbaren R\"aumen $\left( \Omega,\fA\right)$ und  $\left( \bR,\cB(\bR) \right)$ definiert ist.
+Dabei bezeichnet $\cB(\bR)$ die Borel'sche $\sigma$-Algebra auf den reellen Zahlen. Zeigen Sie folgende Aussagen:
 \begin{enumerate}
     \item Die Mengenfunktion $P_{X}: \cB(\bR) \to [0,1], A \mapsto P( X \in A
         )$ ist ein Wahrscheinlichkeitsmaß auf $(\bR, \cB(\bR))$. 
@@ -870,8 +869,9 @@ gemeinsam mit der Borel'schen $\sigma$-Algebra einen Meßraum $\left( \bR,
         \begin{equation*}
             P_X = \sum_{i=1}^{n} p_i \delta_{x_i}.
         \end{equation*}
-        Dabei ist $\delta_x : \cB(\cR) \to \R$ für ein festes $x\in\bR$ ein
-        Diracmaß mit $\delta_x(\left\{ x \right\})=1$. Sind die Tupel
+        Dabei ist $\delta_x : \cB(\bR) \to \R$ für ein festes $x\in\bR$ ein
+        Diracmaß mit $$\delta_x(B)=\left\{\begin{array}{lll} 1 & \mbox{falls} & x \in B\\ 0 & \mbox{falls} & x \notin B \end{array}\right., \quad B \in \cB(\bR).$$
+        Sind die Tupel
         $(x_1,\dots ,x_n)$ und $(p_1,\dots ,p_n)$ eindeutig durch $X$ bestimmt?
         Welche Bedeutung haben sie?
 \end{enumerate}
@@ -894,10 +894,10 @@ Für ein Ergebnis $\omega = (i,j) \in \Omega$ definieren wir die Funktionen
 \end{align*}
 \begin{enumerate}
     \item Finden Sie die kleinsten Ereignisfelder $\fA_{i}$, $i\in \left\{
-        0,1,2,3 \right\}$, sodass $X_i$ Zufallsvariablen auf dem Wahrscheinlichkeitsraum
+        0,1,2,3 \right\}$, sodass $X_i$ Zufallsgrößen auf dem Wahrscheinlichkeitsraum
         $(\Omega, \fA_i, P)$ sind. 
     \item Beschreiben Sie den Zusammenhang zwischen den Ereignisfeldern $\fA_i$
-        und der Information, die die Zufallsvariablen $X_i$ über die Ergebnisse
+        und der Information, die die Zufallsgrößen $X_i$ über die Ergebnisse
         $\omega \in \Omega$ liefern.
 \end{enumerate}
 
@@ -910,19 +910,19 @@ Bernoulli-verteilt mit dem Parameter $p$.
     \item Geben Sie die Verteilungsfunktion $F: \bR\to [0,1], x\mapsto F(x) =
         P(X<x)$ von $X$ an.
 
-    \item Berechnen Sie den Erwartungswert und die Varianz von $X$. 
+    \item Berechnen Sie den Erwartungswert $\bfE X$ und die Varianz $\bfD^2X$ von $X$. 
 
-    \item Berechnen Sie den Erwartungswert und die Varianz der Zufallsvariable
+    \item Berechnen Sie den Erwartungswert $\bfE Y$ und die Varianz $\bfD^2Y$ der Zufallsgröße \linebreak
         $Y = \exp\left( X \right)$.
 
-    \item Berechnen Sie den $k$-ten Moment und den $k$-ten zentralen Moment von 
+    \item Berechnen Sie die $k$-ten Momente $m_k=\bfE X^k$ und die $k$-ten zentralen Momente $\mu_k=\bfE (X-\bfE X)^k$ von 
         $X$ für alle $k\in \bN$. 
 \end{enumerate}
 
 
-\paragraph{Zufallsgrößen. Diskrete Gleichverteilung.} Eine Zufallsgröße
-heißt gleichverteilt auf $\left\{ 1,\dots ,n \right\}$ falls $P(X=i)=\frac{1}{n}$
-für alle $i\in\left\{ 1,\dots ,n \right\}$.
+\paragraph{Zufallsgrößen. Diskrete Gleichverteilung.} Eine Zufallsgröße heißt
+diskret gleichverteilt auf $\left\{ 1,\dots ,n \right\}$ falls
+$P(X=i)=\frac{1}{n}$ für alle $i\in\left\{ 1,\dots ,n \right\}$.
 \begin{enumerate}
     \item Geben Sie die Verteilungsfunktion $F: \bR\to [0,1], x\mapsto F(x) =
         P(X<x)$ von $X$ an.
@@ -932,7 +932,7 @@ für alle $i\in\left\{ 1,\dots ,n \right\}$.
     \item Berechnen Sie den Erwartungswert und die Varianz der Zufallsvariable
         $Y = \log\left( X \right)$.
 
-    \item Berechnen Sie den $k$-ten Moment und den $k$-ten zentralen Moment von 
+    \item Berechnen Sie das $k$-te Moment und das $k$-te zentrale Moment von 
         $X$ für alle $k\in \bN$. 
 \end{enumerate}
 
@@ -941,8 +941,8 @@ für alle $i\in\left\{ 1,\dots ,n \right\}$.
 werden zwei ideale wohlunterscheidbare Würfel geworfen. Die Zufallsgrößen
 $X_i$ geben die geworfene Augenzahl des $i$-ten Würfels an.
 \begin{enumerate}
-    \item Berechnen Sie die Wahrscheinlichkeiten $P(X_1-X_2 > 2)$, $P(X_1/X_2 > 1)$
-        und $P(|X_1-X_2| \leq 1)$. 
+    \item Berechnen Sie die Wahrscheinlichkeiten $\;P(X_1-X_2 > 2)$,\; $P(X_1/X_2 > 1)$
+        und \linebreak $P(|X_1-X_2| \leq 1)$. 
     \item Berechnen Sie die Verteilungsfunktion $F$ der Zufallsgröße $Y = X_1 + X_2$. 
 \end{enumerate}
 
@@ -958,6 +958,94 @@ Zufallsvariable. Beweisen Sie folgende Aussagen.
         \end{equation*}
 \end{enumerate}
 
+
+
+\paragraph{Geometrische Verteilung. Erwartungswerte.} Sei $X$ geometrisch
+verteilt mit dem Parameter $p\in (0,1)$. Zeigen Sie folgende Aussagen: 
+\begin{enumerate}
+    \item \begin{equation*}
+            \bfE \left[ \frac{1}{1+X} \right] = \log \left( (1-p)^{\frac{p}{p-1}} \right).
+        \end{equation*}
+
+    \item Für alle $n\in \left\{ 2,3, \dots \right\}$ gilt
+        \begin{equation*}
+            \bfE \left[ X(X-1)\cdot \dots \cdot (X - n+1) \right] = \frac{n!\ p^n}{(1-p)^n}.
+        \end{equation*}
+\end{enumerate}
+
+\paragraph{Geometrische Verteilung. Gedächtnislosigkeit.} Sei $X$ geometrisch
+verteilt mit dem Parameter $p$. Zeigen Sie, dass 
+\begin{equation*}
+    P \left( X > i+j \,|\, X>i \right) = P\left( X > j \right) 
+\end{equation*}
+für alle $i,j>0$ gilt.
+
+\paragraph{Binomialverteilung. Eigenschaften.} Sei $X \sim \bfB(n,p)$ 
+binomialverteilt mit den Parametern $n$ und $p$. Zeigen Sie folgende Aussagen: 
+\begin{enumerate}
+    \item Für das Maximum der Wahrscheinlichkeitsfunktion von $X$ gilt
+        \begin{equation*}
+            \max_{k\in \left\{ 0,\dots ,n \right\}} P(X=k) = \lfloor (n+1)p \rfloor.
+        \end{equation*}
+        Dabei bezeichnet $\lfloor x \rfloor$ die größte ganze Zahl kleiner als $x$. 
+
+    \item $X$ is gerade mit Wahrscheinlichkeit
+        \begin{equation*}
+            P\left( X \text{ ist gerade} \right) = \frac{1}{2}\left( 1 + (1-2p)^n \right). 
+        \end{equation*}
+\end{enumerate}
+
+
+\paragraph{Poisson-Verteilung. Eigenschaften.} Sei $X$
+Poisson-verteilt mit der Wahrscheinlichkeitsfunktion $P(X = k) =
+\frac{\lambda^k}{k!} e^{-\lambda}$, $k\in \left\{ 0,1,\dots \right\}$ und dem
+Parameter $\lambda>0$. Beweisen Sie folgende Aussagen: 
+\begin{enumerate}
+    \item Für das Maximum der Wahrscheinlichkeitsfunktion von $X$ gilt
+        \begin{equation*}
+            \max_{k\in \bN} P(X= k) = \lfloor \lambda \rfloor. 
+        \end{equation*}
+
+    \item $\bfE | X -\lambda | = \frac{2 \lambda^{\lambda} e^{-\lambda}}{ (\lambda-1)!}$.
+    \item Für $n\in \left\{ 2,3,\dots  \right\}$ gilt 
+        $\bfE \left[ X(X-1)\cdot\dots\cdot (X-n+1) \right] = \lambda^n$.
+\end{enumerate}
+
+
+\paragraph{Binomialverteilung. Additionstheorem.} 
+Sei $b(k, n, p)=P(X=k)$ die Wahrscheinlichkeitsfunktion einer binomialverteilten
+Zufallsgröße $X\sim\bfB(n,p)$.
+\begin{enumerate}
+    \item Zeigen Sie, dass für $n_1>0$ und $n_2>0$ die Gleichung
+        \begin{equation*}
+            \sum_{i=0}^{k} b(i, n_1, p) b( k-i, n_2, p) = b( k, n_1+n_2, p ).
+        \end{equation*}
+        gilt. 
+
+    \item Geben Sie die wahrscheinlichkeitstheoretische Interpretation der
+        obigen Aussage.
+\end{enumerate}
+
+
+\paragraph{Poisson-Verteilung. Additionstheorem.} Seien $X_1\sim
+\pi_{\lambda_1}$ und $X_2\sim \pi_{\lambda_2}$ unabhängige Poisson-verteilte
+Zufallsgrößen mit den Parametern $\lambda_1>0$ und $\lambda_2>0$. Zeigen Sie,
+dass die Zufallsgröße
+\begin{equation*}
+    Y = X_1 + X_2
+\end{equation*}
+ebenfalls poissonverteilt mit dem Parameter $\lambda=\lambda_1 + \lambda_2$ ist. 
+
+
+\paragraph{Binomialverteilung. Verteilungsfunktion.} Seien $X\sim\bfB(n,p)$ binomialverteilt
+und $B(k, n, p) = P( X <k)$ die Verteilungsfunktion von $X$. Zeigen Sie:
+\begin{equation*}
+    B(k+1, n, p) = (n-k) \binom{n}{k} \int_{0}^{1-p} t^{n-k-1} (1-t)k dt
+\end{equation*}
+und daraus
+\begin{equation*}
+    1 - B(k+1, n, p) = n \binom{n-1}{k} \int_{0}^{p} t^{k} (1-t)^{n-k-1} dt.
+\end{equation*}
 
 
 
