@@ -183,7 +183,7 @@ Wahrscheinlichkeitsraum $(\Omega, \fA, P)$ und die Ereignisse $A_1, A_2, \dots
             (\bar A_1 \cap \bar A_2 \cap \dots \cap \bar A_{n-1} \cap A_n).
         \end{align*}
 
-    \item Genau der gleiche Argument funktioniert für $n=\infty$. Das ist 
+    \item Genau das gleiche Argument funktioniert für $n=\infty$. Das ist 
         die Konsequenz der $\sigma$-Additivität der Wahrscheinlichkeitsfunktion $P$. 
 \end{enumerate}
 
@@ -852,7 +852,7 @@ gegeben. Für ein festes $x\in\bR$ definieren wir die Mengenfunktion $\delta_x
 \end{enumerate}
 
 
-\section{Einfache Zufallsvariablen}
+\section{Einfache Zufallsgrößen}
 
 
 \paragraph{Maßtheorie. Bildmaß.}
@@ -874,6 +874,11 @@ Dabei bezeichnet $\cB(\bR)$ die Borel'sche $\sigma$-Algebra auf den reellen Zahl
         Sind die Tupel
         $(x_1,\dots ,x_n)$ und $(p_1,\dots ,p_n)$ eindeutig durch $X$ bestimmt?
         Welche Bedeutung haben sie?
+\end{enumerate}
+
+\paragraph*{Lösung.}
+\begin{enumerate}
+    \item $P_X$ ist wohldefiniert, normiert und $\sigma$-additiv: $P_X \left( \bigcup_{k\geq 0} A_i \right) = P\left( X \in \bigcup_{k\geq 0} A_i \right)= P\left( \bigcup_{k\geq 0} \left\{ X\in A_i \right\} \right) = \sum_{k\geq 0}^{} P_X\left( X \in A_i \right)$.
 \end{enumerate}
 
 \paragraph{Maßtheorie. Ereignisfelder und Information.} Die Ergebnismenge
@@ -900,6 +905,17 @@ Für ein Ergebnis $\omega = (i,j) \in \Omega$ definieren wir die Funktionen
         und der Information, die die Zufallsgrößen $X_i$ über die Ergebnisse
         $\omega \in \Omega$ liefern.
 \end{enumerate}
+
+\paragraph*{Lösung.} 
+\begin{align*}
+    \fA_0 &= \left\{ \emptyset, \Omega \right\} \\
+    \fA_1 &= \sigma \left\{ \left\{ 11 \right\}, \left\{ 21,12 \right\}, \left\{ 13,22,31
+    \right\},\dots , \left\{ 16,25,34,\dots ,61 \right\} \right\} \\
+    \fA_2 &= \sigma \left\{ \left\{ 11,12,13,14,15,16 \right\},\dots ,\left\{ 61,62,\dots ,66
+    \right\} \right\} \\
+    \fA_3 &= \sigma \left\{ \left\{ 15,24,\dots ,51 \right\}, 
+    \overline{ \left\{ 15,24,\dots ,51 \right\}  } \right\}.
+\end{align*}
 
 
 \paragraph{Zufallsgrößen. Bernoulli-Verteilung.} Eine Zufallsgröße $X$ mit den
@@ -929,13 +945,17 @@ $P(X=i)=\frac{1}{n}$ für alle $i\in\left\{ 1,\dots ,n \right\}$.
 
     \item Berechnen Sie den Erwartungswert und die Varianz von $X$. 
 
-    \item Berechnen Sie den Erwartungswert und die Varianz der Zufallsvariable
+    \item Berechnen Sie den Erwartungswert und die Varianz der Zufallsgröße
         $Y = \log\left( X \right)$.
 
     \item Berechnen Sie das $k$-te Moment und das $k$-te zentrale Moment von 
         $X$ für alle $k\in \bN$. 
 \end{enumerate}
 
+\paragraph*{Lösung.} $\bfE X = \frac{n+1}{2}$, $\sum_{k=1}^{n} k^2 = \frac{n(n+1)(2n+1)}{6}$,
+$\bfE X^2 = \frac{(n+1)(2n+1)}{6}$, $\bfD^2 X = \bfE X^2 - \left( \bfE X \right)^2$.
+
+$\bfE \log X = \frac{1}{n} \log n!$.
 
 \paragraph{Zufallsgrößen. Funktionen der Augenzahl.} In einem Wurfexperiment
 werden zwei ideale wohlunterscheidbare Würfel geworfen. Die Zufallsgrößen
@@ -946,10 +966,14 @@ $X_i$ geben die geworfene Augenzahl des $i$-ten Würfels an.
     \item Berechnen Sie die Verteilungsfunktion $F$ der Zufallsgröße $Y = X_1 + X_2$. 
 \end{enumerate}
 
+\paragraph*{Lösung.} $P(X_1-X_2 > 2)=\frac{6}{36}$, $P(X_1/X_2>1)=\frac{15}{36}$, 
+$P(|X_1-X_2| \leq 1) =\frac{6+5+5}{36}$. 
+
+
 \paragraph{Erwartungswert. Einfache Eigenschaften.} Sei $X$ eine diskrete
-Zufallsvariable. Beweisen Sie folgende Aussagen.
+Zufallsgröße. Beweisen Sie folgende Aussagen.
 \begin{enumerate}
-    \item $\bfE \left( X^2 - \bfE X \right)^2 = \bfE X^2 - \left( \bfE X \right)^2$, falls alle diese
+    \item $\bfE \left( X - \bfE X \right)^2 = \bfE X^2 - \left( \bfE X \right)^2$, falls alle diese
         Erwartungswerte existieren.
     \item $\left( \bfE X \right)^2 \leq \bfE X^{2}$, falls beide Erwartungswerte existieren. 
     \item Angenommen $X$ hat Werte in $\bN$. Dann gilt
@@ -957,6 +981,13 @@ Zufallsvariable. Beweisen Sie folgende Aussagen.
             \bfE X = \sum_{n=0}^{\infty} P(X > n). 
         \end{equation*}
 \end{enumerate}
+
+\paragraph*{Lösung.} 
+\begin{align*}
+    \bfE X &= \sum_{n\geq 0} n\, P\left( X=n \right) \\
+    &= P(X=1)+P(X=2)+P(X=2)+\dots+ \underbrace{P(X=n)+\dots+P(X=n)}_{n \text{times}} + \dots \\
+    &= \sum_{n\geq 0}^{} P(X>n).
+\end{align*}
 
 
 
@@ -974,25 +1005,53 @@ verteilt mit dem Parameter $p\in (0,1)$. Zeigen Sie folgende Aussagen:
 \end{enumerate}
 
 \paragraph{Geometrische Verteilung. Gedächtnislosigkeit.} Sei $X$ geometrisch
-verteilt mit dem Parameter $p$. Zeigen Sie, dass 
-\begin{equation*}
-    P \left( X > i+j \,|\, X>i \right) = P\left( X > j \right) 
-\end{equation*}
-für alle $i,j>0$ gilt.
+verteilt mit dem Parameter $p$.
+\begin{enumerate}
+    \item Zeigen Sie, dass 
+        \begin{equation*}
+            P \left( X > i+j \,|\, X \geq i \right) = P\left( X > j \right) 
+        \end{equation*}
+        für alle $i,j>0$ gilt.
+
+    \item Finden Sie eine Interpretation für die obige Beziehung.
+\end{enumerate}
+
 
 \paragraph{Binomialverteilung. Eigenschaften.} Sei $X \sim \bfB(n,p)$ 
 binomialverteilt mit den Parametern $n$ und $p$. Zeigen Sie folgende Aussagen: 
 \begin{enumerate}
-    \item Für das Maximum der Wahrscheinlichkeitsfunktion von $X$ gilt
+    \item Das Maximum der Wahrscheinlichkeitsfunktion von $X$ wird an der Stelle
         \begin{equation*}
-            \max_{k\in \left\{ 0,\dots ,n \right\}} P(X=k) = \lfloor (n+1)p \rfloor.
+            \operatorname{argmax}_{k\in \left\{ 0,\dots ,n \right\}} P(X=k) = \lfloor (n+1)p \rfloor.
         \end{equation*}
-        Dabei bezeichnet $\lfloor x \rfloor$ die größte ganze Zahl kleiner als $x$. 
+        angenommen. Dabei bezeichnet $\lfloor x \rfloor$ für ein $x\in\bR$ die
+        größte ganze
+        Zahl kleiner als $x$. 
 
-    \item $X$ is gerade mit Wahrscheinlichkeit
+    \item Zeigen Sie, dass die folgende Formel gilt:
         \begin{equation*}
-            P\left( X \text{ ist gerade} \right) = \frac{1}{2}\left( 1 + (1-2p)^n \right). 
+            P\left( X \text{ ist eine gerade Zahl} \right) = \frac{1}{2}\left( 1 + (1-2p)^n \right). 
         \end{equation*}
+\end{enumerate}
+
+\paragraph*{Lösung.} 
+\begin{enumerate}
+    \item Wir berechnen
+        \begin{align*}
+            P(X=k)/P(X=k-1) &= \frac{n+1-k}{k} \frac{p}{1-p}.
+        \end{align*}
+        Dieser Quotient ist größer als $1$ genau dann, wenn 
+        \begin{equation*}
+            (n+1)p > k. 
+        \end{equation*}
+    \item Sei $p_n$ die Wahrscheinlichkeit, dass eine
+        $\bfB(n,p)$-verteilte Zufallsgröße gerade ist. $p_n$ erfüllt folgende rekursive
+        Relation
+        \begin{align*}
+            p_n &= p_{n-1}(1-2p) + p, &  p_0 &= 1.
+        \end{align*}
+        Nun ist es einfach zu überprüfen, dass $\frac{1}{2}(1+ (1-2p)^n)$ die Lösung
+        dieser Rekursion ist. 
 \end{enumerate}
 
 
@@ -1001,15 +1060,21 @@ Poisson-verteilt mit der Wahrscheinlichkeitsfunktion $P(X = k) =
 \frac{\lambda^k}{k!} e^{-\lambda}$, $k\in \left\{ 0,1,\dots \right\}$ und dem
 Parameter $\lambda>0$. Beweisen Sie folgende Aussagen: 
 \begin{enumerate}
-    \item Für das Maximum der Wahrscheinlichkeitsfunktion von $X$ gilt
+    \item Die Varianz von $X$ ist 
         \begin{equation*}
-            \max_{k\in \bN} P(X= k) = \lfloor \lambda \rfloor. 
+            \bfD^2 X = \lambda.
         \end{equation*}
+    \item  Das Maximum der Wahrscheinlichkeitsfunktion von $X$ wird an der Stelle
+        \begin{equation*}
+            \operatorname{argmax}_{k\in \bN} P(X= k) = \lfloor \lambda \rfloor 
+        \end{equation*}
+        angenommen.
 
-    \item $\bfE | X -\lambda | = \frac{2 \lambda^{\lambda} e^{-\lambda}}{ (\lambda-1)!}$.
     \item Für $n\in \left\{ 2,3,\dots  \right\}$ gilt 
         $\bfE \left[ X(X-1)\cdot\dots\cdot (X-n+1) \right] = \lambda^n$.
 \end{enumerate}
+
+\paragraph*{Lösung.}
 
 
 \paragraph{Binomialverteilung. Additionstheorem.} 
@@ -1018,7 +1083,7 @@ Zufallsgröße $X\sim\bfB(n,p)$.
 \begin{enumerate}
     \item Zeigen Sie, dass für $n_1>0$ und $n_2>0$ die Gleichung
         \begin{equation*}
-            \sum_{i=0}^{k} b(i, n_1, p) b( k-i, n_2, p) = b( k, n_1+n_2, p ).
+            \sum_{i=0}^{k} b(i, n_1, p)\, b( k-i, n_2, p) = b( k, n_1+n_2, p ).
         \end{equation*}
         gilt. 
 
@@ -1034,18 +1099,30 @@ dass die Zufallsgröße
 \begin{equation*}
     Y = X_1 + X_2
 \end{equation*}
-ebenfalls poissonverteilt mit dem Parameter $\lambda=\lambda_1 + \lambda_2$ ist. 
+ebenfalls Poisson-verteilt mit dem Parameter $\lambda=\lambda_1 + \lambda_2$ ist. 
 
 
 \paragraph{Binomialverteilung. Verteilungsfunktion.} Seien $X\sim\bfB(n,p)$ binomialverteilt
 und $B(k, n, p) = P( X <k)$ die Verteilungsfunktion von $X$. Zeigen Sie:
 \begin{equation*}
-    B(k+1, n, p) = (n-k) \binom{n}{k} \int_{0}^{1-p} t^{n-k-1} (1-t)k dt
-\end{equation*}
-und daraus
-\begin{equation*}
-    1 - B(k+1, n, p) = n \binom{n-1}{k} \int_{0}^{p} t^{k} (1-t)^{n-k-1} dt.
+    B(k+1, n, p) = (n-k) \binom{n}{k} \int_{0}^{1-p} t^{n-k-1} (1-t)^k dt.
 \end{equation*}
 
-
+\paragraph*{Lösung.}
+\begin{enumerate}
+    \item Die Formel kann mit Hilfe der partiellen Integration hergeleitet werden.
+        \begin{align*}
+            B(k+1, n, p) &= (n-k) \binom{n}{k} \int_{0}^{1-p} t^{n-k+1} (1-t)^{k} dt \\
+            &= (n-k)\binom{n}{k} \left[  \frac{1}{n-k}(1-p)^{n-k} p^{k} + 
+            \frac{k}{n-k} \int_{0}^{1-p} t^{n-k} (1-t)^{k-1} dt \right] \\
+            &= \binom{n}{k} (1-p)^{n-k} p^{k} + 
+            (n-(k-1)) \binom{n}{k-1} \int_{0}^{1-p} t^{n-(k-1)-1} (1-t)^{k-1} dt \\
+            &= \binom{n}{k} (1-p)^{n-k} p^{k} + B(k, n, p). \\
+            B(1,n,p) &= n \binom{n}{0} \int_{0}^{1-p} t^{n-1} dt = (1-p)^n.
+        \end{align*}
+        Damit erhalten wir
+        \begin{equation*}
+            B(k+1, n,p) = \sum_{i=0}^{k} \binom{n}{k} p^{i}(1-p)^{n-i}.
+        \end{equation*}
+\end{enumerate}
 
