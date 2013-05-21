@@ -1025,8 +1025,7 @@ binomialverteilt mit den Parametern $n$ und $p$. Zeigen Sie folgende Aussagen:
             \operatorname{argmax}_{k\in \left\{ 0,\dots ,n \right\}} P(X=k) = \lfloor (n+1)p \rfloor.
         \end{equation*}
         angenommen. Dabei bezeichnet $\lfloor x \rfloor$ für ein $x\in\bR$ die
-        größte ganze
-        Zahl kleiner als $x$. 
+        größte ganze Zahl, die nicht größer als $x$ ist. 
 
     \item Zeigen Sie, dass die folgende Formel gilt:
         \begin{equation*}
@@ -1125,4 +1124,66 @@ und $B(k, n, p) = P( X <k)$ die Verteilungsfunktion von $X$. Zeigen Sie:
             B(k+1, n,p) = \sum_{i=0}^{k} \binom{n}{k} p^{i}(1-p)^{n-i}.
         \end{equation*}
 \end{enumerate}
+
+\paragraph{Geometrische Verteilung. Zusammenhang mit der Gleichverteilung.}
+$X$ und $Y$ sind unabhängig und geometrisch verteilt mit dem Parameter $p\in(0,1)$.
+\begin{enumerate}
+    \item Berechnen Sie die Wahrscheinlichkeiten der Ereignisse $X=Y$ und
+        $X\geq 2Y$.
+
+    \item Zeigen Sie, dass für $k,n\in\bN$ und $n>k$
+        \begin{equation*}
+            P \left( X = k \,|\, X+Y = n \right) = \frac{1}{n+1}
+        \end{equation*}
+        gilt. Mit anderen Worten, die bedingte Verteilung von $X$ gegeben
+        $X+Y$ ist die Gleichverteilung.
+\end{enumerate}
+
+\paragraph{Negative Binomialverteilung. Konstruktion.} $X$ ist negativ
+binomialverteilt mit den Parametern $n\in\bN$ und $p\in \left( 0,1 \right)$, wenn
+für $k\in\bN$
+\begin{equation*}
+    P(X = k) = \binom{k+n-1}{n-1} p^{n} (1-p)^{k} 
+\end{equation*}
+gilt. Seien $Z_1,Z_2\dots$ unabhängig geometrisch verteilte Zufallsgrößen mit 
+$Z_i \sim \text{Geom}(p)$. Zeigen Sie folgende Aussagen: 
+\begin{enumerate}
+    \item Die Zufallsgröße $Z_1+Z_2$ ist negativ binomialverteilt mit den
+        Parametern $(2,p)$. 
+    \item Für $k, n \in\bN$ gilt
+        \begin{equation*}
+            \binom{k+n}{n} = \sum_{j=0}^{k} \binom{j+n-1}{n-1}.
+        \end{equation*}
+    \item Die Zufallsgröße $Z_1+\dots+Z_n$ ist negativ binomialverteilt mit den
+        Parametern $(n,p)$. 
+\end{enumerate}
+
+\paragraph{Diskrete Gleichverteilung. Ordnungsstatistiken.} Die Zufallsgrößen
+$X_1,\dots ,X_m$ seien unabhängig und diskret gleichverteilt auf der Menge
+$\left\{ 1,\dots ,n \right\}$, mit $n>1$. Wir bezeichnen mit $X_{(1)} = \min
+(X_1,\dots ,X_m)$ das Minimum und mit $X_{(m)} = \max \left( X_1,\dots ,X_n
+\right)$ das Maximum der Zufallsgrößen $X_1,\dots ,X_m$.
+\begin{enumerate}
+    \item Finden Sie die Wahrscheinlichkeitsfunktion der Zufallsgrößen
+        $X_{(1)}$ und $X_{(n)}$.
+%    \item Finden Sie die Wahrscheinlichkeitsfunktion der Zufallsgröße $X_{(n)}-X_{(1)}$.
+\end{enumerate}
+
+\paragraph{Geometrische Verteilung. Minima und Maxima.} Seien $Y_1,\dots ,Y_m$
+unabhängig und geometrisch verteilt mit dem Parameter $p\in(0,1)$.  Finden Sie
+die Wahrscheinlichkeitsfunktion der Zufallsgrößen $Y_{(1)}$ und $Y_{(n)}$.
+
+
+\paragraph{Geometrische Verteilung. Summen.} Seien $X$ und $Y$ unabhängig und geometrisch
+verteilt mit den Parametern $p_1, p_2 \in (0,1)$. Zeigen Sie folgende Aussagen: 
+\begin{enumerate}
+    \item Die Wahrscheinlichkeitsfunktion der Summe $X+Y$ ist gegeben durch
+        \begin{equation*}
+            P(X+Y = n ) = \frac{p_1 p_2}{p_1 - p_2} \left( (1-p_2)^{n+1}- (1-p_1)^{n+1} \right).  
+        \end{equation*}
+
+    \item 
+\end{enumerate}
+
+
 
