@@ -3637,11 +3637,27 @@ Daher ist nach Definition des bedingten Erwartungswertes
 
 
 
+\paragraph{L\'evy-Verteilung. Dichte und MLS.} Die Dichte der L\'evy-Verteilung mit den
+Parametern $(\mu,\sigma)\in \Theta = \R \times \R_{>0}$ ist
+\begin{equation*}
+    p_{(\mu, \sigma)}(x) = \sqrt{ \frac{\sigma}{2\pi}} (x-\mu)^{-\frac{3}{2}} 
+    \exp\left( -\frac{\sigma}{2(x-\mu)} \right) 1_{\R_{\geq \mu}} (x).
+\end{equation*}
+\begin{enumerate}
+    \item Sei $X\sim \cN (0, \frac{1}{\sigma})$ normalverteilt mit $\sigma>0$.
+        Zeigen Sie, dass die Zufallsvariable $\frac{1}{X^2}$ L\'evy-verteilt mit den Parametern
+        $(0,\sigma)$ ist.
+    \item Sei $\mu=0$. Zeigen Sie, dass $(p_{(0,\sigma)})_{\sigma>0}$ eine
+        exponentielle Familie ist. 
+    \item Sei $\mu=0$. Berechnen Sie einen Maximum-Likelihood-Schätzer für $\sigma$, und
+        klären Sie ob dieser eindeutig ist.
+\end{enumerate}
+
 
 \paragraph{L\'evy-Verteilung.} Die Dichte der L\'evy-Verteilung mit den
 Parametern $(\mu,\sigma)\in \Theta = \R \times \R_{>0}$ ist
 \begin{equation*}
-    p_{(\mu, \sigma)} = \sqrt{ \frac{\sigma}{2\pi}} (x-\mu)^{-\frac{3}{2}} 
+    p_{(\mu, \sigma)}(x) = \sqrt{ \frac{\sigma}{2\pi}} (x-\mu)^{-\frac{3}{2}} 
     \exp\left( -\frac{\sigma}{2(x-\mu)} \right) 1_{\R_{\geq \mu}} (x).
 \end{equation*}
 Zeigen Sie folgende Aussagen.

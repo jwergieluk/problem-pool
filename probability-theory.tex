@@ -243,7 +243,7 @@ zu differenzieren.
 \end{align*}
 
 \paragraph{Minimum von exponentialverteilten Zufallsvariablen.}
-Seien $X_1, \cdots, X_n$ i.i.d.\ und exponentialverteilt mit $X\sim \text{Exp}(\lambda_i)$
+Seien $X_1, \dots, X_n$ i.i.d.\ und exponentialverteilt mit $X\sim \text{Exp}(\lambda_i)$
 und $\lambda_i>0$. Dann ist die Zufallsvariable 
 \begin{equation*}
     Y = \min \left\{ X_1, \cdots, X_n \right\} 
@@ -251,8 +251,9 @@ und $\lambda_i>0$. Dann ist die Zufallsvariable
 wieder exponentialverteilt und es gilt $Y \sim
 \text{Exp}(\lambda_1+\cdots+\lambda_n)$.
 
-\paragraph{Gleichverteilung und Exponentialverteilung. } Sei $X$ gleichverteilt
-auf dem Intervall $[0,1]$, dann ist $Y = -\log X$ exponentialverteilt.
+\paragraph{Gleichverteilung und Exponentialverteilung.} Sei $X$ stetig
+gleichverteilt auf dem Intervall $[0,1]$. Zeigen Sie, dass die Zufallsgröße $Y
+= -\log X$ exponentialverteilt ist.
 
 \paragraph*{Lösung. } $Y$ ist exponentialverteilt mit $\lambda=1$.
 
@@ -728,24 +729,29 @@ Zeigen Sie:
 \begin{enumerate}
     \item $p$ ist wirklich eine Dichte.
     \item Der Erwartungswert $\E X$ existiert nicht.
-    \item $\E X^n$ existiert nicht, für alle $n\in \bN$. 
+    \item $\E X^n$ existiert nicht, für alle positiven $n\in \bN$. 
     \item Die momentenerzeugende Funktion von $X$ existiert für alle $t \neq 0$ nicht. 
 \end{enumerate}
 
+\paragraph{Cauchy-Verteilung ist hartneckig.} Seien $X_1,\dots ,X_n$
+unabhängig und Cauchy-Verteilt. Zeigen Sie, dass $X_1$ die gleiche
+Verteilung wie $\frac{X_1 +\dots + X_n}{n}$ hat. 
 
 
 \section{Theoretical computations}
 
-\paragraph{Scheff\'es Identitäten.} Seien $f$ und $g$ Dichten und $A = \left\{ x : f(x)>g(x) \right\}$. 
-Zeigen Sie folgende Identitäten.
+\paragraph{Dichtefunktionen. Scheff\'es Identitäten.} Seien $f$ und $g$
+Dichtefunktionen und $A = \left\{ x : f(x)>g(x) \right\}$. 
+Zeigen Sie folgende Identitäten:
 \begin{enumerate}
-    \item \begin{equation*}
-            \int | f-g| = 2 \int_{}^{} \left( f-g \right)_{+} = 2 \int_{A}^{} f - 2 \int_{A}^{}g.
-        \end{equation*}
-    \item \begin{equation*}
-            \sup_{B\in\cB(\R^d)} \left| \int_{B}^{}f - \int_{B}^{} g  \right| =
-            \frac{1}{2} \int_{}^{} |f-g|.
-        \end{equation*}
+    \item \begin{align*}
+            \int_{\bR} |f(x)-g(x)| dx &= 2 \int_{\bR} \max\left\{ f(x)-g(x), 0 \right\} dx \\
+            &= 2 \int_{A} f(x)dx - 2 \int_{A} g(x)dx.
+        \end{align*}
+    \item \begin{align*}
+            \sup_{B\in\cB(\R)} \left| \int_{B} f(x)dx - \int_{B} g(x)dx \right| &=
+            \frac{1}{2} \int_{\bR} |f(x)-g(x)|dx.
+        \end{align*}
 \end{enumerate}
 
 

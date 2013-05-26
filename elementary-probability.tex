@@ -1187,4 +1187,55 @@ verteilt mit den Parametern $p_1, p_2 \in (0,1)$. Zeigen Sie folgende Aussagen:
 \end{enumerate}
 
 
+\paragraph{Exponentialverteilung. Minima.}
+Seien $X_1, \dots, X_n$ stochastisch unabhängig und exponentialverteilt mit
+$X_i\sim \mathbf{Ex}(\lambda_i)$ und $\lambda_i>0$. Zeigen Sie, dass die
+Zufallsgröße 
+\begin{equation*}
+    X_{(1)} = \min \left\{ X_1, \dots, X_n \right\} 
+\end{equation*}
+exponentialverteilt ist und es gilt $X_{(1)} \sim \mathbf{Ex}(\lambda_1+\dots+\lambda_n)$.
+
+
+\paragraph{Stetige Gleichverteilung. Momente.}
+Sei $X$ stetig gleichverteilt auf dem Intervall $\left[ a,b \right]\subset \R$.
+Zeigen Sie folgende Aussagen: 
+\begin{enumerate}
+    \item Das $n$-te Moment $\bfE X^{n}$, für $n\in\bN$, ist gegeben durch
+        \begin{equation*}
+            \bfE X^n = \frac{1}{n+1}\left( b^{n}a^0 + \cdots + b^{0}a^{n} \right).
+        \end{equation*}
+    \item Der Erwartungswert und die Varianz von $X$ sind gegeben durch
+        \begin{align*}
+            \bfE X    & = \frac{1}{2} \left( b+a \right) & 
+            \bfD^2 X  & = \frac{1}{12} \left( b-a \right)^{2}.  
+        \end{align*}
+\end{enumerate}
+
+
+\paragraph{Cauchy-Verteilung. Gegenbeispiel.}
+Sei $X$ Cauchyverteilt mit der Dichtefunktion
+\begin{equation*}
+    p(x) = \frac{1}{\pi (1+x^2)}.
+\end{equation*}
+Zeigen Sie folgende Aussagen:
+\begin{enumerate}
+    \item Die Funktion $p$ ist wirklich eine Dichtefunktion.
+    \item Der Erwartungswert $\bfE X$ existiert nicht.
+    \item Die Momente $\bfE X^n$ existieren für alle positiven $n\in \bN$ nicht.
+\end{enumerate}
+
+
+\paragraph{L\'evy-Verteilung. Dichtefunktion.} Die Dichtefunktion der
+L\'evy-Verteilung mit den Parametern $(\mu,\sigma)\in \bR\times\bR$, $\sigma>0$ ist
+\begin{equation*}
+    p(x) = 
+    \begin{cases}
+    \sqrt{ \frac{\sigma}{2\pi}} (x-\mu)^{-\frac{3}{2}} \exp\left( -\frac{\sigma}{2(x-\mu)} \right), & x\geq 0 \\
+    0, & x<0.
+    \end{cases}
+\end{equation*}
+Sei $X\sim \bfN (0, \frac{1}{\sigma})$ normalverteilt mit $\sigma>0$.  Zeigen
+Sie, dass die Zufallsgröße $\frac{1}{X^2}$ L\'evy-verteilt mit den
+Parametern $(0,\sigma)$ ist.
 
