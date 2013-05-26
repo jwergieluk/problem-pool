@@ -1004,6 +1004,17 @@ verteilt mit dem Parameter $p\in (0,1)$. Zeigen Sie folgende Aussagen:
         \end{equation*}
 \end{enumerate}
 
+\paragraph*{Lösung.}
+\begin{enumerate}
+    \item \begin{align*}
+            \log (1+z) &= z - \frac{z^2}{2} + \frac{z^3}{3} - \cdots \\
+            E \left( \frac{1}{1+X} \right) &= \frac{p}{1-p} \sum_{k\geq 0} \frac{(1-p)^{k+1}}{k+1}
+            = \frac{p}{p-1} \log \left( 1-p \right) = \log (1-p)^{\frac{p}{p-1}}. 
+        \end{align*}
+
+    \item MISSING!!!
+\end{enumerate}
+
 \paragraph{Geometrische Verteilung. Gedächtnislosigkeit.} Sei $X$ geometrisch
 verteilt mit dem Parameter $p$.
 \begin{enumerate}
@@ -1139,6 +1150,22 @@ Die Zufallsgrößen $X$ und $Y$ sind stochastisch unabhängig und geometrisch ve
         $X+Y$ ist die Gleichverteilung.
 \end{enumerate}
 
+\paragraph*{Lösung.}
+\begin{enumerate}
+    \item \begin{align*}
+            P\left( X = Y \right) &= \sum_{k=0}^{\infty} P\left( X=k \wedge Y=k \right) = \frac{p}{1+p} \\
+            P\left( X \geq 2y \right) &= \left( 1-p \right)^{2y} \\
+            P\left( X \geq 2Y \right) &= \frac{p}{1- (1-p)^{3}}.
+        \end{align*}
+
+    \item Für $X_1 \sim \text{Poiss}(p_1)$ und $X_2\sim\text{Poiss}(p_2)$ erhalten wir
+        \begin{align*}
+            P\left( X_1 = k \,|\, X_1+X_2 = n \right) &= 
+            \frac{(1-p_1)^{k} (1-p_2)^{n-k}  }{ \sum_{i=0}^{n} (1-p_1)^i (1-p_2)^{n-i} }. 
+        \end{align*}
+\end{enumerate}
+
+
 \paragraph{Negative Binomialverteilung. Konstruktion.} $X$ ist negativ
 binomialverteilt mit den Parametern $n\in\bN$ und $p\in \left( 0,1 \right)$, wenn
 für $k\in\bN$
@@ -1158,6 +1185,25 @@ $Z_i \sim \text{Geom}(p)$. Zeigen Sie folgende Aussagen:
         Parametern $(n,p)$. 
 \end{enumerate}
 
+\paragraph*{Lösung.}
+\begin{enumerate}
+    \item \begin{equation*}
+            P\left( Z_1+Z_2 = k \right) = (k+1)p^{2}(1-p)^k.
+        \end{equation*}
+    \item Beweisen wir zuerst
+        \begin{align*}
+            \binom{n}{k} &= \binom{n-1}{k-1} + \binom{n-1}{k} \\
+            \binom{n+k}{k} &= \binom{n+k}{n}
+        \end{align*}
+        und den Rest mit Induktion.
+    \item \begin{align*}
+            P\left( \sum_{i=1}^{n+1} Z_i = k \right) &= 
+            \sum_{j=0}^{k} P\left( \sum_{i=1}^{n} Z_i = j \right) P\left( Z_{n+1} =k-j \right) \\
+            &= \sum_{j=0}^{k} \binom{j+n-1}{n-1} p^{n}(1-p)^{j} (1-p)^{k-j}p \\
+            &= \sum_{j=0}^{k} \binom{j+n-1}{n-1} p^{n+1}(1-p)^{k} = \binom{k+n}{n} p^{n+1}(1-p)^{k}. 
+        \end{align*}
+\end{enumerate}
+
 \paragraph{Diskrete Gleichverteilung. Ordnungsstatistiken.} Die Zufallsgrößen
 $X_1,\dots ,X_m$ seien stochastisch unabhängig und diskret gleichverteilt auf der Menge
 $\left\{ 1,\dots ,n \right\}$, mit $n>1$. Wir bezeichnen mit $X_{(1)} = \min
@@ -1170,9 +1216,23 @@ Finden Sie die Wahrscheinlichkeitsfunktion der Zufallsgrößen
 %    \item Finden Sie die Wahrscheinlichkeitsfunktion der Zufallsgröße $X_{(n)}-X_{(1)}$.
 %\end{enumerate}
 
+\paragraph*{Lösung.}
+\begin{align*}
+    P\left( X_{(1)} \leq k \right) &= 1 - \left( \frac{n-k}{n} \right)^m \\
+    P\left( X_{(m)} \leq k \right) &= \left( \frac{k}{n} \right)^{m}. 
+\end{align*}
+Daraus Wahrscheinlichkeitsfunktion berechnen. 
+
+
 \paragraph{Geometrische Verteilung. Minima und Maxima.} Seien $Y_1,\dots ,Y_m$
 stochastisch unabhängig und geometrisch verteilt mit dem Parameter $p\in(0,1)$.  Finden Sie
 die Wahrscheinlichkeitsfunktion der Zufallsgrößen $Y_{(1)}$ und $Y_{(n)}$.
+
+\paragraph*{Lösung.}
+\begin{align*}
+    P\left( Y_{(1)} < k \right) &= 1 - \left( 1-p \right)^{mk} \\
+    P\left( Y_{(n)} < k \right) &= \left( \left( 1-p \right)^{k-1} p \right)^n.
+\end{align*}
 
 
 \paragraph{Geometrische Verteilung. Summen.} Seien $X$ und $Y$ unabhängig und geometrisch
