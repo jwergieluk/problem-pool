@@ -1204,6 +1204,7 @@ $Z_i \sim \text{Geom}(p)$. Zeigen Sie folgende Aussagen:
         \end{align*}
 \end{enumerate}
 
+
 \paragraph{Diskrete Gleichverteilung. Ordnungsstatistiken.} Die Zufallsgrößen
 $X_1,\dots ,X_m$ seien stochastisch unabhängig und diskret gleichverteilt auf der Menge
 $\left\{ 1,\dots ,n \right\}$, mit $n>1$. Wir bezeichnen mit $X_{(1)} = \min
@@ -1254,16 +1255,16 @@ Zufallsgröße
 \begin{equation*}
     X_{(1)} = \min \left\{ X_1, \dots, X_n \right\} 
 \end{equation*}
-exponentialverteilt ist und es gilt $X_{(1)} \sim \mathbf{Ex}(\lambda_1+\dots+\lambda_n)$.
+exponentialverteilt ist und dabei $X_{(1)} \sim \mathbf{Ex}(\lambda_1+\dots+\lambda_n)$ gilt.
 
 
 \paragraph{Stetige Gleichverteilung. Momente.}
 Sei $X$ stetig gleichverteilt auf dem Intervall $\left[ a,b \right]\subset \R$.
 Zeigen Sie folgende Aussagen: 
 \begin{enumerate}
-    \item Das $n$-te Moment $\bfE X^{n}$, für $n\in\bN$, ist gegeben durch
+    \item Für $k=1,2,\dots$ ist das $k$-te Moment $\bfE X^{k}$ gegeben durch
         \begin{equation*}
-            \bfE X^n = \frac{1}{n+1}\left( b^{n}a^0 + \cdots + b^{0}a^{n} \right).
+            \bfE X^k = \frac{1}{k+1}\left( b^{k}a^0 + \cdots + b^{0}a^{k} \right).
         \end{equation*}
     \item Der Erwartungswert und die Varianz von $X$ sind gegeben durch
         \begin{align*}
@@ -1274,22 +1275,22 @@ Zeigen Sie folgende Aussagen:
 
 
 \paragraph{Cauchy-Verteilung. Gegenbeispiel.}
-Sei $X$ Cauchyverteilt mit der Dichtefunktion
+Sei $X$ Cauchy-verteilt mit der Dichtefunktion
 \begin{equation*}
-    p(x) = \frac{1}{\pi (1+x^2)}.
+    f(x) = \frac{1}{\pi (1+x^2)}.
 \end{equation*}
 Zeigen Sie folgende Aussagen:
 \begin{enumerate}
-    \item Die Funktion $p$ ist wirklich eine Dichtefunktion.
+    \item Die Funktion $f$ ist wirklich eine Dichtefunktion.
     \item Der Erwartungswert $\bfE X$ existiert nicht.
-    \item Die Momente $\bfE X^n$ existieren für alle positiven $n\in \bN$ nicht.
+    \item Die Momente $\bfE X^k$ existieren für alle $k=1,2,\dots$ nicht.
 \end{enumerate}
 
 
 \paragraph{L\'evy-Verteilung. Dichtefunktion.} Die Dichtefunktion der
 L\'evy-Verteilung mit den Parametern $(\mu,\sigma)\in \bR\times\bR$, $\sigma>0$ ist
 \begin{equation*}
-    p(x) = 
+    f(x) = 
     \begin{cases}
     \sqrt{ \frac{\sigma}{2\pi}} (x-\mu)^{-\frac{3}{2}} \exp\left( -\frac{\sigma}{2(x-\mu)} \right), & x\geq 0 \\
     0, & x<0.
