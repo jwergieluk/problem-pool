@@ -1276,6 +1276,20 @@ Zeigen Sie folgende Aussagen:
         \end{align*}
 \end{enumerate}
 
+\paragraph*{Lösung.} Berechnen wir zunächst die $n$-ten Momente
+\begin{align*}
+    \bfE X^n &= \int_{\R}^{} x^n \frac{1}{b-a} 1_{(a,b)}(x) dx \\
+    &= \frac{1}{b-a} \int_{a}^{b} x^n dx \\
+    &= \frac{1}{b-a} \left( \frac{x^{n+1}}{n+1} \right) |_{a}^{b} \\
+    &= \frac{1}{b-a}\frac{1}{n+1} \left( b^{n+1}-a^{n+1} \right) \\
+    &= \frac{a^n b^{0} +\cdots+ a^0 b^{n}}{n+1}.
+\end{align*}
+Wir brauchen nur noch $n=1,2$ einzusetzen.
+\begin{align*}
+    \bfE X &= \frac{a+b}{2} & \bfE X^2 &= \frac{b^2 + ab + a^2}{3} & 
+    \bfD^2 X = \frac{(b-a)^2}{12}.
+\end{align*}
+
 
 \paragraph{Cauchy-Verteilung. Gegenbeispiel.}
 Sei $X$ Cauchy-verteilt mit der Dichtefunktion
@@ -1302,6 +1316,23 @@ L\'evy-Verteilung mit den Parametern $(\mu,\sigma)\in \bR\times\bR$, $\sigma>0$ 
 Sei $X\sim \bfN (0, \frac{1}{\sigma})$ normalverteilt mit $\sigma>0$.  Zeigen
 Sie, dass die Zufallsgröße $\frac{1}{X^2}$ L\'evy-verteilt mit den
 Parametern $(0,\sigma)$ ist.
+
+\paragraph*{Lösung.} 
+Für ein $y>0$ gilt
+\begin{align*}
+    P \left( \frac{1}{X^{2}} \leq y \right) &= P \left( 1 \leq y X^{2}   \right) \\
+    &= P \left( \sqrt{\frac{1}{y}} \leq | X | \right) \\
+    &= 2 \left( 1 - P \left( X < \frac{1}{\sqrt{y}} \right) \right) \\
+    &= 2 \left( 1 - \Phi\left( \sqrt{ \frac{\sigma}{y}} \right) \right).
+\end{align*}
+Die Dichte von $\frac{1}{X^2}$ erhalten wir durchs Differenzieren:
+\begin{align*}
+    \frac{\partial}{\partial y} P \left( \frac{1}{X^2} \leq y \right) &=
+    -2 \phi \left( \sqrt{\frac{\sigma}{y}} \right) \sqrt{\sigma} 
+    \left( -\frac{1}{2} y^{-\frac{3}{2}} \right) \\
+    &= \sqrt{\frac{\sigma}{2 \pi}} \exp \left( - \frac{\sigma}{2 y} \right) y^{-\frac{3}{2}}.
+\end{align*}
+Daher ist $\frac{1}{X^2} \sim \text{L\'evy}(\sigma)$.
 
 
 \paragraph{Mellin-Transformation.} Sei $X$ eine positive Zufallsgröße.
@@ -1352,9 +1383,9 @@ Parametern $\mu$ und $\sigma^{2}$. Zeigen Sie folgende Aussagen:
             T_{Y}(k) =  \bfE Y^{k}, \ k=1,2,\dots
         \end{equation*}
 
-    \item Die Momente von $Y$ sind gegeben durch
+    \item Die Momente $m_k$ von $Y$ sind gegeben durch
         \begin{equation*}
-            \bfE Y^{k} = \exp \left( \mu k + \frac{ \sigma^2 k^{2}}{2} \right).
+            m_{k} = \bfE Y^{k} = \exp \left( \mu k + \frac{ \sigma^2 k^{2}}{2} \right).
         \end{equation*}
 \end{enumerate}
 
