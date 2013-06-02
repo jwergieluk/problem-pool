@@ -3,7 +3,6 @@
 \section{Elementary probability}
 
 
-
 \paragraph{Ereignisse. Mengenoperationen.}
 Gegeben seien jeweils die Ergebnismenge $\Omega$ sowie zwei Teilmengen
 $A$ und $B$:
@@ -952,10 +951,14 @@ $P(X=i)=\frac{1}{n}$ für alle $i\in\left\{ 1,\dots ,n \right\}$.
         $X$ für alle $k\in \bN$. 
 \end{enumerate}
 
-\paragraph*{Lösung.} $\bfE X = \frac{n+1}{2}$, $\sum_{k=1}^{n} k^2 = \frac{n(n+1)(2n+1)}{6}$,
+\paragraph*{Lösung.}
+$\bfE X = \frac{n+1}{2}$, $\sum_{k=1}^{n} k^2 = \frac{n(n+1)(2n+1)}{6}$,
 $\bfE X^2 = \frac{(n+1)(2n+1)}{6}$, $\bfD^2 X = \bfE X^2 - \left( \bfE X \right)^2$.
 
 $\bfE \log X = \frac{1}{n} \log n!$.
+
+Die Berechnung der $k$-ten Momente führt zu der Formel von Faulhaber: \url{https://en.wikipedia.org/wiki/Faulhaber\%27s\_formula}
+
 
 \paragraph{Zufallsgrößen. Funktionen der Augenzahl.} In einem Wurfexperiment
 werden zwei ideale wohlunterscheidbare Würfel geworfen. Die Zufallsgrößen
@@ -1299,4 +1302,71 @@ L\'evy-Verteilung mit den Parametern $(\mu,\sigma)\in \bR\times\bR$, $\sigma>0$ 
 Sei $X\sim \bfN (0, \frac{1}{\sigma})$ normalverteilt mit $\sigma>0$.  Zeigen
 Sie, dass die Zufallsgröße $\frac{1}{X^2}$ L\'evy-verteilt mit den
 Parametern $(0,\sigma)$ ist.
+
+
+\paragraph{Mellin-Transformation.} Sei $X$ eine positive Zufallsgröße.
+Die Mellin-Transformierte $T_{X}(\theta)$ von $X$ ist definiert durch
+\begin{equation*}
+    T_{X}(\theta) = \bfE X^{\theta}
+\end{equation*}
+für alle $\theta\in\bR$ für die der obige Erwartungswert existiert. Zeigen Sie
+folgende Aussagen:
+\begin{enumerate}
+    \item Es gilt
+        \begin{equation*}
+            T_{X}(\theta) = \varphi_{ \log X} (\theta/i)
+        \end{equation*}
+        wenn alle obigen Ausdrucke wohldefiniert sind.
+    \item Sind $X$ und $Y$ positive und stochastisch unabhängige Zufallsgrößen, so gilt
+        \begin{equation*}
+            T_{XY}(\theta) = T_{X}(\theta) \ T_{Y}(\theta). 
+        \end{equation*}
+    \item Es gilt
+        \begin{equation*}
+            T_{b X^{a}}(\theta) = b^{\theta} T_{X} (a\theta)
+        \end{equation*}
+        für alle $b>0$ und alle $a$ für die $T_{X}(a\theta)$ exisitiert. 
+\end{enumerate}
+
+
+\paragraph{Log-Normalverteilung. Dichtefunktion.} Ist $X\sim\bfN(\mu,
+\sigma^2)$ normalverteilt, dann ist die Zufallsgröße $Y=e^{X}$
+log-normalverteilt mit Parametern $\mu$ und $\sigma^{2}$. Zeigen Sie, dass die
+Dichtefunktion von $Y$ durch
+\begin{equation*}
+    f(x) = 
+    \begin{cases}
+        \frac{1}{\sigma x \sqrt{2\pi}} \exp \left( -\frac{1}{2} \left( \frac{\log x -\mu}{\sigma} \right)^2  \right), & x\geq 0 \\
+        0, & x<0
+    \end{cases}
+\end{equation*} 
+gegeben ist.
+
+
+\paragraph{Log-Normalverteilung. Momente.} Ist $X\sim\bfN(\mu, \sigma^2)$
+normalverteilt, dann ist die Zufallsgröße $Y=e^{X}$ log-normalverteilt mit
+Parametern $\mu$ und $\sigma^{2}$. Zeigen Sie folgende Aussagen: 
+\begin{enumerate}
+    \item Für die Mellin-Transformierte $T_{Y}$ von $Y$ gilt
+        \begin{equation*}
+            T_{Y}(k) =  \bfE Y^{k}, \ k=1,2,\dots
+        \end{equation*}
+
+    \item Die Momente von $Y$ sind gegeben durch
+        \begin{equation*}
+            \bfE Y^{k} = \exp \left( \mu k + \frac{ \sigma^2 k^{2}}{2} \right).
+        \end{equation*}
+\end{enumerate}
+
+
+\paragraph{Normalverteilung. Abweichungen vom Mittelwert.} Sei $X\sim\bfN(\mu, \sigma^2)$
+normalverteilt. 
+\begin{enumerate}
+    \item Berechnen Sie die Wahrscheinlichkeiten $P(X - \mu \geq n \sigma)$ für
+        $n\in \left\{ 1,2,6 \right\}$.
+    \item Berechnen Sie die Wahrscheinlichkeiten $P( | X-\mu| \geq n \sigma)$ für 
+        $n\in \left\{ 1,2,6 \right\}$.
+\end{enumerate}
+
+
 
