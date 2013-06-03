@@ -3653,6 +3653,37 @@ Parametern $(\mu,\sigma)\in \Theta = \R \times \R_{>0}$ ist
         klären Sie ob dieser eindeutig ist.
 \end{enumerate}
 
+\paragraph*{Lösung.} 
+\begin{enumerate}
+    \item Für ein $y>0$ gilt
+        \begin{align*}
+            P \left( \frac{1}{X^{2}} \leq y \right) &= P \left( 1 \leq y X^{2}   \right) \\
+            &= P \left( \sqrt{\frac{1}{y}} \leq | X | \right) \\
+            &= 2 \left( 1 - P \left( X < \frac{1}{\sqrt{y}} \right) \right) \\
+            &= 2 \left( 1 - \Phi\left( \sqrt{ \frac{\sigma}{y}} \right) \right).
+        \end{align*}
+        Die Dichte von $\frac{1}{X^2}$ erhalten wir durchs Differenzieren:
+        \begin{align*}
+            \frac{\partial}{\partial y} P \left( \frac{1}{X^2} \leq y \right) &=
+            -2 \phi \left( \sqrt{\frac{\sigma}{y}} \right) \sqrt{\sigma} 
+            \left( -\frac{1}{2} y^{-\frac{3}{2}} \right) \\
+            &= \sqrt{\frac{\sigma}{2 \pi}} \exp \left( - \frac{\sigma}{2 y} \right) y^{-\frac{3}{2}}.
+        \end{align*}
+        Daher ist $\frac{1}{X^2} \sim \text{L\'evy}(\sigma)$.
+
+    \item Für $\mu=0$ lässt sich die Dichte der L\'evy-Verteilung in der Form
+        \begin{equation*}
+            p_{0,\sigma}(y) = \exp \left( -\frac{\sigma}{2y} - \frac{3}{2}\log y 
+            + \frac{1}{2} \log \frac{\sigma}{2 \pi}  \right) 1_{\R_{\geq 0}} (y)
+        \end{equation*}
+        darstellen.
+
+    \item Der MLS ist
+        \begin{equation*}
+            \hat \sigma = \frac{n}{ \sum_{}^{} 1/x_i}.
+        \end{equation*}
+\end{enumerate}
+
 
 \paragraph{L\'evy-Verteilung.} Die Dichte der L\'evy-Verteilung mit den
 Parametern $(\mu,\sigma)\in \Theta = \R \times \R_{>0}$ ist
