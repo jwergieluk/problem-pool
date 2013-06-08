@@ -1,5 +1,44 @@
 
-\section{Messbarkeit und Filtrationen}
+\paragraph{Independent increments and filtations.} Let $X = (X_t)_{t\geq 0}$ be
+a stochastic process with independent increments, i.e.\ for all $0=t_{0}\leq t_1
+\dots \leq t_n$ the random elements $X_0, X_{t_1}-X_{t_1},\dots
+,X_{t_n}-X_{t_{n-1}}$ are independent.
+\begin{enumerate}
+    \item Show that $X_t -X_s \upmodels \cF_{s}^{X}$ for all $0\leq s\leq t$. 
+\end{enumerate}
+
+\paragraph*{Solution.} Note that the $\sigma$-algebra induced by $f(X_0)$ for a
+measurable function $f$ is smaller than $\sigma(X_0)$. Therefore $\sigma(X_s)
+\subset \sigma(X_0, X_s-X_0)$ and by assumption $\sigma(X_s) \upmodels
+\sigma(X_t-X_s)$. By the grouping theorem \cite[p. 51]{Kallenberg}, we get
+$X_{t}-X_{s}\upmodels \cF_s^{X}$. 
+
+
+\paragraph{Borel sets in Euclidean space are regular.} $Q$ is a probability
+measure on $(\bR, \cB(\bB))$ and $\varepsilon>0$ a fixed real number. Then
+every set in $(\bR, \cB(\bR))$ is regular. This means there is a closed set $F$
+and an open set $G$ with $F\subset A \subset G$ such that $Q(G\setminus
+F)<\varepsilon$ for arbitrary $\varepsilon>0$. 
+
+
+\paragraph{Filtations and continuity of paths.} Let $X$ be a stochastic process
+on a probability space $(\Omega, \cA, P)$ and $\cF^{X}=(\cF^{X}_{t})_{t\geq 0}$
+be the natural filtration of $X$. Moreover, $A$ is the event that $X$ is
+continuous on $[0, t_0)$. Then following holds:
+\begin{enumerate}
+    \item If $X$ has c\`adl\`ag paths, i.e. every path of $X$ is a c\`adl\`ag
+        function, then $A\in \cF^{X}_{t_0}$. 
+
+    \item If $X$ is c\`adl\`ag, i.e. $X$ has c\`adl\`ag paths a.s., then $A$
+        may fail to be in $\cF^{X}_{t_0}$.
+
+    \item If $X$ is c\`adl\`ag, and $(\cF_{t})_{t\geq 0}$ is a filtration
+        containing $\cF^{X}$ such that $\cF_{0}$ contains all $P$-null events
+        in $\cA$, then $A\in \cF_{t_0}$.
+
+    \item If $X$ has c\`agl\`ad paths and is adapted to a right-continuous
+        filtration $(\cF_{t})_{t\geq 0}$, then $A\in \cF_{t_{0}}$. 
+\end{enumerate}
 
 \paragraph{Pfadeigenschaften und Filtration. }  Sei $X$ ein stochastischer
 Prozess, $\cF^{X}$ die von $X$ erzeugte Filtration und $\cG$ eine Filtration,
@@ -11,13 +50,11 @@ ist.
     \item Falls $X$ c\`adl\`ag ist, dann gilt $A \in \cG_{t_0}$, aber nicht
         notwendigerweise $A \in \cF^{X}_{t_0}$.
 \end{enumerate}
-\cite{Karatzas1991}.
+%\cite{Karatzas1991}.
 
 \paragraph{Messbarkeitsbegriffe. } Sei $X$ ein stochastischer Prozess. Ist $X$
 progressiv messbar, so folgt $X$ ist messbar und adaptiert.
 
-
-\section{Stoppzeiten}
 
 \paragraph{Stoppzeiten. } Seien $T,S$ Stoppzeiten bezüglich der Filtration
 $\left( \cF_t \right)_{t \geq 0}$. 
@@ -59,6 +96,34 @@ denn es ein abzählbarer Schnitt der Mengen $\left\{ T> t+\varepsilon
 
 \section{Brownsche Bewegung}
 
+\paragraph{Brownian Motion. Finite-dimensional distributions. } 
+Let $0=s_0 < s_1 < \cdots < s_n$ be positive real numbers and $(B_{s_{1}},\dots ,B_{s_n})$ 
+be a $n$-dimensional random vector with density given by
+\begin{equation*}
+    f(y_1,\dots ,y_n) = p(s_1, y_1, 0)p(s_2-s_1,y_2, y_1)\dots p(s_n-s_{n-1}, y_n, y_{n-1})
+\end{equation*}
+with 
+\begin{equation*}
+    p(t, x,y ) = \frac{1}{\sqrt{2\pi t}} \exp(-\frac{(x-y)^2}{2t}). 
+\end{equation*}
+Show that:
+\begin{enumerate}
+    \item The random variables $(B_{s_1}, B_{s_2}-B_{s_1},\dots ,B_{s_n}-B_{s_{n-1}})$ 
+        are independent.
+    \item The distribution of $B_{s_i}-B_{s_{i-1}}$ is $\cN(0, s_{i}-s_{i-1})$.
+\end{enumerate}
+
+\paragraph*{Solution.} Use Jacobi's transformation formula with
+$g:\bR^{n}\to\bR^{n}, (y_1,\dots ,y_n)\mapsto(y_1, y_2-y_1,\dots
+,y_n-y_{n-1})$. 
+\url{https://www.evernote.com/shard/s225/sh/ae5c45ce-9ba1-494b-9039-e166b67e003d/f5c2b31ffec2f92eb568eebc98210970}
+
+
+\paragraph{Maximum processes of the Brownian Motion. } Show that the process $W
+- W^*$ has independent increments. $W$ denotes Brownian Motion and $X^*_t=
+\max_{0 \leq s \leq t} X_s$ is the maximum process of a c\`adl\`ag process $X$.
+
+
 \paragraph{Brownsche Bewegung. Einfache Eigenschaften.}
 Sei $W$ eine standard Brownsche Bewegung in $\R^d$, d.h.\ die Identitätsmatrix
 ist die Kovarianzmatrix von $W$. Zeigen Sie folgende Aussagen. 
@@ -99,10 +164,6 @@ ist die Kovarianzmatrix von $W$. Zeigen Sie folgende Aussagen.
             \exp \left( -\frac{1}{2} u^\top AA^\top u \right).
         \end{equation*}
 \end{enumerate}
-
-
-
-\paragraph{Brownsche Bewegung. Invariante Transformationen und der isonormale Prozess.}
 
 
 \paragraph{Brownsche Bewegung. Lokales Verhalten. }
@@ -170,11 +231,6 @@ Beweisen Sie folgende Aussagen:
         \end{equation*}
         unbeschränkt. 
 \end{enumerate}
-
-
-\paragraph{Maximum processes of the Brownian Motion. } Show that the process $W
-- W^*$ has independent increments. $W$ denotes Brownian Motion and $X^*_t=
-\max_{0 \leq s \leq t} X_s$ is the maximum process of a c\`adl\`ag process $X$.
 
 
 

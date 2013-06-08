@@ -9,7 +9,7 @@ TGT="problem-supermarkt"
     pdflatex    -output-directory $TMP $TGT
     biber       --output_directory $TMP $TGT
     pdflatex    -output-directory $TMP $TGT
-    pdflatex    -output-directory $TMP $TGT
+#    pdflatex    -output-directory $TMP $TGT
     cp $TMP/$TGT.pdf .
 #fi
 

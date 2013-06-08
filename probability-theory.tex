@@ -2,11 +2,39 @@
 \section{Raw material}
 
 
-\paragraph{Monotonic transformations of RVs.} A monotonic transformation of
-a real valued random variable with continuous distribution function has
-continuous distribution function. 
+\paragraph{Monotonic transformations of RVs.} A strictly monotonic
+transformation of a real valued random variable with atom-less distribution
+function has an atom-less distribution function. 
 
 \url{http://math.stackexchange.com/questions/78101/monotonic-transformation-of-continuous-random-variable-are-continuous}
+
+
+\paragraph{Ordnungsstatistiken. Eigenschaften.} Seien $X_1,\dots ,X_n$ identisch verteilte 
+stochastisch unabhängige Zufallsgrößen mit der Dichtefunktion $f(x)$ und
+Verteilungsfunktion $F(x)$. Zeigen Sie folgende Aussagen:
+\begin{enumerate}
+    \item Die gemeinsame Dichtefunktion von dem Zufallsvektor $\left( X_{(1)},\dots ,X_{(n)} \right)$
+        ist
+        \begin{equation*}
+            g(x_{1},\dots ,x_n) = \begin{cases}
+                n! f(x_1)\dots f(x_n), & \text{ falls } x_{1} < \dots < x_n \\
+                0 & \text{sonst.}
+            \end{cases}
+        \end{equation*}
+
+    \item Die Dichtefunktion von $X_{(k)}$ ist
+        \begin{equation*}
+            f_{(k)}(y) = k \binom{n}{k} f(y) (1-F(y))^{n-k} F(y)^{k-1}.
+        \end{equation*}
+
+    \item Die Dichtefunktion von $(X_{(i)},X_{(j)})$ für $i\neq j$ ist
+        \begin{equation*}
+            g_{i,j}(x,y)= \begin{cases}
+                \frac{n! F(x)^{i-1} [F(y)-F(x)]^{j-i-1} [1-F(y)]^{n-j}f(x)f(y) }{ (i-1)! (j-i-1)! (n-j)! }, & x<y \\
+                0 & \text{sonst.}
+            \end{cases}
+        \end{equation*}
+\end{enumerate}
 
 
 
