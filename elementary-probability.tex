@@ -1408,5 +1408,114 @@ Wir betrachten die normalverteilte Zufallsgr\"o{\ss}e $X\sim\bfN(\mu, \sigma^2)$
     \item \"Andern sich die Ergebnisse in (a) und (b), wenn $\ge$ durch $>$ ersetzt w\"urde? 
 \end{enumerate}
 
+\paragraph*{Lösung.} $P( |X-\mu| \geq n\sigma ) = 2 - 2P(Z \leq n)$.
+Standarisierung und folgende Tabelle liefert die Lösung.
+\begin{lstlisting}
+In [1]: from scipy.stats import norm
+In [5]: [ norm.cdf(i) for i in range(7) ]
+Out[5]: 
+[0.5,
+ 0.84134474606854293,
+ 0.97724986805182079,
+ 0.9986501019683699,
+ 0.99996832875816688,
+ 0.99999971334842808,
+ 0.9999999990134123]
+\end{lstlisting}
+
+
+\paragraph{Symmetrische Zufallsgrößen.} Eine Zufallsgröße $X$ nennen wir
+symmetrisch, wenn die Verteilungen von $X$ und $-X$ gleich sind. 
+Zeigen Sie folgende Aussagen:
+\begin{enumerate}
+    \item Hat $X$ eine Dichtefunktion $f$, so ist $X$ symmetrisch genau
+        dann, wenn $f(x)= f(-x)$ für alle $x\in\bR$ gilt. 
+    \item Die charakteristische Funktion $\varphi_{X}(t)$ einer symmetrischen
+        Zufallsgröße $X$ ist reellwertig. 
+    \item Seien $X^{+} = \max\left\{ X,0 \right\}$ und $X^{-} = \max\left\{ -X,0 \right\}$.
+        $X$ ist symmetrisch genau dann, wenn die Verteilungen von $X^{+}$ und $X^{-}$ 
+        gleich sind.
+\end{enumerate}
+
+\paragraph*{Lösung.}
+\begin{enumerate}
+    \item 
+
+    \item Das folgt mit Hilfe der Euler'schen Formel.
+
+    \item 
+\end{enumerate}
+
+
+\paragraph{Lebensdauer der Glühlampen.} Die Lebensdauer einer Glühlampe sei
+eine exponentialverteilte Zufallsgröße.  Es sei bekannt, dass im Durchschnitt
+$75\%$ der Glühlampen eine Mindestbrenndauer von $500$ Stunden erreichen.
+Berechnen Sie Erwartungswert und Standardabweichung der Lebensdauer. 
+
+\paragraph{Radioaktivität.} Eine radioaktive Substanz gebe im Verlauf
+von $7.5 s$ im Mittel $3.87$ $\alpha$-Teilchen ab. Bestimmen Sie die
+Wahrscheinlichkeit dafür, dass
+\begin{enumerate}
+    \item diese Substanz während einer Sekunde mindestens ein
+        $\alpha$-Teilchen emittiert,
+    \item zwischen der Emission zweier Teilchen mindestens zwei
+        Sekunden vergehen,
+    \item die Zeit zwischen zwei Emissionen zwischen einer und
+        zwei Sekunden liegt.
+\end{enumerate}
+
+\paragraph{Entfernungsmessung.} Die Entfernung eines Objekts werde mit Hilfe
+eines Längenmessgerätes ermittelt. Dabei sei der gemessene Wert die Realisierung
+einer normalverteilten Zufallsgröße mit der Erwartungswert $\mu$ und der
+Standardabweichung von $\sigma = 40\,m$.  Es sei bekannt, dass bei der Messung
+kein systematischer Fehler auftritt.  Berechnen Sie die Wahrscheinlichkeit
+dafür, dass bei einem $2\,500\,m$ entfernten Objekt bei der Messung ein um
+$60\,m$ bis $80\,m$ zu großes Messergebnis ermittelt wird. 
+
+\paragraph{Ersatzteillieferung.} Eine Ersatzteillieferung enthalte eine Kiste
+Kugellager, zwei Kisten Zahnräder und drei Kisten Schrauben.  Die Masse der
+Kisten (Bruttogewicht in kg) kann durch unabhängige und normalverteilte
+Zufallsgrößen $X, Y_1, Y_2, Z_1, Z_2, Z_3$ mit
+\begin{align*}
+    X&\sim \bfN(125, 1), & Y_i&\sim \bfN(84, 4)\;\;(i=1,2), & Z_j&\sim \bfN(65, 3)\;\; (j=1,2,3)
+\end{align*}
+beschrieben werden.
+\begin{enumerate}
+    \item Berechnen Sie die Wahrscheinlichkeit dafür, dass die Masse einer
+        Ersatzteillieferung größer ist als 500 kg.
+
+    \item Wie viele solcher Ersatzteillieferungen darf man maximal auf einem
+        Lastwagen laden, wenn die Gesamtmasse aller Ersatzteillieferungen mit
+        einer Wahrscheinlichkeit von mindestens $99\%$ unter $18$ Tonnen liegen
+        soll?
+\end{enumerate}
+
+\paragraph{Grenzverteilungsätze. Schaltkreise.} Ein spezieller
+Schaltkreis sei mit der Wahrscheinlichkeit $p=0.7$ voll funktionsfähig.
+Berechnen Sie die Wahrscheinlichkeit dafür, dass in einer 
+gefertigten Serie von $1\,000$ Schaltkreisen 
+\begin{enumerate}
+    \item wenigstens $680$ Schaltkreise voll funktionsfähig sind,
+
+    \item die Anzahl der voll funktionsfähigen Schaltkreise mindestens
+        $675$ aber höchstens $725$ Stück beträgt.
+\end{enumerate}
+
+\paragraph{Grenzverteilungsätze. Münzen.} Eine ideale Münze werde $n$-mal 
+geworfen. Berechnen Sie unter Nutzung von Grenzverteilungseigenschaften die Wahrscheinlichkeit dafür, dass 
+\begin{enumerate}
+    \item bei $100$ Würfen die relative Häufigkeit für das Ereignis 
+        ``Zahl'' um weniger als $0.1$ Einheiten von der Wahrscheinlichkeit
+        $0.5$ abweicht.
+    \item Wie oft müsste man die ideale Münze werfen, um mit mindestens
+        $99\%$-iger Sicherheit eine Abweichung der relativen Häufigkeit
+        von der Wahrscheinlichkeit zu erreichen, die kleiner ist als $0.1$
+        Einheiten. 
+    \item Lösen Sie die Aufgaben (a) und (b) alternativ mit Hilfe der Tschebyscheff-Ungleichung und vergleichen Sie die Ergebnisse. 
+\end{enumerate}
+
+
+
+
 
 
