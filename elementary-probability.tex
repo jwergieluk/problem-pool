@@ -1452,6 +1452,11 @@ eine exponentialverteilte Zufallsgröße.  Es sei bekannt, dass im Durchschnitt
 $75\%$ der Glühlampen eine Mindestbrenndauer von $500$ Stunden erreichen.
 Berechnen Sie Erwartungswert und Standardabweichung der Lebensdauer. 
 
+\paragraph*{Lösung.} Aus $X \sim \mathbf{Ex}(\lambda)$ mit $P(X>500) = 0.75$
+folgt $\lambda = - \frac{\log 0.75}{ 500} = 0.0005753641$.  $\bfE X = \sqrt{
+\bfD^2 X } = \frac{1}{\lambda} = 1738.03$
+
+
 \paragraph{Radioaktivität.} Eine radioaktive Substanz gebe im Verlauf
 von $7.5 s$ im Mittel $3.87$ $\alpha$-Teilchen ab. Bestimmen Sie die
 Wahrscheinlichkeit dafür, dass
@@ -1464,6 +1469,30 @@ Wahrscheinlichkeit dafür, dass
         zwei Sekunden liegt.
 \end{enumerate}
 
+\paragraph*{Lösung.} $X_t$ ist Anzahl der Teilchen emmitiert im Laufe von
+$[0,t]$. $X_t$ kann als Poisson-Verteilung modelliert werden. $X_t \sim \pi_t$
+ist $\text{Poiss}(\mu t)$ mit $P(X_t = k) = \frac{ (\mu t)^{k} }{k!} e^{- \mu
+t}$. Es gilt $\bfE X_t = \bfD^2 X_t = \mu t$. $\bfE X_{7.5} = 3.87 = 7.5 \mu$
+impliziert $\mu = \frac{3.87}{7.5} = 0.516$.
+\begin{enumerate}
+    \item Wir nutzen die Homogenität der Poisson-Verteilung und berechnen
+        \begin{align*}
+            P(X_1 > 0) &= 1 - P(X_1=0) \\
+            &= 1 - \frac{\mu^0}{0!}e^{-\mu} \\ 
+            &= 1-e^{-0.516} \approx 0.4030966.
+        \end{align*}
+    \item Die Zwischenankunftszeiten $T_i$ sind Exponentialverteilt mit dem Parameter $\mu$
+        und es gilt
+        \begin{align*}
+            P(T_i \geq 2) &= \exp( -2 \,\mu ) \approx 0.3562937.
+        \end{align*}
+    \item Analog erhalten wir
+        \begin{align*}
+            P( 1 \leq T_i \leq 2) &= e^{-\mu}-e^{-2\mu} \approx 0.2406097.
+        \end{align*}
+\end{enumerate}
+
+
 \paragraph{Entfernungsmessung.} Die Entfernung eines Objekts werde mit Hilfe
 eines Längenmessgerätes ermittelt. Dabei sei der gemessene Wert die Realisierung
 einer normalverteilten Zufallsgröße mit der Erwartungswert $\mu$ und der
@@ -1471,6 +1500,12 @@ Standardabweichung von $\sigma = 40\,m$.  Es sei bekannt, dass bei der Messung
 kein systematischer Fehler auftritt.  Berechnen Sie die Wahrscheinlichkeit
 dafür, dass bei einem $2\,500\,m$ entfernten Objekt bei der Messung ein um
 $60\,m$ bis $80\,m$ zu großes Messergebnis ermittelt wird. 
+
+\paragraph*{Lösung.} Für $X \sim \bfN(2500, 40)$ berechne 
+\begin{equation*}
+    P(2500 + 40 \leq X \leq 2500 + 80) = P(Z \leq 2) - P(Z \leq \frac{3}{2}). 
+\end{equation*}
+
 
 \paragraph{Ersatzteillieferung.} Eine Ersatzteillieferung enthalte eine Kiste
 Kugellager, zwei Kisten Zahnräder und drei Kisten Schrauben.  Die Masse der
@@ -1490,6 +1525,19 @@ beschrieben werden.
         soll?
 \end{enumerate}
 
+\paragraph*{Lösung.}
+\begin{enumerate}
+    \item $V := X + Y_1 + Y_2 + Z_1+Z_2+Z_3 \sim  \bfN(488, 18)$. $\frac{500 -
+        488}{\sqrt{18}} \approx 2.8284271$, und $P(V>500)= 1 - P(V\leq 500) =
+        0.002338867$.
+    \item Größes $n\in \bN$ für das
+        \begin{equation*}
+            P\left( W \leq \frac{18.000 - 488 n }{\sqrt{18 n}} \right) \geq 0.99
+        \end{equation*}
+        gilt, ist $n=36$. 
+\end{enumerate}
+
+
 \paragraph{Grenzverteilungsätze. Schaltkreise.} Ein spezieller
 Schaltkreis sei mit der Wahrscheinlichkeit $p=0.7$ voll funktionsfähig.
 Berechnen Sie die Wahrscheinlichkeit dafür, dass in einer 
@@ -1500,6 +1548,23 @@ gefertigten Serie von $1\,000$ Schaltkreisen
     \item die Anzahl der voll funktionsfähigen Schaltkreise mindestens
         $675$ aber höchstens $725$ Stück beträgt.
 \end{enumerate}
+
+\paragraph*{Lösung.} Wir verwenden den Grenzverteilungsatz in der
+Moivre-Laplace Version.  Dazu betrachten wir $X_1,\dots ,X_{1000} \sim B(p)$
+und $\sum_{i} X_i \sim \text{Bin}(1000,p)$.  Dann ist die Zufallsgröße
+\begin{equation*}
+    Y = \frac{ \sum_{i} X_i - np}{ \sqrt{np(1-p)} } 
+\end{equation*}
+annähernd normalverteilt. Wir berechnen
+\begin{align*}
+    P( \sum_{i} X_i \geq 680 ) &= 1 - P\left( \sum_{i} X_i < 680 \right) \\
+    &= 1- P\left( \frac{\sum_{i} X_i - np }{\sqrt{np(1-p)}} < \frac{680-np}{\sqrt{np(1-p)}} \right)\\
+    &= 1-P( Y < - 1.380131 ) \approx 0.9162269.
+\end{align*}
+Analog ist 
+\begin{align*}
+    P( 675 \leq \sum_{i} X_i \leq 725 ) &\approx 0.9155021.
+\end{align*}
 
 \paragraph{Grenzverteilungsätze. Münzen.} Eine ideale Münze werde $n$-mal 
 geworfen. Berechnen Sie unter Nutzung von Grenzverteilungseigenschaften die Wahrscheinlichkeit dafür, dass 
@@ -1514,7 +1579,18 @@ geworfen. Berechnen Sie unter Nutzung von Grenzverteilungseigenschaften die Wahr
     \item Lösen Sie die Aufgaben (a) und (b) alternativ mit Hilfe der Tschebyscheff-Ungleichung und vergleichen Sie die Ergebnisse. 
 \end{enumerate}
 
-
+\paragraph*{Lösung.} Die Anwendung des Satzes von Moivre-Laplace liefert
+\begin{align*}
+    P\left( | H_n(A) p | \leq \varepsilon \right) &= 
+    2 \Phi\left ( \frac{\sqrt{n} \varepsilon}{ \sqrt{ p(1-p) }  } \right) -1 \approx 0.9544997.
+\end{align*}
+Für $n=166$ wird gerade die $99\%$ Wahrscheinlichkeit erreicht. Mit Hilfe der Tschbyschffschen
+Ungleichung erhält man die Abschätzung
+\begin{equation}
+    P \left( | \frac{1}{n} \sum_{i}^{} X_i - 0.5 | \leq \varepsilon \right) > 1 - \frac{1}{4 n \varepsilon^2}.
+\end{equation}
+Für $n=100$ und $\varepsilon=0.1$ die obige Abschätzung gleich $0.8502994$. Die $99\%$-ige
+Sicherheit erreichen wir erst bei $n=2500$. 
 
 
 
