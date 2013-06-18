@@ -1495,15 +1495,16 @@ impliziert $\mu = \frac{3.87}{7.5} = 0.516$.
 
 \paragraph{Entfernungsmessung.} Die Entfernung eines Objekts werde mit Hilfe
 eines Längenmessgerätes ermittelt. Dabei sei der gemessene Wert die Realisierung
-einer normalverteilten Zufallsgröße mit der Erwartungswert $\mu$ und der
+einer normalverteilten Zufallsgröße mit dem Erwartungswert $\mu$ und der
 Standardabweichung von $\sigma = 40\,m$.  Es sei bekannt, dass bei der Messung
 kein systematischer Fehler auftritt.  Berechnen Sie die Wahrscheinlichkeit
 dafür, dass bei einem $2\,500\,m$ entfernten Objekt bei der Messung ein um
 $60\,m$ bis $80\,m$ zu großes Messergebnis ermittelt wird. 
 
-\paragraph*{Lösung.} Für $X \sim \bfN(2500, 40)$ berechne 
+\paragraph*{Lösung.} Für $X \sim \bfN(2500, 160)$ berechne 
 \begin{equation*}
-    P(2500 + 40 \leq X \leq 2500 + 80) = P(Z \leq 2) - P(Z \leq \frac{3}{2}). 
+    P(2500 + 40 \leq X \leq 2500 + 80) = P(Z \leq 2) - P(Z \leq \frac{3}{2}).
+        \approx 0.04405707.
 \end{equation*}
 
 
@@ -1591,6 +1592,185 @@ Ungleichung erhält man die Abschätzung
 \end{equation}
 Für $n=100$ und $\varepsilon=0.1$ die obige Abschätzung gleich $0.8502994$. Die $99\%$-ige
 Sicherheit erreichen wir erst bei $n=2500$. 
+
+\paragraph{Grenzverteilungsätze. Kondensatoren.} Die Wahrscheinlichkeit dafür,
+dass ein Kondensator während der Zeit $T$ ausfällt, betrage $0.5$. 
+\begin{enumerate}
+    \item Bestimmen Sie die Wahrscheinlichkeit dafür, dass von 100 solchen
+        unabhängig voreinander arbeitenden Kondensatoren mehr als $60$ Stück in
+        der Zeit $T$ ausfallen. 
+    \item Wie viele Kondensatoren muss man mindestens in Reserve haben, damit
+        nach der Zeit $T$ mit einer Wahrscheinlichkeit von mindestens $95\%$
+        alle ausgefallenen Kondensatoren ersetzt werden können?
+\end{enumerate}
+
+\paragraph{Grenzverteilungsätze. Schaltgehäuse.} Beim Gießen spezieller Schaltgehäuse trete ein
+Ausschussprozentsatz von $10\%$ auf. Für einen reibungslosen Produktionsverlauf
+müssen je Gießvorgang (mindestens) $100$ brauchbare Gehäuse hergestellt werden.
+Wie viel Gehäuse müssen mindestens bei einem Vorgang gegossen werden, um mit
+mindestens $99\%$-iger Sicherheit diese Forderung zu erfüllen?
+
+\section{Mehrdimensionale Verteilungen.}
+
+\paragraph{Korrelationskoeffizient. Eigenschaften.} Seien $X$ und $Y$
+Zufallsgrößen mit existierenden und endlichen Varianzen $\sigma_{X}$, $\sigma_{Y}$ und bezeichne mit
+$\rho_{X,Y}$ den Korrelationskoeffizienten von $X$ und $Y$. Zeigen Sie folgende
+Aussagen: 
+\begin{enumerate}
+    \item Für $a>0$, $c>0$ und $b\in\bR$ gilt
+        \begin{equation*}
+            \rho_{aX + b, cY + b} = \rho_{X,Y}.
+        \end{equation*}
+        Geben Sie eine Interpretation dieser Aussage an. 
+    \item Für $a\neq 0$ und $b\in\bR$ gilt
+        \begin{equation*}
+            \rho_{X, aX+b} = \frac{a}{|a|}.
+        \end{equation*}
+
+    \item Sei
+        \begin{equation*}
+            Z = \frac{Y}{\sigma_{Y}} - \frac{\rho_{X,Y}}{\sigma_{X}} X.
+        \end{equation*}
+        Dann gilt
+        \begin{equation*}
+            \sigma^2_{Z} = 1 - \rho^{2}_{X,Y}.
+        \end{equation*}
+\end{enumerate}
+
+\paragraph{Bivariate Normalverteilung. Maximum.} Seien $(X,Y)$ bivariat normalverteilt
+mit $\bfE X=\bfE Y=0$, $\bfD^{2}Y=\bfD^{2}X=1$ und $\rho_{XY}$ dem Korrellationskoeffizienten
+von $X$ und $Y$
+Zeigen Sie, dass
+\begin{equation*}
+    \bfE \left( \max\left\{ X,Y \right\} \right) = \sqrt{\frac{1-\rho}{\pi}}
+\end{equation*}
+gilt.
+% source: Shao, keywords: {bivariate normal, multivariate normal}
+
+\paragraph{Korrelation und Symmetrie.} Seien $X$ eine stetige Zufallsgröße mit 
+endlicher Varianz und $Y = |X|$. Beweisen Sie: Ist $X$ symmetrisch, so sind
+$X$ und $Y$ unkorreliert aber nicht unabhängig.
+
+\paragraph{Korrelation und Gleichverteilung auf dem Einheitskreis.} Sei $(X,Y)$
+ein Zufallsvektor mit der (zweidimensionalen) Dichtefunktion 
+\begin{equation*}
+    f(x,y) = \begin{cases}
+        \pi^{-1}, & \text{falls } x^{2}+y^{2} \leq 1 \\
+        0,& \text{sonst.}
+    \end{cases}
+\end{equation*}
+Zeigen Sie, dass die Zufallsgrößen $X$ und $Y$ unkorreliert aber nicht
+unabhängig sind. 
+
+\paragraph{Bedingte Dichet. Ein Rechenbeispiel.} Sei $(X,Y)$ ein 
+Zufallsvektor mit der Dichtefunktion
+\begin{equation*}
+    f(x,y) = \begin{cases}
+        \frac{3}{5}y(x+y) & \text{falls } 0<x<2 \text{ und } 0<y<1 \\
+        0,& \text{ sonst.}
+    \end{cases}
+\end{equation*}
+\begin{enumerate}
+    \item Bestimmen Sie die bedingte Dichte $f_{Y|X=x}(y)$, für $x\in (0,2)$. 
+    \item Zeigen Sie, dass $P( Y \leq \frac{1}{2} \,|\, X=1) = \frac{1}{5}$ gilt.
+    \item Zeigen Sie, dass $\mathbf{Cov} (X+Y, X-Y) = \frac{73}{100}$ gilt.
+\end{enumerate}
+
+\section{Informatik. Prüfungsfragen. }
+
+\paragraph{Schaltkreise. Qualitätskontrolle.} Bei einer Endkontrolle von
+Schaltkreisen sollen nicht voll funktionsfähige Schaltkreise aussortiert
+werden. Bekannt sei, dass im Mittel $20\%$ der erzeugten Schaltkreise nicht
+voll funktionsfähig sind. Beim Prüfen werden $95\%$ dieser Schaltkreise
+aussortiert, aber auch $1\%$ der einwandfreien.
+\begin{enumerate}
+    \item Mit welcher Wahrscheinlichkeit ist ein nicht aussortierter
+        Schaltkreis voll funktionsfähig?
+    \item Mit welcher Wahrscheinlichkeit ist ein aussortierter Schaltkreis
+        einwandfrei?
+\end{enumerate}
+
+\paragraph{Widerstände.} Ein Automat produziert Widerstände, deren Werte
+erfahrungsgemäß Realisierungen einer normalverteilten Zufallsgröße mit $\mu =
+1000\ \Omega$ und $\sigma = 20\ \Omega$ sind. Widerstände außerhalb der
+Toleranzgrenzen von $960\ \Omega$ und $1050\ \Omega$ gelten als Ausschuss.
+\begin{enumerate}
+    \item Wie viele von $950$ Widerständen sind im Mittel Ausschuss?
+    \item Der Anteil der Widerstände mit einem Wert größer aus $1050\ \Omega$
+        soll auf durchschnittlich $0.1\%$ gesenkt werden. Wie groß muss dann
+        $\mu$ sein, wenn die mittlere quadratische Abweichung $\sigma^2$
+        unverändert bleibt?
+\end{enumerate}
+
+\paragraph{Komplexes Gerät.} Ein Gerät besteht aus den Baugruppen $B_1,\dots
+,B_4$. Es funktioniert, wenn wenigstens eine der Baugruppen $B_1$ oder $B_2$
+und wenn außerdem beide Baugruppen $B_3$ und $B_4$ funktionieren. Die
+Baugruppen können unabhängig voneinander ausfallen. Die
+Ausfallwahrscheinlichkeiten bei $10$-stündiger Betriebsdauer betragen für $B_1$
+und $B_2$ jeweils $0.5$, für $B_3$ und $B_4$ jeweils $0.2$. 
+\begin{enumerate}
+    \item Mit welcher Wahrscheinlichkeit funktioniert das Gerät nach
+        $10$-stündigem Betrieb noch?
+    \item Mit welcher Wahrscheinlichkeit funktionieren nach dieser Zeit noch
+        alle vier Bauelemente?
+\end{enumerate}
+
+\paragraph{Geometrische Verteilung. Gedächtnislosigkeit und Erwartungswert.} Sei 
+$X$ geometrisch verteilt mit dem Parameter $p\in (0,1)$ und der 
+Wahrscheinlichkeitsfunktion
+\begin{equation*}
+    P(X = k) = p(1-p)^{k}, \ k=0,1,\dots
+\end{equation*}
+\begin{enumerate}
+    \item Zeigen Sie, dass
+        \begin{equation*}
+            P( X > i+j \,|\, X \geq i) = P(X > j)
+        \end{equation*}
+        für alle $i,j>0$ gilt.
+    \item Zeigen Sie, dass 
+        \begin{align*}
+            \bfE X = \frac{1-p}{p}
+        \end{align*}
+        gilt.
+    \item Berechnen Sie den Erwartungswert der Zufallsgröße $Y=2\,X -1$.
+\end{enumerate}
+
+\paragraph{$\chi^{2}$-Verteilung mit einem Freiheitsgrad.} Sei $X$ 
+standarisiert normalverteilt. Zeigen Sie folgende Aussagen:
+\begin{enumerate}
+    \item Die Verteilungsfunktion der Zufallsgröße $X^2$ ist $2\, \Phi(\sqrt{t})-1$,
+        wobei $\Phi$ die Verteilungsfunktion der standarisierten Normalverteilung 
+        bezeichnet.
+    \item Die Dichtefunktion von $X^2$ ist 
+        \begin{align*}
+            f(x) = \begin{cases}
+                \frac{1}{\sqrt{2 \pi x}} e^{-\frac{x}{2}} & \text{falls x>0}, \\
+                0 & \text{sonst.}
+            \end{cases}
+        \end{align*}
+\end{enumerate}
+
+\paragraph{Konfidenzintervall und Test. Normalverteilung.} Beim Messen der
+Entfernung zwischen zwei Punkten sei der Messwert die Realisierung einer
+$\bfN(\mu, \sigma^2)$-verteilten Zufallsgröße. Aus $20$ Messungen einer
+bestimmten Entfernung ergaben sich die folgenden Schätzwerte:
+\begin{align*}
+    \bar x &= 327.3\,m, & s^2 &= 17.3\,m^2.
+\end{align*}
+\begin{enumerate}
+    \item Bestimmen Sie ein $99\%$-iges Konfidenzintervall für den
+        Erwartungswert.
+
+    \item Geben Sie ein einseitiges nach oben beschränktes Konfidenzintervall
+        für $\sigma$ zum Konfidenzniveau $1-\alpha= 0.95$. 
+
+    \item Lässt sich bei einer zugelassenen Irrtumswahrscheinlichkeit von $5\%$
+        die Aussage $\mu > 320\,m$ rechtfertigen?
+
+    \item Darf man bei einer zugelassenen Irrtumswahrscheinlichkeit
+        $\alpha=0.05$ auf die Brauchbarkeit des Messgerätes schließen, wenn als
+        Kriterium für die Tauglichkeit die Forderung $\sigma < 5.0\,m $ dient?
+\end{enumerate}
 
 
 
