@@ -1642,14 +1642,19 @@ mit $\bfE X=\bfE Y=0$, $\bfD^{2}Y=\bfD^{2}X=1$ und $\rho_{XY}$ dem Korrellations
 von $X$ und $Y$
 Zeigen Sie, dass
 \begin{equation*}
-    \bfE \max\left\{ X,Y \right\} = \sqrt{\frac{1-\rho}{\pi}}
+    \bfE \left[ \max\left\{ X,Y \right\} \right] = \sqrt{\frac{1-\rho}{\pi}}
 \end{equation*}
 gilt.
-% source: Shao, keywords: {bivariate normal, multivariate normal}
+% sources: Shao Exercises
+% keywords: bivariate normal, multivariate normal
 
 \paragraph{Korrelation und Symmetrie.} Seien $X$ eine stetige Zufallsgröße mit 
 endlicher Varianz und $Y = |X|$. Beweisen Sie: Ist $X$ symmetrisch, so sind
 $X$ und $Y$ unkorreliert aber nicht unabhängig.
+
+\paragraph{Lösung.} Ist $X$ symmetrisch, so sind $X^{+}$ und $X^{-}$
+gleichverteilt und $\operatorname{Cov}(X, |X|) = \bfD^2 X^{+} - \bfD^{2} X^{-}
+= 0$. Klarerweise sind $X$ und $|X|$ nicht unabhängig. 
 
 \paragraph{Korrelation und Gleichverteilung auf dem Einheitskreis.} Sei $(X,Y)$
 ein Zufallsvektor mit der (zweidimensionalen) Dichtefunktion 
@@ -1661,20 +1666,22 @@ ein Zufallsvektor mit der (zweidimensionalen) Dichtefunktion
 \end{equation*}
 Zeigen Sie, dass die Zufallsgrößen $X$ und $Y$ unkorreliert aber nicht
 unabhängig sind. 
+% sources: Shao Exercises ch. 1, Jacod/Protter ch. 12.
 
-\paragraph{Bedingte Dichet. Ein Rechenbeispiel.} Sei $(X,Y)$ ein 
+\paragraph{Bedingte Dichte. Ein Rechenbeispiel.} Sei $(X,Y)$ ein 
 Zufallsvektor mit der Dichtefunktion
 \begin{equation*}
     f(x,y) = \begin{cases}
-        \frac{3}{5}y(x+y) & \text{falls } 0<x<2 \text{ und } 0<y<1 \\
-        0,& \text{ sonst.}
+        \frac{3}{5}y(x+y), & \text{falls } 0<x<2 \text{ und } 0<y<1 \\
+        0,& \text{sonst.}
     \end{cases}
 \end{equation*}
 \begin{enumerate}
     \item Bestimmen Sie die bedingte Dichte $f_{Y|X=x}(y)$, für $x\in (0,2)$. 
-    \item Zeigen Sie, dass $P( Y \leq \frac{1}{2} \,|\, X=1) = \frac{1}{5}$ gilt.
+%    \item Zeigen Sie, dass $P( Y \leq \frac{1}{2} \,|\, X=1) = \frac{1}{5}$ gilt.
     \item Zeigen Sie, dass $\mathbf{Cov} (X+Y, X-Y) = \frac{73}{100}$ gilt.
 \end{enumerate}
+% keywords: conditional density
 
 \section{Informatik. Prüfungsfragen. }
 

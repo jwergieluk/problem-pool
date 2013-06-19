@@ -60,6 +60,9 @@ class Problems:
             if re.search(r'\\subsection', line, re.UNICODE)!=None:
                 continue
 
+            if re.search(r'^%', line, re.UNICODE)!=None:
+                continue
+
             match = re.search(PROBLEM_LINE, line, re.UNICODE)
             if match != None: 
                 if match.group(2) != probName and probName!="":
