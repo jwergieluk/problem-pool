@@ -1604,11 +1604,38 @@ dass ein Kondensator während der Zeit $T$ ausfällt, betrage $0.5$.
         alle ausgefallenen Kondensatoren ersetzt werden können?
 \end{enumerate}
 
-\paragraph{Grenzverteilungsätze. Schaltgehäuse.} Beim Gießen spezieller Schaltgehäuse trete ein
-Ausschussprozentsatz von $10\%$ auf. Für einen reibungslosen Produktionsverlauf
-müssen je Gießvorgang (mindestens) $100$ brauchbare Gehäuse hergestellt werden.
-Wie viel Gehäuse müssen mindestens bei einem Vorgang gegossen werden, um mit
-mindestens $99\%$-iger Sicherheit diese Forderung zu erfüllen?
+\paragraph*{Lösung.} 
+\begin{enumerate}
+    \item $X\sim B(p)$, $Y=\sum_{i=1}^{100} \sim \text{Bin}(100,0.5)$, $E Y =
+        np$, $\Var Y = np(1-p)= 25$. Wende den Grenzwertsatz von Moivre-Laplace
+        da die Fausregel $np(1-p)>9$ erfüllt ist.
+        \begin{equation*}
+            P(Y>60) = P(Y < 40) \approx 
+            \Phi\left( \frac{40 - np}{ \sqrt{np(1-p)}} \right) =
+            \Phi(-2) = 0.02275013.
+        \end{equation*}
+
+    \item $P(Y \leq x) = 0.95$, $\Phi\left( \frac{x-50}{5} \right) \geq 0.95$
+        liefert $x=59$. 
+\end{enumerate}
+
+\paragraph{Grenzverteilungsätze. Schaltgehäuse.} Beim Gießen spezieller
+Schaltgehäuse trete ein Ausschussprozentsatz von $10\%$ auf. Für einen
+reibungslosen Produktionsverlauf müssen je Gießvorgang (mindestens) $100$
+brauchbare Gehäuse hergestellt werden.  Wie viel Gehäuse müssen mindestens bei
+einem Vorgang gegossen werden, um mit mindestens $99\%$-iger Sicherheit diese
+Forderung zu erfüllen?
+
+\paragraph*{Lösung.} $Y\sim \sum_{i=1}^{n} X_i$, $X_i \sim B(p)$,
+$p=1-0.1=0.9$.  $P(Y\geq 100) \geq 0.99$. $\Phi(x) \geq 0.99$, wenn $x\geq
+2.326348$. 
+\begin{align*}
+    \frac{np - 100}{ \sqrt{np(1-p)} } &\geq 2.3263 \\
+    n - 2.3263 \sqrt{p(1-p)} \sqrt{n} -100 &\geq 100 \\
+    \Phi^{-1}(0.99) \sqrt{p(1-p)} &= 0.6979044
+\end{align*}
+Optimierung liefert $n=108$.
+
 
 \section{Mehrdimensionale Verteilungen.}
 
@@ -1637,6 +1664,9 @@ Aussagen:
         \end{equation*}
 \end{enumerate}
 
+\paragraph*{Lösung.}$\operatorname{Cov}(aX+b, cY + b)= ac
+\operatorname{Cov}(X,Y)$. $\Var aX = a^2 \Var X$. 
+
 \paragraph{Bivariate Normalverteilung. Maximum.} Seien $(X,Y)$ bivariat normalverteilt
 mit $\bfE X=\bfE Y=0$, $\bfD^{2}Y=\bfD^{2}X=1$ und $\rho_{XY}$ dem Korrellationskoeffizienten
 von $X$ und $Y$
@@ -1653,7 +1683,7 @@ symmetrisch, wenn die Verteilungen von $X$ und $-X$ gleich sind. Seien $X$ eine
 stetige Zufallsgröße mit endlicher Varianz und $Y = |X|$. Beweisen Sie: Ist $X$
 symmetrisch, so sind $X$ und $Y$ unkorreliert aber nicht unabhängig.
 
-\paragraph{Lösung.} Ist $X$ symmetrisch, so sind $X^{+}$ und $X^{-}$
+\paragraph*{Lösung.} Ist $X$ symmetrisch, so sind $X^{+}$ und $X^{-}$
 gleichverteilt und $\operatorname{Cov}(X, |X|) = \bfD^2 X^{+} - \bfD^{2} X^{-}
 = 0$. Klarerweise sind $X$ und $|X|$ nicht unabhängig. 
 
@@ -1669,6 +1699,11 @@ Zeigen Sie, dass die Zufallsgrößen $X$ und $Y$ unkorreliert aber nicht
 unabhängig sind. 
 % sources: Shao Exercises ch. 1, Jacod/Protter ch. 12.
 
+\paragraph*{Lösung.} $\bfE XY=0$. Das ergibt sich durchs Integrieten. Folglich
+$\operatorname{Cov}(X,Y)=0$. Aus $X \upmodels Y$ folgt $f(x,y) = h(x) g(y)$ 
+für alle $(x,y) \in \bR^{2}$. Für $x=1$ ergibt sich $g(y) \sim 1_{y=0}$. $g$ ist 
+aber keine Dichte. Widerspruch. 
+
 \paragraph{Bedingte Dichte. Ein Rechenbeispiel.} Sei $(X,Y)$ ein 
 Zufallsvektor mit der Dichtefunktion
 \begin{equation*}
@@ -1683,6 +1718,20 @@ Zufallsvektor mit der Dichtefunktion
     \item Zeigen Sie, dass $\mathbf{Cov} (X+Y, X-Y) = \frac{73}{100}$ gilt.
 \end{enumerate}
 % keywords: conditional density
+
+\paragraph*{Lösung.} 
+\begin{enumerate}
+    \item Randdichte:
+        \begin{equation*}
+            f_{Y} (y) = \frac{3}{5} y(y+2).
+        \end{equation*}
+        Bedingte Dichte: 
+        \begin{equation*}
+            f_{Y \,|\, X=x} = \frac{x+y}{y+2}. 
+        \end{equation*}
+
+    \item Direkte Berechnung? Oh Gott nein!
+\end{enumerate}
 
 \section{Informatik. Prüfungsfragen. }
 

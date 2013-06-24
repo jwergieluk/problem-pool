@@ -1,11 +1,11 @@
 #!/usr/bin/env python2
 
 def printUsage():
-    print "Problem extractor (c) Julian Wergieluk 2012, GPL"
+    print "Problem extractor (c) Julian Wergieluk 2012-2013. GPL"
     print "usage: %s [command] [key file] [problem file 1] [.. [problem file n]] " % sys.argv[0]
 
 
-import math, sys, os, calendar, re
+import math, sys, os, calendar, re, numpy
 from collections import OrderedDict
 
 def readLines(fileName):
@@ -38,7 +38,7 @@ class Problems:
             if cmd[0]=="#":
                 continue
             args=" ".join(k.split(" ")[1:])
-            if len(cmd)>0 and len(args)>0:
+            if len(cmd)>0:
                 self.cmds.append(cmd)
                 self.keys.append(args)
 
@@ -100,22 +100,31 @@ class Problems:
                 print "\\subsection*{%s}" % (key)
             if cmd=="tex":
                 print key
-            key=key.lower()
+            if cmd=="random":
+                rng = numpy.random.RandomState()
+                random_key = rng.choice(self.problems.keys())
+                while len( self.problems[random_key][1])>0:
+                    random_key = rng.choice(self.problems.keys())
+                print self.problems[random_key][0]
+                print self.problems[random_key][1]
             if cmd=="p" or cmd=="s":
+                key=key.lower()
                 if not key in self.problems.keys():
-                    print >> sys.stderr, "ERROR: \"%s\" not found!" % (key)
-                    raise SystemExit(1)
+                    print "\\paragraph{%s NOT FOUND!!} % (key)"
+#                    print >> sys.stderr, "ERROR: \"%s\" not found!" % (key)
+#                    raise SystemExit(1)
                 if cmd=="p":
                     print self.problems[key][0]
                 if cmd=="s":
                     print self.problems[key][0]
                     print "\n%% solution"
                     print self.problems[key][1]
+
             
     def printSummary(self):
-#        print "Problems in the datebase :: %d" % (len(self.problems.keys()))
-        for i in range(len(self.problems.keys())):
-            print "%d. %s" % (i, self.problems.keys()[i])
+        sys.stderr.write("#INFO: %d Problems in the datebase.\n" % (len(self.problems.keys())) )
+#        for i in range(len(self.problems.keys())):
+#            print "%d. %s" % (i, self.problems.keys()[i])
 
 
 
@@ -123,20 +132,17 @@ if __name__ == "__main__":
 
     db=Problems()
     
-    if len(sys.argv)<4:
+    if len(sys.argv)<3:
         printUsage()
         sys.exit()
 
-    cmd=sys.argv[1]
-    db.addKeys(readLines(sys.argv[2]))
+    db.addKeys(readLines(sys.argv[1]))
 
-    for f in sys.argv[3:]:
+    for f in sys.argv[2:]:
         db.processTex(f)
         
-    if cmd=="s":
-        db.printSummary()
-    if cmd=="p":
-        db.printProblems()
+    db.printSummary()
+    db.printProblems()
 
 
 

@@ -12,7 +12,7 @@ function has an atom-less distribution function.
 \paragraph{Ordnungsstatistiken. Eigenschaften.} Seien $X_1,\dots ,X_n$
 identisch verteilte stochastisch unabhängige Zufallsgrößen mit der
 Dichtefunktion $f(x)$ und Verteilungsfunktion $F(x)$. Der Zufallsvektor $\left(
-X_{(1)},\dots ,X_{(n)} \right)$ enthält die aufsteigend geordnete Zufallsgrößen
+X_{(1)},\dots ,X_{(n)} \right)$ enthält aufsteigend geordnete Zufallsgrößen
 $X_1,\dots ,X_n$. Zeigen Sie folgende Aussagen:
 \begin{enumerate}
     \item Die gemeinsame Dichtefunktion von dem Zufallsvektor $\left( X_{(1)},\dots ,X_{(n)} \right)$
@@ -29,13 +29,28 @@ $X_1,\dots ,X_n$. Zeigen Sie folgende Aussagen:
             f_{(k)}(y) = k \binom{n}{k} f(y) (1-F(y))^{n-k} F(y)^{k-1}.
         \end{equation*}
 
-%    \item Die Dichtefunktion von $(X_{(i)},X_{(j)})$ für $i\neq j$ ist
-%        \begin{equation*}
-%            g_{i,j}(x,y)= \begin{cases}
-%                \frac{n! F(x)^{i-1} [F(y)-F(x)]^{j-i-1} [1-F(y)]^{n-j}f(x)f(y) }{ (i-1)! (j-i-1)! (n-j)! }, & x<y \\
-%                0, & \text{sonst.}
-%            \end{cases}
-%        \end{equation*}
+    \item Die Dichtefunktion von $(X_{(i)},X_{(j)})$ für $i\neq j$ ist
+        \begin{equation*}
+            g_{i,j}(x,y)= \begin{cases}
+                \frac{n! F(x)^{i-1} [F(y)-F(x)]^{j-i-1} [1-F(y)]^{n-j}f(x)f(y) }{ (i-1)! (j-i-1)! (n-j)! }, & x<y \\
+                0, & \text{sonst.}
+            \end{cases}
+        \end{equation*}
+\end{enumerate}
+
+\paragraph*{Lösung.}
+\begin{enumerate}
+    \item Ein fixer Punkt des Trägers von $g$ ist ein Bild von $n!$ Punkten in
+        $\bR^n$ unter der Abbildung $(x_1,\dots ,x_n)\mapsto (x_{(1)},\dots
+        ,x_{(n)})$.
+    \item Die Verteilungsfunktion von $X_{(k)}$ is gegeben durch
+        \begin{equation*}
+            P(X_{(k)} < x) = F_{k}(y) = \binom{n}{k}\, (F(y))^{k} \left( 1-F(y)  \right)^{n-k}
+        \end{equation*}
+        wobei $F$ die Verteilungsfunktion von $X_1$ ist. Damit $\left\{ X_{
+        (k)} < x \right\}$ eintritt mussen $k$ Komponenten die kleiner als $x$
+        gewählt werden und der Rest größer oder gleich $x$. 
+    \item 
 \end{enumerate}
 
 
