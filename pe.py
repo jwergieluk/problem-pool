@@ -1,8 +1,8 @@
 #!/usr/bin/env python2
 
 def printUsage():
-    print "Problem extractor (c) Julian Wergieluk 2012-2013. GPL"
-    print "usage: %s [command] [key file] [problem file 1] [.. [problem file n]] " % sys.argv[0]
+    print "Problem extractor (c) Julian Wergieluk 2012-2013."
+    print "usage: %s [key file] [problem file 1] [.. [problem file n]] " % sys.argv[0]
 
 
 import math, sys, os, calendar, re, numpy
@@ -28,6 +28,8 @@ class Problems:
        self.problems=OrderedDict()
        self.keys=[]
        self.cmds=[]
+       self.ids=[]
+       self.tags=[]
 
     def addKeys(self, keyList):
         for k in keyList:
@@ -47,11 +49,13 @@ class Problems:
         probName=""
         probBody=""
         probSolution=""
+        probId=""
+        probTags=[]
 
         for line in lines: 
             line=line.strip()
 
-#            if len(line)==0:
+#            if len(line)==0:    # remove empty lines
 #                continue
 
             if re.search(r'\\section', line, re.UNICODE)!=None:
@@ -110,21 +114,22 @@ class Problems:
             if cmd=="p" or cmd=="s":
                 key=key.lower()
                 if not key in self.problems.keys():
-                    print "\\paragraph{%s NOT FOUND!!} % (key)"
-#                    print >> sys.stderr, "ERROR: \"%s\" not found!" % (key)
-#                    raise SystemExit(1)
+                    print "\\paragraph{%s NOT FOUND!!}\n" % (key)
+                    continue
                 if cmd=="p":
                     print self.problems[key][0]
                 if cmd=="s":
                     print self.problems[key][0]
                     print "\n%% solution"
                     print self.problems[key][1]
+            if cmd=="info":
+                self.printSummary()
 
             
     def printSummary(self):
-        sys.stderr.write("#INFO: %d Problems in the datebase.\n" % (len(self.problems.keys())) )
-#        for i in range(len(self.problems.keys())):
-#            print "%d. %s" % (i, self.problems.keys()[i])
+        sys.stderr.write("%% INFO: %d Problems in the datebase.\n" % (len(self.problems.keys())) )
+        for i in range(len(self.problems.keys())):
+            print "%% %d. %s" % (i, self.problems.keys()[i])
 
 
 
