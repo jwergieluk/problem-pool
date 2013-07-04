@@ -1675,8 +1675,7 @@ Zeigen Sie, dass
     \bfE \left[ \max\left\{ X,Y \right\} \right] = \sqrt{\frac{1-\rho}{\pi}}
 \end{equation*}
 gilt.
-% sources: Shao Exercises
-% keywords: bivariate normal, multivariate normal
+% @biNormalMax #bivariateNormal #multivariateNormal #unsolved &shaoExercises 
 
 \paragraph{Korrelation und Symmetrie.} Eine Zufallsgröße $X$ nennen wir
 symmetrisch, wenn die Verteilungen von $X$ und $-X$ gleich sind. Seien $X$ eine
@@ -1830,5 +1829,74 @@ bestimmten Entfernung ergaben sich die folgenden Schätzwerte:
 \end{enumerate}
 
 
+\subsection{Quantile}
+
+
+\paragraph{Exponentialverteilung. Quantile.} Seien 
+$X\sim \mathbf{Ex}(\lambda)$ exponentialverteilt mit dem Paramter $\lambda>0$
+und $\gamma\in (0,1)$ gegeben. 
+\begin{enumerate}
+    \item Berechnen Sie das $\gamma$-Quantil zur $X$. 
+    \item Berechnen Sie den Median von $X$. 
+\end{enumerate}
+
+
+\paragraph{Logistische Verteilung. Quantile.} Eine Zufallsgröße heißt
+logistisch verteilt mit den Parametern $\alpha\in\bR$ und $\beta>0$, wenn ihre
+Dichtefunktion die Gestalt
+\begin{equation*}
+    f(x) = \frac{e^{-\frac{x-\alpha}{\beta}}}
+    {\beta\left( 1+e^{-\frac{x-\alpha}{\beta}} \right)^{2}}
+\end{equation*}
+hat.
+\begin{enumerate}
+    \item Zeigen Sie, dass die Verteilungsfunktion von $X$ durch
+        \begin{equation*}
+            F(x) = \frac{1}{1+e^{-\frac{x-\alpha}{\beta}}}
+        \end{equation*}
+        gegeben ist.
+
+    \item Berechnen Sie das $\gamma$-Quantil zur $X$ für ein $\gamma\in (0,1)$. 
+    \item Berechnen Sie den Median von $X$. 
+\end{enumerate}
+
+\subsection{Erwartungstreue}
+
+\paragraph{Diskrete Gleichverteilung. Erwartungstreuer Schätzer.} Seien
+$X_1,\dots ,X_k$ i.i.d.\ und diskret gleichverteilt auf $\left\{ 1,\dots ,N
+\right\}$ mit $N>1$. Zeigen Sie, dass der Schätzer
+\begin{equation*}
+    T\left( X_1,\dots ,X_k \right) = \frac{k+1}{k} X_{(k)}-1
+\end{equation*}
+erwartungstreu für $N$ ist. $X_{(k)}$ bezeichnet dabei das Maximum von $\left\{
+X_1,\dots ,X_k \right\}$. 
+
+\paragraph{Log-Normalverteilung. Erwartungstreuer Schätzer.} Seien $X_1,\dots
+,X_n$ i.i.d.\ und log-normalverteilt mit der Dichtefunktion
+\begin{equation*}
+    f(x) = \begin{cases}
+        \frac{1}{ x\sqrt{2\pi} } \exp \left( - \frac{ (\log x - \mu)^2 }{ 2 } \right), & x\geq 0 \\
+        0, & x<0
+    \end{cases}
+\end{equation*}
+und dem Parameter $\mu\in\bR$. Zeigen Sie, dass der Schätzer 
+\begin{equation*}
+    T\left( X_1,\dots ,X_n \right) = \frac{1}{n} \sum_{i=1}^{n} \log X_i
+\end{equation*}
+erwartungstreu für $\mu$ ist. 
+
+\section{Einfache Schätzer}
+
+\paragraph{Telefonzentrale.} In einer Telefonzentrale wurden für $11$
+aufeinanderfolgende Anrufe die Zeitabstände zwischen zwei Anrufen ermittelt. Es
+ergaben sich die folgenden Werte:
+\begin{lstlisting}
+38.1  74.1  17.7  17.7  1.2  13.2  22.8  35.7  108.6  20.7
+\end{lstlisting}
+Geben Sie auf der Grundlage dieser Stichprobenwerte je eine Schätzung für den
+mittleren Zeitabstand und die mittlere quadratische Abweichung der Zeitabstände
+vom Erwartungswert an. 
+
+Diskutieren Sie die Eigenschaften dieser Schätzfunktionen.
 
 
