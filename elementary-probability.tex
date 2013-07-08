@@ -1828,6 +1828,111 @@ bestimmten Entfernung ergaben sich die folgenden Schätzwerte:
         Kriterium für die Tauglichkeit die Forderung $\sigma < 5.0\,m $ dient?
 \end{enumerate}
 
+\paragraph{Modifizierte P\'olya's Urne.} Eine Urne enthält $s=2$ schwarze und
+$w=3$ weiße Kugeln. Es wird eine Kugel zufällig gezogen und ihre Farbe notiert.
+Falls eine weiße Kugel gezogen wurde, wird diese beiseite gelegt. Falls eine
+schwarze Kugel gezogen wurde, wird diese zusammen mit einer weiteren schwarzen
+Kugel in die Urne gelegt. Die Prozedur wird anschließend wiederholt.
+\begin{enumerate}
+    \item Wie groß ist die Wahrscheinlichkeit, dass die zweite gezogene Kugel
+        weiß ist?
+    \item Wie groß ist die Wahrscheinlichkeit, dass die erste gezogene Kugel
+        weiß ist, unter der Bedingung, dass die zweite gezogene Kugel weiß ist?
+\end{enumerate}
+
+\paragraph*{Lösung.}
+Wir bezeichnen mit $W_i$ bzw.\ mit $S_i$ das Ereignis, dass bei der $i$-ten
+Ziehung eine weiße bzw.\ eine schwarze Kugel gezogen wird.
+\begin{enumerate}
+    \item \begin{align*}
+            P(W_2) &= P(W_2 \,|\, W_1)P(W_1) + P(W_2 \,|\, S_1)P(S_1) \\
+            &= \frac{w-1}{s+w-1} \frac{w}{s+w} + \frac{w}{s+2+w} \frac{s}{w+s} = \frac{13}{24}. 
+        \end{align*}
+    \item \begin{align*}
+            P( W_1 \,|\, W_2 ) &= \frac{P(W_2 \,|\, W_1) P(W_1)}{P(W_2)} = 
+            \frac{1}{P(W_2)} \frac{ w-1 }{w-1+s}\frac{w}{w+w} = \frac{36}{75}. 
+        \end{align*}
+\end{enumerate}
+
+
+
+\paragraph{Rademacher Zufallsgrößen.} Sei $X$ rademacherverteilt mit der
+Wahrscheinlichkeitsfunktion
+\begin{align*}
+    P(X=-1) &= \frac{1}{2}, & P(X=1)& = \frac{1}{2}.
+\end{align*}
+\begin{enumerate}
+    \item Berechnen Sie den Erwartungswert und die Varianz von $X$. 
+
+    \item Zeigen Sie, dass alle ungeraden Momente und alle ungeraden zentralen
+        Momente von $X$ verschwinden. 
+
+    \item Berechnen Sie die charakteristische Funktion von $X$. 
+
+    \item Seien $X_1$ und $X_2$ stochastisch unabhängig und rademacherverteilt.
+        Berechnen Sie die Wahrscheinlichkeitsfunktion der Zufallsgröße
+        \begin{equation*}
+            Y = X_1 + X_2.
+        \end{equation*}
+\end{enumerate}
+
+\paragraph*{Lösung.}
+\begin{enumerate}
+    \item $\bfE X= 0$, $\Var X = \bfE X^2 = 1$.
+    \item $k\in 2\bN+1$ impliziert $X^k= X$, daher auch $m_{k} = \bfE X^k = \bfE
+        X=0$. Die zentralen Momente $\mu_k$ und Momente $m_{k}$ sind gleich. 
+    \item $\phi_{X}(t) = \bfE e^{i t X} = \frac{1}{2} \left(  e^{it} + e^{-it} \right)$.
+    \item \begin{equation*}
+            P(Y=k) =
+            \begin{cases}
+                1/4 & k=2 \\
+                1/2 & k=0 \\
+                1/4 & k=-2.
+            \end{cases}
+        \end{equation*}
+\end{enumerate}
+
+\paragraph{Hochwasserereignisse.} Historiker haben festgestellt, dass im
+Großraum Halle im Mittel zwei extreme Hochwasserereignisse pro Jahrhundert zu
+verzeichnen waren. Wir setzen voraus, dass dafür die Annahmen des
+Poisson-Prozesses (Stationarität, Homogenität und Ordinarität) gelten mögen.
+\begin{enumerate}
+    \item Was bedeuten diese drei Annahmen für die vorliegende Problematik?
+    \item Wie wahrscheinlich ist es, dass in einem Jahrhundert mehr als drei
+        extreme Hochwasserereignisse im Großraum Halle auftreten?
+    \item Wie wahrscheinlich ist es, dass nach dem extremen Hochwasser 2013
+        innerhalb von 20 Jahren ein weiteres extremes Hochwasser in dieser
+        Region auftreten wird?  
+\end{enumerate}
+
+\paragraph*{Lösung.}
+\begin{enumerate}
+        \setcounter{enumi}{1}
+    \item Rechnungseinheit Jahre: $\mu=\frac{2}{100}=0.02, \quad X_t \sim \pi_{\mu t}.$
+        
+        $t=100,\;\lambda=\mu t=2, \quad P(X_{100}>3)=1-\pi_2(0)-\pi_2(1)-\pi_2(2)-\pi_2(3)=\underline{0.1429}.$
+
+    \item Zeitraum bis zum nächsten Ereignis: $\,T \sim \mathbf{Ex}(\mu)$.
+
+        $P(T \le 20)=1-\exp(-20 \mu)=1-\exp(-0.4)=\underline{0.3297}.$
+\end{enumerate}
+
+
+\paragraph{GPS.} Nachdem die Verbindung zur $k$ Satelliten aufgebaut wurde
+liefert ein GPS Gerät jede Sekunde eine Messung der geographischen Länge eines
+festen Ortes. Es wird angenommen, dass kein systematischer Fehler vorliegt und
+die Messungen mit unabhängigen normalverteilten Zufallsgrößen $X_i \sim
+\bfN(\mu_X, \sigma^2)$ mit $\sigma=50\,m$ modelliert werden können.
+\begin{enumerate}
+    \item Berechnen Sie einen maximum-likelihood oder Momentenschätzer
+        $\hat\mu_X\left( X_1,\dots ,X_n \right)$ für $\mu_X$.
+
+    \item Wie viele Sekunden muss mindestens gewartet werden, damit der
+        absolute Messfehler $| \mu_{X} - \hat \mu_{X} |$ mit Wahrscheinlichkeit
+        von mindestens $95\%$ unter $1\,m$ liegt.
+\end{enumerate}
+
+
 
 \subsection{Quantile}
 
@@ -1839,6 +1944,17 @@ und $\gamma\in (0,1)$ gegeben.
     \item Berechnen Sie das $\gamma$-Quantil zur $X$. 
     \item Berechnen Sie den Median von $X$. 
 \end{enumerate}
+
+\paragraph*{Lösung.} Dichte und Verteilungsfunktionen der Exponentialverteilung
+sind
+\begin{align*}
+    f(x) &= \lambda e^{-\lambda x} 1_{x \geq 0} & F(x) &= \left( 1-e^{-\lambda x} \right)1_{x \geq 0}. 
+\end{align*}
+Daraus ergibt sich für $\gamma\in (0,1)$ 
+\begin{equation*}
+    q_{\gamma} = F^{-1}(\gamma) = -\frac{1}{\lambda} \log \left( 1-\gamma \right). 
+\end{equation*}
+Median ist damit gleich $-\frac{1}{\lambda} \log \frac{1}{2}$. 
 
 
 \paragraph{Logistische Verteilung. Quantile.} Eine Zufallsgröße heißt
@@ -1859,6 +1975,12 @@ hat.
     \item Berechnen Sie das $\gamma$-Quantil zur $X$ für ein $\gamma\in (0,1)$. 
     \item Berechnen Sie den Median von $X$. 
 \end{enumerate}
+
+\paragraph*{Lösung.} Die Quantilfunktion ist gegeben durch
+\begin{equation*}
+    Q(\gamma) = \alpha - \beta \log\left( \frac{1}{\gamma} - 1 \right). 
+\end{equation*}
+Der Median ist $Q(0.5) = \alpha$.
 
 \subsection{Erwartungstreue}
 
@@ -1885,6 +2007,14 @@ und dem Parameter $\mu\in\bR$. Zeigen Sie, dass der Schätzer
 \end{equation*}
 erwartungstreu für $\mu$ ist. 
 
+\paragraph*{Lösung.} Aus der Definition der Log-Normalverteilung oder durch
+direktes Berechnen, erhalten wir
+\begin{equation*}
+    \bfE X_1 = \mu.
+\end{equation*}
+Damit ist $T$ erwartungstreu.
+
+
 \section{Einfache Schätzer}
 
 \paragraph{Telefonzentrale.} In einer Telefonzentrale wurden für $11$
@@ -1898,5 +2028,230 @@ mittleren Zeitabstand und die mittlere quadratische Abweichung der Zeitabstände
 vom Erwartungswert an. 
 
 Diskutieren Sie die Eigenschaften dieser Schätzfunktionen.
+
+\paragraph*{Lösung.} Erwartungstreuer Schätzfunktionen für den Erwartungswert und
+die Varianz sind
+\begin{align*}
+    \bar X_n &= \frac{1}{n} \sum_{i=1}^{n} X_n & S_n^{2} &= \frac{1}{n-1} \sum_{i=1}^{n} \left( X_i - \bar X_n \right)^{2}. 
+\end{align*}
+Für diese Stichprobe gilt
+\begin{align*}
+    \sum_{i=1}^{10} X_i &= 349.8 \\
+    \bar X_n &= 34.98 \\
+    S^2_n &= 1058.384.
+\end{align*}
+
+
+
+
+\subsection{Konfidenzintervalle}
+
+\paragraph{Kondensatoren. Konfidenzintervall.} Aus einer Lieferung von
+Kondensatoren wurden $n$ Stück zufällig ausgewählt und folgende Kapazitäten (in
+$\mu$F) festgestellt (Normwert: $220 \mu$F):
+\begin{lstlisting}
+    281  221  220  221  219  221  220  218  222  219
+\end{lstlisting}
+\begin{enumerate}
+    \item Berechnen Sie je eine Schätzung für den Erwartungswert und für die
+        Varianz der Kapazität. 
+    \item Berechnen Sie auf der Grundlage dieser Stichprobenergebnisse je ein
+        Konfidenzintervall für den Mittelwert und die Varianz der Kapazität zum
+        Konfidenzniveau $1-\alpha = 0.95$. Von welchen
+        Verteilungsvoraussetzungen gehen Sie dabei aus?
+\end{enumerate}
+
+\paragraph*{Lösung.}
+\begin{enumerate}
+    \item $\bar X_n = 226.2 = \bar \mu$, $S^2_n = 372.1778 = \bar \sigma^2$.
+    \item Wir nehmen an, dass $X \sim \bfN(\bar \mu, \bar \sigma^2)$ gilt. 
+        Für die Berechnung des Konfidenzintervall für $\mu$ bei unbekannter Varianz
+        benutzen wir die Beziehung
+        \begin{equation*}
+            \frac{\bar X_n - \mu}{ S_n} \sim t_{n-1}. 
+        \end{equation*}
+        Daraus folgt
+        \begin{align*}
+            P\left( - t_{n-1, 1-\frac{\alpha}{2}} \leq 
+            \frac{\bar X_n - \mu}{ S_n}\sqrt{n}
+            \leq t_{n-1, 1-\frac{\alpha}{2}} \right) = 1-\alpha. 
+        \end{align*}
+        Die $t_{n}$-Verteilung ist symmetrisch -- das folgt auf der Konstruktion: Für 
+        $X\sim \bfN(0,1)$ und $Y\sim \chi^{2}_{n}$ ist 
+        \begin{equation*}
+            \frac{X}{\sqrt{Y/n}} \sim t_{n}. 
+        \end{equation*}
+        Insgesamt bekommen wir
+        \begin{align*}
+            P\left( \bar X_n - t_{n-1, 1-\frac{\alpha}{2}} \frac{S_{n}}{\sqrt{n}} 
+            \leq \mu \leq \bar X_{n} + t_{n-1, 1-\frac{\alpha}{2}} \frac{S_{n}}{\sqrt{n}}
+            \right) = 1-\alpha. 
+        \end{align*}
+        Konkret in unserem Fall heißt das
+        \begin{equation*}
+            t_{9, 1-\frac{0.05}{2}} = 13.8006
+        \end{equation*}
+        \begin{equation*}
+            P\left( \mu \in \left[ 212.3994 , 240.0006 \right] \right) = 0.95.
+        \end{equation*}
+\end{enumerate}
+
+\paragraph{Krankenversicherung. Konfidenzintervall.} Einer Krankenversicherung
+seien für eine spezielle Gruppe von $15$ Versicherungsnehmern mittlere Kosten
+in Höhe von $\bar x_n = 5\,500$ EUR bei einer Stichprobenstandardabweichung
+$s_n = 1\, 500$ EUR entstanden.
+\begin{enumerate}
+    \item Geben Sie ein zweiseitiges Konfidenzintervall für die mittleren
+        Kosten zum Konfidenzniveau $1-\alpha=0.95$ an. 
+    \item Die Versicherung habe ihren Tarif unter der Annahme kalkuliert, dass
+        die mittleren Kosten $5\, 000$ EUR betragen. Diskutieren Sie anhand des
+        erhaltenen Konfidenzintervalls, ob eine Neukalkulation des Tarifs
+        angezeigt erscheint. 
+\end{enumerate}
+
+\paragraph*{Lösung}
+\begin{enumerate}
+    \item Konfidenzintervall für $\mu$ bei unbekannter Varianz ist 
+        \begin{align*}
+            P\left( \bar X_n - t_{n-1, 1-\frac{\alpha}{2}} \frac{S_{n}}{\sqrt{n}} 
+            \leq \mu \leq \bar X_{n} + t_{n-1, 1-\frac{\alpha}{2}} \frac{S_{n}}{\sqrt{n}}
+            \right) = 1-\alpha. 
+        \end{align*}
+        Konkret heißt das in diesem Fall
+        \begin{align*}
+            P\left( \mu \in\left[ 5500-830.6723,5000+830.6723 \right]\right) &= 0.95 \\
+            P\left( \mu \in\left[ 4669.328, 6330.672 \right]\right) &= 0.95
+        \end{align*}
+
+    \item $5000$ liegt im Konfidenzintervall, es gibt also keinen Grund unruhig
+        zu werden.
+\end{enumerate}
+
+\paragraph{Qualitätssicherung. Konfidenzintervall.} Zur Schätzung des Ausschussanteils eines
+umfangreichen Lieferpostens werde diesem eine Stichprobe von $200$ Teilen entnommen. 
+Dabei wurden $190$ einwandfreie Teile festgestellt.
+\begin{enumerate}
+    \item Geben Sie eine Schätzung für den Ausschussanteil an.
+    \item Wie groß kann maximal die Varianz der Schätzung sein? 
+
+    \item Berechnen Sie ein Konfidenzintervall für den Ausschussanteil zum
+        Konfidenzniveau $0.95$ und interpretieren Sie das Ergebnis.
+\end{enumerate}
+
+\paragraph*{Lösung.} 
+\begin{enumerate}
+    \item Es gilt $\sum_{i=1}^{200} X_i \sim \bfB(200, p)$. Die Schätzung für
+        den Anteil ist die Schätzung für $p$. 
+        \begin{equation*}
+            \hat p = \frac{1}{n} \sum_{i=1}^{n} X_i
+        \end{equation*}
+        ist ein Erwartungstreuer Schätzer für $p$. Für die obige Stichprobe
+        gilt $\hat p = \frac{1}{20}$.
+    \item Varianz von $\hat p$ ist 
+        \begin{equation*}
+            \var \hat p = \frac{1}{n} p(1-p)
+        \end{equation*}
+        Diese wird maximal für $p=\frac{1}{2}$ und beträgt in diesem Fall
+        $V^{2}_{\star} = 1/800$. Maximale Standardabweichung ist demnach
+        $V_{\star} = \frac{1}{20\sqrt{2}}$.
+    \item Nach dem Satz von Moivre/Laplace gilt 
+        \begin{equation*}
+            \bar X_{n} \approx \bfN \left( p, \frac{p(1-p)}{n} \right).
+        \end{equation*}
+        Die Annahme $\bar X_{n} \approx \bfN\left( p, V_{\star} \right)$ führt zur 
+        Vergrößerung des Konfidenzintervalls. Wir erhalten so
+        \begin{align*}
+            P\left( \bar X_{n} -  V_{\star} z_{1-\frac{\alpha}{2}} \leq p
+            \leq \bar X_{n} + V_{\star} z_{1-\frac{\alpha}{2}}\right) &= 1-\alpha \\
+            P\left(  -0.01929519 \leq p \leq 0.1192952  \right) &= 0.95.
+        \end{align*}
+        Nachdem $\hat p \geq 0$ gelten muss erhalten wir
+        \begin{equation*}
+            P\left(  0 \leq p \leq 0.1192952  \right) = 0.95.
+        \end{equation*}
+        Negatives Intervall kommt durch die normale Approximation zustande. 
+\end{enumerate}
+
+
+\paragraph{Justierung. Konfidenzintervall.} Bei einer Arbeitsstudie wurden folgende
+Werte für die Zeitdauer der Justierung einer Gerätes gemessen:
+\begin{lstlisting}
+    Minuten:       3  4  5  6  8  9
+    Häufigkeiten:  2  4  7 12  4  1
+\end{lstlisting}
+\begin{enumerate}
+    \item Geben Sie erwartungstreue Schätzungen für den Erwartungswert und die
+        Varianz der Zeitdauer an.
+
+    \item Bestimmen Sie ein zweiseitiges Konfidenzintervall zum Konfidenzniveau
+        $1-\alpha=0.9$ für den Erwartungswert der Zeitdauer. 
+    \item Ermitteln Sie eine obere Grenze für die Standardabweichung der Zeitdauer,
+        so dass mit $99\%$-iger Sicherheit der wahre Wert von $\alpha$ überdeckt
+        wird.
+\end{enumerate}
+Geben Sie dabei alle notwendigen Voraussetzungen an.
+
+\paragraph*{Lösung.} 
+\begin{enumerate}
+    \item Erwartungstreue Schätzungen:
+        \begin{lstlisting}
+            > Y <- c(3,4,5,6,8,9) 
+            > H <- c(2,4,7,12,4,1)
+            > mu <- sum(Y*H)/sum(H)         
+            > mu
+            [1] 5.666667
+            > s <- sqrt( sum(H*(Y - mu)^2)/(sum(H)-1 ) )
+            > s
+            [1] 1.470007
+        \end{lstlisting}
+\end{enumerate}
+
+
+\subsection{Tests}
+
+
+\paragraph{Waschmittel. Test.} Bei einem Verbrauchertest für Waschmittel werde auch 
+die Abfüllmenge kontrolliert. Dabei ergaben sich bei $10$ zufällig ausgewählten $5$ kg
+Packungen einer bestimmten Sorte folgende Abfüllungen (in kg):
+\begin{lstlisting}
+    4.6  4.95  4.8  4.9  4.75  5.05  4.9  5.1  4.8  4.95
+\end{lstlisting}
+\begin{enumerate}
+    \item Bestimmen Die Schätzungen für den Erwartungswert und die Varianz 
+        der Abfüllmenge.
+    \item Ist auf der Basis dieser Beobachtung die Auffassung vertretbar, 
+        dass die Packungen im Mittel weniger Waschmittel als angegeben enthalten?
+\end{enumerate}
+
+\paragraph{Messgerät. Test.} Die Genauigkeit eines Messgerätes verschlechtere sich im
+Laufe der Zeit infolge von Abnutzungserscheinungen. Das Messgerät gelte als brauchbar,
+solange die Varianz $\sigma^2$ des Messfehlers einen Wert von $10^{-4}$ nicht überschreitet.
+
+Darf man bei einer zugelassenen Irrtumswahrscheinlichkeit $\alpha=0.05$ auf die Brauchbarkeit
+des Messgerätes schließen, wenn aus $25$ Kontrollwerten für die Varianz eine Schätzung
+$s^2 = 0.65 \dot 10^{-4}$ ermittelt werde? 
+
+
+\paragraph{Entfernungsmessung. Konfidenzintervall und Test.} Beim Messen der Entfernung
+zwischen zwei Punkten sei der Messwert die Realisierung einer $\bfN(\mu,\sigma^2)$-verteilten
+Zufallsgröße. Aus $20$ Messungen einer bestimmten Entfernung ergaben sich die folgenden
+Schätzwerte:
+\begin{align*}
+    \bar x &= 327.0\,\text{m}, & s^2 &= 17.3\, \text{m}^2.
+\end{align*}
+\begin{enumerate}
+    \item Bestimmen Sie ein $99\%$-iges Konfidenzintervall für den Erwartungswert.
+    \item Geben Die ein einseitiges nach oben beschränktes Konfidenzinvervall für 
+        $\sigma$ zum Konfidenzniveau $1-\alpha = 0.95$ an. 
+    \item Lässt sich bei einer zugelassenen Irrtumswahrscheinlichkeit von $5\%$ die Aussage
+        $\mu>320\,\text{m}$ rechtfertigen?
+    \item Darf man bei einer zugelassenen Irrtumswahrscheinlichkeit $\alpha=0.05$ auf die
+        Brauchbarkeit des Messgerätes schließen, wenn als Kriterium für die Tauglichkeit
+        die Forderung $\sigma<5.0\,\text{m}$ dient?
+\end{enumerate}
+
+
+
+
 
 

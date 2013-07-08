@@ -20,7 +20,7 @@ def readLines(fileName):
 
 
 
-PROBLEM_LINE=r'\s*^(\\paragraph{)(.*)\s*}'
+PROBLEM_LINE=r'\s*^(\\paragraph{)(.*)\s*}'     # TODO: Take only the first } encoutered 
 SOLUTION_LINE=r'\s*^\\paragraph\*{'
 
 class Problems: 
@@ -146,7 +146,6 @@ if __name__ == "__main__":
     for f in sys.argv[2:]:
         db.processTex(f)
         
-    db.printSummary()
     db.printProblems()
 
 
