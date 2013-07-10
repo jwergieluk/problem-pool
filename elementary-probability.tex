@@ -1261,6 +1261,12 @@ Zufallsgröße
 exponentialverteilt ist und dabei $X_{(1)} \sim \mathbf{Ex}(\lambda_1+\dots+\lambda_n)$ gilt.
 
 
+\paragraph{Exponentialverteilung. Dichte vom Maximum.} Seien $X_1, \dots, X_n$
+stochastisch unabhängig und exponentialverteilt mit $X_i\sim
+\mathbf{Ex}(\lambda)$ und $\lambda>0$. Berechnen Sie die Dichte der
+Zufallsgröße $X_{(n)} = \max \left\{ X_1,\dots ,X_n \right\}$.
+
+
 \paragraph{Stetige Gleichverteilung. Momente.}
 Sei $X$ stetig gleichverteilt auf dem Intervall $\left[ a,b \right]\subset \R$.
 Zeigen Sie folgende Aussagen: 
@@ -1917,19 +1923,66 @@ Poisson-Prozesses (Stationarität, Homogenität und Ordinarität) gelten mögen.
         $P(T \le 20)=1-\exp(-20 \mu)=1-\exp(-0.4)=\underline{0.3297}.$
 \end{enumerate}
 
+\paragraph{Aktie im Bachelier-Modell.} Die Kursveränderungen einer Aktie eines
+börsennotierten Unternehmens werden über den Zeitraum von 3 Wochen (15
+Börsentage) analysiert. Die beobachteten Werte $x_{1},\dots ,x_{15}$ waren:
+\begin{lstlisting}
+-1.10 -1.52  0.25  1.65 -0.90  2.70  1.34 -1.26  0.22
+-0.49  1.59 -0.47  3.62  1.89  0.36
+\end{lstlisting}    
+Ein Analyst berechnete daraus
+\begin{align*}
+    \sum_{i=1}^{15} x_i &= 7.86, & \sum_{i=1}^{15} x^{2}_i &= 37.62.
+\end{align*}
+Es wird angenommen, dass die Kursveränderungen die Realisierungen einer normalverteilten
+Zufallsgröße $X\sim \bfN(\mu, \sigma^2)$ sind.
+\begin{enumerate}
+    \item Geben Sie je eine erwartungstreue Schätzfunktion für den Mittelwert und für
+        die Varianz der Kursveränderungen an. Berechnen Sie diese Schätzwerte. 
+    \item Ein Analyst behauptet $\mu>0$ und gibt eine Kaufempfehlung aus. Lässt
+        sich diese Aussage anhand der Beobachtungen mit einer zugelassenen
+        Irrtumswahrscheinlichkeit von $5\%$ rechtfertigen?
+\end{enumerate}
 
-\paragraph{GPS.} Nachdem die Verbindung zur $k$ Satelliten aufgebaut wurde
+\paragraph{Übertragungskanal.} Die Fehlerrate eines Übertragungskanals hängt
+von der Entfernung $D$ (im m) zwischen Quelle und Senke. Die
+Wahrscheinlichkeit, dass ein Bit richtig übertragen wird, beträgt $p =
+0.001\cdot{} D$ für $D\leq 500\,\text{m}$ und $p=0.5$ für $D>500\,\text{m}$.
+Das heißt, bei Entfernungen von $500\,\text{m}$ oder größer wird nur noch
+Rauschen an der Senke empfangen.
+
+Es wird eine $100$ Bit Nachricht zur Übertragung vorbereitet.  
+\begin{enumerate}
+    \item Die Entfernung sei $D=100\,$m. Berechnen Sie die Wahrscheinlichkeit dafür,
+        dass mehr als $20$ Bits von der obigen Nachricht falsch übertragen
+        werden. 
+
+    \item Zur Verminderung der Fehlerrate wird jedes Bit der Nachricht $8$ mal
+        hintereinander übertragen. Ein Decodieralgorithmus an der Senke zerlegt
+        die Nachricht in $8$ Bit Teile und gibt für jeden Teil $1$ aus, falls
+        $4$ oder mehr Bit gleich $1$ sind und sonst $0$. Berechnen Sie bei
+        $D=100\,m$ die Wahrscheinlichkeit dafür, dass mehr als $20$ Bits von
+        der ursprünglichen $100$ Bit langen Nachricht falsch übertragen werden.
+
+%    \item Wie groß darf die Entfernung $D$ höchstens betragen, wenn mit
+%        Wahrscheinlichkeit $0.95$ mindestens $900$ Bits richtig übertragen
+%        werden sollen.  Benutzen Sie dazu einen geeigneten Grenzwertsatz und
+%        berechnen Sie $D$ indem Sie eine quadratische Gleichung lösen.
+\end{enumerate}
+
+
+\paragraph{GPS.} Nachdem die Verbindung zu $k$ Satelliten aufgebaut wurde
 liefert ein GPS Gerät jede Sekunde eine Messung der geographischen Länge eines
 festen Ortes. Es wird angenommen, dass kein systematischer Fehler vorliegt und
 die Messungen mit unabhängigen normalverteilten Zufallsgrößen $X_i \sim
 \bfN(\mu_X, \sigma^2)$ mit $\sigma=50\,m$ modelliert werden können.
 \begin{enumerate}
-    \item Berechnen Sie einen maximum-likelihood oder Momentenschätzer
-        $\hat\mu_X\left( X_1,\dots ,X_n \right)$ für $\mu_X$.
-
     \item Wie viele Sekunden muss mindestens gewartet werden, damit der
         absolute Messfehler $| \mu_{X} - \hat \mu_{X} |$ mit Wahrscheinlichkeit
         von mindestens $95\%$ unter $1\,m$ liegt.
+
+
+    \item Die Durchführung von $100$ Messungen ergab $\bar x_{n} = $
 \end{enumerate}
 
 
@@ -2186,7 +2239,7 @@ Werte für die Zeitdauer der Justierung eines Gerätes gemessen:
     \item Bestimmen Sie ein zweiseitiges Konfidenzintervall zum Konfidenzniveau
         $1-\alpha=0.9$ für den Erwartungswert der Zeitdauer. 
     \item Ermitteln Sie eine obere Grenze für die Standardabweichung der Zeitdauer,
-        so dass mit $99\%$-iger Sicherheit der wahre Wert von $\alpha$ überdeckt
+        so dass mit $95\%$-iger Sicherheit der wahre Wert von $\sigma$ überdeckt
         wird.
 \end{enumerate}
 Geben Sie dabei alle notwendigen Voraussetzungen an.
@@ -2195,15 +2248,49 @@ Geben Sie dabei alle notwendigen Voraussetzungen an.
 \begin{enumerate}
     \item Erwartungstreue Schätzungen:
         \begin{lstlisting}
-            > Y <- c(3,4,5,6,8,9) 
-            > H <- c(2,4,7,12,4,1)
-            > mu <- sum(Y*H)/sum(H)         
-            > mu
-            [1] 5.666667
-            > s <- sqrt( sum(H*(Y - mu)^2)/(sum(H)-1 ) )
-            > s
-            [1] 1.470007
+            Y <- c(3,4,5,6,8,9) 
+            H <- c(2,4,7,12,4,1)
+            mu <- sum(Y*H)/sum(H)         
+            mu
+            # 5.666667
+            s <- sqrt( sum(H*(Y - mu)^2)/(sum(H)-1 ) )
+            s
+            # 1.470007
         \end{lstlisting}
+        Es ist also $\bar x_n= 5.666667$ und $s_n = 1.470007$.
+    \item Unter der Annahme, dass die Justierungen normalverteilt sind erhalten wir ein
+        $(1-\alpha)$-Konfidenzintervall für $\mu$ bei unbekannter Varianz:
+        \begin{align*}
+            P\left( U \leq \mu \leq O  \right) &= 1-\alpha \\
+            U(X_1,\dots ,X_n) &= \bar X_n - t_{n-1, 1-\alpha/2} \frac{S_n}{\sqrt{n}} \\
+            O(X_1,\dots ,X_n) &= \bar X_n + t_{n-1, 1-\alpha/2} \frac{S_n}{\sqrt{n}}.
+        \end{align*}
+        In diesem Fall heißt das:
+        \begin{lstlisting}
+            mu - qt(1-alpha/2, 30-1)*s/sqrt(30)
+            # 5.210646
+            mu + qt(1-alpha/2, 30-1)*s/sqrt(30)
+            #  6.122687
+        \end{lstlisting}
+    \item Ein Konfidenzintervall für $\sigma^{2}$ bei unbekanntem $\mu$
+        erhalten wir aus
+        \begin{align*}
+            P\left( 
+            \chi^{2}_{n-1, \alpha/2} \leq 
+            \frac{(n-1)S^2_n }{\sigma^2} \leq \chi^2_{n-1, 1-\alpha}\right) &=
+            1-\alpha \\
+            P\left( U \leq \sigma^2 \leq O \right) &= 1-\alpha \\
+            U &= \frac{(n-1) S^{2}_{n}}{ \chi^{2}_{n-1, 1-\alpha/2} } \\
+            O &= \frac{(n-1) S^{2}_{n}}{ \chi^{2}_{n-1, \alpha/2} } \\
+        \end{align*}
+        Einseitiges Konfidenzintervall für $\sigma$ ist dann
+        \begin{equation*}
+            \left[ 0, \frac{\sqrt{n-1} S_n}{ \sqrt{\chi^{2}_{n-1, \alpha}} } \right].
+        \end{equation*}
+        Für $\alpha=0.05$ heißt das konkret 
+        \begin{equation*}
+            \left[ 0, 1.881174 \right].
+        \end{equation*}
 \end{enumerate}
 
 
@@ -2221,6 +2308,28 @@ Packungen einer bestimmten Sorte folgende Abfüllungen (in kg):
         der Abfüllmenge.
     \item Ist auf der Basis dieser Beobachtung die Auffassung vertretbar, 
         dass die Packungen im Mittel weniger Waschmittel als angegeben enthalten?
+\end{enumerate}
+
+\paragraph*{Lösung.}
+\begin{enumerate}
+    \item
+        \begin{lstlisting}
+            X <- c( 4.6,  4.95 , 4.8,  4.9 , 4.75,  5.05 , 4.9 , 5.1 , 4.8 , 4.95  )
+            mean(X)
+            # 4.88
+            var(X)
+            # 0.02177778
+        \end{lstlisting}
+
+    \item Wir testen
+        \begin{align*}
+            H_0: \mu < 5 & \text{ gegen } & H_1: \mu=5.
+        \end{align*}
+        und verwenden die Teststatistik
+        \begin{equation*}
+            T = \frac{\bar X_n - 5}{S_n} \sqrt{n} \sim t_{n-1}.
+        \end{equation*}
+        Als kritischer Bereich ergibt sich $K = ( t_{n-1, 1-\alpha}, +\infty)$.
 \end{enumerate}
 
 \paragraph{Messgerät. Test.} Die Genauigkeit eines Messgerätes verschlechtere
@@ -2242,7 +2351,7 @@ bestimmten Entfernung ergaben sich die folgenden Schätzwerte:
 \end{align*}
 \begin{enumerate}
     \item Bestimmen Sie ein $99\%$-iges Konfidenzintervall für den Erwartungswert.
-    \item Geben Sie ein einseitiges nach oben beschränktes Konfidenzinvervall für 
+    \item Geben Sie ein einseitiges nach oben beschränktes Konfidenzintervall für 
         $\sigma$ zum Konfidenzniveau $1-\alpha = 0.95$ an. 
     \item Lässt sich bei einer zugelassenen Irrtumswahrscheinlichkeit von $5\%$ die Aussage
         $\mu>320\,\text{m}$ rechtfertigen?
