@@ -1261,10 +1261,21 @@ Zufallsgröße
 exponentialverteilt ist und dabei $X_{(1)} \sim \mathbf{Ex}(\lambda_1+\dots+\lambda_n)$ gilt.
 
 
-\paragraph{Exponentialverteilung. Dichte vom Maximum.} Seien $X_1, \dots, X_n$
+\paragraph{Exponentialverteilung. Dichte des Maximums.} Seien $X_1, \dots, X_n$
 stochastisch unabhängig und exponentialverteilt mit $X_i\sim
-\mathbf{Ex}(\lambda)$ und $\lambda>0$. Berechnen Sie die Dichte der
+\mathbf{Ex}(\lambda)$ und $\lambda>0$. Berechnen Sie die Dichtefunktion der
 Zufallsgröße $X_{(n)} = \max \left\{ X_1,\dots ,X_n \right\}$.
+
+\paragraph*{Lösung.} Die Verteilungsfunktion von $X_{(n)}$ ist 
+\begin{align*}
+    P\left( X_{(n)} \leq t \right) &= P\left( X_1 \leq t,\dots ,X_n \leq t \right) \\
+    &= P\left( X_1 \leq t \right)^{n} \\
+    &= \left( 1- e^{-\lambda t} \right)^{n}. 
+\end{align*}
+Die Dichte von $X_{(n)}$ ist demnach
+\begin{equation*}
+    f(x) = n \left( 1- e^{-\lambda x} \right)^{n-1} \lambda e^{-\lambda x}. 
+\end{equation*}
 
 
 \paragraph{Stetige Gleichverteilung. Momente.}
@@ -1862,7 +1873,7 @@ Ziehung eine weiße bzw.\ eine schwarze Kugel gezogen wird.
 
 
 
-\paragraph{Rademacher Zufallsgrößen.} Sei $X$ rademacherverteilt mit der
+\paragraph{Rademacher-verteilte Zufallsgrößen.} Sei $X$ Rademacher-verteilt mit der
 Wahrscheinlichkeitsfunktion
 \begin{align*}
     P(X=-1) &= \frac{1}{2}, & P(X=1)& = \frac{1}{2}.
@@ -1937,38 +1948,99 @@ Ein Analyst berechnete daraus
 Es wird angenommen, dass die Kursveränderungen die Realisierungen einer normalverteilten
 Zufallsgröße $X\sim \bfN(\mu, \sigma^2)$ sind.
 \begin{enumerate}
-    \item Geben Sie je eine erwartungstreue Schätzfunktion für den Mittelwert und für
-        die Varianz der Kursveränderungen an. Berechnen Sie diese Schätzwerte. 
+    \item Geben Sie je eine erwartungstreue Schätzfunktion für den Mittelwert $\mu$ und für
+    die Varianz $\sigma^2$ der Kursveränderungen an. Berechnen Sie daf\"ur aus der Stichprobe Schätzwerte im
+    Sinne von Punktsch\"atzungen.
+    \item Bestimmen Sie ein einseitiges Konfidenzintervall $[0,\overline \sigma]$ f\"ur die Standardabweichung $\sigma$
+    zum Konfidenzniveau $1-\alpha=0.9$, d.h.~bestimmen Sie die Zahl $\overline \sigma>0$.
     \item Ein Analyst behauptet $\mu>0$ und gibt eine Kaufempfehlung aus. Lässt
-        sich diese Aussage anhand der Beobachtungen mit einer zugelassenen
-        Irrtumswahrscheinlichkeit von $5\%$ rechtfertigen?
+    sich diese Aussage anhand der Beobachtungen mit einer zugelassenen
+    Irrtumswahrscheinlichkeit von $5\%$ rechtfertigen, d.h.~muss man die Hypothese $H_0: \, \mu \le 0$ 
+    mit dieser Irrtums\-wahrscheinlichkeit   ablehnen ?
 \end{enumerate}
 
+\paragraph*{Lösung.}
+\begin{enumerate}
+    \item Erwartungstreue Schätzer sind
+        \begin{align*}
+            \bar X_n &= \frac{1}{n} \sum_{i=1}^{n} X_i, & S^2_n = \frac{1}{n-1} \sum_{i=1}^{n} \left( X_i - \bar X_n \right)^2.
+        \end{align*}
+        Daraus ergibt sich
+        \begin{align*}
+            \bar X_n &= 0.524  \\
+            S^2_n &= \frac{1}{n-1} \left( \sum_{i=1}^{n} X_i^2 - n \left( \bar X_n \right)^2 \right) \\
+            &= \frac{1}{n-1} \left[  \sum_{i=1}^{n} X_i^{2 } - \frac{1}{n} \left( \sum_{i=1}^{n} X_i \right)^2 \right] = 2.392954. 
+        \end{align*}
+    \item
+        \begin{align*}
+            \bar \sigma &= (n-1) \frac{S^2_n}{\chi^{2}_{n-1, \alpha}} = 4.300817. 
+        \end{align*}
+    \item Wir testen $H_0: \mu \leq \mu_0$ gegen $H_1: \mu>\mu_0$ mit
+        $\mu_0=0$. Der Wert der Teststatistik ist
+        \begin{align*}
+            T = \frac{\bar X_n - \mu_0}{S_n} \sqrt{n} = 0.2092921. 
+        \end{align*}
+        Der kritische Bereich ist $\left\{ T > t_{n-1, 1-\alpha}\right\}=
+        \left\{ T > 1.76131 \right\}$. Die Nullhypothese wird nicht verworfen.
+\end{enumerate}
+
+
 \paragraph{Übertragungskanal.} Die Fehlerrate eines Übertragungskanals hängt
-von der Entfernung $D$ (im m) zwischen Quelle und Senke. Die
+von der Entfernung $D$ (im m) zwischen Quelle und Senke ab. Die
 Wahrscheinlichkeit, dass ein Bit richtig übertragen wird, beträgt $p =
 0.001\cdot{} D$ für $D\leq 500\,\text{m}$ und $p=0.5$ für $D>500\,\text{m}$.
-Das heißt, bei Entfernungen von $500\,\text{m}$ oder größer wird nur noch
-Rauschen an der Senke empfangen.
+Das heißt, bei Entfernungen von über $500\,\text{m}$ wird nur noch Rauschen an
+der Senke empfangen.
 
-Es wird eine $100$ Bit Nachricht zur Übertragung vorbereitet.  
+Es wird eine $1024$ Bit Nachricht zur Übertragung vorbereitet.  
 \begin{enumerate}
     \item Die Entfernung sei $D=100\,$m. Berechnen Sie die Wahrscheinlichkeit dafür,
-        dass mehr als $20$ Bits von der obigen Nachricht falsch übertragen
+        dass mehr als $13$ Bits von der obigen Nachricht falsch übertragen
         werden. 
 
-    \item Zur Verminderung der Fehlerrate wird jedes Bit der Nachricht $8$ mal
+    \item Zur Verminderung der Fehlerrate wird jedes Bit der Nachricht $3$ mal
         hintereinander übertragen. Ein Decodieralgorithmus an der Senke zerlegt
-        die Nachricht in $8$ Bit Teile und gibt für jeden Teil $1$ aus, falls
-        $4$ oder mehr Bit gleich $1$ sind und sonst $0$. Berechnen Sie bei
-        $D=100\,m$ die Wahrscheinlichkeit dafür, dass mehr als $20$ Bits von
-        der ursprünglichen $100$ Bit langen Nachricht falsch übertragen werden.
+        die Nachricht in $3$ Bit lange Teile und gibt für jeden Teil $1$ aus, falls
+        $2$ oder $3$ Bits gleich $1$ sind und sonst $0$. Berechnen Sie bei
+        $D=100\,m$ die Wahrscheinlichkeit dafür, dass mehr als $13$ Bits von
+        der ursprünglichen $100$ Bits langen Nachricht falsch übertragen werden.
 
 %    \item Wie groß darf die Entfernung $D$ höchstens betragen, wenn mit
 %        Wahrscheinlichkeit $0.95$ mindestens $900$ Bits richtig übertragen
 %        werden sollen.  Benutzen Sie dazu einen geeigneten Grenzwertsatz und
 %        berechnen Sie $D$ indem Sie eine quadratische Gleichung lösen.
 \end{enumerate}
+
+\paragraph*{Lösung.}
+R code:
+\begin{lstlisting}
+    f <- function(n,p,l) { 1 - pnorm( (l- n*p)/sqrt( n*p*(1-p))) }
+    n <- 512; p <- 0.1; l <- 35; f(n,p,l)
+    # 0.9914949
+    n <- 512; p <- 0.028; l <- 35; f(n,p,l)
+    # 1.550534e-08
+\end{lstlisting}
+\begin{enumerate}
+    \item Sei $p = D\cdot{} 0.001 = 0.1$, $n=512$, $l=35$ und $X \sim \bfB(n,
+        p)$. $\bfE X = np= 51.2$, $\bfD^2 X = 46.08$. Die Wahrscheinlichkeit,
+        dass mehr als $l$ Bits falsch übertragen werden, ist 
+        \begin{align*}
+            P\left( X > l \right) &= 1 - P\left( X \leq l \right) \\
+            &= 1- P\left( \frac{X - np}{\sqrt{np(1-p)}} \leq \frac{l -np}{ \sqrt{np(1-p)}} \right) \\
+            &\approx 1 - \Phi\left( \frac{l -np}{ \sqrt{np(1-p)}}  \right) =  0.9914949.
+        \end{align*}
+        Die Faustregel rechtfertigt dabei die Normalapproximation. 
+    \item Die Wahrscheinlichkeit für falsche Übertragung eines Bits beträgt in
+        diesem Verfahren
+        \begin{equation*}
+            p_3 = \binom{3}{3} p^{3}\left( 1-p \right)^{0} + \binom{3}{2} p^{2} \left( 1-p \right)^{3-2} = 
+            0.028.
+        \end{equation*}
+        Wir erhalten also $n p_3 = 2.8$ und $n p_3 (1-p_3) = 13.93459$ und
+        \begin{equation*}
+            P\left( \tilde X > l \right) =  1.550534 \cdot{} 10^{-8}. 
+        \end{equation*}
+\end{enumerate} 
 
 
 \paragraph{GPS.} Nachdem die Verbindung zu $k$ Satelliten aufgebaut wurde
@@ -2101,7 +2173,7 @@ Für diese Stichprobe gilt
 
 \paragraph{Kondensatoren. Konfidenzintervall.} Aus einer Lieferung von
 Kondensatoren wurden $n$ Stück zufällig ausgewählt und folgende Kapazitäten (in
-$\mu$F) festgestellt (Normwert: $220 \mu$F):
+$\mu$F) festgestellt (Normwert: $220\,\mu$F):
 \begin{lstlisting}
     281  221  220  221  219  221  220  218  222  219
 \end{lstlisting}
@@ -2109,8 +2181,8 @@ $\mu$F) festgestellt (Normwert: $220 \mu$F):
     \item Berechnen Sie je eine Schätzung für den Erwartungswert und für die
         Varianz der Kapazität. 
     \item Berechnen Sie auf der Grundlage dieser Stichprobenergebnisse je ein
-        Konfidenzintervall für den Mittelwert und die Varianz der Kapazität zum
-        Konfidenzniveau $1-\alpha = 0.95$. Von welchen
+        zweiseitiges Konfidenzintervall für den Mittelwert und die Varianz der
+        Kapazität zum Konfidenzniveau $1-\alpha = 0.95$. Von welchen
         Verteilungsvoraussetzungen gehen Sie dabei aus?
 \end{enumerate}
 

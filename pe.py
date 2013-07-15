@@ -17,6 +17,10 @@ def readLines(fileName):
         print >> sys.stderr, "ERROR: Cannot read the file %s" % (fileName)
         raise SystemExit(1)
 
+def printFile(fileName):
+    lines = readLines(fileName)
+    for line in lines:
+        sys.stdout.write(line)
 
 
 
@@ -104,6 +108,8 @@ class Problems:
                 print "\\subsection*{%s}" % (key)
             if cmd=="tex":
                 print key
+            if cmd=="input":
+                printFile(key)
             if cmd=="random":
                 rng = numpy.random.RandomState()
                 random_key = rng.choice(self.problems.keys())
