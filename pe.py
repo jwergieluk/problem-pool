@@ -126,7 +126,6 @@ class Problems:
                     print self.problems[key][0]
                 if cmd=="s":
                     print self.problems[key][0]
-                    print "\n%% solution"
                     print self.problems[key][1]
             if cmd=="info":
                 self.printSummary()

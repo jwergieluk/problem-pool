@@ -1895,7 +1895,7 @@ Wahrscheinlichkeitsfunktion
 
 \paragraph*{Lösung.}
 \begin{enumerate}
-    \item $\bfE X= 0$, $\Var X = \bfE X^2 = 1$.
+    \item $\bfE X= 0$, $\bfD^2 X = \bfE X^2 = 1$.
     \item $k\in 2\bN+1$ impliziert $X^k= X$, daher auch $m_{k} = \bfE X^k = \bfE
         X=0$. Die zentralen Momente $\mu_k$ und Momente $m_{k}$ sind gleich. 
     \item $\phi_{X}(t) = \bfE e^{i t X} = \frac{1}{2} \left(  e^{it} + e^{-it} \right)$.
@@ -1992,18 +1992,18 @@ Wahrscheinlichkeit, dass ein Bit richtig übertragen wird, beträgt $p =
 Das heißt, bei Entfernungen von über $500\,\text{m}$ wird nur noch Rauschen an
 der Senke empfangen.
 
-Es wird eine $1024$ Bit Nachricht zur Übertragung vorbereitet.  
+Es wird eine $512$ Bit Nachricht zur Übertragung vorbereitet.  
 \begin{enumerate}
     \item Die Entfernung sei $D=100\,$m. Berechnen Sie die Wahrscheinlichkeit dafür,
-        dass mehr als $13$ Bits von der obigen Nachricht falsch übertragen
+        dass mehr als $35$ Bits von der obigen Nachricht falsch übertragen
         werden. 
 
     \item Zur Verminderung der Fehlerrate wird jedes Bit der Nachricht $3$ mal
         hintereinander übertragen. Ein Decodieralgorithmus an der Senke zerlegt
         die Nachricht in $3$ Bit lange Teile und gibt für jeden Teil $1$ aus, falls
         $2$ oder $3$ Bits gleich $1$ sind und sonst $0$. Berechnen Sie bei
-        $D=100\,m$ die Wahrscheinlichkeit dafür, dass mehr als $13$ Bits von
-        der ursprünglichen $100$ Bits langen Nachricht falsch übertragen werden.
+        $D=100\,m$ die Wahrscheinlichkeit dafür, dass mehr als $35$ Bits von
+        der ursprünglichen $512$ Bits langen Nachricht falsch übertragen werden.
 
 %    \item Wie groß darf die Entfernung $D$ höchstens betragen, wenn mit
 %        Wahrscheinlichkeit $0.95$ mindestens $900$ Bits richtig übertragen
@@ -2012,14 +2012,6 @@ Es wird eine $1024$ Bit Nachricht zur Übertragung vorbereitet.
 \end{enumerate}
 
 \paragraph*{Lösung.}
-R code:
-\begin{lstlisting}
-    f <- function(n,p,l) { 1 - pnorm( (l- n*p)/sqrt( n*p*(1-p))) }
-    n <- 512; p <- 0.1; l <- 35; f(n,p,l)
-    # 0.9914949
-    n <- 512; p <- 0.028; l <- 35; f(n,p,l)
-    # 1.550534e-08
-\end{lstlisting}
 \begin{enumerate}
     \item Sei $p = D\cdot{} 0.001 = 0.1$, $n=512$, $l=35$ und $X \sim \bfB(n,
         p)$. $\bfE X = np= 51.2$, $\bfD^2 X = 46.08$. Die Wahrscheinlichkeit,
@@ -2030,8 +2022,8 @@ R code:
             &\approx 1 - \Phi\left( \frac{l -np}{ \sqrt{np(1-p)}}  \right) =  0.9914949.
         \end{align*}
         Die Faustregel rechtfertigt dabei die Normalapproximation. 
-    \item Die Wahrscheinlichkeit für falsche Übertragung eines Bits beträgt in
-        diesem Verfahren
+    \item Die Wahrscheinlichkeit für die falsche Übertragung eines Bits beträgt
+        in diesem Verfahren
         \begin{equation*}
             p_3 = \binom{3}{3} p^{3}\left( 1-p \right)^{0} + \binom{3}{2} p^{2} \left( 1-p \right)^{3-2} = 
             0.028.
@@ -2041,6 +2033,14 @@ R code:
             P\left( \tilde X > l \right) =  1.550534 \cdot{} 10^{-8}. 
         \end{equation*}
 \end{enumerate} 
+R code:
+\begin{lstlisting}
+    f <- function(n,p,l) { 1 - pnorm( (l- n*p)/sqrt( n*p*(1-p))) }
+    n <- 512; p <- 0.1; l <- 35; f(n,p,l)
+    # 0.9914949
+    n <- 512; p <- 0.028; l <- 35; f(n,p,l)
+    # 1.550534e-08
+\end{lstlisting}
 
 
 \paragraph{GPS.} Nachdem die Verbindung zu $k$ Satelliten aufgebaut wurde
@@ -2286,8 +2286,9 @@ Dabei wurden $190$ einwandfreie Teile festgestellt.
         Die Annahme $\bar X_{n} \approx \bfN\left( p, V_{\star} \right)$ führt zur 
         Vergrößerung des Konfidenzintervalls. Wir erhalten so
         \begin{align*}
-            P\left( \bar X_{n} -  V_{\star} z_{1-\frac{\alpha}{2}} \leq p
-            \leq \bar X_{n} + V_{\star} z_{1-\frac{\alpha}{2}}\right) &= 1-\alpha \\
+            P\left( z_{\frac{\alpha}{2}} \leq \frac{\bar X - p }{\sqrt{V_{\star}}} \leq z_{1- \frac{\alpha}{2}} \right) &=1-\alpha \\
+            P\left( \bar X_{n} -  \sqrt{V_{\star}} z_{1-\frac{\alpha}{2}} \leq p
+            \leq \bar X_{n} + \sqrt{V_{\star}} z_{1-\frac{\alpha}{2}}\right) &= 1-\alpha \\
             P\left(  -0.01929519 \leq p \leq 0.1192952  \right) &= 0.95.
         \end{align*}
         Nachdem $\hat p \geq 0$ gelten muss erhalten wir
@@ -2395,13 +2396,18 @@ Packungen einer bestimmten Sorte folgende Abfüllungen (in kg):
 
     \item Wir testen
         \begin{align*}
-            H_0: \mu < 5 & \text{ gegen } & H_1: \mu=5.
+            H_0: \mu \geq \mu_0 \text{ gegen } H_1: \mu < \mu_0
         \end{align*}
-        und verwenden die Teststatistik
+        mit $\mu_0=5$ und verwenden die Teststatistik
         \begin{equation*}
-            T = \frac{\bar X_n - 5}{S_n} \sqrt{n} \sim t_{n-1}.
+            T = \frac{\bar X_n - \mu_0}{ S_n } \sqrt{n} \sim t_{n-1}.
         \end{equation*}
-        Als kritischer Bereich ergibt sich $K = ( t_{n-1, 1-\alpha}, +\infty)$.
+        Als kritischer Bereich ergibt sich $K_{\alpha} = ( -\infty, -t_{n-1,
+        1-\alpha})$.  Für $\alpha = 0.05$ und $n=9$ erhalten wir zum Beispiel
+        $K_{0.05} = (-\infty, -1.833113)$. Ebenso $K_{0.01} = (-\infty,
+        -2.821438 )$.  Der Wert der Teststatistik $T$ ist $-2.439471$. Die
+        Nullhypothese wird also mit Irtumswahrscheinlichkeit $\alpha=0.05$
+        verworfen, kann aber bei $\alpha=0.01$ nicht verworfen werden. 
 \end{enumerate}
 
 \paragraph{Messgerät. Test.} Die Genauigkeit eines Messgerätes verschlechtere
@@ -2413,6 +2419,17 @@ Darf man bei einer zugelassenen Irrtumswahrscheinlichkeit $\alpha=0.05$ auf die
 Brauchbarkeit des Messgerätes schließen, wenn aus $25$ Kontrollwerten für die
 Varianz eine Schätzung $s^2 = 0.65 \cdot{} 10^{-4}$ ermittelt werde? 
 
+\paragraph*{Lösung.} Wir wollen auf Brauchbarkeit des Geräts schließen, daher 
+testen wir
+\begin{align*}
+    H_0 : \sigma^2 \geq \sigma^2_0 \quad\text{gegen}\quad H_1 : \sigma^2 < \sigma^2_0 
+\end{align*}
+mit $\sigma^2_0=10^{-4}$. Der Kritische Bereich ist 
+\begin{align*}
+    K = \left\{ T = \frac{(n-1) S^2_n}{\sigma^2_0} < \chi^2_{n-1, \alpha}   \right\}.
+\end{align*}
+Der Wert der Teststatistik ist $T = 15.6$. Dabei ist $\chi^2_{n-1, \alpha} =
+13.84843$. Die Nullhypothese kann also nich verworfen werden. 
 
 \paragraph{Entfernungsmessung. Konfidenzintervall und Test.} Beim Messen der
 Entfernung zwischen zwei Punkten sei der Messwert die Realisierung einer
@@ -2432,6 +2449,46 @@ bestimmten Entfernung ergaben sich die folgenden Schätzwerte:
         die Forderung $\sigma<5.0\,\text{m}$ dient?
 \end{enumerate}
 
+\paragraph*{Lösung.}
+\begin{enumerate}
+    \item Ein zweiseitiges $99\%$-Konfidenzintervall erhalten wir aus
+        \begin{align*}
+            U &= \bar X_n - t_{n-1, 1-\alpha/2}\frac{S_n}{\sqrt{n}} = 324.3987 \\
+            O &= \bar X_n + t_{n-1, 1-\alpha/2}\frac{S_n}{\sqrt{n}} = 329.6013
+        \end{align*}
+
+    \item Einseitiges $95\%$-Konfidenzinvervall für $\sigma^2$ ist 
+        \begin{equation*}
+            \left[ 0, (n-1)\frac{S^2_n}{ \chi^{2}_{n-1, 1 - \frac{\alpha}{2}} } \right] = \left[ 0, 32.48983 \right].
+        \end{equation*}
+
+    \item $\mu>320$ rechtfertigen heißt $\mu\leq 320$ verwerfen, also
+        \begin{align*}
+            H_0: \mu \leq 320 \quad\text{gegen}\quad H_1 : \mu > 320
+        \end{align*}
+        Teststatistik:
+        \begin{equation}
+            T = \frac{\bar X_n - \mu_0}{S_n} \sqrt{n} = 8.414823
+        \end{equation}
+        Kritischer Bereich:
+        \begin{equation}
+            K = \left\{ T > t_{n-1, 1-\alpha} \right\} = [ 1.729133, \infty].
+        \end{equation}
+
+    \item Wir wollen auf die Brauchbarkeit des Geräts schliessen und test
+        \begin{align*}
+            H_0 : \sigma^2 \geq \sigma^{2}_{0} \quad\text{gegen}\quad H_1 : \sigma^2 < \sigma^2_0
+        \end{align*}
+        mit $\sigma^{2}_{0} = 25$. Teststatistik:
+        \begin{equation}
+            T = (n-1)\frac{S^{2}_{n}}{\sigma^{2}_{0}} = 13.148
+        \end{equation}
+        Kritischer Bereich:
+        \begin{equation}
+            K = \left\{ T < \chi^{2}_{n-1, \alpha} = 10.11701 \right\}
+        \end{equation}
+        Die Nullhypothese wird also nicht verworfen. 
+\end{enumerate}
 
 
 
