@@ -1863,11 +1863,11 @@ Ziehung eine weiße bzw.\ eine schwarze Kugel gezogen wird.
 \begin{enumerate}
     \item \begin{align*}
             P(W_2) &= P(W_2 \,|\, W_1)P(W_1) + P(W_2 \,|\, S_1)P(S_1) \\
-            &= \frac{w-1}{s+w-1} \frac{w}{s+w} + \frac{w}{s+2+w} \frac{s}{w+s} = \frac{13}{24}. 
+            &= \frac{w-1}{s+w-1} \frac{w}{s+w} + \frac{w}{s+1+w} \frac{s}{w+s} = \frac{1}{2}. 
         \end{align*}
     \item \begin{align*}
             P( W_1 \,|\, W_2 ) &= \frac{P(W_2 \,|\, W_1) P(W_1)}{P(W_2)} = 
-            \frac{1}{P(W_2)} \frac{ w-1 }{w-1+s}\frac{w}{w+w} = \frac{36}{75}. 
+            \frac{1}{P(W_2)} \frac{ w-1 }{w-1+s}\frac{w}{s+w} = \frac{3}{5}. 
         \end{align*}
 \end{enumerate}
 
@@ -1978,7 +1978,7 @@ Zufallsgröße $X\sim \bfN(\mu, \sigma^2)$ sind.
     \item Wir testen $H_0: \mu \leq \mu_0$ gegen $H_1: \mu>\mu_0$ mit
         $\mu_0=0$. Der Wert der Teststatistik ist
         \begin{align*}
-            T = \frac{\bar X_n - \mu_0}{S_n} \sqrt{n} = 0.2092921. 
+            T = \frac{\bar X_n - \mu_0}{S_n} \sqrt{n} = 1.311927. 
         \end{align*}
         Der kritische Bereich ist $\left\{ T > t_{n-1, 1-\alpha}\right\}=
         \left\{ T > 1.76131 \right\}$. Die Nullhypothese wird nicht verworfen.
@@ -1987,7 +1987,7 @@ Zufallsgröße $X\sim \bfN(\mu, \sigma^2)$ sind.
 
 \paragraph{Übertragungskanal.} Die Fehlerrate eines Übertragungskanals hängt
 von der Entfernung $D$ (im m) zwischen Quelle und Senke ab. Die
-Wahrscheinlichkeit, dass ein Bit richtig übertragen wird, beträgt $p =
+Wahrscheinlichkeit, dass ein Bit falsch übertragen wird, beträgt $p =
 0.001\cdot{} D$ für $D\leq 500\,\text{m}$ und $p=0.5$ für $D>500\,\text{m}$.
 Das heißt, bei Entfernungen von über $500\,\text{m}$ wird nur noch Rauschen an
 der Senke empfangen.
@@ -2467,26 +2467,26 @@ bestimmten Entfernung ergaben sich die folgenden Schätzwerte:
             H_0: \mu \leq 320 \quad\text{gegen}\quad H_1 : \mu > 320
         \end{align*}
         Teststatistik:
-        \begin{equation}
+        \begin{equation*}
             T = \frac{\bar X_n - \mu_0}{S_n} \sqrt{n} = 8.414823
-        \end{equation}
+        \end{equation*}
         Kritischer Bereich:
-        \begin{equation}
+        \begin{equation*}
             K = \left\{ T > t_{n-1, 1-\alpha} \right\} = [ 1.729133, \infty].
-        \end{equation}
+        \end{equation*}
 
     \item Wir wollen auf die Brauchbarkeit des Geräts schliessen und test
         \begin{align*}
             H_0 : \sigma^2 \geq \sigma^{2}_{0} \quad\text{gegen}\quad H_1 : \sigma^2 < \sigma^2_0
         \end{align*}
         mit $\sigma^{2}_{0} = 25$. Teststatistik:
-        \begin{equation}
+        \begin{equation*}
             T = (n-1)\frac{S^{2}_{n}}{\sigma^{2}_{0}} = 13.148
-        \end{equation}
+        \end{equation*}
         Kritischer Bereich:
-        \begin{equation}
+        \begin{equation*}
             K = \left\{ T < \chi^{2}_{n-1, \alpha} = 10.11701 \right\}
-        \end{equation}
+        \end{equation*}
         Die Nullhypothese wird also nicht verworfen. 
 \end{enumerate}
 
