@@ -1,5 +1,5 @@
 
-\paragraph{Independent increments and filtations.} Let $X = (X_t)_{t\geq 0}$ be
+\problem{Independent increments and filtations.} Let $X = (X_t)_{t\geq 0}$ be
 a stochastic process with independent increments, i.e.\ for all $0=t_{0}\leq t_1
 \dots \leq t_n$ the random elements $X_0, X_{t_1}-X_{t_1},\dots
 ,X_{t_n}-X_{t_{n-1}}$ are independent.
@@ -7,21 +7,21 @@ a stochastic process with independent increments, i.e.\ for all $0=t_{0}\leq t_1
     \item Show that $X_t -X_s \upmodels \cF_{s}^{X}$ for all $0\leq s\leq t$. 
 \end{enumerate}
 
-\paragraph*{Solution.} Note that the $\sigma$-algebra induced by $f(X_0)$ for a
+\solution Note that the $\sigma$-algebra induced by $f(X_0)$ for a
 measurable function $f$ is smaller than $\sigma(X_0)$. Therefore $\sigma(X_s)
 \subset \sigma(X_0, X_s-X_0)$ and by assumption $\sigma(X_s) \upmodels
 \sigma(X_t-X_s)$. By the grouping theorem \cite[p. 51]{Kallenberg}, we get
 $X_{t}-X_{s}\upmodels \cF_s^{X}$. 
 
 
-\paragraph{Borel sets in Euclidean space are regular.} $Q$ is a probability
+\problem{Borel sets in Euclidean space are regular.} $Q$ is a probability
 measure on $(\bR, \cB(\bB))$ and $\varepsilon>0$ a fixed real number. Then
 every set in $(\bR, \cB(\bR))$ is regular. This means there is a closed set $F$
 and an open set $G$ with $F\subset A \subset G$ such that $Q(G\setminus
 F)<\varepsilon$ for arbitrary $\varepsilon>0$. 
 
 
-\paragraph{Filtations and continuity of paths.} Let $X$ be a stochastic process
+\problem{Filtations and continuity of paths.} Let $X$ be a stochastic process
 on a probability space $(\Omega, \cA, P)$ and $\cF^{X}=(\cF^{X}_{t})_{t\geq 0}$
 be the natural filtration of $X$. Moreover, $A$ is the event that $X$ is
 continuous on $[0, t_0)$. Then following holds:
@@ -40,7 +40,7 @@ continuous on $[0, t_0)$. Then following holds:
         filtration $(\cF_{t})_{t\geq 0}$, then $A\in \cF_{t_{0}}$. 
 \end{enumerate}
 
-\paragraph{Pfadeigenschaften und Filtration. }  Sei $X$ ein stochastischer
+\problem{Pfadeigenschaften und Filtration. }  Sei $X$ ein stochastischer
 Prozess, $\cF^{X}$ die von $X$ erzeugte Filtration und $\cG$ eine Filtration,
 die alle $\cF$-Nullmengen enthält und $\cF^{X}_t \subset \cG_t$ $\forall t$
 erfüllt.  Sei $A \subset \Omega$ das Ereignis, dass $X$ stetig auf $[0, t_0)$
@@ -52,11 +52,11 @@ ist.
 \end{enumerate}
 %\cite{Karatzas1991}.
 
-\paragraph{Messbarkeitsbegriffe. } Sei $X$ ein stochastischer Prozess. Ist $X$
+\problem{Messbarkeitsbegriffe. } Sei $X$ ein stochastischer Prozess. Ist $X$
 progressiv messbar, so folgt $X$ ist messbar und adaptiert.
 
 
-\paragraph{Stoppzeiten. } Seien $T,S$ Stoppzeiten bezüglich der Filtration
+\problem{Stoppzeiten. } Seien $T,S$ Stoppzeiten bezüglich der Filtration
 $\left( \cF_t \right)_{t \geq 0}$. 
 \begin{enumerate}
     \item Ist $T \equiv t_0>0$ eine fixe Zeit, so ist $\cF_T=\cF_{t_0}$.
@@ -72,11 +72,11 @@ $\left( \cF_t \right)_{t \geq 0}$.
 \end{enumerate}
 
 
-\paragraph{Stoppzeiten und optionale Zeiten. } Eine optionale Zeit $T$ bezüglich
+\problem{Stoppzeiten und optionale Zeiten. } Eine optionale Zeit $T$ bezüglich
 der Filtration $\bF=\left( \cF_t \right)_{t \geq 0}$ ist eine Stoppzeit, wenn 
 $\bF$ rechtsstetig ist, d.h.\ $\cF_t=\cF_{t+}$ $\forall t$ gilt.
 
-\paragraph*{Lösung.}  Betrachte die Darstellung
+\solution  Betrachte die Darstellung
 \begin{eqnarray}
     \left\{ T \leq t \right\} = \bigcap_{\varepsilon\in\bQ^{+}} \left\{ T > t+\varepsilon \right\}
     = \lim_{\varepsilon\to 0, \varepsilon\in\bQ} \left\{ T > t+\varepsilon \right\}.
@@ -96,7 +96,7 @@ denn es ein abzählbarer Schnitt der Mengen $\left\{ T> t+\varepsilon
 
 \section{Brownsche Bewegung}
 
-\paragraph{Brownian Motion. Finite-dimensional distributions. } 
+\problem{Brownian Motion. Finite-dimensional distributions. } 
 Let $0=s_0 < s_1 < \cdots < s_n$ be positive real numbers and $(B_{s_{1}},\dots ,B_{s_n})$ 
 be a $n$-dimensional random vector with density given by
 \begin{equation*}
@@ -113,18 +113,18 @@ Show that:
     \item The distribution of $B_{s_i}-B_{s_{i-1}}$ is $\cN(0, s_{i}-s_{i-1})$.
 \end{enumerate}
 
-\paragraph*{Solution.} Use Jacobi's transformation formula with
+\solution Use Jacobi's transformation formula with
 $g:\bR^{n}\to\bR^{n}, (y_1,\dots ,y_n)\mapsto(y_1, y_2-y_1,\dots
 ,y_n-y_{n-1})$. 
 \url{https://www.evernote.com/shard/s225/sh/ae5c45ce-9ba1-494b-9039-e166b67e003d/f5c2b31ffec2f92eb568eebc98210970}
 
 
-\paragraph{Maximum processes of the Brownian Motion. } Show that the process $W
+\problem{Maximum processes of the Brownian Motion. } Show that the process $W
 - W^*$ has independent increments. $W$ denotes Brownian Motion and $X^*_t=
 \max_{0 \leq s \leq t} X_s$ is the maximum process of a c\`adl\`ag process $X$.
 
 
-\paragraph{Brownsche Bewegung. Einfache Eigenschaften.}
+\problem{Brownsche Bewegung. Einfache Eigenschaften.}
 Sei $W$ eine standard Brownsche Bewegung in $\R^d$, d.h.\ die Identitätsmatrix
 ist die Kovarianzmatrix von $W$. Zeigen Sie folgende Aussagen. 
 \begin{enumerate}
@@ -136,7 +136,7 @@ ist die Kovarianzmatrix von $W$. Zeigen Sie folgende Aussagen.
         \end{equation*}
 \end{enumerate}
 
-\paragraph*{Lösung.}
+\solution
 \begin{enumerate}
     \item Wegen $\E \tilde W_t=0$ erhalten wir 
         \begin{align*}
@@ -166,7 +166,7 @@ ist die Kovarianzmatrix von $W$. Zeigen Sie folgende Aussagen.
 \end{enumerate}
 
 
-\paragraph{Brownsche Bewegung. Lokales Verhalten. }
+\problem{Brownsche Bewegung. Lokales Verhalten. }
 Sei $B$ eine standard Brownsche Bewegung auf $(\Omega, \cF, P)$. Definiere die
 Niveaumenge 
 \begin{equation*}
@@ -189,7 +189,7 @@ Beweisen Sie folgende Aussagen:
         \end{equation*}
         für alle positiven $L$ gilt. 
 \end{enumerate}
-\paragraph*{Lösung.} 
+\solution 
 \begin{enumerate}
     \item Wir setzen $A=\limsup_{t\to \infty} \frac{B_t}{\sqrt{t}}$. Angenommen
         es gilt $A\leq 0$, $P$-f.s. Aus Symmetriegründen muss also
@@ -236,7 +236,7 @@ Beweisen Sie folgende Aussagen:
 
 \section{L\'evy Prozesse}
 
-\paragraph{Faltungshalbgruppe.}
+\problem{Faltungshalbgruppe.}
 Sei eine Faltungshalbgruppe, d.h.\ eine Familie $G=(\mu_t)_{t\geq 0}$ von
 Wahrscheinlichkeitsmaßen mit der Eigenschaft $\mu_t * \mu_s = \mu_{t+s}$ und
 $\mu_0 = \delta_0$ gegeben. Zeigen Sie, dass die folgenden Aussagen äquivalent
@@ -253,7 +253,7 @@ sind.
         \end{equation*}
 \end{enumerate}
 
-\paragraph{Poissonprozess. Charakteristische Funktion. } Sei $N$ ein
+\problem{Poissonprozess. Charakteristische Funktion. } Sei $N$ ein
 Poissonprozess mit dem Parameter $\lambda>0$ gegeben. $N$ is also ein L\'evy
 Prozess mit den Werten in $\bN$ und 
 \begin{equation*}
@@ -272,7 +272,7 @@ Prozess mit den Werten in $\bN$ und
         \end{equation*}
 \end{enumerate} 
 
-\paragraph*{Lösung.} Eine einfache Rechnung liefert
+\solution Eine einfache Rechnung liefert
 \begin{align*}
     \E \exp iu N_t &= \sum_{n\geq 0}^{} \exp \left( iun  \right) P (N_t = n) \\
     &= \sum_{n\geq 0}^{} \exp \left( iun \right) e^{-\lambda t} \frac{(\lambda t)^n}{n!} \\
@@ -285,7 +285,7 @@ $\lambda t$ ist, erhalten wir
     \exp \left( \lambda t \left( e^{iu}-1-iu \right) \right). 
 \end{equation*}
 
-\paragraph{Zusammengesetzter Poissonprocess. Charakteristische Funktion.}
+\problem{Zusammengesetzter Poissonprocess. Charakteristische Funktion.}
 Sei $X$ ein zusammengesetzter Poissonprozess mit dem Parameter $\lambda>0$ und
 der Sprungverteilung $\nu$ auf $\R^d$ mit $\nu(\{0\})=0$. 
 \begin{enumerate}
@@ -300,7 +300,7 @@ der Sprungverteilung $\nu$ auf $\R^d$ mit $\nu(\{0\})=0$.
         \end{equation*}
 \end{enumerate}
 
-\paragraph*{Lösung.} Bei der Berechnung benutzen wir die Eigenschaften der bedingten
+\solution Bei der Berechnung benutzen wir die Eigenschaften der bedingten
 Erwartung.
 \begin{align*}
     \psi_t (u) &= \E \exp iu X_t \\
@@ -326,14 +326,14 @@ Insgesamt erhalten wir
 
 
 
-\paragraph{L\'evy martingales.} Every Levy process which is a local martingale is
+\problem{L\'evy martingales.} Every Levy process which is a local martingale is
 also a true martingale.
 
 
 
 \section{Markov Prozesse}
 
-\paragraph{Not Feller by discontinuity at zero.}
+\problem{Not Feller by discontinuity at zero.}
 Find a Markov process viotating the continuity part of 
 the Feller property, namely
 \begin{equation}
@@ -343,7 +343,7 @@ but perhaps preserving the $C_0$ property $P_t C_0 \subset C_0$.
 
 
 
-\paragraph{Independence and transformations. } Let random variables
+\problem{Independence and transformations. } Let random variables
 $X_1,\ldots,X_n$ and $Y_1,\ldots,Y_k$ satisfy $X_i \upmodels Y_j$ for all $i$
 and $i$.
 \begin{enumerate}
@@ -358,7 +358,7 @@ and $i$.
 
 \section{Stochastische Integration}
 
-\paragraph{Stieltjes-Integrale der Brownschen Bewegung.} 
+\problem{Stieltjes-Integrale der Brownschen Bewegung.} 
 Sei $B$ eine Brownsche Bewegung und eine Funktion $X:\Omega\to\R$ definiert durch
 \begin{equation*}
     X(\omega) = \int_{0}^{1} B_s^{2} ds. 
@@ -370,7 +370,7 @@ Sei $B$ eine Brownsche Bewegung und eine Funktion $X:\Omega\to\R$ definiert durc
 
 
 
-\paragraph{Stochastisches Integral einer deterministischen Funktion. } Sei
+\problem{Stochastisches Integral einer deterministischen Funktion. } Sei
 $f: \R\in\R$ eine deterministische meßbare Funktion. Zeigen Sie 
 \begin{equation}
     \int_{0}^{t} f(s) d W_s \sim \cN(0, \int_{0}^{t} f^2(s) ds). 
@@ -385,7 +385,7 @@ $f: \R\in\R$ eine deterministische meßbare Funktion. Zeigen Sie
 
 \section{Stochastische Differentialgleichungen. }
 
-\paragraph{Ornstein-Uhlenbeck SDE.} Lösen Sie die \textsc{SDE}
+\problem{Ornstein-Uhlenbeck SDE.} Lösen Sie die \textsc{SDE}
 \begin{equation}
     dX_t = \left( \alpha-\beta X_t \right)dt + \sigma dW_t, \quad X_0\in\R.
 \end{equation}

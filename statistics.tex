@@ -1,7 +1,7 @@
 
 \section{Identifizierbarkeit}
 
-\paragraph{Identifizierbarkeit im linearen Modell. } 
+\problem{Identifizierbarkeit im linearen Modell. } 
 Man nehme an, dass folgendes Modell gegeben sei: 
 \begin{equation*}
     Y_i = \sum_{j=1}^{p} z_{ij} \beta_j + \varepsilon_i, \quad i=1,\ldots,n. 
@@ -17,7 +17,7 @@ i.i.d.\ mit $\varepsilon_1 \sim \mathcal N\left( 0,1 \right)$.
         identifizierbar ist, falls $n<p$.
 \end{enumerate}
 
-\paragraph*{Lösung.}
+\solution
 Seien $Y = \left( Y_1, \cdots, Y_n \right)^\top$ und $\varepsilon = \left(
 \varepsilon_1, \cdots, \varepsilon_n \right)^\top$ Zufallsvektoren in $\R^{n}$.
 Die konstante Matrix $Z=\left( z_{ij} \right)_{ij}$ liegt in $\R^{n \times p}$
@@ -39,13 +39,13 @@ ist nicht identifizierbar.
 \section{Suffizienz}
 
 
-\paragraph{Suffizienz. Invariante Transformationen.} 
+\problem{Suffizienz. Invariante Transformationen.} 
 Sei $\mathcal P = \left\{ p(x,\theta) : \theta\in\Theta \right\}$ ein reguläres
 statistisches Modell, $X\sim \mathcal P$, die Statistiken $T(X)$ und $S(X)$ mit
 $T=\eta(S)$ und einer messbaren Abbildung $\eta$ gegeben. Zeigen Sie: Falls
 $T(X)$ suffizient für $\theta$ ist so ist auch $S(X)$ suffizient für $\theta$.
 
-\paragraph*{Lösung.} $T$ ist suffizient, so folgt
+\solution $T$ ist suffizient, so folgt
 \begin{align*}
     p_\theta(x) &= g(T(x), \theta) h(x) \\
     &= g(\eta(S(x)), \theta) h(x). 
@@ -54,7 +54,7 @@ Somit ist $S$ ebenfalls suffizient.
 
 
 
-\paragraph{Qualitätskontrolle.} 
+\problem{Qualitätskontrolle.} 
 Es sei eine \textsc{lkw}-Ladung mit $N$ Fernsehgeräten gegeben, wovon $N
 \theta$ defekt sind. Es werden $N$ Fernseher (ohne Zurücklegen) überprüft.  Man
 definiere
@@ -72,7 +72,7 @@ definiere
 \end{enumerate}
 
 
-\paragraph{Inverse Gamma-Verteilung. Suffizienz.}
+\problem{Inverse Gamma-Verteilung. Suffizienz.}
 Eine i.i.d.-Stichprobe $X_1, \ldots, X_n$ sei invers Gamma-verteilt mit der
 Dichte 
 \begin{equation*}
@@ -82,7 +82,7 @@ Dichte
 Finden Sie eine zweidimensionale suffiziente Statistik für $\alpha$ und $\beta$.
 
 
-\paragraph{Beta-Verteilung. Suffizienz.}
+\problem{Beta-Verteilung. Suffizienz.}
 Seien $X_1, \cdots, X_n$ i.i.d.\ Beta-verteilt mit der Dichte
 \begin{equation*}
     p_{a,b} = \frac{1}{B(a,b)} x^{a-1} (1-x)^{b-1} 1_{[0,1]}(x)
@@ -96,7 +96,7 @@ und den Parametern $a>0$ und $b>0$. Dabei ist $B(a,b)=
 \end{enumerate}
 
 
-\paragraph{Pareto-Verteilung. Suffizienz.}
+\problem{Pareto-Verteilung. Suffizienz.}
 Seien $X_1,\ldots,X_n$ i.i.d.\ Paretoverteilt mit der Dichte
 \begin{equation*}
     p_\theta(x)= \frac{\theta a^\theta}{x^{\theta+1}}1_{\R_{>a}}(x),
@@ -105,7 +105,7 @@ wobei $\theta>0$ und $a$ fix und bekannt sei. Finden Sie eine reellwertige
 suffiziente Statistik $T(X_1,\ldots,X_n)$ für $\theta$.
 
 
-\paragraph{Poisson-Verteilung. Suffizienz.}
+\problem{Poisson-Verteilung. Suffizienz.}
 Seien $X_1,\cdots, X_n$ i.i.d.\ Poisson-verteilt mit dem Parameter $\lambda>0$ 
 und der Wahrscheinlichkeitsfunktion 
 \begin{equation*}
@@ -119,7 +119,7 @@ suffizient für $\lambda$ ist.
 
 
 
-\paragraph{Suffizienz. Beispiele.} 
+\problem{Suffizienz. Beispiele.} 
 Seien $X_1,\ldots,X_n$ i.i.d.\ mit jeweils folgender Dichte. Finden Sie in
 allen Fällen eine reellwertige suffiziente Statistik $T$ für $\theta$ basierend
 auf der Beobachtung von $(X_1, \cdots, X_n)$. 
@@ -142,7 +142,7 @@ auf der Beobachtung von $(X_1, \cdots, X_n)$.
         wobei $\theta = (\alpha, \beta)$ und $\alpha, \beta > 0$.
 \end{enumerate}
 
-\paragraph*{Lösung.} 
+\solution 
 Wir stellen die gemeinsame Dichte $p_\theta(x_1, \cdots, x_n)$ von $(X_1, \cdots, X_n)$ in der Form
 \begin{equation*}
     p_{\theta} (x_1, \cdots, x_n) = g(T(x_1, \cdots, x_n), \theta) h(x_1, \cdots, x_n)
@@ -183,7 +183,7 @@ für geeignete Funktionen $g$ und $h$ dar und wenden den Faktorisierungssatz an.
 
 
 
-\paragraph{Nichtzentrale Exponentialverteilung. Suffizienz.}
+\problem{Nichtzentrale Exponentialverteilung. Suffizienz.}
 Seien $X_1,\ldots,X_n$ i.i.d.\ mit der Dichte
 \begin{equation*}
 	p_\theta (x) = \frac{1}{\sigma} \exp \left(-\frac{x-\mu}{\sigma} \right) 1_{\R_{\geq\mu}}(x)
@@ -197,7 +197,7 @@ sowie $\theta = (\mu, \sigma)^\top$ und $\Theta = \R \times \R_{>0}$.
     \item Finden Sie eine zweidimensionale suffiziente Statistik für $\theta$ an.
 \end{enumerate}
 
-\paragraph*{Lösung.}
+\solution
 \begin{enumerate}
     \item Sei $\sigma>0$ fix und bekannt. 
         \begin{align*}
@@ -234,12 +234,12 @@ sowie $\theta = (\mu, \sigma)^\top$ und $\Theta = \R \times \R_{>0}$.
 \section{Exponentielle Familien}
 
 
-\paragraph{Exponentielle Familie mit einer unvollständigen natürlichen Statistik.}
+\problem{Exponentielle Familie mit einer unvollständigen natürlichen Statistik.}
 Finde ein Gegenbeispiel um die Notendigkeit der Bedingung $c(\Theta)$ offen zu
 illustrieren. 
 
 
-\paragraph{Beta-Verteilung als exponentielle Familie.}
+\problem{Beta-Verteilung als exponentielle Familie.}
 Sei $X$ eine Beta-verteilte Zufallsvariable mit der Dichte
 \begin{equation*}
     p_{a,b} = \frac{1}{B(a,b)} x^{a-1} (1-x)^{b-1} 1_{[0,1]}(x)
@@ -248,7 +248,7 @@ und den Parametern $a>0$ und $b>0$.
 Zeigen Sie, dass $p_{(a,b)}$ zu einer zweiparametrigen exponentiellen
 Familie gehört.
 
-\paragraph*{Lösung.} Die Dichte der Beta-Verteilung lässt sich in der Form
+\solution Die Dichte der Beta-Verteilung lässt sich in der Form
 \begin{equation*}
     p_{(a,b)} = \frac{1}{B(a,b)} \exp \left( 
         (a-1) \log x + (b-1) \log (1-x) 
@@ -264,7 +264,7 @@ schreiben. Das ist eine exponentielle Familie mit
 \end{align*}
 
 
-\paragraph{Gamma-Momente und exponentielle Familien.}
+\problem{Gamma-Momente und exponentielle Familien.}
 Sei $X$ Gamma-verteilt mit den Parametern $a,\lambda>0$ und der Dichte
 \begin{equation*}
     p_{a,\lambda} (x) = \frac{\lambda^a}{\Gamma(a)} x^{a-1} e^{-\lambda x} 1_{\R_{\geq 0}} (x).
@@ -277,7 +277,7 @@ gilt, indem Sie die Dichte $p_{a,\lambda}$ bei fixiertem $a$ als einparametrige
 natürliche exponentielle Familie darstellen und $d_0$ ableiten. 
 
 
-\paragraph{Poisson-Momente und exponentielle Familien.}
+\problem{Poisson-Momente und exponentielle Familien.}
 Sei $X$ Poisson-verteilt mit dem Parameter $\lambda>0$ und der Wahrscheinlichkeitsfunktion
 \begin{equation*}
     p_{\lambda}(k)= P(X=k) = 
@@ -290,7 +290,7 @@ Zeigen Sie, dass
 gilt, indem Sie die Wahrscheinlichkeitsfunktion $p_{\lambda}$ 
 als einparametrige natürliche exponentielle Familie darstellen und $d_0$ ableiten. 
 
-\paragraph*{Lösung. }
+\solution
 Wir schreiben $p_\lambda$ in exponentieller Form
 \begin{equation*}
     p_{\lambda}(k) = \frac{e^{-\lambda} \lambda^{k}}{k!} =
@@ -311,7 +311,7 @@ Dabei ist $d_0(\eta) = - e^{\eta}$. Nun erhalten wir
 
 
 
-\paragraph{Laplace-Verteilung ist keine exponentielle Familie.}
+\problem{Laplace-Verteilung ist keine exponentielle Familie.}
 Für jedes $\theta\in\R$ sei eine Dichte
 \begin{equation*} 
     p_\theta(x) = \frac{1}{2} \exp\left( -| x-\theta| \right), \quad x\in\R
@@ -320,7 +320,7 @@ gegeben. Sei $P_\theta$ das zur Dichte $p_\theta$ gehörige
 Wahrscheinlichkeitsmaß.  Zeigen Sie, dass $\left\{ P_\theta : \theta\in\Theta
 \right\}$ keine exponentielle Familie ist.
 
-\paragraph*{Lösung.}
+\solution
 Angenommen $P_\theta$ gehört zu einer einparametrigen exponentiellen Famile.
 Dann hat die Dichte $p_\theta$ eine Darstellung
 \begin{equation*}
@@ -347,7 +347,7 @@ liefert die Differenzierbarkeit von $T(x)$ auf ganz $\R$. Widerspruch.
 
 
 
-\paragraph{Verteilung der natürlichen suffizienten Statistik. }
+\problem{Verteilung der natürlichen suffizienten Statistik. }
 Sei $X$ eine Zufallsvariable mit den Werten in $\left( \R^n, \mathcal B(\R^n)\right)$ und der Dichte
 \begin{equation*}
 	p(x,\theta) = \exp\left( c(\theta)\cdot T(x) + d(\theta) + S(x) \right) 1_{A}(x),
@@ -361,7 +361,7 @@ suffizienten Statistik $T(X)$ die Form
 mit $A^* = \left\{ T(x) : x\in A \right\}$ hat.
 
 
-\paragraph{Cauchy-Verteilung ist keine exponentielle Familie.}  Sei eine
+\problem{Cauchy-Verteilung ist keine exponentielle Familie.}  Sei eine
 Familie von Cauchy-Verteilungen $\left\{ P_\theta : \theta\in\R \right\}$ mit 
 den zugehörigen Dichten
 \begin{equation*}
@@ -370,7 +370,7 @@ den zugehörigen Dichten
 gegeben. Zeigen Sie, dass die Familie $\left\{ P_\theta : \theta\in\R \right\}$ keine 
 exponentielle Familie ist.
 
-\paragraph*{Lösungsskizze.} Nehmen wir an Cauchy-Vereilung ist eine expoentielle Familie. Dann 
+\solution Nehmen wir an Cauchy-Vereilung ist eine expoentielle Familie. Dann 
 gibt es eine Darstellung 
 \begin{equation}
     p_\theta(x) = \frac{1}{\pi\left[ 1 + \left( x - \theta \right)^2 \right]} =
@@ -378,7 +378,7 @@ gibt es eine Darstellung
 \end{equation}
 TODO: Finish it! 
 
-\paragraph{Mixtures of Normal Verteilungen sind keine exponentielle Familien.}
+\problem{Mixtures of Normal Verteilungen sind keine exponentielle Familien.}
 Sei eine Familie von Verteilungen $(P_\mu)_{\mu\in\R}$ durch 
 \begin{equation*}
     P_\mu = \frac{1}{2} \left( \cN(\mu,1) +  \cN(\mu,2) \right) 
@@ -387,7 +387,7 @@ gegeben. Die Verteilungen $P_\mu$ sind Mischungen von Normalverteilungen.
 Zeigen Sie, dass $(P_\mu)_{\mu}$ keine exponentielle Familie ist.
 
 
-\paragraph{Weibull-Verteilung als exponentielle Familie.} 
+\problem{Weibull-Verteilung als exponentielle Familie.} 
 Sei $X$ Weibull-verteilt mit der Dichte
 \begin{equation*}
     p_{a,\lambda} = \frac{a}{\lambda} x^{a-1} e^{-\frac{x}{\lambda}} 1_{\R>0}(x)  
@@ -402,7 +402,7 @@ und den Parametern $a,\lambda>0$. Zeigen Sie folgende Aussagen.
 
 \section{Momentenmethode}
 
-\paragraph{Stetige Gleichverteilung. Momentenschätzer. } Seien $X_1, \cdots, X_n$ 
+\problem{Stetige Gleichverteilung. Momentenschätzer. } Seien $X_1, \cdots, X_n$ 
 i.i.d.\ stetig gleichverteilt auf dem Intervall $[0,\theta]$ mit $\theta>0$. 
 Die Dichte von $X_i$ ist also 
 \begin{equation*}
@@ -415,7 +415,7 @@ Die Dichte von $X_i$ ist also
         $k$-ten Moment von $X_i$. 
 \end{enumerate}
 
-\paragraph*{Lösung.} Wir berechnen zunächst alle Momente der stetigen Gleichverteilung. 
+\solution Wir berechnen zunächst alle Momente der stetigen Gleichverteilung. 
 \begin{align*}
     \E X^k &= \int_{\R} x^k \frac{1}{\theta} 1_{[0,\theta]} (x) dx \\
     &= \frac{1}{\theta} \int_{0}^\theta x^k dx = \frac{\theta^k}{k+1}. 
@@ -432,7 +432,7 @@ Insbesondere ist der auf dem ersten Moment basierende Schätzer gegeben durch
 
 
 
-\paragraph{Momentenschätzer. Beispiele.} Bestimmen Sie mittels der Momentenmethode
+\problem{Momentenschätzer. Beispiele.} Bestimmen Sie mittels der Momentenmethode
 einen Momentenschätzer für $\theta$ bei den folgenden Verteilungen: 
 \begin{enumerate}
 	\item Die Gleichverteilung mit Dichte
@@ -446,11 +446,11 @@ einen Momentenschätzer für $\theta$ bei den folgenden Verteilungen:
 		\end{equation*}
 \end{enumerate}
 
-%\paragraph{Momentenschätzer für Beta-Verteilung. } Die Zufallsvariablen
+%\problem{Momentenschätzer für Beta-Verteilung. } Die Zufallsvariablen
 %$X_1,\ldots,X_n$ seien i.i.d.\ Beta-Verteilt, d.h.\ $X_1 \sim \textrm{Beta}(a,b)$.
 %Bestimmen Sie einen Momentenschätzer für $\theta=(a,b)^\top$.
 
-\paragraph{Weibull-Verteilung. Momentenschätzer.} Seien 
+\problem{Weibull-Verteilung. Momentenschätzer.} Seien 
 $X_1,\ldots,X_n$ i.i.d.\ mit der Dichte 
 \begin{equation*}
 	p(x) = \sqrt{ \frac{2 \theta^3}{\pi} } x^2 \exp\left( - \frac{\theta}{2}x^2 \right) 1_{\R>0}(x)
@@ -458,7 +458,7 @@ $X_1,\ldots,X_n$ i.i.d.\ mit der Dichte
 wobei der Parameter $\theta>0$ unbekannt ist. Berechnen Sie den Momentenschätzer für $\theta$
 basierend auf dem zweiten Moment. 
 
-\paragraph{Momentenschätzung vs Suffizienz.}   Betrachten 
+\problem{Momentenschätzung vs Suffizienz.}   Betrachten 
 Sie die Verteilungsfamilie von zweiseitigen Exponentialverteilungen
 gegeben durch die Dichte
 \begin{equation*}
@@ -470,7 +470,7 @@ gegeben durch die Dichte
     \item Weisen Sie nach, dass dieser nicht suffizient für $\theta$ ist.
 \end{enumerate}
 
-\paragraph*{Lösung.} Wir berechnen zunächst den Erwartungswert der zweiseitigen
+\solution Wir berechnen zunächst den Erwartungswert der zweiseitigen
 Exponentialverteilung. Es gilt
 \begin{align*}
     \E X &= \int_{\R}^{} x \frac{1}{2} \exp \left( -| x-\theta| \right) dx \\
@@ -511,7 +511,7 @@ $G(\bar x, \theta_1, \theta_2)= G(0, 0, 1)$ ist konstant aber
 ist keine konstante Funktion von $x_1$. Widerspruch.
 
 
-\paragraph{AR1. }  Die Zufallsvariablen $Z_1,\ldots, Z_n$ seien i.i.d. 
+\problem{AR1. }  Die Zufallsvariablen $Z_1,\ldots, Z_n$ seien i.i.d. 
 mit $Z_1 \sim \mathcal N(0,\sigma^2)$. Die Zeitreihe $\left( X_i \right)_{1\leq i\leq n}$
 heißt \emph{autoregressiv der Ordnung 1} oder \textsc{ar(1)}, falls mit $X_0:= \mu$
 und für $1\leq i \leq n$ 
@@ -527,7 +527,7 @@ und für $1\leq i \leq n$
 		Verwenden Sie $\E (U_i^2)$, um einen Momentenschätzer für $\sigma^2$ zu finden.
 \end{enumerate}
 
-\paragraph{Exponentialverteilung. Momentenschätzer.} 
+\problem{Exponentialverteilung. Momentenschätzer.} 
 Die Zufallsvariablen $X_1, \cdots, X_n$ seien i.i.d.\ und exponentialverteilt mit 
 Parametern $a\in \R$, $\theta>0$ und der Dichte
 \begin{equation*}
@@ -549,7 +549,7 @@ Zeigen Sie die folgenden Aussagen.
 \end{enumerate}
 
 
-\paragraph{Rayleigh-Verteilung. Momentenschätzer. } Seien $X_1, \cdots, X_n$ i.i.d.\ 
+\problem{Rayleigh-Verteilung. Momentenschätzer. } Seien $X_1, \cdots, X_n$ i.i.d.\ 
 Rayleigh-verteilt mit der Dichte
 \begin{equation*}
     p_\theta(x) = \frac{x}{\theta^2} \exp \left( - \frac{x^2}{2 \theta^2} \right) 1_{\R_{>0}}(x)
@@ -570,7 +570,7 @@ und dem unbekannten Parameter $\theta>0$.
 \section{Kleinste-Quadrate-Schätzer}
 
 
-\paragraph{Einfache lineare Regression. Beispielrechnung.} Betrachten wir das
+\problem{Einfache lineare Regression. Beispielrechnung.} Betrachten wir das
 lineare Modell
 \begin{equation*}
     Y_i = \theta_1 + \theta_2 x_i + \varepsilon_i, \quad i=1,\cdots, n.
@@ -584,7 +584,7 @@ Ausgehend von den Daten
 berechnen Sie die Werte der Kleinste-Quadrate-Schätzer für die Parameter
 $\theta_1$ und $\theta_2$. 
 
-\paragraph*{Lösung.} Es ist die Funktion
+\solution Es ist die Funktion
 \begin{equation*}
     Q(\theta,y) = \sum_{i=1}^{n} \left( y_i -\theta_1 -\theta_2 x_i \right)^2
 \end{equation*}
@@ -613,7 +613,7 @@ Einsetzen in die Gleichung $\frac{\partial}{\partial \theta_2}Q=0$ liefert
 \end{align*}
 
 
-\paragraph{Gewichtete einfache lineare Regression. }
+\problem{Gewichtete einfache lineare Regression. }
 Finden Sie eine Formel für den Kleinste-Quadrate -Schätzer $\hat \theta^w$
 im Modell
 \begin{equation*}
@@ -625,7 +625,7 @@ wobei $\varepsilon_1,\ldots, \varepsilon_n$ unabhängig seien mit $\varepsilon_i
 
 \section{Maximum-likelihood Schätzer}
 
-\paragraph{Mischung von Gleichverteilungen. MLE.}
+\problem{Mischung von Gleichverteilungen. MLE.}
 Seien $X_1,\ldots,X_n$ i.i.d.\ mit Dichte $p_\theta$ 
 und $\theta\in \left[ 0,1 \right]$. Zeigen Sie, dass der Maximum-Likelihood-Schätzer
 für
@@ -636,7 +636,7 @@ gerade $\hat \theta = \frac{1}{n} \sum_{i=1}^{n} 1_{(-1,0)}\left( X_i \right)$ i
 
 
 
-\paragraph{Normalverteilung. MLE.}
+\problem{Normalverteilung. MLE.}
 Seien $X_1,\ldots,X_n$ i.i.d.\ und $X_i \sim \mathcal N\left( \mu, \sigma^2 \right)$ mit bekanntem $\mu$. 
 Zeigen Sie, dass der Maximum-Likelihood-Schätzer von $\sigma$ gerade
 \begin{equation*}
@@ -644,7 +644,7 @@ Zeigen Sie, dass der Maximum-Likelihood-Schätzer von $\sigma$ gerade
 \end{equation*}
 ist.
 
-\paragraph*{Lösung.} Die Likelihood-Funktion dieses Models ist 
+\solution Die Likelihood-Funktion dieses Models ist 
 \begin{equation*}
     L_{\sigma}(x_1, \cdots, x_n) = \prod_{i=1}^{n} p_{\sigma}(x_i) = 
     \left( \frac{1}{\sqrt{2\pi}} \right)^n \, \frac{1}{\sigma^n} 
@@ -685,19 +685,19 @@ der Likelihood-Funktion ist.
 
 
 
-\paragraph{Exponentialverteilung. MLE.} Seien $X_1,\ldots,X_n$
+\problem{Exponentialverteilung. MLE.} Seien $X_1,\ldots,X_n$
 exponentialverteilt zum Parameter $\theta$. Zeigen Sie, dass $\hat \theta =
 (\bar X)^{-1}$ sowohl der Maximum-Likelihood-Schätzer als auch ein
 Momentenschätzer ist.
 
 
-\paragraph{Maximum-Likelihood-Methode und Suffizienz.}
+\problem{Maximum-Likelihood-Methode und Suffizienz.}
 Sei $\left\{ p_\theta : \theta\in\Theta \right\}$ ein reguläres statistisches
 Modell und $T\left( X \right)$ eine suffiziente Statistik für $\theta$. 
 Weisen Sie nach, dass ein Maximum-Likelihood-Schätzer für $\theta$ 
 eine Funktion von $T\left( X \right)$ ist.
 
-\paragraph*{Lösung.} Sei $\hat\theta(x_1, \cdots, x_n)=\hat \theta(x_i)$ ein 
+\solution Sei $\hat\theta(x_1, \cdots, x_n)=\hat \theta(x_i)$ ein 
 Maximum-Likelihood-Schätzer für $\theta$ in einem regulären Model $\left( p_\theta \right)_{\theta\in\Theta}$. Dann maximiert $\hat\theta$ die Likelihood-Funktion
 \begin{equation*}
     L_\theta(x_i) = \prod_{i=1}^{n} p_{\theta}(x_i) = g\left( T(x_i), \theta \right) h(x_i)
@@ -714,13 +714,13 @@ Funktion von $T=T(x_1,\cdots,x_n)$.
 
 
 
-\paragraph{Zweidimensionale Exponentialverteilung. MLE.} Betrachtet werden 
+\problem{Zweidimensionale Exponentialverteilung. MLE.} Betrachtet werden 
 i.i.d.\ Zufallsvariablen $(Y_1, Z_1), \ldots,(Y_n,Z_n)$. Weiterhin seien
 $Y_1$ und $Z_1$ unabhängig und exponentialverteilt mit Parametern
 $\lambda > 0$ bzw.\ $\mu > 0$. Bestimmen Sie den Maximum-Likelihood-Schätzer
 für $(\lambda,\mu)$.
 
-\paragraph*{Lösung.}    Nachdem $Y_i$ und $Z_i$ unabhängig sind, genügt es den 
+\solution    Nachdem $Y_i$ und $Z_i$ unabhängig sind, genügt es den 
 MLE für einen der beiden Zufallsvektoren zu bestimmen. Wir berechnen also den MLE für eine
 eindimensionale Exponentialverteilung mit Parameter $\theta$.
 Die Likelihood-Funktion ist gegeben durch
@@ -741,7 +741,7 @@ Wir setzen $\frac{\partial}{\partial \theta} l(\theta,x) = 0$ und erhalten den M
 Somit ist der MLE für $\left( \lambda, \mu \right) = \left( 1/\bar y, 1/\bar z \right)^\top$.
 
 
-\paragraph{Weibull-Verteilung. MLE.} Seien $X_1,\ldots,X_n$ i.i.d.
+\problem{Weibull-Verteilung. MLE.} Seien $X_1,\ldots,X_n$ i.i.d.
 mit der Dichte 
 \begin{equation*}
 	p_\theta(x)=
@@ -751,7 +751,7 @@ wobei der Parameter $\theta>0$ unbekannt ist. Finden Sie
 den Maximum-Likelihood-Schätzer für $ \theta$ und klären Sie, ob dieser
 eindeutig ist.
 
-\paragraph*{Lösung. } Wir berechnen den \textsc{mle} für die oben angegebene Familie von Weibull-Verteilungen
+\solution Wir berechnen den \textsc{mle} für die oben angegebene Familie von Weibull-Verteilungen
 indem wir die Log-Likelihood-Funktion maximieren. 
 
 Die Likelihood-Funktion der Familie ist gegeben durch
@@ -777,7 +777,7 @@ Wegen $ \frac{\partial^2}{\partial \theta^2} l(\theta,x) <0$ ist der \textsc{mle
 
 
 
-\paragraph{Mischung der Verteilungen. MLE.}
+\problem{Mischung der Verteilungen. MLE.}
 Seien $p_1$ und $p_2$ zwei Dichten. Für jedes $\theta\in\left[ 0,1 \right]$ ist dann die Mischung
 der beiden Verteilungen durch die Dichte
 \begin{equation*}
@@ -795,7 +795,7 @@ gegeben.
         Likelihood-Gleichung keine Lösung besitzt?
 \end{enumerate}
 
-\paragraph*{Lösung. } 
+\solution 
 Betrachten wir zunächst die Log-Likelihood-Funktion und ihre Ableitungen
 \begin{eqnarray}
 	L(\theta, x) &=&  \prod_i \left( \theta p_1(x_i) + \left( 1-\theta \right)p_2(x_i) \right) \\
@@ -837,12 +837,12 @@ der \textsc{mle} $\hat\theta(x)$ kann für $x$ eindeutig festgelegt werden.
 
 \section{UMVUE}
 
-\paragraph{Ein Modell für das kein erwartungstreuer Schätzer existiert.}
+\problem{Ein Modell für das kein erwartungstreuer Schätzer existiert.}
 Seien $X_1,\ldots,X_n$ i.i.d.\ bernoulliverteilt mit dem Parameter $p \in
 (0,1)$. Zeigen Sie, dass es keinen erwartungstreuen Schätzer für $q(p) =
 \frac{p}{1-p}$ gibt. 
 
-\paragraph*{Lösung.} Sei $T(X)$ ein Schätzer. Nachdem es $2^n$ verschiedene
+\solution Sei $T(X)$ ein Schätzer. Nachdem es $2^n$ verschiedene
 Werte gibt, die der Zufallsvektor $X = (X_1, \cdots, X_n)$ annehmen kann, können 
 wir den Erwartungswert von $T$ explizit berechnen und erhalten
 \begin{equation*}
@@ -858,7 +858,7 @@ als Polynom darstellbar ist, kann es keinen erwartungstreuen Schätzer für
 $q(p)$ geben. 
 
 
-\paragraph{Verschobene Gleichverteilung. } 
+\problem{Verschobene Gleichverteilung. } 
 Seien $X_1,\ldots,X_n$ i.i.d.\ mit $X_1\sim U(\theta,\theta+1)$. Der Parameter
 $\theta$ sei  unbekannt und $X_{(1)}=\min\left\{ X_1,\ldots,X_n \right\}$ die
 kleinste Ordnungsgröße der Daten und $\bar X= \frac{1}{n}\sum_{i=1}^{n}X_i$.
@@ -870,7 +870,7 @@ Betrachten Sie die beiden Schätzer
 Zeigen Sie, dass beiden Schätzer erwartungtreu sind. Berechnen Sie 
 die Varianz der beiden Schätzer.
 
-\paragraph*{Lösung.} Wir berechnen jeweils Erwartungswert und Varianz der beiden Schätzer. 
+\solution Wir berechnen jeweils Erwartungswert und Varianz der beiden Schätzer. 
 Zunächst ist 
 \begin{eqnarray}
 	E X_i &=&  \int_{\R}^{} x p_\theta(x) dx = \int_{\theta}^{\theta+1} x dx = \theta + \frac{1}{2}. \\
@@ -957,11 +957,11 @@ Die Varianz von $T_1$ ist also um eine Größenordung höher als die von $T_2$.
 
 
 
-\paragraph{UMVUE. Bernoulli-Verteilung. } 
+\problem{UMVUE. Bernoulli-Verteilung. } 
 Seien $X_1,\ldots,X_n$ i.i.d.\ und $X_1$ Bernoulli$(\theta)$-verteilt. Zeigen
 Sie, dass der MLS $\bar X$ ein \textsc{umvue}-Schätzer ist.
 
-\paragraph*{Lösung. } Betrachten wir den Schätzer $\bar X$. Aus bereits
+\solution Betrachten wir den Schätzer $\bar X$. Aus bereits
 gelösten Übungsblättern wissen wir, dass $\bar X$ unverzerrt für $\theta$ ist.
 Wir zeigen, dass die Statistik $\sum_{i}^{} X$ suffizient und vollständig ist
 und die Behauptung folgt mit dem Satz von Lehmann-Scheff\'e. 
@@ -1011,7 +1011,7 @@ und dem Satz von Lehmann-Scheff\'e folgt die Behauptung.
 
 
 
-\paragraph{Vollständigkeit und UMVUE. }  Seien $X_1,\ldots,X_n$ i.i.d.,
+\problem{Vollständigkeit und UMVUE. }  Seien $X_1,\ldots,X_n$ i.i.d.,
 wobei $X_1$ eine diskrete Zufallsvariable mit Wahrscheinlichkeitsfunktion
 \begin{equation*}
 	p_\theta(x)=P_\theta(X_1=x)= 
@@ -1022,7 +1022,7 @@ und unbekanntem Parameter $\theta\in (0,1)$ sei. Untersuchen Sie die beiden
 Schätzer $T_1(X)=X_1$ und $T_2(X)=|X_1|$ auf Vollständigkeit. Bestimmen Sie
 einen \textsc{umvue}-Schätzer für $\theta$.
 
-\paragraph*{Lösung. } 
+\solution 
 Wir untersuchen zuerst die Vollständigkeit der beiden Schätzer $T_1$ und $T_2$. 
 Die Dichte von $X_1,\ldots,X_n$ ist
 \begin{eqnarray}
@@ -1084,7 +1084,7 @@ Daher ist $T_3$ ein \textsc{umvue}-Schätzer für $\theta$.
 
 
 
-\paragraph{Stichprobenvarianz als UMVUE bei Normalverteilung.} 
+\problem{Stichprobenvarianz als UMVUE bei Normalverteilung.} 
 Seien $X_1,\ldots,X_n$ i.i.d.\ mit $X_i \sim \mathcal N(\mu,\sigma^2)$ und
 $\mu\in\R$ sowie $\sigma>0$.  Dann ist die Stichprobenvarianz 
 \begin{equation*}
@@ -1094,7 +1094,7 @@ ein \textsc{umvue}-Schätzer für $\sigma$, falls $\mu$ unbekannt ist.
 Ist $\mu$ hingegen bekannt, so ist $s^2(X)$ kein \textsc{umvue}-Schätzer
 von $\sigma$. 
 
-\paragraph*{Lösung.} 
+\solution 
 Die erste Aussage wurde bereits in der Vorlesung behandelt. 
 
 Sei also $\mu=\mu_0$ bekannt und fix.  Wir wollen die Normalverteilung mit
@@ -1130,7 +1130,7 @@ für $\sigma^2$. Daher kann $s^2(X)$ in diesem Kontext kein
 
 
 
-\paragraph{UMVUE. Normalverteilung. } Sei $X_1,\ldots,X_n$ eine i.i.d.\
+\problem{UMVUE. Normalverteilung. } Sei $X_1,\ldots,X_n$ eine i.i.d.\
 Stichprobe mit $X_1\sim\mathcal N(\mu,1)$. Finden Sie den 
 \textsc{umvue}-Schätzer für
 \begin{equation*}
@@ -1138,7 +1138,7 @@ Stichprobe mit $X_1\sim\mathcal N(\mu,1)$. Finden Sie den
 \end{equation*}
 Betrachten Sie dazu die gemeinsame Verteilung von $(X_1,\bar X)$.
 
-\paragraph*{Lösung.} Der Satz von Lehmann-Sch\'effe ist das wichtigste Tool
+\solution Der Satz von Lehmann-Sch\'effe ist das wichtigste Tool
 zur Gewinnung der \textsc{umvue}-Schätzern das uns derzeit zur Verfügung. Wir
 versuchen ihn auch diesmal anzuwenden. 
 
@@ -1184,7 +1184,7 @@ und ein \textsc{umvue}-Schätzer für $P\left( X_1 >0 \right)$ ist bestimmt.
 
 
 
-\paragraph{Cram\'er-Rao Regularität und exponentielle Familien. }
+\problem{Cram\'er-Rao Regularität und exponentielle Familien. }
 Für eine einparametrige exponentielle Familie mit
 \begin{equation*}
 	p(x, \theta) = \exp \left( c(\theta) T(x) + d(\theta) +S(x) \right)1_A(x),
@@ -1196,7 +1196,7 @@ erfüllt.
 \emph{Hinweis:} Sie können für die Vertauschbarkeit von $\frac{\partial}{\partial \theta}$ und $\int_{}^{}$
 den Satz von der monotonen Konvergenz verwenden. 
 
-\paragraph*{Lösung. }
+\solution
 Für eine Statistik $T(X)$ mit $E_\theta (|T(X)|) < \infty$ zeigen wir, dass für alle $\theta\in\Theta$
 \begin{equation}
 	\frac{\partial}{\partial \theta} \int_{\R}^{} T(x) p(x,\theta) dx = 
@@ -1274,7 +1274,7 @@ Die Übrigen Bedingungen aus (\textsc{cr}) sind in unseren Voraussetzungen entha
 
 
 
-\paragraph{UMVUE. Exponentialverteilung.}
+\problem{UMVUE. Exponentialverteilung.}
 Seien $X_1,\ldots,X_m$ i.i.d.\ und $X_i\sim \textrm{Exp}(\theta)$
 exponentialverteilt mit der Dichte $\theta e^{-\theta x}1_{\R_{>0}}(x)$ und
 $\theta>0$.
@@ -1285,7 +1285,7 @@ $\theta>0$.
         nicht annimmt.
 \end{enumerate}
  
-\paragraph*{Lösung.} 
+\solution 
 \begin{enumerate}
     \item
 Wir stellen die Dichte der Exponentialverteilung als exponentielle Familie 
@@ -1355,7 +1355,7 @@ Nun zeigen wir
 
 
 
-\paragraph{UMVUE. Gamma-Verteilung. } Eine Stichprobe $X_1, \ldots, X_n$ sei i.i.d.\
+\problem{UMVUE. Gamma-Verteilung. } Eine Stichprobe $X_1, \ldots, X_n$ sei i.i.d.\
 und Gamma-verteilt mit bekanntem Parameter $a>0$ und unbekanntem Parameter 
 $\lambda>0$, d.h.\ $X_1$ hat die Dichte
 \begin{equation*}
@@ -1364,7 +1364,7 @@ $\lambda>0$, d.h.\ $X_1$ hat die Dichte
 Finden Sie mit Hilfe der Informationsungleichung einen \textsc{umvue}-Schätzer für
 $q(\lambda) = \frac{1}{\lambda}$.
 
-\paragraph*{Lösung.  } Die Lösungsmethode ist hier einen unverzerrten Schätzer mit der
+\solution Die Lösungsmethode ist hier einen unverzerrten Schätzer mit der
 kleinstmöglichen Varianz zu finden, d.h.\ der Varianz aus der Informationsungleichung.
 
 Zuerst überprüfen wir die (\textsc{cr}) Bedingungen indem wir $p_\lambda(x)$ als
@@ -1419,7 +1419,7 @@ Damit ist $T(X)$ ein \textsc{umvue}-Schätzer für $q(\lambda)=\frac{1}{\lambda}
 
 
 
-\paragraph{Cram\'er-Rao-Schranke und die Gleichverteilung.}   % Shao E 3.22
+\problem{Cram\'er-Rao-Schranke und die Gleichverteilung.}   % Shao E 3.22
 Seien $X_1,\ldots,X_n$ i.i.d.\ und $X_i \sim \mathcal U(0,\theta)$ mit unbekanntem 
 $\theta > 0$. Es bezeichne $I(\theta)$ die Fischer-Information. 
 \begin{enumerate}
@@ -1437,7 +1437,7 @@ steht.
 \end{enumerate}
 
 
-\paragraph*{Lösung. } Wir zeigen zuerst, dass $T(X)$ ein erwartungstreuer Schätzer
+\solution Wir zeigen zuerst, dass $T(X)$ ein erwartungstreuer Schätzer
 für $\theta$ ist. Dazu berechnen wir die Verteilung von $X_{(n)}$.
 \begin{align*}
     P\left( X_{(n)} \leq t \right) &= P\left( X_1\leq t,\ldots, X_n\leq t \right) \\
@@ -1491,7 +1491,7 @@ Informationsungleichung für dieses Modell nicht gelten.
 
 
 
-\paragraph{Cram\'er-Rao-Schranke ist nicht scharf.    } 
+\problem{Cram\'er-Rao-Schranke ist nicht scharf.    } 
 Es ist durchaus möglich, dass ein \textsc{umvue}-Schätzer eine größere Varianz als die untere
 Schranke
 \begin{equation*}
@@ -1514,7 +1514,7 @@ für kein $\theta$ annimmt.
 \end{enumerate}
 
 
-\paragraph*{Lösung. } Wir stellen zuerst sicher, dass $T(X)$ ein
+\solution Wir stellen zuerst sicher, dass $T(X)$ ein
 \textsc{umvue}-Schätzer für $g(\theta)=e^{-\theta}$. Nachdem die Summe von
 poissonverteilten Zufallsvariablen wieder poissonverteilt ist, und zwar
 $\sum_{i}^{} X_i \sim \textrm{Poiss}(\sum_{i}^{} \lambda_i)$ für $X_i \sim
@@ -1588,7 +1588,7 @@ Informationsungleichung nie angenommen wird.
 
 \section{Asymptotische Theorie}
 
-\paragraph{Verschobene Gleichverteilung und Konsistenz.} 
+\problem{Verschobene Gleichverteilung und Konsistenz.} 
 Die Zufallsvariablen $X_1,\ldots,X_n$ seien i.i.d.\ mit $X_i\sim U(\theta,\theta+1)$.
 Der Parameter $\theta$ sei unbekannt. Für die Schätzer $T_1(X) = \bar X -\frac{1}{2}$
 und $T_2(X)=X_{(1)} - \frac{1}{n+1}$ haben wir bereits
@@ -1598,7 +1598,7 @@ und $T_2(X)=X_{(1)} - \frac{1}{n+1}$ haben wir bereits
 \end{align*}
 gezeigt. Überprüfen Sie nun die beiden Schätzer auf schwache Konsistenz.
 
-\paragraph*{Lösung.} 
+\solution 
 Wir zeigen zunächst, dass die beiden Schätzer erwartungstreu sind. 
 Es gilt
 \begin{align*}
@@ -1664,7 +1664,7 @@ folgt mit Hilfe der Markov-Ungleichung.
 
 
 
-\paragraph{Konsistenz. Hinreichende Bedingungen. }
+\problem{Konsistenz. Hinreichende Bedingungen. }
 \label{Konsistenz-Hinreichende-Bedingungen}
 Seien $X_1,\ldots,X_n$ i.i.d.\ mit Verteilung $\mathbb P_\theta$ und $\theta\in\Theta\subset\R$.
 Für jedes $n\in\mathbb N$ sei $T_n = T(X_1,\ldots,X_n)$ ein Schätzer für $\theta$ mit 
@@ -1677,7 +1677,7 @@ folgenden Eigenschaften:
 Dann ist der Schätzer $T_n$ schwach konsistent, d.h.\ $T_n \to^{\mathbb P_\theta} \theta$
 für $n\to\infty$.
 
-\paragraph*{Lösung.} Der Schätzer $T_n$ ist schwach konsistent wenn
+\solution Der Schätzer $T_n$ ist schwach konsistent wenn
 \begin{equation*}
     P\left( |T_n -\theta|\geq \varepsilon \right) \to 0
 \end{equation*}
@@ -1710,11 +1710,11 @@ Der Schätzer $T_n$ ist also schwach Konsistent.
 
 
 
-\paragraph{Asymptotische Verteilung von MLE.}   Seien $X_1,\ldots,X_n$ i.i.d.\ mit 
+\problem{Asymptotische Verteilung von MLE.}   Seien $X_1,\ldots,X_n$ i.i.d.\ mit 
 der Dichte $p(x,\theta)= \theta x^{\theta-1}1_{(0,1)}(x)$ für $\theta>0$. Finden Sie 
 einen Maximum-Likelihood-Schätzer für $\theta$ und seine asymptotische Verteilung.
 
-\paragraph*{Lösung.} Die Likelihoodfunktion der Stichprobe $x_1,\ldots,x_n$ ist
+\solution Die Likelihoodfunktion der Stichprobe $x_1,\ldots,x_n$ ist
 \begin{align*}
     L(x,\theta) &= \prod_i p(x_i, \theta) = \theta^n \prod_i x_i^{\theta-1}.
 \end{align*}
@@ -1784,7 +1784,7 @@ asymptotische Verteilung des MLS gerechtfertigt.
 
 
 
-\paragraph{Asymptotische Effizienz.} Seien $X_1,\ldots,X_n$ i.i.d.\ mit $E X_1=\mu\neq 0$,
+\problem{Asymptotische Effizienz.} Seien $X_1,\ldots,X_n$ i.i.d.\ mit $E X_1=\mu\neq 0$,
 $\Var X_1 = 1$ und $E X_1^4 < \infty$. Der Erwartungswert $\mu$ sei unbekannt. 
 Ferner seien 
 \begin{align*}
@@ -1801,7 +1801,7 @@ zwei Schätzer für $\mu^2$.
         ist.
 \end{enumerate}
 
-\paragraph*{Lösung. } Betrachten wir zunächst den Schätzer $T_1$. Wir erhalten
+\solution Betrachten wir zunächst den Schätzer $T_1$. Wir erhalten
 \begin{align*}
     E X_i^2 &=  \Var X_i + \left( E X_i \right)^2 = 1 + \mu^2  \\
     \sqrt{n} \left( T_1 - \mu^2 \right) &= 
@@ -1858,7 +1858,7 @@ und $e\geq 1$ schliessen.
 
 \section{Konfidenzintervalle}
 
-\paragraph{Konfidenzintervall. Normalverteilung. } Seien $X_1,\ldots,X_n$ i.i.d.\ mit 
+\problem{Konfidenzintervall. Normalverteilung. } Seien $X_1,\ldots,X_n$ i.i.d.\ mit 
 $X_i\sim \mathcal N(\mu,\sigma^2)$, wobei sowohl $\mu$ als auch $\sigma$ unbekannt seien.
 Zeigen Sie, dass
 \begin{equation*}
@@ -1867,7 +1867,7 @@ Zeigen Sie, dass
 ein $\left( 1-\alpha \right)$-Konfidenzintervall für $\sigma^2$ ist, wobei
 $s^2(X)$ die Stichprobenvarianz und $\chi^2_{n,a}$ das $a$-Quantil der $\chi^2_n$-Verteilung bezeichnen.
 
-\paragraph*{Lösung.}
+\solution
 Die Stichprobenvarianz ist definiert durch
 \begin{equation*}
     s^2(X) := \frac{1}{n-1} \sum_{i=1}^{n} (X_i - \bar X)^2.
@@ -1895,7 +1895,7 @@ Das Konfidenzintervall erhalten wir aus
 
 
 
-\paragraph{Konfidenzintervall. Exponentialverteilung.  }
+\problem{Konfidenzintervall. Exponentialverteilung.  }
 Seien $X_1,\ldots,X_n$ i.i.d.\ exponentialverteilt mit der Dichte
 \begin{equation*}
     p_\theta(x) = \theta e^{- \theta x} 1_{ \R_{>0} }(x).
@@ -1907,7 +1907,7 @@ Zeigen Sie, dass
 \end{equation*}
 ein $(1-\alpha)$-Konfidenzintervall für $\theta$ ist.
 
-\paragraph*{Lösung.} Zu zeigen ist folgende Gleichung, die das 
+\solution Zu zeigen ist folgende Gleichung, die das 
 Konfidenzintervall charakterisiert:
 \begin{equation*}
     P\left(   \frac{- \log \left( 1 - \frac{\alpha}{2} \right)}{n X_{(1)}} \leq \theta \leq 
@@ -1931,7 +1931,7 @@ $c_2 = -\log \left( \frac{\alpha}{2} \right)$ erfüllt.
 
 
 
-\paragraph{Konfidenzintervall. Varianzenvergleich bei Normalverteilung. } 
+\problem{Konfidenzintervall. Varianzenvergleich bei Normalverteilung. } 
 Seien $X_1,\ldots,X_n,Y_1,\ldots,Y_n$ unabhängig und normalverteilt, mit 
 $X_i \sim \mathcal N(0, \sigma^2_X)$, $Y_i \sim \mathcal N(0, \sigma^2_Y)$
 und unbekannten Parametern $\sigma^2_X>0$ und $\sigma^2_Y>0$. 
@@ -1943,7 +1943,7 @@ Zeigen Sie, dass für $S^2_X = \sum_{i=1}^{n} X_i^2$ und $S^2_Y = \sum_{i=1}^{n}
 ein $(1-\alpha)$-Konfidenzintervall für den Quotienten $\frac{\sigma^2_Y}{\sigma^2_X}$ ist.
 $F_{n,n}$ bezeichnet dabei die Verteilungsfunktion der $F_{n,n}$-Verteilung.
 
-\paragraph*{Lösung.} Zu zeigen ist die Gleichung
+\solution Zu zeigen ist die Gleichung
 \begin{equation*}
     P \left[ F^{-1}_{n,n} \left( \frac{\alpha}{2} \right) \frac{S_Y^2}{S_X^2} \leq 
     \frac{\sigma^2_Y}{\sigma^2_X} \leq
@@ -1964,7 +1964,7 @@ Es gilt aber
 
 \section{Testtheorie}
 
-\paragraph{Test. Mittelwertvergleich unter Normalverteilung. } 
+\problem{Test. Mittelwertvergleich unter Normalverteilung. } 
 Seien die Zufallsvariablen $X_1,\ldots,X_n$, $Y_1,\ldots,Y_n$ unabhängig und normalverteit, 
 mit $X_i\sim\mathcal N(\mu_X, \sigma^2_X)$ und $Y_i\sim\mathcal N(\mu_Y, \sigma^2_Y)$.
 Die Mittelwerte $\mu_X$ und $\mu_Y$ sind dabei unbekannt, die Varianzen dagegen
@@ -1981,7 +1981,7 @@ $\sigma_X^2>0$, $\sigma^2_Y>0$ bekannt und fix.
         $\Delta = \mu_X -\mu_Y$ aus und skizzieren Sie die Gütefunktion. 
 \end{enumerate}
 
-\paragraph*{Lösung.} Wir betrachten
+\solution Wir betrachten
 \begin{equation*}
     P\left( \bar X - \bar Y - \sqrt{ \frac{\sigma^2_X + \sigma^2_Y}{n}  }z_{1-\frac{\alpha}{2}} \leq \mu_X - \mu_Y \leq \bar X - \bar Y + \sqrt{ \frac{\sigma^2_X + \sigma^2_Y}{n}  }z_{1-\frac{\alpha}{2}}   \right) = 1-\alpha.
 \end{equation*}
@@ -2059,7 +2059,7 @@ qplot(X,g(X), geom="line", xlab="Delta", ylab="Guete")
 
 
 
-\paragraph{Poisson-Verteilung. Test.}
+\problem{Poisson-Verteilung. Test.}
 Seien $X_1,\ldots,X_n$ i.i.d.\ Poisson-verteilt mit unbekanntem Parameter $\lambda>0$.
 \begin{enumerate}
     \item Verwenden Sie die natürliche suffiziente Statistik, um einen Test mit
@@ -2075,7 +2075,7 @@ Seien $X_1,\ldots,X_n$ i.i.d.\ Poisson-verteilt mit unbekanntem Parameter $\lamb
          \lambda\leq\lambda_0$ verworfen wird und bestimmen Sie den $p$-Wert.
 \end{enumerate}
 
-\paragraph*{Lösung.}
+\solution
 Wir konstruieren zunächst einen Test für 
 \begin{equation*}
     H_0 : \lambda=\lambda_0 \quad \textrm{gegen} \quad H_1 : \lambda>\lambda_0
@@ -2149,7 +2149,7 @@ und somit wird in diesem Fall die Nullhypothese nicht verworfen.
 
 
 
-\paragraph{Exponentialverteilung. Test.} Seien $X_1,\ldots,X_n$ i.i.d.\ und exponentialverteilt
+\problem{Exponentialverteilung. Test.} Seien $X_1,\ldots,X_n$ i.i.d.\ und exponentialverteilt
 zum Parameter $\theta$. Der Mittelwert werde mit $\mu=\theta^{-1}$ bezeichnet.
 Man interessiert sich für den Test $H_0 : \mu \leq \mu_0$ gegen die Alternative $H_1 : \mu > \mu_0$.
 \begin{enumerate}
@@ -2173,7 +2173,7 @@ Man interessiert sich für den Test $H_0 : \mu \leq \mu_0$ gegen die Alternative
         Berechnen Sie den $p$-Wert zum Test aus Punkt 1 und interpretieren Sie diesen für gegebenes $\mu_0=25$.
 \end{enumerate}
 
-\paragraph*{Lösung. } Die Verteilungen in dieser Aufgabe gehören zur Gamma-Familie, denn
+\solution Die Verteilungen in dieser Aufgabe gehören zur Gamma-Familie, denn
 $\chi^2_{2n}=$ Gamma($n,\frac{1}{2}$) und Exp$(\theta) =$ Gamma($1,\theta$). Die Dichte von $\chi^2_n$ ist ja 
 \begin{equation*}
     p_{\chi^2_n} (x) = 
@@ -2252,7 +2252,7 @@ Evidenz gegen die Nullhypothese interpretiert werden kann.
 
 
 
-\paragraph{Rayleigh-Verteilung. UMP-Test.} Seien $X_1,\ldots,X_n$ i.i.d.\ und Rayleigh-verteilt
+\problem{Rayleigh-Verteilung. UMP-Test.} Seien $X_1,\ldots,X_n$ i.i.d.\ und Rayleigh-verteilt
 zum unbekannten Parameter $\theta>0$, d.h.\ $X_1$ hat die Dichte 
 \begin{equation*}
     p_\theta(x) = \frac{x}{\theta^2} e^{- \frac{x^2}{2\theta^2}} 1_{\R_{>0}}(x).
@@ -2267,7 +2267,7 @@ zum unbekannten Parameter $\theta>0$, d.h.\ $X_1$ hat die Dichte
         bestimmt werden soll.
 \end{enumerate}
 
-\paragraph*{Lösung. } Der Likelihoodquotient für das Testproblem $H_0: \theta=1$ gegen $H_1 : \theta=\nu$
+\solution Der Likelihoodquotient für das Testproblem $H_0: \theta=1$ gegen $H_1 : \theta=\nu$
 \begin{eqnarray*}
     L(x,1,\nu) &=& 
     \frac{\prod_i \frac{x_i}{\nu^2} \exp \left( -\frac{x_i^2}{2 \nu^2} \right)}{ \prod_i x_i \exp \left( - \frac{x_i^2}{2} \right)  } \\
@@ -2322,7 +2322,7 @@ Schließlich erhalten wir aus $P \left( T(X) \geq k \right) \leq \alpha$ die App
 
 
 
-\paragraph{Pareto-Verteilung. Optimaler Test.}  Eine Zufallsvariable heißt Pareto-Verteilt
+\problem{Pareto-Verteilung. Optimaler Test.}  Eine Zufallsvariable heißt Pareto-Verteilt
 zu den Parametern $k>0,a>0$, falls sie die Dichte 
 \begin{equation*}
     p(x) = a k^a x^{-a-1} 1_{\R_{>k}}(x)
@@ -2335,7 +2335,7 @@ Teststatistik für
 \end{equation*}
 ist.
 
-\paragraph*{Lösung. } Substituieren wir zunächst $\tilde a = \frac{1}{a}$. Das Testproblem lässt sich
+\solution Substituieren wir zunächst $\tilde a = \frac{1}{a}$. Das Testproblem lässt sich
 nun schreiben als $H_0: \tilde a \leq \tilde a_0$ gegen $H_1: \tilde a > \tilde a_0$. Die gemeinsame
 Dichte der Zufallsvariablen $X_1,\ldots,X_n$ kann in exponentieller Form notiert werden
 \begin{eqnarray*}
@@ -2350,7 +2350,7 @@ Die Statistik $T(X)$ ist daher optimal für das Testproblem.
 
 
 
-\paragraph{Poissonverteilung. Optimaler Test.} Seien $X_1, \cdots, X_n$ i.i.d.\
+\problem{Poissonverteilung. Optimaler Test.} Seien $X_1, \cdots, X_n$ i.i.d.\
 poissonverteilt mit dem Parameter $\lambda>0$ und der Wahrscheinlichkeitsfunktion
 \begin{equation*}
     P(X_1 = k) = e^{-\lambda} \frac{ \lambda^k}{k!}, \quad k \in \left\{ 0, 1, \cdots \right\}.
@@ -2405,7 +2405,7 @@ mit $0<\lambda_0<\lambda_1$ soll ein optimaler Test entwickelt werden.
 \end{lstlisting}
 \end{enumerate}
 
-\paragraph*{Lösung.}
+\solution
 \begin{enumerate}
     
     \item Die Likelihood-Funktion für dieses Testproblem ist 
@@ -2449,7 +2449,7 @@ mit $0<\lambda_0<\lambda_1$ soll ein optimaler Test entwickelt werden.
 
 
 
-\paragraph{Geometrische Verteilung. Neyman-Pearson-Test.} Seien $X_1,\ldots,X_n$ 
+\problem{Geometrische Verteilung. Neyman-Pearson-Test.} Seien $X_1,\ldots,X_n$ 
 i.i.d.\ geometrisch verteilt mit der Wahrscheinlichkeitsfunktion
 \begin{equation*}
     \pi(k) = \bP(X_i = k) = p \left( 1-p \right)^k, \quad k\in\left\{ 0,1,2, \ldots \right\}
@@ -2494,7 +2494,7 @@ entwickelt werden.
 \emph{Bemerkung.} $T(X)$ ist negativ binomialverteilt mit Parametern $\left( n,p \right)$.
 \end{enumerate}
 
-\paragraph*{Lösung.}
+\solution
 \begin{enumerate}
     \item Die Wahrscheinlichkeitsfunktion von dem Vektor $\left( X_1, \ldots, X_n \right)$ ist
         \begin{eqnarray*}
@@ -2529,7 +2529,7 @@ entwickelt werden.
 
 
 
-\paragraph{Bernoulli-Verteilung. Neyman-Pearson-Test.} Seien $X_1,\ldots,X_n$ 
+\problem{Bernoulli-Verteilung. Neyman-Pearson-Test.} Seien $X_1,\ldots,X_n$ 
 i.i.d.\ Bernoulli($p$) Zufallsvariablen mit Wahrscheinlichkeitsfunktion
 \begin{equation*}
     P(X_i = k) = p^{k} \left( 1-p \right)^{1-k}, \quad k\in\left\{ 0,1 \right\}.
@@ -2576,7 +2576,7 @@ entwickelt werden.
 \end{enumerate}
 
 
-\paragraph*{Lösung.}
+\solution
 \begin{enumerate}
 
     \item Die Likelihood-Quotienten-Statistik ist 
@@ -2617,7 +2617,7 @@ entwickelt werden.
 \section{Lineare Regression}
 
 
-\paragraph{Lineare Regression mit Schalter.} Gegeben sei das Model
+\problem{Lineare Regression mit Schalter.} Gegeben sei das Model
 \begin{align*}
     Y_i &=  \beta_0 x_i + \varepsilon_i \quad\quad i=1,\ldots ,m \\
     Y_i &= \beta_1 + \varepsilon_i \quad\quad  i=m+1, \ldots , m+n
@@ -2636,7 +2636,7 @@ mit $m,n \in \bN$ und $\varepsilon_i \in \cN \left( 0, \sigma^2 \right)$, i.i.d.
         \end{align*}
 \end{enumerate}
 
-\paragraph*{Lösung.}
+\solution
 \begin{enumerate}
     \item Die Desingmatrix für dieses Model ist
             \begin{equation*}
@@ -2694,7 +2694,7 @@ mit $m,n \in \bN$ und $\varepsilon_i \in \cN \left( 0, \sigma^2 \right)$, i.i.d.
 
 
 
-\paragraph{$3$-Stichprobenproblem. } 
+\problem{$3$-Stichprobenproblem. } 
 Gegeben sei das Modell
 \begin{equation*}
     Y_{kl} = \beta_k + \varepsilon_{kl}
@@ -2711,7 +2711,7 @@ $\varepsilon_{kl}\sim \mathcal N(0,\sigma^2)$, i.i.d.\  $\sigma>0$.
 \end{enumerate}
 
 
-\paragraph*{Lösung.}
+\solution
 \begin{enumerate}
 
     \item Das Gleichungsystem in der Kurzschreibweise:
@@ -2743,11 +2743,11 @@ $\varepsilon_{kl}\sim \mathcal N(0,\sigma^2)$, i.i.d.\  $\sigma>0$.
 
 
 
-\paragraph{KQS ist auch MLS im Normalverteilungsfall. }
+\problem{KQS ist auch MLS im Normalverteilungsfall. }
 Zeigen Sie, dass der Kleinste-Quadrate-Schätzer $\hat \beta$ auch Maximum-Likelihood-Schätzer 
 im allgemeinen linearen Modell ist, falls $\varepsilon \sim \mathcal N(0, \sigma^2 I_n)$.
 
-\paragraph*{Lösung. } Betrachten wir ein allgemeines lineares Model
+\solution Betrachten wir ein allgemeines lineares Model
 \begin{equation*}
     Y_i =  X_i \beta+ \varepsilon_i, \quad i=1,\ldots,n.
 \end{equation*}
@@ -2784,7 +2784,7 @@ $\textrm{Rang}\left( X \right)=p$ annehmen mussten.
 
 
 
-\paragraph{Einfache lineare Regression. } Seien folgende Beobachtungen von
+\problem{Einfache lineare Regression. } Seien folgende Beobachtungen von
 $(x_i)$ und $(y_i)$ 
 gegeben.
 
@@ -2799,7 +2799,7 @@ gegeben.
     \item Veranschaulichen Sie die Daten und die Regressionsgerade graphisch.
 \end{enumerate}
 
-\paragraph*{Lösung.  } Das betrachtete lineare Model hat die Form
+\solution Das betrachtete lineare Model hat die Form
 \begin{equation*}
     Y_i = X_i \beta + \varepsilon_i, \quad i=1,\ldots, 6
 \end{equation*}
@@ -2864,7 +2864,7 @@ plot(X,Y); lines(t, b_0 + b_1 * t, lw=2)
 
 
 
-\paragraph{Quadratisches Modell. KQS.} Es sei das Modell 
+\problem{Quadratisches Modell. KQS.} Es sei das Modell 
 \begin{equation*}
     Y_i = \beta_1 x_i + \beta_2 x_{i}^2 + \varepsilon_i
 \end{equation*}
@@ -2896,7 +2896,7 @@ $\left(\beta_1, \beta_2 \right)$ sind die unbekannten Parameter.
         \end{equation*}
 \end{enumerate}
 
-\paragraph*{Lösung.} Das Modell lässt sich in der Form
+\solution Das Modell lässt sich in der Form
 \begin{equation*}
     Y = X \beta + \varepsilon
 \end{equation*}
@@ -2932,7 +2932,7 @@ und
 
 
 
-\paragraph{Quadratisches Modell. Explizite Form des KQS.}  Es sei das Modell
+\problem{Quadratisches Modell. Explizite Form des KQS.}  Es sei das Modell
 \begin{equation*}
     Y_i = \beta_0 + \beta_1 x_i + \beta_2 x_{i}^2 + \varepsilon_i
 \end{equation*}
@@ -2940,7 +2940,7 @@ für $i=1,\ldots,n$ gegeben. Die zufälligen Fehler $\varepsilon_1,\ldots,\varep
 seien i.i.d.\ und $\varepsilon_i\sim \mathcal N(0,\sigma^2)$ mit $\sigma>0$.
 Geben Sie die Kleinste-Quadrate-Schätzer für $\beta_i$, $i\in \left\{ 0,1,2 \right\}$ explizit an.
 
-\paragraph*{Lösung. } Das Modell lässt sich in der Form
+\solution Das Modell lässt sich in der Form
 \begin{equation*}
     Y = X \beta + \varepsilon
 \end{equation*}
@@ -3030,7 +3030,7 @@ und
 \section{Prüfungsaufgaben}
 \subsection{2012}
 
-\paragraph{Invers-Gauß-Verteilung als exponentielle Familie.}
+\problem{Invers-Gauß-Verteilung als exponentielle Familie.}
 Seien $X_1,\ldots,X_n$ i.i.d.\ Invers-Gauß-verteilte Zufallsvariablen gegeben. D.h.\ die Dichte
 von $X_i$ ist 
 \begin{equation*}
@@ -3050,7 +3050,7 @@ wobei $\mu>0$, $\lambda>0$ und $\mu$ bekannt und fix sei.
         $T(X)$ suffizient ist.
 \end{enumerate}
 
-\paragraph*{Lösungsskizze.} Die gemeinsame Dichte von $X_1, \cdots, X_n$ 
+\solution Die gemeinsame Dichte von $X_1, \cdots, X_n$ 
 lässt sich in folgender Form darstellen.
 \begin{equation*}
     \exp\left(  -\frac{\lambda}{2}\left( \frac{x^2}{\mu^2} + \frac{1}{x} \right)    
@@ -3060,7 +3060,7 @@ lässt sich in folgender Form darstellen.
 
 
 
-\paragraph{Pareto-Verteilung. Suffizienz und MLE.} Seien $X_1,\ldots,X_n$ i.i.d.\ und
+\problem{Pareto-Verteilung. Suffizienz und MLE.} Seien $X_1,\ldots,X_n$ i.i.d.\ und
 Paretoverteilt mit der Dichte
 \begin{equation*}
     p_\theta(x)= \frac{\theta a^\theta}{x^{\theta+1}}1_{\R_{>a}}(x),
@@ -3072,7 +3072,7 @@ wobei $\theta>0$ und $a$ fix und bekannt sei.
     \item Zeigen Sie, dass der von Ihnen gefundene Schätzer $\hat \theta$ suffizient ist.
 \end{enumerate}
 
-\paragraph*{Lösungsskizze. }
+\solution
 Suffiziente Statistik $T= \prod_i \frac{1}{x_i}$ erhalten wir aus 
 \begin{equation}
     p_\theta(X_1,\ldots,X_n) = 
@@ -3097,7 +3097,7 @@ Daher ist der MLE $\hat\theta$ auch suffizient.
 
 
 
-\paragraph{Diskrete Gleichverteilung. MLE und UMVUE.} Seien $X_1,\ldots,X_n$ i.i.d.\ 
+\problem{Diskrete Gleichverteilung. MLE und UMVUE.} Seien $X_1,\ldots,X_n$ i.i.d.\ 
 diskret Gleichverteilt auf der Menge $\left\{ 1,2,\ldots,\theta \right\}$. 
 \begin{enumerate}
     \item Zeigen Sie, dass der Maximum-Likelihood-Schätzer für $\theta$ gerade
@@ -3112,7 +3112,7 @@ diskret Gleichverteilt auf der Menge $\left\{ 1,2,\ldots,\theta \right\}$.
         \end{equation*}
 \end{enumerate}
 
-\paragraph*{Lösung.}
+\solution
 Die Likelihood-Funktion ist
 \begin{equation*}
     L(\theta,x) = \frac{1}{\theta^n} \prod_i 1_{[0,\theta]}(x_i).
@@ -3157,7 +3157,7 @@ und
 
 
 
-\paragraph{Invers-Gamma-Verteilung als exponentielle Familie.}
+\problem{Invers-Gamma-Verteilung als exponentielle Familie.}
 Seien $X_1,\ldots,X_n$ i.i.d.\ Invers-Gamma-verteilte Zufallsvariablen gegeben.
 D.h.\ die Dichte von $X_i$ ist 
 \begin{equation*}
@@ -3177,7 +3177,7 @@ wobei $a>0$ unbekannt und $\lambda>0$ bekannt und fix sei.
         $T(X)$ suffizient ist.
 \end{enumerate}
 
-\paragraph*{Lösung.}
+\solution
 \begin{enumerate}
     \item Die gemeinsame Dichte von $\left( X_1,\ldots,X_n \right)$ ist 
         \begin{equation*}
@@ -3204,7 +3204,7 @@ wobei $a>0$ unbekannt und $\lambda>0$ bekannt und fix sei.
 
 
 
-\paragraph{Beta-Verteilung. MLE.} Seien $X_1,\ldots,X_n$ i.i.d.\ und Beta$(\theta+1, 1)$-verteilt
+\problem{Beta-Verteilung. MLE.} Seien $X_1,\ldots,X_n$ i.i.d.\ und Beta$(\theta+1, 1)$-verteilt
 mit dem Parameter $\theta\in\Theta= \left\{ \eta\in\R : \eta>-1 \right\}$. Die Dichte von $X_i$ ist also
 \begin{equation*}
     p_\theta(x) = (\theta+1)x^\theta 1_{ [0,1] }(x).
@@ -3220,7 +3220,7 @@ mit dem Parameter $\theta\in\Theta= \left\{ \eta\in\R : \eta>-1 \right\}$. Die D
         auf dem Rand des Parameterraumes liegen? 
 \end{enumerate}
 
-\paragraph*{Lösung.}
+\solution
 \begin{enumerate}
 
     \item Die Likelihoodfunktion für eine Beobachtung $(X_1,\ldots,X_n)$ ist 
@@ -3247,7 +3247,7 @@ mit dem Parameter $\theta\in\Theta= \left\{ \eta\in\R : \eta>-1 \right\}$. Die D
 
 
 
-\paragraph{Konfidenzintervall. Mittelwert der Normalverteilung. }
+\problem{Konfidenzintervall. Mittelwert der Normalverteilung. }
 Seien $X_1,\ldots,X_n$ i.i.d.\ normalverteilt mit $X_i \sim \mathcal N \left(\theta, 1 \right)$,
 wobei $\theta\in\R$ ein unbekannter Parameter ist.
 \begin{enumerate}
@@ -3260,7 +3260,7 @@ wobei $\theta\in\R$ ein unbekannter Parameter ist.
 \end{enumerate}
 
 
-\paragraph*{Lösung.}
+\solution
 \begin{enumerate}
 
     \item Die Verteilung von $\sqrt{n} \left( \bar X -\theta \right)$ ist
@@ -3280,7 +3280,7 @@ wobei $\theta\in\R$ ein unbekannter Parameter ist.
 
 
 
-\paragraph{Gamma-Verteilung. Momentenschätzer.}
+\problem{Gamma-Verteilung. Momentenschätzer.}
 Gegeben seien i.i.d.\ Gamma-verteilte Zufallsvariablen $X_1,\ldots,X_m$ mit der Dichte
 \begin{equation*}
     p_{a,\lambda}(x) = \frac{\lambda^a}{\Gamma(a)}x^{a-1}e^{-\lambda x} 1_{\R_{\geq 0}}(x)
@@ -3297,7 +3297,7 @@ und Parametern $a>0$ und $\lambda>0$.
         der Beobachtung von $\left( X_1,\ldots,X_m \right)$. 
 \end{enumerate}
 
-\paragraph*{Lösung.}
+\solution
 \begin{enumerate}
 
     \item \begin{eqnarray*}
@@ -3325,7 +3325,7 @@ und Parametern $a>0$ und $\lambda>0$.
 
 
 
-\paragraph{Vollständigkeit.} Seien die Statistiken $T$ und $S$ mit $S=\eta(T)$ und einer messbaren 
+\problem{Vollständigkeit.} Seien die Statistiken $T$ und $S$ mit $S=\eta(T)$ und einer messbaren 
 Abbildung $\eta$ gegeben. 
 \begin{enumerate}
     \item Zeigen Sie: Falls $T$ vollständig ist, so ist $S$ ebenfalls vollständig.
@@ -3336,7 +3336,7 @@ Abbildung $\eta$ gegeben.
 \end{enumerate}
 
 
-\paragraph*{Lösung.}
+\solution
 \begin{enumerate}
 
     \item $T$ ist vollständig, d.h.\ für ein messbares $g$ gilt, $E_\theta g(T) = 0$ für alle $\theta$ impliziert 
@@ -3359,7 +3359,7 @@ Abbildung $\eta$ gegeben.
 
 
 
-\paragraph{Informationsungleichung und Normalverteilung. } Gegeben seien $X_1,\ldots,X_n$
+\problem{Informationsungleichung und Normalverteilung. } Gegeben seien $X_1,\ldots,X_n$
 i.i.d.\ normalverteilte Zufallsvariablen mit $X_i\sim \mathcal N(\theta, \sigma^2)$, wobei $\theta\in\R$
 und $\sigma$ bekannt und fix ist.
 \begin{enumerate}
@@ -3373,7 +3373,7 @@ und $\sigma$ bekannt und fix ist.
 
 
 
-\paragraph{Gamma-Verteilung. MLE.} Seien $X_1, \ldots,
+\problem{Gamma-Verteilung. MLE.} Seien $X_1, \ldots,
 X_n$ i.i.d.\ Gamma-verteilt mit der Dichte
 \begin{equation*}
     p_{a,\lambda}(x) = \frac{\lambda^a}{\Gamma(a)}x^{a-1}e^{-\lambda x} 1_{\R_{>0}}(x)
@@ -3393,7 +3393,7 @@ Der Parameter $\lambda$ dagegen unbekannt und $\lambda > 0$.
         zugreifen.
 \end{enumerate}
 
-\paragraph*{Lösung.}
+\solution
 \begin{enumerate}
     \item Der Standardmethode folgend, berechnen wir die Log-likelihood
         Funktion und finden ihr Maximum.
@@ -3426,7 +3426,7 @@ Der Parameter $\lambda$ dagegen unbekannt und $\lambda > 0$.
 
 
 
-\paragraph{UMVUE-Schätzer für Poisson-Verteilung. } Seien $X_1, \ldots, X_n$ i.i.d.\ 
+\problem{UMVUE-Schätzer für Poisson-Verteilung. } Seien $X_1, \ldots, X_n$ i.i.d.\ 
 und Poissonverteilt mit der Wahrscheinlichkeitsfunktion
 \begin{equation*}
     p(k) = \bP \left( X_i = k \right) = e^{-\lambda} \frac{\lambda^k}{ k!} \quad k \in \left\{ 0,1, \ldots \right\}
@@ -3441,7 +3441,7 @@ und $\lambda>0$.
         $\lambda$ ist.
 \end{enumerate} 
 
-\paragraph*{Lösung.}
+\solution
 \begin{enumerate}
     \item Die Wahrscheinlichkeitsfunktionen von $\left( X_1, \ldots, X_n \right)$ 
         bilden eine exponentielle Familie, denn
@@ -3485,7 +3485,7 @@ und $\lambda>0$.
 
 
 
-\paragraph{Gamma-Verteilung. Konfidenzintervall und Test.}
+\problem{Gamma-Verteilung. Konfidenzintervall und Test.}
 Seien $X_1, \ldots, X_n$ i.i.d.\ Gamma-verteilt mit der Dichte
 \begin{equation*}
     p_{a,\lambda} (x) = \frac{\lambda^a}{ \Gamma(a)} x^{a-1} e^{-\lambda x} 1_{ \R_{>0}  } (x)
@@ -3507,7 +3507,7 @@ Des weiteren gelten für $c>0$ die Beziehungen
         $\alpha$ für $H_0: \lambda=\lambda_0$ gegen $H_1: \lambda\neq \lambda_0$.
 \end{enumerate} 
 
-\paragraph*{Lösung.}
+\solution
 \begin{enumerate}
     \item Die Verteilung von $\lambda (X_1 + \ldots + X_n)$ ist $\textrm{Gamma}_{na, 1}$.
     \item Mit der Bezeichnung 
@@ -3533,7 +3533,7 @@ Des weiteren gelten für $c>0$ die Beziehungen
 
 
 
-\paragraph{Beta-Verteilung. Momentenschätzer.} Gegeben seien $X_1, \ldots, X_n$ i.i.d. Beta-verteilte
+\problem{Beta-Verteilung. Momentenschätzer.} Gegeben seien $X_1, \ldots, X_n$ i.i.d. Beta-verteilte
 Zufallsvariablen mit der Dichte
 \begin{equation*}
     p_{a,b}(x) = \frac{1}{B(a,b)} x^{a-1} (1-x)^{b-1} 1_{ \left[ 0,1 \right]  } (x)
@@ -3551,7 +3551,7 @@ und Parametern $a>0$ und $b>0$. Dabei ist $B(a,b)$ die Betafunktion charakterisi
     \item Berechnen Sie den Momentenschätzer für die Parameter $a$ und $b$ basierend auf dem ersten und zweiten Moment.
 \end{enumerate}
 
-\paragraph*{Lösung.}
+\solution
 \begin{enumerate}
     \item Durch direktes Berechnen des $k$-ten Moments erhalten wir 
         \begin{align*}
@@ -3591,7 +3591,7 @@ und Parametern $a>0$ und $b>0$. Dabei ist $B(a,b)$ die Betafunktion charakterisi
 
 
 
-\paragraph{Turmeigenschaft der bedingten Erwartung.} Sei ein
+\problem{Turmeigenschaft der bedingten Erwartung.} Sei ein
 Wahrscheinlichkeitsraum $\left( \Omega, P, \mathcal A \right)$, eine
 integrierbare Zufallsvariable $X$ und $\mathcal G, \mathcal H$
 sub-$\sigma$-Algebren von $\mathcal A$ gegeben. Es gilt $\mathcal H \subset
@@ -3602,7 +3602,7 @@ als $Y = \E \left[ X | \cA \right]$, genau dann wenn $\E 1_A Y = \E 1_A X$ für 
     \item Zeigen Sie $\E \left[  \E \left[ X | \mathcal G \right] | \mathcal H \right] = \E \left[ X | \mathcal H \right]$ $P$-fast sicher.
 \end{enumerate}
 
-\paragraph*{Lösung.} Wir zeigen zunächst 
+\solution Wir zeigen zunächst 
 $\E\left[ \E\left[ X | \mathcal H \right] | \mathcal G \right]=\E \left[ X | \mathcal H \right]$.
 Nach Definition des bedingten Erwartungswertes ist $\E\left[ X| \mathcal H \right]$ 
 $\mathcal H$-messbar und daher $\mathcal G$-messbar. So bekommen wir 
@@ -3637,7 +3637,7 @@ Daher ist nach Definition des bedingten Erwartungswertes
 
 
 
-\paragraph{L\'evy-Verteilung. Dichte und MLS.} Die Dichte der L\'evy-Verteilung mit den
+\problem{L\'evy-Verteilung. Dichte und MLS.} Die Dichte der L\'evy-Verteilung mit den
 Parametern $(\mu,\sigma)\in \Theta = \R \times \R_{>0}$ ist
 \begin{equation*}
     p_{(\mu, \sigma)}(x) = \sqrt{ \frac{\sigma}{2\pi}} (x-\mu)^{-\frac{3}{2}} 
@@ -3653,7 +3653,7 @@ Parametern $(\mu,\sigma)\in \Theta = \R \times \R_{>0}$ ist
         klären Sie ob dieser eindeutig ist.
 \end{enumerate}
 
-\paragraph*{Lösung.} 
+\solution 
 \begin{enumerate}
     \item Für ein $y>0$ gilt
         \begin{align*}
@@ -3685,7 +3685,7 @@ Parametern $(\mu,\sigma)\in \Theta = \R \times \R_{>0}$ ist
 \end{enumerate}
 
 
-\paragraph{L\'evy-Verteilung.} Die Dichte der L\'evy-Verteilung mit den
+\problem{L\'evy-Verteilung.} Die Dichte der L\'evy-Verteilung mit den
 Parametern $(\mu,\sigma)\in \Theta = \R \times \R_{>0}$ ist
 \begin{equation*}
     p_{(\mu, \sigma)}(x) = \sqrt{ \frac{\sigma}{2\pi}} (x-\mu)^{-\frac{3}{2}} 
@@ -3702,7 +3702,7 @@ Zeigen Sie folgende Aussagen.
         (zweiparametrige) exponentielle Familie. 
 \end{enumerate}
 
-\paragraph*{Lösung.} 
+\solution 
 \begin{enumerate}
     \item Für ein $y>0$ gilt
         \begin{align*}
@@ -3737,7 +3737,7 @@ Zeigen Sie folgende Aussagen.
 
 
 
-\paragraph{Log-Normal-Verteilung. MLS und UMVUE. }
+\problem{Log-Normal-Verteilung. MLS und UMVUE. }
 Gegeben seien i.i.d.\ Zufallsvariablen $X_1, \cdots, X_n$  mit der Dichte
 \begin{equation*}
     g_{\mu}(x) = \frac{1}{x \sqrt{2\pi}} \exp \left( - \frac{ \left( \log x - \mu \right)^2 }{2} \right) \ 1_{\R_{>0}}(x)
@@ -3754,7 +3754,7 @@ und dem unbekannten Parameter $\mu \in \R$.
     \item Finden Sie einen UMVUE Schätzer für $\mu$. 
 \end{enumerate}
 
-\paragraph*{Lösung. } Einer Standardprozedur folgend berechnen wir den MLS. 
+\solution Einer Standardprozedur folgend berechnen wir den MLS. 
 \begin{align*}
     L(x_1, \cdots, x_n) &= \prod x_i^{-1} \, \sqrt{2 \pi}^{-n} 
     \exp \left( - \frac{1}{2} \sum_{i=1}^{n} \left( \log x_i - \mu \right)^2 \right) \\
@@ -3788,7 +3788,7 @@ Lehmann-Scheff\'e ist $\hat \mu$ ein UMVUE Schätzer.
 
 
 
-\paragraph{Dreiecksverteilung. Momentenschätzer.} Gegeben seien
+\problem{Dreiecksverteilung. Momentenschätzer.} Gegeben seien
 i.i.d.\ Zufallsvariablen $X_1,\ldots, X_n$ mit der Dichte 
 \begin{align*}
     \Lambda_a(x) &= \left[ \frac{1}{a} - \frac{|x|}{a^2} \right] 1_{[-a,a]}(x)
@@ -3803,7 +3803,7 @@ und dem unbekannten Parameter $a>0$.
     \item Geben Sie einen Momentenschätzer für den Parameter $a$ an.
 \end{enumerate}
 
-\paragraph*{Lösung.} 
+\solution 
 \begin{enumerate}
     \item Die Momente ergeben sich aus
         \begin{align*}
@@ -3823,7 +3823,7 @@ und dem unbekannten Parameter $a>0$.
 
 
 
-\paragraph{Gleichverteilung. Konfidenzintervall.} Seien $X_1, \cdots, X_n$
+\problem{Gleichverteilung. Konfidenzintervall.} Seien $X_1, \cdots, X_n$
 i.i.d.\ und stetig gleichverteilt auf dem Intervall $\left[ 0,\theta \right]$
 mit $\theta>0$. D.h.\  die Dichte von $X_1\sim U(0,\theta)$ ist $p_\theta(x) = \theta^{-1}
 1_{\left[ 0,\theta \right]}(x)$.
@@ -3839,7 +3839,7 @@ mit $\theta>0$. D.h.\  die Dichte von $X_1\sim U(0,\theta)$ ist $p_\theta(x) = \
         ein $(1-\alpha)$-Konfidenzintervall für $\theta$ ist. 
 \end{enumerate}
 
-\paragraph*{Lösung.} Wir berechnen zunächst die Verteilung von $X_{(n)}$. Für $0 \leq \eta \leq \theta$
+\solution Wir berechnen zunächst die Verteilung von $X_{(n)}$. Für $0 \leq \eta \leq \theta$
 gilt
 \begin{align*}
     P\left( X_{(n)} < \eta \right) &= P \left( X_1 < \eta \wedge \cdots \wedge X_n < \eta \right) \\

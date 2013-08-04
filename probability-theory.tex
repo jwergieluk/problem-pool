@@ -2,14 +2,14 @@
 \section{Raw material}
 
 
-\paragraph{Monotonic transformations of RVs.} A strictly monotonic
+\problem{Monotonic transformations of RVs.} A strictly monotonic
 transformation of a real valued random variable with atom-less distribution
 function has an atom-less distribution function. 
 
 \url{http://math.stackexchange.com/questions/78101/monotonic-transformation-of-continuous-random-variable-are-continuous}
 
 
-\paragraph{Ordnungsstatistiken. Eigenschaften.} Seien $X_1,\dots ,X_n$
+\problem{Ordnungsstatistiken. Eigenschaften.} Seien $X_1,\dots ,X_n$
 identisch verteilte stochastisch unabhängige Zufallsgrößen mit der
 Dichtefunktion $f(x)$ und Verteilungsfunktion $F(x)$. Der Zufallsvektor $\left(
 X_{(1)},\dots ,X_{(n)} \right)$ enthält aufsteigend geordnete Zufallsgrößen
@@ -38,7 +38,7 @@ $X_1,\dots ,X_n$. Zeigen Sie folgende Aussagen:
         \end{equation*}
 \end{enumerate}
 
-\paragraph*{Lösung.}
+\solution
 \begin{enumerate}
     \item Ein fixer Punkt des Trägers von $g$ ist ein Bild von $n!$ Punkten in
         $\bR^n$ unter der Abbildung $(x_1,\dots ,x_n)\mapsto (x_{(1)},\dots
@@ -55,7 +55,7 @@ $X_1,\dots ,X_n$. Zeigen Sie folgende Aussagen:
 
 
 
-\paragraph{Independence. }
+\problem{Independence. }
 Let $(\Omega, \mathcal A, P)$ be a probablity space and let $\mathcal F$ and
 $\mathcal G$ be two independent sub-$\sigma$-algebras of $\mathcal A$.
 
@@ -64,7 +64,7 @@ $\mathcal G$ be two independent sub-$\sigma$-algebras of $\mathcal A$.
     real-valued random variable and $X$ is both $\mathcal F$-measurable
     and $\mathcal G$-measurable then $X$ is a.s.~constant.
 \end{enumerate}
-\paragraph{} $X$ und $Y$ seien unabhängige Zufallsvariablen. $X$ sei symmetrisch, 
+\problem{} $X$ und $Y$ seien unabhängige Zufallsvariablen. $X$ sei symmetrisch, 
 d.h.\ $X$ und $-X$ sind gleichverteilt. Dann gilt
 \begin{equation}
     \E \| X \|^p \leq \E \| X + Y \|^p.
@@ -78,7 +78,7 @@ and $Y \upmodels Z$ the $X+Z \sim Y+Z$.
 
 \section{Discrete distributions}
 
-\paragraph{Bernoulliverteilung. Momente. }
+\problem{Bernoulliverteilung. Momente. }
 Sei $X$ Bernoulliverteilt mit dem Parameter $p \in \left( 0,1 \right)$. Es gilt also
 $X: \Omega \to \left\{ 0,1 \right\}$ und $P(X=1)=p$. 
 \begin{enumerate}
@@ -91,7 +91,7 @@ $X: \Omega \to \left\{ 0,1 \right\}$ und $P(X=1)=p$.
             \psi(u) = \E \exp \left( u X \right) = p\exp (u)+1-p.
         \end{equation*} 
 \end{enumerate}
-\paragraph*{Lösung.} Aus $X = X^n$ für alle $n\in \bN$, erhalten wir  
+\solution Aus $X = X^n$ für alle $n\in \bN$, erhalten wir  
 \begin{align*}
     \E X = \E X^n = 1\, p + 0\, (1-p) = p.
 \end{align*}
@@ -102,7 +102,7 @@ Auf direktem Wege erhalten wir auch
 
 
 
-\paragraph{Binomialverteilung als Summe von unabhängigen Bernoulli Zufallsvariablen.}
+\problem{Binomialverteilung als Summe von unabhängigen Bernoulli Zufallsvariablen.}
 Seien $X_1, \cdots, X_n$, $n\in\bN$, i.i.d.\ und Bernoulliverteilt mit dem Parameter $p\in (0,1)$. 
 Dann ist
 \begin{equation*}
@@ -111,7 +111,7 @@ Dann ist
 binomialverteilt mit Parametern $(n,p)$. D.h., $P(Y = k) = \binom{n}{k}  p^{k}(1-p)^{n-k}$, 
 für $k\in \left\{ 0, \cdots, n \right\}$.
 
-\paragraph{Binomialverteilung. Momente und momentenerzeugende Funktion.}
+\problem{Binomialverteilung. Momente und momentenerzeugende Funktion.}
 Sei $X$ binomialverteilt mit den Parametern $(n,p)$, $n\in\N$ und $p\in(0,1)$. Dann gilt
 \begin{enumerate}
     \item \begin{equation*}
@@ -122,7 +122,7 @@ Sei $X$ binomialverteilt mit den Parametern $(n,p)$, $n\in\N$ und $p\in(0,1)$. D
             \psi(u) = \E \exp( uX) = (1 -p + p e^u)^{n}.
         \end{equation*}
 \end{enumerate}
-\paragraph*{Lösung. }
+\solution
 Nachdem $X$ die Summe unabhängiger Bernoulliverteilter Zufallsvariablen $B_1,
 \cdots, B_n$ ist, können wir die Linearität des Erwartungswertes benutzen, und
 erhalten
@@ -149,7 +149,7 @@ Binomialverteilung herleiten.
     &= \left[ e^u p + 1-p \right]^n.
 \end{align*}
 
-\paragraph{Poisson-Verteilung. Momente. } 
+\problem{Poisson-Verteilung. Momente. } 
 Sei $X$ Poisson-verteilt mit dem Parameter $\lambda>0$. Das bedeutet, $X:\Omega\to\bN$
 hat die Wahrscheinlichkeitsfunktion 
 \begin{equation*}
@@ -167,7 +167,7 @@ Es gilt
         \end{equation*}
 \end{enumerate}
 
-\paragraph{Zusammengesetzte Poisson-Verteilung.}
+\problem{Zusammengesetzte Poisson-Verteilung.}
 Sei $N$ ein Poisson-verteilte Zufallsvariable mit dem Parameter $\lambda>0$ und
 eine Folge von i.i.d.\ Zufallsvariablen $(Z_i)_{i\in\bN}$ mit existierenden
 momentenerzeungenden Funktion. Wir definieren $X = \sum_{i=1}^{N} Z_i$. $X$ ist
@@ -187,7 +187,7 @@ dem Ereignis $\left\{ N=0 \right\}$. Zeigen Sie:
         falls $\E Z_1$ existiert. 
 \end{enumerate}
 
-\paragraph*{Lösung.} Wir benutzen die Eigenschaften der bedingten Erwartung und erhalten
+\solution Wir benutzen die Eigenschaften der bedingten Erwartung und erhalten
 \begin{align*}
     \E \left[ \E \left[ \exp u \sum_{i=0}^{N} Z_i | N \right] \right] &= 
     \E \left( \E \exp uZ_1 \right)^N \\
@@ -202,7 +202,7 @@ dem Ereignis $\left\{ N=0 \right\}$. Zeigen Sie:
 
 \section{Continuous distributions}
 
-\paragraph{Momente der Exponentialverteilung.} 
+\problem{Momente der Exponentialverteilung.} 
 Sei $X$ exponentialverteilt mit dem Parameter $\lambda>0$. $X$ hat also die Dichte
 \begin{equation*}
     p(x) = \lambda e^{-\lambda x } 1_{\R_{\geq 0}}(x)
@@ -223,7 +223,7 @@ Sei $X$ exponentialverteilt mit dem Parameter $\lambda>0$. $X$ hat also die Dich
             \Var X  & = \frac{1}{\lambda^2}.
         \end{align*}
 \end{enumerate}
-\paragraph*{Lösung. } 
+\solution 
 Wir berechnen
 \begin{align*}
     P(X \leq x) & = 
@@ -252,7 +252,7 @@ erhalten wir $\E X^n = \frac{n!}{\lambda^n}$ und daraus
 \end{align*}
 
 
-\paragraph{Gedächtnislosigkeit der Exponentialverteilung.}
+\problem{Gedächtnislosigkeit der Exponentialverteilung.}
 Sei $X$ exponentialverteilt mit dem Parameter $\lambda>0$. Dann gilt für
 $x,h>0$ 
 \begin{equation*}
@@ -260,7 +260,7 @@ $x,h>0$
 \end{equation*}
 Warum wird diese Eigenschaft von $X$ Gedächtnislosigkeit genannt?
 
-\paragraph{Momentenerzeugende Funktion der Exponentialverteilung. }
+\problem{Momentenerzeugende Funktion der Exponentialverteilung. }
 Sei $X$ exponentialverteilt mit dem Parameter $\lambda>0$. 
 \begin{enumerate}
     \item Die momentenerzeugende Funktion von $X$ ist 
@@ -270,7 +270,7 @@ Sei $X$ exponentialverteilt mit dem Parameter $\lambda>0$.
         für $|u| < \lambda$. 
     \item Berechnen Sie mit Hilfe von $\psi(u)$ den Erwartungswert und die Varianz von $X$. 
 \end{enumerate}
-\paragraph*{Lösung.} 
+\solution 
 Wir berechnen
 \begin{align*}
     \psi(u) = \E \exp \left( u X \right) &= 
@@ -287,7 +287,7 @@ zu differenzieren.
     \frac{\partial}{\partial u} \frac{\lambda}{(u-\lambda)^2} = \frac{2}{\lambda^2}. 
 \end{align*}
 
-\paragraph{Minimum von exponentialverteilten Zufallsvariablen.}
+\problem{Minimum von exponentialverteilten Zufallsvariablen.}
 Seien $X_1, \dots, X_n$ i.i.d.\ und exponentialverteilt mit $X\sim \text{Exp}(\lambda_i)$
 und $\lambda_i>0$. Dann ist die Zufallsvariable 
 \begin{equation*}
@@ -296,13 +296,13 @@ und $\lambda_i>0$. Dann ist die Zufallsvariable
 wieder exponentialverteilt und es gilt $Y \sim
 \text{Exp}(\lambda_1+\cdots+\lambda_n)$.
 
-\paragraph{Gleichverteilung und Exponentialverteilung.} Sei $X$ stetig
+\problem{Gleichverteilung und Exponentialverteilung.} Sei $X$ stetig
 gleichverteilt auf dem Intervall $[0,1]$. Zeigen Sie, dass die Zufallsgröße $Y
 = -\log X$ exponentialverteilt ist.
 
-\paragraph*{Lösung. } $Y$ ist exponentialverteilt mit $\lambda=1$.
+\solution $Y$ ist exponentialverteilt mit $\lambda=1$.
 
-\paragraph{Stetige Gleichverteilung.}
+\problem{Stetige Gleichverteilung.}
 Sei $X$ stetig gleichverteilt auf dem Intervall $\left( a,b \right)\subset \R$.  
 Dies kann als $X \sim U(a,b)$ notiert werden. 
 \begin{enumerate}
@@ -321,7 +321,7 @@ Dies kann als $X \sim U(a,b)$ notiert werden.
         \end{equation*}
 \end{enumerate}
 
-\paragraph*{Lösung.} Berechnen wir zunächst die $n$-ten Momente
+\solution Berechnen wir zunächst die $n$-ten Momente
 \begin{align*}
     \E X^n &= \int_{\R}^{} x^n \frac{1}{b-a} 1_{(a,b)}(x) dx \\
     &= \frac{1}{b-a} \int_{a}^{b} x^n dx \\
@@ -344,7 +344,7 @@ Die momentenerzeugende Funktion kann folgendermassen berechnet werden.
 Beachten Sie, dass diese Funktion an Null beliebig oft differenzierbar ist. 
 
 
-\paragraph{Normalverteilung. Momentenerzeugende Funktion und Momente.}
+\problem{Normalverteilung. Momentenerzeugende Funktion und Momente.}
 Sei $X \sim \cN \left( \mu, \sigma^{2} \right)$ mit $\mu\in\R$ und $\sigma>0$. 
 Die Dichte von $X$ ist also
 \begin{equation*}
@@ -363,7 +363,7 @@ Dann gilt
         \end{align*}
     \item Die Zufallsvariable $Z = \frac{X-\mu}{\sigma}$ ist standardnormalverteilt.
 \end{enumerate}
-\paragraph*{Lösung.} Wir berechnen die momentenerzeugende Funktion der
+\solution Wir berechnen die momentenerzeugende Funktion der
 Normalverteilung indem wir das Integral $\E \exp (u X)$ auf ein Integral der
 Dichte einer Normalverteilung zurückführen. 
 \begin{align*}
@@ -420,7 +420,7 @@ $\psi_{Z}$ ist die momentenerzeugende Funktion der Normalverteilung mit
 Parametern $(0,1)$. Was zu zeigen war. 
 
 
-\paragraph{Normalverteilung. Momente.} 
+\problem{Normalverteilung. Momente.} 
 Sei $Z$ standardisiert normalverteilt und $n\in\bN$. Zeigen Sie folgende Aussagen:
 \begin{enumerate}
     \item Für die geraden Momente von $Z$ gilt die Formel
@@ -437,7 +437,7 @@ Sei $Z$ standardisiert normalverteilt und $n\in\bN$. Zeigen Sie folgende Aussage
         Zufallsgröße \linebreak $X \sim \cN \left( \mu, \sigma^2 \right)$. 
 \end{enumerate}
 
-\paragraph*{Lösung.}
+\solution
 \begin{enumerate}
     \item 
         Die momentenerzeugende Funktion der Standardnormalverteilung ist 
@@ -468,7 +468,7 @@ Sei $Z$ standardisiert normalverteilt und $n\in\bN$. Zeigen Sie folgende Aussage
 \end{enumerate}
 
 
-\paragraph{Summen von normalverteilten Zufallsvariablen. }
+\problem{Summen von normalverteilten Zufallsvariablen. }
 Sind die Zufallsvariablen $X_1,\ldots,X_n$ unabhängig und normalverteilt
 mit $X_i \sim \mathcal N (\nu_i, \sigma_i^2)$, so ist die Summe
 wieder normalverteilt mit 
@@ -477,7 +477,7 @@ wieder normalverteilt mit
     \mathcal N \left( \sum_{i=1}^{n} \nu_i, \sum_{i=1}^{n} \sigma_i^2 \right). 
 \end{equation*} %\cite{czadoschmidt} %(A 1.31)
 
-\paragraph*{Lösung. }
+\solution
 Wir berechnen die momentenerzeugende Funktion der Zufallsvariable $\sum_{i=1}^{n} X_i$
 und verwenden dabei die Unabhängigkeit von $X_1, \cdots, X_n$.
 \begin{align*}
@@ -492,7 +492,7 @@ gehört zu einer Normalverteilung mit dem Erwartungswert $\sum_{i=1}^{n} \nu_i$ 
 der Varianz $\sum_{i=1}^{n} \sigma^2_i$. 
 
 
-\paragraph{Dichte der multivariaten Normalverteilung. } Zeigen Sie, dass 
+\problem{Dichte der multivariaten Normalverteilung. } Zeigen Sie, dass 
 $X \sim \mathcal N_p\left( \mu, \Sigma \right) $ folgende Dichte hat, falls 
 $\textrm{Rang}(\Sigma)=p$: 
 \begin{equation*}
@@ -500,12 +500,12 @@ $\textrm{Rang}(\Sigma)=p$:
 \end{equation*} %\cite{czadoschmidt} %(A 1.37)
 
 
-\paragraph{Gaussche Zufallsvariablen und Unabhängigteit. } Seien $X$ und $Y$
+\problem{Gaussche Zufallsvariablen und Unabhängigteit. } Seien $X$ und $Y$
 standardnormalverteilt und unabhängig. Dann sind die Zufallsvariablen $U =
 \frac{X-Y}{\sqrt{2}}$ und $V=\frac{X+Y}{\sqrt{2}}$ ebenfalls standardnormalverteilt 
 und unabhängig. 
 
-\paragraph*{Lösung.} Betrachte die Transformation der Zufallsvariable $(X,Y)^\top$
+\solution Betrachte die Transformation der Zufallsvariable $(X,Y)^\top$
 mit der Matrix
 \begin{equation*}
     \begin{pmatrix}
@@ -515,7 +515,7 @@ mit der Matrix
 normiert mit $\frac{1}{\sqrt{2}}$. 
 
 
-\paragraph{Log-Normalverteilung. Momente und Dichte.}
+\problem{Log-Normalverteilung. Momente und Dichte.}
 Sei $X \sim \cN(\mu,\sigma^2)$ normalverteilt, dann ist die Zufallsvariable 
 $Y = e^{X}$ log-normalverteilt, was als $Y \sim \cL\cN (\mu, \sigma^2)$ notiert 
 werden kann. Beweisen Sie folgende Eigenschaften der Log-Normalverteilung.
@@ -534,7 +534,7 @@ werden kann. Beweisen Sie folgende Eigenschaften der Log-Normalverteilung.
     \item Die momentenerzeugende Funktion $\psi_Y$ von $Y$ existiert für alle $t\neq 0$ nicht. 
 \end{enumerate}
 
-\paragraph*{Lösung.}
+\solution
 Sei $\phi_X$ die Dichte und $\Phi_X$ die Verteilungsfunktion von $X$. Wir bemerken zunächst
 \begin{equation*}
     P \left( e^{X} \leq t \right) = P \left( X \leq \log t \right) = 
@@ -586,7 +586,7 @@ Die oben bewiesene Aussage gilt auch allgemein für $X \sim \cN (\mu, \sigma^2)$
 
 
 
-\paragraph{Beta-verteilung.} Sei $X$ eine Beta$(2,2)$-verteilte Zufallsvariable.
+\problem{Beta-verteilung.} Sei $X$ eine Beta$(2,2)$-verteilte Zufallsvariable.
 \begin{enumerate}
     \item Geben Sie die Dichte und Verteilungsfunktion von $X$ explicit an. 
     \item Geben Sie die Dichte und Verteilungsfuntion der Zufallsvariable
@@ -595,7 +595,7 @@ Die oben bewiesene Aussage gilt auch allgemein für $X \sim \cN (\mu, \sigma^2)$
 \end{enumerate}
 
 
-\paragraph{Gamma-Verteilung. Momente.}
+\problem{Gamma-Verteilung. Momente.}
 Gegeben sei eine Gamma-verteilte Zufallsvariable $X$ mit der Dichte
 \begin{equation*}
     p_{a,\lambda}(x) = \frac{\lambda^a}{\Gamma(a)}x^{a-1}e^{-\lambda x} 1_{\R_{\geq 0}}(x)
@@ -609,7 +609,7 @@ Dabei können Sie die Identität
 $\Gamma(a+1)=a \Gamma(a)$, $a\in\R \setminus \left\{ -1,-2,\ldots \right\}$, verwenden.
 [Klausur WS11]
 
-\paragraph*{Lösung.}
+\solution
 \begin{eqnarray*}
     E X^n &=& \int_{0}^{\infty} x^n \frac{\lambda^a}{\Gamma(a)}x^{a-1}e^{-\lambda x} dx \\
     &=& \frac{a \cdot\ldots\cdot \left( a+n-1 \right)}{\lambda^n} 
@@ -619,14 +619,14 @@ $\Gamma(a+1)=a \Gamma(a)$, $a\in\R \setminus \left\{ -1,-2,\ldots \right\}$, ver
 \end{eqnarray*}
 
 
-\paragraph{Momentenerzeugende Funktion einer Gamma-Verteilung. }
+\problem{Momentenerzeugende Funktion einer Gamma-Verteilung. }
 Sei $X \sim \textrm{Gamma}(a, \lambda)$. Zeigen Sie, dass für $s<\lambda$
 \begin{equation*}
     \Psi_X(s) = E \left( e^{sX} \right) = \frac{\lambda^a}{ (\lambda-s)^a}
 \end{equation*}
 gilt. Bestimmen Sie damit den Erwartungswert und die Varianz von $X$. %A 1.12
 
-\paragraph{Transformationen der Gamma-Verteilung. } Seien $X \sim
+\problem{Transformationen der Gamma-Verteilung. } Seien $X \sim
 \textrm{Gamma}(\alpha_1, \beta)$ und $Y \sim \textrm{Gamma}(\alpha_2, \beta)$
 zwei unabhängige Zufallsvariablen. Beweisen Sie:
 \begin{enumerate}
@@ -646,7 +646,7 @@ Für die Beweise der letzten zwei Aussagen können Sie den Transformationssatz
 verwenden. 
 % \cite{czadoschmidt}
 
-\paragraph{Gamma-Verteilung und Exponentialverteilung. }
+\problem{Gamma-Verteilung und Exponentialverteilung. }
 Seien
 \begin{equation*}
     E_1, E_2 \sim \text{Exp}(\lambda)
@@ -662,7 +662,7 @@ unabhängig. Zeigen Sie die folgenden Aussagen mit Hilfe der Faltungsformel.
     \item $E_1 + E_2$ ist Gamma-verteilt mit den Parametern $(2,\lambda)$. 
     \item $E_1 + G$ ist Gamma-verteilt mit den Parametern $(a+1, \lambda)$. 
 \end{enumerate}
-\paragraph*{Lösung. }
+\solution
 Sei 
 \begin{equation*}
     p(x) = \lambda e^{- \lambda x} 1_{\R_{\geq 0}}(x)
@@ -691,13 +691,13 @@ können wir die Dichte der Zufallsvariable $E_1 + G$ berechnen.
 $f_{E_1 + G}$ ist also die Dichte der Verteilung $\text{Gamma}(a+1, \lambda)$. 
 
 
-\paragraph{Mittelwertvergleich bei Gamma-Verteilungen. }
+\problem{Mittelwertvergleich bei Gamma-Verteilungen. }
 Seien $X_1,\ldots,X_n$ i.i.d.\ und $\textrm{Gamma}(a, \lambda_1)$-verteilt sowie
 $Y_1,\ldots,Y_n$ i.i.d.\ und $\textrm{Gamma}(a,\lambda_2)$-verteilt. Man nehme an,
 dass die Vektoren $(X_1,\ldots,X_n)$ und $(Y_1,\ldots,Y_n)$ unabhängig sind. 
 Bestimmen Sie die Verteilung von $\bar X/\bar Y$.
 
-\paragraph{Dichte der $\chi^2$-Verteilung. } 
+\problem{Dichte der $\chi^2$-Verteilung. } 
 Seien $X_1,\ldots,X_n$ unabhängige und standardnormalverteilte
 Zufallsvariablen. Dann folgt $Y= \sum_{i=1}^{n} X_i^2$ einer
 $\chi^2$-Verteilung mit $n$ Freiheitsgraden. 
@@ -711,7 +711,7 @@ $\chi^2$-Verteilung mit $n$ Freiheitsgraden.
             \Gamma(\frac{n}{2})}e^{-\frac{x}{2}} x^{\frac{n-2}{2}} 1_{\R>0}(x).
         \end{equation*}
 \end{enumerate}
-\paragraph*{Lösung. }
+\solution
 Wir berechnen zunächst die Verteilungsfunktion $F$ von $X_1$. Für ein positives $t$
 erhalten wir
 \begin{align*}
@@ -735,7 +735,7 @@ Freiheitsgraden.
 
 
 
-\paragraph{Verteilung der Stichprobenvarianz. }
+\problem{Verteilung der Stichprobenvarianz. }
 Seien $X_1, \ldots, X_n$ i.i.d., normalverteilt und $\Var\left( X_1 \right)=\sigma^2$.
 Für das zweite zentrierte empirische  Moment 
 $\hat \sigma^2 \left( X \right)= \frac{1}{n} \sum_{i=1}^{n} \left( X_i - \bar X \right)^2 $
@@ -746,7 +746,7 @@ gilt, dass
 \end{equation*}
 
 
-\paragraph{Rayleigh-Verteilung. }  Seien $X$ und $Y$ unabhängig und 
+\problem{Rayleigh-Verteilung. }  Seien $X$ und $Y$ unabhängig und 
 $\mathcal N (0, \sigma^2)$-verteilt. Dann ist
 \begin{equation*}
     Z= \sqrt{X^2 + Y^2} 
@@ -764,7 +764,7 @@ Rayleigh-verteilt. Zeigen Sie:
 
 \section{Counterexamples}
 
-\paragraph{Cauchy-Verteilung. Ein Gegenbeispiel.}
+\problem{Cauchy-Verteilung. Ein Gegenbeispiel.}
 Sei $X$ Cauchyverteilt mit der Dichte
 \begin{equation*}
     p(x) = \frac{1}{\pi (1+x^2)}.
@@ -777,14 +777,14 @@ Zeigen Sie:
     \item Die momentenerzeugende Funktion von $X$ existiert für alle $t \neq 0$ nicht. 
 \end{enumerate}
 
-\paragraph{Cauchy-Verteilung ist hartneckig.} Seien $X_1,\dots ,X_n$
+\problem{Cauchy-Verteilung ist hartneckig.} Seien $X_1,\dots ,X_n$
 unabhängig und Cauchy-Verteilt. Zeigen Sie, dass $X_1$ die gleiche
 Verteilung wie $\frac{X_1 +\dots + X_n}{n}$ hat. 
 
 
 \section{Theoretical computations}
 
-\paragraph{Dichtefunktionen. Scheff\'es Identitäten.} Seien $f$ und $g$
+\problem{Dichtefunktionen. Scheff\'es Identitäten.} Seien $f$ und $g$
 Dichtefunktionen und $A = \left\{ x : f(x)>g(x) \right\}$. 
 Zeigen Sie folgende Identitäten:
 \begin{enumerate}
@@ -799,11 +799,11 @@ Zeigen Sie folgende Identitäten:
 \end{enumerate}
 
 
-\paragraph{Unabhängigkeit.} 
+\problem{Unabhängigkeit.} 
 Sei $X$ eine Zufallvariable. $X$ ist von $X$ unabhängig, genau dann wenn
 $P(X = c)=1$ für eine Konstante $c$ gilt. %\cite{jacod2003probability}
 
-\paragraph{Eine Darstellung des Erwartungswertes. } Sei $X$ eine
+\problem{Eine Darstellung des Erwartungswertes. } Sei $X$ eine
 positive Zufallsvariable mit $\E X < \infty$. 
 \begin{enumerate}
     \item Ist $X \in \bN$ diskret, so gilt
@@ -820,9 +820,9 @@ positive Zufallsvariable mit $\E X < \infty$.
         \end{eqnarray}
 \end{enumerate} 
 
-\paragraph*{Lösung.} Das ist eine Anwendung des Satzes von Fubini.
+\solution Das ist eine Anwendung des Satzes von Fubini.
 
-\paragraph{Erwartungstreue einfacher Schätzer.} 
+\problem{Erwartungstreue einfacher Schätzer.} 
 Seien $X_1,\ldots,X_n$ i.i.d.\ mit dem Erwartungswert $\mu$ und endlicher
 Varianz $\sigma^2$. Der arithmetische Mittelwert von $X=(X_1,\cdots,X_n)$ ist
 definiert als
@@ -848,7 +848,7 @@ Zeigen Sie:
     \item Die Stichprobenvarianz ist ein erwartungstreuer Schätzer für $\sigma^2$. 
 \end{enumerate}
 
-\paragraph*{Lösung.}
+\solution
 Die Erwartungstreue der ersten beiden Schätzer ist leicht zu zeigen. 
 \begin{align*}
     \E \bar X &= \E \left[ \frac{1}{n} \sum_{i=1}^{n} X_i \right] 
@@ -882,7 +882,7 @@ und daraus
 
 
 
-\paragraph{Faltungsformel. } Haben $X$ und $Y$ die Dichten $p_X$ und $p_Y$ und beide
+\problem{Faltungsformel. } Haben $X$ und $Y$ die Dichten $p_X$ und $p_Y$ und beide
 sind unabhängig, so ist die Dichte von der Summe $Z=X+Y$ gegeben durch
 \begin{equation*}
     p_Z(z) = \int_{\R}^{} p_X(x)p_Y(z-x) dx.
@@ -890,10 +890,10 @@ sind unabhängig, so ist die Dichte von der Summe $Z=X+Y$ gegeben durch
 % (A 1.30)
 
 
-\paragraph{Abzählbare Familien disjunkter Mengen.} Sei ein Wahrscheinlichkeitsraum
+\problem{Abzählbare Familien disjunkter Mengen.} Sei ein Wahrscheinlichkeitsraum
 $(\Omega, \cA, P)$ und eine Familie $(A_i)_{i\in I}$ mit $A_i \in \cA$ und
 $P(A_i)>0 \forall i$ gegeben. Dann ist $I$ höchstens abzählbar. 
-\paragraph*{Lösung.} Sortiere die Menge der Größe nach. 
+\solution Sortiere die Menge der Größe nach. 
 
 
 
@@ -904,7 +904,7 @@ $P(A_i)>0 \forall i$ gegeben. Dann ist $I$ höchstens abzählbar.
 %\emph{Hinweis zu den Lösungen: } Die Gleichheitsrelationen sowohl in den Aufgaben als auch in 
 %den Lösungen sind $P$-fast sicher zu verstehen.
 
-\paragraph{Bedingte Erwartungen. II.}
+\problem{Bedingte Erwartungen. II.}
 Seien $\left( X_i \right)_{i\geq 1}$ i.i.d.\ und integrierbar. Definieren wir 
 $S_n = \sum_{i=1}^{n} X_i$. Dann gilt:
 \begin{enumerate}
@@ -912,7 +912,7 @@ $S_n = \sum_{i=1}^{n} X_i$. Dann gilt:
         für $1\leq j \leq n$.
 \end{enumerate}
 
-\paragraph*{Lösung.} 
+\solution 
 \begin{enumerate}
     \item Es gilt
         \begin{equation*}
@@ -934,7 +934,7 @@ $S_n = \sum_{i=1}^{n} X_i$. Dann gilt:
 \end{enumerate}
 
 
-\paragraph{Zusammengesetzte Poissonverteilung. Momentenerzeugende Funktion und Momente.}
+\problem{Zusammengesetzte Poissonverteilung. Momentenerzeugende Funktion und Momente.}
 Sei $N$ Poissonverteilt mit dem Parameter $\lambda>0$ und $\left( X_i
 \right)_{i\geq 1}$ i.i.d.  Zufallsvariablen mit existierender
 momentenerzeugender Funktion $\psi_X$. Die Zufallsvariablen $N, X_1, X_2,
@@ -960,7 +960,7 @@ wobei wir auf $\left\{ N=0 \right\}$ $Y=0$ setzen. Zeigen Sie folgende Aussagen.
         \end{align*}
 \end{enumerate}
 
-\paragraph*{Lösung.} Wir berechnen die momentenerzeugende Funktion von $Y$.
+\solution Wir berechnen die momentenerzeugende Funktion von $Y$.
 \begin{align*}
     \psi_Y(u) &= \E \exp \left( uY \right) \\
     &= \E \exp \left( u\sum_{i=1}^{N} X_i \right) \\
@@ -990,7 +990,7 @@ Den Erwartungswert und die Varianz erhalten wir aus
 
 
 
-\paragraph{Bedingte Erwartungen. Turmeigenschaft. Gegenbeispiel. } Sei $X$ eine integrierbare Zufallsvariable
+\problem{Bedingte Erwartungen. Turmeigenschaft. Gegenbeispiel. } Sei $X$ eine integrierbare Zufallsvariable
 und $\mathcal H, \mathcal G$ seien Sub-$\sigma$-Algebren von $\mathcal A$. 
 Zeigen Sie durch ein Beispiel, dass 
 \begin{equation*}
@@ -999,7 +999,7 @@ Zeigen Sie durch ein Beispiel, dass
 \end{equation*}
 gelten kann. 
 
-\paragraph*{Lösung. } 
+\solution 
 Betrachten wir $\Omega=\left\{ 1,2,3 \right\}$, $\mathcal A=2^\Omega$ die Potenzmenge von $\Omega$,
 $\mathcal H=\sigma\left( \left\{ 1,2 \right\} \right)$ und 
 $\mathcal G=\sigma\left( \left\{ 2,3 \right\} \right)$ sowie 
@@ -1022,7 +1022,7 @@ Dabei bezeichnet $4_{ \left\{ 1,2 \right\} }$ eine Funktion, die den Elementen $
 den Wert $4$ zuordnet und allen anderen den Wert $0$.
 
 
-\paragraph{Bedingte Erwartungen. Turmeigenschaft. } Sei $X$ eine integrierbare
+\problem{Bedingte Erwartungen. Turmeigenschaft. } Sei $X$ eine integrierbare
 Zufallsvariable und $\mathcal H$ eine Sub-$\sigma$-Algebra von der
 $\sigma$-Algebra $\mathcal G$ mit $\mathcal H \subset \mathcal G \subset
 \mathcal A$. Zeigen Sie
@@ -1037,7 +1037,7 @@ $\sigma$-Algebra $\mathcal G$ mit $\mathcal H \subset \mathcal G \subset
 %	E\left[ E\left[ X | \mathcal H \right] | \mathcal G \right] =
 %\end{equation*}
 
-\paragraph*{Lösung.} Wir zeigen zunächst 
+\solution Wir zeigen zunächst 
 $E\left[ E\left[ X | \mathcal H \right] | \mathcal G \right]=E \left[ X | \mathcal H \right]$.
 Nach Definition des bedingten Erwartungswertes ist $E\left[ X| \mathcal H \right]$ 
 $\mathcal H$-messbar und daher $\mathcal G$-messbar. So bekommen wir 
@@ -1073,7 +1073,7 @@ Daher ist nach Definition des bedingten Erwartungswertes
 \end{equation*}
 
 
-\paragraph{Bedingte Varianz. } Seien $X,Y$ reelle Zufallsvariable mit $E\left[
+\problem{Bedingte Varianz. } Seien $X,Y$ reelle Zufallsvariable mit $E\left[
 X^2 \right] <\infty$.  Die bedingte Varianz einer Zufallsvariablen $X$ gegeben
 $Y$ ist definiert durch
 \begin{equation*}
@@ -1092,7 +1092,7 @@ Dann gelten
         \end{equation*}
 \end{enumerate}
 
-\paragraph*{Lösung. } 
+\solution 
 Die Behauptung ist äquivalent zu 
 \begin{equation*}
     E\left\{ X^2 \right\} - E\left\{ X \right\}^2 
@@ -1118,7 +1118,7 @@ Die Turmeigenschaft liefert uns aber
 \end{eqnarray*}
 
 
-\paragraph{Bedingte Erwartungen. Einfache Eigenschaften.} Sei $X$ eine
+\problem{Bedingte Erwartungen. Einfache Eigenschaften.} Sei $X$ eine
 integrierbare Zufallsvariable und $\cG \subset \cA$ eine Sub-$\sigma$-Algebra.
 Zeigen Sie die folgenden Aussagen.
 \begin{enumerate}
@@ -1129,7 +1129,7 @@ Zeigen Sie die folgenden Aussagen.
 \end{enumerate}
 
 
-\paragraph*{Lösung.} 
+\solution 
 \begin{enumerate}
     \item 
         Nach Definition ist $E\left[ X| X \right]=E\left[ X|\sigma\left( X
@@ -1158,12 +1158,12 @@ Zeigen Sie die folgenden Aussagen.
 
 
 
-\paragraph{Bedingte Erwartungen und Normalverteilung.} Seien $X$ und $Y$ unabhängige
+\problem{Bedingte Erwartungen und Normalverteilung.} Seien $X$ und $Y$ unabhängige
 standardnormalverteilte Zufallsvariablen. Berechnen Sie $\E\left[ X \vb X+Y
 \right]$.
 
 
-\paragraph{Bedingte Erwartungen. Exponentialverteilung.} Seien $X,Y$ unabhängig
+\problem{Bedingte Erwartungen. Exponentialverteilung.} Seien $X,Y$ unabhängig
 und exponentialverteilt. Berechnen Sie:
 \begin{enumerate}
     \item $\E\left[ Y \vb Y \wedge t \right]$.
@@ -1171,7 +1171,7 @@ und exponentialverteilt. Berechnen Sie:
 \end{enumerate}
 
 
-\paragraph{Bedingte Erwartungen und Normalverteilung II.} Exercise 5.2.7 from
+\problem{Bedingte Erwartungen und Normalverteilung II.} Exercise 5.2.7 from
 Föllmer and Schied.
 
 
