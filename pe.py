@@ -24,8 +24,8 @@ def printFile(fileName):
 
 
 
-PROBLEM_LINE=r'\s*^(\\paragraph{)(.*)\s*}'     # TODO: Take only the first } encoutered 
-SOLUTION_LINE=r'\s*^\\paragraph\*{'
+PROBLEM_LINE=r'\s*^(\\problem{)(.*)(\s*})(.*)'     # TODO: Take only the first } encoutered 
+SOLUTION_LINE=r'\s*^\\solution'
 
 class Problems: 
     def __init__(self):
@@ -35,7 +35,7 @@ class Problems:
        self.ids=[]
        self.tags=[]
 
-    def addKeys(self, keyList):
+    def processCommands(self, keyList):
         for k in keyList:
             k=k.strip()
             cmd=k.split(" ")[0].lower()
@@ -55,12 +55,13 @@ class Problems:
         probSolution=""
         probId=""
         probTags=[]
+        probImported=0
 
         for line in lines: 
             line=line.strip()
 
-#            if len(line)==0:    # remove empty lines
-#                continue
+            if re.search(r'\\chapter', line, re.UNICODE)!=None:
+                continue
 
             if re.search(r'\\section', line, re.UNICODE)!=None:
                 continue
@@ -77,9 +78,10 @@ class Problems:
                     if probName in self.problems.keys():
                         print >> sys.stderr, "WARNING: The key \"%s\" already in the database!" % (probName)
                     self.problems[probName] = [probBody, probSolution]
+                    probImported=probImported+1
 
-                probName=match.group(2).strip().lower()
-                probBody=line
+                probName=match.group(2).strip()     # WARNING: removed .lower()
+                probBody=match.group(4)             # line # TODO   encoded name of the problem
                 probSolution=""
                 continue
 
@@ -97,6 +99,8 @@ class Problems:
             if probName in self.problems.keys():
                 print >> sys.stderr, "WARNING: The key \"%s\" already in the database!" % (probName)
             self.problems[probName] = [probBody, probSolution]
+            probImported=probImported+1
+	sys.stderr.write("%% INFO: %d problems imported from %s.\n" % (probImported, tex))
 
     def printProblems(self):
         for i in range(len(self.cmds)):
@@ -115,16 +119,20 @@ class Problems:
                 random_key = rng.choice(self.problems.keys())
                 while len( self.problems[random_key][1])>0:
                     random_key = rng.choice(self.problems.keys())
+                print "\\paragraph{%s} " % (random_key)
                 print self.problems[random_key][0]
                 print self.problems[random_key][1]
             if cmd=="p" or cmd=="s":
-                key=key.lower()
+#                key=key.lower()
                 if not key in self.problems.keys():
                     print "\\paragraph{%s NOT FOUND!!}\n" % (key)
+                    sys.stderr.write("%% ERROR: Problem not found: %s\n" % (key))
                     continue
                 if cmd=="p":
+                    print "\\paragraph{%s} " % (key)
                     print self.problems[key][0]
                 if cmd=="s":
+                    print "\\paragraph{%s} " % (key)
                     print self.problems[key][0]
                     print self.problems[key][1]
             if cmd=="info":
@@ -134,7 +142,7 @@ class Problems:
     def printSummary(self):
         sys.stderr.write("%% INFO: %d Problems in the datebase.\n" % (len(self.problems.keys())) )
         for i in range(len(self.problems.keys())):
-            print "%% %d. %s" % (i, self.problems.keys()[i])
+            sys.stderr.write("%% %d. %s\n" % (i, self.problems.keys()[i]))
 
 
 
@@ -146,14 +154,12 @@ if __name__ == "__main__":
         printUsage()
         sys.exit()
 
-    db.addKeys(readLines(sys.argv[1]))
+    db.processCommands(readLines(sys.argv[1]))
 
     for f in sys.argv[2:]:
         db.processTex(f)
         
     db.printProblems()
-
-
 
 
 
