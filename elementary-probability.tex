@@ -89,13 +89,56 @@ $A$, $B_k$, $C_j$.
 
 
 \problem{Ereignisse. Kosten.}
-Drei Betriebsteile werden auf Einhaltung eines bestimmten
-Kostenfaktors überprüft. Das Ereignis $A$ liege vor, wenn mindestens ein
-Betriebsteil nicht den geforderten Kostenfaktor einhält, das Ereignis $B$ liege
-vor, wenn alle drei Betriebsteile den geforderten Kostenfaktor einhalten.
+Drei Betriebsteile werden auf Einhaltung eines bestimmten Kostenfaktors
+überprüft. Das Ereignis $A$ liege vor, wenn mindestens ein Betriebsteil nicht
+den geforderten Kostenfaktor einhält, das Ereignis $B$ liege vor, wenn alle
+drei Betriebsteile den geforderten Kostenfaktor einhalten.
 
 Was bedeuten dann die Ereignisse $A\cup B$ und $A\cap B$ ?
 
+\problem{Zufallsvariablen. Urbildmengen.}
+Gegeben seien ein Grundraum $\Omega= \bR$ und die Zufallsvariable
+\begin{align*}
+    X &: \Omega \to \bR : \omega \mapsto \omega^2.
+\end{align*}
+Geben Sie folgende Mengen explizit an:
+\begin{align*}
+    \left\{ X = 0 \right\}, && \left\{ X \in [1,2) \right\}, && \left\{ X > 2 \right\}, && 
+    \left\{ 2X < 4 \right\}, && \left\{ |X-2| > 1 \right\}.
+\end{align*}
+
+\problem{Zufallsvariablen. Zwei unterscheidbare Würfel.}
+Ein weißer Würfel und ein schwarzer Würfel werden geworfen. 
+\begin{enumerate}
+    \item Geben Sie einen geeigneten Grundraum $\Omega$ an, der diese 
+        Zufallssituation beschreibt.
+    \item Die Zufallsvariablen $W$ bzw.\ $S$ geben die Augenzahl des weißen bzw.\ 
+        schwarzen Würfels an. Geben Sie die Definitionen von $W$ und $S$ explizit an.
+        Wie definieren Sie den Zustandsraum?
+
+    \item Geben Sie folgende Ereignisse explizit an:
+        \begin{align*}
+            \left\{ W = 6 \right\}, && \left\{ W+S = 4 \right\}, && \left\{ W > S \right\}, && \left\{ \frac{W}{S} > 1 \right\}.
+        \end{align*}
+\end{enumerate}
+
+\problem{Zufallsvariablen. Indikatorfunktionen.}
+Ein Experiment bestehe aus einfachem Würfelwurf und wird durch den Grundraum
+$\Omega = \left\{ 1,2,3,4,5,6 \right\}$ beschrieben. Die Zufallsvariable $X:
+\Omega \to \bR, \omega \mapsto \omega$ liefert das Ergebnis des Würfelwurfs.
+Zeigen Sie
+\begin{equation*}
+    X = 1_{ [1,6] } + 1_{[2,6]} + \dots + 1_{ [6,6] }.
+\end{equation*}
+
+\problem{$\sigma$-Algebren. Potenzmenge.}
+Sei $\Omega$ ein endlicher Grundraum. Zeigen Sie, dass die Menge aller Teilmengen von
+$\Omega$, also die Potenzmenge $2^{\Omega}$, endlich und eine $\sigma$-Algebra ist.
+
+\problem{$\sigma$-Algebren. Restriktion.}
+Sei $\cA$ eine $\sigma$-Algebra von Teilmengen eines Grundraumes $\Omega$ und
+$B \in \cA$. Zeigen Sie, dass $\cC = \left\{ A\cap B : A\in\cA \right\}$ eine
+$\sigma$-Algebra von Teilmengen von $B$ ist.
 
 \problem{Ereignisse. Würfel und Münze.}
 Ein Experiment bestehe aus dem Werfen eines fairen Würfels und einer fairen Münze.
