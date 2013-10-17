@@ -132,18 +132,19 @@ Zeigen Sie
 \end{equation*}
 
 \problem{$\sigma$-Algebren. Potenzmenge.}
-Sei $\Omega$ ein endlicher Grundraum. Zeigen Sie, dass die Menge aller Teilmengen von
-$\Omega$, also die Potenzmenge $2^{\Omega}$, endlich und eine $\sigma$-Algebra ist.
+Sei $\Omega$ ein endlicher nichtleerer Grundraum. Zeigen Sie, dass die
+Menge aller Teilmengen von $\Omega$, also die Potenzmenge $\cP(\Omega)$,
+endlich und eine $\sigma$-Algebra ist.
 
 \problem{$\sigma$-Algebren. Restriktion.}
 Sei $\cA$ eine $\sigma$-Algebra von Teilmengen eines Grundraumes $\Omega$ und
-$B \in \cA$. Zeigen Sie, dass $\cC = \left\{ A\cap B : A\in\cA \right\}$ eine
-$\sigma$-Algebra von Teilmengen von $B$ ist.
+$B \in \cA$ mit $B\neq \emptyset$. Zeigen Sie, dass $\cC = \left\{ A\cap B :
+A\in\cA \right\}$ eine $\sigma$-Algebra von Teilmengen von $B$ ist.
 
 \problem{Ereignisse. Würfel und Münze.}
 Ein Experiment bestehe aus dem Werfen eines fairen Würfels und einer fairen Münze.
 \begin{enumerate}
-    \item Geben Sie eine geeignete Ergebnismenge $\Omega$ an.
+    \item Geben Sie einen Grundraum $\Omega$ an, der diese Zufallssituation beschreibt.
     \item Zeigt die Münze Wappen, so wird die doppelte Augenzahl des Würfels
         notiert, bei Zahl nur die einfache. Wie groß ist die
         Wahrscheinlichkeit, dass eine gerade Zahl notiert wird?
@@ -160,69 +161,69 @@ Würfel auf mindestens einer Seite gefärbt ist?
 
 \problem{Ereignisse. Elementare Wahrscheinlichkeiten.}
 Für die Ereignisse $A$ und $B$ seien folgende Wahrscheinlichkeiten bekannt:
-$P(A)=0.25$, $P(B)=0.45$, $P(A\cup B)=0.5$. Berechnen Sie die
+$\bP(A)=0.25$, $\bP(B)=0.45$, $\bP(A\cup B)=0.5$. Berechnen Sie die
 Wahrscheinlichkeiten:
 \begin{enumerate}
-    \item $P(A\cap\overline{B})$,
-    \item $P(\overline{A}\cap\overline{B})$ und
-    \item $P\left((A\cap\overline{B})\cup(\overline{A}\cap B)\right)$.
+    \item $\bP(A\cap\overline{B})$,
+    \item $\bP(\overline{A}\cap\overline{B})$ und
+    \item $\bP\left((A\cap\overline{B})\cup(\overline{A}\cap B)\right)$.
 \end{enumerate}
 
 \solution
 \begin{enumerate}
     \item \begin{align*}
-            P(A \cup B) &= P( (A \cap \bar B) \cup B ) = 
-            P( A \cap \bar B  ) + P(B) \\
-            P(A \cup \bar B) &= P(A \cup B) - P(B) = 0.05.
+            \bP(A \cup B) &= \bP( (A \cap \bar B) \cup B ) = 
+            \bP( A \cap \bar B  ) + \bP(B) \\
+            \bP(A \cup \bar B) &= \bP(A \cup B) - \bP(B) = 0.05.
         \end{align*}
     \item \begin{align*}
-            P(\bar A \cap \bar B) &= P(\overline{A \cup B}) = 0.5.
+            \bP(\bar A \cap \bar B) &= \bP(\overline{A \cup B}) = 0.5.
         \end{align*}
     \item Die symmetrische Differenz $A \Delta B = (A \setminus B) \cup (B \setminus A)$
         ist eine disjunkte Vereinigung, und daher
         \begin{align*}
-            P(A \Delta B) &= P(A \cap \bar B) + P(\bar A \cap B).
+            \bP(A \Delta B) &= \bP(A \cap \bar B) + \bP(\bar A \cap B).
         \end{align*}
         Die vorherigen Überlegungen liefern
         \begin{align*}
-            P( A \cap \bar B) &= P(A \setminus B) = P(A \cup B) - P(B) = 0.05 \\
-            P( \bar A \cap B) &= P(B \setminus A) = P(A \cup B) - P(A) = 0.25.
+            \bP( A \cap \bar B) &= \bP(A \setminus B) = \bP(A \cup B) - \bP(B) = 0.05 \\
+            \bP( \bar A \cap B) &= \bP(B \setminus A) = \bP(A \cup B) - \bP(A) = 0.25.
         \end{align*}
-        Insgesamt gilt also $P(A \Delta B) = 0.3$.
+        Insgesamt gilt also $\bP(A \Delta B) = 0.3$.
 \end{enumerate}
 
 
 \section{Wahrscheinlichkeitsmaße.}
 
 \problem{Wahrscheinlichkeitsmaße. Monotonie.} Seien ein Wahrscheinlichkeitsraum \linebreak
-$(\Omega, \fA, P)$ und die Ereignisse $A,B \in \fA$ gegeben. Zeigen Sie
+$(\Omega, \cA, \bP)$ und die Ereignisse $A,B \in \cA$ gegeben. Zeigen Sie
 \begin{equation*}
-A \subseteq B \quad  \impl \quad P(A) \leq P(B).
+A \subseteq B \quad  \impl \quad \bP(A) \leq \bP(B).
 \end{equation*}
 
-\solution $P(B) = P(A \cup (B \setminus A))= P(A) + P(B\setminus A) \geq P(A)$. 
+\solution $\bP(B) = \bP(A \cup (B \setminus A))= \bP(A) + \bP(B\setminus A) \geq \bP(A)$. 
 
 
 \problem{Wahrscheinlichkeitsmaße. Subaditivität.} Seien ein
-Wahrscheinlichkeitsraum $(\Omega, \fA, P)$ und die Ereignisse $A_1, A_2, \dots
-\in \fA$ gegeben. 
+Wahrscheinlichkeitsraum $(\Omega, \cA, \bP)$ und die Ereignisse $A_1, A_2, \dots
+\in \cA$ gegeben. 
 \begin{enumerate}
     \item Zeigen Sie, dass für alle  $n\in \bN$ 
         \begin{equation*}
-            P \left(  \bigcup \limits_{i=1}^n A_i \right) \leq \sum_{i=1}^{n} P\left( A_i \right)
+            \bP \left(  \bigcup \limits_{i=1}^n A_i \right) \leq \sum_{i=1}^{n} \bP\left( A_i \right)
         \end{equation*}
         gilt. 
 
     \item Zeigen Sie, dass sogar gilt 
         \begin{equation*}
-            P \left(  \bigcup \limits_{i=1}^\infty A_i \right) \leq \sum_{i=1}^{\infty} P\left( A_i \right).
+            \bP \left(  \bigcup \limits_{i=1}^\infty A_i \right) \leq \sum_{i=1}^{\infty} \bP\left( A_i \right).
         \end{equation*}
 \end{enumerate}
 
 \solution
 \begin{enumerate}
     \item Betrachte folgende Darstellung der Vereinigung als Summe disjunkter
-        Elemente von $\fA$.
+        Elemente von $\cA$.
         \begin{align*}
             \bigcup_{i=1}^n A_i &= A_1 \cup (\bar A_1 \cap A_2) \cup 
             (\bar A_1 \cap \bar A_2 \cap A_3) \cup \dots \cup
@@ -230,26 +231,26 @@ Wahrscheinlichkeitsraum $(\Omega, \fA, P)$ und die Ereignisse $A_1, A_2, \dots
         \end{align*}
 
     \item Genau das gleiche Argument funktioniert für $n=\infty$. Das ist 
-        die Konsequenz der $\sigma$-Additivität der Wahrscheinlichkeitsfunktion $P$. 
+        die Konsequenz der $\sigma$-Additivität des Wahrscheinlichkeitsmaßes $\cP$. 
 \end{enumerate}
 
 
 \problem{Wahrscheinlichkeitsmaße. Zerlegung der Vereinigung.} Seien ein
-Wahrscheinlichkeitsraum $\left( \Omega, \fA, P \right)$ und die Ereignisse
-$A,B,C\in \fA$ sowie $A_1, A_2, \dots, A_n \in \fA$ gegeben.
+Wahrscheinlichkeitsraum $\left( \Omega, \cA, \bP \right)$ und die Ereignisse
+$A,B,C\in \cA$ sowie $A_1, A_2, \dots, A_n \in \cA$ gegeben.
 Zeigen Sie folgende Aussagen:
 \begin{enumerate}
     \item \begin{equation*}
-            P \left( A \cup B \cup C \right) = 
-            P(A)+P(B)+P(C) - P(A\cap B) - P(A\cap C) - P(B\cap C) + P(A\cap B \cap C). 
+            \bP \left( A \cup B \cup C \right) = 
+            \bP(A)+\bP(B)+\bP(C) - \bP(A\cap B) - \bP(A\cap C) - \bP(B\cap C) + \bP(A\cap B \cap C). 
         \end{equation*}
 
     \item
         \begin{align*}
-            P\left( \bigcup \limits_{i=1}^{n} A_i \right) =&
-            \sum_{i=1}^{n} P(A_i) - \sum_{i<j} P(A_i \cap A_j) + \\
-            & \sum_{i<j<k} P(A_i \cap A_j \cap A_k) - \dots + 
-            (-1)^{n+1} P\left( A_1 \cap \dots \cap A_n \right). 
+            \bP\left( \bigcup \limits_{i=1}^{n} A_i \right) =&
+            \sum_{i=1}^{n} \bP(A_i) - \sum_{i<j} \bP(A_i \cap A_j) + \\
+            & \sum_{i<j<k} \bP(A_i \cap A_j \cap A_k) - \dots + 
+            (-1)^{n+1} \bP\left( A_1 \cap \dots \cap A_n \right). 
         \end{align*}
 \end{enumerate}
 
