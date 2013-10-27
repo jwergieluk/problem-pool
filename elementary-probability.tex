@@ -131,6 +131,11 @@ Zeigen Sie
     X = 1_{ [1,6] } + 1_{[2,6]} + \dots + 1_{ [6,6] }.
 \end{equation*}
 
+\problem{$\sigma$-Algebren. Schachspieler.} Zwei Schachspieler spielen eine
+Partie. Das Ereignis $A$ liege vor, falls der erste Spieler gewinnt, das
+Ereignis $B$, falls der zweite gewinnt. Welche Ereignisse sind noch
+hinzuzufügen, damit eine $\sigma$-Algebra entsteht?
+
 \problem{$\sigma$-Algebren. Potenzmenge.}
 Sei $\Omega$ ein endlicher nichtleerer Grundraum. Zeigen Sie, dass die
 Menge aller Teilmengen von $\Omega$, also die Potenzmenge $\cP(\Omega)$,
@@ -458,11 +463,11 @@ $0.0033$.
 
 
 \problem{Bedingte Wahrscheinlichkeiten. Symmetrie.}
-Seien ein Wahrscheinlichkeitsraum $\left( \Omega, \fA, P \right)$ und die
-Ereignisse $A,B\in \fA$ mit $P(A)>0$ und $P(B)>0$ gegeben.  Zeigen Sie die
+Seien ein Wahrscheinlichkeitsraum $\left( \Omega, \cA, \bP \right)$ und die
+Ereignisse $A,B\in \cA$ mit $\bP(A)>0$ und $\bP(B)>0$ gegeben.  Zeigen Sie die
 Äquivalenz:
 \begin{equation*}
-    P(A | B ) > P(A) \quad \iff \quad P(B | A) > P(B).
+    \bP(A | B ) > \bP(A) \quad \iff \quad \bP(B | A) > \bP(B).
 \end{equation*}
 
 \solution
@@ -543,6 +548,7 @@ Berechnen Sie die Wahrscheinlichkeiten der folgenden Ereignisse:
     \item Beide Kugeln sind weiß.
     \item Die erste Kugel ist weiß und die zweite Kugel ist schwarz.
 \end{enumerate}
+Geben Sie die obigen Wahrscheinlichkeiten für $w=5$ und $s=4$ explizit an.
 
 \solution Wir bezeichnen mit $W_1$ das Ereignis, dass eine weiße Kugel als
 erste gezogen wird, und mit $W_2$ ein Ereignis, dass eine weiße Kugel als zweite
