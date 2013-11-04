@@ -1,6 +1,6 @@
 
 
-\section{Elementary probability}
+\section{Mengensysteme}
 
 
 \problem{Ereignisse. Mengenoperationen.}
@@ -198,7 +198,7 @@ Wahrscheinlichkeiten:
 \end{enumerate}
 
 
-\section{Wahrscheinlichkeitsmaße.}
+\section{Wahrscheinlichkeitsmaße}
 
 \problem{Wahrscheinlichkeitsmaße. Monotonie.} Seien ein Wahrscheinlichkeitsraum \linebreak
 $(\Omega, \cA, \bP)$ und die Ereignisse $A,B \in \cA$ gegeben. Zeigen Sie
@@ -364,10 +364,10 @@ Betrachten wir nun die Menge der 4-stelligen PINs, die aus den Ziffern $\left\{
 ----    10          1
 ---*    10 9        2
 --==    10 9        1
---**    10 9 8      2
+--**    10 9 9      2
 *--*    10 9 9      1
 \end{lstlisting}
-        Das sind insgesamt $2530$ Fälle. Es gibt also $7470$ PINs ohne runs.
+        Das sind insgesamt $2710$ Fälle. Es gibt also $7290$ PINs ohne runs.
     \item Wenn wir PINs mit runs ausschliessen, reduziert sich unser pool
         möglicher PINs um ein Viertel. 
 \end{enumerate}
@@ -439,7 +439,7 @@ Was ist wahrscheinlicher:
 \problem{Kombinatorik. Single choice test.} Bei einem single choice test
 werden $n$ Fragen gestellt, wobei jeweils genau eine richtige Antwort aus $m$
 Möglichkeiten gewählt werden soll. Der Test wird als bestanden angesehen, wenn
-mindestens Hälfte der Fragen richtig beantwortet wurden.
+mindestens die Hälfte der Fragen richtig beantwortet wurden.
 
 Wir testen die Prüfmethode indem wir zufällig jeweils eine Antwort bei jeder Frage
 ankreuzen. 
@@ -458,6 +458,12 @@ Anzahl der Günstigen:
     \binom{n}{   \lceil\frac{n}{2}\rceil +1 }(m-1)^{n -   \lceil\frac{n}{2}\rceil-1   } + \dots +
     \binom{n}{n} (m-1)^{n-n}. 
 \end{equation*}
+Hier zählen wir Anzahl der Tests mit $\lceil \frac{n}{2} \rceil, \lceil \frac{n}{2} \rceil +1,\dots $ richtigen
+Antworten. Eine andere Möglichkeit ist die Anzahl der Test mit $0,1,2,\dots , \lfloor \frac{n}{2} \rfloor$ falschen
+Antworten zu zählen:
+\begin{align*}
+    1 + n(m-1) + \binom{n}{2}(m-1)^{2} + \cdots + \binom{n}{ \lfloor \frac{n}{2} \rfloor } (m-1)^{\lfloor \frac{n}{2} \rfloor }.
+\end{align*}
 Für den Fall $n=25$ und $m=13$, ist $\lceil \frac{n}{2} \rceil = 13$ und die Anzahl 
 der günstigen Fälle gleich 
 \begin{equation}
@@ -485,17 +491,45 @@ Spielkartensatz bestehend aus $52$ Karten werden zufällig $6$ Karten gezogen.
 Wie hoch ist die Wahrscheinlichkeit dafür, dass sich unter den gezogenen Karten
 schwarze und rote Karten befinden?
 
+\solution
+Wahrscheinlichkeit dafür, dass nur rote Karten gezogen werden ist 
+\begin{equation*}
+    p = \frac{\binom{26}6}{\binom{52}{6}}.
+\end{equation*}
+Daher ist die gesuchte Wahrscheinlichkeit $1-2p$. Man kann die Zufallssituation
+auch mit Hilfe der geordneten Ziehungen modellieren. Das Aufzeigen dieser
+Tatsache wird sicher zum besseren Verständnis der Materie beitragen.
+
 \problem{Kombinatorik. Karten. $13$ aus $52$.} Aus einem gut gemischten
 Spielkartensatz bestehend aus $52$ Karten werden zufällig $13$ Karten gezogen.
 Berechnen Sie die Wahrscheinlichkeiten der folgenden Ereignisse:
 \begin{enumerate}
-    \item Es wurde alle Kartenwerte (also A,2,3,4,5,6,7,8,9,10,B,D,K) gezogen.
+    \item Es wurde alle Kartenwerte (d.h.\ A,2,3,4,5,6,7,8,9,10,B,D,K) gezogen.
     \item Es wurden $5$ Piks, $4$ Herzen, $3$ Treffs und ein Karo gezogen.
-    \item Unter der gezogenen Karten befindet sich die Zusammenstellung $\{K,D,B,A\}$?
-    \item Unter der gezogenen Karten befindet sich die Zusammenstellung $\{K,D,D,B\}$?
-    \item Unter der gezogenen Karten befindet sich die Zusammenstellung $\{K,K,K,A\}$?
+    \item Es wurden $5$ Karten der Farbe $A$, $4$ Karten der Farbe $B$, $3$
+        Karten der Farbe $C$ und eine Karte der Farbe $D$ gezogen. Wir nehmen
+        an, dass die Farben paarweise verschieden sind. 
+%        Diese Zusammenstellung notieren wir als $\left\langle 5,4,3,1
+%        \right\rangle$.
+%    \item Es wurde eine Zusammenstellung der Form $\left\langle 5,3,3,2 \right\rangle$ gezogen.
+%    \item Es wurde eine Zusammenstellung der Form $\left\langle 4,4,4,1 \right\rangle$ gezogen.
 \end{enumerate}
 
+\solution
+\begin{enumerate}
+    \item \[\frac{4^{13} \cdot 13!}{52 \cdots (52-13)} = \frac{4^{13}}{\binom{52}{13}}.\] 
+        Alternativ, wählen wir die erste Karte aus $52$, die zweite aus $48$,
+        usw. Das ergibt \[\frac{52\cdot 48 \cdots 4}{\binom{52}{13}}.\] Nachdem
+        jeder Term im Nenner durch $4$ teilbar ist, erhalten wir wieder die
+        obige Formel. 
+    \item Es gibt $\binom{13}{5}$ verschiedene $5$-Pik Mengen. Daher ist die gesuchte
+        Wahrscheinlichkeit
+        \begin{align*}
+            p &= 13\cdots(13-5) 13\cdots (13-4) 13\cdots(13-4) 13 \frac{13!}{5! 4! 3! 1!} / (52\cdots (52-13)) \\
+            &= \frac{\binom{13}{5}  \binom{13}{4}   \binom{13}{3}   \binom{13}{1} }{ \binom{52}{13}}.
+        \end{align*}
+    \item $4! p$. 
+\end{enumerate}
 
 \section{Bedingte Wahrscheinlichkeiten}
 
@@ -521,11 +555,11 @@ Ereignisse $A,B\in \cA$ mit $\bP(A)>0$ und $\bP(B)>0$ gegeben.  Zeigen Sie die
         bekannt ist, dass drei paarweise verschiedene Zahlen geworfen wurden. 
 \end{enumerate}
 
-\solution Die Menge aller Tripel aus Zahlen $1,\dots,6$ ist die
-Ergebnismenge.  Sei $A$ das Ereignis, dass keine Sechser geworfen wurden und
-$B$ das Ereignis, dass geworfene Zahlen verschieden sind. Nun ist $P(A) =
-\frac{5^3}{6^3}$ und $P(B)= 6\cdot 5\cdot 4$. Mit $P(A \cap B) = 5\cdot 4\cdot
-3$ erhalten wir $P(A|B)=\frac{1}{2}$.
+\solution Die Menge aller Tripel aus Zahlen $1,\dots,6$ ist die Ergebnismenge.
+Sei $A$ das Ereignis, dass keine Sechser geworfen wurden und $B$ das Ereignis,
+dass geworfene Zahlen verschieden sind. Nun ist $P(A) = \frac{5^3}{6^3}$ und
+$P(B)= \frac{6\cdot 5\cdot 4}{6^{3}}$. Mit $P(A \cap B) = \frac{5\cdot 4\cdot
+3}{6^{3}}$ erhalten wir $P(A|B)=\frac{1}{2}$.
 
 
 \problem{Bedingte Wahrscheinlichkeiten. 2 Münzen.} Wir werfen zwei ideale Münzen.
@@ -603,6 +637,9 @@ gezogen wird. Damit ergibt sich
     P(W_1 \cap S_2)= P(S_2 | W_1) P(W_1) = \frac{ w s }{(w+s)(w+s-1)}.
 \end{equation*}
 
+Für die oben angegebenen Werte sind die beiden Wahrscheinlichkeiten gleich
+$\frac{5}{18}$.
+
 
 \problem{Bedingte Wahrscheinlichkeiten. Urnenmodell von P\'olya.} Eine Urne
 enthält $s$ schwarze und $w$ weiße Kugeln. Es wird eine Kugel zufällig gezogen,
@@ -650,11 +687,15 @@ Satz von Bayes
 \begin{equation*}
     P( A | K) = \frac{ P( K | A) P(A) }{ P(K | A) P(A) + P(K | S) P(S) }
     = \frac{\frac{1}{3} \frac{n-k}{n} }{ \frac{n-k}{3 n} + \frac{1}{2} \frac{k}{n}} 
-    = \frac{n-k}{2n + k}.
+    = \frac{2(n-k)}{2n + k}.
 \end{equation*}
 
-Wenn zwei Münzen geworfen werden, müssen wir das Ereignis $K$ entsprechend erweitern und 
-in die obige Berechnung nochmal einsetzen. 
+Wenn zwei Münzen geworfen werden, müssen wir das Ereignis $K$ durch das Ereignis $K_2$ ersetzen. 
+$K_2$ tritt ein wenn zwei Köpfe nacheinander geworfen werden. Dies ergibt
+\begin{align*}
+    P\left( A | K_{2} \right) = \frac{4(n-k)}{4n + 5k}. 
+\end{align*}
+
 
 
 
@@ -2112,8 +2153,6 @@ Rayleigh-verteilt. Zeigen Sie:
 
 
 
-\subsection{Beta- und Gammaverteilungen}
-
 \problem{Beta-verteilung.} Sei $X$ eine Beta$(2,2)$-verteilte Zufallsvariable.
 \begin{enumerate}
     \item Geben Sie die Dichte und Verteilungsfunktion von $X$ explicit an. 
@@ -2564,6 +2603,24 @@ aussortiert, aber auch $1\%$ der einwandfreien.
         einwandfrei?
 \end{enumerate}
 
+\solution 
+Definiere die Ereignisse: $A$ ein Schaltkreis wird aussortiert, und $K$ ein Schaltkreis ist
+nicht voll funktionsfähig (kaputt). Wir wissen
+\begin{align*}
+    \bP( A | K ) &= 0.95 \\
+    \bP( A | \bar K ) &= 0.01.
+\end{align*}
+Wir berechnen mit Hilfe des Satzes von Bayes:
+\begin{enumerate}
+    \item \begin{equation*}
+            \bP\left( \bar K | \bar A \right) = \frac{\bP(\bar A | \bar K)\bP(\bar K)}
+            {\bP(\bar A | \bar K)\bP(\bar K) + \bP(\bar A | K ) \bP(K)} = 0.9875311\cdots
+        \end{equation*}
+    \item \begin{equation*}
+            \bP\left( \bar K | A \right) = 0.0404040\cdots
+        \end{equation*}
+\end{enumerate}
+
 \problem{Widerstände.} Ein Automat produziert Widerstände, deren Werte
 erfahrungsgemäß Realisierungen einer normalverteilten Zufallsgröße mit $\mu =
 1000\ \Omega$ und $\sigma = 20\ \Omega$ sind. Widerstände außerhalb der
@@ -2646,7 +2703,7 @@ bestimmten Entfernung ergaben sich die folgenden Schätzwerte:
         Kriterium für die Tauglichkeit die Forderung $\sigma < 5.0\,m $ dient?
 \end{enumerate}
 
-\problem{Modifizierte P\'olya's Urne.} Eine Urne enthält $s=2$ schwarze und
+\problem{Modifiziertes Urnenmodell von P\'olya.} Eine Urne enthält $s=2$ schwarze und
 $w=3$ weiße Kugeln. Es wird eine Kugel zufällig gezogen und ihre Farbe notiert.
 Falls eine weiße Kugel gezogen wurde, wird diese beiseite gelegt. Falls eine
 schwarze Kugel gezogen wurde, wird diese zusammen mit einer weiteren schwarzen
@@ -2861,7 +2918,7 @@ die Messungen mit unabhängigen normalverteilten Zufallsgrößen $X_i \sim
 
 
 
-\subsection{Quantile}
+\section{Quantile}
 
 
 \problem{Exponentialverteilung. Quantile.} Seien 
@@ -2909,7 +2966,7 @@ hat.
 \end{equation*}
 Der Median ist $Q(0.5) = \alpha$.
 
-\subsection{Erwartungstreue}
+\section{Erwartungstreue}
 
 \problem{Diskrete Gleichverteilung. Erwartungstreuer Schätzer.} Seien
 $X_1,\dots ,X_k$ i.i.d.\ und diskret gleichverteilt auf $\left\{ 1,\dots ,N
@@ -2971,7 +3028,7 @@ Für diese Stichprobe gilt
 
 
 
-\subsection{Konfidenzintervalle}
+\section{Konfidenzintervalle}
 
 \problem{Kondensatoren. Konfidenzintervall.} Aus einer Lieferung von
 Kondensatoren wurden $n$ Stück zufällig ausgewählt und folgende Kapazitäten (in
@@ -3169,7 +3226,7 @@ Geben Sie dabei alle notwendigen Voraussetzungen an.
 \end{enumerate}
 
 
-\subsection{Tests}
+\section{Tests}
 
 
 \problem{Waschmittel. Test.} Bei einem Verbrauchertest für Waschmittel werde auch 

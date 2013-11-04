@@ -8,22 +8,22 @@
 \usepackage[ngerman]{babel}
 \usepackage[citestyle=alphabetic, url=false, backend=biber]{biblatex}
 \addbibresource{../latex-common/library.bib}
-%\maxtocdepth{paragraph}
 
-%\usepackage[right=1.5cm, left=1.5cm, top=2.0cm, bottom=2.0cm]{geometry}
+%\usepackage[right=3cm, left=3cm, top=3.0cm, bottom=3.0cm]{geometry}
 
 % problem collection commands
-\newcommand{\problem}[1]{\paragraph{#1}}
-\newcommand{\solution}{\paragraph*{Lösung.}}
+\newcommand{\problem}[1]{\subsection{#1}}
+\newcommand{\solution}{\subsection*{Lösung.}}
 
 \begin{document}
 \chapterstyle{section}
 \pagestyle{headings}
-%\sloppy
+\sloppy
 
 %\frontmatter
 \maketitle
-%\newpage
+
+\setcounter{tocdepth}{3}
 \tableofcontents
 
 %\mainmatter
