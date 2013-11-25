@@ -1323,10 +1323,10 @@ Bernoulli-verteilt mit dem Parameter $p$.
         \bN$. 
 \end{enumerate}
 
-\solution Verteilungsfunktion ist $F: x\mapsto (1-p)1_{[0,1)}(x) + p 1_{[1,
-+\infty]}(x)$. $\bE X = p$. $\Var X = p(1-p)$. $\bE Y = 1-p + p e$. $\Var Y =
-p(1-p)(1+2e)$. $m_k = \bE X^{k} = \bE X$, da $X = X^k$. $\mu_k = \bE \left[ X
--\bE X \right]^{k} = p(1-p)^{k}$.
+\solution Verteilungsfunktion ist $F: x\mapsto (1-p)1_{[0,\infty)}(x) + p 1_{[1,
++\infty)}(x)$. $\bE X = p$. $\Var X = p(1-p)$. $\bE Y = 1-p + p e$. $\Var Y =
+p(1-p)(1-e)^2$. $m_k = \bE X^{k} = \bE X$, da $X = X^k$. $\mu_k = \bE \left[ X
+-\bE X \right]^{k} = p(1-p)^{k} + (-p)^{k}(1-p)$.
 
 
 \problem{Zufallsvariablen. Funktionen der Augenzahl.} In einem Wurfexperiment
@@ -1369,7 +1369,7 @@ Varianz für die Anzahl der ausgefallenen Baugruppen zum betrachteten
 Zeitintervall.
 
 \solution
-Seine $X_1 \sim \text{Ber}(0.95)$, $X_2 \sim \text{Ber}(0.8)$, $X_3 \sim
+Seien $X_1 \sim \text{Ber}(0.95)$, $X_2 \sim \text{Ber}(0.8)$, $X_3 \sim
 \text{Ber}(0.1)$ und $Y=X_1+X_2+X_3$. $\bE Y = 1.85$. $\Var Y = 0.2975$.
 Berechnung der Varianz direkt oder über den Satz von Bienaym\'e.
 
@@ -1394,6 +1394,7 @@ $\bP(X=i)=\frac{1}{n}$ für alle $i\in\left\{ 1,\dots ,n \right\}$.
 $\bE X = \frac{n+1}{2}$, $\sum_{k=1}^{n} k^2 = \frac{n(n+1)(2n+1)}{6}$,
 $\bE X^2 = \frac{(n+1)(2n+1)}{6}$, $\Var X = \bE X^2 - \left( \bE X \right)^2$.
 $\bE \log X = \frac{1}{n} \log n!$.
+$\Var \left( \log X \right) = \frac{1}{n} \sum_{i=1}^{n} (\log i)^{2} - \left( \frac{1}{n} \log n! \right)^{2}$. 
 
 %Die Berechnung der $k$-ten Momente führt zu der Formel von Faulhaber: \url{https://en.wikipedia.org/wiki/Faulhaber\%27s\_formula}
 
@@ -1540,9 +1541,9 @@ Zufallsgröße $X\sim\bfB(n,p)$.
 
 
 \problem{Poisson-Verteilung. Additionstheorem.} Seien $X_1\sim
-\pi_{\lambda_1}$ und $X_2\sim \pi_{\lambda_2}$ unabhängige Poisson-verteilte
-Zufallsgrößen mit den Parametern $\lambda_1>0$ und $\lambda_2>0$. Zeigen Sie,
-dass die Zufallsgröße
+\text{Poiss}_{\lambda_1}$ und $X_2\sim \text{Poiss}_{\lambda_2}$ unabhängige
+Poisson-verteilte Zufallsvariablen mit den Parametern $\lambda_1>0$ und
+$\lambda_2>0$. Zeigen Sie, dass die Zufallsvariable
 \begin{equation*}
     Y = X_1 + X_2
 \end{equation*}
@@ -1642,16 +1643,16 @@ $Z_i \sim \text{Geom}(p)$. Zeigen Sie folgende Aussagen:
 \end{enumerate}
 
 
-\problem{Diskrete Gleichverteilung. Ordnungsstatistiken.} Die Zufallsgrößen
+\problem{Diskrete Gleichverteilung. Ordnungsstatistiken.} Die Zufallsvariablen
 $X_1,\dots ,X_m$ seien stochastisch unabhängig und diskret gleichverteilt auf der Menge
 $\left\{ 1,\dots ,n \right\}$, mit $n>1$. Wir bezeichnen mit $X_{(1)} = \min
 (X_1,\dots ,X_m)$ das Minimum und mit $X_{(m)} = \max \left( X_1,\dots ,X_n
-\right)$ das Maximum der Zufallsgrößen $X_1,\dots ,X_m$.
+\right)$ das Maximum der Zufallsvariablen $X_1,\dots ,X_m$.
 %\begin{enumerate}
 %    \item 
-Finden Sie die Wahrscheinlichkeitsfunktion der Zufallsgrößen
+Finden Sie die Wahrscheinlichkeitsfunktion der Zufallsvariablen
         $X_{(1)}$ und $X_{(n)}$.
-%    \item Finden Sie die Wahrscheinlichkeitsfunktion der Zufallsgröße $X_{(n)}-X_{(1)}$.
+%    \item Finden Sie die Wahrscheinlichkeitsfunktion der Zufallsvariable $X_{(n)}-X_{(1)}$.
 %\end{enumerate}
 
 \solution
@@ -1659,12 +1660,14 @@ Finden Sie die Wahrscheinlichkeitsfunktion der Zufallsgrößen
     P\left( X_{(1)} \leq k \right) &= 1 - \left( \frac{n-k}{n} \right)^m \\
     P\left( X_{(m)} \leq k \right) &= \left( \frac{k}{n} \right)^{m}. 
 \end{align*}
-Daraus Wahrscheinlichkeitsfunktion berechnen. 
 
 
 \problem{Geometrische Verteilung. Minima und Maxima.} Seien $Y_1,\dots ,Y_m$
-stochastisch unabhängig und geometrisch verteilt mit dem Parameter $p\in(0,1)$.  Finden Sie
-die Wahrscheinlichkeitsfunktion der Zufallsgrößen $Y_{(1)}$ und $Y_{(n)}$.
+stochastisch unabhängig und geometrisch verteilt mit dem Parameter $p\in(0,1)$.
+Wir bezeichnen mit $X_{(1)} = \min (X_1,\dots ,X_m)$ das Minimum und mit
+$X_{(m)} = \max \left( X_1,\dots ,X_n \right)$ das Maximum der Zufallsvariablen
+$X_1,\dots ,X_m$.  Finden Sie die Wahrscheinlichkeitsfunktion der
+Zufallsvariablen $Y_{(1)}$ und $Y_{(n)}$.
 
 \solution
 \begin{align*}
@@ -1673,16 +1676,12 @@ die Wahrscheinlichkeitsfunktion der Zufallsgrößen $Y_{(1)}$ und $Y_{(n)}$.
 \end{align*}
 
 
-\problem{Geometrische Verteilung. Summen.} Seien $X$ und $Y$ unabhängig und geometrisch
-verteilt mit den Parametern $p_1, p_2 \in (0,1)$. Zeigen Sie folgende Aussagen: 
-\begin{enumerate}
-    \item Die Wahrscheinlichkeitsfunktion der Summe $X+Y$ ist gegeben durch
-        \begin{equation*}
-            P(X+Y = n ) = \frac{p_1 p_2}{p_1 - p_2} \left( (1-p_2)^{n+1}- (1-p_1)^{n+1} \right).  
-        \end{equation*}
-
-    \item 
-\end{enumerate}
+\problem{Geometrische Verteilung. Additionstheorem.} Seien $X$ und $Y$ unabhängig und geometrisch
+verteilt mit den Parametern $p_1, p_2 \in (0,1)$. Zeigen Sie folgende Aussage: 
+Die Wahrscheinlichkeitsfunktion der Summe $X+Y$ ist gegeben durch
+\begin{equation*}
+    P(X+Y = n ) = \frac{p_1 p_2}{p_1 - p_2} \left( (1-p_2)^{n+1}- (1-p_1)^{n+1} \right).  
+\end{equation*}
 
 
 \problem{Bernoulliverteilung. Momente. }
@@ -1803,6 +1802,80 @@ dem Ereignis $\left\{ N=0 \right\}$. Zeigen Sie:
     &= \exp \left[  \lambda\left( \E e^{uZ_1} -1 \right)  \right].
 \end{align*}
 
+
+\section{Concentration inequalities}
+
+\problem{Tschebyscheff'sche Ungleichung. 100 Würfel.} Ein idealer Würfel
+wird $100$ mal geworfen. Sei $X$ die Summe der geworfenen Augenzahlen. Finden
+Sie eine obere Schranke für die Wahrscheinlichkeit $\bP( | X - 350 | > 50)$. 
+
+\solution Bezeichne mit $X_i$, $i\in \left\{ 1,\dots ,100 \right\}$ die geworfenen
+Augenzahlen und $X= X_1 +\dots + X_{100}$. Dann ist
+\begin{align*}
+    \bE X_i &= \frac{7}{2}, & \Var X_i &= \bE X_i^{2} - \left( \bE X_i \right)^{2} = \frac{91}{6} - \frac{49}{4}, \\
+    \bE X &= 350, & \Var X &= \frac{875}{3}.
+\end{align*}
+Daraus erhalten wir
+\begin{equation*}
+    \bP \left( | X - \bE X | > 50 \right) = \bP \left( | X - 350  | > 50 \right) < \frac{\Var X}{ {50}^2 } = \frac{875}{ 3 \cdot {50}^{2}} \approx 0.1167.
+\end{equation*}
+
+\problem{Markow'sche Ungleichung. Diskreter Fall.} Sei $X$ eine Zufallsvariable
+mit den Werten in $\left\{ 0,1,2,\dots \right\}$ und $a> 0$. Zeigen Sie folgende Aussagen:
+\begin{enumerate}
+    \item $\bP \left( X > a \right) < \frac{\bE X}{a}$.
+
+    \item Sei $h: \bR \to [0,\infty)$ eine wachsende Funktion. Dann gilt
+        \begin{equation*}
+            \bP \left( X > a \right) < \frac{\bE h(X)}{ h(a)}. 
+        \end{equation*}
+
+    \item Zeigen Sie, dass sich die Tschebyscheff'sche Ungleichung aus der
+        obigen Aussage folgern lässt. 
+\end{enumerate}
+
+\solution
+\begin{enumerate}
+    \item \begin{align*}
+            \bP( X > a ) &= \sum_{n > a} \bP \left( X = n \right) \\
+            &< \frac{1}{a} \sum_{n>a} n \bP( X = n ) \\
+            &\leq \frac{1}{a} \sum_{n \geq 0} n \bP(X = n) = \frac{\bE X}{ a}.
+        \end{align*}
+    \item Folgt aus $\frac{h(n)}{h(n)} \leq \frac{h(n)}{h(a)}$ für alle $n>a$.
+    \item Setze $h(x) = x^{2}$ und $\tilde X = | X - \bE X |$.
+\end{enumerate}
+
+
+\section{Diskrete Zufallsvariablen - Textaufgaben} 
+
+\problem{Weinfehler. Verteilungsfunktion.} Aus einem sehr großen Lieferposten
+von Wein werden $100$ Flaschen zufällig herausgegriffen und auf Weinfehler
+getestet.  Der Wein sei ungenießbar, wenn der Anteil an $2,4,6$-Trichloranisol
+(TCA) über $5$ ng/l liegt -- das zeichnet sich durch einen korkigen Geruch und
+Geschmack aus.  Der durchschnittliche Anteil unbrauchbarer Weinflaschen betrage
+$3\%$. 
+\begin{enumerate}
+    \item Wie groß ist die Wahrscheinlichkeit dafür, dass unter $100$ zufällig 
+        ausgewählten Weinflaschen genau $3$ ungenießbare sind? 
+    \item Berechnen Sie die Wahrscheinlichkeit dafür, dass unter diesen $100$
+        Weinflaschen höchstens drei ungenießbare enthalten sind. 
+\end{enumerate}
+
+\problem{Reifenpannen.} Auf einer bestimmten Rallye-Strecke von $10\, 000$ km
+sei pro Pkw im Mittel mit einer Reifenpanne zu rechnen. 
+\begin{enumerate}
+    \item Ermitteln Sie die Wahrscheinlichkeit dafür, dass ein Pkw bereits auf
+        den ersten $7\, 000~\text{km}$ eine Reifenpanne hat. 
+    \item Eine Mannschaft sei mit drei Pkw an der Rallye beteiligt. Berechnen
+        Sie die Wahrscheinlichkeit dafür, dass alle Pkw ohne Reifenpanne die
+        Rallye überstehen. 
+\end{enumerate}
+
+\problem{Beschichtungsfehler.} Die Anzahl der Beschichtungsfehler einer
+speziellen Magnetbandsorte betrage pro $1\, 000$ m im Mittel $1.6$. Wie groß
+ist die Wahrscheinlichkeit dafür, dass ein $500$ m langes Bandstück keine
+Fehler aufweist? Welches Model verwenden Sie um diese Zufallssituation zu
+modellieren? 
 
 \section{Stetite Zufallsvariablen}
 
