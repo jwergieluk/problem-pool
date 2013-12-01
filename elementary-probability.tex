@@ -1465,6 +1465,12 @@ verteilt mit dem Parameter $p$.
     \item Finden Sie eine Interpretation für die obige Beziehung.
 \end{enumerate}
 
+\solution 
+\begin{align*}
+    \bP\left( X > i+j \vb X \geq i \right) &= \frac{\bP(X > i+j)}{\bP(X \geq i)} \\
+    &= \frac{  (1-p)^{i} \sum_{k=i+1}^{\infty} p(1-p)^{k} }{ (1-p)^{i} \sum_{l=0}^{\infty} p(1-p)^{l} } \\
+    &= \sum_{k > j}^{} p(1-p)^k.
+\end{align*}
 
 \problem{Binomialverteilung. Eigenschaften.} Sei $X \sim \bfB(n,p)$ 
 binomialverteilt mit den Parametern $n$ und $p$. Zeigen Sie folgende Aussagen: 
@@ -1548,6 +1554,14 @@ $\lambda_2>0$. Zeigen Sie, dass die Zufallsvariable
     Y = X_1 + X_2
 \end{equation*}
 ebenfalls Poisson-verteilt mit dem Parameter $\lambda=\lambda_1 + \lambda_2$ ist. 
+
+\solution 
+\begin{align*}
+    P\left( X+Y=n \right) &= \sum_{i=0}^{n} P(X=i) P(Y=n-i) \\
+    &= \sum_{i=0}^{n} e^{-\lambda_1} \frac{\lambda_{1}^{i}}{i!}\, e^{-\lambda_2} \frac{ \lambda_2^{n-i}}{(n-i)!} \\
+    &= \frac{e^{-\lambda_1 -\lambda_2}}{n!} \sum_{i=0}^{n} \binom{n}{i} \lambda_1^{i} \lambda_2^{n-i} \\
+    &= e^{- (\lambda_1 + \lambda_2)} \frac{ (\lambda_1 + \lambda_2)^{n}}{n!}.
+\end{align*}
 
 
 \problem{Binomialverteilung. Verteilungsfunktion.} Seien $X\sim\bfB(n,p)$ binomialverteilt
@@ -1682,6 +1696,14 @@ Die Wahrscheinlichkeitsfunktion der Summe $X+Y$ ist gegeben durch
 \begin{equation*}
     P(X+Y = n ) = \frac{p_1 p_2}{p_1 - p_2} \left( (1-p_2)^{n+1}- (1-p_1)^{n+1} \right).  
 \end{equation*}
+
+\solution 
+\begin{align*}
+    P( X+Y = n) &= \sum_{i=0}^{n} P(X=i)P(Y=n-i) \\
+    &= p_1 p_2 (1-p_2)^n \sum_{i=0}^{n} \left( \frac{1-p_1}{1-p_2} \right)^{i} \\
+    &=  p_1 p_2 (1-p_2)^n \frac{1 - \left( \frac{1-p_1}{1-p_2} \right)^{n+1}}{ 1- \frac{1-p_1}{1-p_2}} \\
+    &= \frac{p_1 p_2}{ p_1 -p_2} (1-p_2)^{n+1}\left( 1 - \left( \frac{1-p_1}{1-p_2} \right)^{n+1} \right).
+\end{align*}
 
 
 \problem{Bernoulliverteilung. Momente. }
@@ -1861,6 +1883,21 @@ $3\%$.
         Weinflaschen höchstens drei ungenießbare enthalten sind. 
 \end{enumerate}
 
+\solution 
+\begin{enumerate}
+    \item $X\sim \text{Bin}(n, p)$ mit $n=100$ und $p=0.03$. 
+        \begin{align*}
+            P(X=3) &= \binom{n}{3} p^{3}(1-p)^{n-3} \\
+            &= \frac{100!}{3!\, 97!}\, {0.03}^{3}\left( 1-0.03 \right)^{97} \\
+            &= \frac{98\cdot 99\cdot 100}{ 6}\, {0.03}^{3}\, {0.97}^{97}.
+        \end{align*}
+    \item \begin{align*}
+            P(X\leq 3) &= P(X=0)+\dots+P(X=3) \\
+            &= \sum_{k=0}^{3} \binom{n}{k}\, {0.03}^{k}\, {0.97}^{n-k}.
+        \end{align*}
+\end{enumerate}
+Numerische Auswertung solcher Wahrscheinlichkeiten erfolg mit Hilfe der Grenzverteilungsätze.
+
 \problem{Reifenpannen.} Auf einer bestimmten Rallye-Strecke von $10\, 000$ km
 sei pro Pkw im Mittel mit einer Reifenpanne zu rechnen. 
 \begin{enumerate}
@@ -1869,6 +1906,29 @@ sei pro Pkw im Mittel mit einer Reifenpanne zu rechnen.
     \item Eine Mannschaft sei mit drei Pkw an der Rallye beteiligt. Berechnen
         Sie die Wahrscheinlichkeit dafür, dass alle Pkw ohne Reifenpanne die
         Rallye überstehen. 
+\end{enumerate}
+
+\solution
+\begin{enumerate}
+    \item Wir nehmen an, dass die Anzahl und Auftreten der Reifenpannen mit
+        Hilfe der Poisson-Verteilung modelliert werden kann, da die
+        Voraussetzungen der Stationarität, Homogenität und Ordinarität erfüllt
+        sind.  Wir bezeichnen mit $X_t$ die Anzahl der Reifenpannen bis zum
+        Zeitpunkt $t$.  Wir wissen $\bE X_{10^4} = 1$. Es gilt $\bE X_{t} = \mu
+        t$ und daher $\mu = 10^{-4}$. Die gesuchte Wahrscheinlichkeit ist
+        \begin{align*}
+            P(X_{7000} \geq 1) &= \sum_{i=1}^{\infty} e^{-7000 \mu} \frac{ \left( 7000 \mu \right)^{i} }{i!} \\
+            &= 1 - e^{-7000 \mu} \frac{ (7000 \mu)^{0} }{0!} \\ 
+            &= 1 - e^{-\frac{7}{10}} \approx 0.5034.
+        \end{align*}
+
+    \item Die Reifenpannen in den einzelnen Fahrzeugen modellieren wir mit
+        $X_{1,t}, X_{2,t}, X_{3,t} \sim \text{Poiss}(\mu t)$. Dann ist
+        $Y_t=X_{1,t}+X_{2,t}+X_{3,t}$ und $Y \sim \text{Poiss}(3\mu t)$ die
+        Anzahl der Reifenpannen in allen drei Fahrzeugen bis zum Zeitpunkt $t$.
+        \begin{align*}
+            P(Y_{7000} = 0) &= e^{ - 3 \frac{\mu}{10000}} = e^{-3} \approx 0.0497.
+        \end{align*}
 \end{enumerate}
 
 \problem{Beschichtungsfehler.} Die Anzahl der Beschichtungsfehler einer
@@ -1892,8 +1952,8 @@ exponentialverteilt ist und dabei $X_{(1)} \sim \mathbf{Ex}(\lambda_1+\dots+\lam
 
 \problem{Exponentialverteilung. Dichte des Maximums.} Seien $X_1, \dots, X_n$
 stochastisch unabhängig und exponentialverteilt mit $X_i\sim
-\mathbf{Ex}(\lambda)$ und $\lambda>0$. Berechnen Sie die Dichtefunktion der
-Zufallsgröße $X_{(n)} = \max \left\{ X_1,\dots ,X_n \right\}$.
+\text{Exp}(\lambda)$ und $\lambda>0$. Berechnen Sie die Dichtefunktion der
+Zufallsvariable $X_{(n)} = \max \left\{ X_1,\dots ,X_n \right\}$.
 
 \solution Die Verteilungsfunktion von $X_{(n)}$ ist 
 \begin{align*}
@@ -2002,7 +2062,7 @@ wieder exponentialverteilt und es gilt $Y \sim
 \text{Exp}(\lambda_1+\cdots+\lambda_n)$.
 
 \problem{Gleichverteilung und Exponentialverteilung.} Sei $X$ stetig
-gleichverteilt auf dem Intervall $[0,1]$. Zeigen Sie, dass die Zufallsgröße $Y
+gleichverteilt auf dem Intervall $[0,1]$. Zeigen Sie, dass die Zufallsvariable $Y
 = -\log X$ exponentialverteilt ist.
 
 \solution $Y$ ist exponentialverteilt mit $\lambda=1$.
@@ -2054,14 +2114,14 @@ Beachten Sie, dass diese Funktion an Null beliebig oft differenzierbar ist.
 Sei $X$ stetig gleichverteilt auf dem Intervall $\left[ a,b \right]\subset \R$.
 Zeigen Sie folgende Aussagen: 
 \begin{enumerate}
-    \item Für $k=1,2,\dots$ ist das $k$-te Moment $\bfE X^{k}$ gegeben durch
+    \item Für $k=1,2,\dots$ ist das $k$-te Moment $\bE X^{k}$ gegeben durch
         \begin{equation*}
-            \bfE X^k = \frac{1}{k+1}\left( b^{k}a^0 + \cdots + b^{0}a^{k} \right).
+            \bE X^k = \frac{1}{k+1}\left( b^{k}a^0 + \cdots + b^{0}a^{k} \right).
         \end{equation*}
     \item Der Erwartungswert und die Varianz von $X$ sind gegeben durch
         \begin{align*}
-            \bfE X    & = \frac{1}{2} \left( b+a \right) & 
-            \bfD^2 X  & = \frac{1}{12} \left( b-a \right)^{2}.  
+            \bE X    & = \frac{1}{2} \left( b+a \right) & 
+            \Var X  & = \frac{1}{12} \left( b-a \right)^{2}.  
         \end{align*}
 \end{enumerate}
 
@@ -2678,7 +2738,7 @@ Freiheitsgraden.
 \section{Stetige Zufallsvariable -- Textaufgaben}
 
 \problem{Lebensdauer der Glühlampen.} Die Lebensdauer einer Glühlampe sei
-eine exponentialverteilte Zufallsgröße.  Es sei bekannt, dass im Durchschnitt
+eine exponentialverteilte Zufallsvariable.  Es sei bekannt, dass im Durchschnitt
 $75\%$ der Glühlampen eine Mindestbrenndauer von $500$ Stunden erreichen.
 Berechnen Sie Erwartungswert und Standardabweichung der Lebensdauer. 
 
@@ -2725,13 +2785,13 @@ impliziert $\mu = \frac{3.87}{7.5} = 0.516$.
 
 \problem{Entfernungsmessung.} Die Entfernung eines Objekts werde mit Hilfe
 eines Längenmessgerätes ermittelt. Dabei sei der gemessene Wert die Realisierung
-einer normalverteilten Zufallsgröße mit dem Erwartungswert $\mu$ und der
-Standardabweichung von $\sigma = 40\,m$.  Es sei bekannt, dass bei der Messung
-kein systematischer Fehler auftritt.  Berechnen Sie die Wahrscheinlichkeit
+einer normalverteilten Zufallsvariable mit dem Erwartungswert $\mu$ und der
+Standardabweichung von $\sigma = 40\,m$. Es sei bekannt, dass bei der Messung
+kein systematischer Fehler auftritt. Berechnen Sie die Wahrscheinlichkeit
 dafür, dass bei einem $2\,500\,m$ entfernten Objekt bei der Messung ein um
 $60\,m$ bis $80\,m$ zu großes Messergebnis ermittelt wird. 
 
-\solution Für $X \sim \bfN(2500, 160)$ berechne 
+\solution Für $X \sim \cN(2500, 160)$ berechne 
 \begin{equation*}
     P(2500 + 40 \leq X \leq 2500 + 80) = P(Z \leq 2) - P(Z \leq \frac{3}{2}).
         \approx 0.04405707.
