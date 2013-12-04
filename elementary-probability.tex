@@ -1460,7 +1460,7 @@ verteilt mit dem Parameter $p$.
         \begin{equation*}
             P \left( X > i+j \,|\, X \geq i \right) = P\left( X > j \right) 
         \end{equation*}
-        für alle $i,j>0$ gilt.
+        für alle $i,j>0$ und $i,j\in\bN$ gilt.
 
     \item Finden Sie eine Interpretation für die obige Beziehung.
 \end{enumerate}
@@ -1547,7 +1547,7 @@ Zufallsgröße $X\sim\bfB(n,p)$.
 
 
 \problem{Poisson-Verteilung. Additionstheorem.} Seien $X_1\sim
-\text{Poiss}_{\lambda_1}$ und $X_2\sim \text{Poiss}_{\lambda_2}$ unabhängige
+\text{Poiss}(\lambda_1)$ und $X_2\sim \text{Poiss}(\lambda_2)$ unabhängige
 Poisson-verteilte Zufallsvariablen mit den Parametern $\lambda_1>0$ und
 $\lambda_2>0$. Zeigen Sie, dass die Zufallsvariable
 \begin{equation*}
@@ -1691,7 +1691,7 @@ Zufallsvariablen $Y_{(1)}$ und $Y_{(n)}$.
 
 
 \problem{Geometrische Verteilung. Additionstheorem.} Seien $X$ und $Y$ unabhängig und geometrisch
-verteilt mit den Parametern $p_1, p_2 \in (0,1)$. Zeigen Sie folgende Aussage: 
+verteilt mit den Parametern $p_1, p_2 \in (0,1)$ und $p_1\neq p_2$. Zeigen Sie folgende Aussage: 
 Die Wahrscheinlichkeitsfunktion der Summe $X+Y$ ist gegeben durch
 \begin{equation*}
     P(X+Y = n ) = \frac{p_1 p_2}{p_1 - p_2} \left( (1-p_2)^{n+1}- (1-p_1)^{n+1} \right).  
@@ -1845,11 +1845,11 @@ Daraus erhalten wir
 \problem{Markow'sche Ungleichung. Diskreter Fall.} Sei $X$ eine Zufallsvariable
 mit den Werten in $\left\{ 0,1,2,\dots \right\}$ und $a> 0$. Zeigen Sie folgende Aussagen:
 \begin{enumerate}
-    \item $\bP \left( X > a \right) < \frac{\bE X}{a}$.
+    \item $\bP \left( X \geq a \right) \leq \frac{\bE X}{a}$.
 
     \item Sei $h: \bR \to [0,\infty)$ eine wachsende Funktion. Dann gilt
         \begin{equation*}
-            \bP \left( X > a \right) < \frac{\bE h(X)}{ h(a)}. 
+            \bP \left( X \geq a \right) \leq \frac{\bE h(X)}{ h(a)}. 
         \end{equation*}
 
     \item Zeigen Sie, dass sich die Tschebyscheff'sche Ungleichung aus der
@@ -1889,14 +1889,14 @@ $3\%$.
         \begin{align*}
             P(X=3) &= \binom{n}{3} p^{3}(1-p)^{n-3} \\
             &= \frac{100!}{3!\, 97!}\, {0.03}^{3}\left( 1-0.03 \right)^{97} \\
-            &= \frac{98\cdot 99\cdot 100}{ 6}\, {0.03}^{3}\, {0.97}^{97}.
+            &= \frac{98\cdot 99\cdot 100}{ 6}\, {0.03}^{3}\, {0.97}^{97} = 0.2275.
         \end{align*}
     \item \begin{align*}
             P(X\leq 3) &= P(X=0)+\dots+P(X=3) \\
-            &= \sum_{k=0}^{3} \binom{n}{k}\, {0.03}^{k}\, {0.97}^{n-k}.
+            &= \sum_{k=0}^{3} \binom{n}{k}\, {0.03}^{k}\, {0.97}^{n-k} = 0.6472.
         \end{align*}
 \end{enumerate}
-Numerische Auswertung solcher Wahrscheinlichkeiten erfolg mit Hilfe der Grenzverteilungsätze.
+Numerische Auswertung solcher Wahrscheinlichkeiten erfolgt mithilfe  der Grenzverteilungsätze.
 
 \problem{Reifenpannen.} Auf einer bestimmten Rallye-Strecke von $10\, 000$ km
 sei pro Pkw im Mittel mit einer Reifenpanne zu rechnen. 
@@ -1927,7 +1927,7 @@ sei pro Pkw im Mittel mit einer Reifenpanne zu rechnen.
         $Y_t=X_{1,t}+X_{2,t}+X_{3,t}$ und $Y \sim \text{Poiss}(3\mu t)$ die
         Anzahl der Reifenpannen in allen drei Fahrzeugen bis zum Zeitpunkt $t$.
         \begin{align*}
-            P(Y_{7000} = 0) &= e^{ - 3 \frac{\mu}{10000}} = e^{-3} \approx 0.0497.
+            P(Y_{10000} = 0) &= e^{ - 3 \mu t } = e^{-3} \approx 0.0497.
         \end{align*}
 \end{enumerate}
 
@@ -2068,11 +2068,11 @@ gleichverteilt auf dem Intervall $[0,1]$. Zeigen Sie, dass die Zufallsvariable $
 \solution $Y$ ist exponentialverteilt mit $\lambda=1$.
 
 
-\problem{Stetige Gleichverteilung.}
+\problem{Stetige Gleichverteilung. Momente und Momentenerzeugende Funktion.}
 Sei $X$ stetig gleichverteilt auf dem Intervall $\left( a,b \right)\subset \R$.  
 Dies kann als $X \sim U(a,b)$ notiert werden. 
 \begin{enumerate}
-    \item Der $n$-te Moment $\E X^{n}$, für $n\in\bN$, ist 
+    \item Das $n$-te Moment $\E X^{n}$, für $n\in\bN$, ist 
         \begin{equation*}
             \E X^n = \frac{1}{n+1}\left( b^{n}a^0 + \cdots + b^{0}a^{n} \right).
         \end{equation*}
@@ -2127,7 +2127,7 @@ Zeigen Sie folgende Aussagen:
 
 \solution Berechnen wir zunächst die $n$-ten Momente
 \begin{align*}
-    \bfE X^n &= \int_{\R}^{} x^n \frac{1}{b-a} 1_{(a,b)}(x) dx \\
+    \bE X^n &= \int_{\R}^{} x^n \frac{1}{b-a} 1_{(a,b)}(x) dx \\
     &= \frac{1}{b-a} \int_{a}^{b} x^n dx \\
     &= \frac{1}{b-a} \left( \frac{x^{n+1}}{n+1} \right) |_{a}^{b} \\
     &= \frac{1}{b-a}\frac{1}{n+1} \left( b^{n+1}-a^{n+1} \right) \\
@@ -2135,8 +2135,8 @@ Zeigen Sie folgende Aussagen:
 \end{align*}
 Wir brauchen nur noch $n=1,2$ einzusetzen.
 \begin{align*}
-    \bfE X &= \frac{a+b}{2} & \bfE X^2 &= \frac{b^2 + ab + a^2}{3} & 
-    \bfD^2 X = \frac{(b-a)^2}{12}.
+    \bE X &= \frac{a+b}{2} & \bE X^2 &= \frac{b^2 + ab + a^2}{3} & 
+    \Var X = \frac{(b-a)^2}{12}.
 \end{align*}
 
 
@@ -2742,9 +2742,9 @@ eine exponentialverteilte Zufallsvariable.  Es sei bekannt, dass im Durchschnitt
 $75\%$ der Glühlampen eine Mindestbrenndauer von $500$ Stunden erreichen.
 Berechnen Sie Erwartungswert und Standardabweichung der Lebensdauer. 
 
-\solution Aus $X \sim \mathbf{Ex}(\lambda)$ mit $P(X>500) = 0.75$
-folgt $\lambda = - \frac{\log 0.75}{ 500} = 0.0005753641$.  $\bfE X = \sqrt{
-\bfD^2 X } = \frac{1}{\lambda} = 1738.03$
+\solution Aus $X \sim \text{Exp}(\lambda)$ mit $P(X>500) = 0.75$
+folgt $\lambda = - \frac{\log 0.75}{ 500} = 0.0005753641$.  $\bE X = \sqrt{
+\Var X } = \frac{1}{\lambda} = 1738.03$
 
 
 \problem{Radioaktivität.} Eine radioaktive Substanz gebe im Verlauf
@@ -2760,9 +2760,8 @@ Wahrscheinlichkeit dafür, dass
 \end{enumerate}
 
 \solution $X_t$ ist Anzahl der Teilchen emmitiert im Laufe von
-$[0,t]$. $X_t$ kann als Poisson-Verteilung modelliert werden. $X_t \sim \pi_t$
-ist $\text{Poiss}(\mu t)$ mit $P(X_t = k) = \frac{ (\mu t)^{k} }{k!} e^{- \mu
-t}$. Es gilt $\bfE X_t = \bfD^2 X_t = \mu t$. $\bfE X_{7.5} = 3.87 = 7.5 \mu$
+$[0,t]$. $X_t$ kann als Poisson-Verteilung modelliert werden. $X_t \sim \text{Poiss}(\mu t)$ mit $P(X_t = k) = \frac{ (\mu t)^{k} }{k!} e^{- \mu
+t}$. Es gilt $\bE X_t = \Var X_t = \mu t$. $\bE X_{7.5} = 3.87 = 7.5 \mu$
 impliziert $\mu = \frac{3.87}{7.5} = 0.516$.
 \begin{enumerate}
     \item Wir nutzen die Homogenität der Poisson-Verteilung und berechnen
@@ -2793,7 +2792,7 @@ $60\,m$ bis $80\,m$ zu großes Messergebnis ermittelt wird.
 
 \solution Für $X \sim \cN(2500, 160)$ berechne 
 \begin{equation*}
-    P(2500 + 40 \leq X \leq 2500 + 80) = P(Z \leq 2) - P(Z \leq \frac{3}{2}).
+    P(2500 + 60 \leq X \leq 2500 + 80) = P(Z \leq 2) - P(Z \leq \frac{3}{2}).
         \approx 0.04405707.
 \end{equation*}
 
