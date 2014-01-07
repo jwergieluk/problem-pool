@@ -1,7 +1,4 @@
-
-
 \section{Mengensysteme}
-
 
 \problem{Ereignisse. Mengenoperationen.}
 Gegeben seien jeweils der Grundraum $\Omega$ sowie zwei Teilmengen
@@ -646,6 +643,15 @@ gezogen wird. Damit ergibt sich
 Für die oben angegebenen Werte sind die beiden Wahrscheinlichkeiten gleich
 $\frac{5}{18}$.
 
+\problem{Multiplikatives Urnenmodell von P\'olya.} Eine Urne
+enthält $2$ schwarze und $2$ weiße Kugeln. Es wird eine Kugel zufällig gezogen,
+ihre Farbe notiert und wieder in die Urne gelegt. Die Anzahl der Kugeln der gerade notierten
+Farbe wird anschließend verdoppelt und die Prozedur wiederholt. 
+\begin{enumerate}
+    \item Wie groß ist die Wahrscheinlichkeit, dass die zweite gezogene Kugel weiß ist?
+    \item Wie groß ist die Wahrscheinlichkeit, dass die erste gezogene Kugel
+        weiß ist, unter der Bedingung, dass die zweite gezogene Kugel weiß ist?
+\end{enumerate}
 
 \problem{Bedingte Wahrscheinlichkeiten. Urnenmodell von P\'olya.} Eine Urne
 enthält $s$ schwarze und $w$ weiße Kugeln. Es wird eine Kugel zufällig gezogen,
@@ -2508,8 +2514,18 @@ Parametern $\mu$ und $\sigma^{2}$. Zeigen Sie folgende Aussagen:
 \end{enumerate}
 
 
+%\problem{Normalverteilung. Abweichungen vom Mittelwert.}
+%Wir betrachten die normalverteilte Zufallsgr\"o{\ss}e $X\sim\bfN(\mu, \sigma^2)$. 
+%\begin{enumerate}
+%    \item Berechnen Sie die Wahrscheinlichkeiten $P(X - \mu \geq n \sigma)$ für
+%        $n\in \left\{ 1,2,6 \right\}$.
+%    \item Berechnen Sie die Wahrscheinlichkeiten $P( | X-\mu| \geq n \sigma)$ für 
+%        $n\in \left\{ 1,2,6 \right\}$.
+%    \item \"Andern sich die Ergebnisse in (a) und (b), wenn $\ge$ durch $>$ ersetzt w\"urde? 
+%\end{enumerate}
+
 \problem{Normalverteilung. Abweichungen vom Mittelwert.}
-Wir betrachten die normalverteilte Zufallsgr\"o{\ss}e $X\sim\bfN(\mu, \sigma^2)$. 
+Wir betrachten die normalverteilte Zufallsvariable $X\sim\cN(\mu, \sigma^2)$. 
 \begin{enumerate}
     \item Berechnen Sie die Wahrscheinlichkeiten $P(X - \mu \geq n \sigma)$ für
         $n\in \left\{ 1,2,6 \right\}$.
@@ -2797,12 +2813,30 @@ $60\,m$ bis $80\,m$ zu großes Messergebnis ermittelt wird.
 \end{equation*}
 
 
+%\problem{Ersatzteillieferung.} Eine Ersatzteillieferung enthalte eine Kiste
+%Kugellager, zwei Kisten Zahnräder und drei Kisten Schrauben.  Die Masse der
+%Kisten (Bruttogewicht in kg) kann durch unabhängige und normalverteilte
+%Zufallsgrößen $X, Y_1, Y_2, Z_1, Z_2, Z_3$ mit
+%\begin{align*}
+%    X&\sim \bfN(125, 1), & Y_i&\sim \bfN(84, 4)\;\;(i=1,2), & Z_j&\sim \bfN(65, 3)\;\; (j=1,2,3)
+%\end{align*}
+%beschrieben werden.
+%\begin{enumerate}
+%    \item Berechnen Sie die Wahrscheinlichkeit dafür, dass die Masse einer
+%        Ersatzteillieferung größer ist als 500 kg.
+%
+%    \item Wie viele solcher Ersatzteillieferungen darf man maximal auf einem
+%        Lastwagen laden, wenn die Gesamtmasse aller Ersatzteillieferungen mit
+%        einer Wahrscheinlichkeit von mindestens $99\%$ unter $18$ Tonnen liegen
+%        soll?
+%\end{enumerate}
+
 \problem{Ersatzteillieferung.} Eine Ersatzteillieferung enthalte eine Kiste
 Kugellager, zwei Kisten Zahnräder und drei Kisten Schrauben.  Die Masse der
 Kisten (Bruttogewicht in kg) kann durch unabhängige und normalverteilte
-Zufallsgrößen $X, Y_1, Y_2, Z_1, Z_2, Z_3$ mit
+Zufallsvariablen $X, Y_1, Y_2, Z_1, Z_2, Z_3$ mit
 \begin{align*}
-    X&\sim \bfN(125, 1), & Y_i&\sim \bfN(84, 4)\;\;(i=1,2), & Z_j&\sim \bfN(65, 3)\;\; (j=1,2,3)
+    X&\sim \cN(125, 1), & Y_i&\sim \cN(84, 4)\;\;(i=1,2), & Z_j&\sim \cN(65, 3)\;\; (j=1,2,3)
 \end{align*}
 beschrieben werden.
 \begin{enumerate}
@@ -2925,17 +2959,20 @@ $p=1-0.1=0.9$.  $P(Y\geq 100) \geq 0.99$. $\Phi(x) \geq 0.99$, wenn $x\geq
 \end{align*}
 Optimierung liefert $n=108$.
 
+TODO: Check this calculation. A student reports $n=119$, which is more
+plausible than $104$. 
+
 
 \section{Mehrdimensionale Verteilungen.}
 
 \problem{Korrelationskoeffizient. Eigenschaften.} Seien $X$ und $Y$
-Zufallsgrößen mit existierenden und endlichen Varianzen $\sigma_{X}$, $\sigma_{Y}$ und bezeichne mit
+Zufallsvariablen mit existierenden und endlichen Varianzen $\sigma^2_{X}$, $\sigma^2_{Y}$ und bezeichne mit
 $\rho_{X,Y}$ den Korrelationskoeffizienten von $X$ und $Y$. Zeigen Sie folgende
 Aussagen: 
 \begin{enumerate}
-    \item Für $a>0$, $c>0$ und $b\in\bR$ gilt
+    \item Für $a>0$, $c>0$ und $b,d\in\bR$ gilt
         \begin{equation*}
-            \rho_{aX + b, cY + b} = \rho_{X,Y}.
+            \rho_{aX + b, cY + d} = \rho_{X,Y}.
         \end{equation*}
         Geben Sie eine Interpretation dieser Aussage an. 
     \item Für $a\neq 0$ und $b\in\bR$ gilt
@@ -2975,7 +3012,7 @@ symmetrisch, so sind $X$ und $Y$ unkorreliert aber nicht unabhängig.
 gleichverteilt und $\operatorname{Cov}(X, |X|) = \bfD^2 X^{+} - \bfD^{2} X^{-}
 = 0$. Klarerweise sind $X$ und $|X|$ nicht unabhängig. 
 
-\problem{Korrelation und Gleichverteilung auf dem Einheitskreis.} Sei $(X,Y)$
+\problem{Gleichverteilung auf dem Einheitskreis.} Sei $(X,Y)$
 ein Zufallsvektor mit der (zweidimensionalen) Dichtefunktion 
 \begin{equation*}
     f(x,y) = \begin{cases}
@@ -2983,16 +3020,65 @@ ein Zufallsvektor mit der (zweidimensionalen) Dichtefunktion
         0,& \text{sonst.}
     \end{cases}
 \end{equation*}
-Zeigen Sie, dass die Zufallsgrößen $X$ und $Y$ unkorreliert aber nicht
-unabhängig sind. 
+\begin{enumerate}
+    \item Berechnen Sie die Randdichten $f_{X}(x)$ und $f_{Y}(y)$, und zeigen
+        Sie, dass dies tatsächlich Dichten sind.
+        
+    \item Berechnen Sie die Erwartungswerte $\E X$ und $\E Y$.
+
+    \item Zeigen Sie, dass die Zufallsvariablen $X$ und $Y$ unkorreliert sind.
+    \item Zeigen Sie, dass die Zufallsvariablen $X$ und $Y$ nicht unabhängig sind. 
+\end{enumerate}
 % sources: Shao Exercises ch. 1, Jacod/Protter ch. 12.
 
-\solution $\bfE XY=0$. Das ergibt sich durchs Integrieten. Folglich
-$\operatorname{Cov}(X,Y)=0$. Aus $X \upmodels Y$ folgt $f(x,y) = h(x) g(y)$ 
-für alle $(x,y) \in \bR^{2}$. Für $x=1$ ergibt sich $g(y) \sim 1_{y=0}$. $g$ ist 
-aber keine Dichte. Widerspruch. 
+\solution 
+\begin{enumerate}
+    \item Die Randdichte $f_{X}(x)$ ist gegeben durch
+        \begin{align*}
+            f_{X}(x) &= \int_{}^{} f(x,y) dy \\
+            &= \int_{x^2+y^2 \leq 1}^{} \pi^{-1} dy \\
+            &= \int_{- \sqrt{1-x^2}}^{\sqrt{1-x^2}} \pi^{-1} dy \\
+            &= \frac{2}{\pi} \sqrt{1-x^2} 1_{[-1,1]}.
+        \end{align*}
+    \item Erwartungswert von $X$ ist demnach
+        \begin{align*}
+            \E X &= \int_{-1}^{1} x \frac{2}{\pi} \sqrt{1-x^2} dx = 0
+        \end{align*}
+        da wir eine ungerade Funktion bezüglich eines um $0$ symmetrischen 
+        Intervalls integrieren.
+    \item 
+        \begin{align*}
+            \operatorname{Cov}(X,Y) &= \E \left( X-\E X \right)\left( Y- \E Y \right) \\
+            &= \E XY \\
+            &= \int_{-1}^{1} \int_{-\sqrt{1-x^2}}^{\sqrt{1-x^2}} xy \pi^{-1} dy dx \\
+            &= \int_{-1}^{1} x \pi^{-1} \left( \frac{y^2}{2} \right)^{\sqrt{1-x^{2}}}_{-\sqrt{1-x^{2}}} dx = 0.
+        \end{align*}
+        Die Zufallsvariablen $X$ und $Y$ sind daher unkorreliert.
+    \item 
+        Aus $X \upmodels Y$ folgt $f(x,y) = h(x) g(y)$ für alle $(x,y) \in
+        \bR^{2}$. Für $x=1$ ergibt sich $g(y) \sim 1_{y=0}$. $g$ ist aber keine
+        Dichte. Widerspruch.
+\end{enumerate}
 
-\problem{Bedingte Dichte. Ein Rechenbeispiel.} Sei $(X,Y)$ ein 
+\problem{Gleichverteilung auf der Ellipse.} Sei $(X,Y)$
+ein Zufallsvektor mit der (zweidimensionalen) Dichtefunktion 
+\begin{equation*}
+    f(x,y) = \begin{cases}
+        \left( \pi a b \right)^{-1}, & \text{falls } \left( \frac{x}{a} \right)^{2} + \left( \frac{y}{b} \right)^{2} \leq 1 \\
+        0,& \text{sonst,}
+    \end{cases}
+\end{equation*}
+und reellwertigen Parametern $a,b > 0$. 
+\begin{enumerate}
+    \item Berechnen Sie die Randdichten $f_{X}$ und $f_{Y}$.
+    \item Berechnen Sie die Erwartungswerte $\E X$ und $\E Y$.
+    \item Zeigen Sie, dass die Zufallsvariablen $X$ und $Y$ unkorreliert sind.
+\end{enumerate}
+
+
+
+
+\problem{Bedingte Dichten. Ein Rechenbeispiel.} Sei $(X,Y)$ ein 
 Zufallsvektor mit der Dichtefunktion
 \begin{equation*}
     f(x,y) = \begin{cases}
@@ -3001,27 +3087,87 @@ Zufallsvektor mit der Dichtefunktion
     \end{cases}
 \end{equation*}
 \begin{enumerate}
+    \item Bestimmen Sie die Randdichten von $X$ und $Y$. 
     \item Bestimmen Sie die bedingte Dichte $f_{Y|X=x}(y)$, für $x\in (0,2)$. 
-%    \item Zeigen Sie, dass $P( Y \leq \frac{1}{2} \,|\, X=1) = \frac{1}{5}$ gilt.
-    \item Zeigen Sie, dass $\mathbf{Cov} (X+Y, X-Y) = \frac{73}{100}$ gilt.
+    \item Zeigen Sie, dass $P( Y \leq \frac{1}{2} \,|\, X=1) = \frac{1}{5}$ gilt.
+%    \item Zeigen Sie, dass $\mathbf{Cov} (X+Y, X-Y) = \frac{73}{100}$ gilt.
 \end{enumerate}
-% keywords: conditional density
 
 \solution 
 \begin{enumerate}
-    \item Randdichte:
-        \begin{equation*}
-            f_{Y} (y) = \frac{3}{5} y(y+2).
-        \end{equation*}
-        Bedingte Dichte: 
-        \begin{equation*}
-            f_{Y \,|\, X=x} = \frac{x+y}{y+2}. 
-        \end{equation*}
+    \item Wir berechnen die Randdichten $f_{X}$ und $f_{Y}$:
+        \begin{align*}
+            f_{X}(x) &= \int_{}^{} f(x,y) dy \\
+            &= \int_{0}^{1} \frac{3}{5} y(x+y) dy \\
+            &= \frac{3}{5} x \int_{0}^{1} y dy + \frac{3}{5} \int_{0}^{1} y^{2} dy \\
+            &= \left( \frac{3}{10}x + \frac{1}{5} \right) 1_{[0,2]}(x). \\
+            f_{Y}(y) &= \int f(x,y) dx \\
+            &= \int_{0}^{2} \frac{3}{5} y(x+y) dx \\
+            &= \left( \frac{6}{5} y \left( y+1 \right) \right) 1_{[0,1]}(y).
+        \end{align*}
 
-    \item Direkte Berechnung? Oh Gott nein!
+    \item Bedingte Dichte $f_{Y | X=x}(y)$ is gegeben durch
+        \begin{align*}
+            f_{Y \,|\, X=x}(y) &= \frac{f(x,y)}{f_{X}(x)} \\
+            &= \frac{y(x+y)}{ x/2 + 1/3} 1_{[0,2]}(y).
+        \end{align*}
+
+    \item 
+        \begin{align*}
+            P\left( Y \leq \frac{1}{2} \,|\, X=1 \right) &=
+            \int^{1/2}_{0} f_{Y \,|\, X=1} (y) dy \\
+            &= \frac{6}{5} \int^{1/2}_{0} y(1+y) dy = \frac{1}{5}. 
+        \end{align*}
 \end{enumerate}
 
-\section{Informatik. Prüfungsfragen. }
+\problem{Bivariate Rademacherverteilung.} Sei $\bfX = (X_1, X_2)$ ein Zufallsvektor mit
+$X_k \in \left\{ -1, 1 \right\}$, $k=1,2$ und \[P(X_1=i, X_2=j)=p_{ij}\] wobei
+\begin{equation*}
+    \begin{pmatrix}
+        p_{-1,-1} & p_{-1, 1} \\
+        p_{1,-1} & p_{1,1}
+    \end{pmatrix}
+    = \frac{1}{8}
+    \begin{pmatrix}
+        1 & 3 \\
+        3 & 1
+    \end{pmatrix}.
+\end{equation*}
+\begin{enumerate}
+    \item Zeigen Sie dass $X_1$ und $X_2$ Rademacherverteilt sind, d.h.\ 
+        \[P(X_k = -1) = P(X_k = 1) = \frac{1}{2}. \]
+        Berechnen Sie dabei die Wahrscheinlichkeitsfunktionen von $X_1$ und $X_2$. 
+
+    \item Berechnen Sie den Korrelationskoeffizienten von $X_1$ und $X_2$.
+    \item Berechnen Sie die Kovarianzmatrix $\mathbf \Sigma$ des Zufallsvektors $\bfX$.
+    \item Sind die Zufallsvariablen $X_1$ und $X_2$ stochastisch unabhängig?
+\end{enumerate}
+
+\solution 
+Wegen $\E X_1 = \E X_2 = 0$ gilt
+\begin{align*}
+    \operatorname{Cov}(X_1, X_2) &= \E XY
+\end{align*}
+und
+\begin{align*}
+    P(X_{1} X_{2} = 1) &= \frac{1}{4} & 
+    P(X_{1} X_{2} = -1) &= \frac{6}{8} &
+    \E X_{1}X_{2} &= -\frac{1}{2}. 
+\end{align*}
+Es gilt daher 
+\begin{equation*}
+   \rho_{X_1,X_2} = -\frac{1}{2}.
+\end{equation*}
+Die Kovarianzmatrix $\mathbf \Sigma$ von $\bfX$ ist demnach
+\begin{equation*}
+    \mathbf \Sigma = \begin{pmatrix}
+        1 & -1/2 \\
+        -\frac{1}{2} & 1
+    \end{pmatrix}.
+\end{equation*}
+
+
+\section{Informatik. Prüfungsaufgaben. }
 
 \problem{Schaltkreise. Qualitätskontrolle.} Bei einer Endkontrolle von
 Schaltkreisen sollen nicht voll funktionsfähige Schaltkreise aussortiert
@@ -3281,7 +3427,79 @@ Zufallsgröße $X\sim \bfN(\mu, \sigma^2)$ sind.
 \end{enumerate}
 
 
+
 \problem{Übertragungskanal.} Die Fehlerrate eines Übertragungskanals hängt
+von der Entfernung $D$ (im m) zwischen Quelle und Senke ab. Die
+Wahrscheinlichkeit, dass ein Bit falsch übertragen wird, beträgt $p =
+0.001\cdot{} D$ für $D\leq 500\,\text{m}$ und $p=0.5$ für $D>500\,\text{m}$.
+Das heißt, bei Entfernungen von über $500\,\text{m}$ wird nur noch Rauschen an
+der Senke empfangen.
+
+Es wird eine $512$ Bit Nachricht zur Übertragung vorbereitet.  
+\begin{enumerate}
+    \item Die Entfernung sei $D=5\,$m. Berechnen Sie unter Benutzung eines
+        geeigneten Grenzverteilungssatzes die Wahrscheinlichkeit dafür, dass
+        mehr als $2$ Bits von der obigen Nachricht falsch übertragen werden. 
+
+    \item Zur Verminderung der Fehlerrate wird jedes Bit der Nachricht $3$ mal
+        hintereinander übertragen. Ein Decodieralgorithmus an der Senke zerlegt
+        die Nachricht in $3$ Bit lange Teile und gibt für jeden Teil $1$ aus,
+        falls $2$ oder $3$ Bits gleich $1$ sind und sonst $0$. Berechnen Sie
+        bei $D=5\,m$ die Wahrscheinlichkeit dafür, dass mehr als $2$ Bits
+        von der ursprünglichen $512$ Bits langen Nachricht falsch übertragen
+        werden.
+\end{enumerate}
+
+\solution
+\begin{enumerate}
+    \item Wir approximierten die Binomialverteilung mit Hilfe des Poissonschen
+        Grenzwertsatzes. Bei $p=0.005$, $n=512$, $np=2.56$ und $1500p = 7.5$
+        ist die Faustregel $np \leq 10$ und $1500p\leq n$ erfüllt. Sei $X\sim
+        \text{Bin(512, 0.005)}$ die Anzahl der falsch übertragenen Bits. Nun
+        setzen wir $\lambda = np = 2.56$. Der Grenzversatz von Poisson liefert
+        \begin{equation*}
+            P(X=k) \approx e^{-\lambda } \frac{\lambda^{k}}{k!}
+        \end{equation*}
+        und
+        \begin{align*}
+            P\left( X>2 \right) &= 1 - P(X \leq 2) \\
+            &= 1 - P(X=0)-P(X=1)-P(X=2) \approx 0.528517.
+        \end{align*}
+    \item Die Wahrscheinlichkeit für die falsche Übertragung eines Bits beträgt
+        in diesem Verfahren
+        \begin{equation*}
+            p_3 = \binom{3}{3} p^{3}\left( 1-p \right)^{0} + \binom{3}{2} p^{2} \left( 1-p \right)^{3-2} = 7.475\, 10^{-5}.
+        \end{equation*}
+        Wir erhalten also $n p_3 = 0.038272$. Der Grenzvertsatz von Poisson liefert
+        \begin{align*}
+            P\left( X>2 \right) &= 1 - P(X \leq 2) \\
+            &= 1 - P(X=0)-P(X=1)-P(X=2) \approx 9.079004\, 10^{-6}.
+        \end{align*}
+\end{enumerate}
+
+\problem{Übertragungskanal mit stochastischer Fehlerkorrektur.} Der Fehlerrate
+eines Übertragungskanals ist $p=0.1$. Es wird eine $512$ Bit Nachricht zu Übertragung
+vorbereitet.
+\begin{enumerate}
+    \item Berechnen Sie unter Benutzung eines geeigneten Grenzverteilungssatzes
+        die Wahrscheinlichkeit dafür, dass mehr als $35$ Bits von der obigen
+        Nachricht falsch übertragen werden.
+
+    \item Zur Verminderung der Fehlerrate wird jedes Bit der Nachricht $2$ mal
+        hintereinander übertragen. Ein Decodieralgorithmus an der Senke zerlegt
+        die Nachricht in $2$ Bit lange Teile und gibt für jeden Teil $1$ aus,
+        falls beide Bits gleich $1$ sind und $0$ falls beide Bits gleich $0$
+        sind.  Falls zwei verschiedene Bits empfangen wurden, wird das
+        Ergebniss eines Bernoulliexperiments $B(0.5)$ ausgegeben. 
+        
+        Berechnen Sie für den modifizierten Dekodieralgorithmus die
+        Wahrscheinlichkeit dafür, dass mehr als $35$ Bits von der
+        ursprünglichen $512$ Bits langen Nachricht falsch übertragen werden.
+\end{enumerate}
+
+
+
+\problem{Übertragungskanal. II} Die Fehlerrate eines Übertragungskanals hängt
 von der Entfernung $D$ (im m) zwischen Quelle und Senke ab. Die
 Wahrscheinlichkeit, dass ein Bit falsch übertragen wird, beträgt $p =
 0.001\cdot{} D$ für $D\leq 500\,\text{m}$ und $p=0.5$ für $D>500\,\text{m}$.
@@ -3355,9 +3573,43 @@ die Messungen mit unabhängigen normalverteilten Zufallsgrößen $X_i \sim
 \end{enumerate}
 
 
+\problem{Bitcoin. Einfaches Bubble-Modell.} In einem einfachen Marktmodel für
+den Euro-Wert einer Bitcoin wird davon ausgegangen, dass es innerhalb eines
+Jahres mit Wahrscheinlichkeit $p=0.95$ zu einem Crash kommen wird. Der
+Crashzeitpunkt $\tau$ ist dabei exponentialverteilt mit dem Parameter
+$\lambda$. Gleichzeitig nehmen wir an, dass der Euro-Wert $b(t)$ einer Bincoin
+(1 BTC) durch die Funktion
+\begin{equation*}
+    b(t) =
+    \begin{cases}
+        500 \exp( t ) & t \leq \tau \\
+        0 & \tau < t
+    \end{cases}
+\end{equation*}
+gegeben ist. $t$ bezeichnet dabei Zeit in Jahren. 
+\begin{enumerate}
+    \item Berechnen Sie den Wert des Parameters $\lambda$.
+    \item Berechnen Sie den erwarteten Euro-Wert von $1$ BTC zum Crash-Zeitpunkt.
+    \item Berechnen Sie den erwarteten Euro-Wert von $1$ BTC zum Zeitpunkt $t=1$. 
+\end{enumerate}
+
+\solution
+\begin{enumerate}
+    \item Die Dichte und die Wahrscheinlichkeitsfunktion der Exponentialverteilung sind gegeben 
+        durch
+        \begin{align*}
+            p(t) &= \lambda \exp\left( -\lambda t \right) & P(\tau \leq t) = 1- \exp( - \lambda t). 
+        \end{align*}
+        Aus $P( \tau \leq 1 ) = 0.95$ erhalten wir $\lambda = - \log\left( 0.05 \right) \approx 2.9957$.
+    \item Erwarteter Preis zum Crashzeitpunkt ist 
+        \begin{align*}
+            \E b(\tau) &= 500 \frac{\lambda}{\lambda-1} \approx 750.5346.
+        \end{align*}
+\end{enumerate}
+
+
 
 \section{Quantile}
-
 
 \problem{Exponentialverteilung. Quantile.} Seien 
 $X\sim \mathbf{Ex}(\lambda)$ exponentialverteilt mit dem Paramter $\lambda>0$
