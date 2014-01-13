@@ -1,0 +1,20 @@
+
+TEX \input{preamble}
+
+TEX \begin{center}
+TEX     {\Large\bfseries Unsolved problems form supermarket. \\}
+TEX     \vskip \baselineskip
+TEX {\itshape Dipl.-Ing.\ Julian Wergieluk}
+TEX \end{center}
+#TEX \vskip 2\baselineskip
+
+
+RANDOM 
+P Borel sets in Euclidean space are regular.
+P Filtations and continuity of paths.
+P Ordnungsstatistiken. Eigenschaften.
+P Jensenungleichung. Umkehrung. 
+
+
+
+TEX \input{tail}

@@ -1,0 +1,28 @@
+#!/bin/bash
+
+set -e; set -u
+
+
+PROBLEMS="../statistics.tex ../probability-theory.tex ../stochastic-analysis.tex ../analysis.tex"
+TMP="/tmp"
+
+for KEYS in *.txt; do
+    TEX=${KEYS/.txt/.tex}
+    PDF=${KEYS/.txt/.pdf}
+
+    if [[ $KEYS -nt $PDF  ]]; then
+        pe $KEYS $PROBLEMS > $TMP/$TEX
+#        pe $KEYS $PROBLEMS
+        pdflatex    -output-directory   $TMP $TMP/$TEX
+        pdflatex    -output-directory   $TMP $TMP/$TEX
+        cp $TMP/${KEYS/.txt/.pdf} `pwd`
+    fi
+done
+
+
+
+
+
+
+
+
