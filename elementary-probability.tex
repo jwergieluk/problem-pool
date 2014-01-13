@@ -271,6 +271,10 @@ Zeigen Sie folgende Aussagen:
 \end{enumerate}
 
 
+\problem{Wahrscheinlichkeitsmaße. Einfache Ungleichung.} Seien ein
+Wahrscheinlichkeitsraum $\left( \Omega, \cA, P \right)$ und die Ereignisse $A$
+und $B$ gegeben. Beweisen Sie die Ungleichung $$P(A \cap B) \geq P(A) + P(B) -1.$$
+
 \problem{Arithmetik der Wahrscheinlichkeitsmaße.} Seien ein
 Wahrscheinlichkeitsraum $\left( \Omega, \fA, P \right)$ und die Ereignisse $A,
 B \in \fA$ gegeben. 
@@ -534,6 +538,47 @@ Berechnen Sie die Wahrscheinlichkeiten der folgenden Ereignisse:
     \item $4! p$. 
 \end{enumerate}
 
+\problem{Kombinatorik. $4$ Kartenspieler.} Aus einem gut gemischten Spielkartensatz
+bestehend aus $52$ Karten werden je $13$ Karten an $4$ Spieler verteilt.
+Berechnen Sie folgende Wahrscheinlichkeiten:
+\begin{enumerate}
+    \item Jeder Spieler bekommt einen Ass. 
+%    \item Jeder Spieler bekommt mindestens einen Pik. 
+    \item Erster Spieler bekommt genau $7$ Karten einer Farbe.
+    \item Erster Spieler bekommt genau $6$ Karten einer Farbe.
+\end{enumerate}
+%Erster Spieler hat ``zufällig'' einen Ass bei dem zweiten Spieler gesehen. Wie
+%hoch ist die Wahrscheinlichkeit dafür, dass der erste Spieler keinen Ass
+%bekommen hat?
+
+\solution 
+\begin{enumerate}
+    \item Wir zählen die Mengen und vernachlässigen dadurch die Reihenfolge der Karten.
+        Die Anzahl der möglichen Kartenverteilungen an vier Spieler ist 
+        \begin{equation*}
+            \binom{52}{13}\binom{39}{13}\binom{26}{13}\binom{13}{13}.
+        \end{equation*}
+        Die Anzahl der günstigen Verteilungen: Der erste Spieler bekommt einen beliebigen
+        Ass und $12$ Karten die keine Asse sind. Der zweite Spieler bekommt einen der drei
+        übriggebliebenen Asse und $12$ Karten die keine Asse sind. Diese Überlegung liefert
+        \begin{equation*}
+            4 \binom{48}{12} 3 \binom{36}{12} 2 \binom{24}{12} 1 \binom{12}{12}.
+        \end{equation*}
+        Die gesuchte Wahrscheinlichkeit ist demnach
+        \begin{equation*}
+            \frac{4! 48!  \left( 13! \right)^4}{ 52! \left( 12! \right)^4 }. 
+        \end{equation*}
+%    \item Lösung mit Inklusions/Exclusionsprinzip
+    \item Wahrscheinlichkeit für $7$ Karten einer Farbe:
+        \begin{equation*}
+            \frac{4 \binom{13}{7} \binom{39}{6}}{ \binom{52}{13}}.
+        \end{equation*}
+    \item Anzahl der Günstigen wie oben. Anzahl der Möglichen:
+        \begin{equation*}
+            4 \binom{13}{6} \left[ \binom{39}{7} - 3 \binom{13}{6} \binom{26}{1}  \right].
+        \end{equation*}
+\end{enumerate}
+
 \section{Bedingte Wahrscheinlichkeiten}
 
 
@@ -652,6 +697,13 @@ Farbe wird anschließend verdoppelt und die Prozedur wiederholt.
     \item Wie groß ist die Wahrscheinlichkeit, dass die erste gezogene Kugel
         weiß ist, unter der Bedingung, dass die zweite gezogene Kugel weiß ist?
 \end{enumerate}
+
+\solution
+Mit der üblichen Notation berechnen wir
+\begin{align*}
+    P(W_2) &= P( W_2 \,|\, W_1 ) P(W_1) + P(W_2 \,|\, S_1) P(S_1) = \frac{1}{2}\\
+    P(W_1 \,|\, W_2 ) &= \frac{ P(W_2 \,|\, W_1 ) P( W_1 )  }{ P(W_2) } = \frac{2}{3}. 
+\end{align*}
 
 \problem{Bedingte Wahrscheinlichkeiten. Urnenmodell von P\'olya.} Eine Urne
 enthält $s$ schwarze und $w$ weiße Kugeln. Es wird eine Kugel zufällig gezogen,
@@ -3075,7 +3127,30 @@ und reellwertigen Parametern $a,b > 0$.
     \item Zeigen Sie, dass die Zufallsvariablen $X$ und $Y$ unkorreliert sind.
 \end{enumerate}
 
-
+\solution 
+Die Lösung ist eine einfache Verallgemeinerung der Berechnung für die Gleichverteilung
+auf dem Einheitskreis.
+\begin{enumerate}
+    \item Die Randdichte $f_{X}(x)$ ist gegeben durch
+        \begin{align*}
+            f_{X}(x) &= \int f(x,y) dy \\
+            &= \frac{2}{\pi a} \sqrt{1- \left( \frac{x}{a} \right)^2} \ 1_{[-a,a]}(x).
+        \end{align*}
+    \item Erwartungswert von $X$ ist demnach
+        \begin{align*}
+            \E X &= \int_{-a}^{a} x f_{X}(x) dx = 0
+        \end{align*}
+        da wir eine ungerade Funktion bezüglich eines um $0$ symmetrischen 
+        Intervalls integrieren.
+    \item 
+        \begin{align*}
+            \operatorname{Cov}(X,Y) &= \E \left( X-\E X \right)\left( Y- \E Y \right) \\
+            &= \E XY \\
+            &= \int_{-b}^{b} \int_{-b\sqrt{1- x^2/a^2}}^{b\sqrt{1-x^2/a^2}} \frac{xy}{\pi ab} dy dx \\
+            &= \int_{-b}^{b} \frac{x}{ \pi ab} \left( \frac{y^2}{2} \right)^{b\sqrt{1-x^{2}/a^2}}_{-b\sqrt{1-x^{2}/a^2}} dx = 0.
+        \end{align*}
+        Die Zufallsvariablen $X$ und $Y$ sind daher unkorreliert.
+\end{enumerate}
 
 
 \problem{Bedingte Dichten. Ein Rechenbeispiel.} Sei $(X,Y)$ ein 
@@ -3356,7 +3431,9 @@ Großraum Halle im Mittel zwei extreme Hochwasserereignisse pro Jahrhundert zu
 verzeichnen waren. Wir setzen voraus, dass dafür die Annahmen des
 Poisson-Prozesses (Stationarität, Homogenität und Ordinarität) gelten mögen.
 \begin{enumerate}
-    \item Was bedeuten diese drei Annahmen für die vorliegende Problematik?
+    \item Wie können diese drei Annahmen für die vorliegende Problematik interpretiert werden?
+%        Was bedeuten diese drei Annahmen für die vorliegende Problematik?
+        
     \item Wie wahrscheinlich ist es, dass in einem Jahrhundert mehr als drei
         extreme Hochwasserereignisse im Großraum Halle auftreten?
     \item Wie wahrscheinlich ist es, dass nach dem extremen Hochwasser 2013
@@ -3367,14 +3444,27 @@ Poisson-Prozesses (Stationarität, Homogenität und Ordinarität) gelten mögen.
 \solution
 \begin{enumerate}
         \setcounter{enumi}{1}
-    \item Rechnungseinheit Jahre: $\mu=\frac{2}{100}=0.02, \quad X_t \sim \pi_{\mu t}.$
+    \item Rechnungseinheit Jahre: $\mu=\frac{2}{100}=0.02, \quad X_t \sim \text{Poiss}{\mu t}.$ 
+        Sei $\pi_{\lambda}$ die Wahrscheinlichkeitsfunktion der Poissonverteilung mit dem Parameter $\lambda$. Dann ist
         
-        $t=100,\;\lambda=\mu t=2, \quad P(X_{100}>3)=1-\pi_2(0)-\pi_2(1)-\pi_2(2)-\pi_2(3)=\underline{0.1429}.$
+        $t=100,\;\lambda=\mu t=2, \quad P(X_{100}>3)=1-\pi_2(0)-\pi_2(1)-\pi_2(2)-\pi_2(3)= 0.1429.$
 
-    \item Zeitraum bis zum nächsten Ereignis: $\,T \sim \mathbf{Ex}(\mu)$.
+    \item Zeitraum bis zum nächsten Ereignis: $\,T \sim \text{Exp}(\mu)$.
 
-        $P(T \le 20)=1-\exp(-20 \mu)=1-\exp(-0.4)=\underline{0.3297}.$
+        $P(T \le 20)=1-\exp(-20 \mu)=1-\exp(-0.4)=0.3297.$
 \end{enumerate}
+
+% Bernd's solution
+%\begin{enumerate}
+%        \setcounter{enumi}{1}
+%    \item Rechnungseinheit Jahre: $\mu=\frac{2}{100}=0.02, \quad X_t \sim \pi_{\mu t}.$
+%        
+%        $t=100,\;\lambda=\mu t=2, \quad P(X_{100}>3)=1-\pi_2(0)-\pi_2(1)-\pi_2(2)-\pi_2(3)=\underline{0.1429}.$
+%
+%    \item Zeitraum bis zum nächsten Ereignis: $\,T \sim \mathbf{Ex}(\mu)$.
+%
+%        $P(T \le 20)=1-\exp(-20 \mu)=1-\exp(-0.4)=\underline{0.3297}.$
+%\end{enumerate}
 
 \problem{Aktie im Bachelier-Modell.} Die Kursveränderungen einer Aktie eines
 börsennotierten Unternehmens werden über den Zeitraum von 3 Wochen (15
@@ -3477,24 +3567,43 @@ Es wird eine $512$ Bit Nachricht zur Übertragung vorbereitet.
         \end{align*}
 \end{enumerate}
 
-\problem{Übertragungskanal mit stochastischer Fehlerkorrektur.} Der Fehlerrate
-eines Übertragungskanals ist $p=0.1$. Es wird eine $512$ Bit Nachricht zu Übertragung
+\problem{Übertragungskanal mit stochastischer Fehlerkorrektur.} Die Fehlerwahrscheinlichkeit
+bei der Übertragung eines Bits ist $p=0.1$. Es wird eine $512$ Bit Nachricht zur Übertragung
 vorbereitet.
 \begin{enumerate}
     \item Berechnen Sie unter Benutzung eines geeigneten Grenzverteilungssatzes
-        die Wahrscheinlichkeit dafür, dass mehr als $35$ Bits von der obigen
+        die Wahrscheinlichkeit dafür, dass mehr als $35$ Bits der obigen
         Nachricht falsch übertragen werden.
 
-    \item Zur Verminderung der Fehlerrate wird jedes Bit der Nachricht $2$ mal
-        hintereinander übertragen. Ein Decodieralgorithmus an der Senke zerlegt
-        die Nachricht in $2$ Bit lange Teile und gibt für jeden Teil $1$ aus,
-        falls beide Bits gleich $1$ sind und $0$ falls beide Bits gleich $0$
-        sind.  Falls zwei verschiedene Bits empfangen wurden, wird das
-        Ergebniss eines Bernoulliexperiments $B(0.5)$ ausgegeben. 
+    \item Zur Verminderung der Fehlerrate wird jedes Bit der Nachricht viermal
+        hintereinander übertragen. Ein Decodieralgorithmus beim Empfänger zerlegt
+        die Nachricht in $4$ Bit lange Teile und gibt für jeden Teil $1$ aus,
+        falls $3$ oder $4$ Bits gleich $1$ sind und $0$ falls $3$ oder $4$ Bits
+        gleich $0$ sind. Falls zwei Einser und zwei Nuller empfangen wurden,
+        wird das Ergebnis eines unabhängigen Bernoulliexperiments $X\sim
+        \text{Ber}(0.5)$ ausgegeben. 
         
-        Berechnen Sie für den modifizierten Dekodieralgorithmus die
-        Wahrscheinlichkeit dafür, dass mehr als $35$ Bits von der
-        ursprünglichen $512$ Bits langen Nachricht falsch übertragen werden.
+        Berechnen Sie die Fehlerwahrscheinlichkeit bei der Übertragung eines
+        Bits für den modifizierten Algorithmus. 
+\end{enumerate}
+
+\solution
+\begin{enumerate}
+    \item Sei $n=512$, $k=35$ und $X \sim \text{Bin}(n,
+        p)$. $\E X = np= 51.2$, $\sigma^{2}_{X} = 46.08$. Die Wahrscheinlichkeit,
+        dass mehr als $k$ Bits falsch übertragen werden, ist 
+        \begin{align*}
+            P\left( X > k \right) &= 1 - P\left( X \leq k \right) \\
+            &= 1- P\left( \frac{X - np}{\sqrt{np(1-p)}} \leq \frac{k -np}{ \sqrt{np(1-p)}} \right) \\
+            &\approx 1 - \Phi\left( \frac{k -np}{ \sqrt{np(1-p)}}  \right) =  0.9914949.
+        \end{align*}
+        Die Faustregel rechtfertigt dabei die Normalapproximation. 
+    \item Die Wahrscheinlichkeit für die falsche Übertragung eines Bits bei dem alternativen 
+        Algorithmus ist 
+        \begin{align*}
+            \binom{4}{4} p^{4} + \binom{4}{3} p^{3}(1-p) + \binom{4}{2} p^2 (1-p)^{2} \frac{1}{2} = 0.028.
+        \end{align*}
+        % p^4 + 4*(p^3)*(1-p) + 6*(p^2)*( (1-p)^2 )*0.5 
 \end{enumerate}
 
 
@@ -3576,8 +3685,8 @@ die Messungen mit unabhängigen normalverteilten Zufallsgrößen $X_i \sim
 \problem{Bitcoin. Einfaches Bubble-Modell.} In einem einfachen Marktmodel für
 den Euro-Wert einer Bitcoin wird davon ausgegangen, dass es innerhalb eines
 Jahres mit Wahrscheinlichkeit $p=0.95$ zu einem Crash kommen wird. Der
-Crashzeitpunkt $\tau$ ist dabei exponentialverteilt mit dem Parameter
-$\lambda$. Gleichzeitig nehmen wir an, dass der Euro-Wert $b(t)$ einer Bincoin
+Crash-Zeitpunkt $\tau$ ist dabei exponentialverteilt mit dem Parameter
+$\lambda$. Gleichzeitig nehmen wir an, dass der Euro-Wert $b(t)$ einer Bitcoin
 (1 BTC) durch die Funktion
 \begin{equation*}
     b(t) =
@@ -3586,11 +3695,10 @@ $\lambda$. Gleichzeitig nehmen wir an, dass der Euro-Wert $b(t)$ einer Bincoin
         0 & \tau < t
     \end{cases}
 \end{equation*}
-gegeben ist. $t$ bezeichnet dabei Zeit in Jahren. 
+gegeben ist. $t$ bezeichnet dabei die Zeit in Jahren. 
 \begin{enumerate}
     \item Berechnen Sie den Wert des Parameters $\lambda$.
     \item Berechnen Sie den erwarteten Euro-Wert von $1$ BTC zum Crash-Zeitpunkt.
-    \item Berechnen Sie den erwarteten Euro-Wert von $1$ BTC zum Zeitpunkt $t=1$. 
 \end{enumerate}
 
 \solution
@@ -3598,10 +3706,10 @@ gegeben ist. $t$ bezeichnet dabei Zeit in Jahren.
     \item Die Dichte und die Wahrscheinlichkeitsfunktion der Exponentialverteilung sind gegeben 
         durch
         \begin{align*}
-            p(t) &= \lambda \exp\left( -\lambda t \right) & P(\tau \leq t) = 1- \exp( - \lambda t). 
+            p(t) &= \lambda \exp\left( -\lambda t \right), & P(\tau \leq t) = 1- \exp( - \lambda t). 
         \end{align*}
         Aus $P( \tau \leq 1 ) = 0.95$ erhalten wir $\lambda = - \log\left( 0.05 \right) \approx 2.9957$.
-    \item Erwarteter Preis zum Crashzeitpunkt ist 
+    \item Erwarteter Preis zum Crash-Zeitpunkt ist 
         \begin{align*}
             \E b(\tau) &= 500 \frac{\lambda}{\lambda-1} \approx 750.5346.
         \end{align*}
@@ -3658,6 +3766,15 @@ Der Median ist $Q(0.5) = \alpha$.
 
 \section{Erwartungstreue}
 
+\problem{Schätzung der Varianz bei bekanntem Erwartungswert.} 
+Sei $X_{1},\dots ,X_n$, $n>1$ eine $n$-elementige Stichproble mit $\E X_i =
+\mu$ und $\Var X_i = \sigma^2>0$ gegeben. Zeigen Sie, dass die Schätzfunktion 
+\begin{equation*}
+    V^{2}\left( X_1,\dots ,  X_n \right) = \frac{1}{n} \sum_{i=1}^{n} \left( X_i - \mu \right)^2
+\end{equation*} 
+erwartungstreu für $\sigma^2$ ist. 
+
+
 \problem{Diskrete Gleichverteilung. Erwartungstreuer Schätzer.} Seien
 $X_1,\dots ,X_k$ i.i.d.\ und diskret gleichverteilt auf $\left\{ 1,\dots ,N
 \right\}$ mit $N>1$. Zeigen Sie, dass der Schätzer
@@ -3691,7 +3808,7 @@ Damit ist $T$ erwartungstreu.
 
 \section{Einfache Schätzer}
 
-\problem{Telefonzentrale.} In einer Telefonzentrale wurden für $11$
+\problem{Einfache Schätzer. Telefonzentrale.} In einer Telefonzentrale wurden für $11$
 aufeinanderfolgende Anrufe die Zeitabstände zwischen zwei Anrufen ermittelt. Es
 ergaben sich die folgenden Werte:
 \begin{lstlisting}
