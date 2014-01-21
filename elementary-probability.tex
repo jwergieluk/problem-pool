@@ -1995,7 +1995,7 @@ ist die Wahrscheinlichkeit dafür, dass ein $500$ m langes Bandstück keine
 Fehler aufweist? Welches Model verwenden Sie um diese Zufallssituation zu
 modellieren? 
 
-\section{Stetite Zufallsvariablen}
+\section{Stetige Zufallsvariablen}
 
 
 \problem{Exponentialverteilung. Minima.}
@@ -2803,7 +2803,7 @@ Freiheitsgraden.
 
 
 
-\section{Stetige Zufallsvariable -- Textaufgaben}
+\section{Stetige Zufallsvariablen -- Textaufgaben}
 
 \problem{Lebensdauer der Glühlampen.} Die Lebensdauer einer Glühlampe sei
 eine exponentialverteilte Zufallsvariable.  Es sei bekannt, dass im Durchschnitt
@@ -3767,7 +3767,7 @@ Der Median ist $Q(0.5) = \alpha$.
 \section{Erwartungstreue}
 
 \problem{Schätzung der Varianz bei bekanntem Erwartungswert.} 
-Sei $X_{1},\dots ,X_n$, $n>1$ eine $n$-elementige Stichproble mit $\E X_i =
+Sei $X_{1},\dots ,X_n$, $n>1$ eine $n$-elementige Stichprobe mit $\E X_i =
 \mu$ und $\Var X_i = \sigma^2>0$ gegeben. Zeigen Sie, dass die Schätzfunktion 
 \begin{equation*}
     V^{2}\left( X_1,\dots ,  X_n \right) = \frac{1}{n} \sum_{i=1}^{n} \left( X_i - \mu \right)^2
@@ -3820,7 +3820,7 @@ vom Erwartungswert an.
 
 Diskutieren Sie die Eigenschaften dieser Schätzfunktionen.
 
-\solution Erwartungstreuer Schätzfunktionen für den Erwartungswert und
+\solution Erwartungstreue Schätzfunktionen für den Erwartungswert und
 die Varianz sind
 \begin{align*}
     \bar X_n &= \frac{1}{n} \sum_{i=1}^{n} X_n & S_n^{2} &= \frac{1}{n-1} \sum_{i=1}^{n} \left( X_i - \bar X_n \right)^{2}. 
@@ -3839,7 +3839,7 @@ Für diese Stichprobe gilt
 
 \problem{Kondensatoren. Konfidenzintervall.} Aus einer Lieferung von
 Kondensatoren wurden $n$ Stück zufällig ausgewählt und folgende Kapazitäten (in
-$\mu$F) festgestellt (Normwert: $220\,\mu$F):
+$\mu$F) festgestellt:
 \begin{lstlisting}
     281  221  220  221  219  221  220  218  222  219
 \end{lstlisting}
@@ -3867,7 +3867,7 @@ $\mu$F) festgestellt (Normwert: $220\,\mu$F):
             \frac{\bar X_n - \mu}{ S_n}\sqrt{n}
             \leq t_{n-1, 1-\frac{\alpha}{2}} \right) = 1-\alpha. 
         \end{align*}
-        Die $t_{n}$-Verteilung ist symmetrisch -- das folgt auf der Konstruktion: Für 
+        Die $t_{n}$-Verteilung ist symmetrisch -- das folgt aus der Konstruktion: Für 
         $X\sim \bfN(0,1)$ und $Y\sim \chi^{2}_{n}$ ist 
         \begin{equation*}
             \frac{X}{\sqrt{Y/n}} \sim t_{n}. 
@@ -3880,12 +3880,13 @@ $\mu$F) festgestellt (Normwert: $220\,\mu$F):
         \end{align*}
         Konkret in unserem Fall heißt das
         \begin{equation*}
-            t_{9, 1-\frac{0.05}{2}} = 13.8006
+            t_{9, 1-\frac{0.05}{2}} = 2.262
         \end{equation*}
         \begin{equation*}
-            P\left( \mu \in \left[ 212.3994 , 240.0006 \right] \right) = 0.95.
+            P\left( \mu \in \left[ 212 , 240 \right] \right) = 0.95.
         \end{equation*}
-    \item $0.95$-Konfidenzintervall für die Varianz ist 
+
+        $0.95$-Konfidenzintervall für die Varianz ist 
         \begin{equation*}
             \left[ 176.08, 1057.25 \right].
         \end{equation*}
@@ -3966,6 +3967,22 @@ Dabei wurden $190$ einwandfreie Teile festgestellt.
             P\left(  0 \leq p \leq 0.1192952  \right) = 0.95.
         \end{equation*}
         Negatives Intervall kommt durch die normale Approximation zustande. 
+
+        Alternative Lösung. Es kann auch mit Hilfe der Tabelle vorgegangen werden. 
+        Die Grenzen des Konfidenzintervalls sind 
+        \begin{align*}
+            U &= \bar X_n - z_{1 - \frac{\alpha}{2}} \sqrt{ \frac{\bar X_n (1-\bar X_n)}{n}} \\
+            O &= \bar X_n + z_{1 - \frac{\alpha}{2}} \sqrt{ \frac{\bar X_n (1-\bar X_n)}{n}}
+        \end{align*}
+        Mit $\alpha=0.05$, $z_{0.975}=1.96$, 
+        \begin{equation*}
+            \sqrt{ \frac{\bar X_{n}(1-\bar X_n)}{n}} = 0.154
+        \end{equation*}
+        ergibt sich
+        \begin{equation*}
+            \left[ 0.0198, 0.0802 \right]
+        \end{equation*}
+        als Konfidenzintervall für den Ausschussanteilt $p$.
 \end{enumerate}
 
 
@@ -4103,7 +4120,7 @@ Der Wert der Teststatistik ist $T = 15.6$. Dabei ist $\chi^2_{n-1, \alpha} =
 
 \problem{Entfernungsmessung. Konfidenzintervall und Test.} Beim Messen der
 Entfernung zwischen zwei Punkten sei der Messwert die Realisierung einer
-$\bfN(\mu,\sigma^2)$-verteilten Zufallsgröße. Aus $20$ Messungen einer
+$\cN(\mu,\sigma^2)$-verteilten Zufallsgröße. Aus $20$ Messungen einer
 bestimmten Entfernung ergaben sich die folgenden Schätzwerte:
 \begin{align*}
     \bar x &= 327.0\,\text{m}, & s^2 &= 17.3\, \text{m}^2.
@@ -4160,4 +4177,55 @@ bestimmten Entfernung ergaben sich die folgenden Schätzwerte:
         Die Nullhypothese wird also nicht verworfen. 
 \end{enumerate}
 
-% vim: set spelllang=de; set spell
+
+\problem{Test. Trendvergleich bei Funds.} 
+Zur Analyse der Performance zweier Funds werden die Kursveränderungen über den
+Zeitraum von einem Jahr (250 Businesstage) analysiert. Aus den Beobachtungen
+$x^{(1)}_{1},\dots ,x^{(1)}_{250}$ und $x^{(2)}_{1},\dots ,x^{(2)}_{250}$
+wurden folgende Kennzahlen ermittelt:
+\begin{align*}
+    \sum_{i=1}^{250} x^{(1)}_i &= 29.96, & \sum_{i=1}^{250} x^{(2)}_{i} &= 32.97
+\end{align*}
+Es wird angenommen, dass die Kursveränderungen normalverteilt sind, d.h.\
+$X^{(1)}\sim \cN(\mu_1, \sigma_1^{2})$ und $X^{(2)}\sim\cN(\mu_2,
+\sigma_2^{2})$, und dass die Varianzen $\sigma_{(1)}^{2}=0.5$ und
+$\sigma^{2}_{(2)}=0.55$ betragen.
+\begin{enumerate}
+    \item Geben Sie je eine erwartungstreue Schätzung für die Erwartungswerte
+        $\mu_1$ und $\mu_2$. 
+    \item Lässt sich anhand dieser Beobachtung die Hypothese $\mu_1 = \mu_2$
+        mit der Irrtumswahrscheinlichkeit $\alpha=0.05$ ablehnen?
+\end{enumerate}
+
+\solution
+\begin{enumerate}
+    \item $\hat{\mu_1} = 0.1198547$, $\hat{\mu_2} = 0.1318836$.
+    \item Teststatistik:
+        \begin{equation*}
+            T = \frac{ \bar X^{(1)} - \bar X^{(2)}}{ \sqrt{ \sigma^{2}_{(1)}/n + \sigma^{(2)}_{(2)}/n }} = -0.1856103.
+        \end{equation*}
+        Kritischer Bereich ist $| T | \geq z_{1-\alpha/2} = 1.96$. Die
+        Nullhypothese kann nicht abgelehnt werden.
+\end{enumerate}
+R source code:
+\begin{lstlisting}
+> mu1=0.1; mu2=0.13; 
+> s21=0.5; s22=0.55;
+> X1 = rnorm(250, mu1, sqrt(s21))
+> X2 = rnorm(250, mu2, sqrt(s22))
+> sum(X1); sum(X2);
+[1] 29.96367
+[1] 32.9709
+> mean(X1); mean(X2)
+[1] 0.1198547
+[1] 0.1318836
+> n=250
+> T = (mean(X1)-mean(X2)  )/sqrt( s21/n + s22/n )
+> T
+[1] -0.1856103
+> qnorm( 0.975)
+[1] 1.959964
+\end{lstlisting}
+
+
+% vim: set spelllang=de: set spell
