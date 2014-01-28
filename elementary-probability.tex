@@ -988,6 +988,21 @@ D\in\fA$. Zeigen Sie folgende Aussagen:
 
 \section{Unabhängigkeit}
 
+\problem{Unabhängigkeit. Einfache Rechnungen.}
+Seien $(\Omega, \cA, P)$ ein Wahrscheinlichkeitsraum und die vollständig
+stochastisch unabhängigen Ereignisse $A, B, C \in \cA$ mit $P(A)=\frac{1}{3}$,
+$P(B)=\frac{1}{4}$ und $P(C)=\frac{1}{6}$ gegeben.
+\begin{enumerate}
+    \item Berechnen Sie $P(A \cup B)$.
+    \item Berechnen Sie $P( A \cup \bar B \cup C)$.
+\end{enumerate}
+
+\solution
+\begin{enumerate}
+    \item $P(A \cup B) = \frac{2}{3}$.
+    \item $P(A \cup \bar B \cup C) = \frac{124}{144}$.
+\end{enumerate}
+
 \problem{Unabhängigkeit. Disjunkte Ereignisse.} Seien $(\Omega, \cA, \bP)$ ein
 Wahrscheinlichkeitsraum und die Ereignisse $A,B \in \cA$ gegeben. Zeigen Sie
 folgende Aussagen:
@@ -2965,6 +2980,39 @@ beschrieben werden.
         gilt, ist $n=36$. 
 \end{enumerate}
 
+\problem{Grenzverteilungsätze. Cloudrechner.}
+Ein bestimmter Rechnertyp wird für eine Langzeitrechnung eingesetzt. Es ist
+bekannt, dass ein unter Volllast arbeitender Rechner innerhalb der Dauer der
+Berechnung $T$ mit Wahrscheinlichkeit $p=0.006$ ausfällt. Für die geplante
+Rechendauer werden $n=56$ Rechner gebraucht. Es wird angenommen, dass die
+Rechner unabhängig von einander ausfallen und jeder Rechner höchstens ein mal
+ausgetauscht werden muss. Unter Verwendung eines geeigneten  Grenzwertsatzes,
+beantworten Sie folgende Fragen:
+\begin{enumerate}
+    \item Mit welcher Wahrscheinlichkeit fällt höchstens ein Rechner von den
+        $56$ Rechnern aus?
+    \item Wie viele Rechner müssen zusätzlich in der Reserve gehalten werden,
+        damit die Rechnung mit $99\%$ Wahrscheinlichkeit fertiggestellt werden
+        kann. 
+\end{enumerate}
+
+\solution
+Dies ist eine Anwendung des Grenzwertsatzes von Poisson. Es gilt $np= 0.336 =
+\lambda$ und wegen $np\leq 10$ und $1500p = 9 \leq n$ hat die Approximation der
+Anzahl der Ausfälle $Y \sim \text{Bin}(n,p)$ mit Hilfe der Possionverteilung
+$\text{Poiss}(\lambda)$ ausreichende Qualität.
+\begin{enumerate}
+    \item Höchstens ein Rechner fällt mit Wahrscheinlichkeit 
+        \begin{align*}
+            P(Y \leq 1) &= \pi_{\lambda}(0) + \pi_{\lambda}(1) \\
+            &= e^{-\lambda}\left( 1 + \lambda \right) = 0.95473646937025258693 
+        \end{align*}
+        aus.
+
+    \item Wir haben auch $P(Y\leq 2) = 0.99507551444735739085$. Es reicht also aus $2$
+        Rechner in der Reserve zu halten. 
+\end{enumerate}
+
 
 \problem{Grenzverteilungsätze. Schaltkreise.} Ein spezieller
 Schaltkreis sei mit der Wahrscheinlichkeit $p=0.7$ voll funktionsfähig.
@@ -4230,6 +4278,35 @@ bestimmten Entfernung ergaben sich die folgenden Schätzwerte:
 \end{enumerate}
 
 
+
+\problem{Test. Erneuerbare Energien.} 
+In einer einfachen Analyse des Strommarktes wird davon ausgegangen, dass die
+täglich von Solar- und Windgeneratoren zwischen 12 und 13 Uhr erzeugte Energie
+in den Monaten Juni, Juli und August (92 Tage) die Realisierung einer
+normalverteilten Zufallsvariable $X\sim\cN(\mu, \sigma^2)$ ist. Es wird
+angenommen, dass die Standardabweichung $\sigma$ bekannt ist und beträgt $\sigma=5.5 GW$.
+Ein Analyst hat für die $92$ Beobachtungen $x_1,\dots ,x_{92}$ folgendes
+ausgerechnet:
+\begin{align*}
+    \sum_{i=1}^{92} x_i &= 1802.142.
+\end{align*}
+\begin{enumerate}
+    \item Geben Sie eine erwartungstreue Schätzung für den Erwartungswert $\mu$
+        der erzeugten Energie.
+    \item Lässt sich anhand dieser Beobachtung die Hypothese $\mu\leq 19$
+        mit Irrtumswahrscheinlichkeit $\alpha=0.1$ ablehnen?
+\end{enumerate}
+
+\solution
+\begin{enumerate}
+    \item $\hat{\mu} = 19.5885$.
+    \item Wir testen $H_0: \mu\leq 19$ gegen $H_1: \mu> 19$. Die Teststatistik ist
+        $T = \frac{\bar X_n - \mu_{0}}{\sigma}\sqrt{n} = 1.026308$. Der
+        kritische Bereich ist $K = \left[ z_{1-\alpha},\infty\right) = \left[
+            1.281552, \infty \right)$. $H_0$ kann nicht abgelehnt werden.
+\end{enumerate}
+
+
 \problem{Test. Trendvergleich bei Funds.} 
 Zur Analyse der Performance zweier Funds werden die Kursveränderungen über den
 Zeitraum von einem Jahr (250 Businesstage) analysiert. Aus den Beobachtungen
@@ -4241,6 +4318,7 @@ wurden folgende Kennzahlen ermittelt:
 Es wird angenommen, dass die Kursveränderungen normalverteilt sind, d.h.\
 $X^{(1)}\sim \cN(\mu_1, \sigma_1^{2})$ und $X^{(2)}\sim\cN(\mu_2,
 \sigma_2^{2})$, und dass die Varianzen $\sigma_{(1)}^{2}=0.5$ und
+
 $\sigma^{2}_{(2)}=0.55$ betragen.
 \begin{enumerate}
     \item Geben Sie je eine erwartungstreue Schätzung für die Erwartungswerte
