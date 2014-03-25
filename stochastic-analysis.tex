@@ -1,5 +1,56 @@
 
-\section{Basics}
+\section{Measurability of stochastic processes}
+
+\problem{Progressive $\sigma$-algebra.}
+Let $(\Omega, \cA, \cF, P)$ be a probability space satisfying the usual hypothesis. 
+The following holds: 
+\begin{enumerate}
+    \item An adapted c\`adl\`ag or c\`agl\`ad process is progressively
+        measurable. This implies that the optional $\sigma$-algebra $\cO$ and 
+        the predictable $\sigma$-algebra $\cP$ are contained in the 
+        progressive $\sigma$-algebra $\cR$. 
+
+    \item Conversely, a measurable and adapted process is progressively
+        measurable.
+
+    \item $\cP \subset \cO$. 
+
+    \item $\cR \subset\cM$, where $\cM$ is the measurable $\sigma$-algebra on
+        $\Omega\times \R_{+}$. 
+\end{enumerate}
+
+\problem{Filtations and continuity of paths.} Let $X$ be a stochastic process
+on a probability space $(\Omega, \cA, P)$ and $\cF^{X}=(\cF^{X}_{t})_{t\geq 0}$
+be the natural filtration of $X$. Moreover, $A$ is the event that $X$ is
+continuous on $[0, t_0)$. Then following holds:
+\begin{enumerate}
+    \item If $X$ has c\`adl\`ag paths, i.e. every path of $X$ is a c\`adl\`ag
+        function, then $A\in \cF^{X}_{t_0}$. 
+
+    \item If $X$ is c\`adl\`ag, i.e. $X$ has c\`adl\`ag paths a.s., then $A$
+        may fail to be in $\cF^{X}_{t_0}$.
+
+    \item If $X$ is c\`adl\`ag, and $(\cF_{t})_{t\geq 0}$ is a filtration
+        containing $\cF^{X}$ such that $\cF_{0}$ contains all $P$-null events
+        in $\cA$, then $A\in \cF_{t_0}$.
+
+    \item If $X$ has c\`agl\`ad paths and is adapted to a right-continuous
+        filtration $(\cF_{t})_{t\geq 0}$, then $A\in \cF_{t_{0}}$. 
+\end{enumerate}
+
+\problem{Pfadeigenschaften und Filtration. } Sei $X$ ein stochastischer
+Prozess, $\cF^{X}$ die von $X$ erzeugte Filtration und $\cG$ eine Filtration,
+die alle $\cF$-Nullmengen enthält und $\cF^{X}_t \subset \cG_t$ $\forall t$
+erfüllt.  Sei $A \subset \Omega$ das Ereignis, dass $X$ stetig auf $[0, t_0)$
+ist. 
+\begin{enumerate}
+    \item Falls alle Pfade von $X$ c\`adl\`ag sind, dann ist $A \in \cF^{X}_{t_0}$.
+    \item Falls $X$ c\`adl\`ag ist, dann gilt $A \in \cG_{t_0}$, aber nicht
+        notwendigerweise $A \in \cF^{X}_{t_0}$.
+\end{enumerate}
+%\cite{Karatzas1991}.
+
+
 
 \problem{Independent increments and filtations.} Let $X = (X_t)_{t\geq 0}$ be
 a stochastic process with independent increments, i.e.\ for all $0=t_{0}\leq t_1
@@ -24,40 +75,6 @@ F)<\varepsilon$ for arbitrary $\varepsilon>0$.
 
 \solution This actually works in any metric space. See e.g.\ \cite{Billingsley2009}.
 
-
-\problem{Filtations and continuity of paths.} Let $X$ be a stochastic process
-on a probability space $(\Omega, \cA, P)$ and $\cF^{X}=(\cF^{X}_{t})_{t\geq 0}$
-be the natural filtration of $X$. Moreover, $A$ is the event that $X$ is
-continuous on $[0, t_0)$. Then following holds:
-\begin{enumerate}
-    \item If $X$ has c\`adl\`ag paths, i.e. every path of $X$ is a c\`adl\`ag
-        function, then $A\in \cF^{X}_{t_0}$. 
-
-    \item If $X$ is c\`adl\`ag, i.e. $X$ has c\`adl\`ag paths a.s., then $A$
-        may fail to be in $\cF^{X}_{t_0}$.
-
-    \item If $X$ is c\`adl\`ag, and $(\cF_{t})_{t\geq 0}$ is a filtration
-        containing $\cF^{X}$ such that $\cF_{0}$ contains all $P$-null events
-        in $\cA$, then $A\in \cF_{t_0}$.
-
-    \item If $X$ has c\`agl\`ad paths and is adapted to a right-continuous
-        filtration $(\cF_{t})_{t\geq 0}$, then $A\in \cF_{t_{0}}$. 
-\end{enumerate}
-
-\problem{Pfadeigenschaften und Filtration. }  Sei $X$ ein stochastischer
-Prozess, $\cF^{X}$ die von $X$ erzeugte Filtration und $\cG$ eine Filtration,
-die alle $\cF$-Nullmengen enthält und $\cF^{X}_t \subset \cG_t$ $\forall t$
-erfüllt.  Sei $A \subset \Omega$ das Ereignis, dass $X$ stetig auf $[0, t_0)$
-ist. 
-\begin{enumerate}
-    \item Falls alle Pfade von $X$ c\`adl\`ag sind, dann ist $A \in \cF^{X}_{t_0}$.
-    \item Falls $X$ c\`adl\`ag ist, dann gilt $A \in \cG_{t_0}$, aber nicht
-        notwendigerweise $A \in \cF^{X}_{t_0}$.
-\end{enumerate}
-%\cite{Karatzas1991}.
-
-\problem{Messbarkeitsbegriffe. } Sei $X$ ein stochastischer Prozess. Ist $X$
-progressiv messbar, so folgt $X$ ist messbar und adaptiert.
 
 
 \section{Stopping times}

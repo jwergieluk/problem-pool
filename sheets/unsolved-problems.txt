@@ -8,8 +8,8 @@ TEX {\itshape Dipl.-Ing.\ Julian Wergieluk}
 TEX \end{center}
 #TEX \vskip 2\baselineskip
 
+P Progressive $\sigma$-algebra.
 
-RANDOM 
 P Borel sets in Euclidean space are regular.
 P Filtations and continuity of paths.
 P Ordnungsstatistiken. Eigenschaften.
