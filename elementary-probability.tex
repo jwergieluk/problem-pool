@@ -299,6 +299,43 @@ B \in \fA$ gegeben.
 
 \section{Kombinatorik.}
 
+\problem{Grundformeln der Kombinatorik.} 
+Die Kugeln in einer Urne sind mit Zahlen $1,2,\dots, n$ nummeriert. Es werden
+nacheinander $m$ Kugeln aus der Urne entnommen und die zugehörigen Zahlen
+notiert. Nach jeder Entnahme können die Kugeln wieder in die Urne zurückgelegt
+oder beiseite gelegt werden. Es muss auch festgelegt werden, ob die Reihenfolge
+der notierten Zahlen eine Rolle spielt. Abhängig von diesen Entscheidungen 
+ergeben sich folgende Anzahlen der möglichen Ergebnisse:
+\begin{center}
+\begin{tabular}{ | r | c | c |}
+    \hline
+    & geordnet (Variationen) & ungeordnet (Kombinationen) \\
+    \hline
+    mit Zurücklegen & $n^{m}$ & $\binom{n+m-1}{m}$ \\
+    \hline
+    ohne Zurücklegen & $\frac{n!}{(n-m)!}$ & $\binom{n}{m}$ \\
+    \hline
+\end{tabular}
+\end{center}
+Betrachten Sie folgende Zufallssituationen
+\begin{enumerate}
+    \item Der Betreiber der Lotto Lotterie ($6$ aus $49$) ermittelt die gewinnende
+        Zahlenkombination.
+    \item Ein Benutzer gibt ein zufälliges $8$-stelliges Passwort ein.
+    \item Es wird zufällig eine injektive (verschiedenwertige) Funktion \[f:
+        \left\{ 1,\dots ,m \right\} \to \left\{ 1,\dots ,n \right\}\] gewählt.
+    \item Es wird zufällig eine $k$-elementige Teilmenge der Menge $\left\{
+        1,2,\dots ,n \right\}$ gewählt.
+    \item Es wird zufällig eine Bijektion $f: \left\{ 1,\dots ,n \right\}\to
+        \left\{ 1,\dots ,n \right\}$ gewählt. 
+    \item $m$ Krapfen (nicht unterscheidbar) werden zufällig an $n$
+        Programmierer verteilt. 
+    \item Es wird zufällig eine Folge nichtnegativer ganzer Zahlen $\left(
+        r_{1},\dots ,r_{n} \right)$ gewählt, so dass die Gleichung $r_{1}+
+        \dots + r_{n} = m$ erfüllt ist. 
+\end{enumerate}
+Geben Sie jeweils eine passende Formel an, die die Anzahl der möglichen
+Ergebnisse für diese Zufallssituationen beschreibt. 
 
 \problem{Kombinatorik. Passwörter.} Wir betrachten die Menge
 $\cA = \left\{ a, b, \dots, z, 0, \dots, 9 \right\}$ als gegebenen Zeichensatz.
@@ -538,7 +575,7 @@ Berechnen Sie die Wahrscheinlichkeiten der folgenden Ereignisse:
     \item $4! p$. 
 \end{enumerate}
 
-\problem{Kombinatorik. $2$ Kartenspieler.} Aus einen gut gemischten Spielkartensatz
+\problem{Kombinatorik. $2$ Kartenspieler.} Aus einem gut gemischten Spielkartensatz
 bestehend aus $52$ Karten werden je $26$ Karten an $2$ Spieler verteilt. Berechnen
 Sie folgende Wahrscheinlichkeiten:
 \begin{enumerate}
