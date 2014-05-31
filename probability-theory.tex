@@ -1,5 +1,21 @@
 
-\section{Raw material}
+\section{Inbox}
+
+
+\problem{Konvergenz einer Zufallsreihe.} Sei $X_{1} \sim \text{Uni}(0,1)$,
+$X_2 \sim \text{Uni}(0,X_1)$, und allgemein $X_{n} \sim \text{Uni}(0,X_{n-1})$ für alle
+$n \in \bN$. 
+\begin{enumerate}
+    \item Zeigen Sie, dass die Reihe $S=\sum_{i=1}^{\infty} X_i$ fast sicher konvergent ist, das heißt
+        die Zufallsgröße $S$ existiert und fast sicher endlich ist.
+    \item Angenommen $X_n$ hat eine stetige Verteilung $P_n$ mit dem Träger $[0,X_n]$. Welche 
+        Bedingungen muss $P_n$ erfüllen, damit die Reihe $S$ in obigem Sinner konvergiert?
+\end{enumerate}
+
+\solution Die bedingte Dichte von $X_n$ gegenen $X_{n-1} = x_{n-1}$ ist
+$\text{Uni}(0,x_{n-1})$.  Es gilt also $E X_{n} = E \left[ E X_{n} | X_{n_1}
+\right] = 2^{-1} \, E X_{n_1} = 2^{-n}$.
+
 
 
 \problem{Monotonic transformations of RVs.} A strictly monotonic
@@ -191,6 +207,7 @@ sind unabhängig, so ist die Dichte von der Summe $Z=X+Y$ gegeben durch
 \problem{Abzählbare Familien disjunkter Mengen.} Sei ein Wahrscheinlichkeitsraum
 $(\Omega, \cA, P)$ und eine Familie $(A_i)_{i\in I}$ mit $A_i \in \cA$ und
 $P(A_i)>0 \forall i$ gegeben. Dann ist $I$ höchstens abzählbar. 
+
 \solution Sortiere die Menge der Größe nach. 
 
 
