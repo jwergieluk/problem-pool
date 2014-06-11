@@ -1025,6 +1025,24 @@ D\in\fA$. Zeigen Sie folgende Aussagen:
 
 \section{Unabhängigkeit}
 
+\problem{Disjunkt vs.\ unabhängig. Einfache Rechnungen.} 
+Seien $(\Omega, \cA, P)$ ein Wahrscheinlichkeitsraum und Ereignisse $A, B, C
+\in \cA$ mit $P(A)=\frac{1}{3}$, $P(B)=\frac{1}{4}$ und $P(C)=\frac{1}{6}$
+gegeben. Seien darüberhinaus $A$ und $B$ stochastisch unabhängig, sowie $A\cup B$ 
+disjunkt von $C$. Berechnen Sie folgende Wahrscheinlichkeiten:
+\begin{enumerate}
+    \item $P(A \cap B \cap C)$.
+    \item $P(A \cup B \cup C)$.
+    \item $P( ( \bar A \cup \bar B) \cap \bar C )$.
+\end{enumerate}
+
+\solution
+\begin{enumerate}
+    \item $P(A \cap B \cap C) = 0$.
+    \item $P(A \cup B \cup C) = P(C) + 1 - (1 - P(A))(1-P(B)) = 2/3$.
+    \item $P( ( \bar A \cup \bar B) \cap \bar C ) = 1 - P(C) - P(A)P(B) = 3/4$.
+\end{enumerate}
+
 \problem{Unabhängigkeit. Einfache Rechnungen.}
 Seien $(\Omega, \cA, P)$ ein Wahrscheinlichkeitsraum und die vollständig
 stochastisch unabhängigen Ereignisse $A, B, C \in \cA$ mit $P(A)=\frac{1}{3}$,
@@ -2052,6 +2070,44 @@ $3\%$.
         \end{align*}
 \end{enumerate}
 Numerische Auswertung solcher Wahrscheinlichkeiten erfolgt mithilfe  der Grenzverteilungsätze.
+
+
+\problem{Grenzverteilungsätze. Weinfehler.} Aus einem sehr großen Lieferposten
+von Wein werden $500$ Flaschen zufällig herausgegriffen und auf Weinfehler
+getestet. Der Wein sei ungenießbar, wenn der Anteil an $2,4,6$-Trichloranisol
+(TCA) über $5$ ng/l liegt -- das zeichnet sich durch einen korkigen Geruch und
+Geschmack aus. Der durchschnittliche Anteil unbrauchbarer Weinflaschen betrage
+$3\%$. 
+\begin{enumerate}
+    \item Wie groß ist die Wahrscheinlichkeit dafür, dass unter $500$ zufällig 
+        ausgewählten Weinflaschen höchstens $20$ ungenießbare enthalten sind? 
+    \item Es wird eine Lieferung für einen wichtigen Kunden vorbereitet. Wie
+        viele Weinflaschen müssen ausgeliefert werden, sodass mit mindestens
+        $99\%$ Wahrscheinlichkeit $500$ Flaschen in der Lieferung keine
+        Weinfehler aufweisen?
+\end{enumerate}
+
+\solution 
+\begin{enumerate}
+    \item Mit $n=500$ und $p=0.03$, erhalten wir $np = 15$ und $np(1-p) = 14.55 > 9$.
+        Sei $X \sim \text{Bin}(500,0.03)$.
+        \begin{align*}
+            P\left( X \leq 20 \right) &= 
+                P \left( \frac{ X - np}{ \sqrt{np(1-p)} } \leq \frac{20 - 15}{ \sqrt{14.55}} \right) \\
+                &\approx \Phi\left( 1.310806 \right) = 0.9050384. 
+        \end{align*}
+
+    \item Die Anzahl der trinkbaren Flaschen werde wir mit $Y \sim
+        \text{Bin}(m, 0.97)$ bezeichnet. Dann ist $m$ kleinste ganzzahlige
+        Lösung der Ungleichung
+        \begin{align*}
+            P\left( Y \geq 500 \right) & \geq 0.99 \\
+            1 - \frac{500 - m 0.97}{ \sqrt{m} \sqrt{0.03 \cdot 0.97}} & \geq 0.99. \\
+        \end{align*}
+        Ausprobieren liefert $m\geq 525$. Nicht-optimale Werte sind zugelassen.
+\end{enumerate}
+
+
 
 \problem{Reifenpannen.} Auf einer bestimmten Rallye-Strecke von $10\, 000$ km
 sei pro Pkw im Mittel mit einer Reifenpanne zu rechnen. 
@@ -3381,6 +3437,58 @@ Die Kovarianzmatrix $\mathbf \Sigma$ von $\bfX$ ist demnach
 
 \section{Informatik. Prüfungsaufgaben. }
 
+\problem{Kombinatorik. Schachbrett.} Auf einen Schachbrett (entspricht einer 
+$8\times 8$-Matrix) werden zufällig $8$ Türme gestellt. 
+\begin{enumerate}
+    \item Wie groß ist die Wahrscheinlichkeit dafür, dass sich die Türme nicht
+        sehen können, d.h.\ in jeder Zeile und jeder Spalte jeweils genau ein
+        Turm steht.
+    \item Wie groß ist die Wahrscheinlichkeit dafür, dass in jeder Zeile jeweils
+        genau ein Turm steht.
+\end{enumerate}
+
+\solution
+\begin{enumerate}
+    \item $\frac{8^2 7^2 \cdots 1^2}{ 64 \cdots 57} = \frac{8!}{ \binom{64}{8}}$.
+    \item $\frac{8^8}{64 \dots 57}$.
+\end{enumerate}
+
+\problem{Busfahrerstreik.} Auf dem Weg zur Stochastik Prüfung erfahren Sie von einem
+Busfahrerstreik. Sie kommen an der Bushaltestelle kurz vor 11:00 Uhr an, die
+Prüfung beginnt um 14:00 Uhr und die Dauer der Busfahrt inklusive dem Fußweg
+zum Prüfungsort beziffern Sie erfahrungsgemäß auf eine Stunde. Gemäß Fahrplan
+stehen Ihnen drei Busse mit Abfahrtszeiten 11:00, 12:00 und 13:00 zur Verfügung.
+Laut Aussagen anderer Wartender ist mit einer mittleren Verspätungsdauer von einer
+Stunde zu rechnen. Sie nehmen an, dass die Verspätungsdauer der Busse unabhängig
+von einander und exponentialverteilt sind. 
+\begin{enumerate}
+    \item Berechnen Sie die Wahrscheinlichkeit dafür, dass Sie nicht rechtzeitig 
+        zur Prüfung kommen können.
+    \item Berechnen Sie die Wahrscheinlichkeit dafür, dass Sie mindestens halbe Stunde
+        vor der Prüfung am Prüfungsort ankommen.
+\end{enumerate}
+
+\solution
+\begin{enumerate}
+    \item Bezeichne mit $B_1$, $B_2$, und $B_3$ die Verspätungsdauer der Busse.
+        Laut Angabe sind $B_i$ exponentialverteilt mit  $B_i \sim
+        \text{Ex}(1)$. Die Wahrscheinlichkeit dafür, dass der Prüfungsort nicht
+        rechtzeitig erreicht werden kann ist
+        \begin{align*}
+            P\left( B_1 \geq 2 \ \wedge \ B_2 \geq 1 \ \wedge B_3 \geq 0 \right) &= 
+            P(B_1 \geq 2) P(B_2 \geq 1) \\
+            &= \exp\left( -2 \right) \exp( -1) \approx 0.04978.
+        \end{align*}
+
+    \item Die Wahrscheinlichkeit, dass wir mindestens halbe Stunde vor der Prüfung ankommen, ist
+        \begin{align*}
+            P( B_1 \leq 1.5 \ \vee \ B_2 \leq 0.5  ) &= 1 - P(B_1 > 1.5 )P(B_2 > 0.5) 
+            \approx 0.8646. 
+        \end{align*}
+\end{enumerate}
+
+
+
 \problem{Schaltkreise. Qualitätskontrolle.} Bei einer Endkontrolle von
 Schaltkreisen sollen nicht voll funktionsfähige Schaltkreise aussortiert
 werden. Bekannt sei, dass im Mittel $20\%$ der erzeugten Schaltkreise nicht
@@ -3581,13 +3689,10 @@ Poisson-Prozesses (Stationarität, Homogenität und Ordinarität) gelten mögen.
 \solution
 \begin{enumerate}
         \setcounter{enumi}{1}
-    \item Rechnungseinheit Jahre: $\mu=\frac{2}{100}=0.02, \quad X_t \sim \text{Poiss}{\mu t}.$ 
+    \item Rechnungseinheit Jahre: $\mu=\frac{2}{100}=0.02, \quad X_t \sim \text{Poiss}(\mu t).$ 
         Sei $\pi_{\lambda}$ die Wahrscheinlichkeitsfunktion der Poissonverteilung mit dem Parameter $\lambda$. Dann ist
-        
-        $t=100,\;\lambda=\mu t=2, \quad P(X_{100}>3)=1-\pi_2(0)-\pi_2(1)-\pi_2(2)-\pi_2(3)= 0.1429.$
-
-    \item Zeitraum bis zum nächsten Ereignis: $\,T \sim \text{Exp}(\mu)$.
-
+        $t=100$, $\lambda=\mu t=2$, $P(X_{100}>3)=1-\pi_2(0)-\pi_2(1)-\pi_2(2)-\pi_2(3)= 0.1429$.
+    \item Zeitraum bis zum nächsten Ereignis: $T \sim \text{Exp}(\mu)$.
         $P(T \le 20)=1-\exp(-20 \mu)=1-\exp(-0.4)=0.3297.$
 \end{enumerate}
 
@@ -3602,6 +3707,47 @@ Poisson-Prozesses (Stationarität, Homogenität und Ordinarität) gelten mögen.
 %
 %        $P(T \le 20)=1-\exp(-20 \mu)=1-\exp(-0.4)=\underline{0.3297}.$
 %\end{enumerate}
+
+\problem{Analyse des Kaffeebohnenpreises.} In einer einfachen Analyse wird der
+Preis des Kaffees der Sorte ``Robusta'', quotiert in US cents per Pfund durch International
+Coffee Organization, auf einen Aufwärtstrend untersucht. 
+Für die nachfolgenden $51$ Monatsbeobachtungen $r_{1},\dots ,r_{51}$ der Preisänderungen
+\lstset{basicstyle=\ttfamily\footnotesize,basewidth={.5em,0.4em}}
+\begin{lstlisting}
+-0.97 3.82 -0.14 6.28 7.44 -0.90 -1.95 3.46 7.37 0.38 7.71 8.59 7.84 -1.17 5.00
+-4.15 -5.57 2.42 -5.06 -6.60 0.84 5.89 -4.66 1.85 2.34 -1.88 4.29 -2.66 0.02
+-0.36 -2.15 -0.98 -6.95 -0.64 3.49 3.91 2.97 -5.09 -1.82 -8.71 5.36 -1.68 -7.24
+-3.47 -4.34 9.83 -2.57 8.21 10.76 -1.23 -2.33
+\end{lstlisting}    
+berechnet ein Analyst die Kenngrößen
+\begin{align*}
+    \sum_{i=1}^{51} r_{i} &= 34.83, & \sum_{i=1}^{51} r^{2}_{i} &= 1225.01.
+\end{align*}
+Es wird angenommen, dass die Kursveränderungen die Realisierungen einer normalverteilten
+Zufallsgröße $X\sim \cN(\mu, \sigma^2)$ sind.
+\begin{enumerate}
+    \item Geben Sie je eine erwartungstreue Schätzfunktion für den Mittelwert
+        $\mu$ und für die Varianz $\sigma^2$ der Kursveränderungen an.
+        Berechnen Sie dafür aus der Stichprobe Schätzwerte im Sinne von
+        Punktschätzungen.
+    \item Der Analyst behauptet $\mu>0$ und gibt eine Kaufempfehlung aus. Lässt
+        sich diese Aussage anhand der Beobachtungen mit einer zugelassenen
+        Irrtumswahrscheinlichkeit von $5\%$ rechtfertigen, d.h.~muss man die
+        Hypothese $H_0: \, \mu \le 0$ mit dieser Irrtums\-wahrscheinlichkeit
+        ablehnen?
+\end{enumerate}
+
+\solution
+\begin{enumerate}
+    \item $\bar X = 0.6829578849$, $\bar{S^{2}} = 24.02442243$.
+    \item Wir testen $H_0: \mu \leq 0$ vs.\ $H_1 : \mu > 0$. Da $\sigma^{2}$ unbekannt
+        ist, ist die Teststatistik gegeben durch $T = \frac{\bar X_n}{ \sqrt{\bar S_n^2} } \sqrt{n}$
+        und der kritische Bereich des Tests lautet $\left\{ T \geq t_{n-1, 1-\alpha} \right\}$
+        mit $\alpha=0.05$. 
+        In unserem Fall gilt $T = 6.966865879$ und $t_{n-1,1-\alpha}=
+        t_{50,0.95} = 1.676$. Somit kann $H_0$ abgelehnt werden.
+\end{enumerate}
+
 
 \problem{Aktie im Bachelier-Modell.} Die Kursveränderungen einer Aktie eines
 börsennotierten Unternehmens werden über den Zeitraum von 3 Wochen (15
