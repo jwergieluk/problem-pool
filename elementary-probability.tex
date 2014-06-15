@@ -2081,10 +2081,15 @@ $3\%$.
 \begin{enumerate}
     \item Wie groß ist die Wahrscheinlichkeit dafür, dass unter $500$ zufällig 
         ausgewählten Weinflaschen höchstens $20$ ungenießbare enthalten sind? 
-    \item Es wird eine Lieferung für einen wichtigen Kunden vorbereitet. Wie
-        viele Weinflaschen müssen ausgeliefert werden, sodass mit mindestens
-        $99\%$ Wahrscheinlichkeit $500$ Flaschen in der Lieferung keine
-        Weinfehler aufweisen?
+    \item Es wird eine Lieferung für einen wichtigen Kunden vorbereitet. Es
+        muss sichergestellt werden, dass mit mindestens $99\%$
+        Wahrscheinlichkeit $500$ Flaschen in der Lieferung keine Weinfehler
+        aufweisen. Ein Mitarbeiter schlägt vor, $525$ Flaschen auszuliefern.
+        Ist die obige Bedingung in diesem Fall erfüllt?
+        
+%        Wie viele Weinflaschen müssen ausgeliefert werden, sodass mit
+%        mindestens $99\%$ Wahrscheinlichkeit $500$ Flaschen in der Lieferung
+%        keine Weinfehler aufweisen? 
 \end{enumerate}
 
 \solution 
@@ -2098,13 +2103,17 @@ $3\%$.
         \end{align*}
 
     \item Die Anzahl der trinkbaren Flaschen werde wir mit $Y \sim
-        \text{Bin}(m, 0.97)$ bezeichnet. Dann ist $m$ kleinste ganzzahlige
-        Lösung der Ungleichung
+        \text{Bin}(m, 0.97)$ bezeichnet. 
         \begin{align*}
             P\left( Y \geq 500 \right) & \geq 0.99 \\
-            1 - \frac{500 - m 0.97}{ \sqrt{m} \sqrt{0.03 \cdot 0.97}} & \geq 0.99. \\
+            P\left( Y<500 \right) & \leq 0.01 \\
+            \Phi\left( \frac{500 - m\, 0.97}{\sqrt{m}\sqrt{0.03\cdot 0.97}} \right) & \leq 0.01. \\
         \end{align*}
-        Ausprobieren liefert $m\geq 525$. Nicht-optimale Werte sind zugelassen.
+        $m=525$ liefert
+        \begin{align*}
+            \frac{500 - m 0.97}{\sqrt{m}\sqrt{0.03\cdot 0.97}} &= -2.3665 \\
+            \Phi(-2.3665) &= 1 - \Phi( 2.3665 ) \leq 0.01.
+        \end{align*}
 \end{enumerate}
 
 
@@ -2272,9 +2281,9 @@ und $\lambda_i>0$. Dann ist die Zufallsvariable
 wieder exponentialverteilt und es gilt $Y \sim
 \text{Exp}(\lambda_1+\cdots+\lambda_n)$.
 
-\problem{Gleichverteilung und Exponentialverteilung.} Sei $X$ stetig
-gleichverteilt auf dem Intervall $[0,1]$. Zeigen Sie, dass die Zufallsvariable $Y
-= -\log X$ exponentialverteilt ist.
+\problem{Gleichverteilung und Exponentialverteilung.} 
+Sei $X$ stetig gleichverteilt auf dem Intervall $[0,1]$. Zeigen Sie, dass die
+Zufallsvariable $Y = -\log X$ exponentialverteilt ist.
 
 \solution $Y$ ist exponentialverteilt mit $\lambda=1$.
 
@@ -3450,18 +3459,23 @@ $8\times 8$-Matrix) werden zufällig $8$ Türme gestellt.
 \solution
 \begin{enumerate}
     \item $\frac{8^2 7^2 \cdots 1^2}{ 64 \cdots 57} = \frac{8!}{ \binom{64}{8}}$.
-    \item $\frac{8^8}{64 \dots 57}$.
+    \item $\frac{8!\, 8^8}{64 \dots 57}$.
 \end{enumerate}
 
-\problem{Busfahrerstreik.} Auf dem Weg zur Stochastik Prüfung erfahren Sie von einem
-Busfahrerstreik. Sie kommen an der Bushaltestelle kurz vor 11:00 Uhr an, die
-Prüfung beginnt um 14:00 Uhr und die Dauer der Busfahrt inklusive dem Fußweg
-zum Prüfungsort beziffern Sie erfahrungsgemäß auf eine Stunde. Gemäß Fahrplan
-stehen Ihnen drei Busse mit Abfahrtszeiten 11:00, 12:00 und 13:00 zur Verfügung.
-Laut Aussagen anderer Wartender ist mit einer mittleren Verspätungsdauer von einer
-Stunde zu rechnen. Sie nehmen an, dass die Verspätungsdauer der Busse unabhängig
-von einander und exponentialverteilt sind. 
+\problem{Busfahrerstreik.} Auf dem Weg zur Stochastik Prüfung erfahren Sie von
+einem Busfahrerstreik. Sie kommen an der Bushaltestelle kurz vor 11:00 Uhr an,
+die Prüfung beginnt um 14:00 Uhr und die Dauer der Busfahrt inklusive dem
+Fußweg zum Prüfungsort beziffern Sie erfahrungsgemäß auf eine Stunde. Gemäß
+Fahrplan stehen Ihnen drei Busse mit Abfahrtszeiten 11:00, 12:00 und 13:00 zur
+Verfügung. Laut Aussagen anderer Wartender ist mit einer mittleren
+Verspätungsdauer von einer Stunde zu rechnen. Sie nehmen an, dass die
+Verspätungsdauer $B_i$, $i\in \left\{ 1,2,3 \right\}$ der Busse unabhängig von
+einander und exponentialverteilt mit $B_i \sim \text{Exp}(\lambda)$ und
+$\lambda>0$ sind. 
 \begin{enumerate}
+    \item Bestimmen Sie den Parameter $\lambda$ und berechnen Sie die erwartete
+        Ankunftszeit am Prüfungsort under der Annahme, dass Sie den Bus mit der
+        planmäßigen Abfahrtszeit 11:00 Uhr benutzen.
     \item Berechnen Sie die Wahrscheinlichkeit dafür, dass Sie nicht rechtzeitig 
         zur Prüfung kommen können.
     \item Berechnen Sie die Wahrscheinlichkeit dafür, dass Sie mindestens halbe Stunde
@@ -3470,6 +3484,9 @@ von einander und exponentialverteilt sind.
 
 \solution
 \begin{enumerate}
+    \item $\bE B_i = 1$ impliziert $\lambda=1$. Die erwartete Ankunftszeit bei
+        Fahrt mit dem ersten Bus ist $\bE \left[ 11 + 1 + B_1  \right] = 12 +
+        \bE B_1 = 13$ Uhr.
     \item Bezeichne mit $B_1$, $B_2$, und $B_3$ die Verspätungsdauer der Busse.
         Laut Angabe sind $B_i$ exponentialverteilt mit  $B_i \sim
         \text{Ex}(1)$. Die Wahrscheinlichkeit dafür, dass der Prüfungsort nicht
@@ -3480,7 +3497,8 @@ von einander und exponentialverteilt sind.
             &= \exp\left( -2 \right) \exp( -1) \approx 0.04978.
         \end{align*}
 
-    \item Die Wahrscheinlichkeit, dass wir mindestens halbe Stunde vor der Prüfung ankommen, ist
+    \item Die Wahrscheinlichkeit, dass wir mindestens halbe Stunde vor der
+        Prüfung ankommen, ist
         \begin{align*}
             P( B_1 \leq 1.5 \ \vee \ B_2 \leq 0.5  ) &= 1 - P(B_1 > 1.5 )P(B_2 > 0.5) 
             \approx 0.8646. 
@@ -3711,14 +3729,14 @@ Poisson-Prozesses (Stationarität, Homogenität und Ordinarität) gelten mögen.
 \problem{Analyse des Kaffeebohnenpreises.} In einer einfachen Analyse wird der
 Preis des Kaffees der Sorte ``Robusta'', quotiert in US cents per Pfund durch International
 Coffee Organization, auf einen Aufwärtstrend untersucht. 
-Für die nachfolgenden $51$ Monatsbeobachtungen $r_{1},\dots ,r_{51}$ der Preisänderungen
+Für die $51$ Monatsbeobachtungen $r_{1},\dots ,r_{51}$ der Preisänderungen
 \lstset{basicstyle=\ttfamily\footnotesize,basewidth={.5em,0.4em}}
-\begin{lstlisting}
--0.97 3.82 -0.14 6.28 7.44 -0.90 -1.95 3.46 7.37 0.38 7.71 8.59 7.84 -1.17 5.00
--4.15 -5.57 2.42 -5.06 -6.60 0.84 5.89 -4.66 1.85 2.34 -1.88 4.29 -2.66 0.02
--0.36 -2.15 -0.98 -6.95 -0.64 3.49 3.91 2.97 -5.09 -1.82 -8.71 5.36 -1.68 -7.24
--3.47 -4.34 9.83 -2.57 8.21 10.76 -1.23 -2.33
-\end{lstlisting}    
+%\begin{lstlisting}
+%-0.97 3.82 -0.14 6.28 7.44 -0.90 -1.95 3.46 7.37 0.38 7.71 8.59 7.84 -1.17 5.00
+%-4.15 -5.57 2.42 -5.06 -6.60 0.84 5.89 -4.66 1.85 2.34 -1.88 4.29 -2.66 0.02
+%-0.36 -2.15 -0.98 -6.95 -0.64 3.49 3.91 2.97 -5.09 -1.82 -8.71 5.36 -1.68 -7.24
+%-3.47 -4.34 9.83 -2.57 8.21 10.76 -1.23 -2.33
+%\end{lstlisting}    
 berechnet ein Analyst die Kenngrößen
 \begin{align*}
     \sum_{i=1}^{51} r_{i} &= 34.83, & \sum_{i=1}^{51} r^{2}_{i} &= 1225.01.
