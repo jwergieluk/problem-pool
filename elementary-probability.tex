@@ -1028,11 +1028,11 @@ D\in\fA$. Zeigen Sie folgende Aussagen:
 \problem{Disjunkt vs.\ unabhängig. Einfache Rechnungen.} 
 Seien $(\Omega, \cA, P)$ ein Wahrscheinlichkeitsraum und Ereignisse $A, B, C
 \in \cA$ mit $P(A)=\frac{1}{3}$, $P(B)=\frac{1}{4}$ und $P(C)=\frac{1}{6}$
-gegeben. Seien darüberhinaus $A$ und $B$ stochastisch unabhängig, sowie $A\cup B$ 
+gegeben. Seien darüber hinaus $A$ und $B$ stochastisch unabhängig, sowie $A\cup B$ 
 disjunkt von $C$. Berechnen Sie folgende Wahrscheinlichkeiten:
 \begin{enumerate}
-    \item $P(A \cap B \cap C)$.
-    \item $P(A \cup B \cup C)$.
+    \item $P(A \cap B \cap C)$,
+    \item $P(A \cup B \cup C)$,
     \item $P( ( \bar A \cup \bar B) \cap \bar C )$.
 \end{enumerate}
 
@@ -2073,16 +2073,16 @@ Numerische Auswertung solcher Wahrscheinlichkeiten erfolgt mithilfe  der Grenzve
 
 
 \problem{Grenzverteilungsätze. Weinfehler.} Aus einem sehr großen Lieferposten
-von Wein werden $500$ Flaschen zufällig herausgegriffen und auf Weinfehler
+Wein werden $500$ Flaschen zufällig herausgegriffen und auf Weinfehler
 getestet. Der Wein sei ungenießbar, wenn der Anteil an $2,4,6$-Trichloranisol
 (TCA) über $5$ ng/l liegt -- das zeichnet sich durch einen korkigen Geruch und
 Geschmack aus. Der durchschnittliche Anteil unbrauchbarer Weinflaschen betrage
-$3\%$. 
+$3\,\%$. 
 \begin{enumerate}
     \item Wie groß ist die Wahrscheinlichkeit dafür, dass unter $500$ zufällig 
         ausgewählten Weinflaschen höchstens $20$ ungenießbare enthalten sind? 
     \item Es wird eine Lieferung für einen wichtigen Kunden vorbereitet. Es
-        muss sichergestellt werden, dass mit mindestens $99\%$
+        muss sichergestellt werden, dass mit mindestens $99\,\%$
         Wahrscheinlichkeit $500$ Flaschen in der Lieferung keine Weinfehler
         aufweisen. Ein Mitarbeiter schlägt vor, $525$ Flaschen auszuliefern.
         Ist die obige Bedingung in diesem Fall erfüllt?
@@ -3450,10 +3450,10 @@ Die Kovarianzmatrix $\mathbf \Sigma$ von $\bfX$ ist demnach
 $8\times 8$-Matrix) werden zufällig $8$ Türme gestellt. 
 \begin{enumerate}
     \item Wie groß ist die Wahrscheinlichkeit dafür, dass sich die Türme nicht
-        sehen können, d.h.\ in jeder Zeile und jeder Spalte jeweils genau ein
-        Turm steht.
+        sehen können, d.\,h.\ in jeder Zeile und jeder Spalte jeweils genau ein
+        Turm steht?
     \item Wie groß ist die Wahrscheinlichkeit dafür, dass in jeder Zeile jeweils
-        genau ein Turm steht.
+        genau ein Turm steht?
 \end{enumerate}
 
 \solution
@@ -3462,23 +3462,22 @@ $8\times 8$-Matrix) werden zufällig $8$ Türme gestellt.
     \item $\frac{8!\, 8^8}{64 \dots 57}$.
 \end{enumerate}
 
-\problem{Busfahrerstreik.} Auf dem Weg zur Stochastik Prüfung erfahren Sie von
+\problem{Busfahrerstreik.} Auf dem Weg zur Stochastikprüfung erfahren Sie von
 einem Busfahrerstreik. Sie kommen an der Bushaltestelle kurz vor 11:00 Uhr an,
-die Prüfung beginnt um 14:00 Uhr und die Dauer der Busfahrt inklusive dem
-Fußweg zum Prüfungsort beziffern Sie erfahrungsgemäß auf eine Stunde. Gemäß
-Fahrplan stehen Ihnen drei Busse mit Abfahrtszeiten 11:00, 12:00 und 13:00 zur
+die Prüfung beginnt um 14:00 Uhr und die Dauer der Busfahrt inklusive des
+Fußweges zum Prüfungsort beziffern Sie erfahrungsgemäß auf eine Stunde. Gemäß
+Fahrplan stehen Ihnen drei Busse mit Abfahrtszeiten 11:00 Uhr, 12:00 Uhr und 13:00 Uhr zur
 Verfügung. Laut Aussagen anderer Wartender ist mit einer mittleren
 Verspätungsdauer von einer Stunde zu rechnen. Sie nehmen an, dass die
-Verspätungsdauer $B_i$, $i\in \left\{ 1,2,3 \right\}$ der Busse unabhängig von
-einander und exponentialverteilt mit $B_i \sim \text{Exp}(\lambda)$ und
+Verspätungsdauer $B_i$, $i\in \left\{ 1,2,3 \right\}$ der Busse unabhängig voneinander und exponentialverteilt mit $B_i \sim \text{Exp}(\lambda)$ und
 $\lambda>0$ sind. 
 \begin{enumerate}
     \item Bestimmen Sie den Parameter $\lambda$ und berechnen Sie die erwartete
-        Ankunftszeit am Prüfungsort under der Annahme, dass Sie den Bus mit der
+        Ankunftszeit am Prüfungsort unter der Annahme, dass Sie den Bus mit der
         planmäßigen Abfahrtszeit 11:00 Uhr benutzen.
     \item Berechnen Sie die Wahrscheinlichkeit dafür, dass Sie nicht rechtzeitig 
         zur Prüfung kommen können.
-    \item Berechnen Sie die Wahrscheinlichkeit dafür, dass Sie mindestens halbe Stunde
+    \item Berechnen Sie die Wahrscheinlichkeit dafür, dass Sie mindestens eine halbe Stunde
         vor der Prüfung am Prüfungsort ankommen.
 \end{enumerate}
 
@@ -3727,10 +3726,10 @@ Poisson-Prozesses (Stationarität, Homogenität und Ordinarität) gelten mögen.
 %\end{enumerate}
 
 \problem{Analyse des Kaffeebohnenpreises.} In einer einfachen Analyse wird der
-Preis des Kaffees der Sorte ``Robusta'', quotiert in US cents per Pfund durch International
+Preis des Kaffees der Sorte "`Robusta"', quotiert in US-Cent pro Pfund durch International
 Coffee Organization, auf einen Aufwärtstrend untersucht. 
 Für die $51$ Monatsbeobachtungen $r_{1},\dots ,r_{51}$ der Preisänderungen
-\lstset{basicstyle=\ttfamily\footnotesize,basewidth={.5em,0.4em}}
+%\lstset{basicstyle=\ttfamily\footnotesize,basewidth={.5em,0.4em}}
 %\begin{lstlisting}
 %-0.97 3.82 -0.14 6.28 7.44 -0.90 -1.95 3.46 7.37 0.38 7.71 8.59 7.84 -1.17 5.00
 %-4.15 -5.57 2.42 -5.06 -6.60 0.84 5.89 -4.66 1.85 2.34 -1.88 4.29 -2.66 0.02
@@ -3739,7 +3738,7 @@ Für die $51$ Monatsbeobachtungen $r_{1},\dots ,r_{51}$ der Preisänderungen
 %\end{lstlisting}    
 berechnet ein Analyst die Kenngrößen
 \begin{align*}
-    \sum_{i=1}^{51} r_{i} &= 34.83, & \sum_{i=1}^{51} r^{2}_{i} &= 1225.01.
+    \sum_{i=1}^{51} r_{i} &= 34,83, & \sum_{i=1}^{51} r^{2}_{i} &= 1225,01.
 \end{align*}
 Es wird angenommen, dass die Kursveränderungen die Realisierungen einer normalverteilten
 Zufallsgröße $X\sim \cN(\mu, \sigma^2)$ sind.
@@ -3750,7 +3749,7 @@ Zufallsgröße $X\sim \cN(\mu, \sigma^2)$ sind.
         Punktschätzungen.
     \item Der Analyst behauptet $\mu>0$ und gibt eine Kaufempfehlung aus. Lässt
         sich diese Aussage anhand der Beobachtungen mit einer zugelassenen
-        Irrtumswahrscheinlichkeit von $5\%$ rechtfertigen, d.h.~muss man die
+        Irrtumswahrscheinlichkeit von $5\,\%$ rechtfertigen, d.\,h.~muss man die
         Hypothese $H_0: \, \mu \le 0$ mit dieser Irrtums\-wahrscheinlichkeit
         ablehnen?
 \end{enumerate}
