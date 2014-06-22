@@ -1043,6 +1043,24 @@ disjunkt von $C$. Berechnen Sie folgende Wahrscheinlichkeiten:
     \item $P( ( \bar A \cup \bar B) \cap \bar C ) = 1 - P(C) - P(A)P(B) = 3/4$.
 \end{enumerate}
 
+\problem{Unvereinbar versus unabhängig. Einfache Rechnungen.} 
+Gegeben seien  ein Wahrscheinlichkeitsraum $(\Omega, \sAlg{A}, P)$ und zuf\"allige Ereignisse $A, B, C
+\in \sAlg{A}$  mit $P(A)=\frac{1}{3}$, $P(B)=\frac{1}{4}$ und $P(C)=\frac{1}{6}$. 
+Weiterhin seien die Ereignisse $A$ und $B$ stochastisch unabhängig sowie die Ereignisse $A\cup B$
+und $C$ unvereinbar. Berechnen Sie die folgenden Wahrscheinlichkeiten:
+\begin{enumerate}
+    \item $P(A \cap B \cap C)$,
+    \item $P(A \cup B \cup C)$,
+    \item $P( ( \bar A \cup \bar B) \cap \bar C )$.
+\end{enumerate}
+
+\solution
+\begin{enumerate}
+    \item $P(A \cap B \cap C) = 0$.
+    \item $P(A \cup B \cup C) = P(C) + 1 - (1 - P(A))(1-P(B)) = 2/3$.
+    \item $P( ( \bar A \cup \bar B) \cap \bar C ) = 1 - P(C) - P(A)P(B) = 3/4$.
+\end{enumerate}
+
 \problem{Unabhängigkeit. Einfache Rechnungen.}
 Seien $(\Omega, \cA, P)$ ein Wahrscheinlichkeitsraum und die vollständig
 stochastisch unabhängigen Ereignisse $A, B, C \in \cA$ mit $P(A)=\frac{1}{3}$,
@@ -2075,8 +2093,10 @@ Numerische Auswertung solcher Wahrscheinlichkeiten erfolgt mithilfe  der Grenzve
 \problem{Grenzverteilungsätze. Weinfehler.} Aus einem sehr großen Lieferposten
 Wein werden $500$ Flaschen zufällig herausgegriffen und auf Weinfehler
 getestet. Der Wein sei ungenießbar, wenn der Anteil an $2,4,6$-Trichloranisol
-(TCA) über $5$ ng/l liegt -- das zeichnet sich durch einen korkigen Geruch und
-Geschmack aus. Der durchschnittliche Anteil unbrauchbarer Weinflaschen betrage
+%(TCA) über $5$ ng/l liegt -- das zeichnet sich durch einen korkigen Geruch und
+%Geschmack aus. Der durchschnittliche Anteil unbrauchbarer Weinflaschen betrage
+(TCA) über $5$ ng/l liegt. Dies wirkt sich in Form eines korkigen Geruchs und
+Geschmacks aus. Der durchschnittliche Anteil unbrauchbarer Weinflaschen betrage
 $3\,\%$. 
 \begin{enumerate}
     \item Wie groß ist die Wahrscheinlichkeit dafür, dass unter $500$ zufällig 
@@ -3446,7 +3466,29 @@ Die Kovarianzmatrix $\mathbf \Sigma$ von $\bfX$ ist demnach
 
 \section{Informatik. Prüfungsaufgaben. }
 
-\problem{Kombinatorik. Schachbrett.} Auf einen Schachbrett (entspricht einer 
+\problem{Vulkanausbr\"uche.} Das Vulkangebiet um Indonesien l\"asst im Mittel einen Vulkanausbruch
+in f\"unf Jahren erwarten. Wir setzen voraus, dass dafür die Annahmen des
+Poisson-Prozesses (Stationarität, Homogenität und Ordinarität) gelten mögen.
+\begin{enumerate}
+    \item Wie können diese drei Annahmen für die vorliegende Problematik interpretiert werden?
+
+    \item Wie wahrscheinlich ist es dann, dass es in einem Jahrhundert zu gar keinem Vulkanausbruch in diesem
+    Gebiet kommt?
+    \item Wie wahrscheinlich ist es andererseits, dass es nach einem Vulkanausbruch bereits innerhalb eines Jahres zu einem
+    weiteren Vulkanausbruch kommt?
+\end{enumerate}
+
+\solution
+\begin{enumerate}
+        \setcounter{enumi}{1}
+    \item Rechnungseinheit Jahre: $\mu=\frac{1}{5}=0.2, \quad X_t \sim \text{Poiss}(\mu t).$
+        Sei $\pi_{\lambda}$ die Wahrscheinlichkeitsfunktion der Poissonverteilung mit dem Parameter $\lambda$. Dann ist
+        $t=100$, $\lambda=\mu t=20$, $P(X_{100}=0)=\pi_{20}(0)= \exp(-20)=2.0611 \times 10^{-9}$.
+    \item Zeitraum bis zum nächsten Ereignis: $T \sim \ExpDist(\mu)$.
+        $P(T \le 1)=1-\exp(-\mu)=1-\exp(-0.2)=0.1813.$
+\end{enumerate}
+
+\problem{Kombinatorik. Schachbrett.} Auf ein Schachbrett (entspricht einer 
 $8\times 8$-Matrix) werden zufällig $8$ Türme gestellt. 
 \begin{enumerate}
     \item Wie groß ist die Wahrscheinlichkeit dafür, dass sich die Türme nicht
@@ -3469,7 +3511,7 @@ Fußweges zum Prüfungsort beziffern Sie erfahrungsgemäß auf eine Stunde. Gem�
 Fahrplan stehen Ihnen drei Busse mit Abfahrtszeiten 11:00 Uhr, 12:00 Uhr und 13:00 Uhr zur
 Verfügung. Laut Aussagen anderer Wartender ist mit einer mittleren
 Verspätungsdauer von einer Stunde zu rechnen. Sie nehmen an, dass die
-Verspätungsdauer $B_i$, $i\in \left\{ 1,2,3 \right\}$ der Busse unabhängig voneinander und exponentialverteilt mit $B_i \sim \text{Exp}(\lambda)$ und
+Verspätungsdauern der Busse $B_i$  f\"ur $i=1,2,3$ unabhängig voneinander und exponentialverteilt mit $B_i \sim \ExpDist(\lambda)$ und
 $\lambda>0$ sind. 
 \begin{enumerate}
     \item Bestimmen Sie den Parameter $\lambda$ und berechnen Sie die erwartete
@@ -3483,12 +3525,12 @@ $\lambda>0$ sind.
 
 \solution
 \begin{enumerate}
-    \item $\bE B_i = 1$ impliziert $\lambda=1$. Die erwartete Ankunftszeit bei
-        Fahrt mit dem ersten Bus ist $\bE \left[ 11 + 1 + B_1  \right] = 12 +
-        \bE B_1 = 13$ Uhr.
+    \item $\E B_i = 1$ impliziert $\lambda=1$. Die erwartete Ankunftszeit bei
+        Fahrt mit dem ersten Bus ist $\E \left[ 11 + 1 + B_1  \right] = 12 +
+        \E B_1 = 13$ Uhr.
     \item Bezeichne mit $B_1$, $B_2$, und $B_3$ die Verspätungsdauer der Busse.
         Laut Angabe sind $B_i$ exponentialverteilt mit  $B_i \sim
-        \text{Ex}(1)$. Die Wahrscheinlichkeit dafür, dass der Prüfungsort nicht
+        \ExpDist(1)$. Die Wahrscheinlichkeit dafür, dass der Prüfungsort nicht
         rechtzeitig erreicht werden kann ist
         \begin{align*}
             P\left( B_1 \geq 2 \ \wedge \ B_2 \geq 1 \ \wedge B_3 \geq 0 \right) &= 
@@ -3741,7 +3783,7 @@ berechnet ein Analyst die Kenngrößen
     \sum_{i=1}^{51} r_{i} &= 34,83, & \sum_{i=1}^{51} r^{2}_{i} &= 1225,01.
 \end{align*}
 Es wird angenommen, dass die Kursveränderungen die Realisierungen einer normalverteilten
-Zufallsgröße $X\sim \cN(\mu, \sigma^2)$ sind.
+Zufallsgröße $X\sim \bfN(\mu, \sigma^2)$ sind.
 \begin{enumerate}
     \item Geben Sie je eine erwartungstreue Schätzfunktion für den Mittelwert
         $\mu$ und für die Varianz $\sigma^2$ der Kursveränderungen an.
