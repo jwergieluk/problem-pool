@@ -3466,6 +3466,91 @@ Die Kovarianzmatrix $\mathbf \Sigma$ von $\bfX$ ist demnach
 
 \section{Informatik. Prüfungsaufgaben. }
 
+\problem{Benfordsches Gesetz.} 
+Geben sei eine diskret verteilte Zufallsgröße $X$ mit den Werten in der Menge
+$\left\{ 1,2,3,\dots ,9 \right\}$ und der Wahrscheinlichkeitsfunktion
+\begin{align*}
+    p(d) = P(X = d) &= \log_{10} \left( \frac{d+1}{d} \right),\  d \in \left\{ 1,2,\cdots,9 \right\}.
+\end{align*}
+\begin{enumerate}
+    \item Zeigen Sie, dass die Funktion $p$ tatsächlich eine Wahrscheinlichkeitsfunktion ist.
+
+    \item Berechnen Sie den Erwartungswert von $X$. 
+\end{enumerate}
+Es sei an folgende Rechenregeln für Logarithmen erinnert: $\log_{10} (a) +
+\log_{10} (b) = \log_{10} \left( ab \right)$, und $c \log_{10} \left( b \right) =
+\log_{10}\left( b^{c} \right)$ für alle $a,b,c>0$.
+
+\solution
+$\E X = \sum_{d=1}^{9} d \log_{10} \left( \frac{d+1}{d} \right) 
+    = \log_{10} \left( 10\cdot{} \frac{10}{2} \cdots \frac{10}{9} \right) 
+    = 10 - \log_{10} \left( 9! \right) \approx 3.440236$.
+
+
+\problem{Gruppeneinteilung bei Fußball WM.} Bei Fußballweltmeisterschaften
+werden $32$ Fußballteams zufällig in $8$ Gruppen je $4$ Teams eingeteilt. Dafür
+wird ein kompliziertes Verfahren angewendet, um sicherzustellen dass
+verschiedene unerwünschte Aufteilungen nicht auftreten können. In dieser
+Aufgabe nehmen wir an, dass alle Gruppeneinteilungen gleichwahrscheinlich sind,
+und zeigen, dass dieses Model unerwünschte Eigenschaften hat. 
+\begin{enumerate}
+    \item Wie viele mögliche Gruppeneinteilungen gibt es?
+    \item Berechnen Sie die Wahrscheinlichkeit dafür, dass die $7$ Führenden
+        der FIFA-Weltrangliste zwei Gruppen zugeteilt werden.
+    \item Berechnen Sie die Wahrscheinlichkeit dafür, dass es mindestens eine
+        Gruppe gibt zu der mindestens $3$ Europäische Mannschaften eingeteilt
+        wurden.
+\end{enumerate}
+
+\solution
+\begin{enumerate}
+    \item $\frac{\binom{2}{2} \binom{30}{2}}{\binom{32}{4}}$.
+    \item $\binom{32}{4}\binom{28}{4} \cdots \binom{4}{4}$.
+\end{enumerate}
+
+
+\problem{Elfmeterschießen.} In einem einfachen Modell des Elfmeterschießens
+wird nur eine Mannschaft betrachtet. Die Wahrscheinlichkeit, beim ersten Schuss
+einen Tor zu erzielen sei $p_{1}=0.8$. Ist in der Tat ein Tor gefallen, wird
+die Treffwahrscheinlichkeit beim nächsten Versuch auf $p_2 = \sqrt{p_1}$
+erhöht, andernfalls verringert sich diese Wahrscheinlichkeit und beträgt $p_2 =
+p_{1}^{2}$. Der Vorgang wird wiederholt, wobei die Treffwahrscheinlichkeit beim
+$i$-ten Schuss $p_{i}=\sqrt{p_{i-1}}$ beträgt, falls vorher ein Tor
+gefallen ist, und sonst $p_i = p^{2}_{i-1}$.
+\begin{enumerate}
+    \item Wie groß ist die Wahrscheinlichkeit dafür, dass beim zweiten Versuch
+        ein Tor fällt?
+        
+    \item Angenommen wir haben den ersten Schuss nicht gesehen, wissen aber
+        dass beim zweiten Versuch ein Tor gefallen ist. Unter dieser Bedingung,
+        wie groß ist die Wahrscheinlichkeit, dass bein ersten Schuss ein Tor
+        gefallen ist. 
+\end{enumerate}
+
+
+
+
+\problem{Gasmelder.} Im Hauptgebäude der TU Chemnitz werden Gasmelder
+bestimmten Typs für die Früherkennung gefährlicher Methankonzentrationen
+eingesetzt. Es wird angenommen, dass im $3.$ Stock im Mittel alle $25$ Jahre
+ein gefährlicher Methanaustritt stattfindet, der durch den entsprechenden
+Gasmelder signalisiert wird. Unabhängig davon geht der besagte Melder im Mittel
+alle $5$ Jahre kaputt und signalisiert dabei einen Falschalarm. Kaputter Melder
+wird aus Sicherheitsgründen sofort ausgetauscht. 
+\begin{enumerate}
+    \item Wir setzen im Folgenden voraus, dass beide Ereignisfolgen mit Hilfe
+        der Poisson-Prozesse modelliert werden können. Diskutieren Sie die 
+        zugehörigen Annahmen der Stationarität, Homogenität und Ordinarität.
+
+    \item Wie wahrscheinlich ist es, dass es in den nächsten $10$ Jahren zu mehr als
+        $2$ Methanvorfällen kommen wird?
+
+    \item Wie wahrscheinlich ist es, dass nach dem ein kaputter Melder Ende Mai ausgetauscht
+        wurde, der neue Melder innerhalb eines halben Jahres kaputt geht?
+\end{enumerate}
+
+
+
 \problem{Vulkanausbr\"uche.} Das Vulkangebiet um Indonesien l\"asst im Mittel einen Vulkanausbruch
 in f\"unf Jahren erwarten. Wir setzen voraus, dass dafür die Annahmen des
 Poisson-Prozesses (Stationarität, Homogenität und Ordinarität) gelten mögen.
@@ -3766,6 +3851,35 @@ Poisson-Prozesses (Stationarität, Homogenität und Ordinarität) gelten mögen.
 %
 %        $P(T \le 20)=1-\exp(-20 \mu)=1-\exp(-0.4)=\underline{0.3297}.$
 %\end{enumerate}
+
+\problem{Analyse des Zuckerpreises.} 
+Es seien folgende $41$ monatliche Beobachtungen $x_{1},\dots ,x_{41}$ des internationalen
+Zuckerpreises aus dem Zeitraum von Januar 2011 bis Mai 2014, quotiert in US-Cent
+pro Pfund gegeben: 
+\lstset{basicstyle=\ttfamily\small,basewidth={.5em,0.4em}}
+\begin{lstlisting}
+29.74 29.31 25.90 23.90 21.84 24.92 29.47 28.87 26.64 26.30 24.52 23.42 24.02
+23.42 23.79 22.48 20.27 20.10 22.76 20.56 20.21 20.39 19.31 19.20 18.85 18.21
+18.34 17.66 17.43 16.96 17.10 17.24 17.62 18.81 17.75 16.54 15.71 16.89 17.87
+17.61 17.50
+\end{lstlisting}
+Wir nehmen an diese Beobachtungen Realisierungen einer normalverteilten Zufallsgröße
+$X \in \NormDist(\mu, \sigma^{2})$ sind. Darüberhinaus gilt
+\begin{align*}
+    \sum_{i=1}^{41} x_{i} &= 869.40 & \sum_{i=1}^{41} x_{i}^{2} &= 19090.47.
+\end{align*}
+\begin{enumerate}
+    \item Geben Sie je eine erwartungstreue Schätzfunktion für den Mittelwert
+        $\mu$ und für die Varianz $\sigma^2$ der Kursveränderungen an.
+    \item Bestimmen Sie ein Konfidenzintervall $[0,\bar \sigma]$ für die
+        Standardabweichung $\sigma$ zum Konfidenzniveau $1-\alpha = 0.95$.
+
+    \item Lässt sich anhand dieser Beobachtungen mit einer zugelassenen
+        Irrtumswahrscheinlichkeit von $0.1$ die Behauptung wiederlegen, dass
+        der durchschnittliche Zuckerpreis in diesem Zeitraum unter $18$ Cent
+        pro Pfung lag?
+\end{enumerate}
+
 
 \problem{Analyse des Kaffeebohnenpreises.} In einer einfachen Analyse wird der
 Preis des Kaffees der Sorte "`Robusta"', quotiert in US-Cent pro Pfund durch International
@@ -4521,7 +4635,7 @@ bestimmten Entfernung ergaben sich die folgenden Schätzwerte:
 
 
 
-\problem{Test. Erneuerbare Energien.} 
+\problem{Erneuerbare Energien. Test.} 
 In einer einfachen Analyse des Strommarktes wird davon ausgegangen, dass die
 täglich von Solar- und Windgeneratoren zwischen 12 und 13 Uhr erzeugte Energie
 in den Monaten Juni, Juli und August (92 Tage) die Realisierung einer
