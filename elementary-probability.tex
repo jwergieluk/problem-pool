@@ -3466,6 +3466,38 @@ Die Kovarianzmatrix $\mathbf \Sigma$ von $\bfX$ ist demnach
 
 \section{Informatik. Prüfungsaufgaben. }
 
+\problem{Notstromgeneratoren. Ausfälle und Reparaturzeiten. }
+Der Betrieb eines Rechenzentrum wird von einer Kette von Notstromgeneratoren
+$G_1,\dots ,G_n$, $n\geq 1$ gesichert. Jedem Generator $G_i$ wird eine fixe
+maximale Arbeitsdauer $d_{i}>0$ (in Stunden) zugeordnet, über die die
+Stromversorgung mit $G_i$ gewährleistet werden kann. Beim Einschalten, und nur
+dann, kann $G_i$ mit wahrscheinlichkeit $p_{i}>0$ ausfallen. Die Ausfälle der
+Generatoren sind unabhängig voneinander.
+
+Betrachten Sie eine Kette bestehend aus einem Dieselmotor $G_1$,
+sowie zwei Batterieanlagen $G_2$ und $G_3$. Die Arbeitsdauer sind
+$\left( d_1, d_2, d_3 \right) = \left( 24, 2, 1 \right)$ und die
+Ausfallswahrscheinlichkeiten betragen $\left( p_{1}, p_{2}, p_{3}
+\right) = \left( 0.1, 0.02, 0.03 \right)$.
+
+\begin{enumerate}
+    \item Berechnen Sie die Wahrscheinlichkeit dafür, dass die Kette
+        $\left( G_1, G_2, G_3 \right)$ Stromversorgung $23$ Stunden lang
+        gewährleisen kann.
+
+    \item Berechnen Sie die Wahrscheinlichkeit dafür, dass $\left( G_1, G_2,
+        G_3 \right)$ genau $25$ Stunden arbeiten kann.
+\end{enumerate}
+
+\solution
+Bezeichnen wir mit $A_1, A_2, A_3$ die Ausfallsereignisse der Generatoren
+und mit $\tau$ die Ausfallszeit der Kette. Folgende Wahrscheinlichkeiten
+sind zu berechnen:
+\begin{enumerate}
+    \item $P\left( \tau>23 \right) = P( \bar A_1 ) = 0.99$.
+\end{enumerate}
+
+
 \problem{Benfordsches Gesetz.} 
 Geben sei eine diskret verteilte Zufallsgröße $X$ mit den Werten in der Menge
 $\left\{ 1,2,3,\dots ,9 \right\}$ und der Wahrscheinlichkeitsfunktion
