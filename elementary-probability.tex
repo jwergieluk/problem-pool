@@ -3466,12 +3466,12 @@ Die Kovarianzmatrix $\mathbf \Sigma$ von $\bfX$ ist demnach
 
 \section{Informatik. Prüfungsaufgaben. }
 
-\problem{Notstromgeneratoren. Ausfälle und Reparaturzeiten. }
-Der Betrieb eines Rechenzentrum wird von einer Kette von Notstromgeneratoren
+\problem{Ausfälle der Notstromgeneratoren.}
+Der Betrieb eines Rechenzentrums wird von einer Kette von Notstromgeneratoren
 $G_1,\dots ,G_n$, $n\geq 1$ gesichert. Jedem Generator $G_i$ wird eine fixe
 maximale Arbeitsdauer $d_{i}>0$ (in Stunden) zugeordnet, über die die
 Stromversorgung mit $G_i$ gewährleistet werden kann. Beim Einschalten, und nur
-dann, kann $G_i$ mit wahrscheinlichkeit $p_{i}>0$ ausfallen. Die Ausfälle der
+dann, kann $G_i$ mit Wahrscheinlichkeit $p_{i}>0$ ausfallen. Die Ausfälle der
 Generatoren sind unabhängig voneinander.
 
 Betrachten Sie eine Kette bestehend aus einem Dieselmotor $G_1$,
@@ -3482,11 +3482,12 @@ Ausfallswahrscheinlichkeiten betragen $\left( p_{1}, p_{2}, p_{3}
 
 \begin{enumerate}
     \item Berechnen Sie die Wahrscheinlichkeit dafür, dass die Kette
-        $\left( G_1, G_2, G_3 \right)$ Stromversorgung $23$ Stunden lang
-        gewährleisen kann.
+        $\left( G_1, G_2, G_3 \right)$ das Rechenzentrum $23$ Stunden lang
+        mit Strom versorgen kann.
 
     \item Berechnen Sie die Wahrscheinlichkeit dafür, dass $\left( G_1, G_2,
-        G_3 \right)$ genau $25$ Stunden arbeiten kann.
+        G_3 \right)$ das Rechenzentrum $25$ Stunden lang mit Strom versorgen
+        kann.
 \end{enumerate}
 
 \solution
@@ -3499,7 +3500,7 @@ sind zu berechnen:
 
 
 \problem{Benfordsches Gesetz.} 
-Geben sei eine diskret verteilte Zufallsgröße $X$ mit den Werten in der Menge
+Gegeben sei eine diskret verteilte Zufallsgröße $X$ mit den Werten in der Menge
 $\left\{ 1,2,3,\dots ,9 \right\}$ und der Wahrscheinlichkeitsfunktion
 \begin{align*}
     p(d) = P(X = d) &= \log_{10} \left( \frac{d+1}{d} \right),\  d \in \left\{ 1,2,\cdots,9 \right\}.
@@ -3509,9 +3510,12 @@ $\left\{ 1,2,3,\dots ,9 \right\}$ und der Wahrscheinlichkeitsfunktion
 
     \item Berechnen Sie den Erwartungswert von $X$. 
 \end{enumerate}
-Es sei an folgende Rechenregeln für Logarithmen erinnert: $\log_{10} (a) +
-\log_{10} (b) = \log_{10} \left( ab \right)$, und $c \log_{10} \left( b \right) =
-\log_{10}\left( b^{c} \right)$ für alle $a,b,c>0$.
+Es sei an folgende Rechenregeln für Logarithmen erinnert: 
+\begin{align*}
+    \log_{10} (a) + \log_{10} (b) &= \log_{10} \left( ab \right), & 
+    c \log_{10} \left( b \right) &= \log_{10}\left( b^{c} \right), 
+\end{align*}
+für alle $a,b,c>0$.
 
 \solution
 $\E X = \sum_{d=1}^{9} d \log_{10} \left( \frac{d+1}{d} \right) 
@@ -3519,12 +3523,12 @@ $\E X = \sum_{d=1}^{9} d \log_{10} \left( \frac{d+1}{d} \right)
     = 10 - \log_{10} \left( 9! \right) \approx 3.440236$.
 
 
-\problem{Gruppeneinteilung bei Fußball WM.} Bei Fußballweltmeisterschaften
+\problem{Gruppeneinteilung bei Fußball WM.} Bei der Fußballweltmeisterschaften
 werden $32$ Fußballteams zufällig in $8$ Gruppen je $4$ Teams eingeteilt. Dafür
 wird ein kompliziertes Verfahren angewendet, um sicherzustellen dass
 verschiedene unerwünschte Aufteilungen nicht auftreten können. In dieser
 Aufgabe nehmen wir an, dass alle Gruppeneinteilungen gleichwahrscheinlich sind,
-und zeigen, dass dieses Model unerwünschte Eigenschaften hat. 
+und zeigen, dass dieses Modell unerwünschte Eigenschaften hat. 
 \begin{enumerate}
     \item Wie viele mögliche Gruppeneinteilungen gibt es?
     \item Berechnen Sie die Wahrscheinlichkeit dafür, dass die $7$ Führenden
@@ -3542,7 +3546,7 @@ und zeigen, dass dieses Model unerwünschte Eigenschaften hat.
 
 
 \problem{Elfmeterschießen.} In einem einfachen Modell des Elfmeterschießens
-wird nur eine Mannschaft betrachtet. Die Wahrscheinlichkeit, beim ersten Schuss
+wird nur eine Mannschaft betrachtet. Die Wahrscheinlichkeit beim ersten Schuss
 einen Tor zu erzielen sei $p_{1}=0.8$. Ist in der Tat ein Tor gefallen, wird
 die Treffwahrscheinlichkeit beim nächsten Versuch auf $p_2 = \sqrt{p_1}$
 erhöht, andernfalls verringert sich diese Wahrscheinlichkeit und beträgt $p_2 =
@@ -3553,9 +3557,9 @@ gefallen ist, und sonst $p_i = p^{2}_{i-1}$.
     \item Wie groß ist die Wahrscheinlichkeit dafür, dass beim zweiten Versuch
         ein Tor fällt?
         
-    \item Angenommen wir haben den ersten Schuss nicht gesehen, wissen aber
+    \item Angenommen Sie haben den ersten Schuss nicht gesehen, wissen aber
         dass beim zweiten Versuch ein Tor gefallen ist. Unter dieser Bedingung,
-        wie groß ist die Wahrscheinlichkeit, dass bein ersten Schuss ein Tor
+        wie groß ist die Wahrscheinlichkeit, dass beim ersten Schuss ein Tor
         gefallen ist. 
 \end{enumerate}
 
@@ -3888,14 +3892,14 @@ Poisson-Prozesses (Stationarität, Homogenität und Ordinarität) gelten mögen.
 Es seien folgende $41$ monatliche Beobachtungen $x_{1},\dots ,x_{41}$ des internationalen
 Zuckerpreises aus dem Zeitraum von Januar 2011 bis Mai 2014, quotiert in US-Cent
 pro Pfund gegeben: 
-\lstset{basicstyle=\ttfamily\small,basewidth={.5em,0.4em}}
+\lstset{basicstyle=\ttfamily\footnotesize,basewidth={.5em,0.4em}}
 \begin{lstlisting}
 29.74 29.31 25.90 23.90 21.84 24.92 29.47 28.87 26.64 26.30 24.52 23.42 24.02
 23.42 23.79 22.48 20.27 20.10 22.76 20.56 20.21 20.39 19.31 19.20 18.85 18.21
 18.34 17.66 17.43 16.96 17.10 17.24 17.62 18.81 17.75 16.54 15.71 16.89 17.87
 17.61 17.50
 \end{lstlisting}
-Wir nehmen an diese Beobachtungen Realisierungen einer normalverteilten Zufallsgröße
+Wir nehmen an, dass diese Beobachtungen Realisierungen einer normalverteilten Zufallsgröße
 $X \in \NormDist(\mu, \sigma^{2})$ sind. Darüberhinaus gilt
 \begin{align*}
     \sum_{i=1}^{41} x_{i} &= 869.40 & \sum_{i=1}^{41} x_{i}^{2} &= 19090.47.
@@ -3907,9 +3911,9 @@ $X \in \NormDist(\mu, \sigma^{2})$ sind. Darüberhinaus gilt
         Standardabweichung $\sigma$ zum Konfidenzniveau $1-\alpha = 0.95$.
 
     \item Lässt sich anhand dieser Beobachtungen mit einer zugelassenen
-        Irrtumswahrscheinlichkeit von $0.1$ die Behauptung wiederlegen, dass
+        Irrtumswahrscheinlichkeit von $0.1$ die Behauptung widerlegen, dass
         der durchschnittliche Zuckerpreis in diesem Zeitraum unter $18$ Cent
-        pro Pfung lag?
+        pro Pfund lag?
 \end{enumerate}
 
 
