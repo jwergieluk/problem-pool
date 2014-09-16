@@ -1,11 +1,28 @@
 
-\newcommand{\E}{\mathbf{E}}  % Expectation
-\newcommand{\Prob}{P}    % Expectation
+% Problem collection commands
+\newcommand{\problem}[1]{\paragraph{#1}}
+\newcommand{\solution}{\paragraph*{Lösung.}}
+
+% Annotation
+\newcommand{\key}[1]{\textsl{#1}\index{#1}}
+
+% General
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\ind}{1}
+
+%Stochastics
+\newcommand{\Prob}{\mathbb{P}}\newcommand{\Qrob}{\mathbb{Q}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\as}{\textrm{ a.s. }}
+\newcommand\upmodels{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+
 \newcommand{\sAlg}[1]{\mathfrak{#1}}
 \newcommand{\ExpDist}{\mathbf{Ex}}
 \newcommand{\NormDist}{\mathbf{N}}
-\newcommand{\R}{\mathbb R}
-\newcommand{\N}{\mathbb N}
+
 
 % Logic
 \newcommand{\impl}{\Rightarrow}
@@ -13,7 +30,9 @@
 \DeclareMathOperator{\corr}{corr}
 \DeclareMathOperator{\var}{var}\DeclareMathOperator{\Var}{Var}
 
+\newcommand{\cond}{\;\middle\vert\;}
 \newcommand{\vb}{\;\middle\vert\;}
+\renewcommand{\div}{\mathop\backslash}
 
 \newcommand{\bA}{\mathbb A}\newcommand{\cA}{\mathcal A}\newcommand{\fA}{\mathfrak A}\newcommand{\bfA}{\mathbf A}
 \newcommand{\bB}{\mathbb B}\newcommand{\cB}{\mathcal B}\newcommand{\fB}{\mathfrak B}\newcommand{\bfB}{\mathbf B}
@@ -41,4 +60,3 @@
 \newcommand{\bX}{\mathbb X}\newcommand{\cX}{\mathcal X}\newcommand{\fX}{\mathfrak X}\newcommand{\bfX}{\mathbf X}
 \newcommand{\bY}{\mathbb Y}\newcommand{\cY}{\mathcal Y}\newcommand{\fY}{\mathfrak Y}\newcommand{\bfY}{\mathbf Y}
 \newcommand{\bZ}{\mathbb Z}\newcommand{\cZ}{\mathcal Z}\newcommand{\fZ}{\mathfrak Z}\newcommand{\bfZ}{\mathbf Z}
-

@@ -1,56 +1,48 @@
-\documentclass[11pt,oldfontcommands,oneside,a4paper,article]{memoir}
+\documentclass[11pt,oldfontcommands,twoside,a4paper]{memoir}
 \usepackage[utf8]{inputenc}\usepackage[T1]{fontenc}
-\usepackage{lmodern}
 
 \title{Problemsupermarkt}\author{Julian Wergieluk}\date{\today}
-\input{../latex-common/preamble}
+\input{preamble}
 \input{commands}
-\usepackage[ngerman]{babel}
+
 \usepackage[citestyle=alphabetic, url=false, backend=biber]{biblatex}
 \addbibresource{sources.bib}
 
+\usepackage{geometry}\geometry{a4paper,hcentering,vcentering,outer=3cm,top=3cm}
 %\usepackage[right=3cm, left=3cm, top=3.0cm, bottom=3.0cm]{geometry}
 
-% problem collection commands
-\newcommand{\problem}[1]{\subsection{#1}}
-\newcommand{\solution}{\paragraph*{Solution.}}
 
 \begin{document}
-\chapterstyle{section}
+\chapterstyle{companion}
 \pagestyle{headings}
-\sloppy
+%\sloppy
 
-%\frontmatter
+\frontmatter
 \maketitle
+\cleartorecto
 
 \setcounter{tocdepth}{3}
 \tableofcontents
 
-%\mainmatter
+\mainmatter
 
-\setcounter{secnumdepth}{4}
-%\renewcommand{\theparagraph}{\arabic{chapter}.\arabic{paragraph}}
-\renewcommand{\theparagraph}{\arabic{chapter}.\arabic{paragraph}}
-\renewcommand{\theenumi}{\Alph{enumi}.}
+\setcounter{secnumdepth}{4}\renewcommand{\theparagraph}{\arabic{paragraph}.}
+\renewcommand{\theenumi}{(\alph{enumi})}
 \renewcommand{\labelenumi}{\theenumi}
 
 
-\chapter{Stochastische Analysis}
-\input{stochastic-analysis}
+
+\chapter{Wahrscheinlichkeitsrechnung}
+\input{elementary-probability}
 
 \chapter{Wahrscheinlichkeitstheorie}
-\input{elementary-probability}
 \input{probability-theory}
 
 \chapter{Mathematische Statistik}
 \input{statistics}
 
-
-
-
-
-
-
+\chapter{Stochastische Analysis}
+\input{stochastic-analysis}
 
 \backmatter
 

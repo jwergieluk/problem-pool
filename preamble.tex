@@ -1,6 +1,6 @@
 %%% A generic preamble. 
 
-\usepackage[ngerman]{babel} 
+\usepackage[ngerman]{babel}
 
 
 \usepackage[final]{graphicx} % options = [final]  = all graphics displayed, regardless of draft option in class
@@ -11,7 +11,16 @@
 \usepackage{float}                      % Improved interface for floating objects ; add [H] option
 
 \usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
-%\usepackage{listings}\lstset{basicstyle=\ttfamily, breaklines=true}
+\usepackage{listings}\lstset{basicstyle=\ttfamily, breaklines=true}
+\lstset{literate=%
+{Ö}{{\"O}}1
+{Ä}{{\"A}}1
+{Ü}{{\"U}}1
+{ß}{{\ss}}2
+{ü}{{\"u}}1
+{ä}{{\"a}}1
+{ö}{{\"o}}1
+}
 %\makeindex
 
 % memoir options
@@ -29,7 +38,7 @@
 %\usepackage{MnSymbol}      % WARNING: This package changes common symbols such as \int
 
 % writing helpers
-\usepackage[color]{showkeys}
+%\usepackage[color]{showkeys}
 \usepackage[obeyDraft,backgroundcolor=white,linecolor=black,textsize=tiny,textwidth=2cm]{todonotes}
 \setlength{\marginparwidth}{2cm}
 
@@ -57,9 +66,9 @@
 \newtheorem{exercise}[theorem]{Exercise}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{notation}[theorem]{Notation}
-\newtheorem{problem}[theorem]{Problem}
+%\newtheorem{problem}[theorem]{Problem}
 \newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{solution}[theorem]{Solution}
+%\newtheorem{solution}[theorem]{Solution}
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{condition}[theorem]{Condition}
 \newtheorem{assumption}[theorem]{Assumption}
