@@ -1,0 +1,107 @@
+%%% A generic preamble. 
+
+\usepackage[ngerman]{babel} 
+
+
+\usepackage[final]{graphicx} % options = [final]  = all graphics displayed, regardless of draft option in class
+                               % options = [pdftex] = necessary (?) if import PDF files
+                               % no option : when importing ps- and eps-files (?)
+% \graphicspath{{../images/}}  % tell LaTeX where to look for images
+% \DeclareGraphicsExtensions{.pdf, .PDF, .jpg, .JPG, .jpeg, .JPEG, .png, .PNG, .bmp, .BMP, .eps, .ps}
+\usepackage{float}                      % Improved interface for floating objects ; add [H] option
+
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+%\usepackage{listings}\lstset{basicstyle=\ttfamily, breaklines=true}
+%\makeindex
+
+% memoir options
+%\chapterstyle{companion}
+
+% ams packages and symbols
+\usepackage{amsmath}      % loads amstext, amsbsy, amsopn but not amssymb
+                            % equation stuff (eqref, subequations, equation, align, gather, flalign, multline, alignat, split...)
+\usepackage{amsfonts}     % may be redundant with amsmath
+% \usepackage{amssymb}      % may be redundant with amsmath
+\numberwithin{equation}{chapter}  % reset equation counters at start of each "section" and prefix numbers by section number
+\numberwithin{figure}{chapter}    % reset figure   counters at start of each "section" and prefix numbers by section number
+
+\usepackage{latexsym}
+%\usepackage{MnSymbol}      % WARNING: This package changes common symbols such as \int
+
+% writing helpers
+\usepackage[color]{showkeys}
+\usepackage[obeyDraft,backgroundcolor=white,linecolor=black,textsize=tiny,textwidth=2cm]{todonotes}
+\setlength{\marginparwidth}{2cm}
+
+% layout
+\usepackage[final, babel]{microtype} % many good lay-out/justification effects, see:
+                                     % texblog.net/latex-archive/layout/pdflatex-microtype/
+
+%\usepackage{mathtools}%                  http://www.ctan.org/pkg/mathtools
+%\usepackage[tableposition=top]{caption}% http://www.ctan.org/pkg/caption
+%\usepackage{booktabs,dcolumn}%           http://www.ctan.org/pkg/dcolumn + http://www.ctan.org/pkg/booktabs
+
+\usepackage{amsthm, thmtools}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{assumption}[theorem]{Assumption}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{summary}[theorem]{Summary}
+
+\newtheorem{questions}[theorem]{Questions}
+
+%\declaretheorem{style=remark,qed=$\blacksquare$,name=Example}{example}
+
+
+%%% FONTS
+
+%\usepackage{concmath}
+\usepackage{fourier}
+\usepackage{newcent}
+
+
+% HYPERREF (last) then HYPCAP %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%
+% See:
+% http://tex.stackexchange.com/questions/1863/which-packages-should-be-loaded-after-hyperref-instead-of-before
+%
+\usepackage[
+pdftex, 
+final,                      % if you do    want to have clickable-colorful links
+pdfstartview = FitV,
+linktocpage  = false,       % ToC, LoF, LoT place hyperlink on page number, rather than entry text
+breaklinks   = true,        % so long urls are correctly broken across lines
+% pagebackref  = false,     % add page number in bibliography and link to position in document where cited
+]{hyperref}
+\hypersetup{colorlinks=true, linkcolor=black, bookmarksopenlevel={2}, bookmarksopen = true}
+
+% \usepackage{cleveref} % enhance cross-referencing, allow full formatting, commands:
+                        % \cref, \Cref, \crefrange, \cref{eq2,eq1,eq3,eq5,thm2,def3}
+                        % supposedly better than \autoref as provided by hyperref
+
+% \usepackage[all]{hypcap} % when link to float (using hyperref), link anchors to beginning (instead of below) float
+
+
+

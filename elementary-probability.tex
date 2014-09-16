@@ -3464,7 +3464,550 @@ Die Kovarianzmatrix $\mathbf \Sigma$ von $\bfX$ ist demnach
 \end{equation*}
 
 
-\section{Informatik. Prüfungsaufgaben. }
+
+\section{Quantile}
+
+\problem{Exponentialverteilung. Quantile.} Seien 
+$X\sim \mathbf{Ex}(\lambda)$ exponentialverteilt mit dem Paramter $\lambda>0$
+und $\gamma\in (0,1)$ gegeben. 
+\begin{enumerate}
+    \item Berechnen Sie das $\gamma$-Quantil zur $X$. 
+    \item Berechnen Sie den Median von $X$. 
+\end{enumerate}
+
+\solution Dichte und Verteilungsfunktionen der Exponentialverteilung
+sind
+\begin{align*}
+    f(x) &= \lambda e^{-\lambda x} 1_{x \geq 0} & F(x) &= \left( 1-e^{-\lambda x} \right)1_{x \geq 0}. 
+\end{align*}
+Daraus ergibt sich für $\gamma\in (0,1)$ 
+\begin{equation*}
+    q_{\gamma} = F^{-1}(\gamma) = -\frac{1}{\lambda} \log \left( 1-\gamma \right). 
+\end{equation*}
+Median ist damit gleich $-\frac{1}{\lambda} \log \frac{1}{2}$. 
+
+
+\problem{Logistische Verteilung. Quantile.} Eine Zufallsgröße heißt
+logistisch verteilt mit den Parametern $\alpha\in\bR$ und $\beta>0$, wenn ihre
+Dichtefunktion die Gestalt
+\begin{equation*}
+    f(x) = \frac{e^{-\frac{x-\alpha}{\beta}}}
+    {\beta\left( 1+e^{-\frac{x-\alpha}{\beta}} \right)^{2}}
+\end{equation*}
+hat.
+\begin{enumerate}
+    \item Zeigen Sie, dass die Verteilungsfunktion von $X$ durch
+        \begin{equation*}
+            F(x) = \frac{1}{1+e^{-\frac{x-\alpha}{\beta}}}
+        \end{equation*}
+        gegeben ist.
+
+    \item Berechnen Sie das $\gamma$-Quantil zur $X$ für ein $\gamma\in (0,1)$. 
+    \item Berechnen Sie den Median von $X$. 
+\end{enumerate}
+
+\solution Die Quantilfunktion ist gegeben durch
+\begin{equation*}
+    Q(\gamma) = \alpha - \beta \log\left( \frac{1}{\gamma} - 1 \right). 
+\end{equation*}
+Der Median ist $Q(0.5) = \alpha$.
+
+\section{Erwartungstreue}
+
+\problem{Schätzung der Varianz bei bekanntem Erwartungswert.} 
+Sei $X_{1},\dots ,X_n$, $n>1$ eine $n$-elementige Stichprobe mit $\E X_i =
+\mu$ und $\Var X_i = \sigma^2>0$ gegeben. Zeigen Sie, dass die Schätzfunktion 
+\begin{equation*}
+    V^{2}\left( X_1,\dots ,  X_n \right) = \frac{1}{n} \sum_{i=1}^{n} \left( X_i - \mu \right)^2
+\end{equation*} 
+erwartungstreu für $\sigma^2$ ist. 
+
+
+\problem{Diskrete Gleichverteilung. Erwartungstreuer Schätzer.} Seien
+$X_1,\dots ,X_k$ i.i.d.\ und diskret gleichverteilt auf $\left\{ 1,\dots ,N
+\right\}$ mit $N>1$. Zeigen Sie, dass der Schätzer
+\begin{equation*}
+    T\left( X_1,\dots ,X_k \right) = \frac{k+1}{k} X_{(k)}-1
+\end{equation*}
+erwartungstreu für $N$ ist. $X_{(k)}$ bezeichnet dabei das Maximum von $\left\{
+X_1,\dots ,X_k \right\}$. 
+
+\problem{Log-Normalverteilung. Erwartungstreuer Schätzer.} Seien $X_1,\dots
+,X_n$ i.i.d.\ und log-normalverteilt mit der Dichtefunktion
+\begin{equation*}
+    f(x) = \begin{cases}
+        \frac{1}{ x\sqrt{2\pi} } \exp \left( - \frac{ (\log x - \mu)^2 }{ 2 } \right), & x\geq 0 \\
+        0, & x<0
+    \end{cases}
+\end{equation*}
+und dem Parameter $\mu\in\bR$. Zeigen Sie, dass der Schätzer 
+\begin{equation*}
+    T\left( X_1,\dots ,X_n \right) = \frac{1}{n} \sum_{i=1}^{n} \log X_i
+\end{equation*}
+erwartungstreu für $\mu$ ist. 
+
+\solution Aus der Definition der Log-Normalverteilung oder durch
+direktes Berechnen, erhalten wir
+\begin{equation*}
+    \bfE X_1 = \mu.
+\end{equation*}
+Damit ist $T$ erwartungstreu.
+
+
+\section{Einfache Schätzer}
+
+\problem{Einfache Schätzer. Telefonzentrale.} In einer Telefonzentrale wurden für $11$
+aufeinanderfolgende Anrufe die Zeitabstände zwischen zwei Anrufen ermittelt. Es
+ergaben sich die folgenden Werte:
+\begin{lstlisting}
+38.1  74.1  17.7  17.7  1.2  13.2  22.8  35.7  108.6  20.7
+\end{lstlisting}
+Geben Sie auf der Grundlage dieser Stichprobenwerte je eine Schätzung für den
+mittleren Zeitabstand und die mittlere quadratische Abweichung der Zeitabstände
+vom Erwartungswert an. 
+
+Diskutieren Sie die Eigenschaften dieser Schätzfunktionen.
+
+\solution Erwartungstreue Schätzfunktionen für den Erwartungswert und
+die Varianz sind
+\begin{align*}
+    \bar X_n &= \frac{1}{n} \sum_{i=1}^{n} X_n & S_n^{2} &= \frac{1}{n-1} \sum_{i=1}^{n} \left( X_i - \bar X_n \right)^{2}. 
+\end{align*}
+Für diese Stichprobe gilt
+\begin{align*}
+    \sum_{i=1}^{10} X_i &= 349.8 \\
+    \bar X_n &= 34.98 \\
+    S^2_n &= 1058.384.
+\end{align*}
+
+
+
+
+\section{Konfidenzintervalle}
+
+\problem{Kondensatoren. Konfidenzintervall.} Aus einer Lieferung von
+Kondensatoren wurden $n$ Stück zufällig ausgewählt und folgende Kapazitäten (in
+$\mu$F) festgestellt:
+\begin{lstlisting}
+    281  221  220  221  219  221  220  218  222  219
+\end{lstlisting}
+\begin{enumerate}
+    \item Berechnen Sie je eine Schätzung für den Erwartungswert und für die
+        Varianz der Kapazität. 
+    \item Berechnen Sie auf der Grundlage dieser Stichprobenergebnisse je ein
+        zweiseitiges Konfidenzintervall für den Mittelwert und die Varianz der
+        Kapazität zum Konfidenzniveau $1-\alpha = 0.95$. Von welchen
+        Verteilungsvoraussetzungen gehen Sie dabei aus?
+\end{enumerate}
+
+\solution
+\begin{enumerate}
+    \item $\bar X_n = 226.2 = \bar \mu$, $S^2_n = 372.1778 = \bar \sigma^2$.
+    \item Wir nehmen an, dass $X \sim \bfN(\bar \mu, \bar \sigma^2)$ gilt. 
+        Für die Berechnung des Konfidenzintervall für $\mu$ bei unbekannter Varianz
+        benutzen wir die Beziehung
+        \begin{equation*}
+            \frac{\bar X_n - \mu}{ S_n} \sim t_{n-1}. 
+        \end{equation*}
+        Daraus folgt
+        \begin{align*}
+            P\left( - t_{n-1, 1-\frac{\alpha}{2}} \leq 
+            \frac{\bar X_n - \mu}{ S_n}\sqrt{n}
+            \leq t_{n-1, 1-\frac{\alpha}{2}} \right) = 1-\alpha. 
+        \end{align*}
+        Die $t_{n}$-Verteilung ist symmetrisch -- das folgt aus der Konstruktion: Für 
+        $X\sim \bfN(0,1)$ und $Y\sim \chi^{2}_{n}$ ist 
+        \begin{equation*}
+            \frac{X}{\sqrt{Y/n}} \sim t_{n}. 
+        \end{equation*}
+        Insgesamt bekommen wir
+        \begin{align*}
+            P\left( \bar X_n - t_{n-1, 1-\frac{\alpha}{2}} \frac{S_{n}}{\sqrt{n}} 
+            \leq \mu \leq \bar X_{n} + t_{n-1, 1-\frac{\alpha}{2}} \frac{S_{n}}{\sqrt{n}}
+            \right) = 1-\alpha. 
+        \end{align*}
+        Konkret in unserem Fall heißt das
+        \begin{equation*}
+            t_{9, 1-\frac{0.05}{2}} = 2.262
+        \end{equation*}
+        \begin{equation*}
+            P\left( \mu \in \left[ 212 , 240 \right] \right) = 0.95.
+        \end{equation*}
+
+        $0.95$-Konfidenzintervall für die Varianz ist 
+        \begin{equation*}
+            \left[ 176.08, 1057.25 \right].
+        \end{equation*}
+\end{enumerate}
+
+\problem{Krankenversicherung. Konfidenzintervall.} Einer Krankenversicherung
+seien für eine spezielle Gruppe von $15$ Versicherungsnehmern mittlere Kosten
+in Höhe von $\bar x_n = 5\,500$ EUR bei einer Stichprobenstandardabweichung
+$s_n = 1\, 500$ EUR entstanden.
+\begin{enumerate}
+    \item Geben Sie ein zweiseitiges Konfidenzintervall für die mittleren
+        Kosten zum Konfidenzniveau $1-\alpha=0.95$ an. 
+    \item Die Versicherung habe ihren Tarif unter der Annahme kalkuliert, dass
+        die mittleren Kosten $5\, 000$ EUR betragen. Diskutieren Sie anhand des
+        erhaltenen Konfidenzintervalls, ob eine Neukalkulation des Tarifs
+        angezeigt erscheint. 
+\end{enumerate}
+
+\solution
+\begin{enumerate}
+    \item Konfidenzintervall für $\mu$ bei unbekannter Varianz ist 
+        \begin{align*}
+            P\left( \bar X_n - t_{n-1, 1-\frac{\alpha}{2}} \frac{S_{n}}{\sqrt{n}} 
+            \leq \mu \leq \bar X_{n} + t_{n-1, 1-\frac{\alpha}{2}} \frac{S_{n}}{\sqrt{n}}
+            \right) = 1-\alpha. 
+        \end{align*}
+        Konkret heißt das in diesem Fall
+        \begin{align*}
+            P\left( \mu \in\left[ 5500-830.6723,5000+830.6723 \right]\right) &= 0.95 \\
+            P\left( \mu \in\left[ 4669.328, 6330.672 \right]\right) &= 0.95
+        \end{align*}
+
+    \item $5000$ liegt im Konfidenzintervall, es gibt also keinen Grund unruhig
+        zu werden.
+\end{enumerate}
+
+\problem{Qualitätssicherung. Konfidenzintervall.} Zur Schätzung des Ausschussanteils eines
+umfangreichen Lieferpostens werde diesem eine Stichprobe von $200$ Teilen entnommen. 
+Dabei wurden $190$ einwandfreie Teile festgestellt.
+\begin{enumerate}
+    \item Geben Sie eine Schätzung für den Ausschussanteil an.
+    \item Wie groß kann maximal die Varianz der Schätzung sein? 
+
+    \item Berechnen Sie ein Konfidenzintervall für den Ausschussanteil zum
+        Konfidenzniveau $0.95$ und interpretieren Sie das Ergebnis.
+\end{enumerate}
+
+\solution 
+\begin{enumerate}
+    \item Es gilt $\sum_{i=1}^{200} X_i \sim \bfB(200, p)$. Die Schätzung für
+        den Anteil ist die Schätzung für $p$. 
+        \begin{equation*}
+            \hat p = \frac{1}{n} \sum_{i=1}^{n} X_i
+        \end{equation*}
+        ist ein Erwartungstreuer Schätzer für $p$. Für die obige Stichprobe
+        gilt $\hat p = \frac{1}{20}$.
+    \item Varianz von $\hat p$ ist 
+        \begin{equation*}
+            \var \hat p = \frac{1}{n} p(1-p)
+        \end{equation*}
+        Diese wird maximal für $p=\frac{1}{2}$ und beträgt in diesem Fall
+        $V^{2}_{\star} = 1/800$. Maximale Standardabweichung ist demnach
+        $V_{\star} = \frac{1}{20\sqrt{2}}$.
+    \item Nach dem Satz von Moivre/Laplace gilt 
+        \begin{equation*}
+            \bar X_{n} \approx \bfN \left( p, \frac{p(1-p)}{n} \right).
+        \end{equation*}
+        Die Annahme $\bar X_{n} \approx \bfN\left( p, V_{\star} \right)$ führt zur 
+        Vergrößerung des Konfidenzintervalls. Wir erhalten so
+        \begin{align*}
+            P\left( z_{\frac{\alpha}{2}} \leq \frac{\bar X - p }{\sqrt{V_{\star}}} \leq z_{1- \frac{\alpha}{2}} \right) &=1-\alpha \\
+            P\left( \bar X_{n} -  \sqrt{V_{\star}} z_{1-\frac{\alpha}{2}} \leq p
+            \leq \bar X_{n} + \sqrt{V_{\star}} z_{1-\frac{\alpha}{2}}\right) &= 1-\alpha \\
+            P\left(  -0.01929519 \leq p \leq 0.1192952  \right) &= 0.95.
+        \end{align*}
+        Nachdem $\hat p \geq 0$ gelten muss erhalten wir
+        \begin{equation*}
+            P\left(  0 \leq p \leq 0.1192952  \right) = 0.95.
+        \end{equation*}
+        Negatives Intervall kommt durch die normale Approximation zustande. 
+
+        Alternative Lösung. Es kann auch mit Hilfe der Tabelle vorgegangen werden. 
+        Die Grenzen des Konfidenzintervalls sind 
+        \begin{align*}
+            U &= \bar X_n - z_{1 - \frac{\alpha}{2}} \sqrt{ \frac{\bar X_n (1-\bar X_n)}{n}} \\
+            O &= \bar X_n + z_{1 - \frac{\alpha}{2}} \sqrt{ \frac{\bar X_n (1-\bar X_n)}{n}}
+        \end{align*}
+        Mit $\alpha=0.05$, $z_{0.975}=1.96$, 
+        \begin{equation*}
+            \sqrt{ \frac{\bar X_{n}(1-\bar X_n)}{n}} = 0.154
+        \end{equation*}
+        ergibt sich
+        \begin{equation*}
+            \left[ 0.0198, 0.0802 \right]
+        \end{equation*}
+        als Konfidenzintervall für den Ausschussanteilt $p$.
+\end{enumerate}
+
+
+\problem{Justierung. Konfidenzintervall.} Bei einer Arbeitsstudie wurden folgende
+Werte für die Zeitdauer der Justierung eines Gerätes gemessen:
+\begin{lstlisting}
+    Minuten:       3  4  5  6  8  9
+    Haeufigkeiten:  2  4  7 12  4  1
+\end{lstlisting}
+\begin{enumerate}
+    \item Geben Sie erwartungstreue Schätzungen für den Erwartungswert und die
+        Varianz der Zeitdauer an.
+
+    \item Bestimmen Sie ein zweiseitiges Konfidenzintervall zum Konfidenzniveau
+        $1-\alpha=0.9$ für den Erwartungswert der Zeitdauer. 
+    \item Ermitteln Sie eine obere Grenze für die Standardabweichung der Zeitdauer,
+        so dass mit $95\%$-iger Sicherheit der wahre Wert von $\sigma$ überdeckt
+        wird.
+\end{enumerate}
+Geben Sie dabei alle notwendigen Voraussetzungen an.
+
+\solution 
+\begin{enumerate}
+    \item Erwartungstreue Schätzungen:
+        \begin{lstlisting}
+            Y <- c(3,4,5,6,8,9) 
+            H <- c(2,4,7,12,4,1)
+            mu <- sum(Y*H)/sum(H)         
+            mu
+            # 5.666667
+            s <- sqrt( sum(H*(Y - mu)^2)/(sum(H)-1 ) )
+            s
+            # 1.470007
+        \end{lstlisting}
+        Es ist also $\bar x_n= 5.666667$ und $s_n = 1.470007$.
+    \item Unter der Annahme, dass die Justierungen normalverteilt sind erhalten wir ein
+        $(1-\alpha)$-Konfidenzintervall für $\mu$ bei unbekannter Varianz:
+        \begin{align*}
+            P\left( U \leq \mu \leq O  \right) &= 1-\alpha \\
+            U(X_1,\dots ,X_n) &= \bar X_n - t_{n-1, 1-\alpha/2} \frac{S_n}{\sqrt{n}} \\
+            O(X_1,\dots ,X_n) &= \bar X_n + t_{n-1, 1-\alpha/2} \frac{S_n}{\sqrt{n}}.
+        \end{align*}
+        In diesem Fall heißt das:
+        \begin{lstlisting}
+            mu - qt(1-alpha/2, 30-1)*s/sqrt(30)
+            # 5.210646
+            mu + qt(1-alpha/2, 30-1)*s/sqrt(30)
+            #  6.122687
+        \end{lstlisting}
+    \item Ein Konfidenzintervall für $\sigma^{2}$ bei unbekanntem $\mu$
+        erhalten wir aus
+        \begin{align*}
+            P\left( 
+            \chi^{2}_{n-1, \alpha/2} \leq 
+            \frac{(n-1)S^2_n }{\sigma^2} \leq \chi^2_{n-1, 1-\alpha}\right) &=
+            1-\alpha \\
+            P\left( U \leq \sigma^2 \leq O \right) &= 1-\alpha \\
+            U &= \frac{(n-1) S^{2}_{n}}{ \chi^{2}_{n-1, 1-\alpha/2} } \\
+            O &= \frac{(n-1) S^{2}_{n}}{ \chi^{2}_{n-1, \alpha/2} } \\
+        \end{align*}
+        Einseitiges Konfidenzintervall für $\sigma$ ist dann
+        \begin{equation*}
+            \left[ 0, \frac{\sqrt{n-1} S_n}{ \sqrt{\chi^{2}_{n-1, \alpha}} } \right].
+        \end{equation*}
+        Für $\alpha=0.05$ heißt das konkret 
+        \begin{equation*}
+            \left[ 0, 1.881174 \right].
+        \end{equation*}
+\end{enumerate}
+
+
+\section{Tests}
+
+
+\problem{Waschmittel. Test.} Bei einem Verbrauchertest für Waschmittel werde auch 
+die Abfüllmenge kontrolliert. Dabei ergaben sich bei $10$ zufällig ausgewählten $5$ kg
+Packungen einer bestimmten Sorte folgende Abfüllungen (in kg):
+\begin{lstlisting}
+    4.6  4.95  4.8  4.9  4.75  5.05  4.9  5.1  4.8  4.95
+\end{lstlisting}
+\begin{enumerate}
+    \item Bestimmen Sie Schätzungen für den Erwartungswert und die Varianz 
+        der Abfüllmenge.
+    \item Ist auf der Basis dieser Beobachtung die Auffassung vertretbar, 
+        dass die Packungen im Mittel weniger Waschmittel als angegeben enthalten?
+\end{enumerate}
+
+\solution
+\begin{enumerate}
+    \item
+        \begin{lstlisting}
+            X <- c( 4.6,  4.95 , 4.8,  4.9 , 4.75,  5.05 , 4.9 , 5.1 , 4.8 , 4.95  )
+            mean(X)
+            # 4.88
+            var(X)
+            # 0.02177778
+        \end{lstlisting}
+
+    \item Wir testen
+        \begin{align*}
+            H_0: \mu \geq \mu_0 \text{ gegen } H_1: \mu < \mu_0
+        \end{align*}
+        mit $\mu_0=5$ und verwenden die Teststatistik
+        \begin{equation*}
+            T = \frac{\bar X_n - \mu_0}{ S_n } \sqrt{n} \sim t_{n-1}.
+        \end{equation*}
+        Als kritischer Bereich ergibt sich $K_{\alpha} = ( -\infty, -t_{n-1,
+        1-\alpha})$.  Für $\alpha = 0.05$ und $n=9$ erhalten wir zum Beispiel
+        $K_{0.05} = (-\infty, -1.833113)$. Ebenso $K_{0.01} = (-\infty,
+        -2.821438 )$.  Der Wert der Teststatistik $T$ ist $-2.439471$. Die
+        Nullhypothese wird also mit Irtumswahrscheinlichkeit $\alpha=0.05$
+        verworfen, kann aber bei $\alpha=0.01$ nicht verworfen werden. 
+\end{enumerate}
+
+\problem{Messgerät. Test.} Die Genauigkeit eines Messgerätes verschlechtere
+sich im Laufe der Zeit infolge von Abnutzungserscheinungen. Das Messgerät gelte
+als brauchbar, solange die Varianz $\sigma^2$ des Messfehlers einen Wert von
+$10^{-4}$ nicht überschreitet.
+
+Darf man bei einer zugelassenen Irrtumswahrscheinlichkeit $\alpha=0.05$ auf die
+Brauchbarkeit des Messgerätes schließen, wenn aus $25$ Kontrollwerten für die
+Varianz eine Schätzung $s^2 = 0.65 \cdot{} 10^{-4}$ ermittelt werde? 
+
+\solution Wir wollen auf Brauchbarkeit des Geräts schließen, daher 
+testen wir
+\begin{align*}
+    H_0 : \sigma^2 \geq \sigma^2_0 \quad\text{gegen}\quad H_1 : \sigma^2 < \sigma^2_0 
+\end{align*}
+mit $\sigma^2_0=10^{-4}$. Der Kritische Bereich ist 
+\begin{align*}
+    K = \left\{ T = \frac{(n-1) S^2_n}{\sigma^2_0} < \chi^2_{n-1, \alpha}   \right\}.
+\end{align*}
+Der Wert der Teststatistik ist $T = 15.6$. Dabei ist $\chi^2_{n-1, \alpha} =
+13.84843$. Die Nullhypothese kann also nich verworfen werden. 
+
+\problem{Entfernungsmessung. Konfidenzintervall und Test.} Beim Messen der
+Entfernung zwischen zwei Punkten sei der Messwert die Realisierung einer
+$\cN(\mu,\sigma^2)$-verteilten Zufallsgröße. Aus $20$ Messungen einer
+bestimmten Entfernung ergaben sich die folgenden Schätzwerte:
+\begin{align*}
+    \bar x &= 327.0\,\text{m}, & s^2 &= 17.3\, \text{m}^2.
+\end{align*}
+\begin{enumerate}
+    \item Bestimmen Sie ein $99\%$-iges Konfidenzintervall für den Erwartungswert.
+    \item Geben Sie ein einseitiges nach oben beschränktes Konfidenzintervall für 
+        $\sigma$ zum Konfidenzniveau $1-\alpha = 0.95$ an. 
+    \item Lässt sich bei einer zugelassenen Irrtumswahrscheinlichkeit von $5\%$ die Aussage
+        $\mu>320\,\text{m}$ rechtfertigen?
+    \item Darf man bei einer zugelassenen Irrtumswahrscheinlichkeit $\alpha=0.05$ auf die
+        Brauchbarkeit des Messgerätes schließen, wenn als Kriterium für die Tauglichkeit
+        die Forderung $\sigma<5.0\,\text{m}$ dient?
+\end{enumerate}
+
+\solution
+\begin{enumerate}
+    \item Ein zweiseitiges $99\%$-Konfidenzintervall erhalten wir aus
+        \begin{align*}
+            U &= \bar X_n - t_{n-1, 1-\alpha/2}\frac{S_n}{\sqrt{n}} = 324.3987 \\
+            O &= \bar X_n + t_{n-1, 1-\alpha/2}\frac{S_n}{\sqrt{n}} = 329.6013
+        \end{align*}
+
+    \item Einseitiges $95\%$-Konfidenzinvervall für $\sigma^2$ ist 
+        \begin{equation*}
+            \left[ 0, (n-1)\frac{S^2_n}{ \chi^{2}_{n-1, 1 - \frac{\alpha}{2}} } \right] = \left[ 0, 32.48983 \right].
+        \end{equation*}
+
+    \item $\mu>320$ rechtfertigen heißt $\mu\leq 320$ verwerfen, also
+        \begin{align*}
+            H_0: \mu \leq 320 \quad\text{gegen}\quad H_1 : \mu > 320
+        \end{align*}
+        Teststatistik:
+        \begin{equation*}
+            T = \frac{\bar X_n - \mu_0}{S_n} \sqrt{n} = 8.414823
+        \end{equation*}
+        Kritischer Bereich:
+        \begin{equation*}
+            K = \left\{ T > t_{n-1, 1-\alpha} \right\} = [ 1.729133, \infty].
+        \end{equation*}
+
+    \item Wir wollen auf die Brauchbarkeit des Geräts schliessen und test
+        \begin{align*}
+            H_0 : \sigma^2 \geq \sigma^{2}_{0} \quad\text{gegen}\quad H_1 : \sigma^2 < \sigma^2_0
+        \end{align*}
+        mit $\sigma^{2}_{0} = 25$. Teststatistik:
+        \begin{equation*}
+            T = (n-1)\frac{S^{2}_{n}}{\sigma^{2}_{0}} = 13.148
+        \end{equation*}
+        Kritischer Bereich:
+        \begin{equation*}
+            K = \left\{ T < \chi^{2}_{n-1, \alpha} = 10.11701 \right\}
+        \end{equation*}
+        Die Nullhypothese wird also nicht verworfen. 
+\end{enumerate}
+
+
+
+\problem{Erneuerbare Energien. Test.} 
+In einer einfachen Analyse des Strommarktes wird davon ausgegangen, dass die
+täglich von Solar- und Windgeneratoren zwischen 12 und 13 Uhr erzeugte Energie
+in den Monaten Juni, Juli und August (92 Tage) die Realisierung einer
+normalverteilten Zufallsvariable $X\sim\cN(\mu, \sigma^2)$ ist. Es wird
+angenommen, dass die Standardabweichung $\sigma$ bekannt ist und beträgt $\sigma=5.5 GW$.
+Ein Analyst hat für die $92$ Beobachtungen $x_1,\dots ,x_{92}$ folgendes
+ausgerechnet:
+\begin{align*}
+    \sum_{i=1}^{92} x_i &= 1802.142.
+\end{align*}
+\begin{enumerate}
+    \item Geben Sie eine erwartungstreue Schätzung für den Erwartungswert $\mu$
+        der erzeugten Energie.
+    \item Lässt sich anhand dieser Beobachtung die Hypothese $\mu\leq 19$
+        mit Irrtumswahrscheinlichkeit $\alpha=0.1$ ablehnen?
+\end{enumerate}
+
+\solution
+\begin{enumerate}
+    \item $\hat{\mu} = 19.5885$.
+    \item Wir testen $H_0: \mu\leq 19$ gegen $H_1: \mu> 19$. Die Teststatistik ist
+        $T = \frac{\bar X_n - \mu_{0}}{\sigma}\sqrt{n} = 1.026308$. Der
+        kritische Bereich ist $K = \left[ z_{1-\alpha},\infty\right) = \left[
+            1.281552, \infty \right)$. $H_0$ kann nicht abgelehnt werden.
+\end{enumerate}
+
+
+\problem{Test. Trendvergleich bei Funds.} 
+Zur Analyse der Performance zweier Funds werden die Kursveränderungen über den
+Zeitraum von einem Jahr (250 Businesstage) analysiert. Aus den Beobachtungen
+$x^{(1)}_{1},\dots ,x^{(1)}_{250}$ und $x^{(2)}_{1},\dots ,x^{(2)}_{250}$
+wurden folgende Kennzahlen ermittelt:
+\begin{align*}
+    \sum_{i=1}^{250} x^{(1)}_i &= 29.96, & \sum_{i=1}^{250} x^{(2)}_{i} &= 32.97
+\end{align*}
+Es wird angenommen, dass die Kursveränderungen normalverteilt sind, d.h.\
+$X^{(1)}\sim \cN(\mu_1, \sigma_1^{2})$ und $X^{(2)}\sim\cN(\mu_2,
+\sigma_2^{2})$, und dass die Varianzen $\sigma_{(1)}^{2}=0.5$ und
+
+$\sigma^{2}_{(2)}=0.55$ betragen.
+\begin{enumerate}
+    \item Geben Sie je eine erwartungstreue Schätzung für die Erwartungswerte
+        $\mu_1$ und $\mu_2$. 
+    \item Lässt sich anhand dieser Beobachtung die Hypothese $\mu_1 = \mu_2$
+        mit der Irrtumswahrscheinlichkeit $\alpha=0.05$ ablehnen?
+\end{enumerate}
+
+\solution
+\begin{enumerate}
+    \item $\hat{\mu_1} = 0.1198547$, $\hat{\mu_2} = 0.1318836$.
+    \item Teststatistik:
+        \begin{equation*}
+            T = \frac{ \bar X^{(1)} - \bar X^{(2)}}{ \sqrt{ \sigma^{2}_{(1)}/n + \sigma^{(2)}_{(2)}/n }} = -0.1856103.
+        \end{equation*}
+        Kritischer Bereich ist $| T | \geq z_{1-\alpha/2} = 1.96$. Die
+        Nullhypothese kann nicht abgelehnt werden.
+\end{enumerate}
+R source code:
+\begin{lstlisting}
+> mu1=0.1; mu2=0.13; 
+> s21=0.5; s22=0.55;
+> X1 = rnorm(250, mu1, sqrt(s21))
+> X2 = rnorm(250, mu2, sqrt(s22))
+> sum(X1); sum(X2);
+[1] 29.96367
+[1] 32.9709
+> mean(X1); mean(X2)
+[1] 0.1198547
+[1] 0.1318836
+> n=250
+> T = (mean(X1)-mean(X2)  )/sqrt( s21/n + s22/n )
+> T
+[1] -0.1856103
+> qnorm( 0.975)
+[1] 1.959964
+\end{lstlisting}
+
+
+
+\section{Prüfungsaufgaben.}
 
 \problem{Ausfälle der Notstromgeneratoren.}
 Der Betrieb eines Rechenzentrums wird von einer Kette von Notstromgeneratoren
@@ -4206,548 +4749,6 @@ gegeben ist. $t$ bezeichnet dabei die Zeit in Jahren.
             \E b(\tau) &= 500 \frac{\lambda}{\lambda-1} \approx 750.5346.
         \end{align*}
 \end{enumerate}
-
-
-
-\section{Quantile}
-
-\problem{Exponentialverteilung. Quantile.} Seien 
-$X\sim \mathbf{Ex}(\lambda)$ exponentialverteilt mit dem Paramter $\lambda>0$
-und $\gamma\in (0,1)$ gegeben. 
-\begin{enumerate}
-    \item Berechnen Sie das $\gamma$-Quantil zur $X$. 
-    \item Berechnen Sie den Median von $X$. 
-\end{enumerate}
-
-\solution Dichte und Verteilungsfunktionen der Exponentialverteilung
-sind
-\begin{align*}
-    f(x) &= \lambda e^{-\lambda x} 1_{x \geq 0} & F(x) &= \left( 1-e^{-\lambda x} \right)1_{x \geq 0}. 
-\end{align*}
-Daraus ergibt sich für $\gamma\in (0,1)$ 
-\begin{equation*}
-    q_{\gamma} = F^{-1}(\gamma) = -\frac{1}{\lambda} \log \left( 1-\gamma \right). 
-\end{equation*}
-Median ist damit gleich $-\frac{1}{\lambda} \log \frac{1}{2}$. 
-
-
-\problem{Logistische Verteilung. Quantile.} Eine Zufallsgröße heißt
-logistisch verteilt mit den Parametern $\alpha\in\bR$ und $\beta>0$, wenn ihre
-Dichtefunktion die Gestalt
-\begin{equation*}
-    f(x) = \frac{e^{-\frac{x-\alpha}{\beta}}}
-    {\beta\left( 1+e^{-\frac{x-\alpha}{\beta}} \right)^{2}}
-\end{equation*}
-hat.
-\begin{enumerate}
-    \item Zeigen Sie, dass die Verteilungsfunktion von $X$ durch
-        \begin{equation*}
-            F(x) = \frac{1}{1+e^{-\frac{x-\alpha}{\beta}}}
-        \end{equation*}
-        gegeben ist.
-
-    \item Berechnen Sie das $\gamma$-Quantil zur $X$ für ein $\gamma\in (0,1)$. 
-    \item Berechnen Sie den Median von $X$. 
-\end{enumerate}
-
-\solution Die Quantilfunktion ist gegeben durch
-\begin{equation*}
-    Q(\gamma) = \alpha - \beta \log\left( \frac{1}{\gamma} - 1 \right). 
-\end{equation*}
-Der Median ist $Q(0.5) = \alpha$.
-
-\section{Erwartungstreue}
-
-\problem{Schätzung der Varianz bei bekanntem Erwartungswert.} 
-Sei $X_{1},\dots ,X_n$, $n>1$ eine $n$-elementige Stichprobe mit $\E X_i =
-\mu$ und $\Var X_i = \sigma^2>0$ gegeben. Zeigen Sie, dass die Schätzfunktion 
-\begin{equation*}
-    V^{2}\left( X_1,\dots ,  X_n \right) = \frac{1}{n} \sum_{i=1}^{n} \left( X_i - \mu \right)^2
-\end{equation*} 
-erwartungstreu für $\sigma^2$ ist. 
-
-
-\problem{Diskrete Gleichverteilung. Erwartungstreuer Schätzer.} Seien
-$X_1,\dots ,X_k$ i.i.d.\ und diskret gleichverteilt auf $\left\{ 1,\dots ,N
-\right\}$ mit $N>1$. Zeigen Sie, dass der Schätzer
-\begin{equation*}
-    T\left( X_1,\dots ,X_k \right) = \frac{k+1}{k} X_{(k)}-1
-\end{equation*}
-erwartungstreu für $N$ ist. $X_{(k)}$ bezeichnet dabei das Maximum von $\left\{
-X_1,\dots ,X_k \right\}$. 
-
-\problem{Log-Normalverteilung. Erwartungstreuer Schätzer.} Seien $X_1,\dots
-,X_n$ i.i.d.\ und log-normalverteilt mit der Dichtefunktion
-\begin{equation*}
-    f(x) = \begin{cases}
-        \frac{1}{ x\sqrt{2\pi} } \exp \left( - \frac{ (\log x - \mu)^2 }{ 2 } \right), & x\geq 0 \\
-        0, & x<0
-    \end{cases}
-\end{equation*}
-und dem Parameter $\mu\in\bR$. Zeigen Sie, dass der Schätzer 
-\begin{equation*}
-    T\left( X_1,\dots ,X_n \right) = \frac{1}{n} \sum_{i=1}^{n} \log X_i
-\end{equation*}
-erwartungstreu für $\mu$ ist. 
-
-\solution Aus der Definition der Log-Normalverteilung oder durch
-direktes Berechnen, erhalten wir
-\begin{equation*}
-    \bfE X_1 = \mu.
-\end{equation*}
-Damit ist $T$ erwartungstreu.
-
-
-\section{Einfache Schätzer}
-
-\problem{Einfache Schätzer. Telefonzentrale.} In einer Telefonzentrale wurden für $11$
-aufeinanderfolgende Anrufe die Zeitabstände zwischen zwei Anrufen ermittelt. Es
-ergaben sich die folgenden Werte:
-\begin{lstlisting}
-38.1  74.1  17.7  17.7  1.2  13.2  22.8  35.7  108.6  20.7
-\end{lstlisting}
-Geben Sie auf der Grundlage dieser Stichprobenwerte je eine Schätzung für den
-mittleren Zeitabstand und die mittlere quadratische Abweichung der Zeitabstände
-vom Erwartungswert an. 
-
-Diskutieren Sie die Eigenschaften dieser Schätzfunktionen.
-
-\solution Erwartungstreue Schätzfunktionen für den Erwartungswert und
-die Varianz sind
-\begin{align*}
-    \bar X_n &= \frac{1}{n} \sum_{i=1}^{n} X_n & S_n^{2} &= \frac{1}{n-1} \sum_{i=1}^{n} \left( X_i - \bar X_n \right)^{2}. 
-\end{align*}
-Für diese Stichprobe gilt
-\begin{align*}
-    \sum_{i=1}^{10} X_i &= 349.8 \\
-    \bar X_n &= 34.98 \\
-    S^2_n &= 1058.384.
-\end{align*}
-
-
-
-
-\section{Konfidenzintervalle}
-
-\problem{Kondensatoren. Konfidenzintervall.} Aus einer Lieferung von
-Kondensatoren wurden $n$ Stück zufällig ausgewählt und folgende Kapazitäten (in
-$\mu$F) festgestellt:
-\begin{lstlisting}
-    281  221  220  221  219  221  220  218  222  219
-\end{lstlisting}
-\begin{enumerate}
-    \item Berechnen Sie je eine Schätzung für den Erwartungswert und für die
-        Varianz der Kapazität. 
-    \item Berechnen Sie auf der Grundlage dieser Stichprobenergebnisse je ein
-        zweiseitiges Konfidenzintervall für den Mittelwert und die Varianz der
-        Kapazität zum Konfidenzniveau $1-\alpha = 0.95$. Von welchen
-        Verteilungsvoraussetzungen gehen Sie dabei aus?
-\end{enumerate}
-
-\solution
-\begin{enumerate}
-    \item $\bar X_n = 226.2 = \bar \mu$, $S^2_n = 372.1778 = \bar \sigma^2$.
-    \item Wir nehmen an, dass $X \sim \bfN(\bar \mu, \bar \sigma^2)$ gilt. 
-        Für die Berechnung des Konfidenzintervall für $\mu$ bei unbekannter Varianz
-        benutzen wir die Beziehung
-        \begin{equation*}
-            \frac{\bar X_n - \mu}{ S_n} \sim t_{n-1}. 
-        \end{equation*}
-        Daraus folgt
-        \begin{align*}
-            P\left( - t_{n-1, 1-\frac{\alpha}{2}} \leq 
-            \frac{\bar X_n - \mu}{ S_n}\sqrt{n}
-            \leq t_{n-1, 1-\frac{\alpha}{2}} \right) = 1-\alpha. 
-        \end{align*}
-        Die $t_{n}$-Verteilung ist symmetrisch -- das folgt aus der Konstruktion: Für 
-        $X\sim \bfN(0,1)$ und $Y\sim \chi^{2}_{n}$ ist 
-        \begin{equation*}
-            \frac{X}{\sqrt{Y/n}} \sim t_{n}. 
-        \end{equation*}
-        Insgesamt bekommen wir
-        \begin{align*}
-            P\left( \bar X_n - t_{n-1, 1-\frac{\alpha}{2}} \frac{S_{n}}{\sqrt{n}} 
-            \leq \mu \leq \bar X_{n} + t_{n-1, 1-\frac{\alpha}{2}} \frac{S_{n}}{\sqrt{n}}
-            \right) = 1-\alpha. 
-        \end{align*}
-        Konkret in unserem Fall heißt das
-        \begin{equation*}
-            t_{9, 1-\frac{0.05}{2}} = 2.262
-        \end{equation*}
-        \begin{equation*}
-            P\left( \mu \in \left[ 212 , 240 \right] \right) = 0.95.
-        \end{equation*}
-
-        $0.95$-Konfidenzintervall für die Varianz ist 
-        \begin{equation*}
-            \left[ 176.08, 1057.25 \right].
-        \end{equation*}
-\end{enumerate}
-
-\problem{Krankenversicherung. Konfidenzintervall.} Einer Krankenversicherung
-seien für eine spezielle Gruppe von $15$ Versicherungsnehmern mittlere Kosten
-in Höhe von $\bar x_n = 5\,500$ EUR bei einer Stichprobenstandardabweichung
-$s_n = 1\, 500$ EUR entstanden.
-\begin{enumerate}
-    \item Geben Sie ein zweiseitiges Konfidenzintervall für die mittleren
-        Kosten zum Konfidenzniveau $1-\alpha=0.95$ an. 
-    \item Die Versicherung habe ihren Tarif unter der Annahme kalkuliert, dass
-        die mittleren Kosten $5\, 000$ EUR betragen. Diskutieren Sie anhand des
-        erhaltenen Konfidenzintervalls, ob eine Neukalkulation des Tarifs
-        angezeigt erscheint. 
-\end{enumerate}
-
-\solution
-\begin{enumerate}
-    \item Konfidenzintervall für $\mu$ bei unbekannter Varianz ist 
-        \begin{align*}
-            P\left( \bar X_n - t_{n-1, 1-\frac{\alpha}{2}} \frac{S_{n}}{\sqrt{n}} 
-            \leq \mu \leq \bar X_{n} + t_{n-1, 1-\frac{\alpha}{2}} \frac{S_{n}}{\sqrt{n}}
-            \right) = 1-\alpha. 
-        \end{align*}
-        Konkret heißt das in diesem Fall
-        \begin{align*}
-            P\left( \mu \in\left[ 5500-830.6723,5000+830.6723 \right]\right) &= 0.95 \\
-            P\left( \mu \in\left[ 4669.328, 6330.672 \right]\right) &= 0.95
-        \end{align*}
-
-    \item $5000$ liegt im Konfidenzintervall, es gibt also keinen Grund unruhig
-        zu werden.
-\end{enumerate}
-
-\problem{Qualitätssicherung. Konfidenzintervall.} Zur Schätzung des Ausschussanteils eines
-umfangreichen Lieferpostens werde diesem eine Stichprobe von $200$ Teilen entnommen. 
-Dabei wurden $190$ einwandfreie Teile festgestellt.
-\begin{enumerate}
-    \item Geben Sie eine Schätzung für den Ausschussanteil an.
-    \item Wie groß kann maximal die Varianz der Schätzung sein? 
-
-    \item Berechnen Sie ein Konfidenzintervall für den Ausschussanteil zum
-        Konfidenzniveau $0.95$ und interpretieren Sie das Ergebnis.
-\end{enumerate}
-
-\solution 
-\begin{enumerate}
-    \item Es gilt $\sum_{i=1}^{200} X_i \sim \bfB(200, p)$. Die Schätzung für
-        den Anteil ist die Schätzung für $p$. 
-        \begin{equation*}
-            \hat p = \frac{1}{n} \sum_{i=1}^{n} X_i
-        \end{equation*}
-        ist ein Erwartungstreuer Schätzer für $p$. Für die obige Stichprobe
-        gilt $\hat p = \frac{1}{20}$.
-    \item Varianz von $\hat p$ ist 
-        \begin{equation*}
-            \var \hat p = \frac{1}{n} p(1-p)
-        \end{equation*}
-        Diese wird maximal für $p=\frac{1}{2}$ und beträgt in diesem Fall
-        $V^{2}_{\star} = 1/800$. Maximale Standardabweichung ist demnach
-        $V_{\star} = \frac{1}{20\sqrt{2}}$.
-    \item Nach dem Satz von Moivre/Laplace gilt 
-        \begin{equation*}
-            \bar X_{n} \approx \bfN \left( p, \frac{p(1-p)}{n} \right).
-        \end{equation*}
-        Die Annahme $\bar X_{n} \approx \bfN\left( p, V_{\star} \right)$ führt zur 
-        Vergrößerung des Konfidenzintervalls. Wir erhalten so
-        \begin{align*}
-            P\left( z_{\frac{\alpha}{2}} \leq \frac{\bar X - p }{\sqrt{V_{\star}}} \leq z_{1- \frac{\alpha}{2}} \right) &=1-\alpha \\
-            P\left( \bar X_{n} -  \sqrt{V_{\star}} z_{1-\frac{\alpha}{2}} \leq p
-            \leq \bar X_{n} + \sqrt{V_{\star}} z_{1-\frac{\alpha}{2}}\right) &= 1-\alpha \\
-            P\left(  -0.01929519 \leq p \leq 0.1192952  \right) &= 0.95.
-        \end{align*}
-        Nachdem $\hat p \geq 0$ gelten muss erhalten wir
-        \begin{equation*}
-            P\left(  0 \leq p \leq 0.1192952  \right) = 0.95.
-        \end{equation*}
-        Negatives Intervall kommt durch die normale Approximation zustande. 
-
-        Alternative Lösung. Es kann auch mit Hilfe der Tabelle vorgegangen werden. 
-        Die Grenzen des Konfidenzintervalls sind 
-        \begin{align*}
-            U &= \bar X_n - z_{1 - \frac{\alpha}{2}} \sqrt{ \frac{\bar X_n (1-\bar X_n)}{n}} \\
-            O &= \bar X_n + z_{1 - \frac{\alpha}{2}} \sqrt{ \frac{\bar X_n (1-\bar X_n)}{n}}
-        \end{align*}
-        Mit $\alpha=0.05$, $z_{0.975}=1.96$, 
-        \begin{equation*}
-            \sqrt{ \frac{\bar X_{n}(1-\bar X_n)}{n}} = 0.154
-        \end{equation*}
-        ergibt sich
-        \begin{equation*}
-            \left[ 0.0198, 0.0802 \right]
-        \end{equation*}
-        als Konfidenzintervall für den Ausschussanteilt $p$.
-\end{enumerate}
-
-
-\problem{Justierung. Konfidenzintervall.} Bei einer Arbeitsstudie wurden folgende
-Werte für die Zeitdauer der Justierung eines Gerätes gemessen:
-\begin{lstlisting}
-    Minuten:       3  4  5  6  8  9
-    Haeufigkeiten:  2  4  7 12  4  1
-\end{lstlisting}
-\begin{enumerate}
-    \item Geben Sie erwartungstreue Schätzungen für den Erwartungswert und die
-        Varianz der Zeitdauer an.
-
-    \item Bestimmen Sie ein zweiseitiges Konfidenzintervall zum Konfidenzniveau
-        $1-\alpha=0.9$ für den Erwartungswert der Zeitdauer. 
-    \item Ermitteln Sie eine obere Grenze für die Standardabweichung der Zeitdauer,
-        so dass mit $95\%$-iger Sicherheit der wahre Wert von $\sigma$ überdeckt
-        wird.
-\end{enumerate}
-Geben Sie dabei alle notwendigen Voraussetzungen an.
-
-\solution 
-\begin{enumerate}
-    \item Erwartungstreue Schätzungen:
-        \begin{lstlisting}
-            Y <- c(3,4,5,6,8,9) 
-            H <- c(2,4,7,12,4,1)
-            mu <- sum(Y*H)/sum(H)         
-            mu
-            # 5.666667
-            s <- sqrt( sum(H*(Y - mu)^2)/(sum(H)-1 ) )
-            s
-            # 1.470007
-        \end{lstlisting}
-        Es ist also $\bar x_n= 5.666667$ und $s_n = 1.470007$.
-    \item Unter der Annahme, dass die Justierungen normalverteilt sind erhalten wir ein
-        $(1-\alpha)$-Konfidenzintervall für $\mu$ bei unbekannter Varianz:
-        \begin{align*}
-            P\left( U \leq \mu \leq O  \right) &= 1-\alpha \\
-            U(X_1,\dots ,X_n) &= \bar X_n - t_{n-1, 1-\alpha/2} \frac{S_n}{\sqrt{n}} \\
-            O(X_1,\dots ,X_n) &= \bar X_n + t_{n-1, 1-\alpha/2} \frac{S_n}{\sqrt{n}}.
-        \end{align*}
-        In diesem Fall heißt das:
-        \begin{lstlisting}
-            mu - qt(1-alpha/2, 30-1)*s/sqrt(30)
-            # 5.210646
-            mu + qt(1-alpha/2, 30-1)*s/sqrt(30)
-            #  6.122687
-        \end{lstlisting}
-    \item Ein Konfidenzintervall für $\sigma^{2}$ bei unbekanntem $\mu$
-        erhalten wir aus
-        \begin{align*}
-            P\left( 
-            \chi^{2}_{n-1, \alpha/2} \leq 
-            \frac{(n-1)S^2_n }{\sigma^2} \leq \chi^2_{n-1, 1-\alpha}\right) &=
-            1-\alpha \\
-            P\left( U \leq \sigma^2 \leq O \right) &= 1-\alpha \\
-            U &= \frac{(n-1) S^{2}_{n}}{ \chi^{2}_{n-1, 1-\alpha/2} } \\
-            O &= \frac{(n-1) S^{2}_{n}}{ \chi^{2}_{n-1, \alpha/2} } \\
-        \end{align*}
-        Einseitiges Konfidenzintervall für $\sigma$ ist dann
-        \begin{equation*}
-            \left[ 0, \frac{\sqrt{n-1} S_n}{ \sqrt{\chi^{2}_{n-1, \alpha}} } \right].
-        \end{equation*}
-        Für $\alpha=0.05$ heißt das konkret 
-        \begin{equation*}
-            \left[ 0, 1.881174 \right].
-        \end{equation*}
-\end{enumerate}
-
-
-\section{Tests}
-
-
-\problem{Waschmittel. Test.} Bei einem Verbrauchertest für Waschmittel werde auch 
-die Abfüllmenge kontrolliert. Dabei ergaben sich bei $10$ zufällig ausgewählten $5$ kg
-Packungen einer bestimmten Sorte folgende Abfüllungen (in kg):
-\begin{lstlisting}
-    4.6  4.95  4.8  4.9  4.75  5.05  4.9  5.1  4.8  4.95
-\end{lstlisting}
-\begin{enumerate}
-    \item Bestimmen Sie Schätzungen für den Erwartungswert und die Varianz 
-        der Abfüllmenge.
-    \item Ist auf der Basis dieser Beobachtung die Auffassung vertretbar, 
-        dass die Packungen im Mittel weniger Waschmittel als angegeben enthalten?
-\end{enumerate}
-
-\solution
-\begin{enumerate}
-    \item
-        \begin{lstlisting}
-            X <- c( 4.6,  4.95 , 4.8,  4.9 , 4.75,  5.05 , 4.9 , 5.1 , 4.8 , 4.95  )
-            mean(X)
-            # 4.88
-            var(X)
-            # 0.02177778
-        \end{lstlisting}
-
-    \item Wir testen
-        \begin{align*}
-            H_0: \mu \geq \mu_0 \text{ gegen } H_1: \mu < \mu_0
-        \end{align*}
-        mit $\mu_0=5$ und verwenden die Teststatistik
-        \begin{equation*}
-            T = \frac{\bar X_n - \mu_0}{ S_n } \sqrt{n} \sim t_{n-1}.
-        \end{equation*}
-        Als kritischer Bereich ergibt sich $K_{\alpha} = ( -\infty, -t_{n-1,
-        1-\alpha})$.  Für $\alpha = 0.05$ und $n=9$ erhalten wir zum Beispiel
-        $K_{0.05} = (-\infty, -1.833113)$. Ebenso $K_{0.01} = (-\infty,
-        -2.821438 )$.  Der Wert der Teststatistik $T$ ist $-2.439471$. Die
-        Nullhypothese wird also mit Irtumswahrscheinlichkeit $\alpha=0.05$
-        verworfen, kann aber bei $\alpha=0.01$ nicht verworfen werden. 
-\end{enumerate}
-
-\problem{Messgerät. Test.} Die Genauigkeit eines Messgerätes verschlechtere
-sich im Laufe der Zeit infolge von Abnutzungserscheinungen. Das Messgerät gelte
-als brauchbar, solange die Varianz $\sigma^2$ des Messfehlers einen Wert von
-$10^{-4}$ nicht überschreitet.
-
-Darf man bei einer zugelassenen Irrtumswahrscheinlichkeit $\alpha=0.05$ auf die
-Brauchbarkeit des Messgerätes schließen, wenn aus $25$ Kontrollwerten für die
-Varianz eine Schätzung $s^2 = 0.65 \cdot{} 10^{-4}$ ermittelt werde? 
-
-\solution Wir wollen auf Brauchbarkeit des Geräts schließen, daher 
-testen wir
-\begin{align*}
-    H_0 : \sigma^2 \geq \sigma^2_0 \quad\text{gegen}\quad H_1 : \sigma^2 < \sigma^2_0 
-\end{align*}
-mit $\sigma^2_0=10^{-4}$. Der Kritische Bereich ist 
-\begin{align*}
-    K = \left\{ T = \frac{(n-1) S^2_n}{\sigma^2_0} < \chi^2_{n-1, \alpha}   \right\}.
-\end{align*}
-Der Wert der Teststatistik ist $T = 15.6$. Dabei ist $\chi^2_{n-1, \alpha} =
-13.84843$. Die Nullhypothese kann also nich verworfen werden. 
-
-\problem{Entfernungsmessung. Konfidenzintervall und Test.} Beim Messen der
-Entfernung zwischen zwei Punkten sei der Messwert die Realisierung einer
-$\cN(\mu,\sigma^2)$-verteilten Zufallsgröße. Aus $20$ Messungen einer
-bestimmten Entfernung ergaben sich die folgenden Schätzwerte:
-\begin{align*}
-    \bar x &= 327.0\,\text{m}, & s^2 &= 17.3\, \text{m}^2.
-\end{align*}
-\begin{enumerate}
-    \item Bestimmen Sie ein $99\%$-iges Konfidenzintervall für den Erwartungswert.
-    \item Geben Sie ein einseitiges nach oben beschränktes Konfidenzintervall für 
-        $\sigma$ zum Konfidenzniveau $1-\alpha = 0.95$ an. 
-    \item Lässt sich bei einer zugelassenen Irrtumswahrscheinlichkeit von $5\%$ die Aussage
-        $\mu>320\,\text{m}$ rechtfertigen?
-    \item Darf man bei einer zugelassenen Irrtumswahrscheinlichkeit $\alpha=0.05$ auf die
-        Brauchbarkeit des Messgerätes schließen, wenn als Kriterium für die Tauglichkeit
-        die Forderung $\sigma<5.0\,\text{m}$ dient?
-\end{enumerate}
-
-\solution
-\begin{enumerate}
-    \item Ein zweiseitiges $99\%$-Konfidenzintervall erhalten wir aus
-        \begin{align*}
-            U &= \bar X_n - t_{n-1, 1-\alpha/2}\frac{S_n}{\sqrt{n}} = 324.3987 \\
-            O &= \bar X_n + t_{n-1, 1-\alpha/2}\frac{S_n}{\sqrt{n}} = 329.6013
-        \end{align*}
-
-    \item Einseitiges $95\%$-Konfidenzinvervall für $\sigma^2$ ist 
-        \begin{equation*}
-            \left[ 0, (n-1)\frac{S^2_n}{ \chi^{2}_{n-1, 1 - \frac{\alpha}{2}} } \right] = \left[ 0, 32.48983 \right].
-        \end{equation*}
-
-    \item $\mu>320$ rechtfertigen heißt $\mu\leq 320$ verwerfen, also
-        \begin{align*}
-            H_0: \mu \leq 320 \quad\text{gegen}\quad H_1 : \mu > 320
-        \end{align*}
-        Teststatistik:
-        \begin{equation*}
-            T = \frac{\bar X_n - \mu_0}{S_n} \sqrt{n} = 8.414823
-        \end{equation*}
-        Kritischer Bereich:
-        \begin{equation*}
-            K = \left\{ T > t_{n-1, 1-\alpha} \right\} = [ 1.729133, \infty].
-        \end{equation*}
-
-    \item Wir wollen auf die Brauchbarkeit des Geräts schliessen und test
-        \begin{align*}
-            H_0 : \sigma^2 \geq \sigma^{2}_{0} \quad\text{gegen}\quad H_1 : \sigma^2 < \sigma^2_0
-        \end{align*}
-        mit $\sigma^{2}_{0} = 25$. Teststatistik:
-        \begin{equation*}
-            T = (n-1)\frac{S^{2}_{n}}{\sigma^{2}_{0}} = 13.148
-        \end{equation*}
-        Kritischer Bereich:
-        \begin{equation*}
-            K = \left\{ T < \chi^{2}_{n-1, \alpha} = 10.11701 \right\}
-        \end{equation*}
-        Die Nullhypothese wird also nicht verworfen. 
-\end{enumerate}
-
-
-
-\problem{Erneuerbare Energien. Test.} 
-In einer einfachen Analyse des Strommarktes wird davon ausgegangen, dass die
-täglich von Solar- und Windgeneratoren zwischen 12 und 13 Uhr erzeugte Energie
-in den Monaten Juni, Juli und August (92 Tage) die Realisierung einer
-normalverteilten Zufallsvariable $X\sim\cN(\mu, \sigma^2)$ ist. Es wird
-angenommen, dass die Standardabweichung $\sigma$ bekannt ist und beträgt $\sigma=5.5 GW$.
-Ein Analyst hat für die $92$ Beobachtungen $x_1,\dots ,x_{92}$ folgendes
-ausgerechnet:
-\begin{align*}
-    \sum_{i=1}^{92} x_i &= 1802.142.
-\end{align*}
-\begin{enumerate}
-    \item Geben Sie eine erwartungstreue Schätzung für den Erwartungswert $\mu$
-        der erzeugten Energie.
-    \item Lässt sich anhand dieser Beobachtung die Hypothese $\mu\leq 19$
-        mit Irrtumswahrscheinlichkeit $\alpha=0.1$ ablehnen?
-\end{enumerate}
-
-\solution
-\begin{enumerate}
-    \item $\hat{\mu} = 19.5885$.
-    \item Wir testen $H_0: \mu\leq 19$ gegen $H_1: \mu> 19$. Die Teststatistik ist
-        $T = \frac{\bar X_n - \mu_{0}}{\sigma}\sqrt{n} = 1.026308$. Der
-        kritische Bereich ist $K = \left[ z_{1-\alpha},\infty\right) = \left[
-            1.281552, \infty \right)$. $H_0$ kann nicht abgelehnt werden.
-\end{enumerate}
-
-
-\problem{Test. Trendvergleich bei Funds.} 
-Zur Analyse der Performance zweier Funds werden die Kursveränderungen über den
-Zeitraum von einem Jahr (250 Businesstage) analysiert. Aus den Beobachtungen
-$x^{(1)}_{1},\dots ,x^{(1)}_{250}$ und $x^{(2)}_{1},\dots ,x^{(2)}_{250}$
-wurden folgende Kennzahlen ermittelt:
-\begin{align*}
-    \sum_{i=1}^{250} x^{(1)}_i &= 29.96, & \sum_{i=1}^{250} x^{(2)}_{i} &= 32.97
-\end{align*}
-Es wird angenommen, dass die Kursveränderungen normalverteilt sind, d.h.\
-$X^{(1)}\sim \cN(\mu_1, \sigma_1^{2})$ und $X^{(2)}\sim\cN(\mu_2,
-\sigma_2^{2})$, und dass die Varianzen $\sigma_{(1)}^{2}=0.5$ und
-
-$\sigma^{2}_{(2)}=0.55$ betragen.
-\begin{enumerate}
-    \item Geben Sie je eine erwartungstreue Schätzung für die Erwartungswerte
-        $\mu_1$ und $\mu_2$. 
-    \item Lässt sich anhand dieser Beobachtung die Hypothese $\mu_1 = \mu_2$
-        mit der Irrtumswahrscheinlichkeit $\alpha=0.05$ ablehnen?
-\end{enumerate}
-
-\solution
-\begin{enumerate}
-    \item $\hat{\mu_1} = 0.1198547$, $\hat{\mu_2} = 0.1318836$.
-    \item Teststatistik:
-        \begin{equation*}
-            T = \frac{ \bar X^{(1)} - \bar X^{(2)}}{ \sqrt{ \sigma^{2}_{(1)}/n + \sigma^{(2)}_{(2)}/n }} = -0.1856103.
-        \end{equation*}
-        Kritischer Bereich ist $| T | \geq z_{1-\alpha/2} = 1.96$. Die
-        Nullhypothese kann nicht abgelehnt werden.
-\end{enumerate}
-R source code:
-\begin{lstlisting}
-> mu1=0.1; mu2=0.13; 
-> s21=0.5; s22=0.55;
-> X1 = rnorm(250, mu1, sqrt(s21))
-> X2 = rnorm(250, mu2, sqrt(s22))
-> sum(X1); sum(X2);
-[1] 29.96367
-[1] 32.9709
-> mean(X1); mean(X2)
-[1] 0.1198547
-[1] 0.1318836
-> n=250
-> T = (mean(X1)-mean(X2)  )/sqrt( s21/n + s22/n )
-> T
-[1] -0.1856103
-> qnorm( 0.975)
-[1] 1.959964
-\end{lstlisting}
 
 
 % vim: set spelllang=de: set spell
