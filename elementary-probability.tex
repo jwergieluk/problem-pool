@@ -3767,7 +3767,7 @@ Geben Sie dabei alle notwendigen Voraussetzungen an.
             s
             # 1.470007
         \end{lstlisting}
-        Es ist also $\bar x_n= 5.666667$ und $s_n = 1.470007$.
+        Es ist also $\bar X_n= 5.666667$ und $S_n = 1.470007$.
     \item Unter der Annahme, dass die Justierungen normalverteilt sind erhalten wir ein
         $(1-\alpha)$-Konfidenzintervall für $\mu$ bei unbekannter Varianz:
         \begin{align*}
@@ -3822,7 +3822,7 @@ Packungen einer bestimmten Sorte folgende Abfüllungen (in kg):
 
 \solution
 \begin{enumerate}
-    \item
+    \item Erwartungstreue Schätzungen:
         \begin{lstlisting}
             X <- c( 4.6,  4.95 , 4.8,  4.9 , 4.75,  5.05 , 4.9 , 5.1 , 4.8 , 4.95  )
             mean(X)
@@ -3830,7 +3830,7 @@ Packungen einer bestimmten Sorte folgende Abfüllungen (in kg):
             var(X)
             # 0.02177778
         \end{lstlisting}
-
+        Es ist also $\bar X_n= 4.88$ und $S^2_n = 0.02177778$.
     \item Wir testen
         \begin{align*}
             H_0: \mu \geq \mu_0 \text{ gegen } H_1: \mu < \mu_0
