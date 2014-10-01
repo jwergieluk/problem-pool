@@ -130,10 +130,62 @@ Zeigen Sie
     X = 1_{ [1,6] } + 1_{[2,6]} + \dots + 1_{ [6,6] }.
 \end{equation*}
 
+\problem{Zufallsvariablen. Schachmeister.}
+Ein Schachmeister besucht einen Schachverein und spielt eine Partie Simultanschach gegen
+die fünf anwesenden Clubmitglieder. Dazu werden fünf Schachbretter in einer Reihe aufgebaut.
+Auf der einen Seite sitzen vor je einem Brett die Vereinsmitglieder, während auf der anderen
+Seite der Schachmeister reihum auf jedem Brett zieht.
+
+Es sei X die Anzahl der Spiele, die der Schachmeister gewinnt. (Ein Schachspiel kann mit
+Remis beendet werden, so dass keiner gewinnt.)
+\begin{enumerate}
+    \item Geben Sie einen Grundraum $\Omega$, die Zufallsvariable $X$ und den Zustandsraum $Z$ an.
+    \item Bestimmen Sie die Anzahl der Elemente von $\Omega$.
+    \item Wie viele Elementarereignisse besitzt das Ereigns $\{X \ge 4\}$?
+\end{enumerate}
+
+\solution
+\begin{compactenum}
+    \item $\Omega = \{0,1\}^5$, $X:\Omega\to Z=\{0,1,2,3,4,5\}$, $X(\mathbf a) = \sum_{i=1}^5 a_i, \mathbf a = (a_1,\hdots,a_5)$
+    \item $|\Omega|=2^5=32$
+    \item $|\{X\ge4\}| = |\{X=5\} \cup \{X=4\}| = 1 + 4 = 5$
+\end{compactenum}
+
+
+
 \problem{$\sigma$-Algebren. Schachspieler.} Zwei Schachspieler spielen eine
 Partie. Das Ereignis $A$ liege vor, falls der erste Spieler gewinnt, das
 Ereignis $B$, falls der zweite gewinnt. Welche Ereignisse sind noch
 hinzuzufügen, damit eine $\sigma$-Algebra entsteht?
+
+\solution
+\emph{Definition:}\\
+Für $\Omega\ne\emptyset$ heitßt $\cA\subset\cP(\Omega)$ Algebra, falls
+\begin{compactenum}[(i)]
+  \item $\Omega\in\cA$
+  \item $A\in\cA \Rightarrow \overline A\in\cA$
+  \item $A_1,A_2\in\cA \Rightarrow A_1\cup A_2\in\cA$
+\end{compactenum}
+Für eine $\sigma$-Algebra wird statt (iii) allgemeiner gefordert
+\begin{compactenum}
+  \item[(iii$^\sigma$)] $A_i\in\cA, i\in\N \Rightarrow \bigcup_{i=1}^\infty A_i\in\cA$
+\end{compactenum}
+Für $|\cA|<\infty$ sind (iii) und (iii$^\sigma$) equivalent, d.h. jede endliche Algebra ist auch $\sigma$-Algebra.\\
+\\
+\emph{Interpretation:} Jede und/oder-Verknüpfung sowie Verneinungen von Ereignissen sind wieder als Ereignis darstellbar.\\
+\\
+\emph{Anwendung:}
+\begin{compactitem}
+  \item Das Ereignis C liege bei Unentschieden vor.
+  \item Das sichere Ereignis ergibt sich dann offenbar als $\Omega=A\cup B\cup C \in\cA$\\
+        (``Ein Spieler gewinnt oder Unentschieden'' tritt immer ein).
+  \item Wegen (ii) ist dann auch das unmögliche Ereignis $\emptyset=\overline\Omega\in\cA$ Element der Algebra\\
+        (es gibt keine anderen Spielausgänge).
+  \item Wegen (iii) sind außerdem $A\cup B\in\cA$, $A\cup C\in\cA$ und $B\cup C\in\cA$.
+  \item Offenbar gilt $\overline{A\cup B} = C\in\cA$, $\overline{A\cup C} = B\in\cA$ und $\overline{B\cup C} = A\in\cA$
+  \item $\cA=\{\emptyset,A,B,C, A\cup B, A\cup B, B\cup C, \Omega\}$ erfüllt alle Bedingungen einer Algebra.\\
+        Auf Grund der Endlichkeit ($|\cA|=8$) ist dies auch eine $\sigma$-Algebra.
+\end{compactitem}
 
 \problem{$\sigma$-Algebren. Potenzmenge.}
 Sei $\Omega$ ein endlicher nichtleerer Grundraum. Zeigen Sie, dass die
@@ -144,6 +196,37 @@ endlich und eine $\sigma$-Algebra ist.
 Sei $\cA$ eine $\sigma$-Algebra von Teilmengen eines Grundraumes $\Omega$ und
 $B \in \cA$ mit $B\neq \emptyset$. Zeigen Sie, dass $\cC = \left\{ A\cap B :
 A\in\cA \right\}$ eine $\sigma$-Algebra von Teilmengen von $B$ ist.
+
+\problem{Ereignisse. Modellierung: Würfel und Münze.}
+Ein Experiment bestehe aus dem Werfen eines sechsseitigen Würfels und einer Münze.
+\begin{enumerate}
+    \item Geben Sie einen Grundraum $\Omega$ an, der diese Zufallssituation beschreibt.
+    \item Stellen Sie die folgenden Ereignisse sowohl formell als auch durch Aufzählung der Elementareignisse dar.
+    \begin{itemize}
+      \item[] $A$: Der Würfel zeigt eine 1 und die Münze zeigt Zahl.
+      \item[] $B$: Der Würfel zeigt eine gerade Augenzahl.
+      \item[] $C$: Der Würfel zeigt eine 6 oder die Münze zeigt kein Wappen.
+      \item[] $D$: Die Ereignisse $A$ und $C$ treten nicht gleichzeitig ein.
+    \end{itemize}
+\end{enumerate}
+\solution
+\begin{enumerate}
+  \item \begin{align*}
+           \Omega &= \left\{1,2,3,4,5,6\right\} \times \left\{W,Z\right\} \\ 
+                  &= \left\{(w,m): w\in\{1,2,3,4,5,6\},m\in\{W,Z\} \right\} \\
+                  &=\{(1,W), (2,W), (3,W), (4,W), (5,W), (6,W), 
+                     (1,Z), (2,Z), (3,Z), (4,Z), (5,Z), (6,Z)\}
+        \end{align*}
+  \item 
+    \begin{itemize}
+      \item $W_1 := \{(1,W), (1,Z)\}$, $M_Z:=\{(1,Z), (2,Z), \hdots, (6,Z)\}$,\\
+            $A = W_1 \cap M_Z = \{(1,Z)\}$
+      \item $B = W_2\cup W_4\cup W_6 = \{(2,W), (2,Z), (4,W), (4,Z), (6,W), (6,Z)\}$
+      \item $C = W_6 \cup \overline{M_W} = \{ (6,W), (6,Z), (1,Z), (2,Z), (3,Z), (4,Z), (5,Z) \}$
+      \item $\overline{A} = \Omega\setminus \{(1,Z)\} $, $\overline{C} = \{(1,W),\hdots,(5,W)\}$ \\
+            $D = (A \cap \overline{C}) \cup (\overline{A} \cap C) = \Omega \setminus ( (A\cap C) \cup (\overline{A} \cap \overline{C})) = \{(2,Z), \hdots, (6,Z), (6,W)\}$  
+    \end{itemize}
+\end{enumerate}
 
 \problem{Ereignisse. Würfel und Münze.}
 Ein Experiment bestehe aus dem Werfen eines fairen Würfels und einer fairen Münze.
