@@ -145,11 +145,11 @@ Remis beendet werden, so dass keiner gewinnt.)
 \end{enumerate}
 
 \solution
-\begin{compactenum}
+\begin{enumerate}
     \item $\Omega = \{0,1\}^5$, $X:\Omega\to Z=\{0,1,2,3,4,5\}$, $X(\mathbf a) = \sum_{i=1}^5 a_i, \mathbf a = (a_1,\hdots,a_5)$
     \item $|\Omega|=2^5=32$
     \item $|\{X\ge4\}| = |\{X=5\} \cup \{X=4\}| = 1 + 4 = 5$
-\end{compactenum}
+\end{enumerate}
 
 
 
@@ -159,33 +159,31 @@ Ereignis $B$, falls der zweite gewinnt. Welche Ereignisse sind noch
 hinzuzufügen, damit eine $\sigma$-Algebra entsteht?
 
 \solution
-\emph{Definition:}\\
 Für $\Omega\ne\emptyset$ heitßt $\cA\subset\cP(\Omega)$ Algebra, falls
-\begin{compactenum}[(i)]
+\begin{enumerate}[(i)]
   \item $\Omega\in\cA$
   \item $A\in\cA \Rightarrow \overline A\in\cA$
   \item $A_1,A_2\in\cA \Rightarrow A_1\cup A_2\in\cA$
-\end{compactenum}
+\end{enumerate}
 Für eine $\sigma$-Algebra wird statt (iii) allgemeiner gefordert
-\begin{compactenum}
+\begin{enumerate}
   \item[(iii$^\sigma$)] $A_i\in\cA, i\in\N \Rightarrow \bigcup_{i=1}^\infty A_i\in\cA$
-\end{compactenum}
-Für $|\cA|<\infty$ sind (iii) und (iii$^\sigma$) equivalent, d.h. jede endliche Algebra ist auch $\sigma$-Algebra.\\
-\\
-\emph{Interpretation:} Jede und/oder-Verknüpfung sowie Verneinungen von Ereignissen sind wieder als Ereignis darstellbar.\\
-\\
-\emph{Anwendung:}
-\begin{compactitem}
+\end{enumerate}
+Für $|\cA|<\infty$ sind (iii) und (iii$^\sigma$) äquivalent, d.h. jede endliche Algebra ist auch $\sigma$-Algebra.
+
+\emph{Interpretation:} Jede und/oder-Verknüpfung sowie Verneinungen von Ereignissen sind wieder als Ereignis darstellbar.
+
+\begin{itemize}
   \item Das Ereignis C liege bei Unentschieden vor.
-  \item Das sichere Ereignis ergibt sich dann offenbar als $\Omega=A\cup B\cup C \in\cA$\\
+  \item Das sichere Ereignis ergibt sich dann offenbar als $\Omega=A\cup B\cup C \in\cA$
         (``Ein Spieler gewinnt oder Unentschieden'' tritt immer ein).
-  \item Wegen (ii) ist dann auch das unmögliche Ereignis $\emptyset=\overline\Omega\in\cA$ Element der Algebra\\
+  \item Wegen (ii) ist dann auch das unmögliche Ereignis $\emptyset=\overline\Omega\in\cA$ Element der Algebra
         (es gibt keine anderen Spielausgänge).
   \item Wegen (iii) sind außerdem $A\cup B\in\cA$, $A\cup C\in\cA$ und $B\cup C\in\cA$.
   \item Offenbar gilt $\overline{A\cup B} = C\in\cA$, $\overline{A\cup C} = B\in\cA$ und $\overline{B\cup C} = A\in\cA$
-  \item $\cA=\{\emptyset,A,B,C, A\cup B, A\cup B, B\cup C, \Omega\}$ erfüllt alle Bedingungen einer Algebra.\\
+  \item $\cA=\{\emptyset,A,B,C, A\cup B, A\cup B, B\cup C, \Omega\}$ erfüllt alle Bedingungen einer Algebra.
         Auf Grund der Endlichkeit ($|\cA|=8$) ist dies auch eine $\sigma$-Algebra.
-\end{compactitem}
+\end{itemize}
 
 \problem{$\sigma$-Algebren. Potenzmenge.}
 Sei $\Omega$ ein endlicher nichtleerer Grundraum. Zeigen Sie, dass die
@@ -197,16 +195,16 @@ Sei $\cA$ eine $\sigma$-Algebra von Teilmengen eines Grundraumes $\Omega$ und
 $B \in \cA$ mit $B\neq \emptyset$. Zeigen Sie, dass $\cC = \left\{ A\cap B :
 A\in\cA \right\}$ eine $\sigma$-Algebra von Teilmengen von $B$ ist.
 
-\problem{Ereignisse. Modellierung: Würfel und Münze.}
+\problem{Ereignisse. Würfel und Münze I.}
 Ein Experiment bestehe aus dem Werfen eines sechsseitigen Würfels und einer Münze.
 \begin{enumerate}
     \item Geben Sie einen Grundraum $\Omega$ an, der diese Zufallssituation beschreibt.
     \item Stellen Sie die folgenden Ereignisse sowohl formell als auch durch Aufzählung der Elementareignisse dar.
     \begin{itemize}
-      \item[] $A$: Der Würfel zeigt eine 1 und die Münze zeigt Zahl.
-      \item[] $B$: Der Würfel zeigt eine gerade Augenzahl.
-      \item[] $C$: Der Würfel zeigt eine 6 oder die Münze zeigt kein Wappen.
-      \item[] $D$: Die Ereignisse $A$ und $C$ treten nicht gleichzeitig ein.
+      \item[$A$:] Der Würfel zeigt eine 1 und die Münze zeigt Zahl.
+      \item[$B$:] Der Würfel zeigt eine gerade Augenzahl.
+      \item[$C$:] Der Würfel zeigt eine 6 oder die Münze zeigt kein Wappen.
+      \item[$D$:] Die Ereignisse $A$ und $C$ treten nicht gleichzeitig ein.
     \end{itemize}
 \end{enumerate}
 \solution
@@ -219,11 +217,11 @@ Ein Experiment bestehe aus dem Werfen eines sechsseitigen Würfels und einer Mü
         \end{align*}
   \item 
     \begin{itemize}
-      \item $W_1 := \{(1,W), (1,Z)\}$, $M_Z:=\{(1,Z), (2,Z), \hdots, (6,Z)\}$,\\
+      \item[$A$:] $W_1 := \{(1,W), (1,Z)\}$, $M_Z:=\{(1,Z), (2,Z), \hdots, (6,Z)\}$,\\
             $A = W_1 \cap M_Z = \{(1,Z)\}$
-      \item $B = W_2\cup W_4\cup W_6 = \{(2,W), (2,Z), (4,W), (4,Z), (6,W), (6,Z)\}$
-      \item $C = W_6 \cup \overline{M_W} = \{ (6,W), (6,Z), (1,Z), (2,Z), (3,Z), (4,Z), (5,Z) \}$
-      \item $\overline{A} = \Omega\setminus \{(1,Z)\} $, $\overline{C} = \{(1,W),\hdots,(5,W)\}$ \\
+      \item[$B$:] $B = W_2\cup W_4\cup W_6 = \{(2,W), (2,Z), (4,W), (4,Z), (6,W), (6,Z)\}$
+      \item[$C$:] $C = W_6 \cup \overline{M_W} = \{ (6,W), (6,Z), (1,Z), (2,Z), (3,Z), (4,Z), (5,Z) \}$
+      \item[$D$:] $\overline{A} = \Omega\setminus \{(1,Z)\} $, $\overline{C} = \{(1,W),\hdots,(5,W)\}$ \\
             $D = (A \cap \overline{C}) \cup (\overline{A} \cap C) = \Omega \setminus ( (A\cap C) \cup (\overline{A} \cap \overline{C})) = \{(2,Z), \hdots, (6,Z), (6,W)\}$  
     \end{itemize}
 \end{enumerate}
