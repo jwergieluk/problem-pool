@@ -204,7 +204,7 @@ Ein Experiment bestehe aus dem Werfen eines sechsseitigen Würfels und einer Mü
       \item[$A$:] Der Würfel zeigt eine 1 und die Münze zeigt Zahl.
       \item[$B$:] Der Würfel zeigt eine gerade Augenzahl.
       \item[$C$:] Der Würfel zeigt eine 6 oder die Münze zeigt kein Wappen.
-      \item[$D$:] Die Ereignisse $A$ und $C$ treten nicht gleichzeitig ein.
+      \item[$D$:] Entweder $A$ oder $C$ tritt ein.
     \end{itemize}
 \end{enumerate}
 \solution
@@ -222,7 +222,7 @@ Ein Experiment bestehe aus dem Werfen eines sechsseitigen Würfels und einer Mü
       \item[$B$:] $B = W_2\cup W_4\cup W_6 = \{(2,W), (2,Z), (4,W), (4,Z), (6,W), (6,Z)\}$
       \item[$C$:] $C = W_6 \cup \overline{M_W} = \{ (6,W), (6,Z), (1,Z), (2,Z), (3,Z), (4,Z), (5,Z) \}$
       \item[$D$:] $\overline{A} = \Omega\setminus \{(1,Z)\} $, $\overline{C} = \{(1,W),\hdots,(5,W)\}$ \\
-            $D = (A \cap \overline{C}) \cup (\overline{A} \cap C) = \Omega \setminus ( (A\cap C) \cup (\overline{A} \cap \overline{C})) = \{(2,Z), \hdots, (6,Z), (6,W)\}$  
+            $D = A\triangle C = (A \cap \overline{C}) \cup (\overline{A} \cap C) = \Omega \setminus ( (A\cap C) \cup (\overline{A} \cap \overline{C})) = \{(2,Z), \hdots, (6,Z), (6,W)\}$  
     \end{itemize}
 \end{enumerate}
 
