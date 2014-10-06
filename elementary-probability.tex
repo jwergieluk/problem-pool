@@ -146,9 +146,16 @@ Remis beendet werden, so dass keiner gewinnt.)
 
 \solution
 \begin{enumerate}
-    \item $\Omega = \{\text{Verloren},\text{Remis},\text{Gewonnen}\}^5$, $X:\Omega\to Z=\{0,1,2,3,4,5\}$, $X(\mathbf a) = \sum_{i=1}^5 a_i, \mathbf a = (a_1,\hdots,a_5)$
+    \item $\Omega = \{0,1\}^5$ ($1:$ gewonnen, $0:$ nicht gewonnen), $X:\Omega\to Z=\{0,1,2,3,4,5\}$, $X(\mathbf \omega) = \sum_{i=1}^5 \omega_i$ wobei $\mathbf \omega = (\omega_1,\hdots,\omega_5)\in\Omega$
     \item $|\Omega|=2^5=32$
     \item $|\{X\ge4\}| = |\{X=5\} \cup \{X=4\}| = 1 + 4 = 5$
+\end{enumerate}
+Die Wahl von $\Omega$ ist hierbei nicht eindeutig. Es könnte alternativ auch folgende Lösung gewählt werden:
+\begin{enumerate}
+    \item $\Omega = \{-1,0,1\}^5$ ($1:$ gewonnen, $0:$ nicht gewonnen, $-1:$ verloren),
+          $X:\Omega\to Z=\{0,1,2,3,4,5\}$
+    \item $|\Omega|=3^5=243$
+    \item $|\{X\ge4\}| = |\{X=5\} \cup \{X=4\}| = 1 + 8 = 9$
 \end{enumerate}
 
 
