@@ -146,7 +146,7 @@ Remis beendet werden, so dass keiner gewinnt.)
 
 \solution
 \begin{enumerate}
-    \item $\Omega = \{0,1\}^5$, $X:\Omega\to Z=\{0,1,2,3,4,5\}$, $X(\mathbf a) = \sum_{i=1}^5 a_i, \mathbf a = (a_1,\hdots,a_5)$
+    \item $\Omega = \{\text{Verloren},\text{Remis},\text{Gewonnen}\}^5$, $X:\Omega\to Z=\{0,1,2,3,4,5\}$, $X(\mathbf a) = \sum_{i=1}^5 a_i, \mathbf a = (a_1,\hdots,a_5)$
     \item $|\Omega|=2^5=32$
     \item $|\{X\ge4\}| = |\{X=5\} \cup \{X=4\}| = 1 + 4 = 5$
 \end{enumerate}
@@ -159,7 +159,7 @@ Ereignis $B$, falls der zweite gewinnt. Welche Ereignisse sind noch
 hinzuzufügen, damit eine $\sigma$-Algebra entsteht?
 
 \solution
-Für $\Omega\ne\emptyset$ heitßt $\cA\subset\cP(\Omega)$ Algebra, falls
+Für $\Omega\ne\emptyset$ heißt $\cA\subset\cP(\Omega)$ Algebra, falls
 \begin{enumerate}[(i)]
   \item $\Omega\in\cA$
   \item $A\in\cA \Rightarrow \overline A\in\cA$
@@ -181,7 +181,7 @@ Für $|\cA|<\infty$ sind (iii) und (iii$^\sigma$) äquivalent, d.h. jede endlich
         (es gibt keine anderen Spielausgänge).
   \item Wegen (iii) sind außerdem $A\cup B\in\cA$, $A\cup C\in\cA$ und $B\cup C\in\cA$.
   \item Offenbar gilt $\overline{A\cup B} = C\in\cA$, $\overline{A\cup C} = B\in\cA$ und $\overline{B\cup C} = A\in\cA$
-  \item $\cA=\{\emptyset,A,B,C, A\cup B, A\cup B, B\cup C, \Omega\}$ erfüllt alle Bedingungen einer Algebra.
+  \item $\cA=\{\emptyset,A,B,C, A\cup B, A\cup C, B\cup C, \Omega\}$ erfüllt alle Bedingungen einer Algebra.
         Auf Grund der Endlichkeit ($|\cA|=8$) ist dies auch eine $\sigma$-Algebra.
 \end{itemize}
 
@@ -226,15 +226,15 @@ Ein Experiment bestehe aus dem Werfen eines sechsseitigen Würfels und einer Mü
     \end{itemize}
 \end{enumerate}
 
-\problem{Ereignisse. Würfel und Münze.}
+\problem{Ereignisse. Würfel und Münze II.}
 Ein Experiment bestehe aus dem Werfen eines fairen Würfels und einer fairen Münze.
 \begin{enumerate}
-    \item Geben Sie einen Grundraum $\Omega$ an, der diese Zufallssituation beschreibt.
+    \item Geben Sie einen Wahrscheinlichkeitsraum ($\Omega$, $\cA$, $\bP$) an,
+          der diese Zufallssituation beschreibt.
     \item Zeigt die Münze Wappen, so wird die doppelte Augenzahl des Würfels
         notiert, bei Zahl nur die einfache. Wie groß ist die
         Wahrscheinlichkeit, dass eine gerade Zahl notiert wird?
 \end{enumerate}
-
 
 \problem{Ereignisse. Zerlegung des Würfels.}
 Ein Würfel, dessen Seitenflächen gleichartig gefärbt sind, werde in 1000
@@ -494,7 +494,7 @@ Betrachten wir nun die Menge der 4-stelligen PINs, die aus den Ziffern $\left\{
 \end{enumerate}
 
 
-\problem{Kombinatorik. Zwei Würfel.}
+\problem{Laplacesche Modelle. Zwei Würfel.}
 Wie groß ist die Wahrscheinlichkeit dafür, beim Werfen von zwei Würfeln eine
 Augensumme zu erzielen, die größer oder gleich 10 ist?
 
