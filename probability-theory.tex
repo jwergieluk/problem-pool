@@ -1,8 +1,5 @@
 % copyright (C) 2011-2014 Julian Wergieluk  <julian@wergieluk.com>
 
-\section{Inbox}
-
-
 \problem{Konvergenz einer Zufallsreihe.} Sei $X_{1} \sim \text{Uni}(0,1)$,
 $X_2 \sim \text{Uni}(0,X_1)$, und allgemein $X_{n} \sim \text{Uni}(0,X_{n-1})$ für alle
 $n \in \bN$. 
@@ -19,11 +16,11 @@ $\text{Uni}(0,x_{n-1})$.  Es gilt also $E X_{n} = E \left[ E X_{n} | X_{n_1}
 
 
 
-\problem{Monotonic transformations of RVs.} A strictly monotonic
-transformation of a real valued random variable with atom-less distribution
-function has an atom-less distribution function. 
-
-\url{http://math.stackexchange.com/questions/78101/monotonic-transformation-of-continuous-random-variable-are-continuous}
+%\problem{Monotonic transformations of RVs.} A strictly monotonic
+%transformation of a real valued random variable with atom-less distribution
+%function has an atom-less distribution function. 
+%
+%\url{http://math.stackexchange.com/questions/78101/monotonic-transformation-of-continuous-random-variable-are-continuous}
 
 
 \problem{Ordnungsstatistiken. Eigenschaften.} Seien $X_1,\dots ,X_n$
@@ -72,15 +69,15 @@ $X_1,\dots ,X_n$. Zeigen Sie folgende Aussagen:
 
 
 
-\problem{Independence.}
-Let $(\Omega, \mathcal A, P)$ be a probablity space and let $\mathcal F$ and
-$\mathcal G$ be two independent sub-$\sigma$-algebras of $\mathcal A$.
+%\problem{Independence.}
+%Let $(\Omega, \mathcal A, P)$ be a probablity space and let $\mathcal F$ and
+%$\mathcal G$ be two independent sub-$\sigma$-algebras of $\mathcal A$.
 
-\begin{enumerate} 
-\item If $X: \Omega \to (\R, \mathcal B)$ is a
-    real-valued random variable and $X$ is both $\mathcal F$-measurable
-    and $\mathcal G$-measurable then $X$ is a.s.~constant.
-\end{enumerate}
+%\begin{enumerate} 
+%\item If $X: \Omega \to (\R, \mathcal B)$ is a
+%    real-valued random variable and $X$ is both $\mathcal F$-measurable
+%    and $\mathcal G$-measurable then $X$ is a.s.~constant.
+%\end{enumerate}
 
 
 \problem{Symmetrische Zufallsvariablen und $L^p$ Ungleichungen.} 
@@ -92,12 +89,8 @@ d.h.\ $X$ und $-X$ sind gleichverteilt. Dann gilt
 Gilt die obige Ungleichung, wenn $X$ und $Y$ nicht unabhängig sind oder wenn 
 $X$ nicht symmetrisch verteilt ist?
 
-\paragraph*{Solution. } The real problem here is to show that if $X \upmodels Z$
-and $Y \upmodels Z$ the $X+Z \sim Y+Z$. 
 
 
-
-\section{Theoretical computations}
 
 \problem{Dichtefunktionen. Scheff\'es Identitäten.} Seien $f$ und $g$
 Dichtefunktionen und $A = \left\{ x : f(x)>g(x) \right\}$. 
@@ -210,7 +203,6 @@ $(\Omega, \cA, P)$ und eine Familie $(A_i)_{i\in I}$ mit $A_i \in \cA$ und
 $P(A_i)>0 \forall i$ gegeben. Dann ist $I$ höchstens abzählbar. 
 
 \solution Sortiere die Menge der Größe nach. 
-
 
 
 \section{Bedingte Erwartungen}
@@ -487,9 +479,102 @@ und exponentialverteilt. Berechnen Sie:
 \end{enumerate}
 
 
-\problem{Bedingte Erwartungen und Normalverteilung II.} Exercise 5.2.7 from
-Föllmer and Schied.
+\section{Stochastische Prozesse}
 
+\problem{Poissonprozess. Charakteristische Funktion. } Sei $N$ ein
+Poissonprozess mit dem Parameter $\lambda>0$ gegeben. $N$ is also ein L\'evy
+Prozess mit den Werten in $\bN$ und 
+\begin{equation*}
+    P(N_t = n) = e^{- \lambda t} \frac{ (\lambda t)^n}{ n!}.
+\end{equation*}
+\begin{enumerate}
+    \item Die charakteristische Funktion von $N_t$ ist 
+        \begin{equation*}
+            \psi_t(u) = \E \exp iu N_t = \exp \left( \lambda t \left( e^{iu} -1\right) \right).
+        \end{equation*}
+    \item Die charakteristische Funktion des kompensierten Poissonprozesses
+        $\tilde N_t = N_t - \lambda t$ ist 
+        \begin{equation*}
+            \tilde \psi_t (u) = \E \exp iu \tilde N_t = 
+            \exp \left( \lambda t \left( e^{it}-1-iu \right) \right). 
+        \end{equation*}
+\end{enumerate} 
+
+\solution Eine einfache Rechnung liefert
+\begin{align*}
+    \E \exp iu N_t &= \sum_{n\geq 0}^{} \exp \left( iun  \right) P (N_t = n) \\
+    &= \sum_{n\geq 0}^{} \exp \left( iun \right) e^{-\lambda t} \frac{(\lambda t)^n}{n!} \\
+    &= \exp \left( \lambda t \left( e^{iu}-1 \right) \right). 
+\end{align*}
+Nachdem $e^{i u \lambda t}$ die charakteristische Funktion des Dirac-masses an 
+$\lambda t$ ist, erhalten wir 
+\begin{equation*}
+    \tilde \psi_t(u) = \E \exp \left( i u N_t \right) = 
+    \exp \left( \lambda t \left( e^{iu}-1-iu \right) \right). 
+\end{equation*}
+
+\problem{Zusammengesetzter Poissonprocess. Charakteristische Funktion.}
+Sei $X$ ein zusammengesetzter Poissonprozess mit dem Parameter $\lambda>0$ und
+der Sprungverteilung $\nu$ auf $\R^d$ mit $\nu(\{0\})=0$. 
+\begin{enumerate}
+    \item Die charakteristische Funktion von $X_t$ ist gegeben durch
+        \begin{equation*}
+            \psi_t(u) = \exp \left( \lambda t \int_{}^{} e^{iuy}-1 \, \nu(dy) \right). 
+        \end{equation*}
+    \item Die charakteristische Funktion von dem kompensierten zusammengesetzten
+        Poissonprozess $\tilde X_t = X_t - \E X_t$ ist gegeben durch
+        \begin{equation*}
+            \tilde \psi_t(u) = \exp \left( \lambda t \int e^{iuy}-1-iuy \, \nu(dy) \right). 
+        \end{equation*}
+\end{enumerate}
+
+\solution Bei der Berechnung benutzen wir die Eigenschaften der bedingten
+Erwartung.
+\begin{align*}
+    \psi_t (u) &= \E \exp iu X_t \\
+    &= \E \E \left[ \left. \exp \left( iu \sum_{i=1}^{N_t} Y_i \right) \right| \left( N_s \right)_{s\in [0,t]} \right] \\
+    &= \sum_{n \geq 0}^{} \left( \int_{\R^d} e^{iu x} \, \nu(dx) \right)^n P(N_t = n) \\
+    &= \sum_{n \geq 0}^{} \left( \int_{} e^{iu x} \, \nu(dx) \right)^n
+        e^{-\lambda t} \frac{(\lambda t)^n}{n!} \\
+    &= \exp \left( \lambda t \int e^{iux}-1 \, \nu(dx) \right).
+\end{align*}
+Wir brauchen nur noch den Erwartungswert von $X_t$ zu berechnen. 
+\begin{align*}
+    \E X_t &= \sum_{n \geq 0}^{} n \left( \int_{\R^d} x\, \nu(dx) \right) 
+    e^{-\lambda t} \frac{(\lambda t)^n}{n!} \\
+    &= \int_{}^{} x \, \nu(dx) \sum_{n \geq 0} n e^{-\lambda t} \frac{(\lambda t)^n}{n!} \\
+    &= \lambda t \int_{}^{} x \, \nu (dx). 
+\end{align*}
+Insgesamt erhalten wir 
+\begin{equation*}
+    \tilde \psi_t (u) = \exp \left( \lambda t \int_{\R^d} e^{iux}-1-iux \, \nu(dx) \right).
+\end{equation*}
+
+
+\problem{Ornstein-Uhlenbeck SDE.} Lösen Sie die \textsc{SDE}
+\begin{equation}
+    dX_t = \left( \alpha-\beta X_t \right)dt + \sigma dW_t, \quad X_0\in\R.
+\end{equation}
+Die Parameter $\alpha, \beta$ und $\sigma$ sind reelle Zahlen und $\sigma>0$. 
+\begin{enumerate}
+    \item Zeigen Sie mit Hilfe der Funktion $f(t,x)=x\exp(\beta t)$ und der It\^o-Formel, dass
+        \begin{eqnarray}
+            X_t = e^{-\beta t} X_0 + \frac{\alpha}{\beta}\left( 1-e^{-\beta t} \right)
+                       + \sigma \int_{0}^{t} e^{\beta(s-t)} d W_s.
+        \end{eqnarray}
+    \item Leiten Sie aus der von Ihnen gefundenen Lösung die Identitäten
+        \begin{eqnarray}
+            \E X_t &=& e^{-\beta t} X_0 + \frac{\alpha}{\beta}\left( 1-e^{-\beta t} \right) \\
+            \Var X_t &=& \frac{\sigma^2}{2\beta}\left( 1- e^{-2\beta t} \right)
+        \end{eqnarray} 
+        her.
+    \item Zeigen Sie, dass $X_t$ normalverteilt ist. 
+\end{enumerate}
+
+\paragraph*{Lösung. } Die Lösung ergibt sich durch die Anwendung der It\^o-Formel
+auf die Funktion $f$. Da $\int_{}^{} g(s) d W_s$ für progressiv meßbares $g$ ein
+Martingal ist, erhalten wir $\E X_t$ direkt aus der Lösung. Die Formel für die 
+Varianz folgt mit Hilfe der It\^o-Isometrie.
 
 
 % vim: set spelllang=de; set spell
