@@ -22,7 +22,7 @@ auf den (innerhalb der Sammlung eindeutigen) Titel der Aufgabe.
 #### Quellen
 
 Bei der Erstellung dieser Aufgabensammlung habe ich unter anderen folgende
-excellente Bücher verwendet:
+exzellente Bücher verwendet:
 
 * Czado, C., Schmidt, T. (2011). Mathematische Statistik. Springer.
 * Jacod, J., Protter, P. (2004). Probability Essentials (2nd ed.). Springer-Verlag.
