@@ -401,6 +401,130 @@ und den Parametern $a,\lambda>0$. Zeigen Sie folgende Aussagen.
 \end{enumerate} 
 
 
+\problem{Invers-Gauß-Verteilung als exponentielle Familie.}
+Seien $X_1,\ldots,X_n$ i.i.d.\ Invers-Gauß-verteilte Zufallsvariablen gegeben. D.h.\ die Dichte
+von $X_i$ ist 
+\begin{equation*}
+    \sqrt{\frac{\lambda}{2\pi}} x^{-\frac{3}{2}} \exp\left( \frac{-\lambda(x-\mu)^2}{2\mu^2 x} \right) 1_{\R_{>0}} (x)
+\end{equation*}
+wobei $\mu>0$, $\lambda>0$ und $\mu$ bekannt und fix sei.
+\begin{enumerate}
+    \item Zeigen Sie, dass die von dem Zufallsvektor $( X_1,\ldots,X_n)$
+        erzeugte Familie von Verteilungen $\left\{ P_\lambda : \lambda>0
+        \right\}$ eine exponentielle Familie ist, indem Sie die gemeinsame
+        Dichte des Vektors $(X_1,\ldots,X_n)$ in die Form
+        \begin{equation*}
+            p_\lambda(x) = \exp\left( c(\lambda) T(x) + d(\lambda) + S(x) \right)1_A (x)
+        \end{equation*}
+        bringen. Geben Sie dabei explizit $c,T,d,S$ und $A$ an.
+    \item Zeigen Sie mit Hilfe des Faktorisierungssatzes, dass die Statistik
+        $T(X)$ suffizient ist.
+\end{enumerate}
+
+\solution Die gemeinsame Dichte von $X_1, \cdots, X_n$ 
+lässt sich in folgender Form darstellen.
+\begin{equation*}
+    \exp\left(  -\frac{\lambda}{2}\left( \frac{x^2}{\mu^2} + \frac{1}{x} \right)    
+    + \log x^{-\frac{3}{2}} + \log \sqrt{\frac{\lambda}{2\pi}} + 
+    \lambda\mu  \right)1_{\R_{>0}}(x).
+\end{equation*}
+
+
+\problem{Invers-Gamma-Verteilung als exponentielle Familie.}
+Seien $X_1,\ldots,X_n$ i.i.d.\ Invers-Gamma-verteilte Zufallsvariablen gegeben.
+D.h.\ die Dichte von $X_i$ ist 
+\begin{equation*}
+    f_{a}(x) = \frac{\lambda^a}{\Gamma(a)}x^{-a-1} e^{-\frac{\lambda}{x}}1_{\R_{\geq 0}}(x),
+\end{equation*}
+wobei $a>0$ unbekannt und $\lambda>0$ bekannt und fix sei.
+\begin{enumerate}
+    \item Zeigen Sie, dass die von dem Zufallsvektor $( X_1,\ldots,X_n)$
+        erzeugte Familie von Verteilungen $\left\{ P_a : a>0 \right\}$ eine
+        exponentielle Familie ist, indem Sie die gemeinsame Dichte des Vektors
+        $(X_1,\ldots,X_n)$ in die Form
+        \begin{equation*}
+            p_a(x) = \exp\left( c(a) T(x) + d(a) + S(x) \right)1_A (x)
+        \end{equation*}
+        bringen. Geben Sie dabei explizit $c,T,d,S$ und $A$ an.
+    \item Zeigen Sie mit Hilfe des Faktorisierungssatzes, dass die Statistik
+        $T(X)$ suffizient ist.
+\end{enumerate}
+
+\solution
+\begin{enumerate}
+    \item Die gemeinsame Dichte von $\left( X_1,\ldots,X_n \right)$ ist 
+        \begin{equation*}
+            p_a(x_1,\ldots,x_n) = 
+            \prod_i \frac{\lambda^a}{\Gamma(a)}x_i^{-a-1} e^{-\frac{\lambda}{x_i}}1_{\R_{\geq 0}}(x_i).
+        \end{equation*}
+        Die Darstellung als exponentielle Familie ist
+        \begin{equation*}
+            \exp \left( \left( -a-1 \right) \sum_{i}^{} \log x_i + \log \frac{\lambda^{na}}{\Gamma(a)^n} - \lambda \sum_{i}^{} \frac{1}{x_i}  \right) 1_{\R_{\geq 0}^n} (x_1,\ldots,x_n).
+        \end{equation*}
+        Dabei ist 
+        \begin{eqnarray*}
+            c(a)&=&  -a-1 \\
+            T(X)&=& \sum_{i}^{} \log X_i \\
+            d(a)&=& \log \frac{\lambda^{na}}{\Gamma(a)^n} \\
+            S(x)&=&  -\lambda \sum_{i}^{} \frac{1}{x_i}\\
+            A   &=& \R_{\geq 0}^n.
+        \end{eqnarray*}
+
+    \item $T(X)$ ist suffizient, denn die Dichte lässt sich in der Form
+        $g(T(x),a)h(x)$ darstellen. Ebenso ist $T(X)$ in jeder exponentiellen
+        Familie eine suffiziente Statistik. 
+\end{enumerate}
+
+
+\problem{L\'evy-Verteilung als exponentielle Familie.} Die Dichte der L\'evy-Verteilung mit den
+Parametern $(\mu,\sigma)\in \Theta = \R \times \R_{>0}$ ist
+\begin{equation*}
+    p_{(\mu, \sigma)}(x) = \sqrt{ \frac{\sigma}{2\pi}} (x-\mu)^{-\frac{3}{2}} 
+    \exp\left( -\frac{\sigma}{2(x-\mu)} \right) 1_{\R_{\geq \mu}} (x).
+\end{equation*}
+Zeigen Sie folgende Aussagen.
+\begin{enumerate}
+    \item Sei $X\sim \cN (0, \frac{1}{\sigma})$ normalverteilt mit $\sigma>0$.
+        Die Zufallsvariable $\frac{1}{X^2}$ ist L\'evy-verteilt mit den Parametern
+        $(0,\sigma)$.
+    \item Wenn $\mu=0$ festgehalten wird, ist die Familie $(p_{(0,\sigma)})_{\sigma>0}$
+        eine exponentielle Familie. 
+    \item Die Familie $(p_{\mu,\sigma})_{(\mu,\sigma)\in\Theta}$ ist keine
+        (zweiparametrige) exponentielle Familie. 
+\end{enumerate}
+
+\solution 
+\begin{enumerate}
+    \item Für ein $y>0$ gilt
+        \begin{align*}
+            P \left( \frac{1}{X^{2}} \leq y \right) &= P \left( 1 \leq y X^{2}   \right) \\
+            &= P \left( \sqrt{\frac{1}{y}} \leq | X | \right) \\
+            &= 2 \left( 1 - P \left( X < \frac{1}{\sqrt{y}} \right) \right) \\
+            &= 2 \left( 1 - \Phi\left( \sqrt{ \frac{\sigma}{y}} \right) \right).
+        \end{align*}
+        Die Dichte von $\frac{1}{X^2}$ erhalten wir durchs Differenzieren:
+        \begin{align*}
+            \frac{\partial}{\partial y} P \left( \frac{1}{X^2} \leq y \right) &=
+            -2 \phi \left( \sqrt{\frac{\sigma}{y}} \right) \sqrt{\sigma} 
+            \left( -\frac{1}{2} y^{-\frac{3}{2}} \right) \\
+            &= \sqrt{\frac{\sigma}{2 \pi}} \exp \left( - \frac{\sigma}{2 y} \right) y^{-\frac{3}{2}}.
+        \end{align*}
+        Daher ist $\frac{1}{X^2} \sim \text{L\'evy}(\sigma)$.
+
+    \item Für $\mu=0$ lässt sich die Dichte der L\'evy-Verteilung in der Form
+        \begin{equation*}
+            p_{0,\sigma}(y) = \exp \left( -\frac{\sigma}{2y} - \frac{3}{2}\log y 
+            + \frac{1}{2} \log \frac{\sigma}{2 \pi}  \right) 1_{\R_{\geq 0}} (y)
+        \end{equation*}
+        darstellen.
+
+    \item Im allgemeinen Fall ist der Träger der Dichte $p_{\mu,\sigma}$ von $\mu$ abhängig und daher
+        kann $p_{\mu,\sigma}$ keine exponentielle Familie sein.
+
+\end{enumerate}
+
+
+
 \section{Momentenmethode}
 
 \problem{Stetige Gleichverteilung. Momentenschätzer. } Seien $X_1, \cdots, X_n$ 
@@ -431,6 +555,37 @@ Insbesondere ist der auf dem ersten Moment basierende Schätzer gegeben durch
     \hat \theta = \frac{2}{n} \sum_{i=1}^{n} X_i.
 \end{equation*}
 
+
+\problem{Dreiecksverteilung. Momentenschätzer.} Gegeben seien
+i.i.d.\ Zufallsvariablen $X_1,\ldots, X_n$ mit der Dichte 
+\begin{align*}
+    \Lambda_a(x) &= \left[ \frac{1}{a} - \frac{|x|}{a^2} \right] 1_{[-a,a]}(x)
+\end{align*}
+und dem unbekannten Parameter $a>0$. 
+\begin{enumerate}
+    \item Zeigen Sie, dass die geraden Momente von $X_1$ durch die Formel
+        \begin{equation*}
+            \E X_1^n = 2 a^n \left( \frac{1}{n+1} - \frac{1}{n+2} \right)
+        \end{equation*}
+        gegeben sind und alle ungeraden Momente verschwinden. 
+    \item Geben Sie einen Momentenschätzer für den Parameter $a$ an.
+\end{enumerate}
+
+\solution 
+\begin{enumerate}
+    \item Die Momente ergeben sich aus
+        \begin{align*}
+            \E X_1^n &= \int_{-a}^{a} \left( \frac{1}{a} - \frac{|x|}{a^2} \right) x^n dx.
+        \end{align*}
+        Für gerade $n$ ist $\E X_1^n=0$. Für ungerade $n$ erhalten wir
+        \begin{align*}
+            \E X_1^{n} &= 2 \int_{0}^{a} \left( \frac{1}{a} - \frac{x}{a^2} \right) x^{n} \\
+            &= \frac{2}{a} \frac{1}{n+1} a^{n+1} - \frac{2}{a^2} \frac{1}{n+2}a^{n+2} \\
+            &= 2 a^{n} \left( \frac{1}{n+1}- \frac{1}{n+2} \right).
+        \end{align*}
+    \item Aus $\E X_1^2 = \frac{a^2}{6}$ ergibt sich ein Momentenschätzer für
+        $a$ in der Form $\hat a = \sqrt{6 m_2}$ mit $m_2 = \sum_{i}^{} X_i^2$. 
+\end{enumerate}
 
 
 \problem{Momentenschätzer. Beispiele.} Bestimmen Sie mittels der Momentenmethode
@@ -566,6 +721,105 @@ und dem unbekannten Parameter $\theta>0$.
     \item Finden Sie einen Momentenschätzer für $\theta$ basierend auf dem zweiten Moment von $X_i$.
 
 \end{enumerate}
+
+
+\problem{Gamma-Verteilung. Momentenschätzer.}
+Gegeben seien i.i.d.\ Gamma-verteilte Zufallsvariablen $X_1,\ldots,X_m$ mit der Dichte
+\begin{equation*}
+    p_{a,\lambda}(x) = \frac{\lambda^a}{\Gamma(a)}x^{a-1}e^{-\lambda x} 1_{\R_{\geq 0}}(x)
+\end{equation*}
+und Parametern $a>0$ und $\lambda>0$.
+\begin{enumerate}
+    \item Zeigen Sie für ein positives $n\in\mathbb N$
+        \begin{equation*}
+            E X_i^n = \frac{a\cdot\ldots\cdot (n+a-1)}{\lambda^n}.
+        \end{equation*}
+        Dabei können Sie die Identität 
+        $\Gamma(a+1)=a \Gamma(a)$, $a\in\R \setminus \left\{ -1,-2,\ldots \right\}$, verwenden.
+    \item Berechnen Sie einen Momentenschätzer für die Parameter $a$ und $\lambda$ basierend auf
+        der Beobachtung von $\left( X_1,\ldots,X_m \right)$. 
+\end{enumerate}
+
+\solution
+\begin{enumerate}
+
+    \item \begin{eqnarray*}
+            E X^n &=& \int_{0}^{\infty} x^n \frac{\lambda^a}{\Gamma(a)}x^{a-1}e^{-\lambda x} dx \\
+            &=& \frac{a \cdot\ldots\cdot \left( a+n-1 \right)}{\lambda^n} 
+            \int_{0}^{\infty} \frac{\lambda^{a+n}}{\Gamma(n+a)} x^{a+n-1} e^{-\lambda x} dx \\
+            &=& \frac{a\cdot \ldots \cdot \left( a+n-1 \right)}{\lambda^n} \\
+            &=& \frac{\Gamma\left( a+n \right)}{ \lambda^n \Gamma\left( a \right)}.
+        \end{eqnarray*}
+
+    \item Die Momentenschätzer für die Parameter $a$ und $\lambda$ sind
+        \begin{eqnarray*}
+            E X &=& \frac{a}{\lambda} \\
+            E X^2 &=&  \frac{a(a+1)}{\lambda^2} \\
+            E X^2 &=&  \frac{a(a+1)}{a^2} \left( E X \right)^2 \\
+            E X^2 &=& \left( 1 + \frac{1}{a} \right) \left( E X \right)^2 \\
+            a &=& \frac{ \left( E X \right)^2 }{ E X^2 - \left( E X \right)^2}  \\
+            \lambda &=&  \frac{ EX }{ E X^2 - \left( E X \right)^2} 
+        \end{eqnarray*}
+        Die Schätzer erhält man mit Substitutionen $EX \to \frac{1}{n} \sum_{i}^{} X$ und 
+        $E X^2 \to \frac{1}{n} \sum_{i}^{} X^2$.
+
+
+\end{enumerate}
+
+
+
+
+\problem{Beta-Verteilung. Momentenschätzer.} Gegeben seien $X_1, \ldots, X_n$ i.i.d. Beta-verteilte
+Zufallsvariablen mit der Dichte
+\begin{equation*}
+    p_{a,b}(x) = \frac{1}{B(a,b)} x^{a-1} (1-x)^{b-1} 1_{ \left[ 0,1 \right]  } (x)
+\end{equation*}
+und Parametern $a>0$ und $b>0$. Dabei ist $B(a,b)$ die Betafunktion charakterisiert durch
+\begin{equation*}
+    B(a,b) = \frac{\Gamma(a)\Gamma(b)}{\Gamma(a+b)}.
+\end{equation*}
+\begin{enumerate}
+    \item Zeigen Sie, dass das $k$-te Moment der Beta-Verteilung die Gleichung
+        \begin{equation*}
+            \E X^{k} = \frac{a+k-1}{a+b+k-1} \E X^{k-1}
+        \end{equation*}
+        für $k\in \mathbb N$ und $k\geq 1$ erfüllt. 
+    \item Berechnen Sie den Momentenschätzer für die Parameter $a$ und $b$ basierend auf dem ersten und zweiten Moment.
+\end{enumerate}
+
+\solution
+\begin{enumerate}
+    \item Durch direktes Berechnen des $k$-ten Moments erhalten wir 
+        \begin{align*}
+            \E X^k &= \int_{0}^{1} x^k \frac{1}{B(a,b)} x^{a-1}(1-x)^{b-1} dx \\
+            &= \frac{B(a+k,b)}{B(a,b)} \int_{0}^{1} \frac{1}{B(a+k,b)} x^{a+k-1} (1-x)^{b-1} dx \\
+            &= \frac{B(a+k,b)}{b(a,b)}.
+        \end{align*}
+        Und daraus
+        \begin{align*}
+            \E X^k &= \frac{B(a+k,b)}{B(a,b)} \\
+            &= \frac{\Gamma(a+k)\Gamma(b)}{\Gamma(a+b+k)} \frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)} \\
+            &= \frac{ \Gamma(a+k) \Gamma(a+b) }{\Gamma(a+b+k) \Gamma(a)} \\
+            &= \frac{a+k-1}{a+b+k-1} \E X^{k-1}.
+        \end{align*}
+        Es gilt auch
+        \begin{equation*}
+            \E X^k = \frac{ a \cdot \ldots \cdot (a+k-1) }{ (a+b)\cdot \ldots \cdot (a+b+k-1)}.
+        \end{equation*}
+    \item Die Substitutionen $E X = \hat m_1 = \frac{1}{n} \sum_{i=1}^{n} X_i$ und 
+        $E X^2 = \hat m_2 = \frac{1}{n} \sum_{i=1}^{n} X_i^2$ führen zu 
+        \begin{eqnarray*}
+            \hat m_1 &=&  \frac{a}{a+b} \\
+            \hat m_2 &=&  \frac{ a(a+1) }{ (a+b)(a+b+1) }.
+        \end{eqnarray*}
+        Die Auflösung nach $a$ und $b$ liefert 
+        \begin{eqnarray*}
+            \hat a &=& \frac{ \hat m_1^2 - \hat m_2^2 }{ \hat m_2 - \hat m_1^2  } \\
+            \hat b &=& \frac{a (1-\hat m_1)}{\hat m_1} = \frac{ (\hat m_1^2 - \hat m_2^2)(1-\hat m_1) }{(\hat m_2 - \hat m_1^2)\hat m_1}.
+        \end{eqnarray*}
+\end{enumerate}
+
+
 
 
 \section{Kleinste-Quadrate-Schätzer}
@@ -834,6 +1088,171 @@ die Maxima werden jeweils am Rand angenommen, d.h.\ $\hat\theta=1$ bzw. $\hat\th
 der \textsc{mle} $\hat\theta(x)$ kann für $x$ eindeutig festgelegt werden.
 
 
+\problem{Beta-Verteilung. MLE.} Seien $X_1,\ldots,X_n$ i.i.d.\ und Beta$(\theta+1, 1)$-verteilt
+mit dem Parameter $\theta\in\Theta= \left\{ \eta\in\R : \eta>-1 \right\}$. Die Dichte von $X_i$ ist also
+\begin{equation*}
+    p_\theta(x) = (\theta+1)x^\theta 1_{ [0,1] }(x).
+\end{equation*}
+\begin{enumerate}
+
+    \item Bestimmen Sie den Maximum-Likelihood-Schätzer für $\theta$ basierend
+        auf der Beobachtung von $\left( X_1,\ldots,X_n \right)$. Zeigen Sie
+        dabei, dass der von Ihnen gefundene Schätzer $\hat \theta$ das Maximum
+        der Likelihood-Funktion ist. 
+
+    \item Kann der Maximum-Likelihood-Schätzwert $\hat \theta\left( x_1,\ldots,x_n \right)$
+        auf dem Rand des Parameterraumes liegen? 
+\end{enumerate}
+
+\solution
+\begin{enumerate}
+
+    \item Die Likelihoodfunktion für eine Beobachtung $(X_1,\ldots,X_n)$ ist 
+        \begin{eqnarray}
+            L(\theta,X) &=& \left( \theta+1 \right)^n \left( \prod_i X_i \right)^{\theta}  \\
+            l(\theta,X) &=& n \log \left( \theta+1 \right)  + \theta \sum_{i}^{} \log X_i \\
+            \frac{\partial}{\partial \theta} l(\theta,X)&=& \frac{n}{\theta+1} + \sum_{i}^{} \log X_i \\
+            \frac{\partial^2}{\partial \theta^2} l(\theta,X) &=& 
+            - \frac{n}{\left( \theta+1 \right)^2} < 0.
+        \end{eqnarray}
+        $\frac{\partial}{\partial \theta} l(\theta,X)=0$ liefert
+        \begin{equation}
+            \hat\theta = -1 - \frac{n}{\sum_{i}^{} \log X_i}.
+        \end{equation}
+        $\hat\theta$ ist eindeutiger MLE.
+
+    \item Nein, denn $\Theta$ offen ist.
+
+\end{enumerate}
+
+
+\problem{Pareto-Verteilung. Suffizienz und MLE.} Seien $X_1,\ldots,X_n$ i.i.d.\ und
+Paretoverteilt mit der Dichte
+\begin{equation*}
+    p_\theta(x)= \frac{\theta a^\theta}{x^{\theta+1}}1_{\R_{>a}}(x),
+\end{equation*}
+wobei $\theta>0$ und $a$ fix und bekannt sei.
+\begin{enumerate}
+    \item Finden Sie eine reellwertige suffiziente Statistik $T(X_1,\ldots,X_n)$ für $\theta$.
+    \item Finden Sie den Maximum-Likelihood-Schätzer $\hat \theta(X_1,\ldots,X_n)$ für $\theta$.
+    \item Zeigen Sie, dass der von Ihnen gefundene Schätzer $\hat \theta$ suffizient ist.
+\end{enumerate}
+
+\solution
+Suffiziente Statistik $T= \prod_i \frac{1}{x_i}$ erhalten wir aus 
+\begin{equation}
+    p_\theta(X_1,\ldots,X_n) = 
+    \theta^n a^{n\theta} \left( \prod_i \frac{1}{x_i} \right)^{\theta-1} \prod_i 1_{\R_{>a}}(x_i)
+\end{equation}
+mit Hilfe des Faktorisierungstheorems.
+
+Die Berechnung folgt der üblichen Prozedur des Minimierens der Log-Likelihood-Funktion.
+\begin{eqnarray}
+    \frac{\partial}{\partial \theta} l(x,a,\theta) &=& 
+    \frac{n}{\theta} + n \log a -\sum_{j}^{} \log x_i \\
+    \frac{\partial^2}{\partial \theta^2} l(x,a,\theta) &=& - \frac{n}{\theta^2} < 0 \\
+    \hat\theta &=& \frac{n}{ \sum_{i}^{} \left( \log x_i - \log a \right)} 
+    = \frac{n}{ \log \left( \prod_i \frac{x_i}{a}  \right) }
+\end{eqnarray}
+
+Die suffiziente Statistik $T=\eta (\hat\theta)$ ist eine Funktion des MLE, wobei 
+\begin{equation}
+    \eta(x) = \frac{1}{ \exp\left( \frac{n}{x} \right) a^n}.
+\end{equation}
+Daher ist der MLE $\hat\theta$ auch suffizient.
+
+
+\problem{Gamma-Verteilung. MLE.} Seien $X_1, \ldots,
+X_n$ i.i.d.\ Gamma-verteilt mit der Dichte
+\begin{equation*}
+    p_{a,\lambda}(x) = \frac{\lambda^a}{\Gamma(a)}x^{a-1}e^{-\lambda x} 1_{\R_{>0}}(x)
+\end{equation*}
+und Parametern $a$ und $\lambda$. Der Parameter $a>0$ ist bekannt und fix. 
+Der Parameter $\lambda$ dagegen unbekannt und $\lambda > 0$.
+\begin{enumerate}
+    \item Berechnen Sie einen Maximum-likelihood Schätzer für $\lambda$ 
+        basierend auf der Beobachtung von dem Vektor
+        $(X_1, \ldots, X_n)$. Zeigen Sie, dass der von Ihnen gefundene Schätzer 
+        $\hat \lambda$ das Maximum der Likelihood-Funktion ist.
+    \item Ist der von Ihnen gefundene Maximum-likelihood Schätzer erwartungstreu? 
+        Begründen Sie Ihre Antwort. Dabei können Sie auf die Beziehung 
+        \begin{equation*}
+            X_1+ \ldots + X_n \sim \textrm{Gamma}(na,\lambda)
+        \end{equation*}
+        zugreifen.
+\end{enumerate}
+
+\solution
+\begin{enumerate}
+    \item Der Standardmethode folgend, berechnen wir die Log-likelihood
+        Funktion und finden ihr Maximum.
+        \begin{eqnarray}
+            L(a,\lambda; X) &=& \frac{\lambda^{an}}{\Gamma(a)^n} \prod_i x_i^{ a-1 } e^{-\lambda x_i} \\
+            l(a,\lambda; X) &=& na \log \lambda - n \log \Gamma\left( a \right) + 
+                                \left( a-1 \right) \sum_{i}^{} \log x_i - \lambda \sum_{i}^{} x_i \\
+            \frac{\partial}{\partial \lambda} l(a,\lambda; X) &=&  \frac{na}{\lambda} - \sum_{i}^{} x_i = 0  \\
+            \hat \lambda &=& \frac{na}{\sum_{i}^{} x_i} \\
+            \frac{\partial^2}{\partial \lambda^2} l(a,\lambda; X) &=& - \frac{na}{ \lambda^2} <0 \quad \forall \lambda>0.
+        \end{eqnarray}
+        MLE ist also tatsächlich das Maximum der Likelihood Funktion. 
+    \item Unter Benutzung von $X_1+ \ldots + X_n \sim \textrm{Gamma}(na,\lambda)$ berechnen wir
+        \begin{eqnarray}
+            \E \hat \lambda &=& \E \frac{na}{ \sum_{i}^{} X_i }  \\
+            &=& \int_{0}^{\infty} \frac{na}{x} \frac{\lambda^{na}}{\Gamma(na)} x^{na-1} e^{-\lambda x} dx \\
+            &=& \frac{na \lambda^{na}}{\Gamma(na)} \int_{0}^{\infty} x^{na -1-1} e^{-\lambda x}dx \\
+            &=& \frac{na \lambda^{na}}{\Gamma(na)} \frac{\Gamma(na-1)}{\lambda^{na-1}} \\
+            &=& \frac{na}{na-1} \lambda.
+        \end{eqnarray}
+        Der Schätzer $\hat\lambda$ ist somit nicht erwartungstreu.
+\end{enumerate}
+
+
+\problem{L\'evy-Verteilung. Dichte und MLS.} Die Dichte der L\'evy-Verteilung mit den
+Parametern $(\mu,\sigma)\in \Theta = \R \times \R_{>0}$ ist
+\begin{equation*}
+    p_{(\mu, \sigma)}(x) = \sqrt{ \frac{\sigma}{2\pi}} (x-\mu)^{-\frac{3}{2}} 
+    \exp\left( -\frac{\sigma}{2(x-\mu)} \right) 1_{\R_{\geq \mu}} (x).
+\end{equation*}
+\begin{enumerate}
+    \item Sei $X\sim \cN (0, \frac{1}{\sigma})$ normalverteilt mit $\sigma>0$.
+        Zeigen Sie, dass die Zufallsvariable $\frac{1}{X^2}$ L\'evy-verteilt mit den Parametern
+        $(0,\sigma)$ ist.
+    \item Sei $\mu=0$. Zeigen Sie, dass $(p_{(0,\sigma)})_{\sigma>0}$ eine
+        exponentielle Familie ist. 
+    \item Sei $\mu=0$. Berechnen Sie einen Maximum-Likelihood-Schätzer für $\sigma$, und
+        klären Sie ob dieser eindeutig ist.
+\end{enumerate}
+
+\solution 
+\begin{enumerate}
+    \item Für ein $y>0$ gilt
+        \begin{align*}
+            P \left( \frac{1}{X^{2}} \leq y \right) &= P \left( 1 \leq y X^{2}   \right) \\
+            &= P \left( \sqrt{\frac{1}{y}} \leq | X | \right) \\
+            &= 2 \left( 1 - P \left( X < \frac{1}{\sqrt{y}} \right) \right) \\
+            &= 2 \left( 1 - \Phi\left( \sqrt{ \frac{\sigma}{y}} \right) \right).
+        \end{align*}
+        Die Dichte von $\frac{1}{X^2}$ erhalten wir durchs Differenzieren:
+        \begin{align*}
+            \frac{\partial}{\partial y} P \left( \frac{1}{X^2} \leq y \right) &=
+            -2 \phi \left( \sqrt{\frac{\sigma}{y}} \right) \sqrt{\sigma} 
+            \left( -\frac{1}{2} y^{-\frac{3}{2}} \right) \\
+            &= \sqrt{\frac{\sigma}{2 \pi}} \exp \left( - \frac{\sigma}{2 y} \right) y^{-\frac{3}{2}}.
+        \end{align*}
+        Daher ist $\frac{1}{X^2} \sim \text{L\'evy}(\sigma)$.
+
+    \item Für $\mu=0$ lässt sich die Dichte der L\'evy-Verteilung in der Form
+        \begin{equation*}
+            p_{0,\sigma}(y) = \exp \left( -\frac{\sigma}{2y} - \frac{3}{2}\log y 
+            + \frac{1}{2} \log \frac{\sigma}{2 \pi}  \right) 1_{\R_{\geq 0}} (y)
+        \end{equation*}
+        darstellen.
+
+    \item Der MLS ist
+        \begin{equation*}
+            \hat \sigma = \frac{n}{ \sum_{}^{} 1/x_i}.
+        \end{equation*}
+\end{enumerate}
 
 
 \section{UMVUE}
@@ -1009,6 +1428,63 @@ und dem Satz von Lehmann-Scheff\'e folgt die Behauptung.
 
 
 
+\problem{Diskrete Gleichverteilung. MLE und UMVUE.} Seien $X_1,\ldots,X_n$ i.i.d.\ 
+diskret Gleichverteilt auf der Menge $\left\{ 1,2,\ldots,\theta \right\}$. 
+\begin{enumerate}
+    \item Zeigen Sie, dass der Maximum-Likelihood-Schätzer für $\theta$ gerade
+        $\hat \theta(X_1,\ldots,X_n) = X_{(n)} = \max \left\{ X_1,\ldots,X_n
+        \right\}$ ist.  
+    \item Zeigen Sie, dass $\hat \theta = X_{(n)}$ vollständig und suffizient
+        jedoch verzerrt ist.
+%    \item Bestimmen Sie mit Momentenmethode einen Schätzer der unverzerrt ist.
+    \item Konstruieren Sie einen \textsc{umvue}-Schätzer der folgenden Gestalt
+        \begin{equation*}
+            \frac{ X_{(n)}^{n+1} - ( X_{(n)} - 1)^{n+1}  }{ X_{(n)}^n - (X_{(n)} -1)^n }.
+        \end{equation*}
+\end{enumerate}
+
+\solution
+Die Likelihood-Funktion ist
+\begin{equation*}
+    L(\theta,x) = \frac{1}{\theta^n} \prod_i 1_{[0,\theta]}(x_i).
+\end{equation*}
+Für einen fixen Set von i.i.d.\ Beobachtungen $(x_1,\ldots,x_n)$ wird die
+Likelihood-Funktion von $\hat\theta(X)=X_{(n)}$ minimiert, denn
+\begin{equation*}
+    L(\hat\theta(x),x) = \max \left\{ L(\theta,x) : \theta\in\Theta \right\}
+\end{equation*}
+und für jedes kleinere $\bar\theta<\hat\theta$ ist die Likelihood-Funtion
+gleich Null, für alle größeren $\bar\theta$ entfernen wir uns von dem Maximum
+wegen der in $\theta$ fallender Funktion $\frac{1}{\theta^n}$.
+
+Der Erwartungswert von $X_{(n)}$ ist kleiner als $\theta$ denn 
+\begin{equation*}
+    E X_{(n)} = \sum_{X\in\left\{ 1,\ldots,\theta \right\}^n}^{} X_{(n)} \frac{1}{\theta^n}
+\end{equation*}
+kann abgeschätzt werden, indem $X_{(n)}$ durch $\theta$ ersetzt wird. Das liefert uns
+$\E X_{(n)} < \theta$. Wegen
+\begin{equation*}
+    p_\theta(x) = \frac{1}{\theta^n} 1_{[0,\theta]} \left( X_{(n)} \right)
+\end{equation*}
+ist $X_{(n)}$ auch suffizient. Für den Beweis der Vollständigkeit setzen wir voraus, dass 
+\begin{equation*}
+    E_{\theta} g(X_{(n)}) =0
+\end{equation*}
+für alle $\theta\in\Theta$ und ein messbares $g$ gilt.  Mit $\theta=1$ erhalten
+wir $g(1)=0$, $\theta=2$ impliziert $g(2)=0$ und so weiter. Damit folgt $g
+\equiv 0$, $P( g(X_{(n)} =0))=1$ und die Vollständigkeit von $X_{(n)}$.
+
+Ein \textsc{umvue}-Schätzer ist eine Funktion $h(X_{(n)})$ mit $E h(X_{(n)})=\theta$.
+Diese Überlegung führt uns zu
+\begin{align*}
+    E h(X_{(n)}) &= 
+    \sum_{x\in \left\{ 0,\ldots,\theta \right\}^n } h(x_{(n)}) \frac{1}{\theta^n} = \theta \\
+    E h(X_{(n)}) &= \sum_{m=1}^{\theta} h(m)(m^n - (m-1)^n) = \theta^{n+1}
+\end{align*}
+und
+\begin{equation*}
+    h(m) = \frac{m^{n+1} - (m-1)^{n+1}}{m^n - (m-1)^{n}}.
+\end{equation*}
 
 
 
@@ -1082,6 +1558,33 @@ $T_3$ ist auch suffizient für $\theta$, denn es gilt
 Daher ist $T_3$ ein \textsc{umvue}-Schätzer für $\theta$.
 
 
+\problem{Vollständigkeit.} Seien die Statistiken $T$ und $S$ mit $S=\eta(T)$ und einer messbaren 
+Abbildung $\eta$ gegeben. 
+\begin{enumerate}
+    \item Zeigen Sie: Falls $T$ vollständig ist, so ist $S$ ebenfalls vollständig.
+    \item Geben Sie ein Beispiel einer nicht vollständigen Statistik, in einem von Ihnen
+        gewählten statistischen Modell.
+    \item Zeigen Sie, dass die Umkehrung der ersten Aussage falsch ist: Aus Vollständigkeit von $S$ 
+        folgt nicht die Vollständigkeit von $T$. Konstruieren Sie ein Gegenbeispiel.
+\end{enumerate}
+
+
+\solution
+\begin{enumerate}
+
+    \item $T$ ist vollständig, d.h.\ für ein messbares $g$ gilt, $E_\theta g(T) = 0$ für alle $\theta$ impliziert 
+        $P_\theta \left( g(T)=0  \right)=1$ für alle $\theta$. Für ein $g$ ist
+        $E g(S)=0 \ \forall \theta$ genau dann wenn $E g(\eta(T))=0 \ \forall \theta$, impliziert
+        $P\left( g(\eta(T))=0 \right)=1 \ \forall \theta$. Das ist aber gleichbedeutend mit 
+        $P\left( g(S)=0 \right)=1 \ \forall \theta$. $S$ ist also vollständig. 
+
+    \item Sei $\Theta$ einelementig, $X\sim \mathcal N(0,1)$ und $T(X)=X$. Für $g=\textrm{id}$ ist zwar
+        $E_\theta g(T(X)) = E_\theta X = 0 \ \forall \theta$ aber nicht 
+        $P_\theta \left( g(T(X))=0 \right)=  P_\theta \left( X=0 \right)=1$. $T(X)$ ist also nicht vollständig. 
+
+    \item Für eine beliebige unvollständige Statistik $T$ und $\eta\equiv 0$ ist $S=\eta(T)$ vollständig. 
+
+\end{enumerate}
 
 
 
@@ -1417,6 +1920,18 @@ Damit ist $T(X)$ ein \textsc{umvue}-Schätzer für $q(\lambda)=\frac{1}{\lambda}
 
 
 
+\problem{Informationsungleichung und Normalverteilung. } Gegeben seien $X_1,\ldots,X_n$
+i.i.d.\ normalverteilte Zufallsvariablen mit $X_i\sim \mathcal N(\theta, \sigma^2)$, wobei $\theta\in\R$
+und $\sigma$ bekannt und fix ist.
+\begin{enumerate}
+    \item Zeigen Sie, dass dieses Modell Cram\'er-Rao-Regularitätsbedingungen erfüllt.
+    \item Berechnen Sie die Fischer-Information für den Parameter $\theta$.
+    \item Berechnen Sie die Cram\'er-Rao-Schranke für die Varianz des Schätzers
+        \begin{equation}
+            T(X)=\bar X = \frac{1}{n} \sum_{i=1}^{n}X_i.
+        \end{equation}
+\end{enumerate}
+
 
 
 
@@ -1583,6 +2098,106 @@ Informationsungleichung nie angenommen wird.
 %    \label{fig:fvv}
 %\end{figure}
 
+
+\problem{Log-Normal-Verteilung. MLS und UMVUE. }
+Gegeben seien i.i.d.\ Zufallsvariablen $X_1, \cdots, X_n$  mit der Dichte
+\begin{equation*}
+    g_{\mu}(x) = \frac{1}{x \sqrt{2\pi}} \exp \left( - \frac{ \left( \log x - \mu \right)^2 }{2} \right) \ 1_{\R_{>0}}(x)
+\end{equation*}
+und dem unbekannten Parameter $\mu \in \R$. 
+\begin{enumerate}
+    \item Finden Sie einen Maximum-Likelihood-Schätzer (MLS) für den Parameter $\mu$. 
+%    \item Zeigen Sie, dass die gemeinsame Dichte des Zufallsvektors $\left(
+%        X_1, \cdots, X_n \right)$ einer einparametrigen exponentiellen Familie
+%        angehört. 
+    \item Zeigen Sie, dass der von Ihnen gefundene MLS erwartungstreu ist.
+        Dabei können Sie die Darstellung als natürliche exponentielle
+        Familie benutzen oder direkt den Erwartungswert von dem MLS berechnen. 
+    \item Finden Sie einen UMVUE Schätzer für $\mu$. 
+\end{enumerate}
+
+\solution Einer Standardprozedur folgend berechnen wir den MLS. 
+\begin{align*}
+    L(x_1, \cdots, x_n) &= \prod x_i^{-1} \, \sqrt{2 \pi}^{-n} 
+    \exp \left( - \frac{1}{2} \sum_{i=1}^{n} \left( \log x_i - \mu \right)^2 \right) \\
+    l(x_1, \cdots, x_n) &= - \sum_{i}^{} x_i - \frac{n}{2} \log 2\pi \ -\frac{1}{2} \sum_{i}^{} \left( \log x_i -\mu \right)^2 \\
+    \frac{\partial}{\partial \mu} l &= \sum_{i}^{} \left( \log x_i -\mu \right) = \sum_{i}^{} \log x_i - n\mu. \\
+    \frac{\partial^2}{\partial \mu^2} l &= -n <0 \\
+    \hat \mu &= \frac{1}{n} \sum_{i}^{} \log x_i.
+\end{align*}
+Die Darstellung als natürliche exponentielle Familie ist
+\begin{equation*}
+    g(x) = \exp \left( \mu \log x - \frac{\mu^2}{2} - \log x - \frac{\left( \log x \right)^2}{2} - \log \sqrt{2\pi} \right).
+\end{equation*}
+Daraus erhalten wir
+\begin{align*}
+    g(x_1, \cdots, x_n) &= \exp \left( c(\mu) T(X) + d_0 (\mu) + S(x) \right) 1_{\R_{>0}}(x) \\
+    c(\mu) &= \mu \\
+    T(X) &= \sum_{i}^{} \log x_i \\
+    d_0(\mu) &= - \frac{n \mu^2}{2}.
+\end{align*}
+Mit Hilfe der Formel 
+\begin{equation*}
+    \E\ T(X) = - d_0'(\mu) = n \mu. 
+\end{equation*}
+können wir nun den Erwartungswert der natürlichen suffizienten Statistik $T(X)$
+berechnen.  Damit ist der MLS $\hat \mu = \frac{1}{n} \sum_{i}^{} \log x_i$ ein
+erwartungstreuer Schätzer. Nachdem $c(\R)$ offenes Rechteck enthält, ist die
+Statistik $T(X)$ vollständig und suffizient, und nach dem Satz von
+Lehmann-Scheff\'e ist $\hat \mu$ ein UMVUE Schätzer. 
+
+
+
+\problem{UMVUE-Schätzer für Poisson-Verteilung. } Seien $X_1, \ldots, X_n$ i.i.d.\ 
+und Poissonverteilt mit der Wahrscheinlichkeitsfunktion
+\begin{equation*}
+    p(k) = \bP \left( X_i = k \right) = e^{-\lambda} \frac{\lambda^k}{ k!} \quad k \in \left\{ 0,1, \ldots \right\}
+\end{equation*}
+und $\lambda>0$.
+\begin{enumerate}
+    \item Zeigen Sie, dass die Statistik $T\left( X \right) = \sum_{i=1}^{n}
+        X_i$ vollständig und suffizient für dieses Testproblem ist.
+    \item Zeigen Sie, dass der Schätzer $S\left( X \right) = \frac{1}{n}
+        \sum_{i=1}^{n} X_i$ von $\lambda$ unverzerrt ist.
+    \item Zeigen Sie, dass $S(X)$ ein eindeutiger \textsc{umvue}-Schätzer für
+        $\lambda$ ist.
+\end{enumerate} 
+
+\solution
+\begin{enumerate}
+    \item Die Wahrscheinlichkeitsfunktionen von $\left( X_1, \ldots, X_n \right)$ 
+        bilden eine exponentielle Familie, denn
+        \begin{align*}
+            \prod_{i=1}^{n} p(x_i) &= \prod_{i=1}^n e^{-\lambda } \frac{ \lambda^{ x_i }}{ x_i!} \\
+            &= \exp \left( -\lambda n + \log \lambda \cdot \sum_{i=1}^{ n} x_i 
+            - \sum_{i=1}^{n} \log x_i! \right).
+        \end{align*}
+        Somit ist $T(X)= \sum_{i}^{} X_i$ eine suffiziente Statistik. $T(X)$
+        ist auch vollständig, denn $\left\{ \log \lambda \ | \ \lambda>0
+        \right\}$ enthält ein offenes Rechteck. Die Vollständigkeit kann man
+        hier auch leicht aus der Definition herleiten. 
+    \item Wir berechnen
+        \begin{align*}
+            \E X_i &= \sum_{k\geq 0}^{} k e^{-\lambda} \frac{\lambda^k}{ k!} = \lambda.
+        \end{align*}
+        Daraus ergibt sich
+        \begin{align*}
+            \E S(X) &= \frac{1}{n} \sum_{i}^{} \E X_i = \lambda.
+        \end{align*}
+        $S(X)$ ist also ein unverzerrter Schätzer von $\lambda$. 
+    \item Nachdem $S(X) = \frac{1}{n} T(X)$ gilt, ist 
+        \begin{equation*}
+            \E \left( S(X) | T(X) \right) = S(X)
+        \end{equation*}
+        und somit ist $S(X)$ nach dem Satz von Lehmann-Scheffe ein
+        \textsc{umvue}-Schätzer für $\lambda$. Die Eindeutigkeit folgt aus
+        $\Var_\lambda T(X) < \infty$ für alle $\lambda >0$. Das ist der Fall
+        denn
+        \begin{align*}
+            \E X^2 &= \lambda\left( \lambda +1 \right) \\
+            \Var X &= \lambda.
+        \end{align*}
+\end{enumerate}
 
 
 
@@ -1958,9 +2573,68 @@ Es gilt aber
 \end{equation*}
 
 
+\problem{Gleichverteilung. Konfidenzintervall.} Seien $X_1, \cdots, X_n$
+i.i.d.\ und stetig gleichverteilt auf dem Intervall $\left[ 0,\theta \right]$
+mit $\theta>0$. D.h.\  die Dichte von $X_1\sim U(0,\theta)$ ist $p_\theta(x) = \theta^{-1}
+1_{\left[ 0,\theta \right]}(x)$.
+\begin{enumerate}
+    \item Zeigen Sie, dass die Zufallsvariable $\frac{X_{\left( n \right)}}{\theta}$ ein
+        Pivot ist. Dabei ist $X_{\left( n \right)} = \max \left\{ X_1, \cdots, X_n \right\}$. 
+    \item Zeigen Sie, dass 
+        \begin{equation*}
+            \left[ \frac{X_{\left( n \right)}}{ \left( 1- \frac{\alpha}{2} \right)^{1/n}},
+            \frac{X_{\left( n \right)}}{ \left( \frac{\alpha}{2} \right)^{1/n}}
+            \right]
+        \end{equation*}
+        ein $(1-\alpha)$-Konfidenzintervall für $\theta$ ist. 
+\end{enumerate}
+
+\solution Wir berechnen zunächst die Verteilung von $X_{(n)}$. Für $0 \leq \eta \leq \theta$
+gilt
+\begin{align*}
+    P\left( X_{(n)} < \eta \right) &= P \left( X_1 < \eta \wedge \cdots \wedge X_n < \eta \right) \\
+    &= \prod_{i=1}^{n} P \left( X_i < \eta \right) \\
+    &= \left( \frac{\eta}{\theta} \right)^n.
+\end{align*}
+Es gilt also $P \left( X_{(n)}/\theta < \eta \right) = \eta^{n}$. Damit erhalten wir 
+\begin{equation*}
+    P \left( \theta \in 
+        \left[ \frac{X_{\left( n \right)}}{ \left( 1- \frac{\alpha}{2} \right)^{1/n}},
+            \frac{X_{\left( n \right)}}{ \left( \frac{\alpha}{2} \right)^{1/n}}
+        \right]
+    \right) = 1 - \alpha.
+\end{equation*}
 
 
+\problem{Konfidenzintervall. Mittelwert der Normalverteilung. }
+Seien $X_1,\ldots,X_n$ i.i.d.\ normalverteilt mit $X_i \sim \mathcal N \left(\theta, 1 \right)$,
+wobei $\theta\in\R$ ein unbekannter Parameter ist.
+\begin{enumerate}
+    \item Zeigen Sie, dass die Verteilung von 
+        \begin{equation*}
+            \sqrt{n}\left( \bar X -\theta \right)
+        \end{equation*}
+        unabhängig von dem Parameter $\theta$ ist. Dabei ist $\bar X = \frac{1}{n} \sum_{i=1}^{n} X_i$.
+    \item Berechnen Sie ein $\left( 1-\alpha \right)$-Konfidenzintervall für $\theta$.
+\end{enumerate}
 
+\solution
+\begin{enumerate}
+
+    \item Die Verteilung von $\sqrt{n} \left( \bar X -\theta \right)$ ist
+        \begin{eqnarray*}
+            \sum_{i=1}^{n} X_i &\sim& \mathcal N \left( n\theta, n \right) \\
+            \frac{1}{n} \sum_{i=1}^{n} X_i &\sim& \mathcal N \left( \theta, \frac{ n}{n^2} \right) \\
+            \sqrt{n}\left( \bar X -\theta \right) & \sim & \mathcal N \left( 0, 1 \right),
+        \end{eqnarray*}
+        also unabhängig von $\theta$.
+    \item Konfidenzintervall
+        \begin{eqnarray*}
+            P_\theta \left( z_{\frac{\alpha}{2}} \leq \sqrt{n}\left( \bar X -\theta \right) \leq z_{1-\frac{\alpha}{2}}  \right) &=&  1-\alpha \\
+            P_\theta \left( \theta\in \left[ \bar X - \frac{z_{1-\frac{\alpha}{2}}}{\sqrt{n}}, \bar X - \frac{z_{\frac{\alpha}{2}}}{\sqrt{n}} \right] \right) &=&  1-\alpha.
+        \end{eqnarray*}
+
+\end{enumerate}
 
 
 \section{Testtheorie}
@@ -2614,6 +3288,45 @@ entwickelt werden.
 
 
 
+\problem{Gamma-Verteilung. Konfidenzintervall und Test.}
+Seien $X_1, \ldots, X_n$ i.i.d.\ Gamma-verteilt mit der Dichte
+\begin{equation*}
+    p_{a,\lambda} (x) = \frac{\lambda^a}{ \Gamma(a)} x^{a-1} e^{-\lambda x} 1_{ \R_{>0}  } (x)
+\end{equation*} 
+und Parametern $a>0$ und $\lambda>0$. Der Parameter $a$ wird als bekannt und fix vorausgesetzt. 
+Des weiteren gelten für $c>0$ die Beziehungen
+\begin{eqnarray*}
+    X_i + X_j &\sim& \textrm{Gamma}_{a+a, \lambda}, \\
+    c X_i & \sim & \textrm{Gamma}_{a, \frac{\lambda}{c}}.
+\end{eqnarray*}
+\begin{enumerate}
+    \item Zeigen Sie, dass \begin{eqnarray*}
+            \left[  \frac{ \textrm{Gamma}^{-1}_{na, 1} ( \frac{\alpha}{2})  }{X_1 + \ldots + X_n}, 
+            \frac{ \textrm{Gamma}^{-1}_{na, 1} ( 1- \frac{\alpha}{2})  }{X_1+ \ldots + X_n}  \right]
+        \end{eqnarray*} ein $(1-\alpha)$-Konfidenzintervall für $\lambda$ ist.
+        Dabei bezeichnet $\textrm{Gamma}^{-1}_{a,\lambda}$ die Inverse der Verteilungsfunktion 
+        $\textrm{Gamma}_{a,\lambda}$.
+    \item Konstruieren Sie aus dem obigen Konfidenzintervall einen Test zum Signifikanzniveau
+        $\alpha$ für $H_0: \lambda=\lambda_0$ gegen $H_1: \lambda\neq \lambda_0$.
+\end{enumerate} 
+
+\solution
+\begin{enumerate}
+    \item Die Verteilung von $\lambda (X_1 + \ldots + X_n)$ ist $\textrm{Gamma}_{na, 1}$.
+    \item Mit der Bezeichnung 
+        \begin{equation*}
+            \left[ L(X), U(X) \right] = 
+            \left[  \frac{ \textrm{Gamma}^{-1}_{na, 1} ( \frac{\alpha}{2})  }{X_1 + \ldots + X_n}, 
+            \frac{ \textrm{Gamma}^{-1}_{na, 1} ( 1- \frac{\alpha}{2})  }{X_1+ \ldots + X_n}  \right]
+        \end{equation*}
+        erhalten wir die Testfunktion
+        \begin{equation*}
+            \delta(X) = 1_{ \left\{ \lambda \notin \left[ L(X), U(X) \right] \right\}   }
+        \end{equation*} die das Gewünschte erfüllt. 
+\end{enumerate}
+
+
+
 
 \section{Lineare Regression}
 
@@ -3025,839 +3738,6 @@ und
  \left({ T_0}\,{ T_2}-{ T_1}^2\right)\,{ T_4}-{ T_0}\,
  { T_3}^2+2\,{ T_1}\,{ T_2}\,{ T_3}-{ T_2}^3}.
 \end{equation*}
-
-
-
-\section{Prüfungsaufgaben}
-
-\problem{Invers-Gauß-Verteilung als exponentielle Familie.}
-Seien $X_1,\ldots,X_n$ i.i.d.\ Invers-Gauß-verteilte Zufallsvariablen gegeben. D.h.\ die Dichte
-von $X_i$ ist 
-\begin{equation*}
-    \sqrt{\frac{\lambda}{2\pi}} x^{-\frac{3}{2}} \exp\left( \frac{-\lambda(x-\mu)^2}{2\mu^2 x} \right) 1_{\R_{>0}} (x)
-\end{equation*}
-wobei $\mu>0$, $\lambda>0$ und $\mu$ bekannt und fix sei.
-\begin{enumerate}
-    \item Zeigen Sie, dass die von dem Zufallsvektor $( X_1,\ldots,X_n)$
-        erzeugte Familie von Verteilungen $\left\{ P_\lambda : \lambda>0
-        \right\}$ eine exponentielle Familie ist, indem Sie die gemeinsame
-        Dichte des Vektors $(X_1,\ldots,X_n)$ in die Form
-        \begin{equation*}
-            p_\lambda(x) = \exp\left( c(\lambda) T(x) + d(\lambda) + S(x) \right)1_A (x)
-        \end{equation*}
-        bringen. Geben Sie dabei explizit $c,T,d,S$ und $A$ an.
-    \item Zeigen Sie mit Hilfe des Faktorisierungssatzes, dass die Statistik
-        $T(X)$ suffizient ist.
-\end{enumerate}
-
-\solution Die gemeinsame Dichte von $X_1, \cdots, X_n$ 
-lässt sich in folgender Form darstellen.
-\begin{equation*}
-    \exp\left(  -\frac{\lambda}{2}\left( \frac{x^2}{\mu^2} + \frac{1}{x} \right)    
-    + \log x^{-\frac{3}{2}} + \log \sqrt{\frac{\lambda}{2\pi}} + 
-    \lambda\mu  \right)1_{\R_{>0}}(x).
-\end{equation*}
-
-
-
-\problem{Pareto-Verteilung. Suffizienz und MLE.} Seien $X_1,\ldots,X_n$ i.i.d.\ und
-Paretoverteilt mit der Dichte
-\begin{equation*}
-    p_\theta(x)= \frac{\theta a^\theta}{x^{\theta+1}}1_{\R_{>a}}(x),
-\end{equation*}
-wobei $\theta>0$ und $a$ fix und bekannt sei.
-\begin{enumerate}
-    \item Finden Sie eine reellwertige suffiziente Statistik $T(X_1,\ldots,X_n)$ für $\theta$.
-    \item Finden Sie den Maximum-Likelihood-Schätzer $\hat \theta(X_1,\ldots,X_n)$ für $\theta$.
-    \item Zeigen Sie, dass der von Ihnen gefundene Schätzer $\hat \theta$ suffizient ist.
-\end{enumerate}
-
-\solution
-Suffiziente Statistik $T= \prod_i \frac{1}{x_i}$ erhalten wir aus 
-\begin{equation}
-    p_\theta(X_1,\ldots,X_n) = 
-    \theta^n a^{n\theta} \left( \prod_i \frac{1}{x_i} \right)^{\theta-1} \prod_i 1_{\R_{>a}}(x_i)
-\end{equation}
-mit Hilfe des Faktorisierungstheorems.
-
-Die Berechnung folgt der üblichen Prozedur des Minimierens der Log-Likelihood-Funktion.
-\begin{eqnarray}
-    \frac{\partial}{\partial \theta} l(x,a,\theta) &=& 
-    \frac{n}{\theta} + n \log a -\sum_{j}^{} \log x_i \\
-    \frac{\partial^2}{\partial \theta^2} l(x,a,\theta) &=& - \frac{n}{\theta^2} < 0 \\
-    \hat\theta &=& \frac{n}{ \sum_{i}^{} \left( \log x_i - \log a \right)} 
-    = \frac{n}{ \log \left( \prod_i \frac{x_i}{a}  \right) }
-\end{eqnarray}
-
-Die suffiziente Statistik $T=\eta (\hat\theta)$ ist eine Funktion des MLE, wobei 
-\begin{equation}
-    \eta(x) = \frac{1}{ \exp\left( \frac{n}{x} \right) a^n}.
-\end{equation}
-Daher ist der MLE $\hat\theta$ auch suffizient.
-
-
-
-\problem{Diskrete Gleichverteilung. MLE und UMVUE.} Seien $X_1,\ldots,X_n$ i.i.d.\ 
-diskret Gleichverteilt auf der Menge $\left\{ 1,2,\ldots,\theta \right\}$. 
-\begin{enumerate}
-    \item Zeigen Sie, dass der Maximum-Likelihood-Schätzer für $\theta$ gerade
-        $\hat \theta(X_1,\ldots,X_n) = X_{(n)} = \max \left\{ X_1,\ldots,X_n
-        \right\}$ ist.  
-    \item Zeigen Sie, dass $\hat \theta = X_{(n)}$ vollständig und suffizient
-        jedoch verzerrt ist.
-%    \item Bestimmen Sie mit Momentenmethode einen Schätzer der unverzerrt ist.
-    \item Konstruieren Sie einen \textsc{umvue}-Schätzer der folgenden Gestalt
-        \begin{equation*}
-            \frac{ X_{(n)}^{n+1} - ( X_{(n)} - 1)^{n+1}  }{ X_{(n)}^n - (X_{(n)} -1)^n }.
-        \end{equation*}
-\end{enumerate}
-
-\solution
-Die Likelihood-Funktion ist
-\begin{equation*}
-    L(\theta,x) = \frac{1}{\theta^n} \prod_i 1_{[0,\theta]}(x_i).
-\end{equation*}
-Für einen fixen Set von i.i.d.\ Beobachtungen $(x_1,\ldots,x_n)$ wird die
-Likelihood-Funktion von $\hat\theta(X)=X_{(n)}$ minimiert, denn
-\begin{equation*}
-    L(\hat\theta(x),x) = \max \left\{ L(\theta,x) : \theta\in\Theta \right\}
-\end{equation*}
-und für jedes kleinere $\bar\theta<\hat\theta$ ist die Likelihood-Funtion
-gleich Null, für alle größeren $\bar\theta$ entfernen wir uns von dem Maximum
-wegen der in $\theta$ fallender Funktion $\frac{1}{\theta^n}$.
-
-Der Erwartungswert von $X_{(n)}$ ist kleiner als $\theta$ denn 
-\begin{equation*}
-    E X_{(n)} = \sum_{X\in\left\{ 1,\ldots,\theta \right\}^n}^{} X_{(n)} \frac{1}{\theta^n}
-\end{equation*}
-kann abgeschätzt werden, indem $X_{(n)}$ durch $\theta$ ersetzt wird. Das liefert uns
-$\E X_{(n)} < \theta$. Wegen
-\begin{equation*}
-    p_\theta(x) = \frac{1}{\theta^n} 1_{[0,\theta]} \left( X_{(n)} \right)
-\end{equation*}
-ist $X_{(n)}$ auch suffizient. Für den Beweis der Vollständigkeit setzen wir voraus, dass 
-\begin{equation*}
-    E_{\theta} g(X_{(n)}) =0
-\end{equation*}
-für alle $\theta\in\Theta$ und ein messbares $g$ gilt.  Mit $\theta=1$ erhalten
-wir $g(1)=0$, $\theta=2$ impliziert $g(2)=0$ und so weiter. Damit folgt $g
-\equiv 0$, $P( g(X_{(n)} =0))=1$ und die Vollständigkeit von $X_{(n)}$.
-
-Ein \textsc{umvue}-Schätzer ist eine Funktion $h(X_{(n)})$ mit $E h(X_{(n)})=\theta$.
-Diese Überlegung führt uns zu
-\begin{align*}
-    E h(X_{(n)}) &= 
-    \sum_{x\in \left\{ 0,\ldots,\theta \right\}^n } h(x_{(n)}) \frac{1}{\theta^n} = \theta \\
-    E h(X_{(n)}) &= \sum_{m=1}^{\theta} h(m)(m^n - (m-1)^n) = \theta^{n+1}
-\end{align*}
-und
-\begin{equation*}
-    h(m) = \frac{m^{n+1} - (m-1)^{n+1}}{m^n - (m-1)^{n}}.
-\end{equation*}
-
-
-
-\problem{Invers-Gamma-Verteilung als exponentielle Familie.}
-Seien $X_1,\ldots,X_n$ i.i.d.\ Invers-Gamma-verteilte Zufallsvariablen gegeben.
-D.h.\ die Dichte von $X_i$ ist 
-\begin{equation*}
-    f_{a}(x) = \frac{\lambda^a}{\Gamma(a)}x^{-a-1} e^{-\frac{\lambda}{x}}1_{\R_{\geq 0}}(x),
-\end{equation*}
-wobei $a>0$ unbekannt und $\lambda>0$ bekannt und fix sei.
-\begin{enumerate}
-    \item Zeigen Sie, dass die von dem Zufallsvektor $( X_1,\ldots,X_n)$
-        erzeugte Familie von Verteilungen $\left\{ P_a : a>0 \right\}$ eine
-        exponentielle Familie ist, indem Sie die gemeinsame Dichte des Vektors
-        $(X_1,\ldots,X_n)$ in die Form
-        \begin{equation*}
-            p_a(x) = \exp\left( c(a) T(x) + d(a) + S(x) \right)1_A (x)
-        \end{equation*}
-        bringen. Geben Sie dabei explizit $c,T,d,S$ und $A$ an.
-    \item Zeigen Sie mit Hilfe des Faktorisierungssatzes, dass die Statistik
-        $T(X)$ suffizient ist.
-\end{enumerate}
-
-\solution
-\begin{enumerate}
-    \item Die gemeinsame Dichte von $\left( X_1,\ldots,X_n \right)$ ist 
-        \begin{equation*}
-            p_a(x_1,\ldots,x_n) = 
-            \prod_i \frac{\lambda^a}{\Gamma(a)}x_i^{-a-1} e^{-\frac{\lambda}{x_i}}1_{\R_{\geq 0}}(x_i).
-        \end{equation*}
-        Die Darstellung als exponentielle Familie ist
-        \begin{equation*}
-            \exp \left( \left( -a-1 \right) \sum_{i}^{} \log x_i + \log \frac{\lambda^{na}}{\Gamma(a)^n} - \lambda \sum_{i}^{} \frac{1}{x_i}  \right) 1_{\R_{\geq 0}^n} (x_1,\ldots,x_n).
-        \end{equation*}
-        Dabei ist 
-        \begin{eqnarray*}
-            c(a)&=&  -a-1 \\
-            T(X)&=& \sum_{i}^{} \log X_i \\
-            d(a)&=& \log \frac{\lambda^{na}}{\Gamma(a)^n} \\
-            S(x)&=&  -\lambda \sum_{i}^{} \frac{1}{x_i}\\
-            A   &=& \R_{\geq 0}^n.
-        \end{eqnarray*}
-
-    \item $T(X)$ ist suffizient, denn die Dichte lässt sich in der Form
-        $g(T(x),a)h(x)$ darstellen. Ebenso ist $T(X)$ in jeder exponentiellen
-        Familie eine suffiziente Statistik. 
-\end{enumerate}
-
-
-
-\problem{Beta-Verteilung. MLE.} Seien $X_1,\ldots,X_n$ i.i.d.\ und Beta$(\theta+1, 1)$-verteilt
-mit dem Parameter $\theta\in\Theta= \left\{ \eta\in\R : \eta>-1 \right\}$. Die Dichte von $X_i$ ist also
-\begin{equation*}
-    p_\theta(x) = (\theta+1)x^\theta 1_{ [0,1] }(x).
-\end{equation*}
-\begin{enumerate}
-
-    \item Bestimmen Sie den Maximum-Likelihood-Schätzer für $\theta$ basierend
-        auf der Beobachtung von $\left( X_1,\ldots,X_n \right)$. Zeigen Sie
-        dabei, dass der von Ihnen gefundene Schätzer $\hat \theta$ das Maximum
-        der Likelihood-Funktion ist. 
-
-    \item Kann der Maximum-Likelihood-Schätzwert $\hat \theta\left( x_1,\ldots,x_n \right)$
-        auf dem Rand des Parameterraumes liegen? 
-\end{enumerate}
-
-\solution
-\begin{enumerate}
-
-    \item Die Likelihoodfunktion für eine Beobachtung $(X_1,\ldots,X_n)$ ist 
-        \begin{eqnarray}
-            L(\theta,X) &=& \left( \theta+1 \right)^n \left( \prod_i X_i \right)^{\theta}  \\
-            l(\theta,X) &=& n \log \left( \theta+1 \right)  + \theta \sum_{i}^{} \log X_i \\
-            \frac{\partial}{\partial \theta} l(\theta,X)&=& \frac{n}{\theta+1} + \sum_{i}^{} \log X_i \\
-            \frac{\partial^2}{\partial \theta^2} l(\theta,X) &=& 
-            - \frac{n}{\left( \theta+1 \right)^2} < 0.
-        \end{eqnarray}
-        $\frac{\partial}{\partial \theta} l(\theta,X)=0$ liefert
-        \begin{equation}
-            \hat\theta = -1 - \frac{n}{\sum_{i}^{} \log X_i}.
-        \end{equation}
-        $\hat\theta$ ist eindeutiger MLE.
-
-    \item Nein, denn $\Theta$ offen ist.
-
-\end{enumerate}
-
-
-
-
-
-
-
-\problem{Konfidenzintervall. Mittelwert der Normalverteilung. }
-Seien $X_1,\ldots,X_n$ i.i.d.\ normalverteilt mit $X_i \sim \mathcal N \left(\theta, 1 \right)$,
-wobei $\theta\in\R$ ein unbekannter Parameter ist.
-\begin{enumerate}
-    \item Zeigen Sie, dass die Verteilung von 
-        \begin{equation*}
-            \sqrt{n}\left( \bar X -\theta \right)
-        \end{equation*}
-        unabhängig von dem Parameter $\theta$ ist. Dabei ist $\bar X = \frac{1}{n} \sum_{i=1}^{n} X_i$.
-    \item Berechnen Sie ein $\left( 1-\alpha \right)$-Konfidenzintervall für $\theta$.
-\end{enumerate}
-
-
-\solution
-\begin{enumerate}
-
-    \item Die Verteilung von $\sqrt{n} \left( \bar X -\theta \right)$ ist
-        \begin{eqnarray*}
-            \sum_{i=1}^{n} X_i &\sim& \mathcal N \left( n\theta, n \right) \\
-            \frac{1}{n} \sum_{i=1}^{n} X_i &\sim& \mathcal N \left( \theta, \frac{ n}{n^2} \right) \\
-            \sqrt{n}\left( \bar X -\theta \right) & \sim & \mathcal N \left( 0, 1 \right),
-        \end{eqnarray*}
-        also unabhängig von $\theta$.
-    \item Konfidenzintervall
-        \begin{eqnarray*}
-            P_\theta \left( z_{\frac{\alpha}{2}} \leq \sqrt{n}\left( \bar X -\theta \right) \leq z_{1-\frac{\alpha}{2}}  \right) &=&  1-\alpha \\
-            P_\theta \left( \theta\in \left[ \bar X - \frac{z_{1-\frac{\alpha}{2}}}{\sqrt{n}}, \bar X - \frac{z_{\frac{\alpha}{2}}}{\sqrt{n}} \right] \right) &=&  1-\alpha.
-        \end{eqnarray*}
-
-\end{enumerate}
-
-
-
-\problem{Gamma-Verteilung. Momentenschätzer.}
-Gegeben seien i.i.d.\ Gamma-verteilte Zufallsvariablen $X_1,\ldots,X_m$ mit der Dichte
-\begin{equation*}
-    p_{a,\lambda}(x) = \frac{\lambda^a}{\Gamma(a)}x^{a-1}e^{-\lambda x} 1_{\R_{\geq 0}}(x)
-\end{equation*}
-und Parametern $a>0$ und $\lambda>0$.
-\begin{enumerate}
-    \item Zeigen Sie für ein positives $n\in\mathbb N$
-        \begin{equation*}
-            E X_i^n = \frac{a\cdot\ldots\cdot (n+a-1)}{\lambda^n}.
-        \end{equation*}
-        Dabei können Sie die Identität 
-        $\Gamma(a+1)=a \Gamma(a)$, $a\in\R \setminus \left\{ -1,-2,\ldots \right\}$, verwenden.
-    \item Berechnen Sie einen Momentenschätzer für die Parameter $a$ und $\lambda$ basierend auf
-        der Beobachtung von $\left( X_1,\ldots,X_m \right)$. 
-\end{enumerate}
-
-\solution
-\begin{enumerate}
-
-    \item \begin{eqnarray*}
-            E X^n &=& \int_{0}^{\infty} x^n \frac{\lambda^a}{\Gamma(a)}x^{a-1}e^{-\lambda x} dx \\
-            &=& \frac{a \cdot\ldots\cdot \left( a+n-1 \right)}{\lambda^n} 
-            \int_{0}^{\infty} \frac{\lambda^{a+n}}{\Gamma(n+a)} x^{a+n-1} e^{-\lambda x} dx \\
-            &=& \frac{a\cdot \ldots \cdot \left( a+n-1 \right)}{\lambda^n} \\
-            &=& \frac{\Gamma\left( a+n \right)}{ \lambda^n \Gamma\left( a \right)}.
-        \end{eqnarray*}
-
-    \item Die Momentenschätzer für die Parameter $a$ und $\lambda$ sind
-        \begin{eqnarray*}
-            E X &=& \frac{a}{\lambda} \\
-            E X^2 &=&  \frac{a(a+1)}{\lambda^2} \\
-            E X^2 &=&  \frac{a(a+1)}{a^2} \left( E X \right)^2 \\
-            E X^2 &=& \left( 1 + \frac{1}{a} \right) \left( E X \right)^2 \\
-            a &=& \frac{ \left( E X \right)^2 }{ E X^2 - \left( E X \right)^2}  \\
-            \lambda &=&  \frac{ EX }{ E X^2 - \left( E X \right)^2} 
-        \end{eqnarray*}
-        Die Schätzer erhält man mit Substitutionen $EX \to \frac{1}{n} \sum_{i}^{} X$ und 
-        $E X^2 \to \frac{1}{n} \sum_{i}^{} X^2$.
-
-
-\end{enumerate}
-
-
-
-\problem{Vollständigkeit.} Seien die Statistiken $T$ und $S$ mit $S=\eta(T)$ und einer messbaren 
-Abbildung $\eta$ gegeben. 
-\begin{enumerate}
-    \item Zeigen Sie: Falls $T$ vollständig ist, so ist $S$ ebenfalls vollständig.
-    \item Geben Sie ein Beispiel einer nicht vollständigen Statistik, in einem von Ihnen
-        gewählten statistischen Modell.
-    \item Zeigen Sie, dass die Umkehrung der ersten Aussage falsch ist: Aus Vollständigkeit von $S$ 
-        folgt nicht die Vollständigkeit von $T$. Konstruieren Sie ein Gegenbeispiel.
-\end{enumerate}
-
-
-\solution
-\begin{enumerate}
-
-    \item $T$ ist vollständig, d.h.\ für ein messbares $g$ gilt, $E_\theta g(T) = 0$ für alle $\theta$ impliziert 
-        $P_\theta \left( g(T)=0  \right)=1$ für alle $\theta$. Für ein $g$ ist
-        $E g(S)=0 \ \forall \theta$ genau dann wenn $E g(\eta(T))=0 \ \forall \theta$, impliziert
-        $P\left( g(\eta(T))=0 \right)=1 \ \forall \theta$. Das ist aber gleichbedeutend mit 
-        $P\left( g(S)=0 \right)=1 \ \forall \theta$. $S$ ist also vollständig. 
-
-    \item Sei $\Theta$ einelementig, $X\sim \mathcal N(0,1)$ und $T(X)=X$. Für $g=\textrm{id}$ ist zwar
-        $E_\theta g(T(X)) = E_\theta X = 0 \ \forall \theta$ aber nicht 
-        $P_\theta \left( g(T(X))=0 \right)=  P_\theta \left( X=0 \right)=1$. $T(X)$ ist also nicht vollständig. 
-
-    \item Für eine beliebige unvollständige Statistik $T$ und $\eta\equiv 0$ ist $S=\eta(T)$ vollständig. 
-
-\end{enumerate}
-
-
-
-
-
-
-
-\problem{Informationsungleichung und Normalverteilung. } Gegeben seien $X_1,\ldots,X_n$
-i.i.d.\ normalverteilte Zufallsvariablen mit $X_i\sim \mathcal N(\theta, \sigma^2)$, wobei $\theta\in\R$
-und $\sigma$ bekannt und fix ist.
-\begin{enumerate}
-    \item Zeigen Sie, dass dieses Modell Cram\'er-Rao-Regularitätsbedingungen erfüllt.
-    \item Berechnen Sie die Fischer-Information für den Parameter $\theta$.
-    \item Berechnen Sie die Cram\'er-Rao-Schranke für die Varianz des Schätzers
-        \begin{equation}
-            T(X)=\bar X = \frac{1}{n} \sum_{i=1}^{n}X_i.
-        \end{equation}
-\end{enumerate}
-
-
-
-\problem{Gamma-Verteilung. MLE.} Seien $X_1, \ldots,
-X_n$ i.i.d.\ Gamma-verteilt mit der Dichte
-\begin{equation*}
-    p_{a,\lambda}(x) = \frac{\lambda^a}{\Gamma(a)}x^{a-1}e^{-\lambda x} 1_{\R_{>0}}(x)
-\end{equation*}
-und Parametern $a$ und $\lambda$. Der Parameter $a>0$ ist bekannt und fix. 
-Der Parameter $\lambda$ dagegen unbekannt und $\lambda > 0$.
-\begin{enumerate}
-    \item Berechnen Sie einen Maximum-likelihood Schätzer für $\lambda$ 
-        basierend auf der Beobachtung von dem Vektor
-        $(X_1, \ldots, X_n)$. Zeigen Sie, dass der von Ihnen gefundene Schätzer 
-        $\hat \lambda$ das Maximum der Likelihood-Funktion ist.
-    \item Ist der von Ihnen gefundene Maximum-likelihood Schätzer erwartungstreu? 
-        Begründen Sie Ihre Antwort. Dabei können Sie auf die Beziehung 
-        \begin{equation*}
-            X_1+ \ldots + X_n \sim \textrm{Gamma}(na,\lambda)
-        \end{equation*}
-        zugreifen.
-\end{enumerate}
-
-\solution
-\begin{enumerate}
-    \item Der Standardmethode folgend, berechnen wir die Log-likelihood
-        Funktion und finden ihr Maximum.
-        \begin{eqnarray}
-            L(a,\lambda; X) &=& \frac{\lambda^{an}}{\Gamma(a)^n} \prod_i x_i^{ a-1 } e^{-\lambda x_i} \\
-            l(a,\lambda; X) &=& na \log \lambda - n \log \Gamma\left( a \right) + 
-                                \left( a-1 \right) \sum_{i}^{} \log x_i - \lambda \sum_{i}^{} x_i \\
-            \frac{\partial}{\partial \lambda} l(a,\lambda; X) &=&  \frac{na}{\lambda} - \sum_{i}^{} x_i = 0  \\
-            \hat \lambda &=& \frac{na}{\sum_{i}^{} x_i} \\
-            \frac{\partial^2}{\partial \lambda^2} l(a,\lambda; X) &=& - \frac{na}{ \lambda^2} <0 \quad \forall \lambda>0.
-        \end{eqnarray}
-        MLE ist also tatsächlich das Maximum der Likelihood Funktion. 
-    \item Unter Benutzung von $X_1+ \ldots + X_n \sim \textrm{Gamma}(na,\lambda)$ berechnen wir
-        \begin{eqnarray}
-            \E \hat \lambda &=& \E \frac{na}{ \sum_{i}^{} X_i }  \\
-            &=& \int_{0}^{\infty} \frac{na}{x} \frac{\lambda^{na}}{\Gamma(na)} x^{na-1} e^{-\lambda x} dx \\
-            &=& \frac{na \lambda^{na}}{\Gamma(na)} \int_{0}^{\infty} x^{na -1-1} e^{-\lambda x}dx \\
-            &=& \frac{na \lambda^{na}}{\Gamma(na)} \frac{\Gamma(na-1)}{\lambda^{na-1}} \\
-            &=& \frac{na}{na-1} \lambda.
-        \end{eqnarray}
-        Der Schätzer $\hat\lambda$ ist somit nicht erwartungstreu.
-\end{enumerate}
-
-
-
-
-
-
-
-
-
-
-\problem{UMVUE-Schätzer für Poisson-Verteilung. } Seien $X_1, \ldots, X_n$ i.i.d.\ 
-und Poissonverteilt mit der Wahrscheinlichkeitsfunktion
-\begin{equation*}
-    p(k) = \bP \left( X_i = k \right) = e^{-\lambda} \frac{\lambda^k}{ k!} \quad k \in \left\{ 0,1, \ldots \right\}
-\end{equation*}
-und $\lambda>0$.
-\begin{enumerate}
-    \item Zeigen Sie, dass die Statistik $T\left( X \right) = \sum_{i=1}^{n}
-        X_i$ vollständig und suffizient für dieses Testproblem ist.
-    \item Zeigen Sie, dass der Schätzer $S\left( X \right) = \frac{1}{n}
-        \sum_{i=1}^{n} X_i$ von $\lambda$ unverzerrt ist.
-    \item Zeigen Sie, dass $S(X)$ ein eindeutiger \textsc{umvue}-Schätzer für
-        $\lambda$ ist.
-\end{enumerate} 
-
-\solution
-\begin{enumerate}
-    \item Die Wahrscheinlichkeitsfunktionen von $\left( X_1, \ldots, X_n \right)$ 
-        bilden eine exponentielle Familie, denn
-        \begin{align*}
-            \prod_{i=1}^{n} p(x_i) &= \prod_{i=1}^n e^{-\lambda } \frac{ \lambda^{ x_i }}{ x_i!} \\
-            &= \exp \left( -\lambda n + \log \lambda \cdot \sum_{i=1}^{ n} x_i 
-            - \sum_{i=1}^{n} \log x_i! \right).
-        \end{align*}
-        Somit ist $T(X)= \sum_{i}^{} X_i$ eine suffiziente Statistik. $T(X)$
-        ist auch vollständig, denn $\left\{ \log \lambda \ | \ \lambda>0
-        \right\}$ enthält ein offenes Rechteck. Die Vollständigkeit kann man
-        hier auch leicht aus der Definition herleiten. 
-    \item Wir berechnen
-        \begin{align*}
-            \E X_i &= \sum_{k\geq 0}^{} k e^{-\lambda} \frac{\lambda^k}{ k!} = \lambda.
-        \end{align*}
-        Daraus ergibt sich
-        \begin{align*}
-            \E S(X) &= \frac{1}{n} \sum_{i}^{} \E X_i = \lambda.
-        \end{align*}
-        $S(X)$ ist also ein unverzerrter Schätzer von $\lambda$. 
-    \item Nachdem $S(X) = \frac{1}{n} T(X)$ gilt, ist 
-        \begin{equation*}
-            \E \left( S(X) | T(X) \right) = S(X)
-        \end{equation*}
-        und somit ist $S(X)$ nach dem Satz von Lehmann-Scheffe ein
-        \textsc{umvue}-Schätzer für $\lambda$. Die Eindeutigkeit folgt aus
-        $\Var_\lambda T(X) < \infty$ für alle $\lambda >0$. Das ist der Fall
-        denn
-        \begin{align*}
-            \E X^2 &= \lambda\left( \lambda +1 \right) \\
-            \Var X &= \lambda.
-        \end{align*}
-\end{enumerate}
-
-
-
-
-
-
-
-
-
-\problem{Gamma-Verteilung. Konfidenzintervall und Test.}
-Seien $X_1, \ldots, X_n$ i.i.d.\ Gamma-verteilt mit der Dichte
-\begin{equation*}
-    p_{a,\lambda} (x) = \frac{\lambda^a}{ \Gamma(a)} x^{a-1} e^{-\lambda x} 1_{ \R_{>0}  } (x)
-\end{equation*} 
-und Parametern $a>0$ und $\lambda>0$. Der Parameter $a$ wird als bekannt und fix vorausgesetzt. 
-Des weiteren gelten für $c>0$ die Beziehungen
-\begin{eqnarray*}
-    X_i + X_j &\sim& \textrm{Gamma}_{a+a, \lambda}, \\
-    c X_i & \sim & \textrm{Gamma}_{a, \frac{\lambda}{c}}.
-\end{eqnarray*}
-\begin{enumerate}
-    \item Zeigen Sie, dass \begin{eqnarray*}
-            \left[  \frac{ \textrm{Gamma}^{-1}_{na, 1} ( \frac{\alpha}{2})  }{X_1 + \ldots + X_n}, 
-            \frac{ \textrm{Gamma}^{-1}_{na, 1} ( 1- \frac{\alpha}{2})  }{X_1+ \ldots + X_n}  \right]
-        \end{eqnarray*} ein $(1-\alpha)$-Konfidenzintervall für $\lambda$ ist.
-        Dabei bezeichnet $\textrm{Gamma}^{-1}_{a,\lambda}$ die Inverse der Verteilungsfunktion 
-        $\textrm{Gamma}_{a,\lambda}$.
-    \item Konstruieren Sie aus dem obigen Konfidenzintervall einen Test zum Signifikanzniveau
-        $\alpha$ für $H_0: \lambda=\lambda_0$ gegen $H_1: \lambda\neq \lambda_0$.
-\end{enumerate} 
-
-\solution
-\begin{enumerate}
-    \item Die Verteilung von $\lambda (X_1 + \ldots + X_n)$ ist $\textrm{Gamma}_{na, 1}$.
-    \item Mit der Bezeichnung 
-        \begin{equation*}
-            \left[ L(X), U(X) \right] = 
-            \left[  \frac{ \textrm{Gamma}^{-1}_{na, 1} ( \frac{\alpha}{2})  }{X_1 + \ldots + X_n}, 
-            \frac{ \textrm{Gamma}^{-1}_{na, 1} ( 1- \frac{\alpha}{2})  }{X_1+ \ldots + X_n}  \right]
-        \end{equation*}
-        erhalten wir die Testfunktion
-        \begin{equation*}
-            \delta(X) = 1_{ \left\{ \lambda \notin \left[ L(X), U(X) \right] \right\}   }
-        \end{equation*} die das Gewünschte erfüllt. 
-\end{enumerate}
-
-
-
-
-
-
-
-
-
-
-
-
-\problem{Beta-Verteilung. Momentenschätzer.} Gegeben seien $X_1, \ldots, X_n$ i.i.d. Beta-verteilte
-Zufallsvariablen mit der Dichte
-\begin{equation*}
-    p_{a,b}(x) = \frac{1}{B(a,b)} x^{a-1} (1-x)^{b-1} 1_{ \left[ 0,1 \right]  } (x)
-\end{equation*}
-und Parametern $a>0$ und $b>0$. Dabei ist $B(a,b)$ die Betafunktion charakterisiert durch
-\begin{equation*}
-    B(a,b) = \frac{\Gamma(a)\Gamma(b)}{\Gamma(a+b)}.
-\end{equation*}
-\begin{enumerate}
-    \item Zeigen Sie, dass das $k$-te Moment der Beta-Verteilung die Gleichung
-        \begin{equation*}
-            \E X^{k} = \frac{a+k-1}{a+b+k-1} \E X^{k-1}
-        \end{equation*}
-        für $k\in \mathbb N$ und $k\geq 1$ erfüllt. 
-    \item Berechnen Sie den Momentenschätzer für die Parameter $a$ und $b$ basierend auf dem ersten und zweiten Moment.
-\end{enumerate}
-
-\solution
-\begin{enumerate}
-    \item Durch direktes Berechnen des $k$-ten Moments erhalten wir 
-        \begin{align*}
-            \E X^k &= \int_{0}^{1} x^k \frac{1}{B(a,b)} x^{a-1}(1-x)^{b-1} dx \\
-            &= \frac{B(a+k,b)}{B(a,b)} \int_{0}^{1} \frac{1}{B(a+k,b)} x^{a+k-1} (1-x)^{b-1} dx \\
-            &= \frac{B(a+k,b)}{b(a,b)}.
-        \end{align*}
-        Und daraus
-        \begin{align*}
-            \E X^k &= \frac{B(a+k,b)}{B(a,b)} \\
-            &= \frac{\Gamma(a+k)\Gamma(b)}{\Gamma(a+b+k)} \frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)} \\
-            &= \frac{ \Gamma(a+k) \Gamma(a+b) }{\Gamma(a+b+k) \Gamma(a)} \\
-            &= \frac{a+k-1}{a+b+k-1} \E X^{k-1}.
-        \end{align*}
-        Es gilt auch
-        \begin{equation*}
-            \E X^k = \frac{ a \cdot \ldots \cdot (a+k-1) }{ (a+b)\cdot \ldots \cdot (a+b+k-1)}.
-        \end{equation*}
-    \item Die Substitutionen $E X = \hat m_1 = \frac{1}{n} \sum_{i=1}^{n} X_i$ und 
-        $E X^2 = \hat m_2 = \frac{1}{n} \sum_{i=1}^{n} X_i^2$ führen zu 
-        \begin{eqnarray*}
-            \hat m_1 &=&  \frac{a}{a+b} \\
-            \hat m_2 &=&  \frac{ a(a+1) }{ (a+b)(a+b+1) }.
-        \end{eqnarray*}
-        Die Auflösung nach $a$ und $b$ liefert 
-        \begin{eqnarray*}
-            \hat a &=& \frac{ \hat m_1^2 - \hat m_2^2 }{ \hat m_2 - \hat m_1^2  } \\
-            \hat b &=& \frac{a (1-\hat m_1)}{\hat m_1} = \frac{ (\hat m_1^2 - \hat m_2^2)(1-\hat m_1) }{(\hat m_2 - \hat m_1^2)\hat m_1}.
-        \end{eqnarray*}
-\end{enumerate}
-
-
-
-
-
-
-
-
-
-\problem{Turmeigenschaft der bedingten Erwartung.} Sei ein
-Wahrscheinlichkeitsraum $\left( \Omega, P, \mathcal A \right)$, eine
-integrierbare Zufallsvariable $X$ und $\mathcal G, \mathcal H$
-sub-$\sigma$-Algebren von $\mathcal A$ gegeben. Es gilt $\mathcal H \subset
-\mathcal G \subset \mathcal A$. $Y$ ist bedingte Erwartung von $X$ bezüglich $\cA$, notiert
-als $Y = \E \left[ X | \cA \right]$, genau dann wenn $\E 1_A Y = \E 1_A X$ für alle $A\in\cA$ gilt.
-\begin{enumerate}
-    \item Zeigen Sie $\E \left[  \E \left[ X | \mathcal H \right] | \mathcal G \right] = \E \left[ X | \mathcal H \right]$ $P$-fast sicher.
-    \item Zeigen Sie $\E \left[  \E \left[ X | \mathcal G \right] | \mathcal H \right] = \E \left[ X | \mathcal H \right]$ $P$-fast sicher.
-\end{enumerate}
-
-\solution Wir zeigen zunächst 
-$\E\left[ \E\left[ X | \mathcal H \right] | \mathcal G \right]=\E \left[ X | \mathcal H \right]$.
-Nach Definition des bedingten Erwartungswertes ist $\E\left[ X| \mathcal H \right]$ 
-$\mathcal H$-messbar und daher $\mathcal G$-messbar. So bekommen wir 
-\begin{equation}
-	\E\left[ \E\left[ X | \mathcal H \right] | \mathcal G \right] =
-	\E\left[ X| \mathcal H \right] \E\left[ 1|\mathcal G \right] = 
-	\E \left[ X | \mathcal H \right ].
-\end{equation}
-Nun kommen wir zu 
-$\E\left[ \E\left[ X | \mathcal G \right] | \mathcal H \right]=\E \left[ X | \mathcal H \right]$.
-Dies gilt genau dann wenn 
-\begin{equation}
-	\E\left\{ X 1_A \right\} 
-	= \E\left\{ \E\left[ \E\left[ X|\mathcal G \right]|\mathcal H \right] 1_A \right\}  
-	\quad \forall A\in\mathcal H.
-\end{equation}
-Sei $Y=\E\left[ X|\mathcal G \right]$ eine $\mathcal G$-messbare Zufallsvariable und
-$A\in\mathcal H$. Die Indikatorfunktion $1_A$ ist $\mathcal H$-messbar und daher
-$\mathcal G$-messbar. Wir berechnen
-\begin{eqnarray}
-	\E\left\{ \E\left[ \E\left[ X|\mathcal G \right]|\mathcal H \right] 1_A \right\} &=& 
-	\E\left\{ \E\left[ Y|\mathcal H \right] 1_A \right\} \\
-	&=& \E\left\{ \E\left[ Y 1_A| \mathcal H \right] \right\} \\
-	&=& \E\left\{ Y 1_A \right\} \\
-	&=& \E\left\{ \E\left[ X|\mathcal G \right] 1_A \right\} \\
-	&=& \E\left\{ \E\left[ X 1_A| \mathcal G \right] \right\} = \E\left\{ X 1_A \right\}. 
-\end{eqnarray}
-Daher ist nach Definition des bedingten Erwartungswertes
-\begin{equation}
-	\E\left[ \E\left[ X | \mathcal G \right] | \mathcal H \right]=\E \left[ X | \mathcal H \right].
-\end{equation}
-
-
-
-\problem{L\'evy-Verteilung. Dichte und MLS.} Die Dichte der L\'evy-Verteilung mit den
-Parametern $(\mu,\sigma)\in \Theta = \R \times \R_{>0}$ ist
-\begin{equation*}
-    p_{(\mu, \sigma)}(x) = \sqrt{ \frac{\sigma}{2\pi}} (x-\mu)^{-\frac{3}{2}} 
-    \exp\left( -\frac{\sigma}{2(x-\mu)} \right) 1_{\R_{\geq \mu}} (x).
-\end{equation*}
-\begin{enumerate}
-    \item Sei $X\sim \cN (0, \frac{1}{\sigma})$ normalverteilt mit $\sigma>0$.
-        Zeigen Sie, dass die Zufallsvariable $\frac{1}{X^2}$ L\'evy-verteilt mit den Parametern
-        $(0,\sigma)$ ist.
-    \item Sei $\mu=0$. Zeigen Sie, dass $(p_{(0,\sigma)})_{\sigma>0}$ eine
-        exponentielle Familie ist. 
-    \item Sei $\mu=0$. Berechnen Sie einen Maximum-Likelihood-Schätzer für $\sigma$, und
-        klären Sie ob dieser eindeutig ist.
-\end{enumerate}
-
-\solution 
-\begin{enumerate}
-    \item Für ein $y>0$ gilt
-        \begin{align*}
-            P \left( \frac{1}{X^{2}} \leq y \right) &= P \left( 1 \leq y X^{2}   \right) \\
-            &= P \left( \sqrt{\frac{1}{y}} \leq | X | \right) \\
-            &= 2 \left( 1 - P \left( X < \frac{1}{\sqrt{y}} \right) \right) \\
-            &= 2 \left( 1 - \Phi\left( \sqrt{ \frac{\sigma}{y}} \right) \right).
-        \end{align*}
-        Die Dichte von $\frac{1}{X^2}$ erhalten wir durchs Differenzieren:
-        \begin{align*}
-            \frac{\partial}{\partial y} P \left( \frac{1}{X^2} \leq y \right) &=
-            -2 \phi \left( \sqrt{\frac{\sigma}{y}} \right) \sqrt{\sigma} 
-            \left( -\frac{1}{2} y^{-\frac{3}{2}} \right) \\
-            &= \sqrt{\frac{\sigma}{2 \pi}} \exp \left( - \frac{\sigma}{2 y} \right) y^{-\frac{3}{2}}.
-        \end{align*}
-        Daher ist $\frac{1}{X^2} \sim \text{L\'evy}(\sigma)$.
-
-    \item Für $\mu=0$ lässt sich die Dichte der L\'evy-Verteilung in der Form
-        \begin{equation*}
-            p_{0,\sigma}(y) = \exp \left( -\frac{\sigma}{2y} - \frac{3}{2}\log y 
-            + \frac{1}{2} \log \frac{\sigma}{2 \pi}  \right) 1_{\R_{\geq 0}} (y)
-        \end{equation*}
-        darstellen.
-
-    \item Der MLS ist
-        \begin{equation*}
-            \hat \sigma = \frac{n}{ \sum_{}^{} 1/x_i}.
-        \end{equation*}
-\end{enumerate}
-
-
-\problem{L\'evy-Verteilung.} Die Dichte der L\'evy-Verteilung mit den
-Parametern $(\mu,\sigma)\in \Theta = \R \times \R_{>0}$ ist
-\begin{equation*}
-    p_{(\mu, \sigma)}(x) = \sqrt{ \frac{\sigma}{2\pi}} (x-\mu)^{-\frac{3}{2}} 
-    \exp\left( -\frac{\sigma}{2(x-\mu)} \right) 1_{\R_{\geq \mu}} (x).
-\end{equation*}
-Zeigen Sie folgende Aussagen.
-\begin{enumerate}
-    \item Sei $X\sim \cN (0, \frac{1}{\sigma})$ normalverteilt mit $\sigma>0$.
-        Die Zufallsvariable $\frac{1}{X^2}$ ist L\'evy-verteilt mit den Parametern
-        $(0,\sigma)$.
-    \item Wenn $\mu=0$ festgehalten wird, ist die Familie $(p_{(0,\sigma)})_{\sigma>0}$
-        eine exponentielle Familie. 
-    \item Die Familie $(p_{\mu,\sigma})_{(\mu,\sigma)\in\Theta}$ ist keine
-        (zweiparametrige) exponentielle Familie. 
-\end{enumerate}
-
-\solution 
-\begin{enumerate}
-    \item Für ein $y>0$ gilt
-        \begin{align*}
-            P \left( \frac{1}{X^{2}} \leq y \right) &= P \left( 1 \leq y X^{2}   \right) \\
-            &= P \left( \sqrt{\frac{1}{y}} \leq | X | \right) \\
-            &= 2 \left( 1 - P \left( X < \frac{1}{\sqrt{y}} \right) \right) \\
-            &= 2 \left( 1 - \Phi\left( \sqrt{ \frac{\sigma}{y}} \right) \right).
-        \end{align*}
-        Die Dichte von $\frac{1}{X^2}$ erhalten wir durchs Differenzieren:
-        \begin{align*}
-            \frac{\partial}{\partial y} P \left( \frac{1}{X^2} \leq y \right) &=
-            -2 \phi \left( \sqrt{\frac{\sigma}{y}} \right) \sqrt{\sigma} 
-            \left( -\frac{1}{2} y^{-\frac{3}{2}} \right) \\
-            &= \sqrt{\frac{\sigma}{2 \pi}} \exp \left( - \frac{\sigma}{2 y} \right) y^{-\frac{3}{2}}.
-        \end{align*}
-        Daher ist $\frac{1}{X^2} \sim \text{L\'evy}(\sigma)$.
-
-    \item Für $\mu=0$ lässt sich die Dichte der L\'evy-Verteilung in der Form
-        \begin{equation*}
-            p_{0,\sigma}(y) = \exp \left( -\frac{\sigma}{2y} - \frac{3}{2}\log y 
-            + \frac{1}{2} \log \frac{\sigma}{2 \pi}  \right) 1_{\R_{\geq 0}} (y)
-        \end{equation*}
-        darstellen.
-
-    \item Im allgemeinen Fall ist der Träger der Dichte $p_{\mu,\sigma}$ von $\mu$ abhängig und daher
-        kann $p_{\mu,\sigma}$ keine exponentielle Familie sein.
-
-\end{enumerate}
-
-
-
-
-
-
-\problem{Log-Normal-Verteilung. MLS und UMVUE. }
-Gegeben seien i.i.d.\ Zufallsvariablen $X_1, \cdots, X_n$  mit der Dichte
-\begin{equation*}
-    g_{\mu}(x) = \frac{1}{x \sqrt{2\pi}} \exp \left( - \frac{ \left( \log x - \mu \right)^2 }{2} \right) \ 1_{\R_{>0}}(x)
-\end{equation*}
-und dem unbekannten Parameter $\mu \in \R$. 
-\begin{enumerate}
-    \item Finden Sie einen Maximum-Likelihood-Schätzer (MLS) für den Parameter $\mu$. 
-%    \item Zeigen Sie, dass die gemeinsame Dichte des Zufallsvektors $\left(
-%        X_1, \cdots, X_n \right)$ einer einparametrigen exponentiellen Familie
-%        angehört. 
-    \item Zeigen Sie, dass der von Ihnen gefundene MLS erwartungstreu ist.
-        Dabei können Sie die Darstellung als natürliche exponentielle
-        Familie benutzen oder direkt den Erwartungswert von dem MLS berechnen. 
-    \item Finden Sie einen UMVUE Schätzer für $\mu$. 
-\end{enumerate}
-
-\solution Einer Standardprozedur folgend berechnen wir den MLS. 
-\begin{align*}
-    L(x_1, \cdots, x_n) &= \prod x_i^{-1} \, \sqrt{2 \pi}^{-n} 
-    \exp \left( - \frac{1}{2} \sum_{i=1}^{n} \left( \log x_i - \mu \right)^2 \right) \\
-    l(x_1, \cdots, x_n) &= - \sum_{i}^{} x_i - \frac{n}{2} \log 2\pi \ -\frac{1}{2} \sum_{i}^{} \left( \log x_i -\mu \right)^2 \\
-    \frac{\partial}{\partial \mu} l &= \sum_{i}^{} \left( \log x_i -\mu \right) = \sum_{i}^{} \log x_i - n\mu. \\
-    \frac{\partial^2}{\partial \mu^2} l &= -n <0 \\
-    \hat \mu &= \frac{1}{n} \sum_{i}^{} \log x_i.
-\end{align*}
-Die Darstellung als natürliche exponentielle Familie ist
-\begin{equation*}
-    g(x) = \exp \left( \mu \log x - \frac{\mu^2}{2} - \log x - \frac{\left( \log x \right)^2}{2} - \log \sqrt{2\pi} \right).
-\end{equation*}
-Daraus erhalten wir
-\begin{align*}
-    g(x_1, \cdots, x_n) &= \exp \left( c(\mu) T(X) + d_0 (\mu) + S(x) \right) 1_{\R_{>0}}(x) \\
-    c(\mu) &= \mu \\
-    T(X) &= \sum_{i}^{} \log x_i \\
-    d_0(\mu) &= - \frac{n \mu^2}{2}.
-\end{align*}
-Mit Hilfe der Formel 
-\begin{equation*}
-    \E\ T(X) = - d_0'(\mu) = n \mu. 
-\end{equation*}
-können wir nun den Erwartungswert der natürlichen suffizienten Statistik $T(X)$
-berechnen.  Damit ist der MLS $\hat \mu = \frac{1}{n} \sum_{i}^{} \log x_i$ ein
-erwartungstreuer Schätzer. Nachdem $c(\R)$ offenes Rechteck enthält, ist die
-Statistik $T(X)$ vollständig und suffizient, und nach dem Satz von
-Lehmann-Scheff\'e ist $\hat \mu$ ein UMVUE Schätzer. 
-
-
-
-
-
-\problem{Dreiecksverteilung. Momentenschätzer.} Gegeben seien
-i.i.d.\ Zufallsvariablen $X_1,\ldots, X_n$ mit der Dichte 
-\begin{align*}
-    \Lambda_a(x) &= \left[ \frac{1}{a} - \frac{|x|}{a^2} \right] 1_{[-a,a]}(x)
-\end{align*}
-und dem unbekannten Parameter $a>0$. 
-\begin{enumerate}
-    \item Zeigen Sie, dass die geraden Momente von $X_1$ durch die Formel
-        \begin{equation*}
-            \E X_1^n = 2 a^n \left( \frac{1}{n+1} - \frac{1}{n+2} \right)
-        \end{equation*}
-        gegeben sind und alle ungeraden Momente verschwinden. 
-    \item Geben Sie einen Momentenschätzer für den Parameter $a$ an.
-\end{enumerate}
-
-\solution 
-\begin{enumerate}
-    \item Die Momente ergeben sich aus
-        \begin{align*}
-            \E X_1^n &= \int_{-a}^{a} \left( \frac{1}{a} - \frac{|x|}{a^2} \right) x^n dx.
-        \end{align*}
-        Für gerade $n$ ist $\E X_1^n=0$. Für ungerade $n$ erhalten wir
-        \begin{align*}
-            \E X_1^{n} &= 2 \int_{0}^{a} \left( \frac{1}{a} - \frac{x}{a^2} \right) x^{n} \\
-            &= \frac{2}{a} \frac{1}{n+1} a^{n+1} - \frac{2}{a^2} \frac{1}{n+2}a^{n+2} \\
-            &= 2 a^{n} \left( \frac{1}{n+1}- \frac{1}{n+2} \right).
-        \end{align*}
-    \item Aus $\E X_1^2 = \frac{a^2}{6}$ ergibt sich ein Momentenschätzer für
-        $a$ in der Form $\hat a = \sqrt{6 m_2}$ mit $m_2 = \sum_{i}^{} X_i^2$. 
-\end{enumerate}
-
-
-
-
-
-\problem{Gleichverteilung. Konfidenzintervall.} Seien $X_1, \cdots, X_n$
-i.i.d.\ und stetig gleichverteilt auf dem Intervall $\left[ 0,\theta \right]$
-mit $\theta>0$. D.h.\  die Dichte von $X_1\sim U(0,\theta)$ ist $p_\theta(x) = \theta^{-1}
-1_{\left[ 0,\theta \right]}(x)$.
-\begin{enumerate}
-    \item Zeigen Sie, dass die Zufallsvariable $\frac{X_{\left( n \right)}}{\theta}$ ein
-        Pivot ist. Dabei ist $X_{\left( n \right)} = \max \left\{ X_1, \cdots, X_n \right\}$. 
-    \item Zeigen Sie, dass 
-        \begin{equation*}
-            \left[ \frac{X_{\left( n \right)}}{ \left( 1- \frac{\alpha}{2} \right)^{1/n}},
-            \frac{X_{\left( n \right)}}{ \left( \frac{\alpha}{2} \right)^{1/n}}
-            \right]
-        \end{equation*}
-        ein $(1-\alpha)$-Konfidenzintervall für $\theta$ ist. 
-\end{enumerate}
-
-\solution Wir berechnen zunächst die Verteilung von $X_{(n)}$. Für $0 \leq \eta \leq \theta$
-gilt
-\begin{align*}
-    P\left( X_{(n)} < \eta \right) &= P \left( X_1 < \eta \wedge \cdots \wedge X_n < \eta \right) \\
-    &= \prod_{i=1}^{n} P \left( X_i < \eta \right) \\
-    &= \left( \frac{\eta}{\theta} \right)^n.
-\end{align*}
-Es gilt also $P \left( X_{(n)}/\theta < \eta \right) = \eta^{n}$. Damit erhalten wir 
-\begin{equation*}
-    P \left( \theta \in 
-        \left[ \frac{X_{\left( n \right)}}{ \left( 1- \frac{\alpha}{2} \right)^{1/n}},
-            \frac{X_{\left( n \right)}}{ \left( \frac{\alpha}{2} \right)^{1/n}}
-        \right]
-    \right) = 1 - \alpha.
-\end{equation*}
-
-
-
-
 
 
 

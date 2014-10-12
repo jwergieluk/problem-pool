@@ -465,6 +465,51 @@ Zeigen Sie die folgenden Aussagen.
 
 
 
+\problem{Turmeigenschaft der bedingten Erwartung.} Sei ein
+Wahrscheinlichkeitsraum $\left( \Omega, P, \mathcal A \right)$, eine
+integrierbare Zufallsvariable $X$ und $\mathcal G, \mathcal H$
+sub-$\sigma$-Algebren von $\mathcal A$ gegeben. Es gilt $\mathcal H \subset
+\mathcal G \subset \mathcal A$. $Y$ ist bedingte Erwartung von $X$ bezüglich $\cA$, notiert
+als $Y = \E \left[ X | \cA \right]$, genau dann wenn $\E 1_A Y = \E 1_A X$ für alle $A\in\cA$ gilt.
+\begin{enumerate}
+    \item Zeigen Sie $\E \left[  \E \left[ X | \mathcal H \right] | \mathcal G \right] = \E \left[ X | \mathcal H \right]$ $P$-fast sicher.
+    \item Zeigen Sie $\E \left[  \E \left[ X | \mathcal G \right] | \mathcal H \right] = \E \left[ X | \mathcal H \right]$ $P$-fast sicher.
+\end{enumerate}
+
+\solution Wir zeigen zunächst 
+$\E\left[ \E\left[ X | \mathcal H \right] | \mathcal G \right]=\E \left[ X | \mathcal H \right]$.
+Nach Definition des bedingten Erwartungswertes ist $\E\left[ X| \mathcal H \right]$ 
+$\mathcal H$-messbar und daher $\mathcal G$-messbar. So bekommen wir 
+\begin{equation}
+	\E\left[ \E\left[ X | \mathcal H \right] | \mathcal G \right] =
+	\E\left[ X| \mathcal H \right] \E\left[ 1|\mathcal G \right] = 
+	\E \left[ X | \mathcal H \right ].
+\end{equation}
+Nun kommen wir zu 
+$\E\left[ \E\left[ X | \mathcal G \right] | \mathcal H \right]=\E \left[ X | \mathcal H \right]$.
+Dies gilt genau dann wenn 
+\begin{equation}
+	\E\left\{ X 1_A \right\} 
+	= \E\left\{ \E\left[ \E\left[ X|\mathcal G \right]|\mathcal H \right] 1_A \right\}  
+	\quad \forall A\in\mathcal H.
+\end{equation}
+Sei $Y=\E\left[ X|\mathcal G \right]$ eine $\mathcal G$-messbare Zufallsvariable und
+$A\in\mathcal H$. Die Indikatorfunktion $1_A$ ist $\mathcal H$-messbar und daher
+$\mathcal G$-messbar. Wir berechnen
+\begin{eqnarray}
+	\E\left\{ \E\left[ \E\left[ X|\mathcal G \right]|\mathcal H \right] 1_A \right\} &=& 
+	\E\left\{ \E\left[ Y|\mathcal H \right] 1_A \right\} \\
+	&=& \E\left\{ \E\left[ Y 1_A| \mathcal H \right] \right\} \\
+	&=& \E\left\{ Y 1_A \right\} \\
+	&=& \E\left\{ \E\left[ X|\mathcal G \right] 1_A \right\} \\
+	&=& \E\left\{ \E\left[ X 1_A| \mathcal G \right] \right\} = \E\left\{ X 1_A \right\}. 
+\end{eqnarray}
+Daher ist nach Definition des bedingten Erwartungswertes
+\begin{equation}
+	\E\left[ \E\left[ X | \mathcal G \right] | \mathcal H \right]=\E \left[ X | \mathcal H \right].
+\end{equation}
+
+
 
 \problem{Bedingte Erwartungen und Normalverteilung.} Seien $X$ und $Y$ unabhängige
 standardnormalverteilte Zufallsvariablen. Berechnen Sie $\E\left[ X \vb X+Y
