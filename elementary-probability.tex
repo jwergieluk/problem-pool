@@ -2382,6 +2382,43 @@ für alle $a,b,c>0$.
         \end{align*}
 \end{enumerate}
 
+\problem{Rademacher-verteilte Zufallsgrößen.} Sei $X$ Rademacher-verteilt mit der
+Wahrscheinlichkeitsfunktion
+\begin{align*}
+    P(X=-1) &= \frac{1}{2}, & P(X=1)& = \frac{1}{2}.
+\end{align*}
+\begin{enumerate}
+    \item Berechnen Sie den Erwartungswert und die Varianz von $X$. 
+
+    \item Zeigen Sie, dass alle ungeraden Momente und alle ungeraden zentralen
+        Momente von $X$ verschwinden. 
+
+    \item Berechnen Sie die charakteristische Funktion von $X$. 
+
+    \item Seien $X_1$ und $X_2$ stochastisch unabhängig und rademacherverteilt.
+        Berechnen Sie die Wahrscheinlichkeitsfunktion der Zufallsgröße
+        \begin{equation*}
+            Y = X_1 + X_2.
+        \end{equation*}
+\end{enumerate}
+
+\solution
+\begin{enumerate}
+    \item $\bfE X= 0$, $\bfD^2 X = \bfE X^2 = 1$.
+    \item $k\in 2\bN+1$ impliziert $X^k= X$, daher auch $m_{k} = \bfE X^k = \bfE
+        X=0$. Die zentralen Momente $\mu_k$ und Momente $m_{k}$ sind gleich. 
+    \item $\phi_{X}(t) = \bfE e^{i t X} = \frac{1}{2} \left(  e^{it} + e^{-it} \right)$.
+    \item \begin{equation*}
+            P(Y=k) =
+            \begin{cases}
+                1/4 & k=2 \\
+                1/2 & k=0 \\
+                1/4 & k=-2.
+            \end{cases}
+        \end{equation*}
+\end{enumerate}
+
+
 \section{Ungleichungen der Wahrscheinlichkeitstheorie}
 
 \problem{Tschebyscheff'sche Ungleichung. 100 Würfel.} Ein idealer Würfel
@@ -2468,6 +2505,45 @@ $\lambda>0$ sind.
             \approx 0.8646. 
         \end{align*}
 \end{enumerate}
+
+
+\problem{Hochwasserereignisse.} Historiker haben festgestellt, dass im
+Großraum Halle im Mittel zwei extreme Hochwasserereignisse pro Jahrhundert zu
+verzeichnen waren. Wir setzen voraus, dass dafür die Annahmen des
+Poisson-Prozesses (Stationarität, Homogenität und Ordinarität) gelten mögen.
+\begin{enumerate}
+    \item Wie können diese drei Annahmen für die vorliegende Problematik interpretiert werden?
+%        Was bedeuten diese drei Annahmen für die vorliegende Problematik?
+        
+    \item Wie wahrscheinlich ist es, dass in einem Jahrhundert mehr als drei
+        extreme Hochwasserereignisse im Großraum Halle auftreten?
+    \item Wie wahrscheinlich ist es, dass nach dem extremen Hochwasser 2013
+        innerhalb von 20 Jahren ein weiteres extremes Hochwasser in dieser
+        Region auftreten wird?  
+\end{enumerate}
+
+\solution
+\begin{enumerate}
+        \setcounter{enumi}{1}
+    \item Rechnungseinheit Jahre: $\mu=\frac{2}{100}=0.02, \quad X_t \sim \text{Poiss}(\mu t).$ 
+        Sei $\pi_{\lambda}$ die Wahrscheinlichkeitsfunktion der Poissonverteilung mit dem Parameter $\lambda$. Dann ist
+        $t=100$, $\lambda=\mu t=2$, $P(X_{100}>3)=1-\pi_2(0)-\pi_2(1)-\pi_2(2)-\pi_2(3)= 0.1429$.
+    \item Zeitraum bis zum nächsten Ereignis: $T \sim \text{Exp}(\mu)$.
+        $P(T \le 20)=1-\exp(-20 \mu)=1-\exp(-0.4)=0.3297.$
+\end{enumerate}
+
+% Bernd's solution
+%\begin{enumerate}
+%        \setcounter{enumi}{1}
+%    \item Rechnungseinheit Jahre: $\mu=\frac{2}{100}=0.02, \quad X_t \sim \pi_{\mu t}.$
+%        
+%        $t=100,\;\lambda=\mu t=2, \quad P(X_{100}>3)=1-\pi_2(0)-\pi_2(1)-\pi_2(2)-\pi_2(3)=\underline{0.1429}.$
+%
+%    \item Zeitraum bis zum nächsten Ereignis: $\,T \sim \mathbf{Ex}(\mu)$.
+%
+%        $P(T \le 20)=1-\exp(-20 \mu)=1-\exp(-0.4)=\underline{0.3297}.$
+%\end{enumerate}
+
 
 
 \problem{Gasmelder.}  Im Hauptgebäude der TU Chemnitz werden Gasmelder
@@ -2638,11 +2714,195 @@ sei pro Pkw im Mittel mit einer Reifenpanne zu rechnen.
         \end{align*}
 \end{enumerate}
 
+
 \problem{Beschichtungsfehler.} Die Anzahl der Beschichtungsfehler einer
 speziellen Magnetbandsorte betrage pro $1\, 000$ m im Mittel $1.6$. Wie groß
 ist die Wahrscheinlichkeit dafür, dass ein $500$ m langes Bandstück keine
 Fehler aufweist? Welches Model verwenden Sie um diese Zufallssituation zu
 modellieren? 
+
+
+\problem{Übertragungskanal.} Die Fehlerrate eines Übertragungskanals hängt
+von der Entfernung $D$ (im m) zwischen Quelle und Senke ab. Die
+Wahrscheinlichkeit, dass ein Bit falsch übertragen wird, beträgt $p =
+0.001\cdot{} D$ für $D\leq 500\,\text{m}$ und $p=0.5$ für $D>500\,\text{m}$.
+Das heißt, bei Entfernungen von über $500\,\text{m}$ wird nur noch Rauschen an
+der Senke empfangen.
+
+Es wird eine $512$ Bit Nachricht zur Übertragung vorbereitet.  
+\begin{enumerate}
+    \item Die Entfernung sei $D=5\,$m. Berechnen Sie unter Benutzung eines
+        geeigneten Grenzverteilungssatzes die Wahrscheinlichkeit dafür, dass
+        mehr als $2$ Bits von der obigen Nachricht falsch übertragen werden. 
+
+    \item Zur Verminderung der Fehlerrate wird jedes Bit der Nachricht $3$ mal
+        hintereinander übertragen. Ein Decodieralgorithmus an der Senke zerlegt
+        die Nachricht in $3$ Bit lange Teile und gibt für jeden Teil $1$ aus,
+        falls $2$ oder $3$ Bits gleich $1$ sind und sonst $0$. Berechnen Sie
+        bei $D=5\,m$ die Wahrscheinlichkeit dafür, dass mehr als $2$ Bits
+        von der ursprünglichen $512$ Bits langen Nachricht falsch übertragen
+        werden.
+\end{enumerate}
+
+\solution
+\begin{enumerate}
+    \item Wir approximierten die Binomialverteilung mit Hilfe des Poissonschen
+        Grenzwertsatzes. Bei $p=0.005$, $n=512$, $np=2.56$ und $1500p = 7.5$
+        ist die Faustregel $np \leq 10$ und $1500p\leq n$ erfüllt. Sei $X\sim
+        \text{Bin(512, 0.005)}$ die Anzahl der falsch übertragenen Bits. Nun
+        setzen wir $\lambda = np = 2.56$. Der Grenzversatz von Poisson liefert
+        \begin{equation*}
+            P(X=k) \approx e^{-\lambda } \frac{\lambda^{k}}{k!}
+        \end{equation*}
+        und
+        \begin{align*}
+            P\left( X>2 \right) &= 1 - P(X \leq 2) \\
+            &= 1 - P(X=0)-P(X=1)-P(X=2) \approx 0.528517.
+        \end{align*}
+    \item Die Wahrscheinlichkeit für die falsche Übertragung eines Bits beträgt
+        in diesem Verfahren
+        \begin{equation*}
+            p_3 = \binom{3}{3} p^{3}\left( 1-p \right)^{0} + \binom{3}{2} p^{2} \left( 1-p \right)^{3-2} = 7.475\, 10^{-5}.
+        \end{equation*}
+        Wir erhalten also $n p_3 = 0.038272$. Der Grenzvertsatz von Poisson liefert
+        \begin{align*}
+            P\left( X>2 \right) &= 1 - P(X \leq 2) \\
+            &= 1 - P(X=0)-P(X=1)-P(X=2) \approx 9.079004\, 10^{-6}.
+        \end{align*}
+\end{enumerate}
+
+\problem{Übertragungskanal mit stochastischer Fehlerkorrektur.} Die Fehlerwahrscheinlichkeit
+bei der Übertragung eines Bits ist $p=0.1$. Es wird eine $512$ Bit Nachricht zur Übertragung
+vorbereitet.
+\begin{enumerate}
+    \item Berechnen Sie unter Benutzung eines geeigneten Grenzverteilungssatzes
+        die Wahrscheinlichkeit dafür, dass mehr als $35$ Bits der obigen
+        Nachricht falsch übertragen werden.
+
+    \item Zur Verminderung der Fehlerrate wird jedes Bit der Nachricht viermal
+        hintereinander übertragen. Ein Decodieralgorithmus beim Empfänger zerlegt
+        die Nachricht in $4$ Bit lange Teile und gibt für jeden Teil $1$ aus,
+        falls $3$ oder $4$ Bits gleich $1$ sind und $0$ falls $3$ oder $4$ Bits
+        gleich $0$ sind. Falls zwei Einser und zwei Nuller empfangen wurden,
+        wird das Ergebnis eines unabhängigen Bernoulliexperiments $X\sim
+        \text{Ber}(0.5)$ ausgegeben. 
+        
+        Berechnen Sie die Fehlerwahrscheinlichkeit bei der Übertragung eines
+        Bits für den modifizierten Algorithmus. 
+\end{enumerate}
+
+\solution
+\begin{enumerate}
+    \item Sei $n=512$, $k=35$ und $X \sim \text{Bin}(n,
+        p)$. $\E X = np= 51.2$, $\sigma^{2}_{X} = 46.08$. Die Wahrscheinlichkeit,
+        dass mehr als $k$ Bits falsch übertragen werden, ist 
+        \begin{align*}
+            P\left( X > k \right) &= 1 - P\left( X \leq k \right) \\
+            &= 1- P\left( \frac{X - np}{\sqrt{np(1-p)}} \leq \frac{k -np}{ \sqrt{np(1-p)}} \right) \\
+            &\approx 1 - \Phi\left( \frac{k -np}{ \sqrt{np(1-p)}}  \right) =  0.9914949.
+        \end{align*}
+        Die Faustregel rechtfertigt dabei die Normalapproximation. 
+    \item Die Wahrscheinlichkeit für die falsche Übertragung eines Bits bei dem alternativen 
+        Algorithmus ist 
+        \begin{align*}
+            \binom{4}{4} p^{4} + \binom{4}{3} p^{3}(1-p) + \binom{4}{2} p^2 (1-p)^{2} \frac{1}{2} = 0.028.
+        \end{align*}
+        % p^4 + 4*(p^3)*(1-p) + 6*(p^2)*( (1-p)^2 )*0.5 
+\end{enumerate}
+
+
+\problem{Übertragungskanal. II} Die Fehlerrate eines Übertragungskanals hängt
+von der Entfernung $D$ (im m) zwischen Quelle und Senke ab. Die
+Wahrscheinlichkeit, dass ein Bit falsch übertragen wird, beträgt $p =
+0.001\cdot{} D$ für $D\leq 500\,\text{m}$ und $p=0.5$ für $D>500\,\text{m}$.
+Das heißt, bei Entfernungen von über $500\,\text{m}$ wird nur noch Rauschen an
+der Senke empfangen.
+
+Es wird eine $512$ Bit Nachricht zur Übertragung vorbereitet.  
+\begin{enumerate}
+    \item Die Entfernung sei $D=100\,$m. Berechnen Sie unter Benutzung eines
+        geeigneten Grenzverteilungssatzes die Wahrscheinlichkeit dafür, dass
+        mehr als $35$ Bits von der obigen Nachricht falsch übertragen werden. 
+
+    \item Zur Verminderung der Fehlerrate wird jedes Bit der Nachricht $3$ mal
+        hintereinander übertragen. Ein Decodieralgorithmus an der Senke zerlegt
+        die Nachricht in $3$ Bit lange Teile und gibt für jeden Teil $1$ aus,
+        falls $2$ oder $3$ Bits gleich $1$ sind und sonst $0$. Berechnen Sie
+        bei $D=100\,m$ die Wahrscheinlichkeit dafür, dass mehr als $35$ Bits
+        von der ursprünglichen $512$ Bits langen Nachricht falsch übertragen
+        werden.
+
+%    \item Wie groß darf die Entfernung $D$ höchstens betragen, wenn mit
+%        Wahrscheinlichkeit $0.95$ mindestens $900$ Bits richtig übertragen
+%        werden sollen.  Benutzen Sie dazu einen geeigneten Grenzwertsatz und
+%        berechnen Sie $D$ indem Sie eine quadratische Gleichung lösen.
+\end{enumerate}
+
+\solution
+\begin{enumerate}
+    \item Sei $p = D\cdot{} 0.001 = 0.1$, $n=512$, $l=35$ und $X \sim \bfB(n,
+        p)$. $\bfE X = np= 51.2$, $\bfD^2 X = 46.08$. Die Wahrscheinlichkeit,
+        dass mehr als $l$ Bits falsch übertragen werden, ist 
+        \begin{align*}
+            P\left( X > l \right) &= 1 - P\left( X \leq l \right) \\
+            &= 1- P\left( \frac{X - np}{\sqrt{np(1-p)}} \leq \frac{l -np}{ \sqrt{np(1-p)}} \right) \\
+            &\approx 1 - \Phi\left( \frac{l -np}{ \sqrt{np(1-p)}}  \right) =  0.9914949.
+        \end{align*}
+        Die Faustregel rechtfertigt dabei die Normalapproximation. 
+    \item Die Wahrscheinlichkeit für die falsche Übertragung eines Bits beträgt
+        in diesem Verfahren
+        \begin{equation*}
+            p_3 = \binom{3}{3} p^{3}\left( 1-p \right)^{0} + \binom{3}{2} p^{2} \left( 1-p \right)^{3-2} = 
+            0.028.
+        \end{equation*}
+        Wir erhalten also $n p_3 = 2.8$ und $n p_3 (1-p_3) = 13.93459$ und
+        \begin{equation*}
+            P\left( \tilde X > l \right) =  1.550534 \cdot{} 10^{-8}. 
+        \end{equation*}
+\end{enumerate} 
+R code:
+\begin{lstlisting}
+    f <- function(n,p,l) { 1 - pnorm( (l- n*p)/sqrt( n*p*(1-p))) }
+    n <- 512; p <- 0.1; l <- 35; f(n,p,l)
+    # 0.9914949
+    n <- 512; p <- 0.028; l <- 35; f(n,p,l)
+    # 1.550534e-08
+\end{lstlisting}
+
+
+\problem{Bitcoin. Einfaches Bubble-Modell.} In einem einfachen Marktmodel für
+den Euro-Wert einer Bitcoin wird davon ausgegangen, dass es innerhalb eines
+Jahres mit Wahrscheinlichkeit $p=0.95$ zu einem Crash kommen wird. Der
+Crash-Zeitpunkt $\tau$ ist dabei exponentialverteilt mit dem Parameter
+$\lambda$. Gleichzeitig nehmen wir an, dass der Euro-Wert $b(t)$ einer Bitcoin
+(1 BTC) durch die Funktion
+\begin{equation*}
+    b(t) =
+    \begin{cases}
+        500 \exp( t ) & t \leq \tau \\
+        0 & \tau < t
+    \end{cases}
+\end{equation*}
+gegeben ist. $t$ bezeichnet dabei die Zeit in Jahren. 
+\begin{enumerate}
+    \item Berechnen Sie den Wert des Parameters $\lambda$.
+    \item Berechnen Sie den erwarteten Euro-Wert von $1$ BTC zum Crash-Zeitpunkt.
+\end{enumerate}
+
+\solution
+\begin{enumerate}
+    \item Die Dichte und die Wahrscheinlichkeitsfunktion der Exponentialverteilung sind gegeben 
+        durch
+        \begin{align*}
+            p(t) &= \lambda \exp\left( -\lambda t \right), & P(\tau \leq t) = 1- \exp( - \lambda t). 
+        \end{align*}
+        Aus $P( \tau \leq 1 ) = 0.95$ erhalten wir $\lambda = - \log\left( 0.05 \right) \approx 2.9957$.
+    \item Erwarteter Preis zum Crash-Zeitpunkt ist 
+        \begin{align*}
+            \E b(\tau) &= 500 \frac{\lambda}{\lambda-1} \approx 750.5346.
+        \end{align*}
+\end{enumerate}
+
 
 \section{Stetige Zufallsvariablen}
 
@@ -4521,87 +4781,11 @@ bestimmten Entfernung ergaben sich die folgenden Schätzwerte:
         Kriterium für die Tauglichkeit die Forderung $\sigma < 5.0\,m $ dient?
 \end{enumerate}
 
-\section{Prüfungsaufgaben.}
 
-
-
-\problem{Rademacher-verteilte Zufallsgrößen.} Sei $X$ Rademacher-verteilt mit der
-Wahrscheinlichkeitsfunktion
-\begin{align*}
-    P(X=-1) &= \frac{1}{2}, & P(X=1)& = \frac{1}{2}.
-\end{align*}
-\begin{enumerate}
-    \item Berechnen Sie den Erwartungswert und die Varianz von $X$. 
-
-    \item Zeigen Sie, dass alle ungeraden Momente und alle ungeraden zentralen
-        Momente von $X$ verschwinden. 
-
-    \item Berechnen Sie die charakteristische Funktion von $X$. 
-
-    \item Seien $X_1$ und $X_2$ stochastisch unabhängig und rademacherverteilt.
-        Berechnen Sie die Wahrscheinlichkeitsfunktion der Zufallsgröße
-        \begin{equation*}
-            Y = X_1 + X_2.
-        \end{equation*}
-\end{enumerate}
-
-\solution
-\begin{enumerate}
-    \item $\bfE X= 0$, $\bfD^2 X = \bfE X^2 = 1$.
-    \item $k\in 2\bN+1$ impliziert $X^k= X$, daher auch $m_{k} = \bfE X^k = \bfE
-        X=0$. Die zentralen Momente $\mu_k$ und Momente $m_{k}$ sind gleich. 
-    \item $\phi_{X}(t) = \bfE e^{i t X} = \frac{1}{2} \left(  e^{it} + e^{-it} \right)$.
-    \item \begin{equation*}
-            P(Y=k) =
-            \begin{cases}
-                1/4 & k=2 \\
-                1/2 & k=0 \\
-                1/4 & k=-2.
-            \end{cases}
-        \end{equation*}
-\end{enumerate}
-
-\problem{Hochwasserereignisse.} Historiker haben festgestellt, dass im
-Großraum Halle im Mittel zwei extreme Hochwasserereignisse pro Jahrhundert zu
-verzeichnen waren. Wir setzen voraus, dass dafür die Annahmen des
-Poisson-Prozesses (Stationarität, Homogenität und Ordinarität) gelten mögen.
-\begin{enumerate}
-    \item Wie können diese drei Annahmen für die vorliegende Problematik interpretiert werden?
-%        Was bedeuten diese drei Annahmen für die vorliegende Problematik?
-        
-    \item Wie wahrscheinlich ist es, dass in einem Jahrhundert mehr als drei
-        extreme Hochwasserereignisse im Großraum Halle auftreten?
-    \item Wie wahrscheinlich ist es, dass nach dem extremen Hochwasser 2013
-        innerhalb von 20 Jahren ein weiteres extremes Hochwasser in dieser
-        Region auftreten wird?  
-\end{enumerate}
-
-\solution
-\begin{enumerate}
-        \setcounter{enumi}{1}
-    \item Rechnungseinheit Jahre: $\mu=\frac{2}{100}=0.02, \quad X_t \sim \text{Poiss}(\mu t).$ 
-        Sei $\pi_{\lambda}$ die Wahrscheinlichkeitsfunktion der Poissonverteilung mit dem Parameter $\lambda$. Dann ist
-        $t=100$, $\lambda=\mu t=2$, $P(X_{100}>3)=1-\pi_2(0)-\pi_2(1)-\pi_2(2)-\pi_2(3)= 0.1429$.
-    \item Zeitraum bis zum nächsten Ereignis: $T \sim \text{Exp}(\mu)$.
-        $P(T \le 20)=1-\exp(-20 \mu)=1-\exp(-0.4)=0.3297.$
-\end{enumerate}
-
-% Bernd's solution
-%\begin{enumerate}
-%        \setcounter{enumi}{1}
-%    \item Rechnungseinheit Jahre: $\mu=\frac{2}{100}=0.02, \quad X_t \sim \pi_{\mu t}.$
-%        
-%        $t=100,\;\lambda=\mu t=2, \quad P(X_{100}>3)=1-\pi_2(0)-\pi_2(1)-\pi_2(2)-\pi_2(3)=\underline{0.1429}.$
-%
-%    \item Zeitraum bis zum nächsten Ereignis: $\,T \sim \mathbf{Ex}(\mu)$.
-%
-%        $P(T \le 20)=1-\exp(-20 \mu)=1-\exp(-0.4)=\underline{0.3297}.$
-%\end{enumerate}
-
-\problem{Analyse des Zuckerpreises.} 
+\problem{Analyse des Zuckerpreises.}
 Es seien folgende $41$ monatliche Beobachtungen $x_{1},\dots ,x_{41}$ des internationalen
-Zuckerpreises aus dem Zeitraum von Januar 2011 bis Mai 2014, quotiert in US-Cent
-pro Pfund gegeben: 
+Zuckerpreises aus dem Zeitraum von Januar 2011 bis Mai 2014 (quotiert in US-Cent
+pro Pfund) gegeben:
 \lstset{basicstyle=\ttfamily\footnotesize,basewidth={.5em,0.4em}}
 \begin{lstlisting}
 29.74 29.31 25.90 23.90 21.84 24.92 29.47 28.87 26.64 26.30 24.52 23.42 24.02
@@ -4610,20 +4794,44 @@ pro Pfund gegeben:
 17.61 17.50
 \end{lstlisting}
 Wir nehmen an, dass diese Beobachtungen Realisierungen einer normalverteilten Zufallsgröße
-$X \in \NormDist(\mu, \sigma^{2})$ sind. Darüberhinaus gilt
+$X \sim \NormDist(\mu, \sigma^{2})$ sind. Darüberhinaus gilt
 \begin{align*}
     \sum_{i=1}^{41} x_{i} &= 869.40 & \sum_{i=1}^{41} x_{i}^{2} &= 19090.47.
 \end{align*}
 \begin{enumerate}
     \item Geben Sie je eine erwartungstreue Schätzfunktion für den Mittelwert
-        $\mu$ und für die Varianz $\sigma^2$ der Kursveränderungen an.
+        $\mu$ und für die Varianz $\sigma^2$ der Zufallsgr\"o{\ss}e an.
+        Erkl\"aren Sie in diesem Zusammenhang den Begriff der Erwartungstreue
+        einer Sch\"atzfunktion.
+
     \item Bestimmen Sie ein Konfidenzintervall $[0,\bar \sigma]$ für die
         Standardabweichung $\sigma$ zum Konfidenzniveau $1-\alpha = 0.95$.
 
     \item Lässt sich anhand dieser Beobachtungen mit einer zugelassenen
-        Irrtumswahrscheinlichkeit von $0.1$ die Behauptung widerlegen, dass
+        Irrtumswahrscheinlichkeit von 10\% die Behauptung widerlegen, dass
         der durchschnittliche Zuckerpreis in diesem Zeitraum unter $18$ Cent
         pro Pfund lag?
+\end{enumerate}
+
+\solution
+\begin{enumerate}
+    \item \begin{align*}
+            \bar X_n &= \frac{1}{n} \sum_{i=1}^{n} X_i = 21.2048.\\
+            S^{2}_n &= \frac{1}{n-1} \sum_{i=1}^{n} \left( X_i - \bar X_n \right)^{2} \\
+            &= \frac{1}{n-1} \left\{ \sum_{i=1}^{n} X_i^{2} - \frac{1}{n} \left( \sum_{i=1}^{n} X_i \right)^2 \right\} \\
+            &= 16.3737. 
+        \end{align*}
+    \item \begin{align*}
+            \bar \sigma = \sqrt{ (n-1) \frac{S^{2}_{n}}{ \chi^{2}_{n-1,\alpha}} } = \sqrt{ 24.7066 } = 4.9705.
+        \end{align*}
+
+    \item Wir testen $H_{0}: \mu \leq 18$ gegen $H_1: \mu > 18$. Die Testfunktion und der 
+        kritische Bereich sind
+        \begin{align*}
+            T &= \frac{\bar X_{n} - \mu_{0}}{ S_{n}} \sqrt{n} = 5.0714, \\
+            K &= \left( t_{n-1,1-\alpha}, +\infty \right) = ( 1.303, +\infty).
+        \end{align*}
+        Nachdem die Bedingung $T\in K$ erfüllt ist, kann $H_0$ abgelehnt werden. 
 \end{enumerate}
 
 
@@ -4717,205 +4925,5 @@ Zufallsgröße $X\sim \bfN(\mu, \sigma^2)$ sind.
         Der kritische Bereich ist $\left\{ T > t_{n-1, 1-\alpha}\right\}=
         \left\{ T > 1.76131 \right\}$. Die Nullhypothese wird nicht verworfen.
 \end{enumerate}
-
-
-
-\problem{Übertragungskanal.} Die Fehlerrate eines Übertragungskanals hängt
-von der Entfernung $D$ (im m) zwischen Quelle und Senke ab. Die
-Wahrscheinlichkeit, dass ein Bit falsch übertragen wird, beträgt $p =
-0.001\cdot{} D$ für $D\leq 500\,\text{m}$ und $p=0.5$ für $D>500\,\text{m}$.
-Das heißt, bei Entfernungen von über $500\,\text{m}$ wird nur noch Rauschen an
-der Senke empfangen.
-
-Es wird eine $512$ Bit Nachricht zur Übertragung vorbereitet.  
-\begin{enumerate}
-    \item Die Entfernung sei $D=5\,$m. Berechnen Sie unter Benutzung eines
-        geeigneten Grenzverteilungssatzes die Wahrscheinlichkeit dafür, dass
-        mehr als $2$ Bits von der obigen Nachricht falsch übertragen werden. 
-
-    \item Zur Verminderung der Fehlerrate wird jedes Bit der Nachricht $3$ mal
-        hintereinander übertragen. Ein Decodieralgorithmus an der Senke zerlegt
-        die Nachricht in $3$ Bit lange Teile und gibt für jeden Teil $1$ aus,
-        falls $2$ oder $3$ Bits gleich $1$ sind und sonst $0$. Berechnen Sie
-        bei $D=5\,m$ die Wahrscheinlichkeit dafür, dass mehr als $2$ Bits
-        von der ursprünglichen $512$ Bits langen Nachricht falsch übertragen
-        werden.
-\end{enumerate}
-
-\solution
-\begin{enumerate}
-    \item Wir approximierten die Binomialverteilung mit Hilfe des Poissonschen
-        Grenzwertsatzes. Bei $p=0.005$, $n=512$, $np=2.56$ und $1500p = 7.5$
-        ist die Faustregel $np \leq 10$ und $1500p\leq n$ erfüllt. Sei $X\sim
-        \text{Bin(512, 0.005)}$ die Anzahl der falsch übertragenen Bits. Nun
-        setzen wir $\lambda = np = 2.56$. Der Grenzversatz von Poisson liefert
-        \begin{equation*}
-            P(X=k) \approx e^{-\lambda } \frac{\lambda^{k}}{k!}
-        \end{equation*}
-        und
-        \begin{align*}
-            P\left( X>2 \right) &= 1 - P(X \leq 2) \\
-            &= 1 - P(X=0)-P(X=1)-P(X=2) \approx 0.528517.
-        \end{align*}
-    \item Die Wahrscheinlichkeit für die falsche Übertragung eines Bits beträgt
-        in diesem Verfahren
-        \begin{equation*}
-            p_3 = \binom{3}{3} p^{3}\left( 1-p \right)^{0} + \binom{3}{2} p^{2} \left( 1-p \right)^{3-2} = 7.475\, 10^{-5}.
-        \end{equation*}
-        Wir erhalten also $n p_3 = 0.038272$. Der Grenzvertsatz von Poisson liefert
-        \begin{align*}
-            P\left( X>2 \right) &= 1 - P(X \leq 2) \\
-            &= 1 - P(X=0)-P(X=1)-P(X=2) \approx 9.079004\, 10^{-6}.
-        \end{align*}
-\end{enumerate}
-
-\problem{Übertragungskanal mit stochastischer Fehlerkorrektur.} Die Fehlerwahrscheinlichkeit
-bei der Übertragung eines Bits ist $p=0.1$. Es wird eine $512$ Bit Nachricht zur Übertragung
-vorbereitet.
-\begin{enumerate}
-    \item Berechnen Sie unter Benutzung eines geeigneten Grenzverteilungssatzes
-        die Wahrscheinlichkeit dafür, dass mehr als $35$ Bits der obigen
-        Nachricht falsch übertragen werden.
-
-    \item Zur Verminderung der Fehlerrate wird jedes Bit der Nachricht viermal
-        hintereinander übertragen. Ein Decodieralgorithmus beim Empfänger zerlegt
-        die Nachricht in $4$ Bit lange Teile und gibt für jeden Teil $1$ aus,
-        falls $3$ oder $4$ Bits gleich $1$ sind und $0$ falls $3$ oder $4$ Bits
-        gleich $0$ sind. Falls zwei Einser und zwei Nuller empfangen wurden,
-        wird das Ergebnis eines unabhängigen Bernoulliexperiments $X\sim
-        \text{Ber}(0.5)$ ausgegeben. 
-        
-        Berechnen Sie die Fehlerwahrscheinlichkeit bei der Übertragung eines
-        Bits für den modifizierten Algorithmus. 
-\end{enumerate}
-
-\solution
-\begin{enumerate}
-    \item Sei $n=512$, $k=35$ und $X \sim \text{Bin}(n,
-        p)$. $\E X = np= 51.2$, $\sigma^{2}_{X} = 46.08$. Die Wahrscheinlichkeit,
-        dass mehr als $k$ Bits falsch übertragen werden, ist 
-        \begin{align*}
-            P\left( X > k \right) &= 1 - P\left( X \leq k \right) \\
-            &= 1- P\left( \frac{X - np}{\sqrt{np(1-p)}} \leq \frac{k -np}{ \sqrt{np(1-p)}} \right) \\
-            &\approx 1 - \Phi\left( \frac{k -np}{ \sqrt{np(1-p)}}  \right) =  0.9914949.
-        \end{align*}
-        Die Faustregel rechtfertigt dabei die Normalapproximation. 
-    \item Die Wahrscheinlichkeit für die falsche Übertragung eines Bits bei dem alternativen 
-        Algorithmus ist 
-        \begin{align*}
-            \binom{4}{4} p^{4} + \binom{4}{3} p^{3}(1-p) + \binom{4}{2} p^2 (1-p)^{2} \frac{1}{2} = 0.028.
-        \end{align*}
-        % p^4 + 4*(p^3)*(1-p) + 6*(p^2)*( (1-p)^2 )*0.5 
-\end{enumerate}
-
-
-
-\problem{Übertragungskanal. II} Die Fehlerrate eines Übertragungskanals hängt
-von der Entfernung $D$ (im m) zwischen Quelle und Senke ab. Die
-Wahrscheinlichkeit, dass ein Bit falsch übertragen wird, beträgt $p =
-0.001\cdot{} D$ für $D\leq 500\,\text{m}$ und $p=0.5$ für $D>500\,\text{m}$.
-Das heißt, bei Entfernungen von über $500\,\text{m}$ wird nur noch Rauschen an
-der Senke empfangen.
-
-Es wird eine $512$ Bit Nachricht zur Übertragung vorbereitet.  
-\begin{enumerate}
-    \item Die Entfernung sei $D=100\,$m. Berechnen Sie unter Benutzung eines
-        geeigneten Grenzverteilungssatzes die Wahrscheinlichkeit dafür, dass
-        mehr als $35$ Bits von der obigen Nachricht falsch übertragen werden. 
-
-    \item Zur Verminderung der Fehlerrate wird jedes Bit der Nachricht $3$ mal
-        hintereinander übertragen. Ein Decodieralgorithmus an der Senke zerlegt
-        die Nachricht in $3$ Bit lange Teile und gibt für jeden Teil $1$ aus,
-        falls $2$ oder $3$ Bits gleich $1$ sind und sonst $0$. Berechnen Sie
-        bei $D=100\,m$ die Wahrscheinlichkeit dafür, dass mehr als $35$ Bits
-        von der ursprünglichen $512$ Bits langen Nachricht falsch übertragen
-        werden.
-
-%    \item Wie groß darf die Entfernung $D$ höchstens betragen, wenn mit
-%        Wahrscheinlichkeit $0.95$ mindestens $900$ Bits richtig übertragen
-%        werden sollen.  Benutzen Sie dazu einen geeigneten Grenzwertsatz und
-%        berechnen Sie $D$ indem Sie eine quadratische Gleichung lösen.
-\end{enumerate}
-
-\solution
-\begin{enumerate}
-    \item Sei $p = D\cdot{} 0.001 = 0.1$, $n=512$, $l=35$ und $X \sim \bfB(n,
-        p)$. $\bfE X = np= 51.2$, $\bfD^2 X = 46.08$. Die Wahrscheinlichkeit,
-        dass mehr als $l$ Bits falsch übertragen werden, ist 
-        \begin{align*}
-            P\left( X > l \right) &= 1 - P\left( X \leq l \right) \\
-            &= 1- P\left( \frac{X - np}{\sqrt{np(1-p)}} \leq \frac{l -np}{ \sqrt{np(1-p)}} \right) \\
-            &\approx 1 - \Phi\left( \frac{l -np}{ \sqrt{np(1-p)}}  \right) =  0.9914949.
-        \end{align*}
-        Die Faustregel rechtfertigt dabei die Normalapproximation. 
-    \item Die Wahrscheinlichkeit für die falsche Übertragung eines Bits beträgt
-        in diesem Verfahren
-        \begin{equation*}
-            p_3 = \binom{3}{3} p^{3}\left( 1-p \right)^{0} + \binom{3}{2} p^{2} \left( 1-p \right)^{3-2} = 
-            0.028.
-        \end{equation*}
-        Wir erhalten also $n p_3 = 2.8$ und $n p_3 (1-p_3) = 13.93459$ und
-        \begin{equation*}
-            P\left( \tilde X > l \right) =  1.550534 \cdot{} 10^{-8}. 
-        \end{equation*}
-\end{enumerate} 
-R code:
-\begin{lstlisting}
-    f <- function(n,p,l) { 1 - pnorm( (l- n*p)/sqrt( n*p*(1-p))) }
-    n <- 512; p <- 0.1; l <- 35; f(n,p,l)
-    # 0.9914949
-    n <- 512; p <- 0.028; l <- 35; f(n,p,l)
-    # 1.550534e-08
-\end{lstlisting}
-
-
-\problem{GPS.} Nachdem die Verbindung zu $k$ Satelliten aufgebaut wurde
-liefert ein GPS Gerät jede Sekunde eine Messung der geographischen Länge eines
-festen Ortes. Es wird angenommen, dass kein systematischer Fehler vorliegt und
-die Messungen mit unabhängigen normalverteilten Zufallsgrößen $X_i \sim
-\bfN(\mu_X, \sigma^2)$ mit $\sigma=50\,m$ modelliert werden können.
-\begin{enumerate}
-    \item Wie viele Sekunden muss mindestens gewartet werden, damit der
-        absolute Messfehler $| \mu_{X} - \hat \mu_{X} |$ mit Wahrscheinlichkeit
-        von mindestens $95\%$ unter $1\,m$ liegt.
-
-
-    \item Die Durchführung von $100$ Messungen ergab $\bar x_{n} = $
-\end{enumerate}
-
-
-\problem{Bitcoin. Einfaches Bubble-Modell.} In einem einfachen Marktmodel für
-den Euro-Wert einer Bitcoin wird davon ausgegangen, dass es innerhalb eines
-Jahres mit Wahrscheinlichkeit $p=0.95$ zu einem Crash kommen wird. Der
-Crash-Zeitpunkt $\tau$ ist dabei exponentialverteilt mit dem Parameter
-$\lambda$. Gleichzeitig nehmen wir an, dass der Euro-Wert $b(t)$ einer Bitcoin
-(1 BTC) durch die Funktion
-\begin{equation*}
-    b(t) =
-    \begin{cases}
-        500 \exp( t ) & t \leq \tau \\
-        0 & \tau < t
-    \end{cases}
-\end{equation*}
-gegeben ist. $t$ bezeichnet dabei die Zeit in Jahren. 
-\begin{enumerate}
-    \item Berechnen Sie den Wert des Parameters $\lambda$.
-    \item Berechnen Sie den erwarteten Euro-Wert von $1$ BTC zum Crash-Zeitpunkt.
-\end{enumerate}
-
-\solution
-\begin{enumerate}
-    \item Die Dichte und die Wahrscheinlichkeitsfunktion der Exponentialverteilung sind gegeben 
-        durch
-        \begin{align*}
-            p(t) &= \lambda \exp\left( -\lambda t \right), & P(\tau \leq t) = 1- \exp( - \lambda t). 
-        \end{align*}
-        Aus $P( \tau \leq 1 ) = 0.95$ erhalten wir $\lambda = - \log\left( 0.05 \right) \approx 2.9957$.
-    \item Erwarteter Preis zum Crash-Zeitpunkt ist 
-        \begin{align*}
-            \E b(\tau) &= 500 \frac{\lambda}{\lambda-1} \approx 750.5346.
-        \end{align*}
-\end{enumerate}
-
 
 % vim: set spelllang=de: set spell
