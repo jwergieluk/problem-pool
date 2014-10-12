@@ -11,15 +11,30 @@
 \usepackage{geometry}\geometry{a4paper,hcentering,vcentering,outer=3cm,top=3cm}
 %\usepackage[right=3cm, left=3cm, top=3.0cm, bottom=3.0cm]{geometry}
 
-
 \begin{document}
+\frontmatter
+
+\begin{titlingpage}
+\hbox{ % Horizontal box
+\hspace*{0.2\textwidth} % Whitespace to the left of the title page
+\rule{1pt}{\textheight} % Vertical line
+\hspace*{0.05\textwidth} % Whitespace between the vertical line and title page text
+\parbox[b]{0.75\textwidth}{ % Paragraph box which restricts text to less than the width of the page
+
+{\noindent\HUGE\bfseries Problemsupermarkt}\\[2\baselineskip] % Title
+{\large \textit{Regale\\[0.4\baselineskip] Wahrscheinlichkeitstheorie und Statistik}}\\[4\baselineskip] % Tagline or further description
+{\large \textsc{Julian Wergieluk}} % Author name
+
+\vspace{0.5\textheight} % Whitespace between the title block and the publisher
+{\noindent Chemnitz, 2014}\\[\baselineskip] % Publisher and logo
+}}
+\end{titlingpage}
+
+\cleartorecto
+
 \chapterstyle{companion}
 \pagestyle{headings}
 %\sloppy
-
-\frontmatter
-\maketitle
-\cleartorecto
 
 \setcounter{tocdepth}{3}
 \tableofcontents
