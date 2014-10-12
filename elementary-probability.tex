@@ -726,6 +726,76 @@ Berechnen Sie folgende Wahrscheinlichkeiten:
         \end{equation*}
 \end{enumerate}
 
+\problem{Gruppeneinteilung bei Fußball WM.} Bei einer Fußballweltmeisterschaft
+werden $32$ Fußballteams zufällig in $8$ Gruppen je $4$ Teams eingeteilt.  Wir
+nehmen an, dass alle Gruppeneinteilungen gleichwahrscheinlich sind.  Die
+Gruppenbezeichnungen wie "`A"', "`B"', usw.\ werden nach erfolgter Einteilung
+vergeben und spielen hier keine Rolle.
+
+%\begin{enumerate}
+%    \item 
+        Wie viele mögliche Gruppeneinteilungen gibt es?
+%    \item $13$ Europäische Mannschaften nehmen an dieser WM teil. Berechnen
+%        Sie die Wahrscheinlichkeit dafür, dass es mindestens eine Gruppe gibt
+%        zu der mindestens $3$ Europäische Mannschaften eingeteilt wurden.
+%    \item Berechnen Sie die Wahrscheinlichkeit dafür, dass die $7$ Führenden
+%        der FIFA-Weltrangliste zwei Gruppen zugeteilt werden.
+%\end{enumerate}
+
+\solution
+    \begin{enumerate}
+        \item Die Anzahl der möglichen Gruppeneinteilungen beträgt
+            \begin{align*}
+                M = \binom{32}{4} \binom{28}{4} \dots \binom{8}{4} \binom{4}{4} / 8!.
+            \end{align*}
+%        \item Die Anzahl der günstigen Einteilungen beträgt
+%            \begin{align*}
+%                G_{b} = \left[ \binom{13}{3} \binom{32-13}{1} \right] \binom{28}{4} \dots \binom{8}{4}.
+%            \end{align*}
+%        \item Die Anzahl der günstigen Einteilungen ist hier
+%            \begin{align*}
+%                G_{c} = \binom{7}{4} \left[ \binom{3}{3} \binom{25}{1} \right] \binom{24}{4} \dots \binom{8}{4}. 
+%            \end{align*}
+    \end{enumerate}
+
+%% old version
+%\problem{Gruppeneinteilung bei Fußball WM.} Bei der Fußballweltmeisterschaften
+%werden $32$ Fußballteams zufällig in $8$ Gruppen je $4$ Teams eingeteilt. Dafür
+%wird ein kompliziertes Verfahren angewendet, um sicherzustellen dass
+%verschiedene unerwünschte Aufteilungen nicht auftreten können. In dieser
+%Aufgabe nehmen wir an, dass alle Gruppeneinteilungen gleichwahrscheinlich sind,
+%und zeigen, dass dieses Modell unerwünschte Eigenschaften hat. 
+%\begin{enumerate}
+%    \item Wie viele mögliche Gruppeneinteilungen gibt es?
+%    \item Berechnen Sie die Wahrscheinlichkeit dafür, dass die $7$ Führenden
+%        der FIFA-Weltrangliste zwei Gruppen zugeteilt werden.
+%    \item Berechnen Sie die Wahrscheinlichkeit dafür, dass es mindestens eine
+%        Gruppe gibt zu der mindestens $3$ Europäische Mannschaften eingeteilt
+%        wurden.
+%\end{enumerate}
+%
+%\solution
+%\begin{enumerate}
+%    \item $\frac{\binom{2}{2} \binom{30}{2}}{\binom{32}{4}}$.
+%    \item $\binom{32}{4}\binom{28}{4} \cdots \binom{4}{4}$.
+%\end{enumerate}
+
+\problem{Kombinatorik. Schachbrett.} Auf ein Schachbrett (entspricht einer 
+$8\times 8$-Matrix) werden zufällig $8$ Türme gestellt. 
+\begin{enumerate}
+    \item Wie groß ist die Wahrscheinlichkeit dafür, dass sich die Türme nicht
+        sehen können, d.\,h.\ in jeder Zeile und jeder Spalte jeweils genau ein
+        Turm steht?
+    \item Wie groß ist die Wahrscheinlichkeit dafür, dass in jeder Zeile jeweils
+        genau ein Turm steht?
+\end{enumerate}
+
+\solution
+\begin{enumerate}
+    \item $\frac{8^2 7^2 \cdots 1^2}{ 64 \cdots 57} = \frac{8!}{ \binom{64}{8}}$.
+    \item $\frac{8!\, 8^8}{64 \dots 57}$.
+\end{enumerate}
+
 \section{Bedingte Wahrscheinlichkeiten}
 
 
@@ -900,6 +970,32 @@ gleichen Farbe in die Urne gelegt. Die Prozedur wird anschließend wiederholt.
         
 \end{enumerate}
 
+
+\problem{Modifiziertes Urnenmodell von P\'olya.} Eine Urne enthält $s=2$ schwarze und
+$w=3$ weiße Kugeln. Es wird eine Kugel zufällig gezogen und ihre Farbe notiert.
+Falls eine weiße Kugel gezogen wurde, wird diese beiseite gelegt. Falls eine
+schwarze Kugel gezogen wurde, wird diese zusammen mit einer weiteren schwarzen
+Kugel in die Urne gelegt. Die Prozedur wird anschließend wiederholt.
+\begin{enumerate}
+    \item Wie groß ist die Wahrscheinlichkeit, dass die zweite gezogene Kugel
+        weiß ist?
+    \item Wie groß ist die Wahrscheinlichkeit, dass die erste gezogene Kugel
+        weiß ist, unter der Bedingung, dass die zweite gezogene Kugel weiß ist?
+\end{enumerate}
+
+\solution
+Wir bezeichnen mit $W_i$ bzw.\ mit $S_i$ das Ereignis, dass bei der $i$-ten
+Ziehung eine weiße bzw.\ eine schwarze Kugel gezogen wird.
+\begin{enumerate}
+    \item \begin{align*}
+            P(W_2) &= P(W_2 \,|\, W_1)P(W_1) + P(W_2 \,|\, S_1)P(S_1) \\
+            &= \frac{w-1}{s+w-1} \frac{w}{s+w} + \frac{w}{s+1+w} \frac{s}{w+s} = \frac{1}{2}. 
+        \end{align*}
+    \item \begin{align*}
+            P( W_1 \,|\, W_2 ) &= \frac{P(W_2 \,|\, W_1) P(W_1)}{P(W_2)} = 
+            \frac{1}{P(W_2)} \frac{ w-1 }{w-1+s}\frac{w}{s+w} = \frac{3}{5}. 
+        \end{align*}
+\end{enumerate}
 
 
 
@@ -1111,6 +1207,72 @@ D\in\fA$. Zeigen Sie folgende Aussagen:
     \item $P(A|B|C) = P(A| C)$ falls $C \subset B$.
 \end{enumerate}
 
+
+\problem{Elfmeterschießen.}  In einem einfachen Modell des Elfmeterschießens
+wird nur eine Mannschaft betrachtet. Die Wahrscheinlichkeit beim ersten Schuss
+einen Tor zu erzielen sei $p_{1}=0.8$. Ist in der Tat ein Tor gefallen, wird
+die Treffwahrscheinlichkeit beim nächsten Versuch auf $p_2 = \sqrt{p_1}$
+erhöht, andernfalls verringert sich diese Wahrscheinlichkeit und beträgt $p_2 =
+p_{1}^{2}$. Der Vorgang wird wiederholt, wobei die Treffwahrscheinlichkeit beim
+$i$-ten Schuss $p_{i}=\sqrt{p_{i-1}}$ beträgt, falls vorher ein Tor
+gefallen ist, und sonst $p_i = p^{2}_{i-1}$.
+\begin{enumerate}
+    \item Wie groß ist die Wahrscheinlichkeit dafür, dass beim zweiten Versuch
+        ein Tor fällt?
+
+    \item Angenommen Sie haben den ersten Schuss nicht gesehen, wissen aber
+        dass beim zweiten Versuch ein Tor gefallen ist. Unter dieser Bedingung,
+        wie groß ist die Wahrscheinlichkeit, dass beim ersten Schuss ein Tor
+        gefallen ist?
+\end{enumerate}
+
+\solution
+$T_i$ bezeichne Treffer beim $i$-ten Versuch und $F_i = \bar T_i$. 
+\begin{enumerate}
+    \item $P(T_2) = P( T_2 | T_1) P(T_1) + P(T_2 | F_1) P(F_1) 
+        = p_1(\sqrt{p_1}+p_1 -p_1^2) = 0.8435$.
+    \item 
+        \begin{align*}
+            P( T_1 | T_2) &= \frac{ P(T_1) P( T_2 | T_1 )}{P(T_2)} = 0.8482.
+        \end{align*}
+\end{enumerate}
+
+
+\problem{Schaltkreise. Qualitätskontrolle.} Bei einer Endkontrolle von
+Schaltkreisen sollen nicht voll funktionsfähige Schaltkreise aussortiert
+werden. Bekannt sei, dass im Mittel $20\%$ der erzeugten Schaltkreise nicht
+voll funktionsfähig sind. Beim Prüfen werden $95\%$ dieser Schaltkreise
+aussortiert, aber auch $1\%$ der einwandfreien.
+\begin{enumerate}
+    \item Mit welcher Wahrscheinlichkeit ist ein nicht aussortierter
+        Schaltkreis voll funktionsfähig?
+    \item Mit welcher Wahrscheinlichkeit ist ein aussortierter Schaltkreis
+        einwandfrei?
+\end{enumerate}
+
+\solution 
+Definiere die Ereignisse: $A$ ein Schaltkreis wird aussortiert, und $K$ ein Schaltkreis ist
+nicht voll funktionsfähig (kaputt). Wir wissen
+\begin{align*}
+    \bP( A | K ) &= 0.95 \\
+    \bP( A | \bar K ) &= 0.01.
+\end{align*}
+Daraus folgt
+\begin{align*}
+    \bP( \bar A | \bar K ) &= 0.99 \\
+    \bP( \bar A | K ) &= 0.05 \\
+    \bP( \bar K ) &= 0.8.
+\end{align*}
+Wir berechnen mit Hilfe des Satzes von Bayes:
+\begin{enumerate}
+    \item \begin{equation*}
+            \bP\left( \bar K | \bar A \right) = \frac{\bP(\bar A | \bar K)\bP(\bar K)}
+            {\bP(\bar A | \bar K)\bP(\bar K) + \bP(\bar A | K ) \bP(K)} = 0.9875311\cdots
+        \end{equation*}
+    \item \begin{equation*}
+            \bP\left( \bar K | A \right) = 0.0404040\cdots
+        \end{equation*}
+\end{enumerate}
 
 
 \section{Unabhängigkeit}
@@ -1474,6 +1636,51 @@ Schleifmaschine & 0.1
         \end{equation*}
 \end{enumerate} 
 
+\problem{Ausfälle der Notstromgeneratoren.}
+Der Betrieb eines Rechenzentrums wird von einer Kette von Notstromgeneratoren
+$G_1,\dots ,G_n$, $n\geq 1$ gesichert. Jedem Generator $G_i$ wird eine fixe
+maximale Arbeitsdauer $d_{i}>0$ (in Stunden) zugeordnet, über die die
+Stromversorgung mit $G_i$ gewährleistet werden kann. Beim Einschalten, und nur
+dann, kann $G_i$ mit Wahrscheinlichkeit $p_{i}>0$ ausfallen. Die Ausfälle der
+Generatoren sind unabhängig voneinander.
+
+Betrachten Sie eine Kette bestehend aus einem Dieselmotor $G_1$,
+sowie zwei Batterieanlagen $G_2$ und $G_3$. Die Arbeitsdauer sind
+$\left( d_1, d_2, d_3 \right) = \left( 24, 2, 1 \right)$ und die
+Ausfallswahrscheinlichkeiten betragen $\left( p_{1}, p_{2}, p_{3}
+\right) = \left( 0.1, 0.02, 0.03 \right)$.
+
+\begin{enumerate}
+    \item Berechnen Sie die Wahrscheinlichkeit dafür, dass die Kette
+        $\left( G_1, G_2, G_3 \right)$ das Rechenzentrum $23$ Stunden lang
+        mit Strom versorgen kann.
+
+    \item Berechnen Sie die Wahrscheinlichkeit dafür, dass $\left( G_1, G_2,
+        G_3 \right)$ das Rechenzentrum $25$ Stunden lang mit Strom versorgen
+        kann.
+\end{enumerate}
+
+\solution
+Bezeichnen wir mit $A_1, A_2, A_3$ die Ausfallsereignisse der Generatoren
+und mit $\tau$ die Ausfallszeit der Kette. Folgende Wahrscheinlichkeiten
+sind zu berechnen:
+\begin{enumerate}
+    \item $P\left( \tau>23 \right) = P( \bar A_1 ) = 0.99$.
+\end{enumerate}
+
+\problem{Komplexes Gerät.} Ein Gerät besteht aus den Baugruppen $B_1,\dots
+,B_4$. Es funktioniert, wenn wenigstens eine der Baugruppen $B_1$ oder $B_2$
+und wenn außerdem beide Baugruppen $B_3$ und $B_4$ funktionieren. Die
+Baugruppen können unabhängig voneinander ausfallen. Die
+Ausfallwahrscheinlichkeiten bei $10$-stündiger Betriebsdauer betragen für $B_1$
+und $B_2$ jeweils $0.5$, für $B_3$ und $B_4$ jeweils $0.2$. 
+\begin{enumerate}
+    \item Mit welcher Wahrscheinlichkeit funktioniert das Gerät nach
+        $10$-stündigem Betrieb noch?
+    \item Mit welcher Wahrscheinlichkeit funktionieren nach dieser Zeit noch
+        alle vier Bauelemente?
+\end{enumerate}
+
 
 \section{Elementare Maßtheorie}
 
@@ -1752,6 +1959,28 @@ verteilt mit dem Parameter $p$.
     &= \frac{  (1-p)^{i} \sum_{k=i+1}^{\infty} p(1-p)^{k} }{ (1-p)^{i} \sum_{l=0}^{\infty} p(1-p)^{l} } \\
     &= \sum_{k > j}^{} p(1-p)^k.
 \end{align*}
+
+
+\problem{Geometrische Verteilung. Gedächtnislosigkeit und Erwartungswert.} Sei 
+$X$ geometrisch verteilt mit dem Parameter $p\in (0,1)$ und der 
+Wahrscheinlichkeitsfunktion
+\begin{equation*}
+    P(X = k) = p(1-p)^{k}, \ k=0,1,\dots
+\end{equation*}
+\begin{enumerate}
+    \item Zeigen Sie, dass
+        \begin{equation*}
+            P( X > i+j \,|\, X \geq i) = P(X > j)
+        \end{equation*}
+        für alle $i,j>0$ gilt.
+    \item Zeigen Sie, dass 
+        \begin{align*}
+            \bfE X = \frac{1-p}{p}
+        \end{align*}
+        gilt.
+    \item Berechnen Sie den Erwartungswert der Zufallsgröße $Y=2\,X -1$.
+\end{enumerate}
+
 
 \problem{Binomialverteilung. Eigenschaften.} Sei $X \sim \bfB(n,p)$ 
 binomialverteilt mit den Parametern $n$ und $p$. Zeigen Sie folgende Aussagen: 
@@ -2105,8 +2334,55 @@ dem Ereignis $\left\{ N=0 \right\}$. Zeigen Sie:
     &= \exp \left[  \lambda\left( \E e^{uZ_1} -1 \right)  \right].
 \end{align*}
 
+\problem{Benfordsches Gesetz.}
+Gegeben sei eine diskret verteilte Zufallsgröße $X$ mit den Werten in der Menge
+$\left\{ 1,2,3,\dots ,9 \right\}$ und der Wahrscheinlichkeitsfunktion
+\begin{align*}
+    p(d) = P(X = d) &= \log_{10} \left( \frac{d+1}{d} \right),\  d \in \left\{ 1,2,\cdots,9 \right\}.
+\end{align*}
+\begin{enumerate}
+    \item Zeigen Sie, dass die Funktion $p$ tatsächlich eine Wahrscheinlichkeitsfunktion ist.
+    \item Berechnen Sie den Erwartungswert von $X$.
+    \item Berechnen Sie die Verteilungsfunktion von $X$. 
+\end{enumerate}
+Es sei an folgende Rechenregeln für Logarithmen erinnert:
+\begin{align*}
+    \log_{10} (a) + \log_{10} (b) &= \log_{10} \left( ab \right), &
+    c \log_{10} \left( b \right) &= \log_{10}\left( b^{c} \right),
+\end{align*}
+für alle $a,b,c>0$.
 
-\section{Concentration inequalities}
+\solution
+\begin{enumerate}
+    \item Die Funktion $p$ hat Werte in dem Einheitsintervall $\left[ 0,1 \right]$ und erfüllt
+        \begin{align*}
+            \sum_{k=1}^{9} p(k) &= \log_{10} \left( \frac{d+1}{d} \right) = \log_{10} (d+1)=1.
+        \end{align*}
+    \item \begin{align*}
+            \E X &= \sum_{d=1}^{9} d\, p(d) 
+            = \sum_{d=1}^{9} d\, \log_{10} \left( \frac{d+1}{d} \right)
+            = \log_{10} \prod_{d=1}^{9} \left( \frac{d+1}{d} \right)^{d} \\
+            &= \log_{10} \left( 10 \cdot{} \frac{10}{2} \dots \frac{10}{9} \right) 
+            = 9 - \log_{10} 9! = 3.4402.
+        \end{align*}
+    \item Die Verteilungsfunktion von $X$ ausgewertet an $k\in \left\{ 2,\dots ,10 \right\}$ ist
+        \begin{align*}
+            F(k) = P(X < k) = \sum_{d=1}^{k-1} \log_{10} \left( \frac{d+1}{d} \right) = \log_{10} k.
+        \end{align*}
+        Ist $x$ reell so gilt
+        \begin{align*}
+            F(x) = \begin{cases}
+                0, &            \text{falls } x\leq 1, \\
+                \log_{10} 2, &  \text{falls } 1< x\leq 2, \\
+                \log_{10} 3, &  \text{falls } 2< x\leq 3, \\
+                \dots & \dots \\
+                \log_{10} 9, &  \text{falls } 8 < x\leq 9, \\
+                1, & \text{sonst.}
+            \end{cases}
+        \end{align*}
+\end{enumerate}
+
+\section{Ungleichungen der Wahrscheinlichkeitstheorie}
 
 \problem{Tschebyscheff'sche Ungleichung. 100 Würfel.} Ein idealer Würfel
 wird $100$ mal geworfen. Sei $X$ die Summe der geworfenen Augenzahlen. Finden
@@ -2150,6 +2426,107 @@ mit den Werten in $\left\{ 0,1,2,\dots \right\}$ und $a> 0$. Zeigen Sie folgende
 
 
 \section{Diskrete Zufallsvariablen - Textaufgaben} 
+
+\problem{Busfahrerstreik.} Auf dem Weg zur Stochastikprüfung erfahren Sie von
+einem Busfahrerstreik. Sie kommen an der Bushaltestelle kurz vor 11:00 Uhr an,
+die Prüfung beginnt um 14:00 Uhr und die Dauer der Busfahrt inklusive des
+Fußweges zum Prüfungsort beziffern Sie erfahrungsgemäß auf eine Stunde. Gemäß
+Fahrplan stehen Ihnen drei Busse mit Abfahrtszeiten 11:00 Uhr, 12:00 Uhr und 13:00 Uhr zur
+Verfügung. Laut Aussagen anderer Wartender ist mit einer mittleren
+Verspätungsdauer von einer Stunde zu rechnen. Sie nehmen an, dass die
+Verspätungsdauern der Busse $B_i$  f\"ur $i=1,2,3$ unabhängig voneinander und exponentialverteilt mit $B_i \sim \ExpDist(\lambda)$ und
+$\lambda>0$ sind. 
+\begin{enumerate}
+    \item Bestimmen Sie den Parameter $\lambda$ und berechnen Sie die erwartete
+        Ankunftszeit am Prüfungsort unter der Annahme, dass Sie den Bus mit der
+        planmäßigen Abfahrtszeit 11:00 Uhr benutzen.
+    \item Berechnen Sie die Wahrscheinlichkeit dafür, dass Sie nicht rechtzeitig 
+        zur Prüfung kommen können.
+    \item Berechnen Sie die Wahrscheinlichkeit dafür, dass Sie mindestens eine halbe Stunde
+        vor der Prüfung am Prüfungsort ankommen.
+\end{enumerate}
+
+\solution
+\begin{enumerate}
+    \item $\E B_i = 1$ impliziert $\lambda=1$. Die erwartete Ankunftszeit bei
+        Fahrt mit dem ersten Bus ist $\E \left[ 11 + 1 + B_1  \right] = 12 +
+        \E B_1 = 13$ Uhr.
+    \item Bezeichne mit $B_1$, $B_2$, und $B_3$ die Verspätungsdauer der Busse.
+        Laut Angabe sind $B_i$ exponentialverteilt mit  $B_i \sim
+        \ExpDist(1)$. Die Wahrscheinlichkeit dafür, dass der Prüfungsort nicht
+        rechtzeitig erreicht werden kann ist
+        \begin{align*}
+            P\left( B_1 \geq 2 \ \wedge \ B_2 \geq 1 \ \wedge B_3 \geq 0 \right) &= 
+            P(B_1 \geq 2) P(B_2 \geq 1) \\
+            &= \exp\left( -2 \right) \exp( -1) \approx 0.04978.
+        \end{align*}
+
+    \item Die Wahrscheinlichkeit, dass wir mindestens halbe Stunde vor der
+        Prüfung ankommen, ist
+        \begin{align*}
+            P( B_1 \leq 1.5 \ \vee \ B_2 \leq 0.5  ) &= 1 - P(B_1 > 1.5 )P(B_2 > 0.5) 
+            \approx 0.8646. 
+        \end{align*}
+\end{enumerate}
+
+
+\problem{Gasmelder.}  Im Hauptgebäude der TU Chemnitz werden Gasmelder
+bestimmten Typs für die Früherkennung gefährlicher Methankonzentrationen
+eingesetzt. Es wird angenommen, dass im $3.$ Stock im Mittel alle $25$ Jahre
+ein gefährlicher Methanaustritt stattfindet, der durch den entsprechenden
+Gasmelder signalisiert wird. Unabhängig davon geht der besagte Melder im Mittel
+alle $5$ Jahre kaputt und signalisiert dabei einen Falschalarm. Der defekte Melder
+wird aus Sicherheitsgründen immer sofort ausgetauscht.
+\begin{enumerate}
+    \item Wir setzen im Folgenden voraus, dass beide Ereignisfolgen mit Hilfe
+        des Poisson-Prozesses modelliert werden können. Diskutieren Sie die
+        zugehörigen Annahmen der Stationarität, Homogenität und Ordinarität.
+
+    \item Wie wahrscheinlich ist es, dass es in den nächsten $10$ Jahren zu mehr als
+        einem Methanaustritt kommen wird?
+
+    \item Wie wahrscheinlich ist es, dass nach dem Austausch des defekten Melders Ende Mai der neue Melder innerhalb eines halben Jahres kaputt geht?
+\end{enumerate}
+
+\solution
+\begin{enumerate}
+    \item 
+    \item Wir rechnen alles in der Einheit Stunden.\\$M$ zähle Methanvorfälle und $G$ zähle Gasmelderausfälle.  Es
+        gilt $M_t \sim \pi(\mu t)$ und $G_t \sim \pi(\gamma t)$. Aus $\E
+        M_{25}=1=25\, \mu$ und $\E G_5 = 1 = 5\, \gamma$ erhalten wir
+        $\mu=0.04$ und $\gamma=0.2$. Daher gilt
+        \begin{align*}
+            P( M_{10} > 1) &= 1 - P(M_{10}=0) - P(M_{10}=1)\\
+           &= 1-\pi_{0.4}(0)-\pi_{0.4}(1)=0.06155.
+        \end{align*}
+    \item Die Zeiten zwischen den Ausfällen der Gasmelder sind
+        exponentialverteilt mit dem Parameter $\gamma$. Es gilt also
+        \begin{align*}
+            P( T \leq 0.5 ) = 1 - \exp(-\gamma\, 0.5) = 0.0951. 
+        \end{align*}
+\end{enumerate}
+
+\problem{Vulkanausbr\"uche.} Das Vulkangebiet um Indonesien l\"asst im Mittel einen Vulkanausbruch
+in f\"unf Jahren erwarten. Wir setzen voraus, dass dafür die Annahmen des
+Poisson-Prozesses (Stationarität, Homogenität und Ordinarität) gelten mögen.
+\begin{enumerate}
+    \item Wie können diese drei Annahmen für die vorliegende Problematik interpretiert werden?
+
+    \item Wie wahrscheinlich ist es dann, dass es in einem Jahrhundert zu gar keinem Vulkanausbruch in diesem
+    Gebiet kommt?
+    \item Wie wahrscheinlich ist es andererseits, dass es nach einem Vulkanausbruch bereits innerhalb eines Jahres zu einem
+    weiteren Vulkanausbruch kommt?
+\end{enumerate}
+
+\solution
+\begin{enumerate}
+        \setcounter{enumi}{1}
+    \item Rechnungseinheit Jahre: $\mu=\frac{1}{5}=0.2, \quad X_t \sim \text{Poiss}(\mu t).$
+        Sei $\pi_{\lambda}$ die Wahrscheinlichkeitsfunktion der Poissonverteilung mit dem Parameter $\lambda$. Dann ist
+        $t=100$, $\lambda=\mu t=20$, $P(X_{100}=0)=\pi_{20}(0)= \exp(-20)=2.0611 \times 10^{-9}$.
+    \item Zeitraum bis zum nächsten Ereignis: $T \sim \ExpDist(\mu)$.
+        $P(T \le 1)=1-\exp(-\mu)=1-\exp(-0.2)=0.1813.$
+\end{enumerate}
 
 \problem{Weinfehler. Verteilungsfunktion.} Aus einem sehr großen Lieferposten
 von Wein werden $100$ Flaschen zufällig herausgegriffen und auf Weinfehler
@@ -3044,6 +3421,21 @@ $Y_1,\ldots,Y_n$ i.i.d.\ und $\textrm{Gamma}(a,\lambda_2)$-verteilt. Man nehme a
 dass die Vektoren $(X_1,\ldots,X_n)$ und $(Y_1,\ldots,Y_n)$ unabhängig sind. 
 Bestimmen Sie die Verteilung von $\bar X/\bar Y$.
 
+\problem{$\chi^{2}$-Verteilung mit einem Freiheitsgrad.} Sei $X$ 
+standarisiert normalverteilt. Zeigen Sie folgende Aussagen:
+\begin{enumerate}
+    \item Die Verteilungsfunktion der Zufallsgröße $X^2$ ist $2\, \Phi(\sqrt{t})-1$,
+        wobei $\Phi$ die Verteilungsfunktion der standarisierten Normalverteilung 
+        bezeichnet.
+    \item Die Dichtefunktion von $X^2$ ist 
+        \begin{align*}
+            f(x) = \begin{cases}
+                \frac{1}{\sqrt{2 \pi x}} e^{-\frac{x}{2}} & \text{falls x>0}, \\
+                0 & \text{sonst.}
+            \end{cases}
+        \end{align*}
+\end{enumerate}
+
 \problem{Dichte der $\chi^2$-Verteilung. } 
 Seien $X_1,\ldots,X_n$ unabhängige und standardnormalverteilte
 Zufallsvariablen. Dann folgt $Y= \sum_{i=1}^{n} X_i^2$ einer
@@ -3083,6 +3475,18 @@ Freiheitsgraden.
 
 
 \section{Stetige Zufallsvariablen -- Textaufgaben}
+
+\problem{Widerstände.} Ein Automat produziert Widerstände, deren Werte
+erfahrungsgemäß Realisierungen einer normalverteilten Zufallsgröße mit $\mu =
+1000\ \Omega$ und $\sigma = 20\ \Omega$ sind. Widerstände außerhalb der
+Toleranzgrenzen von $960\ \Omega$ und $1050\ \Omega$ gelten als Ausschuss.
+\begin{enumerate}
+    \item Wie viele von $950$ Widerständen sind im Mittel Ausschuss?
+    \item Der Anteil der Widerstände mit einem Wert größer aus $1050\ \Omega$
+        soll auf durchschnittlich $0.1\%$ gesenkt werden. Wie groß muss dann
+        $\mu$ sein, wenn die mittlere quadratische Abweichung $\sigma^2$
+        unverändert bleibt?
+\end{enumerate}
 
 \problem{Lebensdauer der Glühlampen.} Die Lebensdauer einer Glühlampe sei
 eine exponentialverteilte Zufallsvariable.  Es sei bekannt, dass im Durchschnitt
@@ -4095,309 +4499,6 @@ R source code:
 [1] 1.959964
 \end{lstlisting}
 
-
-
-\section{Prüfungsaufgaben.}
-
-\problem{Ausfälle der Notstromgeneratoren.}
-Der Betrieb eines Rechenzentrums wird von einer Kette von Notstromgeneratoren
-$G_1,\dots ,G_n$, $n\geq 1$ gesichert. Jedem Generator $G_i$ wird eine fixe
-maximale Arbeitsdauer $d_{i}>0$ (in Stunden) zugeordnet, über die die
-Stromversorgung mit $G_i$ gewährleistet werden kann. Beim Einschalten, und nur
-dann, kann $G_i$ mit Wahrscheinlichkeit $p_{i}>0$ ausfallen. Die Ausfälle der
-Generatoren sind unabhängig voneinander.
-
-Betrachten Sie eine Kette bestehend aus einem Dieselmotor $G_1$,
-sowie zwei Batterieanlagen $G_2$ und $G_3$. Die Arbeitsdauer sind
-$\left( d_1, d_2, d_3 \right) = \left( 24, 2, 1 \right)$ und die
-Ausfallswahrscheinlichkeiten betragen $\left( p_{1}, p_{2}, p_{3}
-\right) = \left( 0.1, 0.02, 0.03 \right)$.
-
-\begin{enumerate}
-    \item Berechnen Sie die Wahrscheinlichkeit dafür, dass die Kette
-        $\left( G_1, G_2, G_3 \right)$ das Rechenzentrum $23$ Stunden lang
-        mit Strom versorgen kann.
-
-    \item Berechnen Sie die Wahrscheinlichkeit dafür, dass $\left( G_1, G_2,
-        G_3 \right)$ das Rechenzentrum $25$ Stunden lang mit Strom versorgen
-        kann.
-\end{enumerate}
-
-\solution
-Bezeichnen wir mit $A_1, A_2, A_3$ die Ausfallsereignisse der Generatoren
-und mit $\tau$ die Ausfallszeit der Kette. Folgende Wahrscheinlichkeiten
-sind zu berechnen:
-\begin{enumerate}
-    \item $P\left( \tau>23 \right) = P( \bar A_1 ) = 0.99$.
-\end{enumerate}
-
-
-\problem{Benfordsches Gesetz.} 
-Gegeben sei eine diskret verteilte Zufallsgröße $X$ mit den Werten in der Menge
-$\left\{ 1,2,3,\dots ,9 \right\}$ und der Wahrscheinlichkeitsfunktion
-\begin{align*}
-    p(d) = P(X = d) &= \log_{10} \left( \frac{d+1}{d} \right),\  d \in \left\{ 1,2,\cdots,9 \right\}.
-\end{align*}
-\begin{enumerate}
-    \item Zeigen Sie, dass die Funktion $p$ tatsächlich eine Wahrscheinlichkeitsfunktion ist.
-
-    \item Berechnen Sie den Erwartungswert von $X$. 
-\end{enumerate}
-Es sei an folgende Rechenregeln für Logarithmen erinnert: 
-\begin{align*}
-    \log_{10} (a) + \log_{10} (b) &= \log_{10} \left( ab \right), & 
-    c \log_{10} \left( b \right) &= \log_{10}\left( b^{c} \right), 
-\end{align*}
-für alle $a,b,c>0$.
-
-\solution
-$\E X = \sum_{d=1}^{9} d \log_{10} \left( \frac{d+1}{d} \right) 
-    = \log_{10} \left( 10\cdot{} \frac{10}{2} \cdots \frac{10}{9} \right) 
-    = 10 - \log_{10} \left( 9! \right) \approx 3.440236$.
-
-
-\problem{Gruppeneinteilung bei Fußball WM.} Bei der Fußballweltmeisterschaften
-werden $32$ Fußballteams zufällig in $8$ Gruppen je $4$ Teams eingeteilt. Dafür
-wird ein kompliziertes Verfahren angewendet, um sicherzustellen dass
-verschiedene unerwünschte Aufteilungen nicht auftreten können. In dieser
-Aufgabe nehmen wir an, dass alle Gruppeneinteilungen gleichwahrscheinlich sind,
-und zeigen, dass dieses Modell unerwünschte Eigenschaften hat. 
-\begin{enumerate}
-    \item Wie viele mögliche Gruppeneinteilungen gibt es?
-    \item Berechnen Sie die Wahrscheinlichkeit dafür, dass die $7$ Führenden
-        der FIFA-Weltrangliste zwei Gruppen zugeteilt werden.
-    \item Berechnen Sie die Wahrscheinlichkeit dafür, dass es mindestens eine
-        Gruppe gibt zu der mindestens $3$ Europäische Mannschaften eingeteilt
-        wurden.
-\end{enumerate}
-
-\solution
-\begin{enumerate}
-    \item $\frac{\binom{2}{2} \binom{30}{2}}{\binom{32}{4}}$.
-    \item $\binom{32}{4}\binom{28}{4} \cdots \binom{4}{4}$.
-\end{enumerate}
-
-
-\problem{Elfmeterschießen.} In einem einfachen Modell des Elfmeterschießens
-wird nur eine Mannschaft betrachtet. Die Wahrscheinlichkeit beim ersten Schuss
-einen Tor zu erzielen sei $p_{1}=0.8$. Ist in der Tat ein Tor gefallen, wird
-die Treffwahrscheinlichkeit beim nächsten Versuch auf $p_2 = \sqrt{p_1}$
-erhöht, andernfalls verringert sich diese Wahrscheinlichkeit und beträgt $p_2 =
-p_{1}^{2}$. Der Vorgang wird wiederholt, wobei die Treffwahrscheinlichkeit beim
-$i$-ten Schuss $p_{i}=\sqrt{p_{i-1}}$ beträgt, falls vorher ein Tor
-gefallen ist, und sonst $p_i = p^{2}_{i-1}$.
-\begin{enumerate}
-    \item Wie groß ist die Wahrscheinlichkeit dafür, dass beim zweiten Versuch
-        ein Tor fällt?
-        
-    \item Angenommen Sie haben den ersten Schuss nicht gesehen, wissen aber
-        dass beim zweiten Versuch ein Tor gefallen ist. Unter dieser Bedingung,
-        wie groß ist die Wahrscheinlichkeit, dass beim ersten Schuss ein Tor
-        gefallen ist. 
-\end{enumerate}
-
-
-
-
-\problem{Gasmelder.} Im Hauptgebäude der TU Chemnitz werden Gasmelder
-bestimmten Typs für die Früherkennung gefährlicher Methankonzentrationen
-eingesetzt. Es wird angenommen, dass im $3.$ Stock im Mittel alle $25$ Jahre
-ein gefährlicher Methanaustritt stattfindet, der durch den entsprechenden
-Gasmelder signalisiert wird. Unabhängig davon geht der besagte Melder im Mittel
-alle $5$ Jahre kaputt und signalisiert dabei einen Falschalarm. Kaputter Melder
-wird aus Sicherheitsgründen sofort ausgetauscht. 
-\begin{enumerate}
-    \item Wir setzen im Folgenden voraus, dass beide Ereignisfolgen mit Hilfe
-        der Poisson-Prozesse modelliert werden können. Diskutieren Sie die 
-        zugehörigen Annahmen der Stationarität, Homogenität und Ordinarität.
-
-    \item Wie wahrscheinlich ist es, dass es in den nächsten $10$ Jahren zu mehr als
-        $2$ Methanvorfällen kommen wird?
-
-    \item Wie wahrscheinlich ist es, dass nach dem ein kaputter Melder Ende Mai ausgetauscht
-        wurde, der neue Melder innerhalb eines halben Jahres kaputt geht?
-\end{enumerate}
-
-
-
-\problem{Vulkanausbr\"uche.} Das Vulkangebiet um Indonesien l\"asst im Mittel einen Vulkanausbruch
-in f\"unf Jahren erwarten. Wir setzen voraus, dass dafür die Annahmen des
-Poisson-Prozesses (Stationarität, Homogenität und Ordinarität) gelten mögen.
-\begin{enumerate}
-    \item Wie können diese drei Annahmen für die vorliegende Problematik interpretiert werden?
-
-    \item Wie wahrscheinlich ist es dann, dass es in einem Jahrhundert zu gar keinem Vulkanausbruch in diesem
-    Gebiet kommt?
-    \item Wie wahrscheinlich ist es andererseits, dass es nach einem Vulkanausbruch bereits innerhalb eines Jahres zu einem
-    weiteren Vulkanausbruch kommt?
-\end{enumerate}
-
-\solution
-\begin{enumerate}
-        \setcounter{enumi}{1}
-    \item Rechnungseinheit Jahre: $\mu=\frac{1}{5}=0.2, \quad X_t \sim \text{Poiss}(\mu t).$
-        Sei $\pi_{\lambda}$ die Wahrscheinlichkeitsfunktion der Poissonverteilung mit dem Parameter $\lambda$. Dann ist
-        $t=100$, $\lambda=\mu t=20$, $P(X_{100}=0)=\pi_{20}(0)= \exp(-20)=2.0611 \times 10^{-9}$.
-    \item Zeitraum bis zum nächsten Ereignis: $T \sim \ExpDist(\mu)$.
-        $P(T \le 1)=1-\exp(-\mu)=1-\exp(-0.2)=0.1813.$
-\end{enumerate}
-
-\problem{Kombinatorik. Schachbrett.} Auf ein Schachbrett (entspricht einer 
-$8\times 8$-Matrix) werden zufällig $8$ Türme gestellt. 
-\begin{enumerate}
-    \item Wie groß ist die Wahrscheinlichkeit dafür, dass sich die Türme nicht
-        sehen können, d.\,h.\ in jeder Zeile und jeder Spalte jeweils genau ein
-        Turm steht?
-    \item Wie groß ist die Wahrscheinlichkeit dafür, dass in jeder Zeile jeweils
-        genau ein Turm steht?
-\end{enumerate}
-
-\solution
-\begin{enumerate}
-    \item $\frac{8^2 7^2 \cdots 1^2}{ 64 \cdots 57} = \frac{8!}{ \binom{64}{8}}$.
-    \item $\frac{8!\, 8^8}{64 \dots 57}$.
-\end{enumerate}
-
-\problem{Busfahrerstreik.} Auf dem Weg zur Stochastikprüfung erfahren Sie von
-einem Busfahrerstreik. Sie kommen an der Bushaltestelle kurz vor 11:00 Uhr an,
-die Prüfung beginnt um 14:00 Uhr und die Dauer der Busfahrt inklusive des
-Fußweges zum Prüfungsort beziffern Sie erfahrungsgemäß auf eine Stunde. Gemäß
-Fahrplan stehen Ihnen drei Busse mit Abfahrtszeiten 11:00 Uhr, 12:00 Uhr und 13:00 Uhr zur
-Verfügung. Laut Aussagen anderer Wartender ist mit einer mittleren
-Verspätungsdauer von einer Stunde zu rechnen. Sie nehmen an, dass die
-Verspätungsdauern der Busse $B_i$  f\"ur $i=1,2,3$ unabhängig voneinander und exponentialverteilt mit $B_i \sim \ExpDist(\lambda)$ und
-$\lambda>0$ sind. 
-\begin{enumerate}
-    \item Bestimmen Sie den Parameter $\lambda$ und berechnen Sie die erwartete
-        Ankunftszeit am Prüfungsort unter der Annahme, dass Sie den Bus mit der
-        planmäßigen Abfahrtszeit 11:00 Uhr benutzen.
-    \item Berechnen Sie die Wahrscheinlichkeit dafür, dass Sie nicht rechtzeitig 
-        zur Prüfung kommen können.
-    \item Berechnen Sie die Wahrscheinlichkeit dafür, dass Sie mindestens eine halbe Stunde
-        vor der Prüfung am Prüfungsort ankommen.
-\end{enumerate}
-
-\solution
-\begin{enumerate}
-    \item $\E B_i = 1$ impliziert $\lambda=1$. Die erwartete Ankunftszeit bei
-        Fahrt mit dem ersten Bus ist $\E \left[ 11 + 1 + B_1  \right] = 12 +
-        \E B_1 = 13$ Uhr.
-    \item Bezeichne mit $B_1$, $B_2$, und $B_3$ die Verspätungsdauer der Busse.
-        Laut Angabe sind $B_i$ exponentialverteilt mit  $B_i \sim
-        \ExpDist(1)$. Die Wahrscheinlichkeit dafür, dass der Prüfungsort nicht
-        rechtzeitig erreicht werden kann ist
-        \begin{align*}
-            P\left( B_1 \geq 2 \ \wedge \ B_2 \geq 1 \ \wedge B_3 \geq 0 \right) &= 
-            P(B_1 \geq 2) P(B_2 \geq 1) \\
-            &= \exp\left( -2 \right) \exp( -1) \approx 0.04978.
-        \end{align*}
-
-    \item Die Wahrscheinlichkeit, dass wir mindestens halbe Stunde vor der
-        Prüfung ankommen, ist
-        \begin{align*}
-            P( B_1 \leq 1.5 \ \vee \ B_2 \leq 0.5  ) &= 1 - P(B_1 > 1.5 )P(B_2 > 0.5) 
-            \approx 0.8646. 
-        \end{align*}
-\end{enumerate}
-
-
-
-\problem{Schaltkreise. Qualitätskontrolle.} Bei einer Endkontrolle von
-Schaltkreisen sollen nicht voll funktionsfähige Schaltkreise aussortiert
-werden. Bekannt sei, dass im Mittel $20\%$ der erzeugten Schaltkreise nicht
-voll funktionsfähig sind. Beim Prüfen werden $95\%$ dieser Schaltkreise
-aussortiert, aber auch $1\%$ der einwandfreien.
-\begin{enumerate}
-    \item Mit welcher Wahrscheinlichkeit ist ein nicht aussortierter
-        Schaltkreis voll funktionsfähig?
-    \item Mit welcher Wahrscheinlichkeit ist ein aussortierter Schaltkreis
-        einwandfrei?
-\end{enumerate}
-
-\solution 
-Definiere die Ereignisse: $A$ ein Schaltkreis wird aussortiert, und $K$ ein Schaltkreis ist
-nicht voll funktionsfähig (kaputt). Wir wissen
-\begin{align*}
-    \bP( A | K ) &= 0.95 \\
-    \bP( A | \bar K ) &= 0.01.
-\end{align*}
-Daraus folgt
-\begin{align*}
-    \bP( \bar A | \bar K ) &= 0.99 \\
-    \bP( \bar A | K ) &= 0.05 \\
-    \bP( \bar K ) &= 0.8.
-\end{align*}
-Wir berechnen mit Hilfe des Satzes von Bayes:
-\begin{enumerate}
-    \item \begin{equation*}
-            \bP\left( \bar K | \bar A \right) = \frac{\bP(\bar A | \bar K)\bP(\bar K)}
-            {\bP(\bar A | \bar K)\bP(\bar K) + \bP(\bar A | K ) \bP(K)} = 0.9875311\cdots
-        \end{equation*}
-    \item \begin{equation*}
-            \bP\left( \bar K | A \right) = 0.0404040\cdots
-        \end{equation*}
-\end{enumerate}
-
-\problem{Widerstände.} Ein Automat produziert Widerstände, deren Werte
-erfahrungsgemäß Realisierungen einer normalverteilten Zufallsgröße mit $\mu =
-1000\ \Omega$ und $\sigma = 20\ \Omega$ sind. Widerstände außerhalb der
-Toleranzgrenzen von $960\ \Omega$ und $1050\ \Omega$ gelten als Ausschuss.
-\begin{enumerate}
-    \item Wie viele von $950$ Widerständen sind im Mittel Ausschuss?
-    \item Der Anteil der Widerstände mit einem Wert größer aus $1050\ \Omega$
-        soll auf durchschnittlich $0.1\%$ gesenkt werden. Wie groß muss dann
-        $\mu$ sein, wenn die mittlere quadratische Abweichung $\sigma^2$
-        unverändert bleibt?
-\end{enumerate}
-
-\problem{Komplexes Gerät.} Ein Gerät besteht aus den Baugruppen $B_1,\dots
-,B_4$. Es funktioniert, wenn wenigstens eine der Baugruppen $B_1$ oder $B_2$
-und wenn außerdem beide Baugruppen $B_3$ und $B_4$ funktionieren. Die
-Baugruppen können unabhängig voneinander ausfallen. Die
-Ausfallwahrscheinlichkeiten bei $10$-stündiger Betriebsdauer betragen für $B_1$
-und $B_2$ jeweils $0.5$, für $B_3$ und $B_4$ jeweils $0.2$. 
-\begin{enumerate}
-    \item Mit welcher Wahrscheinlichkeit funktioniert das Gerät nach
-        $10$-stündigem Betrieb noch?
-    \item Mit welcher Wahrscheinlichkeit funktionieren nach dieser Zeit noch
-        alle vier Bauelemente?
-\end{enumerate}
-
-\problem{Geometrische Verteilung. Gedächtnislosigkeit und Erwartungswert.} Sei 
-$X$ geometrisch verteilt mit dem Parameter $p\in (0,1)$ und der 
-Wahrscheinlichkeitsfunktion
-\begin{equation*}
-    P(X = k) = p(1-p)^{k}, \ k=0,1,\dots
-\end{equation*}
-\begin{enumerate}
-    \item Zeigen Sie, dass
-        \begin{equation*}
-            P( X > i+j \,|\, X \geq i) = P(X > j)
-        \end{equation*}
-        für alle $i,j>0$ gilt.
-    \item Zeigen Sie, dass 
-        \begin{align*}
-            \bfE X = \frac{1-p}{p}
-        \end{align*}
-        gilt.
-    \item Berechnen Sie den Erwartungswert der Zufallsgröße $Y=2\,X -1$.
-\end{enumerate}
-
-\problem{$\chi^{2}$-Verteilung mit einem Freiheitsgrad.} Sei $X$ 
-standarisiert normalverteilt. Zeigen Sie folgende Aussagen:
-\begin{enumerate}
-    \item Die Verteilungsfunktion der Zufallsgröße $X^2$ ist $2\, \Phi(\sqrt{t})-1$,
-        wobei $\Phi$ die Verteilungsfunktion der standarisierten Normalverteilung 
-        bezeichnet.
-    \item Die Dichtefunktion von $X^2$ ist 
-        \begin{align*}
-            f(x) = \begin{cases}
-                \frac{1}{\sqrt{2 \pi x}} e^{-\frac{x}{2}} & \text{falls x>0}, \\
-                0 & \text{sonst.}
-            \end{cases}
-        \end{align*}
-\end{enumerate}
-
 \problem{Konfidenzintervall und Test. Normalverteilung.} Beim Messen der
 Entfernung zwischen zwei Punkten sei der Messwert die Realisierung einer
 $\bfN(\mu, \sigma^2)$-verteilten Zufallsgröße. Aus $20$ Messungen einer
@@ -4420,31 +4521,7 @@ bestimmten Entfernung ergaben sich die folgenden Schätzwerte:
         Kriterium für die Tauglichkeit die Forderung $\sigma < 5.0\,m $ dient?
 \end{enumerate}
 
-\problem{Modifiziertes Urnenmodell von P\'olya.} Eine Urne enthält $s=2$ schwarze und
-$w=3$ weiße Kugeln. Es wird eine Kugel zufällig gezogen und ihre Farbe notiert.
-Falls eine weiße Kugel gezogen wurde, wird diese beiseite gelegt. Falls eine
-schwarze Kugel gezogen wurde, wird diese zusammen mit einer weiteren schwarzen
-Kugel in die Urne gelegt. Die Prozedur wird anschließend wiederholt.
-\begin{enumerate}
-    \item Wie groß ist die Wahrscheinlichkeit, dass die zweite gezogene Kugel
-        weiß ist?
-    \item Wie groß ist die Wahrscheinlichkeit, dass die erste gezogene Kugel
-        weiß ist, unter der Bedingung, dass die zweite gezogene Kugel weiß ist?
-\end{enumerate}
-
-\solution
-Wir bezeichnen mit $W_i$ bzw.\ mit $S_i$ das Ereignis, dass bei der $i$-ten
-Ziehung eine weiße bzw.\ eine schwarze Kugel gezogen wird.
-\begin{enumerate}
-    \item \begin{align*}
-            P(W_2) &= P(W_2 \,|\, W_1)P(W_1) + P(W_2 \,|\, S_1)P(S_1) \\
-            &= \frac{w-1}{s+w-1} \frac{w}{s+w} + \frac{w}{s+1+w} \frac{s}{w+s} = \frac{1}{2}. 
-        \end{align*}
-    \item \begin{align*}
-            P( W_1 \,|\, W_2 ) &= \frac{P(W_2 \,|\, W_1) P(W_1)}{P(W_2)} = 
-            \frac{1}{P(W_2)} \frac{ w-1 }{w-1+s}\frac{w}{s+w} = \frac{3}{5}. 
-        \end{align*}
-\end{enumerate}
+\section{Prüfungsaufgaben.}
 
 
 
