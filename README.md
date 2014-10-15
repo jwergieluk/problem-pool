@@ -15,13 +15,13 @@ Teil mit Lösungshinweisen oder mit vollständigen Lösungen versehen.
 Bedenken Sie, dass einige Aufgaben und deren Lösungen unter Umständen
 unvolständig, falsh oder **schlecht** *formatiert* sind. 
 
-Wenn Sie einen Fehler gefunden haben, erstellen Sie bitte eine "Issue" in dem
-Fehlerverfolgunssystem des Projekts und verweisen Sie in dem Namen des Fehlers
+Wenn Sie einen Fehler gefunden haben, erstellen Sie bitte einen "Issue" in dem
+Fehlerverfolgungssystem des Projekts und verweisen Sie in dem Namen des Fehlers
 auf den (innerhalb der Sammlung eindeutigen) Titel der Aufgabe. 
 
 #### Quellen
 
-Bei der Erstellung dieser Aufgabensammlung habe ich unter anderen folgende
+Bei der Erstellung dieser Aufgabensammlung habe ich unter anderem folgende
 exzellente Bücher verwendet:
 
 * Czado, C., Schmidt, T. (2011). Mathematische Statistik. Springer.
