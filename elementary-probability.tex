@@ -1982,41 +1982,42 @@ Wahrscheinlichkeitsfunktion
 \end{enumerate}
 
 
-\problem{Binomialverteilung. Eigenschaften.} Sei $X \sim \bfB(n,p)$ 
-binomialverteilt mit den Parametern $n$ und $p$. Zeigen Sie folgende Aussagen: 
-\begin{enumerate}
-    \item Das Maximum der Wahrscheinlichkeitsfunktion von $X$ wird an der Stelle
-        \begin{equation*}
-            \operatorname{argmax}_{k\in \left\{ 0,\dots ,n \right\}} P(X=k) = \lfloor (n+1)p \rfloor.
-        \end{equation*}
-        angenommen. Dabei bezeichnet $\lfloor x \rfloor$ für ein $x\in\bR$ die
-        größte ganze Zahl, die nicht größer als $x$ ist. 
-
-    \item Zeigen Sie, dass die folgende Formel gilt:
-        \begin{equation*}
-            P\left( X \text{ ist eine gerade Zahl} \right) = \frac{1}{2}\left( 1 + (1-2p)^n \right). 
-        \end{equation*}
-\end{enumerate}
+\problem{Binomialverteilung. Maximum der Wahrscheinlichkeitsfunktion.} 
+Sei $X \sim \bfB(n,p)$ binomialverteilt mit den Parametern $n$ und $p$. Zeigen
+Sie, dass das Maximum der Wahrscheinlichkeitsfunktion von $X$ an der Stelle
+\begin{equation*}
+    \operatorname{argmax}_{k\in \left\{ 0,\dots ,n \right\}} P(X=k) = \lfloor (n+1)p \rfloor.
+\end{equation*}
+angenommen wird. Dabei bezeichnet $\lfloor x \rfloor$ für ein $x\in\bR$ die
+größte ganze Zahl, die nicht größer als $x$ ist. 
 
 \solution 
-\begin{enumerate}
-    \item Wir berechnen
-        \begin{align*}
-            P(X=k)/P(X=k-1) &= \frac{n+1-k}{k} \frac{p}{1-p}.
-        \end{align*}
-        Dieser Quotient ist größer als $1$ genau dann, wenn 
-        \begin{equation*}
-            (n+1)p > k. 
-        \end{equation*}
-    \item Sei $p_n$ die Wahrscheinlichkeit, dass eine
-        $\bfB(n,p)$-verteilte Zufallsgröße gerade ist. $p_n$ erfüllt folgende rekursive
-        Relation
-        \begin{align*}
-            p_n &= p_{n-1}(1-2p) + p, &  p_0 &= 1.
-        \end{align*}
-        Nun ist es einfach zu überprüfen, dass $\frac{1}{2}(1+ (1-2p)^n)$ die Lösung
-        dieser Rekursion ist. 
-\end{enumerate}
+Wir berechnen
+\begin{align*}
+    P(X=k)/P(X=k-1) &= \frac{n+1-k}{k} \frac{p}{1-p}.
+\end{align*}
+Dieser Quotient ist größer als $1$ genau dann, wenn 
+\begin{equation*}
+    (n+1)p > k. 
+\end{equation*}
+
+
+\problem{Binomialverteilung. Gerade Werte.} 
+Sei $X \sim \bfB(n,p)$ binomialverteilt mit den Parametern $n$ und $p$. Zeigen
+Sie, dass die folgende Formel gilt:
+\begin{equation*}
+    P\left( X \text{ ist eine gerade Zahl} \right) = \frac{1}{2}\left( 1 + (1-2p)^n \right). 
+\end{equation*}
+
+\solution 
+Sei $p_n$ die Wahrscheinlichkeit, dass eine
+$\bfB(n,p)$-verteilte Zufallsgröße gerade ist. $p_n$ erfüllt folgende rekursive
+Relation
+\begin{align*}
+    p_n &= p_{n-1}(1-2p) + p, &  p_0 &= 1.
+\end{align*}
+Nun ist es einfach zu überprüfen, dass $\frac{1}{2}(1+ (1-2p)^n)$ die Lösung
+dieser Rekursion ist. 
 
 
 \problem{Poisson-Verteilung. Eigenschaften.} Sei $X$
@@ -2335,7 +2336,7 @@ dem Ereignis $\left\{ N=0 \right\}$. Zeigen Sie:
 \end{align*}
 
 \problem{Benfordsches Gesetz.}
-Gegeben sei eine diskret verteilte Zufallsgröße $X$ mit den Werten in der Menge
+Gegeben sei eine diskret verteilte Zufallsvariable $X$ mit den Werten in der Menge
 $\left\{ 1,2,3,\dots ,9 \right\}$ und der Wahrscheinlichkeitsfunktion
 \begin{align*}
     p(d) = P(X = d) &= \log_{10} \left( \frac{d+1}{d} \right),\  d \in \left\{ 1,2,\cdots,9 \right\}.
