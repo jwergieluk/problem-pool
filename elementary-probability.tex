@@ -2351,14 +2351,16 @@ Es sei an folgende Rechenregeln für Logarithmen erinnert:
     \log_{10} (a) + \log_{10} (b) &= \log_{10} \left( ab \right), &
     c \log_{10} \left( b \right) &= \log_{10}\left( b^{c} \right),
 \end{align*}
-für alle $a,b,c>0$.
+für alle $a,b>0$ und $c\in\R$.
 
 \solution
 \begin{enumerate}
-    \item Die Funktion $p$ hat Werte in dem Einheitsintervall $\left[ 0,1 \right]$ und erfüllt
-        \begin{align*}
-            \sum_{k=1}^{9} p(k) &= \log_{10} \left( \frac{d+1}{d} \right) = \log_{10} (d+1)=1.
-        \end{align*}
+    \item Offenbar gilt $1<\frac{d+1}{d}<10$ für alle $d\in{1,2,\hdots,9}$. Wegen der strengen Monotonie des Logarithmus ergibt dies
+          $0=\log(1)<\log\left(\frac{d+1}{d}\right)<\log(10)=1$.
+          Also hat die Funktion $p$ Werte in dem Einheitsintervall $\left[ 0,1 \right]$ und erfüllt
+        \begin{equation*}
+            \sum_{d=1}^{9} p(d) = \sum_{d=1}^9 \log_{10} \left(\frac{d+1}{d} \right) = \log_{10} \left(\prod_{d=1}^9 \frac{d+1}{d} \right) = \log_{10} \left(\frac{10}{1}\right)=1.
+        \end{equation*}
     \item \begin{align*}
             \E X &= \sum_{d=1}^{9} d\, p(d) 
             = \sum_{d=1}^{9} d\, \log_{10} \left( \frac{d+1}{d} \right)
@@ -2366,19 +2368,19 @@ für alle $a,b,c>0$.
             &= \log_{10} \left( 10 \cdot{} \frac{10}{2} \dots \frac{10}{9} \right) 
             = 9 - \log_{10} 9! = 3.4402.
         \end{align*}
-    \item Die Verteilungsfunktion von $X$ ausgewertet an $k\in \left\{ 2,\dots ,10 \right\}$ ist
+    \item Die Verteilungsfunktion von $X$ ausgewertet an $k\in \left\{ 1,\dots ,9 \right\}$ ist
         \begin{align*}
-            F(k) = P(X < k) = \sum_{d=1}^{k-1} \log_{10} \left( \frac{d+1}{d} \right) = \log_{10} k.
+            F(k) = P(X \le k) = \sum_{d=1}^{k} \log_{10} \left( \frac{d+1}{d} \right) = \log_{10} (k+1).
         \end{align*}
-        Ist $x$ reell so gilt
+        Für $x\in\R$ gilt daher
         \begin{align*}
-            F(x) = \begin{cases}
-                0, &            \text{falls } x\leq 1, \\
-                \log_{10} 2, &  \text{falls } 1< x\leq 2, \\
-                \log_{10} 3, &  \text{falls } 2< x\leq 3, \\
-                \dots & \dots \\
-                \log_{10} 9, &  \text{falls } 8 < x\leq 9, \\
-                1, & \text{sonst.}
+            F(x) = P(X \le x) = \begin{cases}
+                0,           & \text{falls }       x < 1, \\
+                \log_{10} 2, & \text{falls } 1 \le x < 2, \\
+                \log_{10} 3, & \text{falls } 2 \le x < 3, \\
+                \dots        & \dots \\
+                \log_{10} 9, & \text{falls } 8 \le x < 9, \\
+                1,           & \text{falls }  9 \le x.
             \end{cases}
         \end{align*}
 \end{enumerate}
