@@ -2189,15 +2189,34 @@ Finden Sie die Wahrscheinlichkeitsfunktion der Zufallsvariablen
 
 \problem{Geometrische Verteilung. Minima und Maxima.} Seien $Y_1,\dots ,Y_m$
 stochastisch unabhängig und geometrisch verteilt mit dem Parameter $p\in(0,1)$.
-Wir bezeichnen mit $X_{(1)} = \min (X_1,\dots ,X_m)$ das Minimum und mit
-$X_{(m)} = \max \left( X_1,\dots ,X_n \right)$ das Maximum der Zufallsvariablen
-$X_1,\dots ,X_m$.  Finden Sie die Wahrscheinlichkeitsfunktion der
-Zufallsvariablen $Y_{(1)}$ und $Y_{(n)}$.
+Wir bezeichnen mit $Y_{(1)} = \min (Y_1,\dots ,Y_m)$ das Minimum und mit
+$Y_{(m)} = \max \left( Y_1,\dots ,Y_m \right)$ das Maximum der Zufallsvariablen
+$Y_1,\dots ,Y_m$.  Finden Sie die Verteilungsfunktionen und Wahrscheinlichkeitsfunktionen der
+Zufallsvariablen $Y_{(1)}$ und $Y_{(m)}$.
 
 \solution
+Die Verteilungsfunktion der geometrischen Verteilung an den Stellen $k\in\N$ ist gegeben durch
+\begin{equation*}
+  F(k) = P(Y_l \le k) = \sum_{i=0}^{k} p(1-p)^i = p\frac{1-(1-p)^{k+1}}{1-(1-p)} = 1-(1-p)^{k+1}.
+\end{equation*}
+Nun ergibt sich unter Ausnutzung der Unabhängigkeit
 \begin{align*}
-    P\left( Y_{(1)} < k \right) &= 1 - \left( 1-p \right)^{mk} \\
-    P\left( Y_{(n)} < k \right) &= \left( \left( 1-p \right)^{k-1} p \right)^n.
+    F_{(1)}(k)
+    &= P\left(\bigcup_{i=1}^m \{Y_i \le k\}\right)
+    = 1 - \prod_{i=1}^m P\left(\overline{\{Y_i \le k\}}\right)
+    = 1 - \prod_{i=1}^m \left[1-F(k)\right]
+    = 1 - \left( 1-p \right)^{m(k+1)}, \\
+    F_{(m)}(k) 
+    &= P\left(\bigcap_{i=1}^m \{Y_i \le k\}\right)
+    = \prod_{i=1}^m F(k)
+    = \left[1-(1-p)^{k+1}\right]^m, \\
+    P\left( Y_{(1)} = k \right)
+    &= F_{(1)}(k) - F_{(1)}(k-1) 
+    %= \left[1-(1-p)^{(k+1)m}\right] - \left[1-(1-p)^{km}\right] 
+    = (1-p)^{km}\left[1-(1-p)^m\right], \\
+    P\left( Y_{(m)} = k \right)
+    &=  F_{(m)}(k) - F_{(m)}(k-1)
+    = \left[ 1-(1-p)^{(k+1)} \right]^m - \left[ 1-(1-p)^{k} \right]^m. \\
 \end{align*}
 
 
