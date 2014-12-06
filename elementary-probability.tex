@@ -674,15 +674,47 @@ Sie folgende Wahrscheinlichkeiten:
         ($\heartsuit$), $5$ Treffs ($\clubsuit$) und $6$ Karos
         ($\diamondsuit$).
     \item Der zweite Spiele bekommt alle Farben ($\clubsuit$ $\spadesuit$
-        $\heartsuit$ $\diamondsuit$) von genau $4$ Werten. 
+        $\heartsuit$ $\diamondsuit$) von genau $5$ Werten. 
 \end{enumerate}
 Begründen Sie Ihre Lösung.
 
 \solution
+Wir nehmen an, dass die Ordnung in welcher die Karten an die Spieler verteilt
+werden, keine Rolle spielt. Die Kartenverteilungen sind alle
+gleichwahrscheinlich, es handelt sich also um ein Laplace Modell. Die Anzahl
+der möglichen Verteilungen ist dann in allen Fällen gleich $\binom{52}{26}$. 
 \begin{enumerate}
-    \item $\frac{ \binom{44}{18}  }{ \binom{52}{26} }$.
-    \item $\frac{ \binom{13}{7} \binom{13}{8} \binom{13}{5} \binom{13}{6}  }{ \binom{52}{26} }$.
-    \item $\frac{\binom{13}{4} \left( \binom{36}{10} - 9 \binom{32}{6} \right)   }{ \binom{52}{26} }$.
+    \item Alle Asse und alle Könige ($8$ Karten) können nur auf eine Art an den
+        ersten Spieler verteilt werden. Zusätzlich erhält der erste Spieler 
+        $26-8=18$ Karten aus den restlichen $52-8=44$ Karten. Anzahl der möglichen
+        Verteilungen ist also $\binom{44}{18}$. Die Wahrscheinlichkeit für das 
+        beschriebene Ereignis beträgt
+        \begin{equation*}
+            \frac{\binom{44}{18}}{\binom{52}{26}}.
+        \end{equation*}
+    \item Nachdem die Reihenfolge der Kartenverteilung keine Rolle spielt,
+        verteilen wir zuerst die $7$ Piks an den ersten Spieler. Nachdem es
+        insgesammt $13$ verschiedene Piks in dem Spielkartensatz gibt, kann das
+        auch $\binom{13}{7}$ verschiedene Arten erfolgen. Anschliessend erhält
+        der erste Spieler $8$ Herzen -- dies kann auf $\binom{13}{8}$ Arten
+        geschehen, danach $5$ Treffs -- $\binom{13}{5}$ Möglichkeiten, und
+        schliesslich $6$ Karos -- $\binom{13}{6}$ Möglichkeiten. Insgesammt
+        gibt es $\binom{13}{7} \binom{13}{8} \binom{13}{5} \binom{13}{6}$
+        verschiedene Verteilungen, die die geförderte Bedingung erfüllen. Die
+        Wahrscheinlichkeit für das beschriebene Ereignis beträgt
+        \begin{align*}
+            \frac{ \binom{13}{7} \binom{13}{8} \binom{13}{5} \binom{13}{6} }{\binom{52}{26}}.
+        \end{align*}
+    \item Wir wählen zuerst $5$ Werte aus $13$ -- $\binom{13}{5}$ Möglichkeiten
+        -- und verteilen alle $5 \times 4 = 20$ Karten mit diesen Werten an den
+        zweiten Spieler. Die restlichen $26 - 20 = 6$ Karten verteilen wir aus
+        den übrigen $52-20=32$ Karten. Dabei kommen aber $8\, \binom{28}{2}$
+        solche Verteilungen vor, in denen ein der $8$ übriggebliebenen Werte $4$
+        mal vertreten ist. Die Wahrscheinlichkeit für das beschriebene Ereignis
+        beträgt also
+        \begin{align*}
+            \frac{\binom{13}{5} \left( \binom{32}{6} - 8 \binom{28}{2} \right)}{\binom{52}{26}}.
+        \end{align*}
 \end{enumerate}
 
 \problem{Kombinatorik. $4$ Kartenspieler.} Aus einem gut gemischten Spielkartensatz
@@ -1039,8 +1071,6 @@ gehen $d$ Kugeln verloren. Es wird eine Kugel zufällig aus der Urne gezogen.
         gezogene Kugel weiß ist?
     \item Nun ist $d<s$ und $d<w$. Wie groß ist die Wahrscheinlichkeit, dass die
         gezogene Kugel weiß ist?
-    \item Wie groß ist die Wahrscheinlichkeit, dass die gezogene Kugel weiß
-        ist, wenn nur noch $d<w+s$ gefordert wird?
 \end{enumerate}
 
 \solution
@@ -1066,8 +1096,6 @@ gehen $d$ Kugeln verloren. Es wird eine Kugel zufällig aus der Urne gezogen.
             \frac{s}{s+w-i}\dots\frac{s-(d-i)+1}{s+w -d+1} \\
             &= \binom{d}{i} \frac{ (w)_{i} (s)_{d-i} }{ (w+s)_{d}}.
         \end{align*}
-
-    \item If Falle $d>w$ wird in der obigen Summe von $0$ bis $w$ summiert. 
 \end{enumerate}
 
 
