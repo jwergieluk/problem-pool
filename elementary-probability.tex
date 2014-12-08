@@ -2215,9 +2215,27 @@ Finden Sie die Wahrscheinlichkeitsfunktion der Zufallsvariablen
 
 
 \problem{Diskrete Gleichverteilung ist nicht teilbar.} Sei $U$ diskret
-gleichverteilt auf der Menge $\left\{ 1,\dots ,n \right\}$ mit $n \in \bN$.
-Zeigen Sie folgende Aussage: Es gibt unabhängige identisch verteilte Zufallsvariablen $X$ und $Y$
-mit $X+Y = U$ genau dann, wenn $n=1$. 
+gleichverteilt auf der Menge $\left\{ 1, 2, 3 \right\}$. Zeigen Sie, dass es
+nicht möglich ist, $U$ als Summe zweier unabhängigen diskret und identisch
+verteilten Zufallsvariablen $X$ und $Y$ darzustellen.
+
+\solution Angenommen, es gäbe identisch verteilte unabhängige Zufallsvariablen
+$X$ und $Y$, mit $U = X + Y$. Dann hat der Wertebereich $E$ von $X$ und $Y$
+die Eigenschaft $E+E = \left\{ 1,2,3 \right\}$, wobei die Summe der Mengen $A$ und $B$
+als $A+B = \left\{ a+b : a\in A, b\in B \right\}$ definiert sei. Somit ist
+$E = \left\{ \frac{1}{2}, \frac{3}{2} \right\}$. Nun ist
+\begin{align*}
+    P(U = 1) &= P\left( X = \frac{1}{2} \cap  Y = \frac{1}{2} \right) = \left[ P\left( X=\frac{1}{2} \right) \right]^{2} = \frac{1}{3} \\
+    P\left( X= \frac{1}{2} \right) &= \frac{ \sqrt{3} }{3}. \\
+    P(U = 2) &= P\left( \left( X=\frac{1}{2} \cap Y=\frac{3}{2} \right) \cup \left( X=\frac{3}{2} \cap Y=\frac{1}{2} \right) \right) \\
+    &= 2 P\left( X=\frac{3}{2} \right) P\left( Y=\frac{1}{2} \right) = \frac{1}{3}. \\
+    P\left( X=\frac{3}{2}  \right) &= \frac{ \sqrt{3} }{6}.
+\end{align*}
+Es ist also
+\begin{align*}
+    P(X=\frac{1}{2} \cup X=\frac{3}{2}) &= \frac{ \sqrt{3}}{3} + \frac{\sqrt{3}}{6} = \frac{\sqrt{3}}{2} > 1.
+\end{align*}
+Widerspruch.
 
 
 \problem{Geometrische Verteilung. Minima und Maxima.} Seien $Y_1,\dots ,Y_m$
