@@ -1758,7 +1758,7 @@ gegeben. Für ein festes $x\in\bR$ definieren wir die Mengenfunktion $\delta_x
 
 \problem{Maßtheorie. Bildmaß.}
 Seien als Ma{\ss}raum ein Wahrscheinlichkeitsraum $\left( \Omega, \fA, P \right)$ und eine
-Zufallsgröße $X: \Omega \to \bR$ gegeben, welche als messbare Abbildung zwischen den messbaren R\"aumen $\left( \Omega,\fA\right)$ und  $\left( \bR,\cB(\bR) \right)$ definiert ist.
+Zufallsvariable $X: \Omega \to \bR$ gegeben, welche als messbare Abbildung zwischen den messbaren R\"aumen $\left( \Omega,\fA\right)$ und  $\left( \bR,\cB(\bR) \right)$ definiert ist.
 Dabei bezeichnet $\cB(\bR)$ die Borel'sche $\sigma$-Algebra auf den reellen Zahlen. Zeigen Sie folgende Aussagen:
 \begin{enumerate}
     \item Die Mengenfunktion $P_{X}: \cB(\bR) \to [0,1], A \mapsto P( X \in A
@@ -1800,10 +1800,10 @@ Für ein Ergebnis $\omega = (i,j) \in \Omega$ definieren wir die Funktionen
 \end{align*}
 \begin{enumerate}
     \item Finden Sie die kleinsten Ereignisfelder $\fA_{i}$, $i\in \left\{
-        0,1,2,3 \right\}$, sodass $X_i$ Zufallsgrößen auf dem Wahrscheinlichkeitsraum
+        0,1,2,3 \right\}$, sodass $X_i$ Zufallsvariablen auf dem Wahrscheinlichkeitsraum
         $(\Omega, \fA_i, P)$ sind. 
     \item Beschreiben Sie den Zusammenhang zwischen den Ereignisfeldern $\fA_i$
-        und der Information, die die Zufallsgrößen $X_i$ über die Ergebnisse
+        und der Information, die die Zufallsvariablen $X_i$ über die Ergebnisse
         $\omega \in \Omega$ liefern.
 \end{enumerate}
 
@@ -1832,7 +1832,7 @@ Bernoulli-verteilt mit dem Parameter $p$.
     \item Berechnen Sie den Erwartungswert $\bE [X]$ und die Varianz $\Var(X)$ von $X$. 
 
     \item Berechnen Sie den Erwartungswert $\bE [Y]$ und die Varianz $\Var (Y)$ der
-        Zufallsgröße \[Y = \exp\left( X \right).\]
+        Zufallsvariable \[Y = \exp\left( X \right).\]
 
     \item Berechnen Sie die $k$-ten Momente $m_k=\bE [X^k]$ und die $k$-ten
         zentralen Momente $\mu_k=\bE[ (X-\bE X)^k]$ von $X$ für alle $k\in
@@ -1846,12 +1846,12 @@ p(1-p)(1-e)^2$. $m_k = \bE X^{k} = \bE X$, da $X = X^k$. $\mu_k = \bE \left[ X
 
 
 \problem{Zufallsvariablen. Funktionen der Augenzahl.} In einem Wurfexperiment
-werden zwei ideale, wohlunterscheidbare Würfel geworfen. Die Zufallsgrößen
+werden zwei ideale, wohlunterscheidbare Würfel geworfen. Die Zufallsvariablen
 $X_i$ geben die geworfene Augenzahl des $i$-ten Würfels an.
 \begin{enumerate}
     \item Berechnen Sie die Wahrscheinlichkeiten $\bP(X_1-X_2 > 2)$, $\bP(X_1/X_2 > 1)$
         und \linebreak $\bP(|X_1-X_2| \leq 1)$. 
-    \item Berechnen Sie die Verteilungsfunktion $F$ der Zufallsgröße $Y = X_1 + X_2$. 
+    \item Berechnen Sie die Verteilungsfunktion $F$ der Zufallsvariable $Y = X_1 + X_2$. 
 \end{enumerate}
 
 \solution $\bP(X_1-X_2 > 2)=\frac{6}{36}$, $\bP(X_1/X_2>1)=\frac{15}{36}$, 
@@ -1859,7 +1859,7 @@ $\bP(|X_1-X_2| \leq 1) =\frac{6+5+5}{36}$.
 
 
 \problem{Zufallsvariablen. Konstruktion über Wahrscheinlichkeitsfunktion.}
-Es sei $X$ eine diskrete Zufallsgröße mit dem Wertebereich $Z=\{0,1,2\}$ und
+Es sei $X$ eine diskrete Zufallsvariable mit dem Wertebereich $Z=\{0,1,2\}$ und
 der Wahrscheinlichkeitsfunktion $p: Z \to [0,1], x \mapsto c \cdot (x+1)$.
 \begin{enumerate}
     \item Bestimmen Sie den Wert der Konstanten $c$.
@@ -1899,7 +1899,7 @@ $\bP(X=i)=\frac{1}{n}$ für alle $i\in\left\{ 1,\dots ,n \right\}$.
 
     \item Berechnen Sie den Erwartungswert und die Varianz von $X$. 
 
-    \item Berechnen Sie den Erwartungswert und die Varianz der Zufallsgröße
+    \item Berechnen Sie den Erwartungswert und die Varianz der Zufallsvariable
         $Y = \log\left( X \right)$.
 
 %    \item Berechnen Sie das $k$-te Moment und das $k$-te zentrale Moment von 
@@ -2038,7 +2038,7 @@ Sie, dass die folgende Formel gilt:
 
 \solution 
 Sei $p_n$ die Wahrscheinlichkeit, dass eine
-$\bfB(n,p)$-verteilte Zufallsgröße gerade ist. $p_n$ erfüllt folgende rekursive
+$\bfB(n,p)$-verteilte Zufallsvariable gerade ist. $p_n$ erfüllt folgende rekursive
 Relation
 \begin{align*}
     p_n &= p_{n-1}(1-2p) + p, &  p_0 &= 1.
@@ -2071,7 +2071,7 @@ Parameter $\lambda>0$. Beweisen Sie folgende Aussagen:
 
 \problem{Binomialverteilung. Additionstheorem.} 
 Sei $b(k, n, p)=P(X=k)$ die Wahrscheinlichkeitsfunktion einer binomialverteilten
-Zufallsgröße $X\sim\bfB(n,p)$.
+Zufallsvariable $X\sim\bfB(n,p)$.
 \begin{enumerate}
     \item Zeigen Sie, dass für $n_1>0$ und $n_2>0$ die Gleichung
         \begin{equation*}
@@ -2127,7 +2127,7 @@ und $B(k, n, p) = P( X <k)$ die Verteilungsfunktion von $X$. Zeigen Sie:
 \end{enumerate}
 
 \problem{Geometrische Verteilung. Zusammenhang mit der Gleichverteilung.}
-Die Zufallsgrößen $X$ und $Y$ sind stochastisch unabhängig und geometrisch verteilt mit dem Parameter $p\in(0,1)$.
+Die Zufallsvariablen $X$ und $Y$ sind stochastisch unabhängig und geometrisch verteilt mit dem Parameter $p\in(0,1)$.
 \begin{enumerate}
     \item Berechnen Sie die Wahrscheinlichkeiten der Ereignisse $X=Y$ und
         $X\geq 2Y$.
@@ -2162,16 +2162,16 @@ für $k\in\bN$
 \begin{equation*}
     P(X = k) = \binom{k+n-1}{n-1} p^{n} (1-p)^{k} 
 \end{equation*}
-gilt. Seien $Z_1,Z_2\dots$ stochastisch unabhängige und geometrisch verteilte Zufallsgrößen mit 
+gilt. Seien $Z_1,Z_2\dots$ stochastisch unabhängige und geometrisch verteilte Zufallsvariablen mit 
 $Z_i \sim \text{Geom}(p)$. Zeigen Sie folgende Aussagen: 
 \begin{enumerate}
-    \item Die Zufallsgröße $Z_1+Z_2$ ist negativ binomialverteilt mit den
+    \item Die Zufallsvariable $Z_1+Z_2$ ist negativ binomialverteilt mit den
         Parametern $(2,p)$. 
     \item Für $k, n \in\bN$ gilt
         \begin{equation*}
             \binom{k+n}{n} = \sum_{j=0}^{k} \binom{j+n-1}{n-1}.
         \end{equation*}
-    \item Die Zufallsgröße $Z_1+\dots+Z_n$ ist negativ binomialverteilt mit den
+    \item Die Zufallsvariable $Z_1+\dots+Z_n$ ist negativ binomialverteilt mit den
         Parametern $(n,p)$. 
 \end{enumerate}
 
@@ -2455,7 +2455,7 @@ für alle $a,b>0$ und $c\in\R$.
         \end{align*}
 \end{enumerate}
 
-\problem{Rademacher-verteilte Zufallsgrößen.} Sei $X$ Rademacher-verteilt mit der
+\problem{Rademacher-verteilte Zufallsvariablen.} Sei $X$ Rademacher-verteilt mit der
 Wahrscheinlichkeitsfunktion
 \begin{align*}
     P(X=-1) &= \frac{1}{2}, & P(X=1)& = \frac{1}{2}.
@@ -2469,7 +2469,7 @@ Wahrscheinlichkeitsfunktion
     \item Berechnen Sie die charakteristische Funktion von $X$. 
 
     \item Seien $X_1$ und $X_2$ stochastisch unabhängig und rademacherverteilt.
-        Berechnen Sie die Wahrscheinlichkeitsfunktion der Zufallsgröße
+        Berechnen Sie die Wahrscheinlichkeitsfunktion der Zufallsvariable
         \begin{equation*}
             Y = X_1 + X_2.
         \end{equation*}
@@ -2983,7 +2983,7 @@ gegeben ist. $t$ bezeichnet dabei die Zeit in Jahren.
 \problem{Exponentialverteilung. Minima.}
 Seien $X_1, \dots, X_n$ stochastisch unabhängig und exponentialverteilt mit
 $X_i\sim \mathbf{Ex}(\lambda_i)$ und $\lambda_i>0$. Zeigen Sie, dass die
-Zufallsgröße 
+Zufallsvariable 
 \begin{equation*}
     X_{(1)} = \min \left\{ X_1, \dots, X_n \right\} 
 \end{equation*}
@@ -3244,7 +3244,7 @@ L\'evy-Verteilung mit den Parametern $(\mu,\sigma)\in \bR\times\bR$, $\sigma>0$ 
     \end{cases}
 \end{equation*}
 Sei $X\sim \bfN (0, \frac{1}{\sigma})$ normalverteilt mit $\sigma>0$.  Zeigen
-Sie, dass die Zufallsgröße $\frac{1}{X^2}$ L\'evy-verteilt mit den
+Sie, dass die Zufallsvariable $\frac{1}{X^2}$ L\'evy-verteilt mit den
 Parametern $(0,\sigma)$ ist.
 
 \solution 
@@ -3265,7 +3265,7 @@ Die Dichte von $\frac{1}{X^2}$ erhalten wir durchs Differenzieren:
 Daher ist $\frac{1}{X^2} \sim \text{L\'evy}(\sigma)$.
 
 
-\problem{Mellin-Transformation.} Sei $X$ eine positive Zufallsgröße.
+\problem{Mellin-Transformation.} Sei $X$ eine positive Zufallsvariable.
 Die Mellin-Transformierte $T_{X}(\theta)$ von $X$ ist definiert durch
 \begin{equation*}
     T_{X}(\theta) = \bfE X^{\theta}
@@ -3278,7 +3278,7 @@ folgende Aussagen:
             T_{X}(\theta) = \varphi_{ \log X} (\theta/i)
         \end{equation*}
         wenn alle obigen Ausdrucke wohldefiniert sind.
-    \item Sind $X$ und $Y$ positive und stochastisch unabhängige Zufallsgrößen, so gilt
+    \item Sind $X$ und $Y$ positive und stochastisch unabhängige Zufallsvariablen, so gilt
         \begin{equation*}
             T_{XY}(\theta) = T_{X}(\theta) \ T_{Y}(\theta). 
         \end{equation*}
@@ -3380,7 +3380,7 @@ Sei $Z$ standardisiert normalverteilt und $n\in\bN$. Zeigen Sie folgende Aussage
             \sum_{k=0}^{\lfloor\frac{n}{2}\rfloor} \binom{n}{2k} \,\sigma^{2k} \left( 2k-1 \right)!!\, \mu^{n-2k}.
         \end{equation*}
         Dies ist die Formel für die Momente $m_{n}$ einer normalverteilten
-        Zufallsgröße \linebreak $X \sim \cN \left( \mu, \sigma^2 \right)$. 
+        Zufallsvariable \linebreak $X \sim \cN \left( \mu, \sigma^2 \right)$. 
 \end{enumerate}
 
 \solution
@@ -3532,7 +3532,7 @@ Die oben bewiesene Aussage gilt auch allgemein für $X \sim \cN (\mu, \sigma^2)$
 
 
 \problem{Log-Normalverteilung. Dichtefunktion.} Ist $X\sim\bfN(\mu,
-\sigma^2)$ normalverteilt, dann ist die Zufallsgröße $Y=e^{X}$
+\sigma^2)$ normalverteilt, dann ist die Zufallsvariable $Y=e^{X}$
 log-normalverteilt mit Parametern $\mu$ und $\sigma^{2}$. Zeigen Sie, dass die
 Dichtefunktion von $Y$ durch
 \begin{equation*}
@@ -3546,7 +3546,7 @@ gegeben ist.
 
 
 \problem{Log-Normalverteilung. Momente.} Ist $X\sim\bfN(\mu, \sigma^2)$
-normalverteilt, dann ist die Zufallsgröße $Y=e^{X}$ log-normalverteilt mit
+normalverteilt, dann ist die Zufallsvariable $Y=e^{X}$ log-normalverteilt mit
 Parametern $\mu$ und $\sigma^{2}$. Zeigen Sie folgende Aussagen: 
 \begin{enumerate}
     \item Für die Mellin-Transformierte $T_{Y}$ von $Y$ gilt
@@ -3609,14 +3609,14 @@ gilt, dass
 
 
 
-\problem{Symmetrische Zufallsgrößen.} Eine Zufallsgröße $X$ nennen wir
+\problem{Symmetrische Zufallsvariablen.} Eine Zufallsvariable $X$ nennen wir
 symmetrisch, wenn die Verteilungen von $X$ und $-X$ gleich sind. 
 Zeigen Sie folgende Aussagen:
 \begin{enumerate}
     \item Hat $X$ eine Dichtefunktion $f$, so ist $X$ symmetrisch genau
         dann, wenn $f(x)= f(-x)$ für alle $x\in\bR$ gilt. 
     \item Die charakteristische Funktion $\varphi_{X}(t)$ einer symmetrischen
-        Zufallsgröße $X$ ist reellwertig. 
+        Zufallsvariable $X$ ist reellwertig. 
     \item Seien $X^{+} = \max\left\{ X,0 \right\}$ und $X^{-} = \max\left\{ -X,0 \right\}$.
         $X$ ist symmetrisch genau dann, wenn die Verteilungen von $X^{+}$ und $X^{-}$ 
         gleich sind.
@@ -3763,7 +3763,7 @@ Bestimmen Sie die Verteilung von $\bar X/\bar Y$.
 \problem{$\chi^{2}$-Verteilung mit einem Freiheitsgrad.} Sei $X$ 
 standarisiert normalverteilt. Zeigen Sie folgende Aussagen:
 \begin{enumerate}
-    \item Die Verteilungsfunktion der Zufallsgröße $X^2$ ist $2\, \Phi(\sqrt{t})-1$,
+    \item Die Verteilungsfunktion der Zufallsvariable $X^2$ ist $2\, \Phi(\sqrt{t})-1$,
         wobei $\Phi$ die Verteilungsfunktion der standarisierten Normalverteilung 
         bezeichnet.
     \item Die Dichtefunktion von $X^2$ ist 
@@ -3816,7 +3816,7 @@ Freiheitsgraden.
 \section{Stetige Zufallsvariablen -- Textaufgaben}
 
 \problem{Widerstände.} Ein Automat produziert Widerstände, deren Werte
-erfahrungsgemäß Realisierungen einer normalverteilten Zufallsgröße mit $\mu =
+erfahrungsgemäß Realisierungen einer normalverteilten Zufallsvariable mit $\mu =
 1000\ \Omega$ und $\sigma = 20\ \Omega$ sind. Widerstände außerhalb der
 Toleranzgrenzen von $960\ \Omega$ und $1050\ \Omega$ gelten als Ausschuss.
 \begin{enumerate}
@@ -3890,7 +3890,7 @@ $60\,m$ bis $80\,m$ zu großes Messergebnis ermittelt wird.
 %\problem{Ersatzteillieferung.} Eine Ersatzteillieferung enthalte eine Kiste
 %Kugellager, zwei Kisten Zahnräder und drei Kisten Schrauben.  Die Masse der
 %Kisten (Bruttogewicht in kg) kann durch unabhängige und normalverteilte
-%Zufallsgrößen $X, Y_1, Y_2, Z_1, Z_2, Z_3$ mit
+%Zufallsvariablen $X, Y_1, Y_2, Z_1, Z_2, Z_3$ mit
 %\begin{align*}
 %    X&\sim \bfN(125, 1), & Y_i&\sim \bfN(84, 4)\;\;(i=1,2), & Z_j&\sim \bfN(65, 3)\;\; (j=1,2,3)
 %\end{align*}
@@ -3982,7 +3982,7 @@ gefertigten Serie von $1\,000$ Schaltkreisen
 
 \solution Wir verwenden den Grenzverteilungsatz in der
 Moivre-Laplace Version.  Dazu betrachten wir $X_1,\dots ,X_{1000} \sim B(p)$
-und $\sum_{i} X_i \sim \text{Bin}(1000,p)$.  Dann ist die Zufallsgröße
+und $\sum_{i} X_i \sim \text{Bin}(1000,p)$.  Dann ist die Zufallsvariable
 \begin{equation*}
     Y = \frac{ \sum_{i} X_i - np}{ \sqrt{np(1-p)} } 
 \end{equation*}
@@ -4110,9 +4110,9 @@ Zeigen Sie, dass
 gilt.
 % @biNormalMax #bivariateNormal #multivariateNormal #unsolved &shaoExercises 
 
-\problem{Korrelation und Symmetrie.} Eine Zufallsgröße $X$ nennen wir
+\problem{Korrelation und Symmetrie.} Eine Zufallsvariable $X$ nennen wir
 symmetrisch, wenn die Verteilungen von $X$ und $-X$ gleich sind. Seien $X$ eine
-stetige Zufallsgröße mit endlicher Varianz und $Y = |X|$. Beweisen Sie: Ist $X$
+stetige Zufallsvariable mit endlicher Varianz und $Y = |X|$. Beweisen Sie: Ist $X$
 symmetrisch, so sind $X$ und $Y$ unkorreliert aber nicht unabhängig.
 
 \solution Ist $X$ symmetrisch, so sind $X^{+}$ und $X^{-}$
@@ -4320,7 +4320,7 @@ Daraus ergibt sich für $\gamma\in (0,1)$
 Median ist damit gleich $-\frac{1}{\lambda} \log \frac{1}{2}$. 
 
 
-\problem{Logistische Verteilung. Quantile.} Eine Zufallsgröße heißt
+\problem{Logistische Verteilung. Quantile.} Eine Zufallsvariable heißt
 logistisch verteilt mit den Parametern $\alpha\in\bR$ und $\beta>0$, wenn ihre
 Dichtefunktion die Gestalt
 \begin{equation*}
@@ -4701,7 +4701,7 @@ Der Wert der Teststatistik ist $T = 15.6$. Dabei ist $\chi^2_{n-1, \alpha} =
 
 \problem{Entfernungsmessung. Konfidenzintervall und Test.} Beim Messen der
 Entfernung zwischen zwei Punkten sei der Messwert die Realisierung einer
-$\cN(\mu,\sigma^2)$-verteilten Zufallsgröße. Aus $20$ Messungen einer
+$\cN(\mu,\sigma^2)$-verteilten Zufallsvariable. Aus $20$ Messungen einer
 bestimmten Entfernung ergaben sich die folgenden Schätzwerte:
 \begin{align*}
     \bar x &= 327.0\,\text{m}, & s^2 &= 17.3\, \text{m}^2.
@@ -4840,7 +4840,7 @@ R source code:
 
 \problem{Konfidenzintervall und Test. Normalverteilung.} Beim Messen der
 Entfernung zwischen zwei Punkten sei der Messwert die Realisierung einer
-$\bfN(\mu, \sigma^2)$-verteilten Zufallsgröße. Aus $20$ Messungen einer
+$\bfN(\mu, \sigma^2)$-verteilten Zufallsvariable. Aus $20$ Messungen einer
 bestimmten Entfernung ergaben sich die folgenden Schätzwerte:
 \begin{align*}
     \bar x &= 327.3\,m, & s^2 &= 17.3\,m^2.
@@ -4872,7 +4872,7 @@ pro Pfund) gegeben:
 18.34 17.66 17.43 16.96 17.10 17.24 17.62 18.81 17.75 16.54 15.71 16.89 17.87
 17.61 17.50
 \end{lstlisting}
-Wir nehmen an, dass diese Beobachtungen Realisierungen einer normalverteilten Zufallsgröße
+Wir nehmen an, dass diese Beobachtungen Realisierungen einer normalverteilten Zufallsvariable
 $X \sim \NormDist(\mu, \sigma^{2})$ sind. Darüberhinaus gilt
 \begin{align*}
     \sum_{i=1}^{41} x_{i} &= 869.40 & \sum_{i=1}^{41} x_{i}^{2} &= 19090.47.
@@ -4930,7 +4930,7 @@ berechnet ein Analyst die Kenngrößen
     \sum_{i=1}^{51} r_{i} &= 34,83, & \sum_{i=1}^{51} r^{2}_{i} &= 1225,01.
 \end{align*}
 Es wird angenommen, dass die Kursveränderungen die Realisierungen einer normalverteilten
-Zufallsgröße $X\sim \bfN(\mu, \sigma^2)$ sind.
+Zufallsvariable $X\sim \bfN(\mu, \sigma^2)$ sind.
 \begin{enumerate}
     \item Geben Sie je eine erwartungstreue Schätzfunktion für den Mittelwert
         $\mu$ und für die Varianz $\sigma^2$ der Kursveränderungen an.
@@ -4967,7 +4967,7 @@ Ein Analyst berechnete daraus
     \sum_{i=1}^{15} x_i &= 7.86, & \sum_{i=1}^{15} x^{2}_i &= 37.62.
 \end{align*}
 Es wird angenommen, dass die Kursveränderungen die Realisierungen einer normalverteilten
-Zufallsgröße $X\sim \bfN(\mu, \sigma^2)$ sind.
+Zufallsvariable $X\sim \bfN(\mu, \sigma^2)$ sind.
 \begin{enumerate}
     \item Geben Sie je eine erwartungstreue Schätzfunktion für den Mittelwert $\mu$ und für
     die Varianz $\sigma^2$ der Kursveränderungen an. Berechnen Sie daf\"ur aus der Stichprobe Schätzwerte im
