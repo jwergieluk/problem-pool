@@ -10,15 +10,6 @@ Die vorliegende Sammlung enthält über 287 Probleme und Aufgaben, die ich seit
 2011 für meine Übungen an der TU Chemnitz verwendet habe. Die Aufgaben sind zum
 Teil mit Lösungshinweisen oder mit vollständigen Lösungen versehen. 
 
-#### Fehler und Korrekturen
-
-Bedenken Sie, dass einige Aufgaben und deren Lösungen unter Umständen
-unvolständig, falsh oder **schlecht** *formatiert* sind. 
-
-Wenn Sie einen Fehler gefunden haben, erstellen Sie bitte einen "Issue" in dem
-Fehlerverfolgungssystem des Projekts und verweisen Sie in dem Namen des Fehlers
-auf den (innerhalb der Sammlung eindeutigen) Titel der Aufgabe. 
-
 #### Quellen
 
 Bei der Erstellung dieser Aufgabensammlung habe ich unter anderem folgende
@@ -40,6 +31,12 @@ Basierend auf den Aufgaben in dieser Sammlung können auch automatisiert
 Übungsblätter erstellt werden. Dies ist mit Hilfe eines separaten Werkzeugs 
 [problem-extractor](https://github.com/jwergieluk/problem-extractor)
 möglich. 
+
+#### Fehler und Korrekturen
+
+Wenn Sie einen Fehler gefunden haben, erstellen Sie bitte einen "Issue" in dem
+Fehlerverfolgungssystem des Projekts und verweisen Sie in dem Namen des Fehlers
+auf den (innerhalb der Sammlung eindeutigen) Titel der Aufgabe. 
 
 #### Mitwirkende
 
