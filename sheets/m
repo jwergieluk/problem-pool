@@ -3,15 +3,16 @@
 set -e; set -u
 
 
-PROBLEMS="../statistics.tex ../probability-theory.tex ../stochastic-analysis.tex ../analysis.tex"
+PROBLEMS="../elementary-probability.tex"
 TMP="/tmp"
+PE="../../problem-extractor/pe.py"
 
 for KEYS in *.txt; do
     TEX=${KEYS/.txt/.tex}
     PDF=${KEYS/.txt/.pdf}
 
     if [[ $KEYS -nt $PDF  ]]; then
-        pe $KEYS $PROBLEMS > $TMP/$TEX
+        $PE $KEYS $PROBLEMS > $TMP/$TEX
 #        pe $KEYS $PROBLEMS
         pdflatex    -output-directory   $TMP $TMP/$TEX
         pdflatex    -output-directory   $TMP $TMP/$TEX
