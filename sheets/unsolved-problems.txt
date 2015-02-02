@@ -8,12 +8,10 @@ TEX {\itshape Dipl.-Ing.\ Julian Wergieluk}
 TEX \end{center}
 #TEX \vskip 2\baselineskip
 
-P Progressive $\sigma$-algebra.
+FPB \paragraph{%s}
+FSB \paragraph*{Lösung.}
 
-P Borel sets in Euclidean space are regular.
-P Filtations and continuity of paths.
-P Ordnungsstatistiken. Eigenschaften.
-P Jensenungleichung. Umkehrung. 
+S Geometrische Verteilung. Minima und Maxima.
 
 
 
