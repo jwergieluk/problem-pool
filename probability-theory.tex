@@ -1,5 +1,7 @@
 % copyright (C) 2011-2014 Julian Wergieluk  <julian@wergieluk.com>
 
+\section{Verschiedenes}
+
 \problem{Konvergenz einer Zufallsreihe.} Sei $X_{1} \sim \text{Uni}(0,1)$,
 $X_2 \sim \text{Uni}(0,X_1)$, und allgemein $X_{n} \sim \text{Uni}(0,X_{n-1})$ für alle
 $n \in \bN$. 
@@ -16,7 +18,7 @@ $\text{Uni}(0,x_{n-1})$.  Es gilt also $E X_{n} = E \left[ E X_{n} | X_{n_1}
 
 
 \problem{Kurtosis. Eigenschaften.} Seien $X_1,\dots ,X_n$ unabhängige
-Zufallsvariablen mit existierenden Kurtosis $\gamma_{2}(X_i)$ und $\Var X_1 =
+Zufallsvariablen mit existierender Kurtosis $\gamma_{2}(X_i)$ und $\Var X_1 =
 \cdots = \Var X_n$. Zeigen Sie folgende Aussagen: 
 \begin{enumerate}
     \item $\gamma_{2}(X_1) \geq 1$.
@@ -98,6 +100,15 @@ Gilt die obige Ungleichung, wenn $X$ und $Y$ nicht unabhängig sind oder wenn
 $X$ nicht symmetrisch verteilt ist?
 
 
+\problem{Dichtefunktionen. Schiefe und Transformation mit der Verteilungsfunktion.}
+Sei $f$ eine symmetrische Dichtefunktion mit dem Träger $\bR$ und $F$ die 
+dazugehörige Verteilungsfunktion.
+\begin{enumerate}
+    \item Zeigen Sie, dass $f_{\alpha} = 2 F(\alpha x) f(x)$ für alle
+        $\alpha\in\bR$ eine Dichtefunktion ist.
+    \item Wie kann die Schiefe einer Zufallsvariable mit Dichte $f_{\alpha}$ mit 
+        $\alpha$ gesteuert werden?
+\end{enumerate}
 
 
 \problem{Dichtefunktionen. Scheff\'es Identitäten.} Seien $f$ und $g$
